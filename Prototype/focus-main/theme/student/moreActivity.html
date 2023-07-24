@@ -356,64 +356,82 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="card">
-                <h4 style="font-family: 'kanchaTH';">คาดการณ์เกรด</h4>
-                <div class="card-header">
-                  <div class="text-right">
-                    <a href="./addSubject.html" type="button" class="btn btn-success btn-rounded m-b-10 m-l-5"><i
-                        class="fa fa-fw fa-plus"></i>Add</a>
-                  </div>
+          <div class="content-wrap">
+            <div class="main">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8 p-r-0 title-margin-right">
+                        </div>
+                        <!-- /# column -->
+                        <div class="col-lg-4 p-l-0 title-margin-right">
+                            <div class="page-header">
+                                <div class="page-title">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="./activity.html">กิจกรรมที่เปิด</a></li>
+                                        <li class="breadcrumb-item active">รายละเอียดเพิ่มเติม</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /# column -->
+                    </div>
+                    <!-- /# row -->
+                    <section id="main-content">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-validation">
+                                            <form class="form-valide" action="#" method="post">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="val-nameActivity">ชื่อกิจกรรม <span class="text-danger">*</span></label>
+                                                    <div class="col-lg-8">
+                                                        <input type="text" class="form-control" id="val-nameActivity" name="val-nameActivity" value="ปลูกข้าววันแม่" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="val-type">หมวดหมู่ <span class="text-danger">*</span></label>
+                                                    <div class="col-lg-8">
+                                                        <input type="text" class="form-control" id="val-type" name="val-type" value="xxxxxx" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="val-date">จัดวันที่ <span class="text-danger">*</span></label>
+                                                    <div class="col-lg-8">
+                                                        <input type="datetime" class="form-control" id="val-date" name="val-date" value="04/08/2023" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="val-property">คุณสมบัติผู้เข้าร่วม <span class="text-danger">*</span></label>
+                                                    <div class="col-lg-8">
+                                                      <input type="text" class="form-control" id="val-property" name="val-property" value="- เป็นนักศึกษาทุกชั้นปี" placeholder="">
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                  <label class="col-lg-4 col-form-label" for="val-detail">รายละเอียด <span class="text-danger">*</span></label>
+                                                  <div class="col-lg-8">
+                                                    <input type="text" class="form-control" id="val-detail" name="val-detail" value="- xxxxxxx" placeholder="">
+
+                                                  </div>
+                                              </div>
+                                                <div class="form-group row">
+                                                  <div class="col-lg-8 ml-auto">
+                                                    <a type="submit" href="./activity.html" class="btn btn-light">กลับ</a>
+                                                    <button type="submit" class="btn btn-success">เข้าร่วม</button>
+                                                  </div>
+                                              </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
                 </div>
-                <div class="text-center">
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>รายวิชา</th>
-                        <th>หน่วยกิต</th>
-                        <th>ผลการเรียน</th>
-                        <th>รายละเอียด</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>01999041-64 <br> Economics for Better Living</td>
-                        <td>3</td>
-                        <td>A</td>
-                        <td>
-                          <a href="./editSubject.html" type="button" class="btn btn-warning btn-rounded m-b-10 m-l-5"><i
-                              class="fa fa-fw fa-pencil-square-o"></i></a>
-                          <a href="#" type="button" class="btn btn-danger btn-rounded m-b-10 m-l-5"><i class="fa fa-trash"></i></a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>01999041-64 <br> Pattern Recognition</td>
-                        <td>3</td>
-                        <td>A</td>
-                        <td>
-                          <a href="./editSubject.html" type="button" class="btn btn-warning btn-rounded m-b-10 m-l-5"><i
-                              class="fa fa-fw fa-pencil-square-o"></i></a>
-                          <a href="#" type="button" class="btn btn-danger btn-rounded m-b-10 m-l-5"><i class="fa fa-trash"></i></a>
-                        </td>
-                      </tr>
-
-                    </tbody>
-                  </table>
-
-                  <div class="text-right">
-                    <button type="button" class="btn btn-primary btn-rounded m-b-10 m-l-5">คำนวณ</button></td>
-                  </div>
-
-                  <div class="text-right" style="margin-right: 15px; margin-top: 10px;">
-                    <p style="color: black; ">เกรดเฉลี่ยคาดการณ์ <span style="margin-left: 90px;">3.45</span></p>
-                    <p style="color: black; ">เกรดเฉลี่ยสะสม<span style="margin-left: 90px;">3.47</span></p>
-                  </div>
-
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
 
           <div class="row">
             <div class="col-lg-12">
@@ -435,6 +453,9 @@
 
   <!-- bootstrap -->
 
+  <script src="../js/lib/form-validation/jquery.validate.min.js"></script>
+  <script src="../js/lib/form-validation/jquery.validate-init.js"></script>
+  <script src="../js/lib/bootstrap.min.js"></script><script src="js/scripts.js"></script>
 
 
   <!-- JS Grid Scripts Start-->
