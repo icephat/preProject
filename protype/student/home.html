@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
+
+    <!--page 10 -->
+    <script src="../asset/dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.rowReorder.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+        <link rel="icon" type="image/png"  href="../../Image/Logo/Logo.png" class="_web-inspector-hide-shortcut_">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">                                                  เส้นกรอบ -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- ลบแล้ว step เป็นวงกลม -->
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+        table {
+            font-size: 18px;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="content">
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0"></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+                        <div class="dropdown">
+                            <!-- <img src="img.png" alt="Person"> -->
+                            <font size="4px"><b>ภัทรพร ปัญญาอุดมพร</b></font>
+                            <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding-top: 15px" class="content">
+            <div class="menu-top">
+                <div class="menu-box">
+                    <div class="menu-box-blue active ">
+                        <ul>
+                            <li>
+                                <a href="home.html">
+                                    <font color="#000000"><b>หน้าหลัก</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-green">
+                        <ul>
+                            <li>
+                                <a href="info.html">
+                                    <font color="#000000"><b>ข้อมูลส่วนตัว</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <div class="menu-box-red ">
+                        <ul>
+                            <li>
+                                <a href="./formGPA.html">
+                                    <font color="#000000"><b>คำนวณผลการเรียน</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-orange ">
+                        <ul>
+                            <li>
+                                <a href="./activity.html">
+                                    <font color="#000000"><b>กิจกรรม</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-sky">
+                        <ul>
+                            <li>
+                                <a href="./report.html"><b>
+                                        <font color="#000000">รายงาน</font>
+                                    </b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--model profile -->
+        <br>
+
+        <div class="jumbotron">
+            <div class="row">
+                <div>
+                    <div class="" style="border-bottom:1px solid black">
+                        <h2 style="font-weight: 900;">ข้อมูลสมาชิก : นิสิต</h2>
+                    </div>
+
+                    <!-- <hr> -->
+                    <br>
+
+                    <div class="col-md-6">
+                        <div class="col-sm-5 col-xs-6 tital" style="font-weight: 900;">รหัสนิสิต: </div>
+                        <div class="col-sm-7 col-xs-6 ">6320500603</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital" style="font-weight: 900;">ชื่อ - นามสกุล: </div>
+                        <div class="col-sm-7 col-xs-6 ">ภัทรพร ปัญญาอุดมพร</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;"></div>
+                        <div class="col-sm-7 col-xs-6 ">Phattaraporn panyaaudomporn</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">เบอร์โทรศัพท์: </div>
+                        <div class="col-sm-7 col-xs-6 ">0950427705</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">อีเมล: </div>
+                        <div class="col-sm-7 col-xs-6 ">phattaraporn.sa@ku.th</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">วัน/เดือน/ปีเกิด: </div>
+                        <div class="col-sm-7 col-xs-6 ">26/พ.ค./2545</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">คณะ: </div>
+                        <div class="col-sm-7 col-xs-6 ">วิศวกรรมศาสตร์</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">สาขาวิชา: </div>
+                        <div class="col-sm-7 col-xs-6 ">วิศวกรรมคอมพิวเตอร์</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">หลักสูตร: </div>
+                        <div class="col-sm-7 col-xs-6 ">ภาษาไทย (ภาคปกติ)</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">อาจารย์ที่ปรึกษา: </div>
+                        <div class="col-sm-7 col-xs-6  ">รศ.ดร.ฐิติพงษ์ สถิรเมธีกุล</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!--end model profile -->
+        <!--model table sort -->
+        <!-- form method="post" action="print/export_std.php">
+     <input type="submit" name="export" class="btn btn-success" value="Export" />
+    </form> -->
+        <a href="print/export_std.php" class="btn btn-success"><span class="glyphicon glyphicon-file"></span>
+            <font size="3px">Excel</font>
+        </a>
+        <a href="print/pdf_std.php" class="btn btn-danger"><span class="glyphicon glyphicon-file"></span>
+            <font size="3px">PDF</font>
+        </a>
+
+        <br><br>
+        <div style="padding-top: 15px">
+            <div class="menu-top">
+                <div class="menu-box">
+                    <div class="menu-box-blue ">
+                        <ul>
+                            <li>
+                                <a type="" name="view" value="view" id="corepage">
+                                    <font color="#000000"><b>หมวดวิชาแกน</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-green ">
+                        <ul>
+                            <li>
+                                <a type="" name="view" value="view" id="generalpage">
+                                    <font color="#000000"><b>หมวดวิชาศึกษาทั่วไป</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-red ">
+                        <ul>
+                            <li>
+                                <a href="./home.html">
+                                    <font color="#000000"><b>หมวดวิชาเฉพาะบังคับ</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-orange ">
+                        <ul>
+                            <li>
+                                <a href="./home.html">
+                                    <font color="#000000"><b>หมวดวิชาเฉพาะเลือก</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-sky">
+                        <ul>
+                            <li>
+                                <a href="./home.html"><b>
+                                        <font color="#000000">หมวดวิชาเสรี</font>
+                                    </b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--end model table sort -->
+        <script>
+            $(document).ready(function () {
+                $('#grade').DataTable({
+                    responsive: true,
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                $('#grade2').DataTable({
+                    responsive: true,
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
+                });
+            });
+        </script>
+    </div>
+
+</body>
+
+
+</html>
+
+<div id="core" class="content">
+    <table id="grade" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ปีการศึกษา</th>
+                <th>ภาคการศึกษา</th>
+                <th>รหัสวิชา</th>
+                <th>ชื่อวิชา</th>
+                <th>หมวดวิชา</th>
+                <th>ผลการเรียน</th>
+                <th>หน่วยกิต</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td class="text-center">2563</td>
+                <td class="text-center">ภาคต้น</td>
+                <td class="text-center">01417167</td>
+                <td>Engineering Mathematics I</td>
+                <td class="text-center">หมวดวิชาแกน</td>
+                <td class="text-center">C+</td>
+                <td class="text-center">3</td>
+            </tr>
+            <tr>
+                <td class="text-center">2563</td>
+                <td class="text-center">ภาคต้น</td>
+                <td class="text-center">01420111</td>
+                <td>General Physics I</td>
+                <td class="text-center">หมวดวิชาแกน</td>
+                <td class="text-center">B</td>
+                <td class="text-center">3</td>
+            </tr>
+            <tr>
+                <td class="text-center">2563</td>
+                <td class="text-center">ภาคต้น</td>
+                <td class="text-center">01420113</td>
+                <td>Laboratory in Physics I</td>
+                <td class="text-center">หมวดวิชาแกน</td>
+                <td class="text-center">A</td>
+                <td class="text-center">3</td>
+            </tr>
+
+        </tbody>
+
+
+    </table>
+
+</div>
+
+<!-- general -->
+<div id="general" class="content">
+    <table id="grade2" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ปีการศึกษา</th>
+                <th>ภาคการศึกษา</th>
+                <th>รหัสวิชา</th>
+                <th>ชื่อวิชา</th>
+                <th>หมวดวิชา</th>
+                <th>ผลการเรียน</th>
+                <th>หน่วยกิต</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td class="text-center">2563</td>
+                <td class="text-center">ภาคต้น</td>
+                <td class="text-center">01417167</td>
+                <td>Engineering Mathematics I</td>
+                <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
+                <td class="text-center">C+</td>
+                <td class="text-center">3</td>
+            </tr>
+            <tr>
+                <td class="text-center">2563</td>
+                <td class="text-center">ภาคต้น</td>
+                <td class="text-center">01420111</td>
+                <td>General Physics I</td>
+                <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
+                <td class="text-center">B</td>
+                <td class="text-center">3</td>
+            </tr>
+            <tr>
+                <td class="text-center">2563</td>
+                <td class="text-center">ภาคต้น</td>
+                <td class="text-center">01420113</td>
+                <td>Laboratory in Physics I</td>
+                <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
+                <td class="text-center">A</td>
+                <td class="text-center">3</td>
+            </tr>
+
+        </tbody>
+
+
+    </table>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#corepage').click(function () {
+            //var sem_id = $(this).attr("id");
+            /*$.ajax({
+                url: "modalgrade.php",
+                method: "post",
+                data: { sem_id: sem_id },
+                success: function (data) {
+                    $('#std_detail').html(data);
+                    $('#dataModal').modal("show");
+                }
+            });*/
+
+            $('#core').show();
+            $('#general').hide();
+        });
+    });  
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#generalpage').click(function () {
+
+            //var sem_id = $(this).attr("id");
+            /*$.ajax({
+                url: "modalgrade.php",
+                method: "post",
+                data: { sem_id: sem_id },
+                success: function (data) {
+                    $('#std_detail').html(data);
+                    $('#dataModal').modal("show");
+                }
+            });*/
+
+            $('#general').show();
+            $('#core').hide();
+        });
+    });  
+</script>

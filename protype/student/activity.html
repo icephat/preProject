@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
+
+    <!--page 10 -->
+    <script src="../asset/dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.rowReorder.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+        <link rel="icon" type="image/png"  href="../../Image/Logo/Logo.png" class="_web-inspector-hide-shortcut_">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">                                                  เส้นกรอบ -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- ลบแล้ว step เป็นวงกลม -->
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <style>
+        mark {
+            background-color: #F1E8E8;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        table {
+            font-size: 18px;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+            margin-left: -10px;
+        }
+
+        th {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        font {
+            font-size: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+                        <div class="dropdown">
+
+                            <font size="4px"><b>ภัทรพร ปัญญาอุดมพร</b></font>
+                            <a href="logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  aaaaaaaa    -->
+        <div style="padding-top: 15px">
+            <div class="menu-top">
+                <div class="menu-box">
+                    <div class="menu-box-blue ">
+                        <ul>
+                            <li>
+                                <a href="home.html">
+                                    <font color="#000000"><b>หน้าหลัก</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-green ">
+                        <ul>
+                            <li>
+                                <a href="info.html">
+                                    <font color="#000000"><b>ข้อมูลส่วนตัว</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="menu-box">
+                    <div class="menu-box-red">
+                        <ul>
+                            <li>
+                                <a href="./formGPA.html">
+                                    <font color="#000000"><b>คำนวณผลการเรียน</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-orange active">
+                        <ul>
+                            <li>
+                                <a href="./activity.html">
+                                    <font color="#000000"><b>กิจกรรม</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-sky">
+                        <ul>
+                            <li>
+                                <a href="./report.html"><b>
+                                        <font color="#000000">รายงาน</font>
+                                    </b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- เกรดที่เคยลงทะเบียน -->
+
+        <!--calculator-->
+        <br>
+        <br>
+        <mark class="text-right">สถานะกิจกรรม:<span style="color:green;">&nbsp;
+                Pass
+            </span>&nbsp;&nbsp;&nbsp;จำนวนชั่วโมงสะสม:<span style="color:green;">&nbsp;
+                80
+            </span>
+        </mark>
+
+        <a type="submit" href="./viewActivity.html" name="submit" class="btn btn-success btn-lg active"
+            style="float:right;  margin-top: -5px;">ดูประวัติการเข้าร่วม</a>
+
+        <!-- เริ่ม graph-->
+        <div>
+
+            <h2>กิจกรรมที่กำลังเปิด</h2>
+            <div>
+                <ul class="nav nav-pills active">
+                    <li class="active"><a data-toggle="pill" href="#home">
+                            <font><b>กิจกรรมมหาวิทยาลัย</b></font>
+                        </a></li>
+                    <li><a data-toggle="pill" href="#menu1">กิจกรรมเพื่อเสริมสร้างสมรรถนะ</a></li>
+                    <li><a data-toggle="pill" href="#menu2">Menu 2</a></li>
+                    <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+                        <table id="grade" class="display" cellspacing="0" width="100%" style="margin-top: 30px;">
+                            <thead>
+                                <tr>
+                                    <th>ชื่อกิจกรรม</th>
+                                    <th style="text-align: right;"><span>หน่วยงาน</span>
+                                    </th>
+                                    <th style="text-align: right;"><span>เวลา</span></th>
+                                    <th style="text-align: right;">หน่วยชั่วโมง</th>
+                                    <th style="text-align: right;">รายละเอียด</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>โครงการก้าวแรกสู่ศาสตร์แห่งแผ่นดิน ปีการศึกษา 2564</td>
+                                    <td style="font-weight: bold;  text-align: right;">
+                                        มหาวิทยาลัยเกษตรศาสตร์วิทยาเขตกำแพงแสน
+                                    </td>
+                                    <td style="font-weight: bold;  text-align: right;">
+                                        7:00 - 11:00
+                                    </td>
+                                    <td style="font-weight: bold; text-align: right;">15</td>
+                                    <td class="text-right">
+                                        <a data-toggle="modal" data-target="#joinActivity"> <span data-bs-toggle="modal"
+                                                class="glyphicon glyphicon-plus"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                    <div id="menu1" class="tab-pane fade" style="margin-bottom: 20px;">
+                        <table id="grade2" class="display table-striped" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>ชื่อกิจกรรม</th>
+                                    <th style="text-align: right;"><span>หน่วยงาน</span>
+                                    </th>
+                                    <th style="text-align: right;"><span>เวลา</span></th>
+                                    <th style="text-align: right;">หน่วยชั่วโมง</th>
+                                    <th style="text-align: right;">รายละเอียด</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>โครงการก้าวแรกสู่ศาสตร์แห่งแผ่นดิน ปีการศึกษา 2564</td>
+                                    <td style="font-weight: bold; text-align: right;">
+                                        มหาวิทยาลัยเกษตรศาสตร์วิทยาเขตกำแพงแสน
+                                    </td>
+                                    <td style="font-weight: bold; text-align: right;">
+                                        7:00 - 11:00
+                                    </td>
+                                    <td style="font-weight: bold; text-align: right;">15</td>
+                                    <td class="text-right">
+                                        <a data-toggle="modal" data-target="#joinActivity"> <span data-bs-toggle="modal"
+                                                class="glyphicon glyphicon-plus"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                        <table id="grade" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>ชื่อกิจกรรม</th>
+                                    <th style="text-align: right;"><span>หน่วยงาน</span>
+                                    </th>
+                                    <th style="text-align: right;"><span>เวลา</span></th>
+                                    <th style="text-align: right;">หน่วยชั่วโมง</th>
+                                    <th style="text-align: right;">รายละเอียด</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>โครงการก้าวแรกสู่ศาสตร์แห่งแผ่นดิน ปีการศึกษา 2564</td>
+                                    <td style="font-weight: bold; color: green; text-align: right;">
+                                        มหาวิทยาลัยเกษตรศาสตร์วิทยาเขตกำแพงแสน
+                                    </td>
+                                    <td style="font-weight: bold; color: red; text-align: right;">
+                                        7:00 - 11:00
+                                    </td>
+                                    <td style="font-weight: bold; text-align: right;">15</td>
+                                    <td class="text-right">
+                                        <a data-toggle="modal" data-target="#joinActivity"> <span data-bs-toggle="modal"
+                                                class="glyphicon glyphicon-plus"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                    <div id="menu3" class="tab-pane fade">
+                        <table id="grade" class="display" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>ชื่อกิจกรรม</th>
+                                    <th style="text-align: right;"><span>หน่วยงาน</span>
+                                    </th>
+                                    <th style="text-align: right;"><span>เวลา</span></th>
+                                    <th style="text-align: right;">หน่วยชั่วโมง</th>
+                                    <th style="text-align: right;">รายละเอียด</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>โครงการก้าวแรกสู่ศาสตร์แห่งแผ่นดิน ปีการศึกษา 2564</td>
+                                    <td style="font-weight: bold; color: green; text-align: right;">
+                                        มหาวิทยาลัยเกษตรศาสตร์วิทยาเขตกำแพงแสน
+                                    </td>
+                                    <td style="font-weight: bold; color: red; text-align: right;">
+                                        7:00 - 11:00
+                                    </td>
+                                    <td style="font-weight: bold; text-align: right;">15</td>
+                                    <td class="text-right">
+                                        <a data-toggle="modal" data-target="#joinActivity"> <span data-bs-toggle="modal"
+                                                class="glyphicon glyphicon-plus"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $('#grade').DataTable({
+                responsive: true,
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $('#grade2').DataTable({
+                responsive: true,
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+<div id="joinActivity" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <h4 class="modal-title" style="margin-left: 10px;">นางสาวภัทรพร ปัญญาอุดมพร</h4>
+            <div class="modal-body" id="std_detail">
+                <div class="card-body">
+                    <h3 class="card-title">ลงเข้าร่วมกิจกรรม </h3>
+                    <p class="card-text">ชื่อกิจกรรม : โครงการก้าวแรกสู่ศาสตร์แห่งแผ่นดิน ปีการศึกษา 2564</p>
+                    <p class="card-text">สถานที่ : มหาวิทยาลัยเกษตรศาสตร์วิทยาเขตกำแพงแสน</p>
+                    <p class="card-text">เวลาจัดกิจกรรม : 7:00 - 11:00	</p>
+                    <p class="card-text">จำนวนหน่วยชั่วโมง : 15</p>
+                    
+                    
+                  </div>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal"
+                    style="font-size: 18px;">ยืนยัน</button>
+            </div>
+        </div>
+    </div>
+</div>

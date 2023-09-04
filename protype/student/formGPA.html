@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
+
+    <!--page 10 -->
+    <script src="../asset/dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.rowReorder.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- ลบแล้ว step เป็นวงกลม -->
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+
+    <style>
+        mark {
+            background-color: #F1E8E8;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        table {
+            font-size: 22px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+                        <div class="dropdown">
+
+                            <font size="4px"><b>ภัทรพร ปัญญาอุดมพร</b></font>
+                            <a href="logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  aaaaaaaa    -->
+        <div style="padding-top: 15px">
+            <div class="menu-top">
+                <div class="menu-box">
+                    <div class="menu-box-blue ">
+                        <ul>
+                            <li>
+                                <a href="home.html"><font color="#000000"><b>หน้าหลัก</b></font></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-green ">
+                        <ul>
+                            <li>
+                                <a href="info.html"><font color="#000000"><b>ข้อมูลส่วนตัว</b></font></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="menu-box">
+                    <div class="menu-box-red active">
+                        <ul>
+                            <li>
+                                <a href="./formGPA.html"><font color="#000000"><b>คำนวณผลการเรียน</b></font></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-orange ">
+                        <ul>
+                            <li>
+                                <a href="./activity.html"><font color="#000000"><b>กิจกรรม</b></font></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-sky">
+                        <ul>
+                            <li>
+                                <a href="./report.html"><b><font color="#000000">รายงาน</font></b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- เกรดที่เคยลงทะเบียน -->
+
+        <!--calculator-->
+        <br>
+        <mark class="text-right">เกรดเฉลี่ยสะสม:<span style="color:green;">&nbsp;
+                3.38
+            </span>&nbsp;&nbsp;&nbsp;หน่วยกิต:<span style="color:green;">&nbsp;
+                132
+            </span></mark>
+
+
+        <!-- คำนวณเกรดตามที่รับเข้ามา -->
+
+        <form class="contact" action="./calGPA.html">
+            <!--  <div class="container">
+        <div class="row">
+            <div class="col-md-12"> -->
+            <table class="table table-hover" id="tb_admin">
+                <thead>
+                    <tr>
+                        <th>
+                            <center>ชื่อวิชา<span style="color:red">*</span></center>
+                        </th>
+                        <th>
+                            <center>เกรด<span style="color:red">*</span></center>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ช่อง 1 -->
+                    <tr>
+                        <td>
+                            <center>
+                            <select class="selectpicker" width="500px" data-live-search="true">
+                                <option value="default">--กรุณาเลือกวิชา--</option>
+                                <option value="default">01999021 Thai Language for Communication [3 หน่วยกิต]
+                                </option>
+                                <option value="default">02204171 Structured Programming [3 หน่วยกิต]</option>
+                            </select>
+
+                                </select></center>
+                        </td>
+                        <td>
+                            <center><select name="add_grade1" id="add_grade1" class="form-control input_grade">
+                                    <option value="">-</option>
+                                    <option value="4">A</option>
+                                    <option value="3.5">B+</option>
+                                    <option value="3">B</option>
+                                    <option value="2.5">C+</option>
+                                    <option value="2">C</option>
+                                    <option value="1.5">D+</option>
+                                    <option value="1">D</option>
+                                    <option value="0">F</option>
+                                </select></center>
+                        </td>
+                    </tr>
+                    <!-- ช่อง 2  -->
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="selectpicker" width="500px" data-live-search="true">
+                                    <option value="default">--กรุณาเลือกวิชา--</option>
+                                    <option value="default">01999021 Thai Language for Communication [3 หน่วยกิต]
+                                    </option>
+                                    <option value="default">02204171 Structured Programming [3 หน่วยกิต]</option>
+                                </select>
+                            </center>
+                        </td>
+                        <td>
+                            <center><select name="add_grade8" id="add_grade8" class="form-control input_grade">
+                                <option value="">-</option>
+                                <option value="4">A</option>
+                                <option value="3.5">B+</option>
+                                <option value="3">B</option>
+                                <option value="2.5">C+</option>
+                                <option value="2">C</option>
+                                <option value="1.5">D+</option>
+                                <option value="1">D</option>
+                                <option value="0">F</option>
+                            </select></center>
+                        </td>
+                    </tr>
+                    <!-- ช่อง 3  -->
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="selectpicker" width="500px" data-live-search="true">
+                                    <option value="default">--กรุณาเลือกวิชา--</option>
+                                    <option value="default">01999021 Thai Language for Communication [3 หน่วยกิต]
+                                    </option>
+                                    <option value="default">02204171 Structured Programming [3 หน่วยกิต]</option>
+                                </select>
+                            </center>
+                        </td>
+                        <td>
+                            <center><select name="add_grade3" id="add_grade3" class="form-control input_grade">
+                                    <option value="">-</option>
+                                    <option value="4">A</option>
+                                    <option value="3.5">B+</option>
+                                    <option value="3">B</option>
+                                    <option value="2.5">C+</option>
+                                    <option value="2">C</option>
+                                    <option value="1.5">D+</option>
+                                    <option value="1">D</option>
+                                    <option value="0">F</option>
+                                </select></center>
+                        </td>
+                    </tr>
+                    <!-- ช่อง 4  -->
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="selectpicker" width="500px" data-live-search="true">
+                                    <option value="default">--กรุณาเลือกวิชา--</option>
+                                    <option value="default">01999021 Thai Language for Communication [3 หน่วยกิต]
+                                    </option>
+                                    <option value="default">02204171 Structured Programming [3 หน่วยกิต]</option>
+                                </select>
+                            </center>
+                        </td>
+                        <td>
+                            <center><select name="add_grade4" id="add_grade4" class="form-control input_grade">
+                                    <option value="">-</option>
+                                    <option value="4">A</option>
+                                    <option value="3.5">B+</option>
+                                    <option value="3">B</option>
+                                    <option value="2.5">C+</option>
+                                    <option value="2">C</option>
+                                    <option value="1.5">D+</option>
+                                    <option value="1">D</option>
+                                    <option value="0">F</option>
+                                </select></center>
+                        </td>
+                    </tr>
+                    <!-- ช่อง 5  -->
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="selectpicker" width="500px" data-live-search="true">
+                                    <option value="default">--กรุณาเลือกวิชา--</option>
+                                    <option value="default">01999021 Thai Language for Communication [3 หน่วยกิต]
+                                    </option>
+                                    <option value="default">02204171 Structured Programming [3 หน่วยกิต]</option>
+                                </select>
+                            </center>
+                        </td>
+                        <td>
+                            <center><select name="add_grade5" id="add_grade5" class="form-control input_grade">
+                                    <option value="">-</option>
+                                    <option value="4">A</option>
+                                    <option value="3.5">B+</option>
+                                    <option value="3">B</option>
+                                    <option value="2.5">C+</option>
+                                    <option value="2">C</option>
+                                    <option value="1.5">D+</option>
+                                    <option value="1">D</option>
+                                    <option value="0">F</option>
+                                </select></center>
+                        </td>
+                    </tr>
+                    <!-- ช่อง 6  -->
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="selectpicker" width="500px" data-live-search="true">
+                                    <option value="default">--กรุณาเลือกวิชา--</option>
+                                    <option value="default">01999021 Thai Language for Communication [3 หน่วยกิต]
+                                    </option>
+                                    <option value="default">02204171 Structured Programming [3 หน่วยกิต]</option>
+                                </select>
+                            </center>
+                        </td>
+                        <td>
+                            <center><select name="add_grade6" id="add_grade6" class="form-control input_grade">
+                                    <option value="">-</option>
+                                    <option value="4">A</option>
+                                    <option value="3.5">B+</option>
+                                    <option value="3">B</option>
+                                    <option value="2.5">C+</option>
+                                    <option value="2">C</option>
+                                    <option value="1.5">D+</option>
+                                    <option value="1">D</option>
+                                    <option value="0">F</option>
+                                </select></center>
+                        </td>
+                    </tr>
+                    <!-- ช่อง 7  -->
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="selectpicker" width="500px" data-live-search="true">
+                                    <option value="default">--กรุณาเลือกวิชา--</option>
+                                    <option value="default">01999021 Thai Language for Communication [3 หน่วยกิต]
+                                    </option>
+                                    <option value="default">02204171 Structured Programming [3 หน่วยกิต]</option>
+                                </select>
+                            </center>
+                        </td>
+                        <td>
+                            <center><select name="add_grade7" id="add_grade7" class="form-control input_grade">
+                                    <option value="">-</option>
+                                    <option value="4">A</option>
+                                    <option value="3.5">B+</option>
+                                    <option value="3">B</option>
+                                    <option value="2.5">C+</option>
+                                    <option value="2">C</option>
+                                    <option value="1.5">D+</option>
+                                    <option value="1">D</option>
+                                    <option value="0">F</option>
+                                </select></center>
+                        </td>
+                    </tr>
+                    <!-- ช่อง 8  -->
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="selectpicker" width="500px" data-live-search="true">
+                                    <option value="default">--กรุณาเลือกวิชา--</option>
+                                    <option value="default">01999021 Thai Language for Communication [3 หน่วยกิต]
+                                    </option>
+                                    <option value="default">02204171 Structured Programming [3 หน่วยกิต]</option>
+                                </select>
+                            </center>
+                        </td>
+                        <td>
+                            <center><select name="add_grade8" id="add_grade8" class="form-control input_grade">
+                                    <option value="">-</option>
+                                    <option value="4">A</option>
+                                    <option value="3.5">B+</option>
+                                    <option value="3">B</option>
+                                    <option value="2.5">C+</option>
+                                    <option value="2">C</option>
+                                    <option value="1.5">D+</option>
+                                    <option value="1">D</option>
+                                    <option value="0">F</option>
+                                </select></center>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <center>
+                <button type="submit" name="submit" class="btn btn-success btn-lg active">ดูผลการคำนวณ</button>
+
+                <button type="reset" class="btn btn-danger btn-lg active" data-toggle="tooltip"
+                    title="ล้างข้อมูล">ล้างข้อมูล</button>
+                <!--  <button type="button" class="btn btn-primary btn-lg  " onclick="history.back();">ย้อนกลับ</button> -->
+            </center>
+            <!--         </div>
+        </div>
+    </div> -->
+        </form>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+</body>
+
+</html>

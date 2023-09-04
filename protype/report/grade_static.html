@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- <link rel="icon" type="image/png"  href="../../Image/Logo/Logo.png" class="_web-inspector-hide-shortcut_"> -->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css"> <!--  Font Template -->
+    <link href="../asset/css/myTemplate.css" rel="stylesheet" type="text/css"> <!-- CSS Template -->
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css"> <!-- รูปต่างๆ สัญลักษณ์ -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- เส้นกรอบ -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- ลบแล้ว step เป็นวงกลม -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../dist/jquery.imgareaselect.js" type="text/javascript"></script>
+    <script src="../dist/jquery.form.js"></script>
+    <link rel="stylesheet" href="dist/imgareaselect.css">
+    <style>
+        /*mark{
+    background-color: #F1E8E8;
+    font-size: 22px;
+    font-weight: 900;
+}*/
+        .glyphicon:hover {
+            color: green;
+            cursor: pointer;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 40%;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        fieldset {
+            background-color: #D8D8D8;
+            margin: 20px;
+            padding: 0 10px 10px;
+            border: 1px solid #666;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #666;
+            padding-top: 10px;
+
+        }
+
+        /* style graph*/
+        #chart-container {
+            width: auto;
+            height: auto;
+            overflow-x: scroll;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="content">
+        <!-- <br> -->
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+                        <div class="dropdown">
+                            <!-- <img src="img.png" alt="Person"> -->
+
+                            <!-- <img src="img.png" alt="Person"> -->
+                            <font size="4px"><b>ภัทรพร ปัญญาอุดมพร</b></font>
+                            <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  aaaaaaaa    -->
+        <div style="padding-top: 15px" class="content">
+            <div class="menu-top">
+                <div class="menu-box">
+                    <div class="menu-box-blue ">
+                        <ul>
+                            <li>
+                                <a href="../student/home.html">
+                                    <font color="#000000"><b>หน้าหลัก</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-green ">
+                        <ul>
+                            <li>
+                                <a href="../student/info.html">
+                                    <font color="#000000"><b>ข้อมูลส่วนตัว</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-red ">
+                        <ul>
+                            <li>
+                                <a href="../student/formGPA.html">
+                                    <font color="#000000"><b>คำนวณผลการเรียน</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-orange ">
+                        <ul>
+                            <li>
+                                <a href="../student/activity.html">
+                                    <font color="#000000"><b>กิจกรรม</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-sky active">
+                        <ul>
+                            <li>
+                                <a href="../student/report.html"><b>
+                                        <font color="#000000">รายงาน</font>
+                                    </b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!-- หัวข้อ รายงานผลการเรียนแต่ละภาคการศึกษา -->
+        <h2>รายงานผลการเรียนแต่ละภาคการศึกษา</h2>
+
+        <!-- เริ่ม graph-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div id="chart-container">
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+     
+                </div>
+
+                <!-- ปิด graph -->
+
+                <div class="col-sm-5">
+                    <!-- table ผลการเรียน-->
+
+
+                    <table class="table" style="height: 300px; width: 80; font-size:20px;">
+                        <thead>
+                            <tr>
+                                <th scope="col">ภาคการศึกษา</th>
+                                <th scope="col">ปีการศึกษา</th>
+                                <th scope="col">หน่วยกิต</th>
+                                <th scope="col">ผลการเรียน</th>
+                                <th scope="col">รายละเอียด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ภาคต้น</th>
+                                <td class="text-center">2563</td>
+                                <td class="text-center">19</td>
+                                <td>3.13<span></span></td>
+                                <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
+                                            class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            
+
+                            <tr>
+                                <th scope='row'>ผลการเรียนเฉลี่ย</th>
+                                <td class='text-center'></td>
+                                <td class='text-center'>19</td>
+                                <td class=''>3.38</td>
+                                
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <!-- จบ table ผลการเรียน-->
+                </div>
+                <script>
+                    $('#classModal').modal('show')
+                </script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+                <script>
+                    var ctx = document.getElementById("myChart");
+                    var myChart = new Chart(ctx, {
+                        //type: 'bar',
+                        //type: 'line',
+                        type: 'bar',
+                        data: {
+                            labels: ['2563 ภาคต้น', '2563 ภาคปลาย', '2564 ภาคต้น', '2564 ภาคปลาย'],
+                            datasets: [{
+                                label: 'ผลการเรียนเฉลี่ย',
+                                data: [3.13, 3.23, 3.33, 3.38],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.7)', //1
+                                    'rgba(54, 162, 235, 0.7)',
+                                    'rgba(255, 206, 86, 0.7)', //3
+                                    'rgba(75, 192, 192, 0.7)',
+                                    'rgba(153, 102, 255, 0.7)', //5
+                                    'rgba(255, 159, 64, 0.7)',
+                                    'rgba(205, 155, 61,0.7)', //7 test here
+                                    'rgba(102,120,158, 0.7)', //8 pass
+                                    'rgba(204,204,51,0.7)', //9 pass
+                                    'rgba(153,51,102, 0.7)', //10 pass
+                                    'rgba(0,153,102,0.7)', //11 pass
+                                    'rgba(204,204,255, 0.7)', //12 pass 
+                                    'rgba(102,0,255, 0.7)' //13 pass
+                                ],
+                                borderColor: [
+                                    'rgba(255,99,132,1)', //1
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)', //3
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)', //5
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(205, 155, 61,1)', //7 test here
+                                    'rgba(102,120,158, 1)', //8 pass
+                                    'rgba(204,204,51,1)', //9 pass
+                                    'rgba(153,51,102,1)', //10 pass
+                                    'rgba(0,153,102,1)', //11 pass
+                                    'rgba(204,204,255, 1)', //12 pass 
+                                    'rgba(102,0,255, 1)' //13 pass
+                                ],
+                                borderWidth: 0
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                        max: 4,
+                                        min: 0
+                                    }
+                                }]
+                            },
+                            responsive: true,
+
+                        }
+                    });
+                </script>
+
+</body>
+
+</html>
+<div id="dataModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
+            <div class="modal-body" id="std_detail">
+                <table class="table">
+ 
+                    <thead>
+                        <tr>
+                            <th>รายชื่อวิชา</th>
+                            <th>เกรดที่ได้</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">General Physics I</th>
+                            <th scope="row">B</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">General Physics I</th>
+                            <th scope="row">B</th>
+                        </tr>
+                    </tbody>
+                </table>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal grade แต่ละเทอม ส่งค่า sem_id ไปหน้า modalgrade.php-->
+<!--<script>
+    $(document).ready(function () {
+        $('#seachinfo').click(function () {
+            //var sem_id = $(this).attr("id");
+            /*$.ajax({
+                url: "modalgrade.php",
+                method: "post",
+                data: { sem_id: sem_id },
+                success: function (data) {
+                    $('#std_detail').html(data);
+                    $('#dataModal').modal("show");
+                }
+            });*/
+            
+            $('#dataModal').modal("show");
+        });
+    });  
+</script>-->

@@ -1,0 +1,79 @@
+<style>
+        table {
+    font-size : 18px;
+    line-height: 0.8cm;
+    width: 100%;
+    /*border: 1px solid #ddd; border-spacing: 0;width: 100%;*/
+}
+
+th {
+    width: 25%;
+    font-size : 20px;
+    background: rgba(71, 169, 115, 0.69);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.dt /*css td nisit data*/
+{
+    width: 40%;
+    font-size : 20px;
+    background: rgba(71, 169, 115, 0.42);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.update /*css update tell line280,294*/
+{
+    width:10%;
+    font-size : 20px;
+    background: rgba(71, 169, 115, 0.42);
+    border-radius: 10px;
+    padding-left: 10px;
+    text-align: center;
+}
+th, td {
+    text-align: left;
+    border-bottom: 2.5px solid white;
+}
+h3
+{
+    border-bottom:2px solid #224F4B;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+}
+.info
+{
+    margin-top: 20px;
+    float: right;
+    width: 70%;
+
+}
+.data
+{
+    border-collapse: collapse;
+    /*border-radius: 1em;*/
+    overflow: hidden;
+}
+.picside
+{
+    float: left;
+    margin-left: 10px;
+}
+span {
+    color:green;
+}
+.btn
+{
+    font-size: 16px;
+}
+    </style>

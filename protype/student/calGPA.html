@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
+
+    <!--page 10 -->
+    <script src="../asset/dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.rowReorder.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- ลบแล้ว step เป็นวงกลม -->
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <style>
+        mark {
+            background-color: #F1E8E8;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        mark2 {
+            background-color: #9effd0;
+            font-size: 22px;
+            font-weight: 900;
+        }
+        mark3 {
+            background-color: #79d0ff;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        table {
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+                        <div class="dropdown">
+
+                            <font size="4px"><b>
+                                    <?php echo $row["std_fname_th"] . "&nbsp;" . $row["std_lname_th"] ?>
+                                </b></font>
+                            <a href="logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top: 15px" class="content">
+            <div class="menu-top">
+                <div class="menu-box">
+                    <div class="menu-box-blue">
+                        <ul>
+                            <li>
+                                <a href="home.html"><font color="#000000"><b>หน้าหลัก</b></font></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-green ">
+                        <ul>
+                            <li>
+                                <a href="info.html"><font color="#000000"><b>ข้อมูลส่วนตัว</b></font></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="menu-box">
+                    <div class="menu-box-red active">
+                        <ul>
+                            <li>
+                                <a href="./formGPA.html"><font color="#000000"><b>คำนวณผลการเรียน</b></font></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-orange ">
+                        <ul>
+                            <li>
+                                <a href="./activity.html"><font color="#000000"><b>กิจกรรม</b></font></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-sky">
+                        <ul>
+                            <li>
+                                <a href="./report.html"><b><font color="#000000">รายงาน</font></b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- เกรดที่เคยลงทะเบียน -->
+
+        <!--calculator-->
+        <br>
+        <mark class="text-right">เกรดเฉลี่ยสะสม:<span
+                style="color:green;">&nbsp;3.38</span>&nbsp;&nbsp;&nbsp;หน่วยกิต:<span
+                style="color:green;">&nbsp;136</span></mark>
+        <br>
+        <br>
+        <!-- <br><br> -->
+        <!-- <a href="cal_gpa.php"><input type="button" class="btn btn-info " style=" font-size: 22px;" value="เพิ่มวิชา"></a> -->
+
+        <!-- คำนวณเกรดตามที่รับเข้ามา -->
+
+        <table id="grade" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>&nbsp;ผลการเรียนเทอมปัจจุบัน&nbsp;&nbsp;&nbsp;</th>
+                    <th>&nbsp;ผลการเรียนจากการคำนวณ&nbsp;&nbsp;&nbsp;</th>
+                    <th>&nbsp;ผลการเรียนที่คาดว่าจะได้&nbsp;&nbsp;&nbsp;</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><b>&nbsp;GPA : </b><span>3.38</span></td>
+                    <td><b>&nbsp;GPA : </b><span>3.40</span></td>
+                    <td><b>&nbsp;GPA : </b><span>3.39</span>&nbsp; <span>
+                            <span style="color:green;">[+0.01]</span></span></td>
+                </tr>
+                <tr>
+                    <td><b>&nbsp;หน่วยกิต : </b><span>134</span></td>
+                    <td><b>&nbsp;หน่วยกิต: </b><span>3</span></td>
+
+                    <td><b>&nbsp;หน่วยกิต : </b><span>137</span>&nbsp; <span>
+                            <span style='color:green;'>[+3]</span>
+                        </span></td>
+                </tr>
+
+            </tbody>
+
+        </table>
+        <br>
+        <!-- <div class="text-left">วิชาที่ทดลองคำนวณล่วงหน้า</div> -->
+        <!-- $grade2 = $_POST['add_grade2']; -->
+
+        <mark3 class="text-left">คำนวณผลการเรียนล่วงหน้า</mark3>
+
+        <table class="tb2" width="100%">
+            <tr> <!-- config -->
+                <th class="text-center">รหัสวิชา</th>
+                <th>ชื่อวิชา</th>
+                
+                <th class="text-center">ผลการเรียน</th>
+                <th class="text-center">หน่วยกิต</th>
+
+            </tr>
+            <tbody>
+                <tr>
+                    <td class="text-center">01417167</td>
+                    <td>Engineering Mathematics I</td>
+                    <td class="text-center">C+</td>
+                    <td class="text-center">3</td>
+                </tr>
+                <tr>
+                    <td class="text-center">01999111</td>
+                    <td>Knowledge of the Land</td>
+                    <td class="text-center">A</td>
+                    <td class="text-center">2</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <mark2> วิชาที่เคยลงทะเบียนเรียนแล้ว </mark2>
+        <table class="tb2"  width="100%">
+            <tr> <!-- config -->
+                <th class="text-center">ปีการศึกษา</th>
+                <th class="text-center">ภาคการเรียน</th>
+                <th >รหัสวิชา</th>
+                <th >ชื่อวิชา</th>
+                <th class="text-center">ผลการเรียน</th>
+                <th class="text-center">หน่วยกิต</th>
+
+            </tr>
+            <tbody>
+                <tr>
+                    <td class="text-center">2563</td>
+                    <td class="text-center">ภาคต้น</td>
+                    <td >02999144</td>
+                    <td >Man and Environment</td>
+                    <td class="text-center">A</td>
+                    <td class="text-center">1</td>
+
+            </tbody>
+        </table>
+
+        <h4 style="color: red;">*วิชาที่สามารถ Regrade ได้ต้องเป็นรายวิชาที่ได้แต้มคะแนนต่ำกว่า 2.00 (ได้เกรดต่ำกว่า C)
+        </h4>
+        <center>
+            <br>
+            <button type="button" class="btn btn-primary btn-lg  " onclick="history.back();">ย้อนกลับ</button>
+        </center>
+        <script>
+            $(document).ready(function () {
+                $('#grade').DataTable({
+                    responsive: true,
+                    "filter": false,
+                    "lengthChange": false,
+                    "ordering": false,
+                    "info": false,
+                    "paging": false
+                });
+            });
+
+        </script>
+        <!-- <?php
+}
+?> -->
+        <!-- <script>

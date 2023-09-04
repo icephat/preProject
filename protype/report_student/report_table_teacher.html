@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
+
+    <!--page 10 -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+    <link rel="icon" type="image/png" href="../../Image/Logo/Logo.png" class="_web-inspector-hide-shortcut_">
+    <link href="../Fonts/DBOzoneX.css" rel="stylesheet" type="text/css"> <!--  Font Template -->
+    <link href="../../Library/Css/font-awesome.min.css" rel="stylesheet" type="text/css"> <!--รูปต่างๆ สัญลักษณ์-->
+    <link href="../Library/Css/myTemplate2.css" rel="stylesheet" type="text/css"> <!-- CSS Template -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- เส้นกรอบ -->
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- ลบแล้ว step เป็นวงกลม -->
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate2.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    <style>
+        mark {
+            background-color: #F1E8E8;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        table {
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+
+                        <div class="dropdown">
+                            <!-- <img src="img.png" alt="Person"> -->
+                            <!-- <img src="img.png" alt="Person"> -->
+                            <font size="4px"><b>ฐิติพงษ์ สถิรเมธีกุล</b></font>
+                            <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top: 15px" class="content">
+                <div class="menu-top">
+                    <div class="menu-box">
+                        <div class="menu-box-blue  ">
+                            <ul>
+                                <li>
+                                    <a href="../teacher/home.html">
+                                        <font color="#000000"><b>หน้าหลัก</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-box">
+                        <div class="menu-box-green ">
+                            <ul>
+                                <li>
+                                    <a href="timetable_Dean.php">
+                                        <font color="#000000"><b>ตารางสอน</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-box">
+                        <div class="menu-box-red active ">
+                            <ul>
+                                <li>
+                                    <a href="./report_table_teacher.html">
+                                        <font color="#000000"><b>รายงาน</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-hover" id="tb_admin">
+                <thead>
+                    <tr>
+                        <th>
+                            <center>ภาคการศึกษา<span style="color:red">*</span></center>
+                        </th>
+                        <th>
+                            <center>ปีการศึกษา<span style="color:red">*</span></center>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ช่อง 1 -->
+                    <tr>
+                        <td>
+                            <center>
+                                <select class="selectpicker" width="500px" data-live-search="true">
+                                    <option value="default">--กรุณาเลือกภาคการศึกษา--</option>
+                                    <option value="default">ภาคต้น
+                                    </option>
+                                    <option value="default">ภาคปลาย</option>
+                                </select>
+
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <select name="add_grade1" id="add_grade1" class="selectpicker" data-live-search="true">
+                                    <option value="">--กรุณาเลือกปีการศึกษา--</option>
+                                    <option value="4">2560</option>
+                                    </option>
+                                    <option value="3.5">2561</option>
+                                    <option value="3">2562</option>
+                                    <option value="2.5">2563</option>
+                                    <option value="2">2564</option>
+                                    <option value="1.5">2565</option>
+                                    <option value="1">2566</option>
+                                </select>
+                            </center>
+                        </td>
+                        <td>
+                            <center>
+                                <button type="submit" name="submit" id="data"
+                                    class="btn btn-success btn-sm active">ดูผล</button>
+                            </center>
+                        </td>
+                    </tr>
+                    <!-- ช่อง 2  -->
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+</body>
+
+</html>
+
+<div id="data">
+    <table class="table table-bordered table-dark">
+        <h3>ภาคการศึกษา: ภาคต้น &nbsp; ปีการศึกษา: 2563</h3>
+        <thead>
+          <tr>
+            <th class="text-center" colspan="4">GPA</th>
+            <th class="text-center" colspan="5">จำนวนนิสิต</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="text-center">MAX</th>
+            <th class="text-center">MIN</th>
+            <th class="text-center">AVG.</th>
+            <th class="text-center">S.D.</th>
+            <th class="text-center">ทั้งหมด</th>
+            <th class="text-center">โปรต่ำ</th>
+            <th class="text-center">โปรสูง</th>
+            <th class="text-center">ปกติ</th>
+            <th class="text-center">เกียรตินิยม</th>
+          </tr>
+          <tr>
+            <td>3.65</td>
+            <td>2.12</td>
+            <td>2.48</td>
+            <td>0.13</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+</div>
