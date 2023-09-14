@@ -1,0 +1,314 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
+
+    <!--page 10 -->
+    <script src="../asset/dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.rowReorder.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script> -->
+
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate2.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+        table {
+            font-size: 18px;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        h2 {
+            color: #2B7C74;
+            font-weight: 900;
+        }
+
+        .nav-tabs {
+            font-size: 20px;
+        }
+
+        /*i.icon-orange{
+            color:#ff8000;
+        }
+        i.icon-blue{
+            color:#0080ff;
+        }
+        i.icon-green{
+            color:#5cb85c;
+        }*/
+        .glyphicon {
+            cursor: pointer;
+        }
+
+        .glyphicon-stats {
+            color: green;
+        }
+
+        .height {
+            height: 100vh;
+        }
+
+
+        .search {
+            position: relative;
+            box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+
+        }
+
+        .search input {
+
+            height: 60px;
+            text-indent: 25px;
+            border: 2px solid #d6d4d4;
+
+
+        }
+
+
+        .search input:focus {
+
+            box-shadow: none;
+            border: 2px solid blue;
+            font-size: 16px;
+
+        }
+
+        .search .fa-search {
+
+            position: absolute;
+            top: 20px;
+            left: 16px;
+
+        }
+
+        .search button {
+
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            height: 50px;
+            width: 110px;
+            background: blue;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+
+                        <div class="dropdown">
+                            <!-- <img src="img.png" alt="Person"> -->
+
+                            <!-- <img src="img.png" alt="Person"> -->
+                            <font size="4px"><b>ฐิติพงษ์ สถิรเมธีกุล </b></font>
+                            <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top: 15px" class="content">
+                <div class="menu-top">
+                    <div class="menu-box">
+                        <div class="menu-box-blue ">
+                            <ul>
+                                <li>
+                                    <a href="./home.html">
+                                        <font color="#000000"><b>หน้าหลัก</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-box">
+                        <div class="menu-box-green ">
+                            <ul>
+                                <li>
+                                    <a href="./student_static.html">
+                                        <font color="#000000"><b>สถิติ</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-box">
+                        <div class="menu-box-red  active">
+                            <ul>
+                                <li>
+                                    <a href="../report_student/report_table_teacher.html">
+                                        <font color="#000000"><b>รายงาน</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p><br>
+                <a class="goback" style="cursor: pointer;" onclick="location.href='./report_table_teacher.html'">
+                    < ย้อนกลับ</a>
+
+                        <div class="content">
+                            <h3 style="font-weight: bold;">รายชื่อนักศึกษา <span
+                                    style="color: rgb(255, 0, 0);">โปรต่ำ</span> มีจำนวน 2 คน</h3>
+                            <table id="grade" class="display" cellspacing="0" width="100%">
+                                <br>
+                                <thead>
+                                    <tr>
+                                        <th>รหัสนิสิต</th>
+                                        <th class="col-lg-2">ชื่อ-นามสกุล</th>
+                                        <th>ประเภทหลักสูตร</th>
+                                        <th>สิทธิ์ฝึกงาน</th>
+                                        <th>สิทธิ์ทำโครงงาน</th>
+                                        <th class="text-center">หน่วยกิต<br>
+                                            (ทั้งหมด/ผ่าน/ไม่ผ่าน)
+                                        </th>
+                                        <th>ผลการเรียน</th>
+
+                                        <th class="text-center">รายละเอียด</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">6320500603</td>
+                                        <td>ภัทรพร ปัญญาอุดมพร</td>
+                                        <td class="text-center">ปกติ</td>
+                                        <td class="text-center"><span style='color:red;'>&nbsp;ไม่มีสิทธิ์ฝึกงาน</span>
+                                        </td>
+                                        <td class="text-center"><span style='color:green;'>&nbsp;มีสิทธิ์</span>
+                                        </td>
+                                        <td class="text-center"><span style='color:green;'>138</span>
+                                            <span style='color:green;'>/138</span>
+                                            <span style='color:red;'>/0</span>
+                                        </td>
+                                        <td class="text-center"><span style='color:green;'>3.38</span> <br>
+                                            <span style='font-weight:bold;'>(ปกติ)</span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <form action="../teacher/student_info.html">
+                                                <!--<input type="hidden" name="std_num" value="<?php echo $row["studentid"];?>" />-->
+                                                <!--<a type="button" name="std_info">
+                    <span class="glyphicon glyphicon-user"></span></a>-->
+                                                <button type="submit" name="submit" class="btn btn-info btn-md"><span
+                                                        class="glyphicon glyphicon-user"></span> รายละเอียด</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-center">6320500611</td>
+                                        <td>ภานุวัฒน์ จั่นจินดา</td>
+                                        <td class="text-center">ปกติ</td>
+                                        <td class="text-center"><span style='color:red;'>&nbsp;ไม่มีสิทธิ์ฝึกงาน</span>
+                                        </td>
+                                        <td class="text-center"><span style='color:green;'>&nbsp;มีสิทธิ์</span>
+                                        </td>
+                                        <td class="text-center"><span style='color:green;'>138</span>
+                                            <span style='color:green;'>/138</span>
+                                            <span style='color:red;'>/0</span>
+                                        </td>
+                                        <td class="text-center"><span style='color:green;'>3.65</span> <br>
+                                            <span style='font-weight:bold;'>(เกียรตินิยม)</span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <form method="post" action="../teacher/student_info.html">
+                                                <!--<input type="hidden" name="std_num" value="<?php echo $row["studentid"];?>" />-->
+                                                <!--<a type="button" name="std_info">
+                    <span class="glyphicon glyphicon-user"></span></a>-->
+                                                <button type="submit" name="submit" class="btn btn-info btn-md"><span
+                                                        class="glyphicon glyphicon-user"></span> รายละเอียด</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+
+                        <br>
+                        <center>
+                            <button type="button" class="btn btn-secondary" style="cursor: pointer;"
+                                onclick="location.href='./report_table_teacher.html'">ย้อนกลับ</button>
+                        </center>
+                        <br>
+
+
+
+
+                        <script>
+                            var coll = document.getElementsByClassName("collapsible");
+                            var i;
+
+                            for (i = 0; i < coll.length; i++) {
+                                coll[i].addEventListener("click", function () {
+                                    this.classList.toggle("active");
+                                    var content = this.nextElementSibling;
+                                    if (content.style.maxHeight) {
+                                        content.style.maxHeight = null;
+                                    } else {
+                                        content.style.maxHeight = content.scrollHeight + "px";
+                                    }
+                                });
+                            }
+                        </script>
+</body>
+
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#grade').DataTable({
+            responsive: true,
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
+        });
+
+    });
+</script>
