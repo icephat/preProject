@@ -18,6 +18,7 @@
     <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css"> <!--  Font Template -->
     <link href="../asset/css/myTemplate.css" rel="stylesheet" type="text/css"> <!-- CSS Template -->
     <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css"> <!-- รูปต่างๆ สัญลักษณ์ -->
+
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- เส้นกรอบ -->
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <!-- ลบแล้ว step เป็นวงกลม -->
@@ -172,7 +173,7 @@
                         <canvas id="myChart"></canvas>
                     </div>
 
-     
+
                 </div>
 
                 <!-- ปิด graph -->
@@ -184,8 +185,8 @@
                     <table class="table" style="height: 300px; width: 80; font-size:20px;">
                         <thead>
                             <tr>
-                                <th scope="col">ภาคการศึกษา</th>
                                 <th scope="col">ปีการศึกษา</th>
+                                <th scope="col">ภาคการศึกษา</th>
                                 <th scope="col">หน่วยกิต</th>
                                 <th scope="col">ผลการเรียน</th>
                                 <th scope="col">รายละเอียด</th>
@@ -193,10 +194,10 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">ภาคต้น</th>
-                                <td class="text-center">2563</td>
+                                <th scope="row">2563</th>
+                                <td class="text-center">ภาคต้น</td>
                                 <td class="text-center">19</td>
-                                <td>3.13<span></span></td>
+                                <td>2.13<span></span></td>
                                 <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
                                 <td class="text-center">
                                     <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
@@ -204,14 +205,50 @@
                                     </a>
                                 </td>
                             </tr>
-                            
+                            <tr>
+                                <th scope="row">2563</th>
+                                <td class="text-center">ภาคปลาย</td>
+                                <td class="text-center">22</td>
+                                <td>3.34<span></span></td>
+                                <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
+                                            class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2564</th>
+                                <td class="text-center">ภาคต้น</td>
+                                <td class="text-center">19</td>
+                                <td>2.63<span></span></td>
+                                <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
+                                            class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2564</th>
+                                <td class="text-center">ภาคปลาย</td>
+                                <td class="text-center">22</td>
+                                <td>3.33<span></span></td>
+                                <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
+                                            class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
+
 
                             <tr>
                                 <th scope='row'>ผลการเรียนเฉลี่ย</th>
                                 <td class='text-center'></td>
                                 <td class='text-center'>19</td>
                                 <td class=''>3.38</td>
-                                
+
 
                             </tr>
                         </tbody>
@@ -219,75 +256,93 @@
                     </table>
                     <!-- จบ table ผลการเรียน-->
                 </div>
-                <script>
-                    $('#classModal').modal('show')
-                </script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
-                <script>
-                    var ctx = document.getElementById("myChart");
-                    var myChart = new Chart(ctx, {
-                        //type: 'bar',
-                        //type: 'line',
-                        type: 'bar',
-                        data: {
-                            labels: ['2563 ภาคต้น', '2563 ภาคปลาย', '2564 ภาคต้น', '2564 ภาคปลาย'],
-                            datasets: [{
-                                label: 'ผลการเรียนเฉลี่ย',
-                                data: [3.13, 3.23, 3.33, 3.38],
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 0.7)', //1
-                                    'rgba(54, 162, 235, 0.7)',
-                                    'rgba(255, 206, 86, 0.7)', //3
-                                    'rgba(75, 192, 192, 0.7)',
-                                    'rgba(153, 102, 255, 0.7)', //5
-                                    'rgba(255, 159, 64, 0.7)',
-                                    'rgba(205, 155, 61,0.7)', //7 test here
-                                    'rgba(102,120,158, 0.7)', //8 pass
-                                    'rgba(204,204,51,0.7)', //9 pass
-                                    'rgba(153,51,102, 0.7)', //10 pass
-                                    'rgba(0,153,102,0.7)', //11 pass
-                                    'rgba(204,204,255, 0.7)', //12 pass 
-                                    'rgba(102,0,255, 0.7)' //13 pass
-                                ],
-                                borderColor: [
-                                    'rgba(255,99,132,1)', //1
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)', //3
-                                    'rgba(75, 192, 192, 1)',
-                                    'rgba(153, 102, 255, 1)', //5
-                                    'rgba(255, 159, 64, 1)',
-                                    'rgba(205, 155, 61,1)', //7 test here
-                                    'rgba(102,120,158, 1)', //8 pass
-                                    'rgba(204,204,51,1)', //9 pass
-                                    'rgba(153,51,102,1)', //10 pass
-                                    'rgba(0,153,102,1)', //11 pass
-                                    'rgba(204,204,255, 1)', //12 pass 
-                                    'rgba(102,0,255, 1)' //13 pass
-                                ],
-                                borderWidth: 0
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-                                        max: 4,
-                                        min: 0
-                                    }
-                                }]
-                            },
-                            responsive: true,
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#classModal').modal('show')
+    </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+    <script>
+        const GPA2563 = [2.13, 2.63];
+        const GPAcolorbar = [];
+        let GPAsize = GPA2563.length;
+        let GPAcolorLoop;
+        
+        for (let i = 0; i < GPAsize; i++) {
+            if (GPA2563[i] <= 1.5) {
+                GPAcolorLoop = '#ff6962';
+            }
+            else if (GPA2563[i] < 3.00) {
+                GPAcolorLoop = '#effd5f';
+            }
+            else {
+                GPAcolorLoop = '#99cc99';
+            }
+            GPAcolorbar[i] = GPAcolorLoop;
+        }
+        console.log(GPAcolorbar);
+
+        const GPA2564 = [3.34, 3.33];
+        const GPAcolorbar2 = [];
+        let GPAsize2 = GPA2564.length;
+        let GPAcolorLoop2;
+        for (let i = 0; i < GPAsize2; i++) {
+            if (GPA2564[i] <= 1.5) {
+                GPAcolorLoop2 = '#ff6962';
+            }
+            else if (GPA2564[i] < 3.00) {
+                GPAcolorLoop2 = '#effd5f';
+            }
+            else {
+                GPAcolorLoop2 = '#99cc99';
+            }
+            GPAcolorbar2[i] = GPAcolorLoop2;
+        }
+        console.log(GPAcolorbar2);
+
+        var ctx = document.getElementById("myChart");
+
+        var myChart = new Chart(ctx, {
+            //type: 'bar',
+            //type: 'line',
+            type: 'bar',
+            data: {
+                labels: ['2563', '2564'],
+                datasets: [{
+                    data: GPA2563,
+                    backgroundColor: GPAcolorbar,
+                    borderWidth: 0
+                },
+                {
+                    data: GPA2564,
+                    backgroundColor: GPAcolorbar2,
+                    borderWidth: 0
+                }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            max: 4,
+                            min: 0
                         }
-                    });
-                </script>
+                    }]
+                },
+                responsive: true,
+
+            }
+        });
+    </script>
 
 </body>
 
 </html>
 <div id="dataModal" class="modal fade">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -296,12 +351,12 @@
             <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
             <div class="modal-body" id="std_detail">
                 <table class="table">
- 
+
                     <thead>
                         <tr>
                             <th>รายชื่อวิชา</th>
                             <th>เกรดที่ได้</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
@@ -310,12 +365,12 @@
                             <th scope="row">B</th>
                         </tr>
                         <tr>
-                            <th scope="row">General Physics I</th>
+                            <th scope="row">Math I</th>
                             <th scope="row">B</th>
                         </tr>
                     </tbody>
                 </table>
-               
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"
