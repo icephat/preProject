@@ -50,6 +50,7 @@
         table {
             font-size: 22px;
         }
+        
     </style>
 </head>
 
@@ -112,16 +113,22 @@
                 </div>
             </div>
 
+
+
             <div class="content">
-                <table class="table table-hover " id="tb_admin">
+                <table class="table table-hover " id="tb_admin" style="margin-top: 30px;">
                     <thead>
                         <tr>
                             <th>
-                                <center>ภาคการศึกษา<span style="color:red">*</span></center>
+                                <center>หลักสูตร<span style="color:red">*</span></center>
                             </th>
                             <th>
                                 <center>ปีการศึกษา<span style="color:red">*</span></center>
                             </th>
+                            <th>
+                                <center>ภาคการศึกษา<span style="color:red">*</span></center>
+                            </th>
+                           
                             <th></th>
                         </tr>
                     </thead>
@@ -131,19 +138,26 @@
                             <td>
                                 <center>
                                     <select class="selectpicker" width="500px" data-live-search="true">
-                                        <option value="default">--กรุณาเลือกภาคการศึกษา--</option>
-                                        <option value="default">ภาคต้น
+                                        <option value="default">--กรุณาเลือกหลักสูตร--</option>
+                                        
+                                        <option value="2561">2561
                                         </option>
-                                        <option value="default">ภาคปลาย</option>
+                                        <option value="2562">2562</option>
+                                        <option value="2563">2563</option>
+                                        <option value="2564">2564</option>
+                                        <option value="2565">2565</option>
+                                        <option value="2566">2566</option>
                                     </select>
 
                                 </center>
                             </td>
+
                             <td>
                                 <center>
                                     <select name="add_grade1" id="add_grade1" class="selectpicker"
                                         data-live-search="true">
                                         <option value="">--กรุณาเลือกปีการศึกษา--</option>
+                                        <option value="0">ทั้งหมด</option>
                                         <option value="4">2560</option>
                                         </option>
                                         <option value="3.5">2561</option>
@@ -157,6 +171,19 @@
                             </td>
                             <td>
                                 <center>
+                                    <select class="selectpicker" width="500px" data-live-search="true">
+                                        <option value="default">--กรุณาเลือกภาคการศึกษา--</option>
+                                        <option value="0">ทั้งหมด</option>
+                                        <option value="default">ภาคต้น
+                                        </option>
+                                        <option value="default">ภาคปลาย</option>
+                                    </select>
+
+                                </center>
+                            </td>
+                            
+                            <td>
+                                <center>
                                     <button type="submit" name="submit" id="data"
                                         class="btn btn-success btn-sm active">ดูผล</button>
                                 </center>
@@ -164,6 +191,15 @@
                         </tr>
                     </tbody>
                 </table>
+
+                
+
+                <!--<div id="chart-container" class="float-left"
+                    style="width: 550px; margin-top: 50px; margin-left: -10%;">
+                        <canvas id="learn"></canvas>
+                    </div>-->
+
+
             </div>
 
         </div>
@@ -173,43 +209,160 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
+    </script>
+    <script>
+        const DATA_COUNT = 1;
+        const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+
+
+
+        var ctx = document.getElementById("learn");
+        var myChart = new Chart(ctx, {
+            //type: 'bar',
+            //type: 'line',
+            type: 'bar',
+            data: {
+                labels: ['2562','2563', '2564', '2565', '2566'],
+                datasets: [{
+                    label: 'ตามหลักสูตร',
+                    data: [65,60,55,50,60],
+                    backgroundColor: "#89cfef",
+                    borderWidth: 0
+                },
+                {
+                    label: ['ไม่ตามหลักสุตร'],
+                    data: [64,40,25,40,55],
+                    backgroundColor: "#ffab76",
+                    borderWidth: 0
+                },
+                {
+                    label: ['ลาออก'],
+                    data: [4,5,3,4,5],
+                    backgroundColor: '#ff6962',
+                    borderWidth: 0
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+
+            }
+        });
+    </script>
+
+
+
+
 </body>
 
 </html>
 
 <div id="data" class="content">
-    <table class="table table-bordered table-dark">
-        <h3>ภาคการศึกษา: ภาคต้น &nbsp; ปีการศึกษา: 2563</h3>
+    <h3>ภาคการศึกษา: ภาคต้น &nbsp; ปีการศึกษา: 2563</h3>
+
+    <!--จำนวนสรุป-->
+
+    <table class="table table-hover" style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+        <tr style="border: 1px solid black; border-collapse: collapse;">
+            <th style="border: 1px solid black; border-collapse: collapse; width: 50%;" >
+                
+                <div style="color: rgb(0, 9, 188);">
+                    <div class="text-center">
+                        <a style="color: rgb(0, 9, 188);" href="./report_student_honor.html"><h2>เกียรตินิยม</h2></a>
+                    </div>
+                    <div class="text-center">
+                        <h1 style="font-weight: bolder; font-size: 100px; ">3</h1>
+                    </div>
+                    <div class="text-right">
+                        <p>คน</p>
+                    </div>
+                </div>
+            
+
+            </th>
+            <th style="border: 1px solid black; border-collapse: collapse;">
+                <div style="color: rgb(0, 110, 22);">
+                    <div class="text-center">
+                        <a style="color: rgb(0, 110, 22);" href="./report_student_normal.html"><h2>ปกติ</h2></a>
+                    </div>
+                    <div class="text-center">
+                        <h1 style="font-weight: bolder; font-size: 100px;">5</h1>
+                    </div>
+                    <div class="text-right">
+                        <p>คน</p>
+                    </div>
+                </div>
+            </th>
+          </tr>
+          <tr >
+            <th style="border: 1px solid black; border-collapse: collapse;">
+                
+                <div style="color: #ff8c00;">
+                    <div class="text-center">
+                        <a style="color: #ff8c00;" href="./report_student_prohigh.html"><h2>โปรสูง</h2></a>
+                    </div>
+                    <div class="text-center">
+                        <h1 style="font-weight: bolder; font-size: 100px;">7</h1>
+                    </div>
+                    <div class="text-right">
+                        <p>คน</p>
+                    </div>
+                </div>
+            </th>
+            <th style="border: 1px solid black; border-collapse: collapse;">
+                <div style="color: rgb(255, 0, 0);">
+                    <div class="text-center">
+                        <a style="color: rgb(255, 0, 0);" href="./report_student_prodown.html"><h2>โปรต่ำ</h2></a>
+                    </div>
+                    <div class="text-center">
+                        <h1 style="font-weight: bolder; font-size: 100px;">10</h1>
+                    </div>
+                    <div class="text-right">
+                        <p>คน</p>
+                    </div>
+                </div>
+            </th>
+          </tr>
+    </table>
+
+
+
+    <table class="table table-bordered table-dark" style="margin-top: 50px; ">
+        
         <thead>
             <tr>
-                <th class="text-center" colspan="4">GPA</th>
-                <th class="text-center" colspan="5">จำนวนนิสิต</th>
+                <th class="text-center" colspan="4">นักศึกษา</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th class="text-center">MAX</th>
-                <th class="text-center">MIN</th>
-                <th class="text-center">AVG.</th>
-                <th class="text-center">S.D.</th>
-                <th class="text-center">ทั้งหมด</th>
-                <th class="text-center"><a style="color: rgb(255, 0, 0); text-decoration: underline;" href="./report_student_prodown.html">โปรต่ำ</a></th>
-                <th class="text-center"><a style="color: rgb(0, 9, 188); text-decoration: underline;" href="./report_student_prohigh.html">โปรสูง</a></th>
-                <th class="text-center"><a style="color: #00bfbf; text-decoration: underline;" href="./report_student_normal.html">ปกติ</a></th>
-                <th class="text-center"><a style="color: rgb(0, 110, 22); text-decoration: underline;" href="./report_student_honor.html">เกียรตินิยม</a></th>
+                <th >รหัสนิสิต</th>
+                <th >ชื่อ-นามสกุล</th>
+                <th >GPA</th>
+                <th >สถานะ</th>
             </tr>
             <tr>
-                <td>3.65</td>
-                <td>2.12</td>
-                <td>2.48</td>
-                <td>0.13</td>
-                <td>2</td>
-                <td>0</td>
-                <td>0</td>
-                <td>1</td>
-                <td>1</td>
+                <td>6320500603</td>
+                <td>ภัทรพร ปัญญาอุดมพร</td>
+                <td>3.38</td>
+                <td style="color: rgb(0, 110, 22); font-weight: bold;">ปกติ</td>
             </tr>
-
+            <tr>
+                <td>6320500611</td>
+                <td>ภานุวัฒน์ จั่นจินดา</td>
+                <td>3.65</td>
+                <td style="color: rgb(0, 9, 188); font-weight: bold;">เกียรตินิยม</td>
+            </tr>
         </tbody>
     </table>
 

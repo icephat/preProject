@@ -136,6 +136,125 @@
             top: 0;
             left: 0;
         }
+
+        .btn {
+            font-size: 16px;
+        }
+
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 75%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            margin-left: 165px;
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .ct {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            /*overflow: scroll;*/
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+            width: 75%;
+            margin-left: 165px;
+        }
+
+        .std_img {
+            width: 20%;
+            border-radius: 50%;
+            display: block;
+            float: left;
+            margin-bottom: 30px;
+        }
+
+        .info1,
+        tr,
+        td {
+            font-size: 22px;
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+
+        .table_grade_sem {
+
+            border-collapse: collapse;
+            margin-left: 50px;
+            float: right;
+            font-size: 20px;
+        }
+
+        .table_grade_sem2 {
+
+            border-collapse: collapse;
+            font-size: 20px;
+        }
+
+        .table_grade_sem td,
+        .table_grade_sem th {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .table_grade_sem tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table_grade_sem tr:hover {
+            background-color: #ddd;
+        }
+
+        .table_grade_sem th {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: left;
+            background-color: #7dd575;
+            color: black;
+        }
+
+        .table_grade_sem2 td,
+        .table_grade_sem2 th {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .table_grade_sem2 tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table_grade_sem2 tr:hover {
+            background-color: #ddd;
+        }
+
+        .table_grade_sem2 th {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: left;
+            background-color: #86d3f7;
+            color: black;
+        }
     </style>
 
 </head>
@@ -229,8 +348,7 @@
                                 <center>
                                     <select class="selectpicker" width="500px" data-live-search="true">
                                         <option value="default">--กรุณาเลือกปีการศึกษา--</option>
-                                        <option value="default">2561
-                                        </option>
+                                        <option value="default">2561</option>
                                         <option value="default">2562</option>
                                         <option value="default">2563</option>
                                         <option value="default">2564</option>
@@ -244,18 +362,92 @@
                             <td>
                                 <center>
                                     <button type="submit" name="submit" id="data"
-                                        class="btn btn-primary btn-sm active">ดูผล</button>
+                                        class="btn btn-primary btn-sm ">ดูผล</button>
                                 </center>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
-                <center class="content">
-                    <div id="chart-container1">
+                <div>
+                    <div id="chart-container" class="float-left"
+                        style="width: 550px; margin-top: 50px; margin-left: -10%;">
                         <canvas id="myChart"></canvas>
                     </div>
-                </center>
+
+                    <table class="table_grade_sem" style="margin-top: -28%; margin-right: -10%; width: 600px;">
+
+                        <tr>
+                            <th style=" text-align: right; ">ปีการศึกษา</th>
+                            <th style="text-align: right; width: 150px;"><span>แรกเข้า</span>
+                            </th>
+                            <th style="text-align: right;"><span>กำลังศึกษา</span></th>
+                            <th style="text-align: right;">จบการศึกษา</th>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2562</td>
+                            <td style=" text-align: right;">
+                                65 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                64 คน
+                            </td>
+                            <td style=" text-align: right;">64 คน</td>
+                        </tr>
+
+                        <tr>
+                            <td style=" text-align: right;">2563</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">55 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2564</td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                25 คน
+                            </td>
+                            <td style="text-align: right;">30 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2565</td>
+                            <td style=" text-align: right;">
+                                50 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">40 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2566</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td>
+                            <td style=" text-align: right;">55 คน</td>
+                        </tr>
+
+                        <tr>
+                            <th scope='row' style=" text-align: right;">รวม (คน)</th>
+                            <td style="font-weight: bold; text-align: right;">225 </td>
+                            <td style='font-weight: bold; text-align: right;'>160</td>
+                            <td style='font-weight: bold; text-align: right;'>180</td>
+                        </tr>
+
+                    </table>
+
+
+
+                </div>
                 <br><br>
 
             </div>
@@ -269,9 +461,6 @@
                                 <center>หลักสูตร<span style="color:red">*</span></center>
                             </th>
 
-                            <th>
-                                <center>ปีที่เข้าศึกษา<span style="color:red">*</span></center>
-                            </th>
 
                             <th></th>
                         </tr>
@@ -283,28 +472,13 @@
                                 <center>
                                     <select class="selectpicker" width="500px" data-live-search="true">
                                         <option value="default">--กรุณาเลือกหลักสูตร--</option>
-                                        <option value="default">2561
+                                        <option value="2561">2561
                                         </option>
-                                        <option value="default">2562</option>
-                                        <option value="default">2563</option>
-                                        <option value="default">2564</option>
-                                        <option value="default">2565</option>
-                                        <option value="default">2566</option>
-                                    </select>
-
-                                </center>
-                            </td>
-                            <td>
-                                <center>
-                                    <select class="selectpicker" width="500px" data-live-search="true">
-                                        <option value="default">--กรุณาเลือกปีการศึกษา--</option>
-                                        <option value="default">2561
-                                        </option>
-                                        <option value="default">2562</option>
-                                        <option value="default">2563</option>
-                                        <option value="default">2564</option>
-                                        <option value="default">2565</option>
-                                        <option value="default">2566</option>
+                                        <option value="2562">2562</option>
+                                        <option value="2563">2563</option>
+                                        <option value="2564">2564</option>
+                                        <option value="2565">2565</option>
+                                        <option value="2566">2566</option>
                                     </select>
 
                                 </center>
@@ -313,7 +487,7 @@
                             <td>
                                 <center>
                                     <button type="submit" name="submit" id="data"
-                                        class="btn btn-primary btn-sm active">ดูผล</button>
+                                        class="btn btn-primary btn-sm">ดูผล</button>
                                 </center>
                             </td>
                         </tr>
@@ -324,12 +498,90 @@
             <div id="data" class="content">
                 <!-- graph ข้างล่าง 3 อัน -->
 
-                <center class="content">
-                    <div id="chart-container1">
+                <div >
+                    <div id="chart-container" class="float-left"
+                    style="width: 550px; margin-top: 50px; margin-left: -10%;">
                         <canvas id="learn"></canvas>
                     </div>
-                </center>
+
+                    <table class="table_grade_sem" style="margin-top: -28%; margin-right: -10%;">
+
+                        <tr>
+                            <th style=" text-align: right; width: 20%;">ปีการศึกษา</th>
+                            <th style="text-align: right; width: 30%;"><span>นักศึกษาตามหลักสูตร</span>
+                            </th>
+                            <th style="text-align: right; width: 31%;"><span>นักศึกษาไม่ตามหลักสูตร</span></th>
+                            <th style="text-align: right; width: 35%;">นักศึกษาลาออก</th>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2562</td>
+                            <td style=" text-align: right;">
+                                65 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                64 คน
+                            </td>
+                            <td style=" text-align: right;">4 คน</td>
+                        </tr>
+
+                        <tr>
+                            <td style=" text-align: right;">2563</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">5 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2564</td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td> 
+                            <td style=" text-align: right;">
+                                25 คน
+                            </td>
+                            <td style="text-align: right;">3 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2565</td>
+                            <td style=" text-align: right;">
+                                50 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">4 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2566</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td>
+                            <td style=" text-align: right;">5 คน</td>
+                        </tr>
+
+                        <tr>
+                            <th scope='row' style=" text-align: right;">รวม (คน)</th>
+                            <td style="font-weight: bold; text-align: right;">225 </td>
+                            <td style='font-weight: bold; text-align: right;'>160</td>
+                            <td style='font-weight: bold; text-align: right;'>21</td>
+                        </tr>
+
+                    </table>
+
+
+
+                </div>
                 <br><br>
+
+
+
+
 
             </div>
 
@@ -349,19 +601,11 @@
             //type: 'line',
             type: 'bar',
             data: {
-                labels: ['แรกเข้าศึกษา', 'กำลังศึกษา', 'จบการศึกษา'],
+                labels: ['2562','2563', '2564', '2565', '2566'],
                 datasets: [{
-                    label: 'ผลการเรียนเฉลี่ย',
-                    data: [60, 40, 55],
-                    backgroundColor: [
-                        'rgba(150,186,169, 1)', //1
-                        '#a4ebf3',
-                        '#abbdee',
-                        'rgba(45,117,83, 1)',
-                        'rgba(27,70,49, 1)', //5
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
+                    label: 'นักศึกษาแรกเข้า',
+                    data: [65,60, 55, 50, 60],
+                    backgroundColor: '#bfd575', 
                     borderColor: [
                         'rgba(150,186,169, 1)', //1
                         'rgba(108,158,134, 1)',
@@ -371,8 +615,40 @@
                         'rgba(0, 51, 18, 1)'
                     ],
                     borderWidth: 0
-                }]
+                },
+                {
+                    label: 'นักศึกษากำลังศึกษา',
+                    data: [64,40, 25, 40, 55],
+                    backgroundColor: '#a4ebf3',
+                    borderColor: [
+                        'rgba(150,186,169, 1)', //1
+                        'rgba(108,158,134, 1)',
+                        'rgba(66,130,100, 1)',
+                        'rgba(45,117,83, 1)',
+                        'rgba(27,70,49, 1)', //5
+                        'rgba(0, 51, 18, 1)'
+                    ],
+                    borderWidth: 0
+                },
+                {
+                    label: 'นักศึกษาจบการศึกษา',
+                    data: [64,55,30,40,55],
+                    backgroundColor: '#abbdee',
+                    borderColor: [
+                        'rgba(150,186,169, 1)', //1
+                        'rgba(108,158,134, 1)',
+                        'rgba(66,130,100, 1)',
+                        'rgba(45,117,83, 1)',
+                        'rgba(27,70,49, 1)', //5
+                        'rgba(0, 51, 18, 1)'
+                    ],
+                    borderWidth: 0
+                }
+
+                ]
+
             },
+
             options: {
                 scales: {
                     yAxes: [{
@@ -405,23 +681,23 @@
             //type: 'line',
             type: 'bar',
             data: {
-                labels: ['นักศึกษา'],
+                labels: ['2562','2563', '2564', '2565', '2566'],
                 datasets: [{
-                    label: ['ตามหลักสูตร'],
-                    data: [50],
+                    label: 'ตามหลักสูตร',
+                    data: [65,60,55,50,60],
                     backgroundColor: "#89cfef",
                     borderWidth: 0
                 },
                 {
                     label: ['ไม่ตามหลักสุตร'],
-                    data: [22],
-                    backgroundColor: "#feb9d0",
+                    data: [64,40,25,40,55],
+                    backgroundColor: "#ffab76",
                     borderWidth: 0
                 },
                 {
                     label: ['ลาออก'],
-                    data: [4],
-                    backgroundColor: ['rgba(150,186,169, 1)'],
+                    data: [4,5,3,4,5],
+                    backgroundColor: '#ff6962',
                     borderWidth: 0
                 }
                 ]
