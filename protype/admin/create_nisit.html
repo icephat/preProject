@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>การจัดการข้อมูลนิสิต</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
+
+    <!--page 10 -->
+    <script src="../asset/dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.rowReorder.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script> -->
+
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate2.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <style>
+        table {
+            font-size: 18px;
+            line-height: 0.8cm;
+            width: 100%;
+            /*border: 1px solid #ddd; border-spacing: 0;width: 100%;*/
+        }
+
+        th {
+            width: 25%;
+            font-size: 20px;
+            background: rgba(137, 247, 186, 0.42);
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+
+        .dt
+
+        /*css td nisit data*/
+            {
+            width: 40%;
+            font-size: 20px;
+
+            border-radius: 10px;
+            padding-left: 10px;
+            color: black;
+        }
+
+
+
+        th,
+        td {
+            text-align: left;
+            border-bottom: 2.5px solid white;
+        }
+
+        h3 {
+            border-bottom: 2px solid #224F4B;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+        }
+
+        .info {
+            margin-top: 20px;
+            margin-right: 10px;
+            float: right;
+            width: 70%;
+
+        }
+
+        .data {
+            border-collapse: collapse;
+            /*border-radius: 1em;*/
+            overflow: hidden;
+        }
+
+        .picside {
+            float: left;
+            margin-left: 10px;
+        }
+
+        span {
+            color: green;
+        }
+
+        .btn {
+            font-size: 16px;
+        }
+
+        .button {
+            color: rgb(250, 250, 250);
+            padding: 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="content">
+
+        <!-- <div class="header">
+
+        </div> -->
+
+        <!-- <br> -->
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+                        <div class="dropdown">
+                            <!-- <img src="img.png" alt="Person"> -->
+                            <font size="4px"><b>Admin</b></font>
+                            <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding-top: 15px" class="content">
+            <div class="menu-top">
+                <div class="menu-box">
+                    <div class="menu-box-blue  ">
+                        <ul>
+                            <li>
+                                <a href="./home.html">
+                                    <font color="#000000"><b>หน้าหลัก</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
+                    <div class="menu-box-green active">
+                        <ul>
+                            <li>
+                                <a href="./create_nisit.html">
+                                    <font color="#000000"><b>จัดการข้อมูลนิสิต</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content">
+            <!--ตาราง -->
+            <form action="./create_nisit.html">
+                <div class='content'>
+                    <h3>ข้อมูลส่วนตัว</h3>
+                    <table class='data'>
+                        <tr>
+                            <th>รหัสประจำตัวนิสิต</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+
+                        <tr>
+                            <th>ชื่อ-นามสกุล (ไทย)</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+
+                        <tr>
+                            <th>ชื่อ-นามสกุล (อังกฤษ)</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+
+                        <tr>
+                            <th>รหัสประจำตัวประชาชน</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+
+                        <tr>
+                            <th>เพศ</th>
+                            <td class='dt'>
+                                <select class="dt">
+                                    <option>ชาย</option>
+                                    <option>หญิง</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h3>ช่องทางการติดต่อ</h3>
+                    <table class='data'>
+                        <tr>
+                            <th>เบอร์โทรศัพท์</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+                        <tr>
+                            <th>e-Mail</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+                        <tr>
+                            <th>เบอร์โทรศัพท์ผู้ปกครอง</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+                    </table>
+
+                    <h3>การศึกษาปัจจุบัน</h3>
+                    <table class='data'>
+                        <tr>
+                            <th>อาจารย์ที่ปรึกษา</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+
+                        <tr>
+                            <th>วิทยาเขต</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+
+                        <tr>
+                            <th>คณะ</th>
+                            <td class='dt'><input class='dt' placeholder="วิศวกรรมศาสตร์ กำแพงแสน" /></td>
+                        </tr>
+
+                        <tr>
+                            <th>สาขาวิชา</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+
+                        <tr>
+                            <th>ประเภทหลักสูตร</th>
+                            <td class='dt'>
+                                <select class="dt">
+                                    <option>ภาษาไทย</option>
+                                    <option>ภาษาอังกฤษ</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>สถานภาพนิสิต</th>
+                            <td class='dt'>
+                                <select class="dt">
+                                    <option>กำลังศึกษา</option>
+                                    <option>จบการศึกษา</option>
+                                    <option>รอพินิจ</option>
+                                    <option>พ้นสภาพ</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <p></p>
+                    <p></p>
+                    <h3>การศึกษาระดับมัธยม</h3>
+                    <table class='data'>
+                        <tr>
+                            <th>ชื่อโรงเรียน</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+
+                        <tr>
+                            <th>ที่อยู่</th>
+                            <td class='dt'><input class='dt' placeholder="" /></td>
+                        </tr>
+
+
+                    </table>
+
+                    <p></p>
+                    <p></p>
+
+                </div>
+                <br>
+            </form>
+                <div style="text-align: center;">
+                    <button class="button btn-primary" id="saveNisit">บันทึก</button>
+                </div>
+            
+
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.all.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            $(function () {
+                $('#saveNisit').click(function () {
+                    Swal.fire(
+                        'บันทึกสำเร็จ',
+                        '',
+                        'success'
+                    );
+                });
+            });
+        </script>
+
+
+</body>
+
+</html>

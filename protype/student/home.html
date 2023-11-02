@@ -29,12 +29,15 @@
     <!-- <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
         <link rel="icon" type="image/png"  href="../../Image/Logo/Logo.png" class="_web-inspector-hide-shortcut_">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">                                                  เส้นกรอบ -->
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- เส้นกรอบ -->
+        <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <!-- ลบแล้ว step เป็นวงกลม -->
+    
     <!-- css+font-->
     <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
     <link href="../asset/css/myTemplate.css" rel="stylesheet" type="text/css">
     <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
     <style>
         table {
             font-size: 18px;
@@ -53,9 +56,166 @@
             text-align: left;
             padding: 16px;
         }
+    
 
         tr:nth-child(even) {
             background-color: #f2f2f2
+        }
+        .glyphicon:hover {
+            color: green;
+            cursor: pointer;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 40%;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+            
+        }
+
+        fieldset {
+            background-color: #D8D8D8;
+            margin: 20px;
+            padding: 0 10px 10px;
+            border: 1px solid #666;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #666;
+            padding-top: 10px;
+
+        }
+
+        /* style graph*/
+        #chart-container {
+            width: auto;
+            height: auto;
+            overflow-x: scroll;
+        }
+        fieldset {
+            background-color: #D8D8D8;
+            margin: 20px;
+            padding: 0 10px 10px;
+            border: 1px solid #666;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #666;
+            padding-top: 10px;
+
+        }
+
+        /* style graph*/
+
+        #chart-container1 {
+            width: 70%;
+            height: auto;
+
+        }
+
+        #chart-container2 {
+            width: 100%;
+            height: auto;
+
+        }
+
+        .credit_t {
+            border-collapse: collapse;
+            /*width: 100%;*/
+            font-size: 20px;
+            margin-top: 150px;
+            padding-top: 100px;
+            margin-right: 100px;
+        }
+
+        .credit_t th,
+        .credit_t td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .credit_t tr:hover {
+            background-color: #b7d6b5;
+        }
+
+        /*style progress chart*/
+        .body_chart {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+
+        }
+
+        .cont2 {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cont2 .box {
+            width: 30%;
+            float: left;
+        }
+
+        .cont2 .box .chart1 {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        .cont2 .box .chart2 {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        .cont2 .box .chart3 {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        .cont2 .box .chart4 {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        .cont2 .box .chart5 {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        .cont2 .box canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
 
@@ -73,8 +233,8 @@
                             <!-- <img src="img.png" alt="Person"> -->
                             <font size="4px"><b>ภัทรพร ปัญญาอุดมพร</b></font>
                             <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
-                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
-                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                            <a href="../logout.php" data-toggle="tooltip" title=" ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i>
                                 </font>
                             </a>
                         </div>
@@ -107,7 +267,17 @@
                         </ul>
                     </div>
                 </div>
-
+                <div class="menu-box">
+                    <div class="menu-box-sky">
+                        <ul>
+                            <li>
+                                <a href="./report.html"><b>
+                                        <font color="#000000">ผลการเรียน</font>
+                                    </b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="menu-box">
                     <div class="menu-box-red ">
                         <ul>
@@ -119,7 +289,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="menu-box">
+                <!--<div class="menu-box">
                     <div class="menu-box-orange ">
                         <ul>
                             <li>
@@ -129,30 +299,28 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="menu-box">
-                    <div class="menu-box-sky">
-                        <ul>
-                            <li>
-                                <a href="./report.html"><b>
-                                        <font color="#000000">รายงาน</font>
-                                    </b></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                </div>-->
+                
             </div>
         </div>
 
         <!--model profile -->
         <br>
 
-        <div class="jumbotron">
+        <div class="content">
             <div class="row">
                 <div>
-                    <div class="" style="border-bottom:1px solid black">
-                        <h2 style="font-weight: 900;">ข้อมูลสมาชิก : นิสิต</h2>
+                    <div style=" border-bottom:1px solid black " >
+                        
+                            <table class="content" style="border:none;">
+                                <th style=" text-align: left;"><h2>ข้อมูลสมาชิก : นางสาวภัทรพร ปัญญาอุดมพร</h2></th>
+                                <th style=" text-align: right;"><h2>GPA 3.38</h2></th>
+                            </table>
+                        
+                        
+                        
                     </div>
+                    
 
                     <!-- <hr> -->
                     <br>
@@ -178,8 +346,7 @@
                         <div class="col-sm-7 col-xs-6 ">phattaraporn.sa@ku.th</div>
                         <div class="clearfix"></div>
                         <div class="bot-border"></div>
-                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">วัน/เดือน/ปีเกิด: </div>
-                        <div class="col-sm-7 col-xs-6 ">26/พ.ค./2545</div>
+                        
                         <div class="clearfix"></div>
                         <div class="bot-border"></div>
                     </div>
@@ -206,19 +373,487 @@
             </div>
         </div>
 
+        <!--รายงานผลการเรียนแต่ละภาคการศึกษา-->
+        <!-- หัวข้อ รายงานผลการเรียนแต่ละภาคการศึกษา -->
+        <h2>รายงานผลการเรียนแต่ละภาคการศึกษา</h2>
+
+        <!-- เริ่ม graph-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div id="chart-container">
+                        <p style="font-weight: bold; font-size: 15px;"><span style="color: red;"> <svg style="color: #ff6962;"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8" />
+                                </svg> เกรด(0-1.47)</span>
+                            <span style="color: orange;">&nbsp;&nbsp;&nbsp; <svg style="color: #f57b39;"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8" />
+                                </svg> เกรด(1.75-1.99)</span>
+                            <span style="color: green;">&nbsp;&nbsp;&nbsp;<svg style="color: #99cc99;"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8" />
+                                </svg> เกรด(2.0-3.24)</span>
+                            <span style="color: blue;">&nbsp;&nbsp;&nbsp;<svg style="color: #86d3f7;"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8" />
+                                </svg> เกรด(3.25-4.00)</span>
+                        </p>
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+
+                </div>
+
+                <!-- ปิด graph -->
+
+                <div class="col-sm-7">
+                    <!-- table ผลการเรียน-->
+
+
+                    <table class="table" style="height: 300px; width: 70; font-size:20px;">
+                        <thead>
+                            <tr>
+                                <th scope="col">ปีการศึกษา</th>
+                                <th scope="col">ภาคการศึกษา</th>
+                                <th scope="col">หน่วยกิต</th>
+                                <th scope="col">ผลการเรียน</th>
+                                <th scope="col">#</th>
+                                <th scope="col">GPA</th>
+                                <th scope="col">รายละเอียด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">2563</th>
+                                <td class="text-center">ภาคต้น</td>
+                                <td class="text-center">19</td>
+                                <td>2.13</td>
+                                <td></td>
+                                <td>2.13</td>
+                                <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
+                                            class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2563</th>
+                                <td class="text-center">ภาคปลาย</td>
+                                <td class="text-center">22</td>
+                                <td>3.34</td>
+                                <td><span style="color:red;">[-1.21]</span></td>
+                                <td>2.13</td>
+                                <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
+                                            class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2564</th>
+                                <td class="text-center">ภาคต้น</td>
+                                <td class="text-center">19</td>
+                                <td>2.63</td>
+                                <td><span style="color:green;">[+0.71]</span></td>
+                                <td>3.34</td>
+                                <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
+                                            class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2564</th>
+                                <td class="text-center">ภาคปลาย</td>
+                                <td class="text-center">22</td>
+                                <td>3.33</td>
+                                <td><span style="color:red  ;">[-0.70]</span></td>
+                                <td>2.64</td>
+                                <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+                                <td class="text-center">
+                                    <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
+                                            class="glyphicon glyphicon-search"></span>
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th scope='row'>ผลการเรียนเฉลี่ย</th>
+                                <td class='text-center'></td>
+                                <td class='text-center'>19</td>
+                                <td class=''>3.64</td>
+
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <!-- จบ table ผลการเรียน-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end รายงานการเรียนแต่ละภาค-->
+
+    <!--script รายงานการเรียนแต่ละภาค-->
+    <script>
+        $('#classModal').modal('show')
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+    <script>
+        const GPA2563 = [2.13, 3.34, 2.63, 3.33];
+        const GPAcolorbar = [];
+        let GPAsize = GPA2563.length;
+        let GPAcolorLoop;
+
+        for (let i = 0; i < GPAsize; i++) {
+            if (GPA2563[i] >= 0.0000 && GPA2563[i] <= 1.7499) {
+                GPAcolorLoop = '#ff6962';
+            }
+            else if (GPA2563[i] >= 1.7500 && GPA2563[i] <= 1.9999) {
+                GPAcolorLoop = '#f57b39';
+            }
+            else if (GPA2563[i] >= 2.0000 && GPA2563[i] <= 3.2499) {
+                GPAcolorLoop = '#99cc99';
+            }
+            else if (GPA2563[i] >= 3.2500) {
+                GPAcolorLoop = '#86d3f7';
+            }
+            GPAcolorbar[i] = GPAcolorLoop;
+        }
+        console.log(GPAcolorbar);
+
+
+        var ctx = document.getElementById("myChart");
+
+        var myChart = new Chart(ctx, {
+            //type: 'bar',
+            //type: 'line',
+            type: 'bar',
+            data: {
+                labels: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+                datasets: [{
+                    type: 'line',
+                    label: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+                    data: [2.13, 2.63, 2.62, 2.78],
+                    borderColor: 'rgb(0, 107, 201)',
+                    lineTension: 0,
+                    fill: false
+                },
+                {
+                    data: GPA2563,
+                    backgroundColor: GPAcolorbar,
+                    borderWidth: 0
+                },
+
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            max: 4,
+                            min: 0
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                },
+                responsive: true,
+
+            }
+        });
+    </script>
+    <!--end รายงานการเรียนแต่ละภาค-->
+
+    <!--รายงานผลการเรียน รายวิชา-->
+    <div class="content">
+        <h2>รายงานผลการเรียนแบ่งตามหมวดวิชา</h2>
+
+        <!-- เริ่ม graph-->
+        <div class="container">
+            <center>
+                <div id="chart-container1">
+                    <canvas id="myChartSub"></canvas>
+                </div>
+            </center>
+            <h2>รายงานหน่วยกิตที่ลงทะเบียนแบ่งตามหมวดวิชา (%)</h2>
+
+            <div class="container">
+                <!-- graph ข้างล่าง 3 อัน -->
+
+                <div class="body_chart">
+                    <div class="cont2">
+                        <div class="box">
+                            <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาศึกษาทั่วไป</span></h3>
+                            <div class="chart1" data-percent="100">
+                                <p>100%</p>
+                                <p style="margin-top: -45px;">3.12</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาเสรี</span></h3>
+                            <div class="chart2" data-percent="80">
+                                <p>80%</p>
+                                <p style="margin-top: -45px;">3.45</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาเฉพาะบังคับ</span></h3>
+                            <div class="chart3" data-percent="90">
+                                <p>90%</p>
+                                <p style="margin-top: -45px;">3.00</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาเฉพาะเลือก</span></h3>
+                            <div class="chart4" data-percent="90">
+                                <p>90%</p>
+                                <p style="margin-top: -45px;">1.25</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาเสรี</span></h3>
+                            <div class="chart5" data-percent="100">
+                                <p>100%</p>
+                                <p style="margin-top: -45px;">3.40</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ปิด table graph-->
+
+                <!-- เริ่ม table ตารางหน่วยกิต-->
+
+                <br>
+                <table class="credit_t" width="90%">
+                    <tr>
+                        <th style="width: 20%;">หมวดวิชา</th>
+                        <th style="text-align: right; width: 25%;">จำนวนหน่วยกิตที่<span
+                                style="color:#428f3e;">เรียนไปแล้ว</span>
+                        </th>
+                        <th style="text-align: right; width: 25%;">จำนวนหน่วยกิตที่<span
+                                style="color:red;">ยังไม่เรียน</span></th>
+                        <th style="text-align: right; width: 15%;">หน่วยกิตทั้งหมด</th>
+                        <th style="text-align: right; width: 15%;">เกรด</th>
+                    </tr>
+                    <tr>
+                        <td>หมวดวิชาศึกษาทั่วไป</td>
+                        <td style="font-weight: bold; color: green; text-align: right;">
+                            30
+                        </td>
+                        <td style="font-weight: bold; color: red; text-align: right;">
+                            0
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">30</td>
+                        <td style="font-weight: bold; text-align: right;">3.13</td>
+                    </tr>
+                    <tr>
+                        <td>หมวดวิชาเสรี</td>
+                        <td style="font-weight: bold; color: green; text-align: right;">
+                            6
+                        </td>
+                        <td style="font-weight: bold; color: red; text-align: right;">
+                            0
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">6</td>
+                        <td style="font-weight: bold; text-align: right;">3.23</td>
+                    </tr>
+                    <tr>
+                        <td>หมวดวิชาเฉพาะบังคับ</td>
+                        <td style="font-weight: bold; color: green; text-align: right;">
+                            98
+                        </td>
+                        <td style="font-weight: bold; color: red; text-align: right;">
+                            6
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">
+                            104
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">3.33</td>
+                    </tr>
+                    <tr>
+                        <td>หมวดวิชาเฉพาะเลือก</td>
+                        <td style="font-weight: bold; color: green; text-align: right;">
+                            98
+                        </td>
+                        <td style="font-weight: bold; color: red; text-align: right;">
+                            6
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">
+                            104
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">3.38</td>
+                    </tr>
+                    <tr>
+                        <td>หมวดวิชาเสรี</td>
+                        <td style="font-weight: bold; color: green; text-align: right;">
+                            36
+                        </td>
+                        <td style="font-weight: bold; color: red; text-align: right;">
+                            0
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">
+                            36
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">3.40</td>
+                    </tr>
+                </table>
+                <br>
+
+
+
+            </div>
+            <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+            <script src="../js/jquery.easypiechart.js"></script>
+            <script>
+                const GPAC = [3.13, 3.23, 3.33, 3.38, 3.40];
+                const GPACcolorbar = [];
+                let GPACsize = GPAC.length;
+                let GPACcolorLoop;
+                for (let i = 0; i < GPACsize; i++) {
+                    if (GPAC[i] >= 0.0000 && GPAC[i] <= 1.7499) {
+                        GPACcolorLoop = 'rgba(255, 105, 98,0.8)';
+                    }
+                    else if (GPAC[i] >= 1.7500 && GPAC[i] <= 1.9999) {
+                        GPACcolorLoop = 'rgba(245, 123, 57,0.8)';
+                    }
+                    else if (GPAC[i] >= 2.0000 && GPAC[i] <= 3.2499) {
+                        GPACcolorLoop = 'rgba(153, 204, 153,0.8)';
+                    }
+                    else if (GPAC[i] >= 3.2500) {
+                        GPACcolorLoop = 'rgba(134, 188, 247,0.8)';
+                    }
+                    GPACcolorbar[i] = GPACcolorLoop;
+                }
+                $(function () {
+                    $('.chart1').easyPieChart({
+                        //option
+                        //size:180,
+                        barColor: GPACcolorbar[0],
+                        scaleColor: false,
+                        lineWidth: 13,
+                        trackColor: '#d0ddd7' //7a7676
+                    });
+                    $('.chart2').easyPieChart({
+                        //option
+                        //size:180,
+                        barColor: GPACcolorbar[1],
+                        scaleColor: false,
+                        lineWidth: 13,
+                        trackColor: '#d0ddd7' //7a7676
+                    });
+                    $('.chart3').easyPieChart({
+                        //option
+                        //size:180,
+                        barColor: GPACcolorbar[2],
+                        scaleColor: false,
+                        lineWidth: 13,
+                        trackColor: '#d0ddd7' //7a7676
+                    });
+                    $('.chart4').easyPieChart({
+                        //option
+                        //size:180,
+                        barColor: GPACcolorbar[3],
+                        scaleColor: false,
+                        lineWidth: 13,
+                        trackColor: '#d0ddd7' //7a7676
+                    });
+                    $('.chart5').easyPieChart({
+                        //option
+                        //size:180,
+                        barColor: GPACcolorbar[4],
+                        scaleColor: false,
+                        lineWidth: 13,
+                        trackColor: '#d0ddd7' //7a7676
+                    });
+                });
+            </script>
+            <!-- ปิด"ตาราง"" graph 3 อัน-->
+
+            <!-- เปิด script กราฟด้านบน -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+            <script>
+                var ctx = document.getElementById("myChartSub");
+                const GPASub = [3.13, 3.23, 3.33, 3.38, 3.40];
+                const GPASubcolorbar = [];
+                let GPASubsize = GPASub.length;
+                let GPASubcolorLoop;
+                for (let i = 0; i < GPASubsize; i++) {
+                    if (GPASub[i] >= 0.0000 && GPASub[i] <= 1.7499) {
+                        GPASubcolorLoop = 'rgba(255, 105, 98,0.8)';
+                    }
+                    else if (GPASub[i] >= 1.7500 && GPASub[i] <= 1.9999) {
+                        GPASubcolorLoop = 'rgba(245, 123, 57,0.8)';
+                    }
+                    else if (GPASub[i] >= 2.0000 && GPASub[i] <= 3.2499) {
+                        GPASubcolorLoop = 'rgba(153, 204, 153,0.8)';
+                    }
+                    else if (GPASub[i] >= 3.2500) {
+                        GPASubcolorLoop = 'rgba(134, 188, 247,0.8)';
+                    }
+                    GPASubcolorbar[i] = GPASubcolorLoop;
+                }
+                var myChart = new Chart(ctx, {
+                    //type: 'bar',
+                    //type: 'line',
+                    
+                    type: 'bar',
+                    data: {
+                        labels: ['หมวดวิชาแกน', 'หมวดวิชาศึกษาทั่วไป', 'หมวดวิชาเฉพาะบังคับ', 'หมวดวิชาเฉพาะเลือก', 'หมวดวิชาเสรี'],
+                        datasets: [{
+                            data: GPASub,
+                            backgroundColor: GPASubcolorbar,
+                            borderWidth: 0,
+                            
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    max: 4,
+                                    min: 0
+                                }
+                            }]
+                        },
+                        legend: {
+                            display: false
+                        },
+                        responsive: true,
+        
+                    }
+
+                    
+                });
+            </script>
+            <!-- ปิด script กราฟด้านบน -->
+    </div>
+
+
         <!--end model profile -->
         <!--model table sort -->
         <!-- form method="post" action="print/export_std.php">
      <input type="submit" name="export" class="btn btn-success" value="Export" />
     </form> -->
-        <a href="print/export_std.php" class="btn btn-success"><span class="glyphicon glyphicon-file"></span>
-            <font size="3px">Excel</font>
-        </a>
-        <a href="print/pdf_std.php" class="btn btn-danger"><span class="glyphicon glyphicon-file"></span>
-            <font size="3px">PDF</font>
-        </a>
+       
 
-        <br><br>
+        <!--<br><br>
         <div style="padding-top: 15px">
             <div class="menu-top">
                 <div class="menu-box">
@@ -279,8 +914,6 @@
             </div>
         </div>
 
-
-        <!--end model table sort -->
         <script>
             $(document).ready(function () {
                 $('#grade').DataTable({
@@ -297,7 +930,7 @@
                     "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
                 });
             });
-        </script>
+        </script>-->
     </div>
 
 </body>
@@ -305,7 +938,7 @@
 
 </html>
 
-<div id="core" class="content">
+<!--<div id="core" class="content">
     <table id="grade" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -356,7 +989,6 @@
 
 </div>
 
-<!-- general -->
 <div id="general" class="content">
     <table id="grade2" class="display" cellspacing="0" width="100%">
         <thead>
@@ -447,4 +1079,52 @@
             $('#core').hide();
         });
     });  
-</script>
+</script>-->
+
+<!--MOdal-->
+<div id="dataModal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <table  class="modal-dialog modal-lg" style="border:none; width: 85%;">
+                    <th style=" text-align: left; "><h4 style="font-weight: bold;">เกรด 3.23</h4></th>
+                    <th style=" text-align: right;"><h4 style="font-weight: bold;">GPA 3.45</h4></th>
+                </table>
+                
+               
+            </div>
+            <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
+            <div class="modal-body" id="std_detail">
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>รายชื่อวิชา</th>
+                            <th>เกรดที่ได้</th>
+                            <th>จำนวนหน่วยกิต</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th >General Physics I</th>
+                            <th >B</th>
+                            <th >3</th>
+                        </tr>
+                        <tr>
+                            <th >Math I</th>
+                            <th>B</th>
+                            <th >3</th>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end modal-->

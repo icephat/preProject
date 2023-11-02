@@ -100,7 +100,6 @@
             margin: 0;
             padding: 0;
             font-family: sans-serif;
-            margin-left: 140px;
 
         }
 
@@ -110,18 +109,58 @@
         }
 
         .cont2 .box {
-            width: 25%;
+            width: 30%;
             float: left;
         }
 
-        .cont2 .box .chart {
+        .cont2 .box .chart1 {
             position: relative;
             width: 110px;
             height: 110px;
             margin: 0 auto;
             text-align: center;
-            font-size: 30px;
-            line-height: 110px;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        .cont2 .box .chart2 {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        .cont2 .box .chart3 {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        .cont2 .box .chart4 {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 70px;
+        }
+
+        .cont2 .box .chart5 {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 70px;
         }
 
         .cont2 .box canvas {
@@ -196,6 +235,17 @@
                     </div>
                 </div>
                 <div class="menu-box">
+                    <div class="menu-box-sky active">
+                        <ul>
+                            <li>
+                                <a href="../student/report.html"><b>
+                                        <font color="#000000">ผลการเรียน</font>
+                                    </b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
                     <div class="menu-box-red ">
                         <ul>
                             <li>
@@ -206,28 +256,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="menu-box">
-                    <div class="menu-box-orange ">
-                        <ul>
-                            <li>
-                                <a href="../student/activity.html">
-                                    <font color="#000000"><b>กิจกรรม</b></font>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="menu-box">
-                    <div class="menu-box-sky active">
-                        <ul>
-                            <li>
-                                <a href="../student/report.html"><b>
-                                        <font color="#000000">รายงาน</font>
-                                    </b></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
+
             </div>
         </div>
         <br>
@@ -247,25 +277,42 @@
 
             <div class="container">
                 <!-- graph ข้างล่าง 3 อัน -->
-                
+
                 <div class="body_chart">
                     <div class="cont2">
                         <div class="box">
                             <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาศึกษาทั่วไป</span></h3>
-                            <div class="chart" data-percent="100">
-                                100%
+                            <div class="chart1" data-percent="100">
+                                <p>100%</p>
+                                <p style="margin-top: -45px;">3.12</p>
                             </div>
                         </div>
                         <div class="box">
                             <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาเสรี</span></h3>
-                            <div class="chart" data-percent="80">
-                                80%
+                            <div class="chart2" data-percent="80">
+                                <p>80%</p>
+                                <p style="margin-top: -45px;">3.45</p>
                             </div>
                         </div>
                         <div class="box">
-                            <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาเฉพาะ</span></h3>
-                            <div class="chart" data-percent="90">
-                                90%
+                            <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาเฉพาะบังคับ</span></h3>
+                            <div class="chart3" data-percent="90">
+                                <p>90%</p>
+                                <p style="margin-top: -45px;">3.00</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาเฉพาะเลือก</span></h3>
+                            <div class="chart4" data-percent="90">
+                                <p>90%</p>
+                                <p style="margin-top: -45px;">1.25</p>
+                            </div>
+                        </div>
+                        <div class="box">
+                            <h3>หน่วยกิตการเรียน &nbsp;<br><span style="color:#304f69;">หมวดวิชาเสรี</span></h3>
+                            <div class="chart5" data-percent="100">
+                                <p>100%</p>
+                                <p style="margin-top: -45px;">3.40</p>
                             </div>
                         </div>
                     </div>
@@ -274,25 +321,29 @@
                 <!-- ปิด table graph-->
 
                 <!-- เริ่ม table ตารางหน่วยกิต-->
-                <br><br><br><br>
-                <p>
+
+                <br>
                 <table class="credit_t" width="80%">
                     <tr>
-                        <th>หมวดวิชา</th>
-                        <th style="text-align: right;">จำนวนหน่วยกิตที่<span style="color:#428f3e;">เรียนไปแล้ว</span>
+                        <th style="width: 20%;">หมวดวิชา</th>
+                        <th style="text-align: right; width: 25%;">จำนวนหน่วยกิตที่<span
+                                style="color:#428f3e;">เรียนไปแล้ว</span>
                         </th>
-                        <th style="text-align: right;">จำนวนหน่วยกิตที่<span style="color:red;">ยังไม่เรียน</span></th>
-                        <th style="text-align: right;">หน่วยกิตทั้งหมด</th>
+                        <th style="text-align: right; width: 25%;">จำนวนหน่วยกิตที่<span
+                                style="color:red;">ยังไม่เรียน</span></th>
+                        <th style="text-align: right; width: 15%;">หน่วยกิตทั้งหมด</th>
+                        <th style="text-align: right; width: 15%;">เกรด</th>
                     </tr>
                     <tr>
                         <td>หมวดวิชาศึกษาทั่วไป</td>
                         <td style="font-weight: bold; color: green; text-align: right;">
-                           30
+                            30
                         </td>
                         <td style="font-weight: bold; color: red; text-align: right;">
                             0
                         </td>
                         <td style="font-weight: bold; text-align: right;">30</td>
+                        <td style="font-weight: bold; text-align: right;">3.13</td>
                     </tr>
                     <tr>
                         <td>หมวดวิชาเสรี</td>
@@ -303,9 +354,10 @@
                             0
                         </td>
                         <td style="font-weight: bold; text-align: right;">6</td>
+                        <td style="font-weight: bold; text-align: right;">3.23</td>
                     </tr>
                     <tr>
-                        <td>หมวดวิชาเฉพาะ</td>
+                        <td>หมวดวิชาเฉพาะบังคับ</td>
                         <td style="font-weight: bold; color: green; text-align: right;">
                             98
                         </td>
@@ -315,10 +367,36 @@
                         <td style="font-weight: bold; text-align: right;">
                             104
                         </td>
+                        <td style="font-weight: bold; text-align: right;">3.33</td>
+                    </tr>
+                    <tr>
+                        <td>หมวดวิชาเฉพาะเลือก</td>
+                        <td style="font-weight: bold; color: green; text-align: right;">
+                            98
+                        </td>
+                        <td style="font-weight: bold; color: red; text-align: right;">
+                            6
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">
+                            104
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">3.38</td>
+                    </tr>
+                    <tr>
+                        <td>หมวดวิชาเสรี</td>
+                        <td style="font-weight: bold; color: green; text-align: right;">
+                            36
+                        </td>
+                        <td style="font-weight: bold; color: red; text-align: right;">
+                            0
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">
+                            36
+                        </td>
+                        <td style="font-weight: bold; text-align: right;">3.40</td>
                     </tr>
                 </table>
-                <h4 style="color: red;">*หมวดวิชาเฉพาะ คือ หมวดวิชาแกน,หมวดวิชาเฉพาะบังคับ และหมวดวิชาเฉพาะเลือก</h4>
-                <p><br>
+                <br>
 
 
 
@@ -326,11 +404,62 @@
             <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
             <script src="../js/jquery.easypiechart.js"></script>
             <script>
+                const GPAC = [3.13, 3.23, 3.33, 3.38, 3.40];
+                const GPACcolorbar = [];
+                let GPACsize = GPAC.length;
+                let GPACcolorLoop;
+                for (let i = 0; i < GPACsize; i++) {
+                    if (GPAC[i] >= 0.0000 && GPAC[i] <= 1.7499) {
+                        GPACcolorLoop = 'rgba(255, 105, 98,0.8)';
+                    }
+                    else if (GPAC[i] >= 1.7500 && GPAC[i] <= 1.9999) {
+                        GPACcolorLoop = 'rgba(245, 123, 57,0.8)';
+                    }
+                    else if (GPAC[i] >= 2.0000 && GPAC[i] <= 3.2499) {
+                        GPACcolorLoop = 'rgba(153, 204, 153,0.8)';
+                    }
+                    else if (GPAC[i] >= 3.2500) {
+                        GPACcolorLoop = 'rgba(134, 188, 247,0.8)';
+                    }
+                    GPACcolorbar[i] = GPACcolorLoop;
+                }
                 $(function () {
-                    $('.chart').easyPieChart({
+                    $('.chart1').easyPieChart({
                         //option
                         //size:180,
-                        barColor: '#4bab7d',
+                        barColor: GPACcolorbar[0],
+                        scaleColor: false,
+                        lineWidth: 13,
+                        trackColor: '#d0ddd7' //7a7676
+                    });
+                    $('.chart2').easyPieChart({
+                        //option
+                        //size:180,
+                        barColor: GPACcolorbar[1],
+                        scaleColor: false,
+                        lineWidth: 13,
+                        trackColor: '#d0ddd7' //7a7676
+                    });
+                    $('.chart3').easyPieChart({
+                        //option
+                        //size:180,
+                        barColor: GPACcolorbar[2],
+                        scaleColor: false,
+                        lineWidth: 13,
+                        trackColor: '#d0ddd7' //7a7676
+                    });
+                    $('.chart4').easyPieChart({
+                        //option
+                        //size:180,
+                        barColor: GPACcolorbar[3],
+                        scaleColor: false,
+                        lineWidth: 13,
+                        trackColor: '#d0ddd7' //7a7676
+                    });
+                    $('.chart5').easyPieChart({
+                        //option
+                        //size:180,
+                        barColor: GPACcolorbar[4],
                         scaleColor: false,
                         lineWidth: 13,
                         trackColor: '#d0ddd7' //7a7676
@@ -343,33 +472,37 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
             <script>
                 var ctx = document.getElementById("myChart");
+                const GPASub = [3.13, 3.23, 3.33, 3.38, 3.40];
+                const GPASubcolorbar = [];
+                let GPASubsize = GPASub.length;
+                let GPASubcolorLoop;
+                for (let i = 0; i < GPASubsize; i++) {
+                    if (GPASub[i] >= 0.0000 && GPASub[i] <= 1.7499) {
+                        GPASubcolorLoop = 'rgba(255, 105, 98,0.8)';
+                    }
+                    else if (GPASub[i] >= 1.7500 && GPASub[i] <= 1.9999) {
+                        GPASubcolorLoop = 'rgba(245, 123, 57,0.8)';
+                    }
+                    else if (GPASub[i] >= 2.0000 && GPASub[i] <= 3.2499) {
+                        GPASubcolorLoop = 'rgba(153, 204, 153,0.8)';
+                    }
+                    else if (GPASub[i] >= 3.2500) {
+                        GPASubcolorLoop = 'rgba(134, 188, 247,0.8)';
+                    }
+                    GPASubcolorbar[i] = GPASubcolorLoop;
+                }
                 var myChart = new Chart(ctx, {
                     //type: 'bar',
                     //type: 'line',
+                    
                     type: 'bar',
                     data: {
                         labels: ['หมวดวิชาแกน', 'หมวดวิชาศึกษาทั่วไป', 'หมวดวิชาเฉพาะบังคับ', 'หมวดวิชาเฉพาะเลือก', 'หมวดวิชาเสรี'],
                         datasets: [{
-                            label: 'ผลการเรียนเฉลี่ย',
-                            data: [3.13, 3.23, 3.33, 3.38, 3.40],
-                            backgroundColor: [
-                                'rgba(150,186,169, 1)', //1
-                                'rgba(108,158,134, 1)',
-                                'rgba(66,130,100, 1)',
-                                'rgba(45,117,83, 1)',
-                                'rgba(27,70,49, 1)', //5
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(150,186,169, 1)', //1
-                                'rgba(108,158,134, 1)',
-                                'rgba(66,130,100, 1)',
-                                'rgba(45,117,83, 1)',
-                                'rgba(27,70,49, 1)', //5
-                                'rgba(0, 51, 18, 1)'
-                            ],
-                            borderWidth: 0
+                            data: GPASub,
+                            backgroundColor: GPASubcolorbar,
+                            borderWidth: 0,
+                            
                         }]
                     },
                     options: {
@@ -382,9 +515,14 @@
                                 }
                             }]
                         },
+                        legend: {
+                            display: false
+                        },
                         responsive: true,
-
+        
                     }
+
+                    
                 });
             </script>
             <!-- ปิด script กราฟด้านบน -->

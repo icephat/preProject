@@ -50,7 +50,10 @@
         table {
             font-size: 22px;
         }
-        
+
+        .nav-tabs {
+            font-size: 20px;
+        }
     </style>
 </head>
 
@@ -81,7 +84,7 @@
                         <div class="menu-box-blue  ">
                             <ul>
                                 <li>
-                                    <a href="../teacher/home.html">
+                                    <a href="../coursepresident/home.html">
                                         <font color="#000000"><b>หน้าหลัก</b></font>
                                     </a>
                                 </li>
@@ -92,7 +95,7 @@
                         <div class="menu-box-green ">
                             <ul>
                                 <li>
-                                    <a href="../teacher/student_static.html">
+                                    <a href="../coursepresident/static_select.html">
                                         <font color="#000000"><b>สถิติ</b></font>
                                     </a>
                                 </li>
@@ -128,7 +131,7 @@
                             <th>
                                 <center>ภาคการศึกษา<span style="color:red">*</span></center>
                             </th>
-                           
+
                             <th></th>
                         </tr>
                     </thead>
@@ -139,14 +142,10 @@
                                 <center>
                                     <select class="selectpicker" width="500px" data-live-search="true">
                                         <option value="default">--กรุณาเลือกหลักสูตร--</option>
-                                        
-                                        <option value="2561">2561
+
+                                        <option value="2561">2560
                                         </option>
-                                        <option value="2562">2562</option>
-                                        <option value="2563">2563</option>
-                                        <option value="2564">2564</option>
-                                        <option value="2565">2565</option>
-                                        <option value="2566">2566</option>
+                                        <option value="2562">2565</option>
                                     </select>
 
                                 </center>
@@ -181,7 +180,7 @@
 
                                 </center>
                             </td>
-                            
+
                             <td>
                                 <center>
                                     <button type="submit" name="submit" id="data"
@@ -191,14 +190,6 @@
                         </tr>
                     </tbody>
                 </table>
-
-                
-
-                <!--<div id="chart-container" class="float-left"
-                    style="width: 550px; margin-top: 50px; margin-left: -10%;">
-                        <canvas id="learn"></canvas>
-                    </div>-->
-
 
             </div>
 
@@ -212,88 +203,44 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
     </script>
-    <script>
-        const DATA_COUNT = 1;
-        const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
-
-
-
-        var ctx = document.getElementById("learn");
-        var myChart = new Chart(ctx, {
-            //type: 'bar',
-            //type: 'line',
-            type: 'bar',
-            data: {
-                labels: ['2562','2563', '2564', '2565', '2566'],
-                datasets: [{
-                    label: 'ตามหลักสูตร',
-                    data: [65,60,55,50,60],
-                    backgroundColor: "#89cfef",
-                    borderWidth: 0
-                },
-                {
-                    label: ['ไม่ตามหลักสุตร'],
-                    data: [64,40,25,40,55],
-                    backgroundColor: "#ffab76",
-                    borderWidth: 0
-                },
-                {
-                    label: ['ลาออก'],
-                    data: [4,5,3,4,5],
-                    backgroundColor: '#ff6962',
-                    borderWidth: 0
-                }
-                ]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true
-                    }
-                }
-
-            }
-        });
-    </script>
-
-
 
 
 </body>
 
 </html>
 
+
 <div id="data" class="content">
-    <h3>ภาคการศึกษา: ภาคต้น &nbsp; ปีการศึกษา: 2563</h3>
+    <h3>หลักสูตร: 2560 &nbsp; ปีการศึกษา: 2563 &nbsp; ภาคการศึกษา: ภาคต้น </h3>
 
     <!--จำนวนสรุป-->
 
     <table class="table table-hover" style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
         <tr style="border: 1px solid black; border-collapse: collapse;">
-            <th style="border: 1px solid black; border-collapse: collapse; width: 50%;" >
-                
+            <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+
                 <div style="color: rgb(0, 9, 188);">
                     <div class="text-center">
-                        <a style="color: rgb(0, 9, 188);" href="./report_student_honor.html"><h2>เกียรตินิยม</h2></a>
+                        <a style="color: rgb(0, 9, 188);" href="./report_student_honor.html">
+                            <h2>เกียรตินิยม</h2>
+                        </a>
                     </div>
                     <div class="text-center">
-                        <h1 style="font-weight: bolder; font-size: 100px; ">3</h1>
+                        <h1 style="font-weight: bolder; font-size: 100px; ">1</h1>
                     </div>
                     <div class="text-right">
                         <p>คน</p>
                     </div>
                 </div>
-            
+
 
             </th>
             <th style="border: 1px solid black; border-collapse: collapse;">
                 <div style="color: rgb(0, 110, 22);">
                     <div class="text-center">
-                        <a style="color: rgb(0, 110, 22);" href="./report_student_normal.html"><h2>ปกติ</h2></a>
+                        <a style="color: rgb(0, 110, 22);" href="./report_student_normal.html">
+                            <h2>ปกติ</h2>
+                        </a>
                     </div>
                     <div class="text-center">
                         <h1 style="font-weight: bolder; font-size: 100px;">5</h1>
@@ -303,13 +250,15 @@
                     </div>
                 </div>
             </th>
-          </tr>
-          <tr >
+        </tr>
+        <tr>
             <th style="border: 1px solid black; border-collapse: collapse;">
-                
+
                 <div style="color: #ff8c00;">
                     <div class="text-center">
-                        <a style="color: #ff8c00;" href="./report_student_prohigh.html"><h2>โปรสูง</h2></a>
+                        <a style="color: #ff8c00;" href="./report_student_prohigh.html">
+                            <h2>รอพินิจ</h2>
+                        </a>
                     </div>
                     <div class="text-center">
                         <h1 style="font-weight: bolder; font-size: 100px;">7</h1>
@@ -322,7 +271,9 @@
             <th style="border: 1px solid black; border-collapse: collapse;">
                 <div style="color: rgb(255, 0, 0);">
                     <div class="text-center">
-                        <a style="color: rgb(255, 0, 0);" href="./report_student_prodown.html"><h2>โปรต่ำ</h2></a>
+                        <a style="color: rgb(255, 0, 0);" href="./report_student_prodown.html">
+                            <h2>โปรต่ำ</h2>
+                        </a>
                     </div>
                     <div class="text-center">
                         <h1 style="font-weight: bolder; font-size: 100px;">10</h1>
@@ -332,24 +283,40 @@
                     </div>
                 </div>
             </th>
-          </tr>
+        </tr>
     </table>
 
+    <h3>ช่วงเกรดเฉลี่ยนิสิตปีที่ 1 ภาคต้น ในแต่ละปีการรับเข้าศึกษา</h3>
+    <div id="chart-container" class="content" style="width: 80%; margin-top: 20px;">
+        <canvas id="tcas"></canvas>
+    </div>
+    <br><br>
 
+    <h3>สถานภาพนิสิต ณ ปัจจุบัน</h3>
+    <div id="chart-container" class="content" style="width: 80%; margin-top: 20px;">
+        <canvas id="learn"></canvas>
+    </div>
+    <br><br>
+    <h3>สถานภาพนิสิตจบการศึกษา</h3>
+    <div id="chart-container" class="content" style="width: 80%; margin-top: 20px;">
+        <canvas id="learn2"></canvas>
+    </div>
+    <br><br>
+    
 
-    <table class="table table-bordered table-dark" style="margin-top: 50px; ">
-        
+    <table class="table table-bordered table-dark" style="margin-top: 20px; ">
+
         <thead>
             <tr>
-                <th class="text-center" colspan="4">นักศึกษา</th>
+                <th class="text-center" colspan="4">นิสิต</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th >รหัสนิสิต</th>
-                <th >ชื่อ-นามสกุล</th>
-                <th >GPA</th>
-                <th >สถานะ</th>
+                <th>รหัสนิสิต</th>
+                <th>ชื่อ-นามสกุล</th>
+                <th>GPA</th>
+                <th>สถานะ</th>
             </tr>
             <tr>
                 <td>6320500603</td>
@@ -367,3 +334,164 @@
     </table>
 
 </div>
+
+
+
+</div>
+
+<script>
+
+    var ctx = document.getElementById("tcas");
+    var myChart = new Chart(ctx, {
+        //type: 'bar',
+        //type: 'line',
+        type: 'bar',
+        data: {
+            labels: ['รหัส 62', 'รหัส 63', 'รหัส 64', 'รหัส 65', 'รหัส 66'],
+            datasets: [{
+                label: '3.25-4.00',
+                data: [344,298, 288, 247, 356],
+                backgroundColor: "rgba(0, 9, 188,0.7)",
+                borderWidth: 0
+            },
+            {
+                label: '2.00-3.24',
+                data: [1058, 990, 558, 449, 506],
+                backgroundColor: "rgba(0, 110, 22,0.7)",
+                borderWidth: 0
+            },
+            {
+                label: '1.75-1.99',
+                data: [170, 155, 290, 167, 200],
+                backgroundColor: 'rgba(255,128,0,0.7)',
+                borderWidth: 0
+            },
+            {
+                label: '0.00-1.74',
+                data: [159, 120, 109, 162, 183],
+                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                borderWidth: 0
+            }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true
+                }
+            }
+
+        }
+    });
+</script>
+
+
+<script>
+
+    var ctx = document.getElementById("learn");
+    var myChart = new Chart(ctx, {
+        //type: 'bar',
+        //type: 'line',
+        type: 'bar',
+        data: {
+            labels: ['รหัส 62', 'รหัส 63', 'รหัส 64', 'รหัส 65', 'รหัส 66'],
+            datasets: [{
+                label: 'เกียรตินิยม',
+                data: [0, 5, 2, 7, 3],
+                backgroundColor: "rgba(0, 9, 188,0.7)",
+                borderWidth: 0
+            },
+            {
+                label: 'ปกติ',
+                data: [0, 45, 55, 44, 50],
+                backgroundColor: "rgba(0, 110, 22,0.7)",
+                borderWidth: 0
+            },
+            {
+                label: 'โปรสูง',
+                data: [1, 0, 2, 1, 0],
+                backgroundColor: 'rgba(255,128,0,0.7)',
+                borderWidth: 0
+            },
+            {
+                label: 'โปรต่ำ',
+                data: [2, 1, 4, 2, 3],
+                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                borderWidth: 0
+            }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true
+                }
+            }
+
+        }
+    });
+</script>
+
+<script>
+
+    var ctx = document.getElementById("learn2");
+    var myChart = new Chart(ctx, {
+        //type: 'bar',
+        //type: 'line',
+        type: 'bar',
+        data: {
+            labels: ['รหัส 62', 'รหัส 63', 'รหัส 64', 'รหัส 65', 'รหัส 66'],
+            datasets: [{
+                label: 'เกียรตินิยม',
+                data: [5, 0, 0, 0, 0],
+                backgroundColor: "rgba(0, 9, 188,0.7)",
+                borderWidth: 0
+            },
+            {
+                label: 'ปริญญา',
+                data: [40, 0, 0, 0, 0],
+                backgroundColor: "rgba(0, 110, 22,0.7)",
+                borderWidth: 0
+            },
+            {
+                label: 'อนุปริญญา',
+                data: [1, 0, 0, 0, 0],
+                backgroundColor: 'rgba(255,128,0,0.7)',
+                borderWidth: 0
+            },
+            {
+                label: 'กำลังศึกษา',
+                data: [3, 0, 0, 0, 0],
+                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                borderWidth: 0
+            },
+            {
+                label: 'พ้นสภาพ',
+                data: [2, 0, 0, 0, 0],
+                backgroundColor: 'rgba(0, 0, 0,0.7)',
+                borderWidth: 0
+            }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    stacked: true,
+                },
+                y: {
+                    stacked: true
+                }
+            }
+
+        }
+    });
+</script>

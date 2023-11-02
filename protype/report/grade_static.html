@@ -126,6 +126,17 @@
                     </div>
                 </div>
                 <div class="menu-box">
+                    <div class="menu-box-sky active">
+                        <ul>
+                            <li>
+                                <a href="../student/report.html"><b>
+                                        <font color="#000000">ผลการเรียน</font>
+                                    </b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-box">
                     <div class="menu-box-red ">
                         <ul>
                             <li>
@@ -136,28 +147,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="menu-box">
-                    <div class="menu-box-orange ">
-                        <ul>
-                            <li>
-                                <a href="../student/activity.html">
-                                    <font color="#000000"><b>กิจกรรม</b></font>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="menu-box">
-                    <div class="menu-box-sky active">
-                        <ul>
-                            <li>
-                                <a href="../student/report.html"><b>
-                                        <font color="#000000">รายงาน</font>
-                                    </b></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <br>
@@ -170,6 +160,27 @@
             <div class="row">
                 <div class="col-sm-5">
                     <div id="chart-container">
+                        <p style="font-weight: bold;"><span style="color: red;"> <svg style="color: #ff6962;"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8" />
+                                </svg> เกรด(0-1.47)</span>
+                            <span style="color: orange;">&nbsp;&nbsp;&nbsp; <svg style="color: #f57b39;"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8" />
+                                </svg> เกรด(1.75-1.99)</span>
+                            <span style="color: green;">&nbsp;&nbsp;&nbsp;<svg style="color: #99cc99;"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8" />
+                                </svg> เกรด(2.0-3.24)</span>
+                            <span style="color: blue;">&nbsp;&nbsp;&nbsp;<svg style="color: #86d3f7;"
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                    <circle cx="8" cy="8" r="8" />
+                                </svg> เกรด(3.25-4.00)</span>
+                        </p>
                         <canvas id="myChart"></canvas>
                     </div>
 
@@ -178,7 +189,7 @@
 
                 <!-- ปิด graph -->
 
-                <div class="col-sm-5">
+                <div class="col-sm-7">
                     <!-- table ผลการเรียน-->
 
 
@@ -189,6 +200,7 @@
                                 <th scope="col">ภาคการศึกษา</th>
                                 <th scope="col">หน่วยกิต</th>
                                 <th scope="col">ผลการเรียน</th>
+                                <th scope="col">#</th>
                                 <th scope="col">รายละเอียด</th>
                             </tr>
                         </thead>
@@ -197,7 +209,8 @@
                                 <th scope="row">2563</th>
                                 <td class="text-center">ภาคต้น</td>
                                 <td class="text-center">19</td>
-                                <td>2.13<span></span></td>
+                                <td>2.13</td>
+                                <td></td>
                                 <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
                                 <td class="text-center">
                                     <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
@@ -209,7 +222,8 @@
                                 <th scope="row">2563</th>
                                 <td class="text-center">ภาคปลาย</td>
                                 <td class="text-center">22</td>
-                                <td>3.34<span></span></td>
+                                <td>3.34</td>
+                                <td><span style="color:red;">[-1.21]</span></td>
                                 <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
                                 <td class="text-center">
                                     <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
@@ -221,7 +235,8 @@
                                 <th scope="row">2564</th>
                                 <td class="text-center">ภาคต้น</td>
                                 <td class="text-center">19</td>
-                                <td>2.63<span></span></td>
+                                <td>2.63</td>
+                                <td><span style="color:green;">[+0.71]</span></td>
                                 <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
                                 <td class="text-center">
                                     <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
@@ -233,7 +248,8 @@
                                 <th scope="row">2564</th>
                                 <td class="text-center">ภาคปลาย</td>
                                 <td class="text-center">22</td>
-                                <td>3.33<span></span></td>
+                                <td>3.33</td>
+                                <td><span style="color:red  ;">[-0.70]</span></td>
                                 <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
                                 <td class="text-center">
                                     <a data-toggle="modal" data-target="#dataModal" class="info_nisit"> <span
@@ -265,42 +281,28 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
     <script>
-        const GPA2563 = [2.13, 2.63];
+        const GPA2563 = [2.13, 3.34, 2.63, 3.33];
         const GPAcolorbar = [];
         let GPAsize = GPA2563.length;
         let GPAcolorLoop;
-        
+
         for (let i = 0; i < GPAsize; i++) {
-            if (GPA2563[i] <= 1.5) {
+            if (GPA2563[i] >= 0.0000 && GPA2563[i] <= 1.7499) {
                 GPAcolorLoop = '#ff6962';
             }
-            else if (GPA2563[i] < 3.00) {
-                GPAcolorLoop = '#effd5f';
+            else if (GPA2563[i] >= 1.7500 && GPA2563[i] <= 1.9999) {
+                GPAcolorLoop = '#f57b39';
             }
-            else {
+            else if (GPA2563[i] >= 2.0000 && GPA2563[i] <= 3.2499) {
                 GPAcolorLoop = '#99cc99';
+            }
+            else if (GPA2563[i] >= 3.2500) {
+                GPAcolorLoop = '#86d3f7';
             }
             GPAcolorbar[i] = GPAcolorLoop;
         }
         console.log(GPAcolorbar);
 
-        const GPA2564 = [3.34, 3.33];
-        const GPAcolorbar2 = [];
-        let GPAsize2 = GPA2564.length;
-        let GPAcolorLoop2;
-        for (let i = 0; i < GPAsize2; i++) {
-            if (GPA2564[i] <= 1.5) {
-                GPAcolorLoop2 = '#ff6962';
-            }
-            else if (GPA2564[i] < 3.00) {
-                GPAcolorLoop2 = '#effd5f';
-            }
-            else {
-                GPAcolorLoop2 = '#99cc99';
-            }
-            GPAcolorbar2[i] = GPAcolorLoop2;
-        }
-        console.log(GPAcolorbar2);
 
         var ctx = document.getElementById("myChart");
 
@@ -309,17 +311,21 @@
             //type: 'line',
             type: 'bar',
             data: {
-                labels: ['2563', '2564'],
+                labels: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
                 datasets: [{
+                    type: 'line',
+                    label: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+                    data: [2.13, 2.63, 2.62, 2.78],
+                    borderColor: 'rgb(0, 107, 201)',
+                    lineTension: 0,
+                    fill: false
+                },
+                {
                     data: GPA2563,
                     backgroundColor: GPAcolorbar,
                     borderWidth: 0
                 },
-                {
-                    data: GPA2564,
-                    backgroundColor: GPAcolorbar2,
-                    borderWidth: 0
-                }
+
                 ]
             },
             options: {
@@ -331,6 +337,9 @@
                             min: 0
                         }
                     }]
+                },
+                legend: {
+                    display: false
                 },
                 responsive: true,
 
@@ -344,9 +353,13 @@
 <div id="dataModal" class="modal fade">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="height: 90px;">
+                <table  class="modal-dialog modal-lg" style="border:none;">
+                    <th style=" text-align: left; "><h4 style="font-weight: bold;">เกรด 3.23</h4></th>
+                    <th style=" text-align: right;"><h4 style="font-weight: bold;">GPA 3.45</h4></th>
+                </table>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"></h4>
+               
             </div>
             <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
             <div class="modal-body" id="std_detail">
@@ -356,17 +369,19 @@
                         <tr>
                             <th>รายชื่อวิชา</th>
                             <th>เกรดที่ได้</th>
-
+                            <th>จำนวนหน่วยกิต</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">General Physics I</th>
-                            <th scope="row">B</th>
+                            <th >General Physics I</th>
+                            <th >B</th>
+                            <th >3</th>
                         </tr>
                         <tr>
-                            <th scope="row">Math I</th>
-                            <th scope="row">B</th>
+                            <th >Math I</th>
+                            <th>B</th>
+                            <th >3</th>
                         </tr>
                     </tbody>
                 </table>

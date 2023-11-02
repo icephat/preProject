@@ -145,8 +145,8 @@
                             <!-- <img src="img.png" alt="Person"> -->
                             <font size="4px"><b>ฐิติพงษ์ สถิรเมธีกุล </b></font>
                             <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
-                            <a href="../logout.php" data-toggle="tooltip" title=" ">
-                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b> </b>
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
                                 </font>
                             </a>
                         </div>
@@ -156,11 +156,11 @@
             <div style="padding-top: 15px" class="content">
                 <div class="menu-top">
                     <div class="menu-box">
-                        <div class="menu-box-blue active">
+                        <div class="menu-box-blue ">
                             <ul>
                                 <li>
-                                    <a href="../teacher/home.html">
-                                        <font color="#000000"><b>อาจารย์ที่ปรึกษา</b></font>
+                                    <a href="./home.html">
+                                        <font color="#000000"><b>หน้าหลัก</b></font>
                                     </a>
                                 </li>
                             </ul>
@@ -170,19 +170,19 @@
                         <div class="menu-box-green ">
                             <ul>
                                 <li>
-                                    <a href="../teacher/static_select.html">
-                                        <font color="#000000"><b>รายงาน</b></font>
+                                    <a href="../coursepresident/student_static.html">
+                                        <font color="#000000"><b>สถิติ</b></font>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="menu-box">
-                        <div class="menu-box-red  ">
+                        <div class="menu-box-red  active">
                             <ul>
                                 <li>
-                                    <a href="../teacher/nisit.html">
-                                        <font color="#000000"><b>รายชื่อนิสิต</b></font>
+                                    <a href="../report_student_coursepresident/report_table_teacher.html">
+                                        <font color="#000000"><b>รายงาน</b></font>
                                     </a>
                                 </li>
                             </ul>
@@ -191,93 +191,19 @@
                 </div>
             </div>
             <p><br>
-                <a class="goback" style="cursor: pointer;" onclick="location.href='../teacher/home.html'">
+                <a class="goback" style="cursor: pointer;" onclick="location.href='./report_table_teacher.html'">
                     < ย้อนกลับ</a>
 
                         <div class="content">
-                            <h3 style="font-weight: bold;">รายชื่อนักศึกษา <span
-                                    style="color: rgb(255, 0, 0);">โปรต่ำ</span> มีจำนวน 2 คน</h3>
-                            <table id="grade" class="display" cellspacing="0" width="100%">
-                                <br>
-                                <thead>
-                                    <tr>
-                                        <th>รหัสนิสิต</th>
-                                        <th class="col-lg-2">ชื่อ-นามสกุล</th>
-                                        <th>ประเภทหลักสูตร</th>
-                                        <th>สิทธิ์ฝึกงาน</th>
-                                        <th>สิทธิ์ทำโครงงาน</th>
-                                        <th class="text-center">หน่วยกิต<br>
-                                            (ทั้งหมด/ผ่าน/ไม่ผ่าน)
-                                        </th>
-                                        <th>ผลการเรียน</th>
-
-                                        <th class="text-center">รายละเอียด</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">6320500603</td>
-                                        <td>ภัทรพร ปัญญาอุดมพร</td>
-                                        <td class="text-center">ปกติ</td>
-                                        <td class="text-center"><span style='color:red;'>&nbsp;ไม่มีสิทธิ์ฝึกงาน</span>
-                                        </td>
-                                        <td class="text-center"><span style='color:green;'>&nbsp;มีสิทธิ์</span>
-                                        </td>
-                                        <td class="text-center"><span style='color:green;'>138</span>
-                                            <span style='color:green;'>/138</span>
-                                            <span style='color:red;'>/0</span>
-                                        </td>
-                                        <td class="text-center"><span style='color:green;'>1.38</span> <br>
-                                            <span style='font-weight:bold;'>(โปรต่ำ)</span>
-                                        </td>
-
-                                        <td class="text-center">
-                                            <form action="../teacher/student_info.html">
-                                                <!--<input type="hidden" name="std_num" value="<?php echo $row["studentid"];?>" />-->
-                                                <!--<a type="button" name="std_info">
-                    <span class="glyphicon glyphicon-user"></span></a>-->
-                                                <button type="submit" name="submit" class="btn btn-info btn-md"><span
-                                                        class="glyphicon glyphicon-user"></span> รายละเอียด</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="text-center">6320500611</td>
-                                        <td>ภานุวัฒน์ จั่นจินดา</td>
-                                        <td class="text-center">ปกติ</td>
-                                        <td class="text-center"><span style='color:red;'>&nbsp;ไม่มีสิทธิ์ฝึกงาน</span>
-                                        </td>
-                                        <td class="text-center"><span style='color:green;'>&nbsp;มีสิทธิ์</span>
-                                        </td>
-                                        <td class="text-center"><span style='color:green;'>138</span>
-                                            <span style='color:green;'>/138</span>
-                                            <span style='color:red;'>/0</span>
-                                        </td>
-                                        <td class="text-center"><span style='color:green;'>1.65</span> <br>
-                                            <span style='font-weight:bold;'>(โปรต่ำ)</span>
-                                        </td>
-
-                                        <td class="text-center">
-                                            <form method="post" action="../teacher/student_info.html">
-                                                <!--<input type="hidden" name="std_num" value="<?php echo $row["studentid"];?>" />-->
-                                                <!--<a type="button" name="std_info">
-                    <span class="glyphicon glyphicon-user"></span></a>-->
-                                                <button type="submit" name="submit" class="btn btn-info btn-md"><span
-                                                        class="glyphicon glyphicon-user"></span> รายละเอียด</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
+                            
+                            <h2 style="text-align: center;">ไม่พบนักศึกษาโปรสูง</h2>
                         </div>
 
 
                         <br>
                         <center>
                             <button type="button" class="btn btn-secondary" style="cursor: pointer;"
-                                onclick="location.href='../teacher/home.html'">ย้อนกลับ</button>
+                                onclick="location.href='./report_table_teacher.html'">ย้อนกลับ</button>
                         </center>
                         <br>
 

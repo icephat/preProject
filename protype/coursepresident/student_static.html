@@ -294,8 +294,8 @@
                             <font size="4px"><b>ฐิติพงษ์ สถิรเมธีกุล </b></font>
 
                             <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
-                            <a href="../logout.php" data-toggle="tooltip" title=" ">
-                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b> </b>
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
                                 </font>
                             </a>
                             <!-- -->
@@ -310,8 +310,8 @@
                         <div class="menu-box-blue ">
                             <ul>
                                 <li>
-                                    <a href="../teacher/home.html">
-                                        <font color="#000000"><b>อาจารย์ที่ปรึกษา</b></font>
+                                    <a href="./home.html">
+                                        <font color="#000000"><b>หน้าหลัก</b></font>
                                     </a>
                                 </li>
                             </ul>
@@ -321,8 +321,8 @@
                         <div class="menu-box-green active">
                             <ul>
                                 <li>
-                                    <a href="../teacher/static_select.html">
-                                        <font color="#000000"><b>รายงาน</b></font>
+                                    <a href="./static_select.html">
+                                        <font color="#000000"><b>สถิติ</b></font>
                                     </a>
                                 </li>
                             </ul>
@@ -332,13 +332,14 @@
                         <div class="menu-box-red  ">
                             <ul>
                                 <li>
-                                    <a href="./nisit.html">
-                                        <font color="#000000"><b>รายชื่อนิสิต</b></font>
+                                    <a href="../report_student_coursepresident/report_table_teacher.html">
+                                        <font color="#000000"><b>รายงาน</b></font>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -349,7 +350,7 @@
             <a class="goback" style="cursor: pointer;" onclick="location.href='./static_select.html'">
                 < ย้อนกลับ</a>
 
-            <h2>จำนวนนิสิตหลักสูตร วศ.คอม 66 รุ่น 2562-2566</h2>
+            <h2>จำนวนนิสิตที่เข้าศึกษาหลักสูตร xxxx จนถึงปี xxxx (คน)</h2>
 
             <div class="content">
                 <!-- graph ข้างล่าง 3 อัน -->
@@ -357,10 +358,9 @@
                     <thead>
                         <tr>
                             <th>
-                                <center>หลักสูตร<span style="color:red">*</span></center>
+                                <center>ปีที่เข้าศึกษา<span style="color:red">*</span></center>
                             </th>
 
-                            <th><center>ปีที่สืบค้น<span style="color:red">*</span></center></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -370,17 +370,7 @@
                             <td>
                                 <center>
                                     <select class="selectpicker" width="500px" data-live-search="true">
-                                        <option value="default">--กรุณาเลือกหลักสูตร--</option>
-                                        <option value="default">2560</option>
-                                        <option value="default">2565</option>
-                                    </select>
-
-                                </center>
-                            </td>
-                            <td>
-                                <center>
-                                    <select class="selectpicker" width="500px" data-live-search="true">
-                                        <option value="default">--กรุณาเลือกปี--</option>
+                                        <option value="default">--กรุณาเลือกปีการศึกษา--</option>
                                         <option value="default">2561</option>
                                         <option value="default">2562</option>
                                         <option value="default">2563</option>
@@ -588,364 +578,305 @@
                     </table>
             </div>
 
-            <br><br>
-            <h2>นิสิตคงเหลือ (กำลังศึกษา)</h2>
-            <br>
-            <div>
-                <table class="table_grade_sem3 content" style="width: 80%;">
-
-                    <tr>
-                        <th rowspan="2" style=" text-align: center; width: 100px;">รุ่น</th>
-                        <th colspan="8" style=" text-align: center; width: 100px;">ปีการศึกษา</th>
-                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)</th>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2562</td>
-                        <td style=" text-align: center;">2563</td>
-                        <td style=" text-align: center;">2564</td>
-                        <td style=" text-align: center;">2565</td>
-                        <td style=" text-align: center;">2566</td>
-                        <td style=" text-align: center;">2567</td>
-                        <td style=" text-align: center;">2568</td>
-                        <td style=" text-align: center;">2569</td>
-                        
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2562</td>
-                        <td style=" text-align: center;">
-                            60 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            58 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            53 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            53 คน
-                        </td>
-                        <td style=" text-align: center;">5 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">5 </td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2563</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">
-                            60 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            52 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            51 คน
-                        </td>
-                        <td style=" text-align: center;">51 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">51 </td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2564</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">
-                            55 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            52 คน
-                        </td>
-                        <td style="text-align: center;">52 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style="text-align: center; font-weight: bold;">52 </td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2565</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">
-                            56 คน
-                        </td>
-                        <td style=" text-align: center;">54 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">54</td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2566</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">55 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">55</td>
-                    </tr>
-
-                    <tr>
-                        <th scope='row' style=" text-align: center;">รวม (คน)</th>
-                        <td style="font-weight: bold; text-align: center;">60 </td>
-                        <td style="font-weight: bold; text-align: center;">118 </td>
-                        <td style='font-weight: bold; text-align: center;'>160</td>
-                        <td style='font-weight: bold; text-align: center;'>215</td>
-                        <td style='font-weight: bold; text-align: center;'>217</td>
-                        <td style=" font-weight: bold; text-align: center;"></td>
-                        <td style=" font-weight: bold; text-align: center;"></td>
-                        <td style=" font-weight: bold; text-align: center;"></td>
-                        <td style='font-weight: bold; text-align: center;'></td>
-                    </tr>
-
-                </table>
-            </div>
-
-            <br><br>
-            <h2>นิสิตพ้นสภาพ</h2>
-            <br>
-            <div>
-                <table class="table_grade_sem3 content" style="width: 80%;">
-
-                    <tr>
-                        <th rowspan="2" style=" text-align: center; width: 100px;">รุ่น</th>
-                        <th colspan="8" style=" text-align: center; width: 100px;">ปีการศึกษา</th>
-                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)</th>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2562</td>
-                        <td style=" text-align: center;">2563</td>
-                        <td style=" text-align: center;">2564</td>
-                        <td style=" text-align: center;">2565</td>
-                        <td style=" text-align: center;">2566</td>
-                        <td style=" text-align: center;">2567</td>
-                        <td style=" text-align: center;">2568</td>
-                        <td style=" text-align: center;">2569</td>
-                        
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2562</td>
-                        <td style=" text-align: center;">
-                            60 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            58 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            53 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            53 คน
-                        </td>
-                        <td style=" text-align: center;">5 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">5 </td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2563</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">
-                            60 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            52 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            51 คน
-                        </td>
-                        <td style=" text-align: center;">51 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">51 </td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2564</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">
-                            55 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            52 คน
-                        </td>
-                        <td style="text-align: center;">52 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style="text-align: center; font-weight: bold;">52 </td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2565</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">
-                            56 คน
-                        </td>
-                        <td style=" text-align: center;">54 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">54</td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2566</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">55 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">55</td>
-                    </tr>
-
-                    <tr>
-                        <th scope='row' style=" text-align: center;">รวม (คน)</th>
-                        <td style="font-weight: bold; text-align: center;">60 </td>
-                        <td style="font-weight: bold; text-align: center;">118 </td>
-                        <td style='font-weight: bold; text-align: center;'>160</td>
-                        <td style='font-weight: bold; text-align: center;'>215</td>
-                        <td style='font-weight: bold; text-align: center;'>217</td>
-                        <td style=" font-weight: bold; text-align: center;"></td>
-                        <td style=" font-weight: bold; text-align: center;"></td>
-                        <td style=" font-weight: bold; text-align: center;"></td>
-                        <td style='font-weight: bold; text-align: center;'></td>
-                    </tr>
-
-                </table>
-            </div>
-
-            <br><br>
-            <h2>นิสิตออกการศึกษา</h2>
-            <br>
-            <div>
-                <table class="table_grade_sem3 content" style="width: 80%;">
-
-                    <tr>
-                        <th rowspan="2" style=" text-align: center; width: 100px;">รุ่น</th>
-                        <th colspan="8" style=" text-align: center; width: 100px;">ปีการศึกษา</th>
-                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)</th>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2562</td>
-                        <td style=" text-align: center;">2563</td>
-                        <td style=" text-align: center;">2564</td>
-                        <td style=" text-align: center;">2565</td>
-                        <td style=" text-align: center;">2566</td>
-                        <td style=" text-align: center;">2567</td>
-                        <td style=" text-align: center;">2568</td>
-                        <td style=" text-align: center;">2569</td>
-                        
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2562</td>
-                        <td style=" text-align: center;">
-                            60 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            58 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            53 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            53 คน
-                        </td>
-                        <td style=" text-align: center;">5 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">5 </td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2563</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">
-                            60 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            52 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            51 คน
-                        </td>
-                        <td style=" text-align: center;">51 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">51 </td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2564</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">
-                            55 คน
-                        </td>
-                        <td style=" text-align: center;">
-                            52 คน
-                        </td>
-                        <td style="text-align: center;">52 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style="text-align: center; font-weight: bold;">52 </td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2565</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">
-                            56 คน
-                        </td>
-                        <td style=" text-align: center;">54 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">54</td>
-                    </tr>
-                    <tr>
-                        <td style=" text-align: center;">2566</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;">55 คน</td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center;"></td>
-                        <td style=" text-align: center; font-weight: bold;">55</td>
-                    </tr>
-
-                    <tr>
-                        <th scope='row' style=" text-align: center;">รวม (คน)</th>
-                        <td style="font-weight: bold; text-align: center;">60 </td>
-                        <td style="font-weight: bold; text-align: center;">118 </td>
-                        <td style='font-weight: bold; text-align: center;'>160</td>
-                        <td style='font-weight: bold; text-align: center;'>215</td>
-                        <td style='font-weight: bold; text-align: center;'>217</td>
-                        <td style=" font-weight: bold; text-align: center;"></td>
-                        <td style=" font-weight: bold; text-align: center;"></td>
-                        <td style=" font-weight: bold; text-align: center;"></td>
-                        <td style='font-weight: bold; text-align: center;'></td>
-                    </tr>
-
-                </table>
-            </div>
             <br><br><br>
-  
+            <div>
+                <table class="table_grade_sem3 content" style="width: 80%;">
+
+                    <tr>
+                        <th rowspan="2" style=" text-align: center; width: 100px;">รุ่น</th>
+                        <th colspan="8" style=" text-align: center; width: 100px;">ปีการศึกษา</th>
+                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)</th>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: center;">2562</td>
+                        <td style=" text-align: center;">2563</td>
+                        <td style=" text-align: center;">2564</td>
+                        <td style=" text-align: center;">2565</td>
+                        <td style=" text-align: center;">2566</td>
+                        <td style=" text-align: center;">2567</td>
+                        <td style=" text-align: center;">2568</td>
+                        <td style=" text-align: center;">2569</td>
+                        
+                    </tr>
+                    <tr>
+                        <td style=" text-align: center;">2562</td>
+                        <td style=" text-align: center;">
+                            60 คน
+                        </td>
+                        <td style=" text-align: center;">
+                            58 คน
+                        </td>
+                        <td style=" text-align: center;">
+                            53 คน
+                        </td>
+                        <td style=" text-align: center;">
+                            53 คน
+                        </td>
+                        <td style=" text-align: center;">5 คน</td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center; font-weight: bold;">5 </td>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: center;">2563</td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;">
+                            60 คน
+                        </td>
+                        <td style=" text-align: center;">
+                            52 คน
+                        </td>
+                        <td style=" text-align: center;">
+                            51 คน
+                        </td>
+                        <td style=" text-align: center;">51 คน</td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center; font-weight: bold;">51 </td>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: center;">2564</td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;">
+                            55 คน
+                        </td>
+                        <td style=" text-align: center;">
+                            52 คน
+                        </td>
+                        <td style="text-align: center;">52 คน</td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style="text-align: center; font-weight: bold;">52 </td>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: center;">2565</td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;">
+                            56 คน
+                        </td>
+                        <td style=" text-align: center;">54 คน</td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center; font-weight: bold;">54</td>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: center;">2566</td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;">55 คน</td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center;"></td>
+                        <td style=" text-align: center; font-weight: bold;">55</td>
+                    </tr>
+
+                    <tr>
+                        <th scope='row' style=" text-align: center;">รวม (คน)</th>
+                        <td style="font-weight: bold; text-align: center;">60 </td>
+                        <td style="font-weight: bold; text-align: center;">118 </td>
+                        <td style='font-weight: bold; text-align: center;'>160</td>
+                        <td style='font-weight: bold; text-align: center;'>215</td>
+                        <td style='font-weight: bold; text-align: center;'>217</td>
+                        <td style=" font-weight: bold; text-align: center;"></td>
+                        <td style=" font-weight: bold; text-align: center;"></td>
+                        <td style=" font-weight: bold; text-align: center;"></td>
+                        <td style='font-weight: bold; text-align: center;'></td>
+                    </tr>
+
+                </table>
+            </div>
+            <br><br>
+
+            <h2>จำนวนนักศึกษาแยกตามรุ่น (คน)</h2>
+            <div id="data" class="content">
+                <!-- graph ข้างล่าง 3 อัน -->
+
+                <div >
+                    <div id="chart-container" class="float-left"
+                    style="width: 550px; margin-top: 50px; margin-left: -10%;">
+                        <canvas id="learnyear"></canvas>
+                    </div>
+
+                    <table class="table_grade_sem" style="margin-top: -28%; margin-right: -10%; width: 60%;">
+
+                        <tr>
+                            <th style=" text-align: right; width: 30px;">รุ่น</th>
+                            <th style="text-align: right; width: 30px;"><span>ตามแผน</span>
+                            </th>
+                            <th style="text-align: right; width: 30px;"><span>ไม่ตามแผน</span></th>
+                            <th style="text-align: right; width: 45px;">พ้นสภาพ</th>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2560</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                0 คน
+                            </td>
+                            <td style=" text-align: right;">0 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2561</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                5 คน
+                            </td>
+                            <td style=" text-align: right;">0 คน</td>
+                        </tr>
+
+                        <tr>
+                            <td style=" text-align: right;">2562</td>
+                            <td style=" text-align: right;">
+                                53 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                0 คน
+                            </td>
+                            <td style=" text-align: right;">7 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2563</td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td> 
+                            <td style=" text-align: right;">
+                                11 คน
+                            </td>
+                            <td style="text-align: right;">9 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2564</td>
+                            <td style=" text-align: right;">
+                                49 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                3 คน
+                            </td>
+                            <td style=" text-align: right;">3 คน</td>
+                        </tr>
+                        
+
+                        <tr>
+                            <th scope='row' style=" text-align: right;">รวม (คน)</th>
+                            <td style="font-weight: bold; text-align: right;">262 </td>
+                            <td style='font-weight: bold; text-align: right;'>19</td>
+                            <td style='font-weight: bold; text-align: right;'>19</td>
+                        </tr>
+
+                    </table>
+
+
+
+                </div>
+                <br><br>
+
+            </div>
+
+            <br><br>
+
+            <!--ตามหลักสูตร-->
+            <h2>จำนวนนักศึกษาแยกตามหลักสูตร (คน)</h2>
+            
+
+            <div id="data" class="content">
+                <!-- graph ข้างล่าง 3 อัน -->
+
+                <div >
+                    <div id="chart-container" class="float-left"
+                    style="width: 550px; margin-top: 50px; margin-left: -10%;">
+                        <canvas id="learn"></canvas>
+                    </div>
+
+                    <table class="table_grade_sem" style="margin-top: -28%; margin-right: -10%; width: 60%;">
+
+                        <tr>
+                            <th style=" text-align: right; width: 30px;">ปีการศึกษา</th>
+                            <th style="text-align: right; width: 30px;"><span>ตามหลักสูตร</span>
+                            </th>
+                            <th style="text-align: right; width: 30px;"><span>ไม่ตามหลักสูตร</span></th>
+                            <th style="text-align: right; width: 45px;">ลาออก</th>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2560</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td>
+                            <td style=" text-align: right;">5 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2561</td>
+                            <td style=" text-align: right;">
+                                65 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                64 คน
+                            </td>
+                            <td style=" text-align: right;">4 คน</td>
+                        </tr>
+
+                        <tr>
+                            <td style=" text-align: right;">2562</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">5 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2563</td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td> 
+                            <td style=" text-align: right;">
+                                25 คน
+                            </td>
+                            <td style="text-align: right;">3 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2564</td>
+                            <td style=" text-align: right;">
+                                50 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">4 คน</td>
+                        </tr>
+                        
+
+                        <tr>
+                            <th scope='row' style=" text-align: right;">รวม (คน)</th>
+                            <td style="font-weight: bold; text-align: right;">225 </td>
+                            <td style='font-weight: bold; text-align: right;'>160</td>
+                            <td style='font-weight: bold; text-align: right;'>21</td>
+                        </tr>
+
+                    </table>
+
+
+
+                </div>
+                <br><br>
+
+            </div>
+
         </div>
     </div>
 
@@ -955,9 +886,8 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
-    
     <script>
-        var ctx = document.getElementById("myChart").getContext('2d');
+        var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
             //type: 'bar',
             //type: 'line',
@@ -1019,8 +949,7 @@
                         'rgba(0, 51, 18, 1)'
                     ],
                     borderWidth: 0
-                },
-               
+                }
 
                 ]
 
@@ -1034,15 +963,8 @@
                             max: 100,
                             min: 0
                         }
-                    }],
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true
-                    }
+                    }]
                 },
-               
                 responsive: true,
 
             }
@@ -1139,6 +1061,101 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
     </script>
+
+    <script>
+    
+        var ctx = document.getElementById("learnyear");
+        var myChart = new Chart(ctx, {
+            //type: 'bar',
+            //type: 'line',
+            type: 'bar',
+            data: {
+                labels: ['2560','2561','2562', '2563', '2564'],
+                datasets: [{
+                    label: 'ตามหลักสูตร',
+                    data: [60,60,53,40,49],
+                    backgroundColor: "#89cfef",
+                    borderWidth: 0
+                },
+                {
+                    label: ['ไม่ตามหลักสุตร'],
+                    data: [0,5,0,11,3],
+                    backgroundColor: "#ffab76",
+                    borderWidth: 0
+                },
+                {
+                    label: ['ลาออก'],
+                    data: [0,0,7,9,3],
+                    backgroundColor: '#ff6962',
+                    borderWidth: 0
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+
+            }
+        });
+    </script>
+
+
+    <script>
+        const DATA_COUNT = 1;
+        const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+
+
+
+        var ctx = document.getElementById("learn");
+        var myChart = new Chart(ctx, {
+            //type: 'bar',
+            //type: 'line',
+            type: 'bar',
+            data: {
+                labels: ['2560','2561','2562', '2563', '2564'],
+                datasets: [{
+                    label: 'ตามหลักสูตร',
+                    data: [60,65,60,55,50],
+                    backgroundColor: "#89cfef",
+                    borderWidth: 0
+                },
+                {
+                    label: ['ไม่ตามหลักสุตร'],
+                    data: [55,64,40,25,40],
+                    backgroundColor: "#ffab76",
+                    borderWidth: 0
+                },
+                {
+                    label: ['ลาออก'],
+                    data: [5,4,5,3,4],
+                    backgroundColor: '#ff6962',
+                    borderWidth: 0
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+
+            }
+        });
+    </script>
+
+
 
     </div>
 

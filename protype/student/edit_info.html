@@ -120,7 +120,7 @@
         }
 
         .button {
-            color: rgb(0, 0, 0);
+            color: rgb(250, 250, 250);
             padding: 10px 30px;
             text-align: center;
             text-decoration: none;
@@ -131,8 +131,6 @@
             cursor: pointer;
             border-radius: 25px;
         }
-        
-        
     </style>
 
 </head>
@@ -150,7 +148,7 @@
                             <font size="4px"><b>ภัทรพร ปัญญาอุดมพร</b></font>
                             <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
                             <a href="logout.php" data-toggle="tooltip" title=" ">
-                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i>
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i> 
                                 </font>
                             </a>
                         </div>
@@ -205,123 +203,135 @@
                         </ul>
                     </div>
                 </div>
-               
+                <!--<div class="menu-box">
+                    <div class="menu-box-orange ">
+                        <ul>
+                            <li>
+                                <a href="./activity.html">
+                                    <font color="#000000"><b>กิจกรรม</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>-->
+                
             </div>
         </div>
 
 
         <!-- navbar tab-->
         <!--ตาราง -->
+        <form action="./info.html">
+            <div class='content'>
+                <h3>ข้อมูลส่วนตัว</h3>
+                <table class='data'>
+                    <tr>
+                        <th>รหัสประจำตัวนิสิต</th>
+                        <td class='dt'>6320500603</td>
+                    </tr>
 
-        <div class='content'>
-            <h3>ข้อมูลส่วนตัว</h3>
-            <table class='data'>
-                <tr>
-                    <th>รหัสประจำตัวนิสิต</th>
-                    <td class='dt'>6320500603</td>
-                </tr>
+                    <tr>
+                        <th>ชื่อ-นามสกุล (ไทย)</th>
+                        <td class='dt'>ภัทรพร ปัญญาอุดมพร</td>
+                    </tr>
 
-                <tr>
-                    <th>ชื่อ-นามสกุล (ไทย)</th>
-                    <td class='dt'>ภัทรพร ปัญญาอุดมพร</td>
-                </tr>
+                    <tr>
+                        <th>ชื่อ-นามสกุล (อังกฤษ)</th>
+                        <td class='dt'>phattaraporn Panyaaudomporn</td>
+                    </tr>
 
-                <tr>
-                    <th>ชื่อ-นามสกุล (อังกฤษ)</th>
-                    <td class='dt'>phattaraporn Panyaaudomporn</td>
-                </tr>
+                    <tr>
+                        <th>รหัสประจำตัวประชาชน</th>
+                        <td class='dt'>xxxxxxxxx4955</td>
+                    </tr>
 
-                <tr>
-                    <th>รหัสประจำตัวประชาชน</th>
-                    <td class='dt'>xxxxxxxxx4955</td>
-                </tr>
+                    <tr>
+                        <th>เพศ</th>
+                        <td class='dt'>หญิง</td>
+                    </tr>
+                </table>
 
-                <tr>
-                    <th>เพศ</th>
-                    <td class='dt'>หญิง</td>
-                </tr>
-            </table>
+                <h3>ช่องทางการติดต่อ</h3>
+                <table class='data'>
+                    <tr>
+                        <th>เบอร์โทรศัพท์</th>
+                        <td class='dt'><input class='dt' placeholder="0950427705" /></td>
+                    </tr>
+                    <tr>
+                        <th>e-Mail</th>
+                        <td class='dt'>phattaraporn.sa@ku.th</td>
+                    </tr>
+                    <tr>
+                        <th>เบอร์โทรศัพท์ผู้ปกครอง</th>
+                        <td class='dt'><input class='dt' placeholder="0992581852" /></td>
+                    </tr>
+                </table>
 
-            <h3>ช่องทางการติดต่อ</h3>
-            <table class='data'>
-                <tr>
-                    <th>เบอร์โทรศัพท์</th>
-                    <td class='dt' data-target='std_tell'>0950427705</td>
-                </tr>
-                <tr>
-                    <th>e-Mail</th>
-                    <td class='dt'>phattaraporn.sa@ku.th</td>
-                </tr>
-                <tr>
-                    <th>เบอร์โทรศัพท์ผู้ปกครอง</th>
-                    <td class='dt'>0992581852</td>
-                </tr>
-            </table>
+                <h3>การศึกษาปัจจุบัน</h3>
+                <table class='data'>
+                    <tr>
+                        <th>อาจารย์ที่ปรึกษา</th>
+                        <td class='dt'>
+                            รศ.ดร.ฐิติพงษ์ สถิรเมธีกุล</td>
+                    </tr>
 
-            <h3>การศึกษาปัจจุบัน</h3>
-            <table class='data'>
-                <tr>
-                    <th>อาจารย์ที่ปรึกษา</th>
-                    <td class='dt'>
-                        รศ.ดร.ฐิติพงษ์ สถิรเมธีกุล</td>
-                </tr>
+                    <tr>
+                        <th>วิทยาเขต</th>
+                        <td class='dt'>กำแพงแสน</td>
+                    </tr>
 
-                <tr>
-                    <th>วิทยาเขต</th>
-                    <td class='dt'>กำแพงแสน</td>
-                </tr>
+                    <tr>
+                        <th>คณะ</th>
+                        <td class='dt'>วิศวกรรมศาสตร์ กำแพงแสน</td>
+                    </tr>
 
-                <tr>
-                    <th>คณะ</th>
-                    <td class='dt'>วิศวกรรมศาสตร์ กำแพงแสน</td>
-                </tr>
+                    <tr>
+                        <th>สาขาวิชา</th>
+                        <td class='dt'>วิศวกรรมศาสตร์คอมพิวเตอร์</td>
+                    </tr>
 
-                <tr>
-                    <th>สาขาวิชา</th>
-                    <td class='dt'>วิศวกรรมศาสตร์คอมพิวเตอร์</td>
-                </tr>
+                    <tr>
+                        <th>ประเภทหลักสูตร</th>
+                        <td class='dt'>ภาษาไทย</td>
+                    </tr>
 
-                <tr>
-                    <th>ประเภทหลักสูตร</th>
-                    <td class='dt'>ภาษาไทย</td>
-                </tr>
+                    <tr>
+                        <th>สถานภาพนิสิต</th>
+                        <td class='dt'>กำลังศึกษา</td>
+                    </tr>
+                    <tr>
+                        <th>เกรดเฉลี่ยสะสม</th>
+                        <td class='dt'>3.38</td>
+                    </tr>
+                </table>
 
-                <tr>
-                    <th>สถานภาพนิสิต</th>
-                    <td class='dt'>กำลังศึกษา</td>
-                </tr>
-                <tr>
-                    <th>เกรดเฉลี่ยสะสม</th>
-                    <td class='dt'>3.38</td>
-                </tr>
-            </table>
+                <p></p>
+                <p></p>
+                <h3>การศึกษาระดับมัธยม</h3>
+                <table class='data'>
+                    <tr>
+                        <th>ชื่อโรงเรียน</th>
+                        <td class='dt'>
+                            โรงเรียนวัดธรรมจริยาภิรมย์</td>
+                    </tr>
 
-            <p></p>
-            <p></p>
-            <h3>การศึกษาระดับมัธยม</h3>
-            <table class='data'>
-                <tr>
-                    <th>ชื่อโรงเรียน</th>
-                    <td class='dt'>
-                        โรงเรียนวัดธรรมจริยาภิรมย์</td>
-                </tr>
-
-                <tr>
-                    <th>ที่อยู่</th>
-                    <td class='dt'>อำเภอบ้านแพ้ว จังหวัดสมุทรสาคร</td>
-                </tr>
+                    <tr>
+                        <th>ที่อยู่</th>
+                        <td class='dt'>อำเภอบ้านแพ้ว จังหวัดสมุทรสาคร</td>
+                    </tr>
 
 
-            </table>
+                </table>
 
-            <p></p>
-            <p></p>
+                <p></p>
+                <p></p>
 
-        </div>
-        <br><br>
-        <div style="text-align: center;">
-            <a class="button btn-warning"  type="button" href="./edit_info.html">แก้ไข</a>
-        </div>
+            </div>
+            <br><br>
+            <div style="text-align: center;">
+                <button class="button btn-primary" >บันทึก</button>
+            </div>
+        </form>
 
 
 </body>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
+
+    <!--page 10 -->
+    <script src="../asset/dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.rowReorder.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script> -->
+
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate2.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    <style>
+        mark {
+            background-color: #F1E8E8;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 40%;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        fieldset {
+            background-color: #D8D8D8;
+            margin: 20px;
+            padding: 0 10px 10px;
+            border: 1px solid #666;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #666;
+            padding-top: 10px;
+
+        }
+
+        /* style graph*/
+
+        #chart-container1 {
+            width: 70%;
+            height: auto;
+
+        }
+
+        #chart-container2 {
+            width: 100%;
+            height: auto;
+
+        }
+
+        .credit_t {
+            border-collapse: collapse;
+            /*width: 100%;*/
+            font-size: 20px;
+            margin-top: 150px;
+            padding-top: 100px;
+            margin-right: 100px;
+        }
+
+        .credit_t th,
+        .credit_t td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .credit_t tr:hover {
+            background-color: #b7d6b5;
+        }
+
+        /*style progress chart*/
+        .body_chart {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            margin-left: 140px;
+
+        }
+
+        .cont2 {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cont2 .box {
+            width: 25%;
+            float: left;
+        }
+
+        .cont2 .box .chart {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 30px;
+            line-height: 110px;
+        }
+
+        .cont2 .box canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .btn {
+            font-size: 16px;
+        }
+
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 75%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            margin-left: 165px;
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .ct {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            /*overflow: scroll;*/
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+            width: 75%;
+            margin-left: 165px;
+        }
+
+        .std_img {
+            width: 20%;
+            border-radius: 50%;
+            display: block;
+            float: left;
+            margin-bottom: 30px;
+        }
+
+        .info1,
+        tr,
+        td {
+            font-size: 22px;
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+
+        .table_grade_sem {
+
+            border-collapse: collapse;
+            margin-left: 50px;
+            float: right;
+            font-size: 20px;
+        }
+
+        .table_grade_sem2 {
+
+            border-collapse: collapse;
+            font-size: 20px;
+        }
+
+        .table_grade_sem td,
+        .table_grade_sem th {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .table_grade_sem tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table_grade_sem tr:hover {
+            background-color: #ddd;
+        }
+
+        .table_grade_sem th {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: left;
+            background-color: #7dd575;
+            color: black;
+        }
+
+        .table_grade_sem2 td,
+        .table_grade_sem2 th {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .table_grade_sem2 tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table_grade_sem2 tr:hover {
+            background-color: #ddd;
+        }
+
+        .table_grade_sem2 th {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: left;
+            background-color: #86d3f7;
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="content">
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+
+                        <div class="dropdown">
+                            <!-- <img src="img.png" alt="Person"> -->
+
+                            <font size="4px"><b>ฐิติพงษ์ สถิรเมธีกุล </b></font>
+
+                            <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                            <!-- -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-top: 15px" class="content">
+                <div class="menu-top">
+                    <div class="menu-box">
+                        <div class="menu-box-blue ">
+                            <ul>
+                                <li>
+                                    <a href="./home.html">
+                                        <font color="#000000"><b>หน้าหลัก</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-box">
+                        <div class="menu-box-green active">
+                            <ul>
+                                <li>
+                                    <a href="./static_select.html">
+                                        <font color="#000000"><b>สถิติ</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-box">
+                        <div class="menu-box-red  ">
+                            <ul>
+                                <li>
+                                    <a href="../report_student_coursepresident/report_table_teacher.html">
+                                        <font color="#000000"><b>รายงาน</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="container">
+            <a class="goback" style="cursor: pointer;" onclick="location.href='./static_select.html'">
+                < ย้อนกลับ</a>
+
+            <h2>จำนวนนักศึกษา (คน)</h2>
+
+            <div class="content">
+                <!-- graph ข้างล่าง 3 อัน -->
+                <table class="table table-hover" id="tb_admin">
+                    <thead>
+                        <tr>
+                            <th>
+                                <center>ปีที่เข้าศึกษา<span style="color:red">*</span></center>
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ช่อง 1 -->
+                        <tr>
+                            <td>
+                                <center>
+                                    <select class="selectpicker" width="500px" data-live-search="true">
+                                        <option value="default">--กรุณาเลือกปีการศึกษา--</option>
+                                        <option value="default">2561</option>
+                                        <option value="default">2562</option>
+                                        <option value="default">2563</option>
+                                        <option value="default">2564</option>
+                                        <option value="default">2565</option>
+                                        <option value="default">2566</option>
+                                    </select>
+
+                                </center>
+                            </td>
+
+                            <td>
+                                <center>
+                                    <button type="submit" name="submit" id="data"
+                                        class="btn btn-primary btn-sm ">ดูผล</button>
+                                </center>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div>
+                    <div id="chart-container" class="float-left"
+                        style="width: 550px; margin-top: 50px; margin-left: -10%;">
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+                    <table class="table_grade_sem" style="margin-top: -28%; margin-right: -10%; width: 600px;">
+
+                        <tr>
+                            <th style=" text-align: right; ">ปีการศึกษา</th>
+                            <th style="text-align: right; width: 150px;"><span>แรกเข้า</span>
+                            </th>
+                            <th style="text-align: right;"><span>กำลังศึกษา</span></th>
+                            <th style="text-align: right;">จบการศึกษา</th>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2562</td>
+                            <td style=" text-align: right;">
+                                65 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                64 คน
+                            </td>
+                            <td style=" text-align: right;">64 คน</td>
+                        </tr>
+
+                        <tr>
+                            <td style=" text-align: right;">2563</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">55 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2564</td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                25 คน
+                            </td>
+                            <td style="text-align: right;">30 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2565</td>
+                            <td style=" text-align: right;">
+                                50 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">40 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2566</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td>
+                            <td style=" text-align: right;">55 คน</td>
+                        </tr>
+
+                        <tr>
+                            <th scope='row' style=" text-align: right;">รวม (คน)</th>
+                            <td style="font-weight: bold; text-align: right;">225 </td>
+                            <td style='font-weight: bold; text-align: right;'>160</td>
+                            <td style='font-weight: bold; text-align: right;'>180</td>
+                        </tr>
+
+                    </table>
+
+
+
+                </div>
+                <br><br>
+
+            </div>
+            <h2>จำนวนนักศึกษาตามหลักสูตร (คน)</h2>
+            <div class="content">
+
+                <table class="table table-hover" id="tb_admin">
+                    <thead>
+                        <tr>
+                            <th>
+                                <center>หลักสูตร<span style="color:red">*</span></center>
+                            </th>
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ช่อง 1 -->
+                        <tr>
+                            <td>
+                                <center>
+                                    <select class="selectpicker" width="500px" data-live-search="true">
+                                        <option value="default">--กรุณาเลือกหลักสูตร--</option>
+                                        <option value="2561">2560
+                                        </option>
+                                        <option value="2562">2565</option>
+                                    </select>
+
+                                </center>
+                            </td>
+
+                            <td>
+                                <center>
+                                    <button type="submit" name="submit" id="data"
+                                        class="btn btn-primary btn-sm">ดูผล</button>
+                                </center>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="data" class="content">
+                <!-- graph ข้างล่าง 3 อัน -->
+
+                <div >
+                    <div id="chart-container" class="float-left"
+                    style="width: 550px; margin-top: 50px; margin-left: -10%;">
+                        <canvas id="learn"></canvas>
+                    </div>
+
+                    <table class="table_grade_sem" style="margin-top: -28%; margin-right: -10%; width: 60%;">
+
+                        <tr>
+                            <th style=" text-align: right; width: 30px;">ปีการศึกษา</th>
+                            <th style="text-align: right; width: 30px;"><span>ตามหลักสูตร</span>
+                            </th>
+                            <th style="text-align: right; width: 30px;"><span>ไม่ตามหลักสูตร</span></th>
+                            <th style="text-align: right; width: 45px;">ลาออก</th>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2560</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td>
+                            <td style=" text-align: right;">5 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2561</td>
+                            <td style=" text-align: right;">
+                                65 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                64 คน
+                            </td>
+                            <td style=" text-align: right;">4 คน</td>
+                        </tr>
+
+                        <tr>
+                            <td style=" text-align: right;">2562</td>
+                            <td style=" text-align: right;">
+                                60 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">5 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2563</td>
+                            <td style=" text-align: right;">
+                                55 คน
+                            </td> 
+                            <td style=" text-align: right;">
+                                25 คน
+                            </td>
+                            <td style="text-align: right;">3 คน</td>
+                        </tr>
+                        <tr>
+                            <td style=" text-align: right;">2564</td>
+                            <td style=" text-align: right;">
+                                50 คน
+                            </td>
+                            <td style=" text-align: right;">
+                                40 คน
+                            </td>
+                            <td style=" text-align: right;">4 คน</td>
+                        </tr>
+                        
+
+                        <tr>
+                            <th scope='row' style=" text-align: right;">รวม (คน)</th>
+                            <td style="font-weight: bold; text-align: right;">225 </td>
+                            <td style='font-weight: bold; text-align: right;'>160</td>
+                            <td style='font-weight: bold; text-align: right;'>21</td>
+                        </tr>
+
+                    </table>
+
+
+
+                </div>
+                <br><br>
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+    <script>
+        var ctx = document.getElementById("myChart");
+        var myChart = new Chart(ctx, {
+            //type: 'bar',
+            //type: 'line',
+            type: 'bar',
+            data: {
+                labels: ['2562','2563', '2564', '2565', '2566'],
+                datasets: [{
+                    label: 'นักศึกษาแรกเข้า',
+                    data: [65,60, 55, 50, 60],
+                    backgroundColor: '#bfd575', 
+                    borderColor: [
+                        'rgba(150,186,169, 1)', //1
+                        'rgba(108,158,134, 1)',
+                        'rgba(66,130,100, 1)',
+                        'rgba(45,117,83, 1)',
+                        'rgba(27,70,49, 1)', //5
+                        'rgba(0, 51, 18, 1)'
+                    ],
+                    borderWidth: 0
+                },
+                {
+                    label: 'นักศึกษากำลังศึกษา',
+                    data: [64,40, 25, 40, 55],
+                    backgroundColor: '#a4ebf3',
+                    borderColor: [
+                        'rgba(150,186,169, 1)', //1
+                        'rgba(108,158,134, 1)',
+                        'rgba(66,130,100, 1)',
+                        'rgba(45,117,83, 1)',
+                        'rgba(27,70,49, 1)', //5
+                        'rgba(0, 51, 18, 1)'
+                    ],
+                    borderWidth: 0
+                },
+                {
+                    label: 'นักศึกษาจบการศึกษา',
+                    data: [64,55,30,40,55],
+                    backgroundColor: '#abbdee',
+                    borderColor: [
+                        'rgba(150,186,169, 1)', //1
+                        'rgba(108,158,134, 1)',
+                        'rgba(66,130,100, 1)',
+                        'rgba(45,117,83, 1)',
+                        'rgba(27,70,49, 1)', //5
+                        'rgba(0, 51, 18, 1)'
+                    ],
+                    borderWidth: 0
+                }
+
+                ]
+
+            },
+
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        }
+                    }]
+                },
+                responsive: true,
+
+            }
+        });
+    </script>
+    <!-- ปิด script กราฟด้านบน -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
+    </script>
+    <script>
+        const DATA_COUNT = 1;
+        const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+
+
+
+        var ctx = document.getElementById("learn");
+        var myChart = new Chart(ctx, {
+            //type: 'bar',
+            //type: 'line',
+            type: 'bar',
+            data: {
+                labels: ['2560','2561','2562', '2563', '2564'],
+                datasets: [{
+                    label: 'ตามหลักสูตร',
+                    data: [60,65,60,55,50],
+                    backgroundColor: "#89cfef",
+                    borderWidth: 0
+                },
+                {
+                    label: ['ไม่ตามหลักสุตร'],
+                    data: [55,64,40,25,40],
+                    backgroundColor: "#ffab76",
+                    borderWidth: 0
+                },
+                {
+                    label: ['ลาออก'],
+                    data: [5,4,5,3,4],
+                    backgroundColor: '#ff6962',
+                    borderWidth: 0
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+
+            }
+        });
+    </script>
+
+
+
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -68,8 +68,8 @@
                             <font size="4px"><b>
                                     <?php echo $row["std_fname_th"] . "&nbsp;" . $row["std_lname_th"] ?>
                                 </b></font>
-                            <a href="logout.php" data-toggle="tooltip" title="ออกจากระบบ">
-                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                            <a href="logout.php" data-toggle="tooltip" title=" ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i> 
                                 </font>
                             </a>
                         </div>
@@ -97,7 +97,17 @@
                         </ul>
                     </div>
                 </div>
-                
+                <div class="menu-box">
+                    <div class="menu-box-sky">
+                        <ul>
+                            <li>
+                                <a href="./report.html"><b>
+                                        <font color="#000000">ผลการเรียน</font>
+                                    </b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="menu-box">
                     <div class="menu-box-red active">
                         <ul>
@@ -107,7 +117,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="menu-box">
+                <!--<div class="menu-box">
                     <div class="menu-box-orange ">
                         <ul>
                             <li>
@@ -115,16 +125,8 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="menu-box">
-                    <div class="menu-box-sky">
-                        <ul>
-                            <li>
-                                <a href="./report.html"><b><font color="#000000">รายงาน</font></b></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                </div>-->
+                
             </div>
         </div>
 
@@ -202,29 +204,7 @@
             </tbody>
         </table>
 
-        <mark2> วิชาที่เคยลงทะเบียนเรียนแล้ว </mark2>
-        <table class="tb2"  width="100%">
-            <tr> <!-- config -->
-                <th class="text-center">ปีการศึกษา</th>
-                <th class="text-center">ภาคการเรียน</th>
-                <th >รหัสวิชา</th>
-                <th >ชื่อวิชา</th>
-                <th class="text-center">ผลการเรียน</th>
-                <th class="text-center">หน่วยกิต</th>
-
-            </tr>
-            <tbody>
-                <tr>
-                    <td class="text-center">2563</td>
-                    <td class="text-center">ภาคต้น</td>
-                    <td >02999144</td>
-                    <td >Man and Environment</td>
-                    <td class="text-center">A</td>
-                    <td class="text-center">1</td>
-
-            </tbody>
-        </table>
-
+        
         <h4 style="color: red;">*วิชาที่สามารถ Regrade ได้ต้องเป็นรายวิชาที่ได้แต้มคะแนนต่ำกว่า 2.00 (ได้เกรดต่ำกว่า C)
         </h4>
         <center>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>การจัดการข้อมูลนิสิต</title>
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,7 +40,7 @@
             margin-top: 20px;
             margin-left: 10px;
             margin-bottom: 15px;
-            float: : left;
+            float: left;
         }
 
         .btn {
@@ -102,6 +102,7 @@
             font-size: 22px;
             margin-left: 20px;
             padding-left: 20px;
+
         }
 
         .table_grade_sem {
@@ -136,8 +137,8 @@
             padding-top: 8px;
             padding-bottom: 8px;
             text-align: left;
-            background-color: #478ff4;
-            color: white;
+            background-color: #86d3f7;
+            color: black;
         }
 
         .table_grade_sem2 td,
@@ -158,8 +159,8 @@
             padding-top: 8px;
             padding-bottom: 8px;
             text-align: left;
-            background-color: #478ff4;
-            color: white;
+            background-color: #86d3f7;
+            color: black;
         }
     </style>
 </head>
@@ -171,7 +172,6 @@
                 <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
                 <div class="navbar-form navbar-right">
                     <div class="chip">
-
                         <div class="dropdown">
                             <!-- <img src="img.png" alt="Person"> -->
                             <font size="4px"><b>Admin</b></font>
@@ -185,10 +185,11 @@
                 </div>
             </div>
         </div>
+
         <div style="padding-top: 15px" class="content">
             <div class="menu-top">
                 <div class="menu-box">
-                    <div class="menu-box-blue active">
+                    <div class="menu-box-blue active ">
                         <ul>
                             <li>
                                 <a href="./home.html">
@@ -229,12 +230,12 @@
                     <img class="std_img"
                         src="https://png.pngtree.com/png-vector/20190716/ourmid/pngtree-edit-profile-icon-trendy-style-isolated-background-png-image_1543261.jpg" />
 
-                    <table class='info1' style='margin-left:230px;'>
+                    <table class="info1" style="align-items: center;">
                         <tr height='30'>
                             <td><span style='font-weight:bold; color:#0552d8;'>ชื่อ-นามสกุล (ภาษาอังกฤษ) </span>:
                                 Phattaraporn Panyaaudomporn</td>
                             <td><span style='font-weight:bold; color:#0552d8;'>รหัสประจำตัวประชาชน </span>:
-                                1749400014955</td>
+                                xxxxxxxxx4955</td>
                         </tr>
                         <tr height='30'>
                             <td><span style='font-weight:bold; color:#0552d8;'>เบอร์โทรศัพท์ </span>: 0950427705
@@ -266,8 +267,11 @@
                         <tr height='30'>
                             <td><span style='font-weight:bold; color:#0552d8;'>ช่องทางรับเข้า </span>:
                                 แฟ้มสะสมผลงาน&nbsp;(รอบที่ 1)</td>
-                            <td></td>
+                            <td><span style='font-weight:bold; color:#0552d8;'>สถานะ </span>:
+                                กำลังศึกษา</td>
                         </tr>
+
+
                     </table>
 
     </div>
@@ -281,77 +285,77 @@
             <canvas id="myChart"></canvas>
 
         </div>
-        <table class="table_grade_sem" style="margin-top: -17%; margin-right: 15%;">
+        <table class="table_grade_sem" style="margin-top: -17%; margin-right: 2%;">
             <thead>
                 <tr>
-                    <th class="text-center">ปีการศึกษา</th>
-                    <th class="text-center">ภาคการศึกษา</th>
-                    <th>หน่วยกิต</th>
-                    <th>ผลการเรียน</th>
-                    <th>GPA</th>
-                    <th>#</th>
-                    <th>หมายเหตุ</th>
+                    <th class="text-center" style="width:120px; text-align: right;">ปีการศึกษา</th>
+                    <th class="text-center" style="width:105px; text-align: right;">ภาคการศึกษา</th>
+                    <th style="width:105px; text-align: right;">หน่วยกิต</th>
+                    <th style="width:105px; text-align: right;">ผลการเรียน</th>
+                    <th style="width:105px; text-align: right;">GPA</th>
+                    <th style="width:105px; text-align: right;">#</th>
+                    <th style="width:105px; text-align: right;">หมายเหตุ</th>
 
                 </tr>
             </thead>
             <tbody>
 
                 <tr>
-                    <td class="text-center">2563</td>
-                    <td class="text-center">ภาคต้น</td>
+                    <td style="text-align: right;">2563</td>
+                    <td style="text-align: right;">ภาคต้น</td>
                     <td style="text-align: right;">19</td>
                     <td style="text-align: right;">3.13<span></span></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td style="text-align: right;">-</td>
+                    <td style="text-align: right;">-</td>
+                    <td style="text-align: right;">-</td>
                     <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
 
                 </tr>
                 <tr>
-                    <td class="text-center">2563</td>
-                    <td class="text-center">ภาคปลาย</td>
+                    <td style="text-align: right;">2563</td>
+                    <td style="text-align: right;">ภาคปลาย</td>
                     <td style="text-align: right;">22</td>
                     <td style="text-align: right;">3.33<span></span>
                     </td>
-                    <td>3.23</td>
-                    <td style="color: green;">+[0.1]</td>
-                    <td>-</td>
+                    <td style="text-align: right;">3.23</td>
+                    <td style="color: green; text-align: right;">+[0.10]</td>
+                    <td style="text-align: right;">-</td>
                     <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
 
                 </tr>
                 <tr>
-                    <td class="text-center">2564</td>
-                    <td class="text-center">ภาคต้น</td>
+                    <td style="text-align: right;">2564</td>
+                    <td style="text-align: right;">ภาคต้น</td>
                     <td style="text-align: right;">19</td>
                     <td style="text-align: right;">3.38<span></span>
                     </td>
-                    <td>3.25</td>
-                    <td style="color: green;">+[0.02]</td>
-                    <td>-</td>
+                    <td style="text-align: right;">3.25</td>
+                    <td style="color: green; text-align: right;">+[0.02]</td>
+                    <td style="text-align: right;">-</td>
                     <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
 
                 </tr>
                 <tr>
-                    <td class="text-center">2564</td>
-                    <td class="text-center">ภาคปลาย</td>
+                    <td style="text-align: right;">2564</td>
+                    <td style="text-align: right;">ภาคปลาย</td>
                     <td style="text-align: right;">22</td>
                     <td style="text-align: right;">3.28<span></span>
                     </td>
-                    <td>3.25</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td style="text-align: right;">3.25</td>
+                    <td style="text-align: right;">-</td>
+                    <td style="text-align: right;">-</td>
                     <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
 
                 </tr>
 
                 <tr>
-                    <th scope='row'>ผลการเรียนเฉลี่ย</th>
-                    <td class='text-center'></td>
+                    <th scope='row' style=" text-align: right;">ผลการเรียนเฉลี่ย</th>
+                    <td style="text-align: right;"></td>
                     <td style='text-align: right;'>41</td>
                     <td style='text-align: right;'>3.28</td>
-                    <td>3.25</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td style="text-align: right;">3.25</td>
+                    <td style="text-align: right;">-</td>
+                    <td style="text-align: right;">-</td>
                 </tr>
             </tbody>
         </table>
@@ -361,58 +365,62 @@
     <div>
         <!--ผลการเรียนแบ่งตามหมวดวิชา (กราฟ)-->
         <div id="chart-container" class="float-left" style="width: 500px; margin-top: 100px; margin-left: 15%;">
-            <h3 style="margin-left: 20px; font-size: 30px;">รายงานผลการเรียนแบ่งตามหมวดวิชา</h3>
+            <h3 style=" font-size: 30px;">รายงานผลการเรียนแบ่งตามหมวดวิชา</h3>
             <canvas id="myChart2"></canvas>
 
         </div>
-        <table class="table_grade_sem" style="margin-top: -17%; margin-right: 10%;">
+        <table class="table_grade_sem" style="margin-top: -17%; margin-right: 2%; width: 48%;">
 
             <tr>
-                <th>หมวดวิชา</th>
-                <th style="text-align: right;">จำนวนหน่วยกิตที่<span style="color:#215f1e;">เรียนไปแล้ว</span>
+                <th style=" text-align: right;">หมวดวิชา</th>
+                <th style="text-align: right;"><span>เรียนไปแล้ว</span>
                 </th>
-                <th style="text-align: right;">จำนวนหน่วยกิตที่<span style="color:red;">ยังไม่เรียน</span></th>
+                <th style="text-align: right;"><span>ยังไม่เรียน</span></th>
                 <th style="text-align: right;">หน่วยกิตทั้งหมด</th>
+                <th style="text-align: right;">เกรดเฉลี่ย</th>
             </tr>
 
             <tr>
-                <td>หมวดวิชาศึกษาทั่วไป</td>
-                <td style="font-weight: bold; color: green; text-align: right;">
-                    30
-                </td>
-                <td style="font-weight: bold; color: red; text-align: right;">
-                    0
-                </td>
-                <td style="font-weight: bold; text-align: right;">30</td>
-            </tr>
-            <tr>
-                <td>หมวดวิชาเสรี</td>
-                <td style="font-weight: bold; color: green; text-align: right;">
-                    6
-                </td>
-                <td style="font-weight: bold; color: red; text-align: right;">
-                    0
-                </td>
-                <td style="font-weight: bold; text-align: right;">6</td>
-            </tr>
-            <tr>
-                <td>หมวดวิชาเฉพาะ</td>
-                <td style="font-weight: bold; color: green; text-align: right;">
-                    98
-                </td>
-                <td style="font-weight: bold; color: red; text-align: right;">
-                    6
+                <td style=" text-align: right;">หมวดวิชาศึกษาทั่วไป</td>
+                <td style="font-weight: bold;  text-align: right;">
+                    30 หน่วยกิต
                 </td>
                 <td style="font-weight: bold; text-align: right;">
-                    104
+                    0 หน่วยกิต
                 </td>
+                <td style="font-weight: bold; text-align: right;">30 หน่วยกิต</td>
+                <td style="font-weight: bold; text-align: right;">2.60</td>
+            </tr>
+            <tr>
+                <td style=" text-align: right;">หมวดวิชาเสรี</td>
+                <td style="font-weight: bold; text-align: right;">
+                    6 หน่วยกิต
+                </td>
+                <td style="font-weight: bold; text-align: right;">
+                    0 หน่วยกิต
+                </td>
+                <td style="font-weight: bold; text-align: right;">6 หน่วยกิต</td>
+                <td style="font-weight: bold; text-align: right;">1.50</td>
+            </tr>
+            <tr>
+                <td style=" text-align: right;">หมวดวิชาเฉพาะ</td>
+                <td style="font-weight: bold; text-align: right;">
+                    98 หน่วยกิต
+                </td>
+                <td style="font-weight: bold; text-align: right;">
+                    6 หน่วยกิต
+                </td>
+                <td style="font-weight: bold; text-align: right;">
+                    104 หน่วยกิต
+                </td>
+                <td style="font-weight: bold; text-align: right;">3.34</td>
             </tr>
 
         </table>
 
-        <h4 style="color: red; text-align: right; margin-right: 10%;margin-top: -5%;">*หมวดวิชาเฉพาะ คือ
+        <h4 style="color: red; text-align: right; margin-right: 3%;margin-top: -5%;">*หมวดวิชาเฉพาะ คือ
             หมวดวิชาแกน,หมวดวิชาเฉพาะบังคับ และหมวดวิชาเฉพาะเลือก</h4>
-        <h4 style="color: red; text-align: right; margin-right: 10%;">**จำนวนหน่วยกิตที่นิสิตเรียนไปแล้ว
+        <h4 style="color: red; text-align: right; margin-right: 3%;">**จำนวนหน่วยกิตที่นิสิตเรียนไปแล้ว
             จะนับแค่เฉพาะวิชาที่ลงทะเบียนแล้วผ่าน<span style="text-decoration: underline;">เท่านั้น</span></h4>
 
     </div>
@@ -425,27 +433,31 @@
             <h3 style="margin-left: 20px; font-size: 30px;">ผลการเรียนวิชาที่ไม่ผ่าน</h3>
         </div>
 
-        <table class="content table_grade_sem2 justify-content-center" width="60%"
-            style="font-size: 20px; margin-top: 10px; ">
-            <tr style="background-color: #478ff4; color: white;">
-                <th>ปีการศึกษา</th>
+        <table class="content table_grade_sem2 justify-container-center" style="font-size: 20px; margin-top: 10px; ">
+            <tr>
+                <th style=" text-align: right;">ชั้นปี</th>
+                <th style=" text-align: right;">ภาคการเรียน</th>
                 <th style=" text-align: right;">หมวดวิชา</th>
                 <th style="text-align: right;">ชื่อรายวิชา<span>ยังไม่ผ่าน</span></th>
                 <th style="text-align: right;">หน่วยกิต</th>
+                <th style="text-align: right;">สถานะ</th>
 
             </tr>
             <tr>
-                <td>2563</td>
+                <td style=" text-align: right;">2</td>
+                <td style=" text-align: right;">ภาคปลาย</td>
                 <td style=" text-align: right;">หมวดวิชาเฉพาะ</td>
                 <td style=" text-align: right;">
                     Practicum in Programming and Problem Solving Skills
                 </td>
                 <td style=" text-align: right;">1</td>
+                <td style=" text-align: right;">F</td>
 
             </tr>
 
             <tr>
-                <td>2564</td>
+                <td style=" text-align: right;">2</td>
+                <td style=" text-align: right;">ภาคปลาย</td>
                 <td style=" text-align: right;">หมวดวิชาเฉพาะ</td>
                 <td style=" text-align: right;">
                     Engineering Mathematics II
@@ -453,14 +465,16 @@
                 <td style="text-align: right;">
                     3
                 </td>
+                <td style=" text-align: right;">W</td>
 
             </tr>
 
             <tr>
-                <td style="background-color: #478ff4; font-weight: bold; color: white;">รวม</td>
-                <td style=" text-align: right;">1</td>
+                <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;" colspan="3">
+                    รวม</td>
                 <td style=" text-align: right;">2</td>
                 <td style="text-align: right;">4</td>
+                <td style=" text-align: right;"></td>
 
             </tr>
 
@@ -506,14 +520,17 @@
     let size = grades.length;
     let colorLoop;
     for (let i = 0; i < size; i++) {
-        if (grades[i] <= 1.5) {
+        if (grades[i] >= 0.0000 && grades[i] <= 1.7499) {
             colorLoop = '#ff6962';
         }
-        else if (grades[i] < 3.00) {
-            colorLoop = '#effd5f';
+        else if (grades[i] >= 1.7500 && grades[i] <= 1.9999) {
+            colorLoop = '#f57b39';
         }
-        else {
+        else if (grades[i] >= 2.0000 && grades[i] <= 3.2499) {
             colorLoop = '#99cc99';
+        }
+        else if (grades[i] >= 3.2500) {
+            colorLoop = '#86d3f7';
         }
         colorbar[i] = colorLoop;
     }
@@ -544,11 +561,13 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true,
                         max: 4,
                         min: 0
                     }
                 }]
+            },
+            legend: {
+                display: false
             },
             responsive: true,
 
@@ -559,67 +578,63 @@
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 <script>
-    const GPA2563 = [2.60, 1.5];
+    const GPA = [2.6000, 1.5000, 3.8900, 3.7700];
     const GPAcolorbar = [];
     let GPAsize = grades.length;
     let GPAcolorLoop;
     for (let i = 0; i < size; i++) {
-        if (GPA2563[i] <= 1.5) {
-            GPAcolorLoop = '#ff6962';
+        if (GPA[i] >= 0.0000 && GPA[i] <= 1.7499) {
+            GPAcolorLoop = 'rgba(255, 105, 98,0.8)';
         }
-        else if (GPA2563[i] < 3.00) {
-            GPAcolorLoop = '#effd5f';
+        else if (GPA[i] >= 1.7500 && GPA[i] <= 1.9999) {
+            GPAcolorLoop = 'rgba(245, 123, 57,0.8)';
         }
-        else {
-            GPAcolorLoop = '#99cc99';
+        else if (GPA[i] >= 2.0000 && GPA[i] <= 3.2499) {
+            GPAcolorLoop = 'rgba(153, 204, 153,0.8)';
+        }
+        else if (GPA[i] >= 3.2500) {
+            GPAcolorLoop = 'rgba(134, 188, 247,0.8)';
         }
         GPAcolorbar[i] = GPAcolorLoop;
     }
 
-    const GPA2564 = [3.89, 3.77];
-    const GPAcolorbar2 = [];
-    let GPAsize2 = grades.length;
-    let GPAcolorLoop2;
-    for (let i = 0; i < size; i++) {
-        if (GPA2564[i] <= 1.5) {
-            GPAcolorLoop2 = '#ff6962';
-        }
-        else if (GPA2564[i] < 3.00) {
-            GPAcolorLoop2 = '#effd5f';
-        }
-        else {
-            GPAcolorLoop2 = '#99cc99';
-        }
-        GPAcolorbar2[i] = GPAcolorLoop2;
-    }
+
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         //type: 'bar',
         //type: 'line',
         type: 'bar',
         data: {
-            labels: ['2563', '2564'],
-            datasets: [{
-                data: GPA2563,
-                backgroundColor: GPAcolorbar,
-                borderWidth: 0
-            },
-            {
-                data: GPA2564,
-                backgroundColor: GPAcolorbar2,
-                borderWidth: 0
-            }
+            labels: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+            datasets: [
+                {
+                    type: 'line',
+                    label: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+                    data: [2.6000, 1.5000, 3.8900, 3.7700],
+                    borderColor: 'rgb(0, 107, 201)',
+                    lineTension: 0,
+                    fill: false
+                },
+                {
+                    data: GPA,
+                    backgroundColor: GPAcolorbar,
+                    borderWidth: 0
+                },
+
+
             ]
         },
         options: {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true,
                         max: 4,
                         min: 0
                     }
                 }]
+            },
+            legend: {
+                display: false
             },
             responsive: true,
 

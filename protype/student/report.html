@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -9,49 +9,126 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
 
-    <!-- <link rel="icon" type="image/png"  href="../../image/Logo/Logo.png" class="_web-inspector-hide-shortcut_"> -->
-    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css"> <!--  Font Template -->
-    <link href ="../asset/css/myTemplate.css" rel="stylesheet" type="text/css"> <!-- CSS Template -->
-    <link href ="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css"> <!-- รูปต่างๆ สัญลักษณ์ -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- เส้นกรอบ -->
+    <!--page 10 -->
+    <script src="../asset/dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.rowReorder.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+        <link rel="icon" type="image/png"  href="../../Image/Logo/Logo.png" class="_web-inspector-hide-shortcut_">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">                                                  เส้นกรอบ -->
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <!-- ลบแล้ว step เป็นวงกลม -->
-
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <style>
-        mark {
-            background-color: #F1E8E8;
-            font-size: 22px;
+        table {
+            font-size: 18px;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        h2 {
+            color: #2B7C74;
             font-weight: 900;
         }
 
-        .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            width: 40%;
-            border-radius: 5px;
+        .nav-tabs {
+            font-size: 20px;
         }
 
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        /*i.icon-orange{
+            color:#ff8000;
+        }
+        i.icon-blue{
+            color:#0080ff;
+        }
+        i.icon-green{
+            color:#5cb85c;
+        }*/
+        .glyphicon {
+            cursor: pointer;
         }
 
-        .container {
-            padding: 2px 16px;
+        .glyphicon-stats {
+            color: green;
         }
 
-        fieldset {
-            background-color: #D8D8D8;
-            margin: 20px;
-            padding: 0 10px 10px;
-            border: 1px solid #666;
-            border-radius: 8px;
-            box-shadow: 0 0 10px #666;
-            padding-top: 10px;
+        .height {
+            height: 100vh;
+        }
+
+
+        .search {
+            position: relative;
+            box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+
+        }
+
+        .search input {
+
+            height: 60px;
+            text-indent: 25px;
+            border: 2px solid #d6d4d4;
+
+
+        }
+
+
+        .search input:focus {
+
+            box-shadow: none;
+            border: 2px solid blue;
+            font-size: 16px;
+
+        }
+
+        .search .fa-search {
+
+            position: absolute;
+            top: 20px;
+            left: 16px;
+
+        }
+
+        .search button {
+
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            height: 50px;
+            width: 110px;
+            background: blue;
 
         }
     </style>
@@ -71,8 +148,8 @@
                             <!-- <img src="img.png" alt="Person"> -->
                             <font size="4px"><b>ภัทรพร ปัญญาอุดมพร</b></font>
                             <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
-                            <a href="logout.php" data-toggle="tooltip" title="ออกจากระบบ">
-                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                            <a href="logout.php" data-toggle="tooltip" title=" ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i> 
                                 </font>
                             </a>
                         </div>
@@ -87,7 +164,9 @@
                     <div class="menu-box-blue">
                         <ul>
                             <li>
-                                <a href="home.html"><font color="#000000"><b>หน้าหลัก</b></font></a>
+                                <a href="home.html">
+                                    <font color="#000000"><b>หน้าหลัก</b></font>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -96,26 +175,9 @@
                     <div class="menu-box-green ">
                         <ul>
                             <li>
-                                <a href="info.html"><font color="#000000"><b>ข้อมูลส่วนตัว</b></font></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="menu-box">
-                    <div class="menu-box-red ">
-                        <ul>
-                            <li>
-                                <a href="./formGPA.html"><font color="#000000"><b>คำนวณผลการเรียน</b></font></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="menu-box">
-                    <div class="menu-box-orange ">
-                        <ul>
-                            <li>
-                                <a href="./activity.html"><font color="#000000"><b>กิจกรรม</b></font></a>
+                                <a href="info.html">
+                                    <font color="#000000"><b>ข้อมูลส่วนตัว</b></font>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -124,93 +186,268 @@
                     <div class="menu-box-sky active">
                         <ul>
                             <li>
-                                <a href="./report.html"><b><font color="#000000">รายงาน</font></b></a>
+                                <a href="./report.html"><b>
+                                        <font color="#000000">ผลการเรียน</font>
+                                    </b></a>
                             </li>
                         </ul>
                     </div>
                 </div>
+                <div class="menu-box">
+                    <div class="menu-box-red ">
+                        <ul>
+                            <li>
+                                <a href="./formGPA.html">
+                                    <font color="#000000"><b>คำนวณผลการเรียน</b></font>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
 
         <br>
-        <!-- check สถานะการฝึกงาน/โครงงาน -->
 
-        <!-- ลำดับที่  -->
+        <div class="content">
+            <div class="row">
+                <div>
+                    <div style=" border-bottom:1px solid black " >
+                        
+                            <table class="content" style="border:none;">
+                                <th style=" text-align: left;"><h2>ข้อมูลสมาชิก : นางสาวภัทรพร ปัญญาอุดมพร</h2></th>
+                                <th style=" text-align: right;"><h2>GPA 3.38</h2></th>
+                            </table>
+                        
+                        
+                        
+                    </div>
+                    
 
-        <!--<p style="color: red; font-size: 20px;">*D (DEPARTMENT) คือ อันดับตามสาขา</p>
- <p style="color: red; font-size: 20px;">*F (FACULTY) คือ อันดับตามคณะ</p>
-            การฝึกงาน:<span style="color:green;">&nbsp;มีสิทธิ์</span>&nbsp;&nbsp;&nbsp;โครงงาน:<span style="color:green;">&nbsp;มีสิทธิ์</span>&nbsp;&nbsp;&nbsp; 
-           <mark>สถานะลงทะเบียน:<span style="color:red;">&nbsp;ผิดปกติ</span>
-            &nbsp;&nbsp;&nbsp;&nbsp;ลำดับที่ Y<span style="color:blue;">1</span>&nbsp;D<span style="color:blue;">2</span>&nbsp;F<span style="color:blue;">5</span>
-            </mark>-->
-        <div align="center">
-            <table width="80%">
-                <tr>
-                    <td width="150px" align="center">
-                        <a data-toggle="modal" href="../report/grade_static.html">
-                            <fieldset style="border:2px groove lightgray">
-                                <img src="../image/analytics.png" style="width: 150px; height: 150px"><br>
-                            </fieldset>
-                        </a>
-                    </td>
-                    <td width="20px">&nbsp</td>
-                    <td width="150px" align="center">
-                        <a data-toggle="modal" href="../report/unit_static.html">
-                            <fieldset style="border:2px groove lightgray">
-                                <img src="../image/line-chart.png" style="width: 150px; height: 150px"><br>
-                            </fieldset>
-                        </a>
-                    </td>
+                    <!-- <hr> -->
                     <br>
-                    <td width="20px">&nbsp</td>
-                    
-                </tr>
 
+                    <div class="col-md-6">
+                        <div class="col-sm-5 col-xs-6 tital" style="font-weight: 900;">รหัสนิสิต: </div>
+                        <div class="col-sm-7 col-xs-6 ">6320500603</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital" style="font-weight: 900;">ชื่อ - นามสกุล: </div>
+                        <div class="col-sm-7 col-xs-6 ">ภัทรพร ปัญญาอุดมพร</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;"></div>
+                        <div class="col-sm-7 col-xs-6 ">Phattaraporn panyaaudomporn</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">เบอร์โทรศัพท์: </div>
+                        <div class="col-sm-7 col-xs-6 ">0950427705</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">อีเมล: </div>
+                        <div class="col-sm-7 col-xs-6 ">phattaraporn.sa@ku.th</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">คณะ: </div>
+                        <div class="col-sm-7 col-xs-6 ">วิศวกรรมศาสตร์</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">สาขาวิชา: </div>
+                        <div class="col-sm-7 col-xs-6 ">วิศวกรรมคอมพิวเตอร์</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">หลักสูตร: </div>
+                        <div class="col-sm-7 col-xs-6 ">ภาษาไทย (ภาคปกติ)</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                        <div class="col-sm-5 col-xs-6 tital " style="font-weight: 900;">อาจารย์ที่ปรึกษา: </div>
+                        <div class="col-sm-7 col-xs-6  ">รศ.ดร.ฐิติพงษ์ สถิรเมธีกุล</div>
+                        <div class="clearfix"></div>
+                        <div class="bot-border"></div>
+                    </div>
+                </div>
 
-                <tr>
-                    <td width="150px" align="center">
-                        <a
-                            style="color: black; font-size: 150%; text-decoration:none; font-size: 30px;">ผลการเรียนแต่ละภาคการศึกษา</a>
-                    </td>
-                    <td width="20px">&nbsp;</td>
-                    <td width="150px" align="center">
-                        <a
-                            style="color: black; font-size: 150%; text-decoration:none; font-size: 30px;">ผลการเรียนแบ่งตามหมวดวิชา</a>
-                    </td>
-                    <td width="20px">&nbsp;</td>
-
-                </tr>
-
-                <tr>
-                    <td width="150px" align="center" style="margin-left: 50px;">
-                        <a data-toggle="modal" href="../report/activity_static.html">
-                            <fieldset style="border:2px groove lightgray;">
-                                <img src="../image/activity.png" style="width: 150px; height: 150px"><br>
-                            </fieldset>
-                        </a>
-                    </td>
-                    <td width="20px">&nbsp</td>
-                </tr>
-                <tr>
-                    <td width="150px" align="center">
-                        <a
-                            style="color: black; font-size: 150%; text-decoration:none; font-size: 30px;">ผลการร่วมเข้ากิจกรรม</a>
-                    </td>
-                    
-
-                </tr>
-
-            </table>
+            </div>
         </div>
 
+        <br><br>
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#gan">หมวดวิชาแกน</a></li>
+            <li><a data-toggle="tab" href="#gen">หมวดวิชาศึกษาทั่วไป</a></li>
+            <li><a data-toggle="tab" href="#spec">หมวดวิชาเฉพาะบังคับ</a></li>
+            <li><a data-toggle="tab" href="#select">หมวดวิชาเฉพาะเลือก</a></li>
+            <li><a data-toggle="tab" href="#fee">หมวดวิชาเสรี</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="gan" class="tab-pane fade in active">
+                <table id="tablegan" class="display" cellspacing="0" width="100%" style="text-align: left;">
+                    <br>
+                    <thead>
+                        <tr>
+                            <th>ปีการศึกษา</th>
+                            <th>ภาคการศึกษา</th>
+                            <th>รหัสวิชา</th>
+                            <th>ชื่อวิชา</th>
+                            <th>หมวดรายวิชา</th>
+
+                            <th>ผลการเรียน</th>
+                            <th>หน่วยกิต</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">2563</td>
+                            <td class="text-left">ภาคต้น</td>
+                            <td class="text-left">01417167</td>
+                            <td class="text-left">Engineering Mathematics I</td>
+                            <td class="text-left">หมวดวิชาแกน</td>
+                            <td class="text-left">C+</td>
+                            <td class="text-left">3</td>
+                        </tr>
+
+                        <tr>
+                            <td class="text-left">2563</td>
+                            <td class="text-left">ภาคต้น</td>
+                            <td class="text-left">01420111</td>
+                            <td class="text-left">General Physics I</td>
+                            <td class="text-left">หมวดวิชาแกน</td>
+                            <td class="text-left">B</td>
+                            <td class="text-left">3</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <!--นิสิตในภาค-->
+            <div id="gen" class="tab-pane fade active">
+                <table id="tablegen" class="display" cellspacing="0" width="100%">
+                    <br>
+                    <thead>
+                        <tr>
+                            <th>ปีการศึกษา</th>
+                            <th>ภาคการศึกษา</th>
+                            <th>รหัสวิชา</th>
+                            <th>ชื่อวิชา</th>
+                            <th>หมวดวิชา</th>
+                            <th>ผลการเรียน</th>
+                            <th>หน่วยกิต</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td class="text-center">2563</td>
+                            <td class="text-center">ภาคต้น</td>
+                            <td class="text-center">01417167</td>
+                            <td>Engineering Mathematics I</td>
+                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
+                            <td class="text-center">C+</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">2563</td>
+                            <td class="text-center">ภาคต้น</td>
+                            <td class="text-center">01420111</td>
+                            <td>General Physics I</td>
+                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
+                            <td class="text-center">B</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">2563</td>
+                            <td class="text-center">ภาคต้น</td>
+                            <td class="text-center">01420113</td>
+                            <td>Laboratory in Physics I</td>
+                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
+                            <td class="text-center">A</td>
+                            <td class="text-center">3</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!--นิสิตในคณะ-->
+            <div id="spec" class="tab-pane fade active">
+
+                <table id="tablespec" class="display" cellspacing="0" width="100%">
+                    <br>
+                    <thead>
+                        <tr>
+                            <th>ปีการศึกษา</th>
+                            <th>ภาคการศึกษา</th>
+                            <th>รหัสวิชา</th>
+                            <th>ชื่อวิชา</th>
+                            <th>หมวดวิชา</th>
+                            <th>ผลการเรียน</th>
+                            <th>หน่วยกิต</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td class="text-center">2563</td>
+                            <td class="text-center">ภาคต้น</td>
+                            <td class="text-center">01417167</td>
+                            <td>Engineering Mathematics I</td>
+                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
+                            <td class="text-center">C+</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">2563</td>
+                            <td class="text-center">ภาคต้น</td>
+                            <td class="text-center">01420111</td>
+                            <td>General Physics I</td>
+                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
+                            <td class="text-center">B</td>
+                            <td class="text-center">3</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">2563</td>
+                            <td class="text-center">ภาคต้น</td>
+                            <td class="text-center">01420113</td>
+                            <td>Laboratory in Physics I</td>
+                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
+                            <td class="text-center">A</td>
+                            <td class="text-center">3</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
 
 
+        </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tablegan').DataTable({
+                responsive: true,
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
+            });
+            $('#tablegen').DataTable({
+                responsive: true,
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]],
+    
+            });
+            $('#tablespec').DataTable({
+                responsive: true,
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
+    
+            });
+        });
+    </script>
+
 </body>
-<!-- footer -->
-<!-- <div class="footer">
-    <p>Footer</p>
-    </div>  -->
-<!-- end footer -->
 
 </html>

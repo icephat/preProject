@@ -179,8 +179,8 @@
                             <!-- <img src="img.png" alt="Person"> -->
                             <font size="4px"><b>ฐิติพงษ์ สถิรเมธีกุล </b></font>
                             <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
-                            <a href="../logout.php" data-toggle="tooltip" title=" ">
-                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b> </b>
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
                                 </font>
                             </a>
                         </div>
@@ -190,11 +190,11 @@
             <div style="padding-top: 15px" class="content">
                 <div class="menu-top">
                     <div class="menu-box">
-                        <div class="menu-box-blue ">
+                        <div class="menu-box-blue active">
                             <ul>
                                 <li>
-                                    <a href="../teacher/home.html">
-                                        <font color="#000000"><b>อาจารย์ที่ปรึกษา</b></font>
+                                    <a href="./home.html">
+                                        <font color="#000000"><b>หน้าหลัก</b></font>
                                     </a>
                                 </li>
                             </ul>
@@ -204,8 +204,8 @@
                         <div class="menu-box-green ">
                             <ul>
                                 <li>
-                                    <a href="../teacher/static_select.html">
-                                        <font color="#000000"><b>รายงาน</b></font>
+                                    <a href="./static_select.html">
+                                        <font color="#000000"><b>สถิติ</b></font>
                                     </a>
                                 </li>
                             </ul>
@@ -215,8 +215,8 @@
                         <div class="menu-box-red  ">
                             <ul>
                                 <li>
-                                    <a href="./nisit.html">
-                                        <font color="#000000"><b>รายชื่อนิสิต</b></font>
+                                    <a href="../report_student_coursepresident/report_table_teacher.html">
+                                        <font color="#000000"><b>รายงาน</b></font>
                                     </a>
                                 </li>
                             </ul>
@@ -272,23 +272,15 @@
                                     กำลังศึกษา</td>
                             </tr>
                             <tr height='30'>
-                                <td><span style='font-weight:bold; color:#0552d8;'>สิทธิ์ฝึกงาน :</span> <span style="color: green;">ผ่าน</span></td>
-                                <td><span style='font-weight:bold; color:#0552d8;'>สิทธิ์สหกิจ :</span> <span style="color: red;">ไม่มีสิทธิ์</span></td>
-                               
-                            </tr>
-                            <tr height='30'>
-                                <td><span style='font-weight:bold; color:#0552d8;'>สิทธิ์โครงงาน :</span> <span style="color: red;">ไม่ผ่าน</span></td>
+                                <td></td>
                                 <td><span style='font-weight:bold; color:#0552d8;'>note </span>:
                                     โรคภูมิแพ้</td>
                             </tr>
                             
+                            
+
+
                         </table>
-                        <form action="/action_page.php">
-                            <p><label for="note" style="color:#0552d8;">เพิ่ม note:</label></p>
-                            <textarea id="w3review" name="w3review" rows="4" cols="130"></textarea>
-                            <br><br>
-                            <button type="submit" class="btn btn-success center-block" >บันทึก</button>
-                          </form>
 
         </div>
     </div>
@@ -297,7 +289,7 @@
     <div>
         <!-- start graph-->
         <div id="chart-container" class="float-left" style="width: 500px; margin-top: 100px; margin-left: 15%;">
-            <h3 style="margin-left: 20px; font-size: 30px;">ผลการเรียนในแต่ละภาคการศึกษา</h3>
+            <h3 style="margin-left: 20px; font-size: 30px;">ผลการเรียนแต่ละภาคการศึกษา</h3>
             <p style="font-weight: bold;"><span style="color: red;"> <svg style="color: #ff6962;"
                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-circle-fill" viewBox="0 0 16 16">
@@ -403,7 +395,7 @@
     <div>
         <!--ผลการเรียนแบ่งตามหมวดวิชา (กราฟ)-->
         <div id="chart-container" class="float-left" style="width: 500px; margin-top: 100px; margin-left: 15%;">
-            <h3 style=" font-size: 30px;">ผลการเรียนในแต่ละหมวดวิชา</h3>
+            <h3 style=" font-size: 30px;">รายงานผลการเรียนแบ่งตามหมวดวิชา</h3>
             <p style="font-weight: bold;"><span style="color: red;"> <svg style="color: #ff6962;"
                         xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-circle-fill" viewBox="0 0 16 16">
@@ -431,71 +423,71 @@
         <table class="table_grade_sem" style="margin-top: -19%; margin-right: 2%; width: 48%;">
 
             <tr>
-                <th style=" text-align: left;">หมวดวิชา</th>
-                <th style="text-align: right;"><span>เรียนไปแล้ว</span>
+                <th style=" text-align: center;">หมวดวิชา</th>
+                <th style="text-align: center;"><span>เรียนไปแล้ว</span>
                 </th>
-                <th style="text-align: right;"><span>ยังไม่เรียน</span></th>
-                <th style="text-align: right;">หน่วยกิตทั้งหมด</th>
+                <th style="text-align: center;"><span>ยังไม่เรียน</span></th>
+                <th style="text-align: center;">หน่วยกิตทั้งหมด</th>
                 <th style="text-align: center;">เกรดเฉลี่ย</th>
             </tr>
 
             <tr>
-                <td style=" text-align: left;">หมวดวิชาแกน</td>
-                <td style="text-align: right;">
+                <td style=" text-align: center;">หมวดวิชาแกน</td>
+                <td style="text-align: center;">
                     50 หน่วยกิต
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: center;">
                     0 หน่วยกิต
                 </td>
-                <td style="text-align: right;">50 หน่วยกิต</td>
+                <td style="text-align: center;">50 หน่วยกิต</td>
                 <td style="text-align: center;">2.60</td>
             </tr>
             <tr>
-                <td style=" text-align: left;">หมวดวิชาศึกษาทั่วไป</td>
-                <td style="text-align: right;">
+                <td style=" text-align: center;">หมวดวิชาศึกษาทั่วไป</td>
+                <td style="text-align: center;">
                     30 หน่วยกิต
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: center;">
                     0 หน่วยกิต
                 </td>
-                <td style="text-align: right;">30 หน่วยกิต</td>
+                <td style="text-align: center;">30 หน่วยกิต</td>
                 <td style="text-align: center;">1.50</td>
             </tr>
             <tr>
-                <td style=" text-align: left;">หมวดวิชาเฉพาะบังคับ</td>
-                <td style="text-align: right;">
+                <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
+                <td style="text-align: center;">
                     98 หน่วยกิต
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: center;">
                     6 หน่วยกิต
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: center;">
                     104 หน่วยกิต
                 </td>
                 <td style="text-align: center;">3.34</td>
             </tr>
             <tr>
-                <td style=" text-align: left;">หมวดวิชาเฉพาะเลือก</td>
-                <td style="text-align: right;">
+                <td style=" text-align: center;">หมวดวิชาเฉพาะเลือก</td>
+                <td style="text-align: center;">
                     66 หน่วยกิต
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: center;">
                     0 หน่วยกิต
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: center;">
                     66 หน่วยกิต
                 </td>
                 <td style="text-align: center;">3.38</td>
             </tr>
             <tr>
-                <td style=" text-align: left;">หมวดวิชาเสรี</td>
-                <td style="text-align: right;">
+                <td style=" text-align: center;">หมวดวิชาเสรี</td>
+                <td style="text-align: center;">
                     6 หน่วยกิต
                 </td>
-                <td style="text-align: right;">
+                <td style="text-align: center;">
                     0 หน่วยกิต
                 </td>
-                <td style="text-align: right;">6 หน่วยกิต</td>
+                <td style="text-align: center;">6 หน่วยกิต</td>
                 <td style="text-align: center;">3.40</td>
             </tr>
 
@@ -741,7 +733,7 @@
             datasets: [
                 {
                     type: 'line',
-                    label: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+                    label: ['GPA'],
                     data: [3.13, 3.23, 3.25, 3.25],
                     borderColor: 'rgb(0, 107, 201)',
                     lineTension: 0,

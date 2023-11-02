@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>คลังข้อมูลนิสิตคณะวิศวกรรมศาสตร์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- material google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- end material google -->
+
+    <!--page 10 -->
+    <script src="../asset/dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.rowReorder.min.js"></script>
+    <script src="../asset/dataTable/js/dataTables.responsive.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script> -->
+
+    <!-- css+font-->
+    <link href="../asset/fonts/DBOzoneX.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/myTemplate2.css" rel="stylesheet" type="text/css">
+    <link href="../asset/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    <style>
+        mark {
+            background-color: #F1E8E8;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 40%;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        fieldset {
+            background-color: #D8D8D8;
+            margin: 20px;
+            padding: 0 10px 10px;
+            border: 1px solid #666;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #666;
+            padding-top: 10px;
+
+        }
+
+        /* style graph*/
+
+        #chart-container1 {
+            width: 70%;
+            height: auto;
+
+        }
+
+        #chart-container2 {
+            width: 100%;
+            height: auto;
+
+        }
+
+        .credit_t {
+            border-collapse: collapse;
+            /*width: 100%;*/
+            font-size: 20px;
+            margin-top: 150px;
+            padding-top: 100px;
+            margin-right: 100px;
+        }
+
+        .credit_t th,
+        .credit_t td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .credit_t tr:hover {
+            background-color: #b7d6b5;
+        }
+
+        /*style progress chart*/
+        .body_chart {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            margin-left: 140px;
+
+        }
+
+        .cont2 {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cont2 .box {
+            width: 25%;
+            float: left;
+        }
+
+        .cont2 .box .chart {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 30px;
+            line-height: 110px;
+        }
+
+        .cont2 .box canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .btn {
+            font-size: 16px;
+        }
+
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 75%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            margin-left: 165px;
+        }
+
+        .active,
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: white;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .ct {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            /*overflow: scroll;*/
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+            width: 75%;
+            margin-left: 165px;
+        }
+
+        .std_img {
+            width: 20%;
+            border-radius: 50%;
+            display: block;
+            float: left;
+            margin-bottom: 30px;
+        }
+
+        .info1,
+        tr,
+        td {
+            font-size: 22px;
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+
+        .table_grade_sem {
+
+            border-collapse: collapse;
+            margin-left: 50px;
+            float: right;
+            font-size: 20px;
+        }
+
+        .table_grade_sem2 {
+
+            border-collapse: collapse;
+            font-size: 20px;
+        }
+
+        .table_grade_sem td,
+        .table_grade_sem th {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .table_grade_sem tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table_grade_sem tr:hover {
+            background-color: #ddd;
+        }
+
+        .table_grade_sem th {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: left;
+            background-color: #7dd575;
+            color: black;
+        }
+
+        .table_grade_sem2 td,
+        .table_grade_sem2 th {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .table_grade_sem2 tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table_grade_sem2 tr:hover {
+            background-color: #ddd;
+        }
+
+        .table_grade_sem2 th {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: left;
+            background-color: #86d3f7;
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="content">
+        <div style="padding-top: 15px" class="content">
+            <div class="hleft">
+                <a href="#"><img src="../image/newLogoUniversity1.png" border="0" /></a>
+                <div class="navbar-form navbar-right">
+                    <div class="chip">
+
+                        <div class="dropdown">
+                            <!-- <img src="img.png" alt="Person"> -->
+
+                            <font size="4px"><b>ฐิติพงษ์ สถิรเมธีกุล </b></font>
+
+                            <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
+                            <a href="../logout.php" data-toggle="tooltip" title="ออกจากระบบ">
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b>ออกจากระบบ</b>
+                                </font>
+                            </a>
+                            <!-- -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-top: 15px" class="content">
+                <div class="menu-top">
+                    <div class="menu-box">
+                        <div class="menu-box-blue ">
+                            <ul>
+                                <li>
+                                    <a href="./home.html">
+                                        <font color="#000000"><b>หน้าหลัก</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-box">
+                        <div class="menu-box-green ">
+                            <ul>
+                                <li>
+                                    <a href="./static_select.html">
+                                        <font color="#000000"><b>สถิติ</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-box">
+                        <div class="menu-box-red  active">
+                            <ul>
+                                <li>
+                                    <a href="../report_student_coursepresident/report_table_teacher.html">
+                                        <font color="#000000"><b>รายงาน</b></font>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="content">
+            <div align="center">
+                <table width="80%">
+                    <tr>
+                        
+                        <td width="50px" align="center">
+                            <a data-toggle="modal" href="../report_student_coursepresident/report_table_teacher.html">
+                                <fieldset style="border:2px groove lightgray">
+                                    <img src="../image/line-chart.png" style="width: 150px; height: 150px"><br>
+                                </fieldset>
+                            </a>
+                        </td>
+                        <br>
+                        <td width="20px">&nbsp</td>
+
+                        <td width="50px" align="center">
+                            <a data-toggle="modal" href="../report_student_coursepresident/report_table_teacher.html">
+                                <fieldset style="border:2px groove lightgray">
+                                    <img src="../image/activity.png" style="width: 150px; height: 150px"><br>
+                                </fieldset>
+                            </a>
+                        </td>
+                        <br>
+                        <td width="20px">&nbsp</td>
+                        
+                    </tr>
+    
+                    <tr>
+                        
+                        <td width="150px" align="center">
+                            <a
+                                style="color: black; font-size: 150%; text-decoration:none; font-size: 30px;">รายงานนิสิตที่ปรึกษา</a>
+                        </td>
+                        <td width="20px">&nbsp;</td>
+                        <td width="150px" align="center">
+                            <a
+                                style="color: black; font-size: 150%; text-decoration:none; font-size: 30px;">รายงานนิสิตในคณะ</a>
+                        </td>
+                        <td width="20px">&nbsp;</td>
+    
+                    </tr>
+                    
+                </table>
+            </div>
+    
+    
+    
+        </div>
+
+        </div>
+    </div>
+
+    
+
+
+
+
+</body>
+
+</html>

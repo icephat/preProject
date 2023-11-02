@@ -177,10 +177,10 @@
                             <!-- <img src="img.png" alt="Person"> -->
 
                             <!-- <img src="img.png" alt="Person"> -->
-                            <font size="4px"><b>ฐิติพงษ์ สถิรเมธีกุล </b></font>
+                            <font size="4px"><b> วรัญญา อรรถเสนา </b></font>
                             <!-- <a  href="" data-toggle="modal"  data-target="#Login" title="เข้าสู่ระบบ"><font size="4px"><i class="fa fa-fw fa-lock"></i><b>เข้าสู่ระบบ</b></font></a> -->
                             <a href="../logout.php" data-toggle="tooltip" title=" ">
-                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i><b> </b>
+                                <font size="4px" color="red"><i class="fa fa-fw fa-power-off"></i> 
                                 </font>
                             </a>
                         </div>
@@ -190,10 +190,10 @@
             <div style="padding-top: 15px" class="content">
                 <div class="menu-top">
                     <div class="menu-box">
-                        <div class="menu-box-blue ">
+                        <div class="menu-box-blue active">
                             <ul>
                                 <li>
-                                    <a href="../teacher/home.html">
+                                    <a href="./home.html">
                                         <font color="#000000"><b>อาจารย์ที่ปรึกษา</b></font>
                                     </a>
                                 </li>
@@ -204,7 +204,7 @@
                         <div class="menu-box-green ">
                             <ul>
                                 <li>
-                                    <a href="../teacher/static_select.html">
+                                    <a href="../head/static_select.html">
                                         <font color="#000000"><b>รายงาน</b></font>
                                     </a>
                                 </li>
@@ -294,224 +294,243 @@
     </div>
 
     <!--ผลการเรียนแต่ละภาคการศึกษา-->
-    <div>
+    <div class="col-9" style=" display: flex; justify-content: center; align-items: center;">
         <!-- start graph-->
-        <div id="chart-container" class="float-left" style="width: 500px; margin-top: 100px; margin-left: 15%;">
-            <h3 style="margin-left: 20px; font-size: 30px;">ผลการเรียนในแต่ละภาคการศึกษา</h3>
-            <p style="font-weight: bold;"><span style="color: red;"> <svg style="color: #ff6962;"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-circle-fill" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" />
-                    </svg> เกรด(0-1.47)</span>
-                <span style="color: orange;">&nbsp;&nbsp;&nbsp; <svg style="color: #f57b39;"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-circle-fill" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" />
-                    </svg> เกรด(1.75-1.99)</span>
-                <span style="color: green;">&nbsp;&nbsp;&nbsp;<svg style="color: #99cc99;"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-circle-fill" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" />
-                    </svg> เกรด(2.0-3.24)</span>
-                <span style="color: blue;">&nbsp;&nbsp;&nbsp;<svg style="color: #86d3f7;"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-circle-fill" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" />
-                    </svg> เกรด(3.25-4.00)</span>
-            </p>
-            <canvas id="myChart"></canvas>
+        <table >
+            <th>
+                <div id="chart-container" class="float-left" style="width:max-content">
+                    <h3 style="margin-left: 20px; font-size: 30px;">ผลการเรียนในแต่ละภาคการศึกษา</h3>
+                    <p style="font-weight: bold;"><span style="color: red;"> <svg style="color: #ff6962;"
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" />
+                            </svg> เกรด(0-1.47)</span>
+                        <span style="color: orange;">&nbsp;&nbsp;&nbsp; <svg style="color: #f57b39;"
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" />
+                            </svg> เกรด(1.75-1.99)</span>
+                        <span style="color: green;">&nbsp;&nbsp;&nbsp;<svg style="color: #99cc99;"
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" />
+                            </svg> เกรด(2.0-3.24)</span>
+                        <span style="color: blue;">&nbsp;&nbsp;&nbsp;<svg style="color: #86d3f7;"
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" />
+                            </svg> เกรด(3.25-4.00)</span>
+                    </p>
+                    <canvas id="myChart"></canvas>
+        
+        
+                </div>
+            </th>
+            <th>
+                <table class="table_grade_sem" style="width: max-content;">
+                    <thead>
+                        <tr>
+                            <th style="width:120px; text-align: center;">ปีการศึกษา</th>
+                            <th class="text-center" style="width:105px; ">ภาคการศึกษา</th>
+                            <th style="width:105px; text-align: center;">หน่วยกิต</th>
+                            <th style="width:105px; text-align: center;">ผลการเรียน</th>
+                            <th style="width:105px; text-align: center;">GPA</th>
+                            <th style="width:105px; text-align: center;">#</th>
+                            <th style="width:105px; text-align: center;">หมายเหตุ</th>
+        
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <tr>
+                            <td style="text-align: center;">2563</td>
+                            <td style="text-align: center;">ภาคต้น</td>
+                            <td style="text-align: center;">19</td>
+                            <td style="text-align: center;">3.13<span></span></td>
+                            <td style="text-align: center;">3.13</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                            <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+        
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">2563</td>
+                            <td style="text-align: center;">ภาคปลาย</td>
+                            <td style="text-align: center;">22</td>
+                            <td style="text-align: center;">3.33<span></span>
+                            </td>
+                            <td style="text-align: center;">3.23</td>
+                            <td style="color: green; text-align: center;">+[0.10]</td>
+                            <td style="text-align: center;">-</td>
+                            <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+        
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">2564</td>
+                            <td style="text-align: center;">ภาคต้น</td>
+                            <td style="text-align: center;">19</td>
+                            <td style="text-align: center;">3.38<span></span>
+                            </td>
+                            <td style="text-align: center;">3.25</td>
+                            <td style="color: green; text-align: center;">+[0.02]</td>
+                            <td style="text-align: center;">-</td>
+                            <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+        
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">2564</td>
+                            <td style="text-align: center;">ภาคปลาย</td>
+                            <td style="text-align: center;">22</td>
+                            <td style="text-align: center;">3.28<span></span>
+                            </td>
+                            <td style="text-align: center;">3.25</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                            <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
+        
+                        </tr>
+        
+                        <tr>
+                            <th scope='row' style=" text-align: center;">ผลการเรียนเฉลี่ย</th>
+                            <td style="text-align: center;"></td>
+                            <td style='text-align: center;'>41</td>
+                            <td style='text-align: center;'>3.28</td>
+                            <td style="text-align: center;">3.25</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </th>
+        </table>
+        
+        
+    </div>
 
+    <br><br>
+    <div class="col-9" style=" display: flex; justify-content: center; align-items: center;">
+        <!-- start graph-->
+        <table >
+            <th>
+                <div id="chart-container" class="float-left" style="width:max-content">
+                    <h3 style=" font-size: 30px;">ผลการเรียนในแต่ละหมวดวิชา</h3>
+                    <p style="font-weight: bold;"><span style="color: red;"> <svg style="color: #ff6962;"
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" />
+                            </svg> GPA(0-1.47)</span>
+                        <span style="color: orange;">&nbsp;&nbsp;&nbsp; <svg style="color: #f57b39;"
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" />
+                            </svg> GPA(1.75-1.99)</span>
+                        <span style="color: green;">&nbsp;&nbsp;&nbsp;<svg style="color: #99cc99;"
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" />
+                            </svg> GPA(2.0-3.24)</span>
+                        <span style="color: blue;">&nbsp;&nbsp;&nbsp;<svg style="color: #86d3f7;"
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                <circle cx="8" cy="8" r="8" />
+                            </svg> GPA(3.25-4.00)</span>
+                    </p>
+                    <canvas id="myChart2"></canvas>
+        
+                </div>
+            </th>
+            <th>
+                <table class="table_grade_sem" style="width: max-content;">
 
-        </div>
-        <table class="table_grade_sem" style="margin-top: -17%; margin-right: 2%;">
-            <thead>
-                <tr>
-                    <th style="width:120px; text-align: center;">ปีการศึกษา</th>
-                    <th class="text-center" style="width:105px; ">ภาคการศึกษา</th>
-                    <th style="width:105px; text-align: center;">หน่วยกิต</th>
-                    <th style="width:105px; text-align: center;">ผลการเรียน</th>
-                    <th style="width:105px; text-align: center;">GPA</th>
-                    <th style="width:105px; text-align: center;">#</th>
-                    <th style="width:105px; text-align: center;">หมายเหตุ</th>
-
-                </tr>
-            </thead>
+                    <tr>
+                        <th style="width:150px; text-align: left;">หมวดวิชา</th>
+                        <th style="width:150px; text-align: right;"><span>เรียนไปแล้ว</span>
+                        </th>
+                        <th style="width:150px; text-align: right;"><span>ยังไม่เรียน</span></th>
+                        <th style="width:150px; text-align: right;">หน่วยกิตทั้งหมด</th>
+                        <th style="width:150px; text-align: center;">เกรดเฉลี่ย</th>
+                    </tr>
+        
+                    <tr>
+                        <td style=" text-align: left;">หมวดวิชาแกน</td>
+                        <td style="text-align: right;">
+                            50 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">
+                            0 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">50 หน่วยกิต</td>
+                        <td style="text-align: center;">2.60</td>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: left;">หมวดวิชาศึกษาทั่วไป</td>
+                        <td style="text-align: right;">
+                            30 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">
+                            0 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">30 หน่วยกิต</td>
+                        <td style="text-align: center;">1.50</td>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: left;">หมวดวิชาเฉพาะบังคับ</td>
+                        <td style="text-align: right;">
+                            98 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">
+                            6 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">
+                            104 หน่วยกิต
+                        </td>
+                        <td style="text-align: center;">3.34</td>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: left;">หมวดวิชาเฉพาะเลือก</td>
+                        <td style="text-align: right;">
+                            66 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">
+                            0 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">
+                            66 หน่วยกิต
+                        </td>
+                        <td style="text-align: center;">3.38</td>
+                    </tr>
+                    <tr>
+                        <td style=" text-align: left;">หมวดวิชาเสรี</td>
+                        <td style="text-align: right;">
+                            6 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">
+                            0 หน่วยกิต
+                        </td>
+                        <td style="text-align: right;">6 หน่วยกิต</td>
+                        <td style="text-align: center;">3.40</td>
+                    </tr>
+        
+        
+        
+                </table>
+                
+            </th>
             <tbody>
-
-                <tr>
-                    <td style="text-align: center;">2563</td>
-                    <td style="text-align: center;">ภาคต้น</td>
-                    <td style="text-align: center;">19</td>
-                    <td style="text-align: center;">3.13<span></span></td>
-                    <td style="text-align: center;">3.13</td>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;">-</td>
-                    <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
-
-                </tr>
-                <tr>
-                    <td style="text-align: center;">2563</td>
-                    <td style="text-align: center;">ภาคปลาย</td>
-                    <td style="text-align: center;">22</td>
-                    <td style="text-align: center;">3.33<span></span>
-                    </td>
-                    <td style="text-align: center;">3.23</td>
-                    <td style="color: green; text-align: center;">+[0.10]</td>
-                    <td style="text-align: center;">-</td>
-                    <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
-
-                </tr>
-                <tr>
-                    <td style="text-align: center;">2564</td>
-                    <td style="text-align: center;">ภาคต้น</td>
-                    <td style="text-align: center;">19</td>
-                    <td style="text-align: center;">3.38<span></span>
-                    </td>
-                    <td style="text-align: center;">3.25</td>
-                    <td style="color: green; text-align: center;">+[0.02]</td>
-                    <td style="text-align: center;">-</td>
-                    <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
-
-                </tr>
-                <tr>
-                    <td style="text-align: center;">2564</td>
-                    <td style="text-align: center;">ภาคปลาย</td>
-                    <td style="text-align: center;">22</td>
-                    <td style="text-align: center;">3.28<span></span>
-                    </td>
-                    <td style="text-align: center;">3.25</td>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;">-</td>
-                    <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
-
-                </tr>
-
-                <tr>
-                    <th scope='row' style=" text-align: center;">ผลการเรียนเฉลี่ย</th>
-                    <td style="text-align: center;"></td>
-                    <td style='text-align: center;'>41</td>
-                    <td style='text-align: center;'>3.28</td>
-                    <td style="text-align: center;">3.25</td>
-                    <td style="text-align: center;">-</td>
-                    <td style="text-align: center;">-</td>
-                </tr>
+                <td></td>
+                <td><h4 style="color: red; text-align: right; margin-right: 3%;margin-top: -4%;">**จำนวนหน่วยกิตที่นิสิตเรียนไปแล้ว
+                    จะนับแค่เฉพาะวิชาที่ลงทะเบียนแล้วผ่าน<span style="text-decoration: underline;">เท่านั้น</span></h4></td>
             </tbody>
         </table>
-    </div>
-
-
-    <div>
-        <!--ผลการเรียนแบ่งตามหมวดวิชา (กราฟ)-->
-        <div id="chart-container" class="float-left" style="width: 500px; margin-top: 100px; margin-left: 15%;">
-            <h3 style=" font-size: 30px;">ผลการเรียนในแต่ละหมวดวิชา</h3>
-            <p style="font-weight: bold;"><span style="color: red;"> <svg style="color: #ff6962;"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-circle-fill" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" />
-                    </svg> GPA(0-1.47)</span>
-                <span style="color: orange;">&nbsp;&nbsp;&nbsp; <svg style="color: #f57b39;"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-circle-fill" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" />
-                    </svg> GPA(1.75-1.99)</span>
-                <span style="color: green;">&nbsp;&nbsp;&nbsp;<svg style="color: #99cc99;"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-circle-fill" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" />
-                    </svg> GPA(2.0-3.24)</span>
-                <span style="color: blue;">&nbsp;&nbsp;&nbsp;<svg style="color: #86d3f7;"
-                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-circle-fill" viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="8" />
-                    </svg> GPA(3.25-4.00)</span>
-            </p>
-            <canvas id="myChart2"></canvas>
-
-        </div>
-        <table class="table_grade_sem" style="margin-top: -19%; margin-right: 2%; width: 48%;">
-
-            <tr>
-                <th style=" text-align: left;">หมวดวิชา</th>
-                <th style="text-align: right;"><span>เรียนไปแล้ว</span>
-                </th>
-                <th style="text-align: right;"><span>ยังไม่เรียน</span></th>
-                <th style="text-align: right;">หน่วยกิตทั้งหมด</th>
-                <th style="text-align: center;">เกรดเฉลี่ย</th>
-            </tr>
-
-            <tr>
-                <td style=" text-align: left;">หมวดวิชาแกน</td>
-                <td style="text-align: right;">
-                    50 หน่วยกิต
-                </td>
-                <td style="text-align: right;">
-                    0 หน่วยกิต
-                </td>
-                <td style="text-align: right;">50 หน่วยกิต</td>
-                <td style="text-align: center;">2.60</td>
-            </tr>
-            <tr>
-                <td style=" text-align: left;">หมวดวิชาศึกษาทั่วไป</td>
-                <td style="text-align: right;">
-                    30 หน่วยกิต
-                </td>
-                <td style="text-align: right;">
-                    0 หน่วยกิต
-                </td>
-                <td style="text-align: right;">30 หน่วยกิต</td>
-                <td style="text-align: center;">1.50</td>
-            </tr>
-            <tr>
-                <td style=" text-align: left;">หมวดวิชาเฉพาะบังคับ</td>
-                <td style="text-align: right;">
-                    98 หน่วยกิต
-                </td>
-                <td style="text-align: right;">
-                    6 หน่วยกิต
-                </td>
-                <td style="text-align: right;">
-                    104 หน่วยกิต
-                </td>
-                <td style="text-align: center;">3.34</td>
-            </tr>
-            <tr>
-                <td style=" text-align: left;">หมวดวิชาเฉพาะเลือก</td>
-                <td style="text-align: right;">
-                    66 หน่วยกิต
-                </td>
-                <td style="text-align: right;">
-                    0 หน่วยกิต
-                </td>
-                <td style="text-align: right;">
-                    66 หน่วยกิต
-                </td>
-                <td style="text-align: center;">3.38</td>
-            </tr>
-            <tr>
-                <td style=" text-align: left;">หมวดวิชาเสรี</td>
-                <td style="text-align: right;">
-                    6 หน่วยกิต
-                </td>
-                <td style="text-align: right;">
-                    0 หน่วยกิต
-                </td>
-                <td style="text-align: right;">6 หน่วยกิต</td>
-                <td style="text-align: center;">3.40</td>
-            </tr>
-
-
-
-        </table>
-
-        <h4 style="color: red; text-align: right; margin-right: 3%;margin-top: -4%;">**จำนวนหน่วยกิตที่นิสิตเรียนไปแล้ว
-            จะนับแค่เฉพาะวิชาที่ลงทะเบียนแล้วผ่าน<span style="text-decoration: underline;">เท่านั้น</span></h4>
+        
+        
 
     </div>
 
-
+    
     <!--วิชาที่ไม่ผ่าน-->
 
-    <div>
+    <div >
         <div id="chart-container" class="float-left" style="width: 500px; margin-top: 100px; margin-left: 15%;">
             <h3 style="margin-left: 20px; font-size: 30px;">ผลการเรียนวิชาที่ไม่ผ่านตามแผน</h3>
         </div>
@@ -530,7 +549,7 @@
             <tr>
                 <td style=" text-align: center;">2</td>
                 <td style=" text-align: center;">ภาคปลาย</td>
-                <td style=" text-align: center;">หมวดวิชาเฉพาะ</td>
+                <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
                 <td style=" text-align: center;">02204172</td>
                 <td style=" text-align: left;">
                     Practicum in Programming and Problem Solving Skills
@@ -543,7 +562,7 @@
             <tr>
                 <td style=" text-align: center;">2</td>
                 <td style=" text-align: center;">ภาคปลาย</td>
-                <td style=" text-align: center;">หมวดวิชาเฉพาะ</td>
+                <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
                 <td style=" text-align: center;">01417168</td>
                 <td style=" text-align: left;">
                     Engineering Mathematics II
@@ -566,8 +585,7 @@
 
 
         </table>
-        <h4 style="color: red; text-align: left; margin-left: 17%;">*หมวดวิชาเฉพาะ คือ หมวดวิชาแกน,หมวดวิชาเฉพาะบังคับ
-            และหมวดวิชาเฉพาะเลือก</h4>
+ 
     </div>
 
     <!--วิชาที่ไม่ผ่าน-->
@@ -591,7 +609,7 @@
             <tr>
                 <td style=" text-align: center;">2</td>
                 <td style=" text-align: center;">ภาคปลาย</td>
-                <td style=" text-align: center;">หมวดวิชาเฉพาะ</td>
+                <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
                 <td style=" text-align: center;">02204172</td>
                 <td style=" text-align: left;">
                     Practicum in Programming and Problem Solving Skills
@@ -612,8 +630,7 @@
 
 
         </table>
-        <h4 style="color: red; text-align: left; margin-left: 17%;">*หมวดวิชาเฉพาะ คือ หมวดวิชาแกน,หมวดวิชาเฉพาะบังคับ
-            และหมวดวิชาเฉพาะเลือก</h4>
+
     </div>
 
 

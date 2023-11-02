@@ -83,6 +83,7 @@ html {
     width: 1000px;
     margin: 0 auto;
     
+    
 }
 
 .header {
@@ -160,6 +161,7 @@ html {
     width: 996px;
     font-family: 'DB Ozone X', sans-serif;
     font-size: 22px;
+    border: 1px solid #a9a9a9f7;
 }
 
 .menu-top .menu-box {
