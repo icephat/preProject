@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ระบบสนับสนุนการตัดสินใจ</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+                    style="height: max-content;">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+
+                    <a href="#"><img src="../image/newLogoUniversity1.png" border="0"></a>
+                    </a>
+
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">คณบดี/รองคณบดี</span>
+                                <img class="img-profile rounded-circle" src="../img/undraw_profile_3.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -------------------------------------------------------------------------------------------->
+                <div class="container-fluid">
+
+                    <!-- Content Row -------------------------------------------------------BOX----------------------->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+
+                        <a href="./home.html" class="col-xl-3 col-md-6 mb-4 ">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                ADVISOR</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">อาจารย์ที่ปรึกษา</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-home fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <a href="./select.html" class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                REPORT</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">รายงาน</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-book fa-2x text-success"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <!--<a href="./report.html" class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">PREDICT
+                                                STUDENT GRADES
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                                        คาดการณ์เกรดของนิสิต
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>-->
+                        <a href="./nisit.html" class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-danger shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                LIST OF STUDENTS</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิต</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-user fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div>
+                        <form>
+                            <div class="row mx-auto">
+                                <div class="col-3 text-center">
+                                    <h5>ปีการศึกษา<span style="color: red;">*</span></th>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <h5>ภาคการศึกษา<span style="color: red;">*</span></th>
+                                </div>
+                                <div class="col-3 text-center">
+                                    <h5>รุ่นที่สืบค้น<span style="color: red;">*</span></th>
+                                </div>
+                                <div class="col-3 text-center">
+                                </div>
+
+                            </div>
+                            <div class="row mx-auto">
+                                <div class="col-3 text-center">
+                                    <div>
+                                        <select class="form-control" data-live-search="true">
+                                            <option value="default">--กรุณาเลือกปีการศึกษา--</option>
+
+                                            <option value="2561">2560
+                                            </option>
+                                            <option value="2561">2561
+                                            </option>
+                                            <option value="2561">2562
+                                            </option>
+                                            <option value="2561">2563
+                                            </option>
+                                            <option value="2561">2564
+                                            </option>
+
+                                            <option value="2562">2565</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-3 text-center">
+                                    <div>
+                                        <select class="form-control" data-live-search="true">
+                                            <option value="default">--กรุณาเลือกภาคการศึกษา--</option>
+                                            <option value="2561">ทุกภาค
+                                            </option>
+                                            <option value="2561">ต้น
+                                            </option>
+                                            <option value="2562">ปลาย</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="col-3 text-center">
+                                    <div>
+                                        <select class="form-control" data-live-search="true">
+                                            <option value="default">--กรุณาเลือกรุ่นสืบค้น--</option>
+                                            <option value="2561">ทุกรุ่น
+                                            </option>
+                                            <option value="2561">61
+                                            </option>
+                                            <option value="2562">62</option>
+                                            <option value="2561">63
+                                            </option>
+                                            <option value="2562">64</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-3 text-center">
+                                    <button type="submit" name="submit" id="data"
+                                        class="btn btn-success btn-sm active">ดูผล</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <hr>
+                    <div class="row" style="color: black;">
+
+                        <h5>ทั้งหมด 250 คน 5 รุ่น (รุ่นที่ 60 61 62 63 64)</h5>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-6 mx-auto" style="color: black;">
+                            <table class="table table-hover"
+                                style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+                                <tr style="border: 1px solid black; border-collapse: collapse;">
+                                    <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+
+                                        <div style="color: rgb(0, 9, 188);">
+                                            <div class="text-center">
+                                                <a style="color: rgb(0, 9, 188);" href="./report_student_honor.html">
+                                                    <h2>เกียรตินิยม</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px; ">10</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+
+
+                                    </th>
+                                    <th style="border: 1px solid black; border-collapse: collapse;">
+                                        <div style="color: rgb(0, 110, 22);">
+                                            <div class="text-center">
+                                                <a style="color: rgb(0, 110, 22);" href="./report_student_normal.html">
+                                                    <h2>ปกติ</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px;">22</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style="border: 1px solid black; border-collapse: collapse;">
+
+                                        <div style="color: #ff8c00;">
+                                            <div class="text-center">
+                                                <a style="color: #ff8c00;" href="./report_student_prohigh.html">
+                                                    <h2>รอพินิจ</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px;">0</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th style="border: 1px solid black; border-collapse: collapse;">
+                                        <div style="color: rgb(255, 0, 0);">
+                                            <div class="text-center">
+                                                <a style="color: rgb(255, 0, 0);" href="./report_student_prodown.html">
+                                                    <h2>โปรต่ำ</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px;">0</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-6 mx-auto" style="color: black;">
+                            <table class="table table-hover"
+                                style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+                                <tr style="border: 1px solid black; border-collapse: collapse;">
+                                    <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+
+                                        <div style="color: rgb(0, 9, 188);">
+                                            <div class="text-center">
+                                                <a style="color: rgb(0, 9, 188);" href="./report_student_honor.html">
+                                                    <h2>ตามแผน</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px; ">10</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+
+
+                                    </th>
+                                    <th style="border: 1px solid black; border-collapse: collapse;">
+                                        <div style="color: rgb(0, 110, 22);">
+                                            <div class="text-center">
+                                                <a style="color: rgb(0, 110, 22);" href="./report_student_normal.html">
+                                                    <h2>ไม่ตามแผน</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px;">22</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style="border: 1px solid black; border-collapse: collapse;">
+
+                                        <div style="color: #ff8c00;">
+                                            <div class="text-center">
+                                                <a style="color: #ff8c00;" href="./report_student_prohigh.html">
+                                                    <h2>พ้นสภาพ</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px;">0</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th style="border: 1px solid black; border-collapse: collapse;">
+                                        <div style="color: rgb(255, 0, 0);">
+                                            <div class="text-center">
+                                                <a style="color: rgb(255, 0, 0);" href="./report_student_prodown.html">
+                                                    <h2>จบการศึกษา</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px;">0</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow mb-4">
+                                <!--<div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                </div>-->
+                                <div class="card-body ">
+                                    <div class="row" style="padding: 20px;">
+                                        <div class="col-5">
+
+                                            <canvas id="learn"></canvas>
+                                        </div>
+                                        <div class="col-7 float-right">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" cellspacing="0"
+                                                    style="color: black;">
+                                                    <thead style="background-color: rgb(112, 210, 112);">
+                                                        <tr>
+                                                            <th style=" text-align: left; ">ชื่ออาจารย์</th>
+                                                            <th style="text-align: right; ">เกียรตินิยม
+                                                            </th>
+                                                            <th style="text-align: right;">ปกติ</th>
+                                                            <th style="text-align: right;">รอพินิจ</th>
+                                                            <th style="text-align: right;">โปรต่ำ</th>
+                                                            
+                                                            <th style="text-align: right;">รายละเอียด</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style=" text-align: left;">ฐิติพงษ์ สถิรเมธีกุล</td>
+                                                            <td style=" text-align: right;">
+                                                                2 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">
+                                                                5 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">0 คน</td>
+                                                            
+                                                            <td style=" text-align: right;">1 คน</td>
+                                                            <td class="text-center">
+                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td style=" text-align: left;">วรัญญา อรรถเสนา</td>
+                                                            <td style=" text-align: right;">
+                                                                3 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">
+                                                                8 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">2 คน</td>
+                                                            <td style=" text-align: right;">0 คน</td>
+                                                            <td class="text-center">
+                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+
+                                                        <tr>
+                                                            <th scope='row'
+                                                                style=" text-align: right; background-color: rgb(112, 210, 112);">
+                                                                รวม (คน)</th>
+                                                            <td style="font-weight: bold; text-align: right;">5 </td>
+                                                            <td style='font-weight: bold; text-align: right;'>13</td>
+                                                            <td style='font-weight: bold; text-align: right;'>2</td>
+                                                            <td style='font-weight: bold; text-align: right;'>1</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow mb-4">
+                                <!--<div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                </div>-->
+                                <div class="card-body ">
+                                    <div class="row" style="padding: 20px;">
+                                        <div class="col-5">
+
+                                            <canvas id="learn2"></canvas>
+                                        </div>
+                                        <div class="col-7 float-right">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" cellspacing="0"
+                                                    style="color: black;">
+                                                    <thead style="background-color: rgb(112, 210, 112);">
+                                                        <tr>
+                                                            <th style=" text-align: left; ">ชื่ออาจารย์</th>
+                                                            <th style="text-align: right; ">ตามแผน
+                                                            </th>
+                                                            <th style="text-align: right;">ไม่ตามแผน</th>
+                                                            <th style="text-align: right;">พ้นสภาพ</th>
+                                                            <th style="text-align: right;">จบการศึกษา</th>
+                                                            
+                                                            <th style="text-align: right;">รายละเอียด</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style=" text-align: left;">ฐิติพงษ์ สถิรเมธีกุล</td>
+                                                            <td style=" text-align: right;">
+                                                                2 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">
+                                                                5 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">0 คน</td>
+                                                            
+                                                            <td style=" text-align: right;">1 คน</td>
+                                                            <td class="text-center">
+                                                                <a data-toggle="modal" data-target="#dataModal2">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td style=" text-align: left;">วรัญญา อรรถเสนา</td>
+                                                            <td style=" text-align: right;">
+                                                                3 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">
+                                                                8 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">2 คน</td>
+                                                            <td style=" text-align: right;">0 คน</td>
+                                                            <td class="text-center">
+                                                                <a data-toggle="modal" data-target="#dataModal2">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+
+                                                        <tr>
+                                                            <th scope='row'
+                                                                style=" text-align: right; background-color: rgb(112, 210, 112);">
+                                                                รวม (คน)</th>
+                                                            <td style="font-weight: bold; text-align: right;">5 </td>
+                                                            <td style='font-weight: bold; text-align: right;'>13</td>
+                                                            <td style='font-weight: bold; text-align: right;'>2</td>
+                                                            <td style='font-weight: bold; text-align: right;'>1</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow mb-4">
+                                <!--<div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
+                                </div>-->
+                                <div class="card-body ">
+                                    <div class="row" style="padding: 20px;">
+                                        <div class="col-5">
+
+                                            <div id="grade"></div>
+                                        </div>
+                                        <div class="col-7 mx-auto">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" cellspacing="0"
+                                                    style="color: black;">
+                                                    <thead style="background-color: rgb(112, 210, 112);">
+                                                        <tr>
+                                                            <th style=" text-align: left; "><span>อาจารย์</span></th>
+                                                            <th style="text-align: center; "><span>ค่าสูงสุด</span>
+                                                            </th>
+                                                            <th style="text-align: center;"><span>ค่าต่ำสุด</span></th>
+                                                            <th style="text-align: center;"><span>ค่าเฉลี่ย</span></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr style="font-weight: normal;">
+                                                            <td style=" text-align: left;">ฐิติพงษ์ สถิรเมธีกุล</td>
+                                                            <td style=" text-align: center;">
+                                                                3.40
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                2.00
+                                                            </td>
+                                                            <td style=" text-align: center;">2.70 </td>
+                                                        </tr>
+
+                                                        <tr style="font-weight: normal;">
+                                                            <td style=" text-align: left;">วรัญญา อรรถเสนา</td>
+                                                            <td style=" text-align: center;">
+                                                                3.50
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                1.50
+                                                            </td>
+                                                            <td style=" text-align: center;">2.50</td>
+                                                        </tr>
+                                                        <tr style="font-weight: normal;">
+                                                            <td style=" text-align: left; background-color: rgb(112, 210, 112);">ทุกท่าน</td>
+                                                            <td style=" text-align: center;">
+                                                                3.45
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                1.75
+                                                            </td>
+                                                            <td style=" text-align: center;">2.60</td>
+                                                        </tr>
+                                                        
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <h5 style="color: black;">นิสิตตกค้าง</h5>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow mb-4">
+                                <!--<div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                </div>-->
+                                <div class="card-body ">
+                                    <div class="row" style="padding: 20px;">
+                                        <div class="col-5">
+
+                                            <canvas id="learn21"></canvas>
+                                        </div>
+                                        <div class="col-7 float-right">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" cellspacing="0"
+                                                    style="color: black;">
+                                                    <thead style="background-color: rgb(112, 210, 112);">
+                                                        <tr>
+                                                            <th style=" text-align: left; ">ชื่ออาจารย์</th>
+                                                            <th style="text-align: right; ">เกียรตินิยม
+                                                            </th>
+                                                            <th style="text-align: right;">ปกติ</th>
+                                                            <th style="text-align: right;">รอพินิจ</th>
+                                                            <th style="text-align: right;">โปรต่ำ</th>
+                                                            
+                                                            <th style="text-align: right;">รายละเอียด</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style=" text-align: left;">ฐิติพงษ์ สถิรเมธีกุล</td>
+                                                            <td style=" text-align: right;">
+                                                                0 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">
+                                                                1 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">1 คน</td>
+                                                            
+                                                            <td style=" text-align: right;">0 คน</td>
+                                                            <td class="text-center">
+                                                                <a data-toggle="modal" data-target="#dataModal3">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td style=" text-align: left;">วรัญญา อรรถเสนา</td>
+                                                            <td style=" text-align: right;">
+                                                                0 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">
+                                                                0 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">2 คน</td>
+                                                            <td style=" text-align: right;">0 คน</td>
+                                                            <td class="text-center">
+                                                                <a data-toggle="modal" data-target="#dataModal3">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+
+                                                        <tr>
+                                                            <th scope='row'
+                                                                style=" text-align: right; background-color: rgb(112, 210, 112);">
+                                                                รวม (คน)</th>
+                                                            <td style="font-weight: bold; text-align: right;">0 </td>
+                                                            <td style='font-weight: bold; text-align: right;'>1</td>
+                                                            <td style='font-weight: bold; text-align: right;'>2</td>
+                                                            <td style='font-weight: bold; text-align: right;'>0</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow mb-4">
+                                <!--<div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                </div>-->
+                                <div class="card-body ">
+                                    <div class="row" style="padding: 20px;">
+                                        <div class="col-5">
+
+                                            <canvas id="learn22"></canvas>
+                                        </div>
+                                        <div class="col-7 float-right">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" cellspacing="0"
+                                                    style="color: black;">
+                                                    <thead style="background-color: rgb(112, 210, 112);">
+                                                        <tr>
+                                                            <th style=" text-align: left; ">ชื่ออาจารย์</th>
+                                                            <th style="text-align: right; ">ตามแผน
+                                                            </th>
+                                                            <th style="text-align: right;">ไม่ตามแผน</th>
+                                                            <th style="text-align: right;">พ้นสภาพ</th>
+                                                            <th style="text-align: right;">จบการศึกษา</th>
+                                                            
+                                                            <th style="text-align: right;">รายละเอียด</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td style=" text-align: left;">ฐิติพงษ์ สถิรเมธีกุล</td>
+                                                            <td style=" text-align: right;">
+                                                                0 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">
+                                                                3 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">0 คน</td>
+                                                            
+                                                            <td style=" text-align: right;">0 คน</td>
+                                                            <td class="text-center">
+                                                                <a data-toggle="modal" data-target="#dataModal4">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td style=" text-align: left;">วรัญญา อรรถเสนา</td>
+                                                            <td style=" text-align: right;">
+                                                                0 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">
+                                                                2 คน
+                                                            </td>
+                                                            <td style=" text-align: right;">2 คน</td>
+                                                            <td style=" text-align: right;">0 คน</td>
+                                                            <td class="text-center">
+                                                                <a data-toggle="modal" data-target="#dataModal4">
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+
+                                                        <tr>
+                                                            <th scope='row'
+                                                                style=" text-align: right; background-color: rgb(112, 210, 112);">
+                                                                รวม (คน)</th>
+                                                            <td style="font-weight: bold; text-align: right;">0 </td>
+                                                            <td style='font-weight: bold; text-align: right;'>5</td>
+                                                            <td style='font-weight: bold; text-align: right;'>2</td>
+                                                            <td style='font-weight: bold; text-align: right;'>0</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div style="justify-content: center; align-items: center;">
+                        <!--<h5 style="margin-left: 20px;  color: black;">ผลการเรียนวิชาที่ไม่ผ่านตามแผน</h5>-->
+                        <div class="col-10 mx-auto">
+                            <div class="table-responsive">
+                                <table class="table table-striped" cellspacing="0" style="color: black;  ">
+                                    <thead style="background-color: rgb(112, 210, 112);">
+                                        <tr>
+                                            <th style=" text-align: left;">อาจารย์ที่ปรึกษา</th>
+                                            <th style=" text-align: center;">รหัสนิสิต</th>
+                                            <th style=" text-align: left;">ชื่อนิสิต</th>
+                                            <th style=" text-align: center;">-</th>
+                                            <th style="text-align: left;">เรียน</th>
+                                            <th style="text-align: center;">ตามวิชา</th>
+                                            <th style="text-align: center;">GPA</th>
+                                            <th style="text-align: center;">รายละเอียด</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style=" text-align: left;">ฐิติพงษ์ สถิรเมธีกุล</td>
+                                            <td style=" text-align: center;">632xxxxxxx</td>
+                                            <td style=" text-align: left;">นางสาวxxxxx xxxxx</td>
+                                            <td style=" text-align: center;">-</td>
+                                            <td style=" text-align: left;">-</td>
+                                            <td style=" text-align: center;">ตามแผน</td>
+                                            <td style=" text-align: center;">3.38</td>
+                                            <td class="text-center">
+                                                <a data-toggle="modal" data-target="#dataModal5">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td style=" text-align: left;">วรัญญา อรรถเสนา</td>
+                                            <td style=" text-align: center;">632xxxxxxx</td>
+                                            <td style=" text-align: left;">นางสาวxxxxx xxxxx</td>
+                                            <td style=" text-align: center;">-</td>
+                                            <td style=" text-align: left;">-</td>
+                                            <td style=" text-align: center;">ตามแผน</td>
+                                            <td style=" text-align: center;">3.38</td>
+                                            <td class="text-center">
+                                                <a data-toggle="modal" data-target="#dataModal5">
+                                                    <i class="fas fa-search fa-sm"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                       
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+                    <!-- Bootstrap core JavaScript-->
+                    <script src="../vendor/jquery/jquery.min.js"></script>
+                    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                    <!-- Core plugin JavaScript-->
+                    <script src="../vendor/jquery/jquery.min.js"></script>
+                    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                    <!-- Page level plugins -->
+                    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+                    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+                    <!-- Page level custom scripts -->
+                    <script src="../js/demo/datatables-demo.js"></script>
+
+                    <!-- Custom scripts for all pages-->
+                    <script src="../js/sb-admin-2.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+
+                    <!-- Bootstrap core JavaScript-->
+                    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                    <!-- Core plugin JavaScript-->
+                    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+                    <!-- Custom scripts for all pages-->
+                    <script src="../js/sb-admin-2.min.js"></script>
+
+                    <!-- Page level plugins -->
+                    <script src="../vendor/chart.js/Chart.min.js"></script>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
+                    </script>
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
+                    </script>
+
+
+                    <script>
+
+                        var ctx = document.getElementById("learn");
+                        var myChart = new Chart(ctx, {
+                            //type: 'bar',
+                            //type: 'line',
+                            type: 'bar',
+                            data: {
+                                labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
+                                datasets: [{
+                                    label: 'เกียรตินิยม',
+                                    data: [2,3],
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'ปกติ',
+                                    data: [5,8],
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'โปรสูง',
+                                    data: [0,2],
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'โปรต่ำ',
+                                    data: [1,0],
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
+                                }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
+
+                            }
+                        });
+                    </script>
+
+                    <script>
+
+                        var ctx = document.getElementById("learn2");
+                        var myChart = new Chart(ctx, {
+                            //type: 'bar',
+                            //type: 'line',
+                            type: 'bar',
+                            data: {
+                                labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
+                                datasets: [{
+                                    label: 'ตามแผน',
+                                    data: [2,3],
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'ไม่ตามแผน',
+                                    data: [5,8],
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'พ้นสภาพ',
+                                    data: [0,2],
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'จบการศึกษา',
+                                    data: [1,0],
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
+                                }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
+
+                            }
+                        });
+                    </script>
+
+                    <script>
+
+                        var ctx = document.getElementById("learn21");
+                        var myChart = new Chart(ctx, {
+                            //type: 'bar',
+                            //type: 'line',
+                            type: 'bar',
+                            data: {
+                                labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
+                                datasets: [{
+                                    label: 'เกียรตินิยม',
+                                    data: [0, 0],
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'ปกติ',
+                                    data: [1, 0],
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'โปรสูง',
+                                    data: [1, 2],
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'โปรต่ำ',
+                                    data: [0, 0],
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
+                                }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
+
+                            }
+                        });
+                    </script>
+                    <script>
+
+                        var ctx = document.getElementById("learn22");
+                        var myChart = new Chart(ctx, {
+                            //type: 'bar',
+                            //type: 'line',
+                            type: 'bar',
+                            data: {
+                                labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
+                                datasets: [{
+                                    label: 'ตามแผน',
+                                    data: [0,0],
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'ไม่ตามแผน',
+                                    data: [3,2],
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'พ้นสภาพ',
+                                    data: [0,2],
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'จบการศึกษา',
+                                    data: [0,0],
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
+                                }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
+
+                            }
+                        });
+                    </script>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+                    <script src='https://cdn.plot.ly/plotly-2.27.0.min.js'></script>
+                    <script>
+                        var ctx = document.getElementById("grade");
+                        var y1 = [3.40, 2.70, 2.00];
+                        var y2 = [3.50, 2.50, 1.50];
+                        var y3 = [3.43, 2.43, 1.43];
+                        var y4 = [3.53, 2.53, 1.53];
+                        var y5 = [3.44, 2.44, 1.44];
+
+                        var t1 = {
+                            y: y1,
+                            type: 'box',
+                            name: 'อ.ฐิติพงษ์'
+                        };
+                        var t2 = {
+                            y: y2,
+                            type: 'box',
+                            name: 'อ.วรัญญา'
+                        };
+                       
+
+                        var data = [t1, t2];
+                        Plotly.newPlot('grade', data);
+                        /*var myChart = new Chart(ctx, {
+                            //type: 'bar',
+                            //type: 'line',
+                            
+                            type: 'bar',
+                            data: {
+                                labels: ['รุ่น 60', 'รุ่น 61', 'รุ่น 62', 'รุ่น 63', 'รุ่น 64'],
+                                datasets: [{
+                                    label: 'max',
+                                    data: [3.40, 3.50, 3.43, 3.53, 3.44],
+                                    backgroundColor: '#bfd575',
+                                    borderColor: [
+                                        'rgba(150,186,169, 1)', //1
+                                        'rgba(108,158,134, 1)',
+                                        'rgba(66,130,100, 1)',
+                                        'rgba(45,117,83, 1)',
+                                        'rgba(27,70,49, 1)', //5
+                                        'rgba(0, 51, 18, 1)'
+                                    ],
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'min',
+                                    data: [2.00, 1.50, 1.43, 1.53, 1.44],
+                                    backgroundColor: '#a4ebf3',
+                                    borderColor: [
+                                        'rgba(150,186,169, 1)', //1
+                                        'rgba(108,158,134, 1)',
+                                        'rgba(66,130,100, 1)',
+                                        'rgba(45,117,83, 1)',
+                                        'rgba(27,70,49, 1)', //5
+                                        'rgba(0, 51, 18, 1)'
+                                    ],
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'avg',
+                                    data: [2.70, 2.50, 2.43, 2.53, 2.44],
+                                    backgroundColor: '#abbdee',
+                                    borderColor: [
+                                        'rgba(150,186,169, 1)', //1
+                                        'rgba(108,158,134, 1)',
+                                        'rgba(66,130,100, 1)',
+                                        'rgba(45,117,83, 1)',
+                                        'rgba(27,70,49, 1)', //5
+                                        'rgba(0, 51, 18, 1)'
+                                    ],
+                                    borderWidth: 0
+                                }
+            
+            
+                                ]
+            
+                            },
+            
+                            options: {
+            
+                                responsive: true,
+            
+                            }
+                        });*/
+                    </script>
+
+                    
+
+
+                 
+
+
+</body>
+
+</html>
+
+<div id="dataModal" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
+
+
+
+            </div>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 5 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead >
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.38</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.45</th>
+                        </tr>
+                       
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 5 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.59</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.01</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.05</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.10</th>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 1 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>1.45</th>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dataModal2" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
+
+
+
+            </div>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 5 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead >
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.38</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.45</th>
+                        </tr>
+                       
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 5 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.59</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.01</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.05</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.10</th>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 1 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>1.45</th>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="dataModal3" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
+
+
+
+            </div>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 1 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 1 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 0 คน</h5>
+            
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dataModal4" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
+
+
+
+            </div>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 3 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.59</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.01</th>
+                        </tr>
+                      
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 0 คน</h5>
+            
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dataModal5" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
+
+
+
+            </div>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 3 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.59</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.01</th>
+                        </tr>
+                      
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 0 คน</h5>
+            
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
