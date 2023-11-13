@@ -20,6 +20,26 @@
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <!-- Custom styles for this template -->
+     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
+     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+     <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../js/demo/datatables-demo.js"></script>
 
 
 </head>
@@ -143,12 +163,12 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-10 mx-auto">
+                        <div class="col-12 mx-auto">
                             <h4 style="color: green;">รายชื่อนิสิตในที่ปรึกษา คณะวิศวกรรมศาสตร์ กำแพงแสน</h4>
                             <div class="card">
-
+                                <br>
                                 <div class="table-responsive">
-                                    <table class="table table-striped" id="grade" cellspacing="0" style="color: black;  ">
+                                    <table class="table table-striped" id="dataTable" cellspacing="0" style="color: black;  ">
                                         <thead>
                                             <tr>
                                                 <th >รหัสนิสิต</th>
@@ -172,7 +192,7 @@
                                                     <span style='color:red;'>/9</span>
                                                 </td>
                                                 <td class="text-center"><span style='color:green;'>2.05</span> <br>
-                                                    <span style='font-weight:bold;'>(ปกติ)</span>
+                                                    <span >(ปกติ)</span>
                                                 </td>
             
                                                 <td class="text-center">
@@ -195,7 +215,7 @@
                                                     <span style='color:red;'>/4</span>
                                                 </td>
                                                 <td class="text-center"><span style='color:green;'>2.66</span> <br>
-                                                    <span style='font-weight:bold;'>(ปกติ)</span>
+                                                    <span >(ปกติ)</span>
                                                 </td>
             
                                                 <td class="text-center">
@@ -218,7 +238,7 @@
                                                     <span style='color:red;'>/0</span>
                                                 </td>
                                                 <td class="text-center"><span style='color:green;'>3.38</span> <br>
-                                                    <span style='font-weight:bold;'>(ปกติ)</span>
+                                                    <span >(ปกติ)</span>
                                                 </td>
             
                                                 <td class="text-center">
@@ -242,7 +262,7 @@
                                                     <span style='color:red;'>/0</span>
                                                 </td>
                                                 <td class="text-center"><span style='color:green;'>3.65</span> <br>
-                                                    <span style='font-weight:bold;'>(เกียรตินิยม)</span>
+                                                    <span>(เกียรตินิยม)</span>
                                                 </td>
             
                                                 <td class="text-center">

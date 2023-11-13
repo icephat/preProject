@@ -20,6 +20,13 @@
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    
 
 </head>
 
@@ -145,7 +152,7 @@
 
                     <hr>
                     <div class="row">
-                        <div class="col-10 mx-auto">
+                        <div class="col-5 mx-auto">
                             <table class="table table-hover"
                                 style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                 <tr style="border: 1px solid black; border-collapse: collapse;">
@@ -153,8 +160,7 @@
 
                                         <div style="color: rgb(0, 9, 188);">
                                             <div class="text-center">
-                                                <a style="color: rgb(0, 9, 188);"
-                                                    href="./report_student_honor.html">
+                                                <a style="color: rgb(0, 9, 188);" href="../report_teacher/grade/honor.html">
                                                     <h2>เกียรตินิยม</h2>
                                                 </a>
                                             </div>
@@ -171,8 +177,7 @@
                                     <th style="border: 1px solid black; border-collapse: collapse;">
                                         <div style="color: rgb(0, 110, 22);">
                                             <div class="text-center">
-                                                <a style="color: rgb(0, 110, 22);"
-                                                    href="./report_student_normal.html">
+                                                <a style="color: rgb(0, 110, 22);" href="../report_teacher/grade/normal.html">
                                                     <h2>ปกติ</h2>
                                                 </a>
                                             </div>
@@ -190,8 +195,7 @@
 
                                         <div style="color: #ff8c00;">
                                             <div class="text-center">
-                                                <a style="color: #ff8c00;"
-                                                    href="./report_student_prohigh.html">
+                                                <a style="color: #ff8c00;" href="../report_teacher/grade/prohigh.html">
                                                     <h2>รอพินิจ</h2>
                                                 </a>
                                             </div>
@@ -206,9 +210,82 @@
                                     <th style="border: 1px solid black; border-collapse: collapse;">
                                         <div style="color: rgb(255, 0, 0);">
                                             <div class="text-center">
-                                                <a style="color: rgb(255, 0, 0);"
-                                                    href="./report_student_prodown.html">
+                                                <a style="color: rgb(255, 0, 0);" href="../report_teacher/grade/prodown.html">
                                                     <h2>โปรต่ำ</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px;">0</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-5 mx-auto" style="color: black;">
+                            <table class="table table-hover"
+                                style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+                                <tr style="border: 1px solid black; border-collapse: collapse;">
+                                    <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+
+                                        <div style="color: rgb(0, 9, 188);">
+                                            <div class="text-center">
+                                                <a style="color: rgb(0, 9, 188);" href="../report_teacher/status/plan.html">
+                                                    <h2>ตามแผน</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px; ">10</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+
+
+                                    </th>
+                                    <th style="border: 1px solid black; border-collapse: collapse; ">
+                                        <div style="color: rgb(0, 110, 22);">
+                                            <div class="text-center">
+                                                <a style="color: rgb(0, 110, 22);"
+                                                    href="../report_teacher/status/noplan.html">
+                                                    <h2>ไม่ตามแผน</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px;">22</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style="border: 1px solid black; border-collapse: collapse;">
+
+                                        <div style="color: #ff8c00;">
+                                            <div class="text-center">
+                                                <a style="color: #ff8c00;" href="../report_teacher/status/retry.html">
+                                                    <h2>พ้นสภาพ</h2>
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <h1 style="font-weight: bolder; font-size: 100px;">0</h1>
+                                            </div>
+                                            <div class="text-right">
+                                                <p>คน</p>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th style="border: 1px solid black; border-collapse: collapse;">
+                                        <div style="color: rgb(255, 0, 0);">
+                                            <div class="text-center">
+                                                <a style="color: rgb(255, 0, 0);" href="./report_student_end_fac.html">
+                                                    <h2>จบการศึกษา</h2>
                                                 </a>
                                             </div>
                                             <div class="text-center">
@@ -233,11 +310,11 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-5">
-
+                                        <div class="col-6">
+                                            <br><br>
                                             <canvas id="learnyear"></canvas>
                                         </div>
-                                        <div class="col-7">
+                                        <div class="col-6">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" width="100%" cellspacing="0"
                                                     style="color: black;">
@@ -405,11 +482,11 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-5">
-
+                                        <div class="col-6">
+                                            <br>
                                             <canvas id="learnnew"></canvas>
                                         </div>
-                                        <div class="col-7">
+                                        <div class="col-6">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" width="100%" cellspacing="0"
                                                     style="color: black;">
@@ -537,6 +614,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิต ณ ปัจจุบัน</h6>
                                 </div>
                                 <div class="card-body">
+
                                     <canvas id="learn"></canvas>
                                 </div>
                             </div>
@@ -556,36 +634,43 @@
                     <br><br>
 
                     <div class="row">
-                        <div class="col-10 mx-auto">
-                            <div class="table-responsive">
-                                <table class="table table-striped" width="100%" cellspacing="0" style="color: black;">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" colspan="4">นิสิต</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>รหัสนิสิต</th>
-                                            <th>ชื่อ-นามสกุล</th>
-                                            <th>GPA</th>
-                                            <th>สถานะ</th>
-                                        </tr>
-                                        <tr>
-                                            <td>6320500603</td>
-                                            <td>ภัทรพร ปัญญาอุดมพร</td>
-                                            <td>3.38</td>
-                                            <td style="color: rgb(0, 110, 22); font-weight: bold;">ปกติ</td>
-                                        </tr>
-                                        <tr>
-                                            <td>6320500611</td>
-                                            <td>ภานุวัฒน์ จั่นจินดา</td>
-                                            <td>3.65</td>
-                                            <td style="color: rgb(0, 9, 188); font-weight: bold;">เกียรตินิยม</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="col-12 mx-auto">
+                            <div class="card">
+                                <br>
+                                <div class="table-responsive">
+                                    <table class="table table-striped" id="dataTable" cellspacing="0"
+                                        style="color: black;  ">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center" colspan="4">นิสิต</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>รหัสนิสิต</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>GPA</th>
+                                                <th>สถานะ</th>
+                                            </tr>
+                                            <tr>
+                                                <td>6320500603</td>
+                                                <td>ภัทรพร ปัญญาอุดมพร</td>
+                                                <td>3.38</td>
+                                                <td style="color: rgb(0, 110, 22); font-weight: bold;">ปกติ</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6320500611</td>
+                                                <td>ภานุวัฒน์ จั่นจินดา</td>
+                                                <td>3.65</td>
+                                                <td style="color: rgb(0, 9, 188); font-weight: bold;">เกียรตินิยม
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
+
                         </div>
                     </div>
 
@@ -598,6 +683,30 @@
                     </script>
                     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
                     </script>
+                    <!-- Bootstrap core JavaScript-->
+                    <script src="../vendor/jquery/jquery.min.js"></script>
+                    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+                    <!-- Page level plugins -->
+                    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+                    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+                    <!-- Page level custom scripts -->
+                    <script src="../js/demo/datatables-demo.js"></script>
+
+                    <!-- Custom scripts for all pages-->
+                    <script src="../js/sb-admin-2.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+
+                    <!-- Bootstrap core JavaScript-->
+                    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                    <!-- Page level plugins -->
+                    <script src="../vendor/chart.js/Chart.min.js"></script>
+
+                    
+                    
 
                     <script>
 
@@ -1040,36 +1149,7 @@
                             }
                         });
                     </script>
-                    <!-- Bootstrap core JavaScript-->
-                    <script src="../vendor/jquery/jquery.min.js"></script>
-                    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                    <!-- Core plugin JavaScript-->
-                    <script src="../vendor/jquery/jquery.min.js"></script>
-                    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-                    <!-- Page level plugins -->
-                    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-                    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-                    <!-- Page level custom scripts -->
-                    <script src="../js/demo/datatables-demo.js"></script>
-
-                    <!-- Custom scripts for all pages-->
-                    <script src="../js/sb-admin-2.min.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
-
-                    <!-- Bootstrap core JavaScript-->
-                    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-                    <!-- Core plugin JavaScript-->
-                    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-                    <!-- Custom scripts for all pages-->
-                    <script src="../js/sb-admin-2.min.js"></script>
-
-                    <!-- Page level plugins -->
-                    <script src="../vendor/chart.js/Chart.min.js"></script>
 
 
 
@@ -1084,7 +1164,7 @@
                 <h5>ปีการศึกษา 2565 หลักสูตร 2565 </h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <br>
-                
+
 
 
             </div>
@@ -1107,7 +1187,7 @@
                             <th>นายxxxxxx xxxxxx</th>
                             <th>2.20</th>
                         </tr>
-                        
+
                     </tbody>
                 </table>
 
