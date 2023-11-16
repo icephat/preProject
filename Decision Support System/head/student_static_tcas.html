@@ -162,18 +162,18 @@
                     <div>
                         <form>
                             <div class="row mx-auto">
-                                <div class="col-4 text-center">
+                                <div class="col-sm-4 text-center">
                                     <h5>หลักสูตร<span style="color: red;">*</span></th>
                                 </div>
-                                <div class="col-4 text-center">
+                                <div class="col-sm-4 text-center">
                                     <h5>รอบ<span style="color: red;">*</span></th>
                                 </div>
-                                <div class="col-4 text-center">
+                                <div class="col-sm-4 text-center">
                                 </div>
 
                             </div>
                             <div class="row mx-auto">
-                                <div class="col-4 text-center">
+                                <div class="col-sm-4 text-center">
                                     <div>
                                         <select class="form-control" data-live-search="true">
                                             <option value="default">--กรุณาเลือกหลักสูตร--</option>
@@ -185,7 +185,7 @@
                                     </div>
 
                                 </div>
-                                <div class="col-4 text-center">
+                                <div class="col-sm-4 text-center">
                                     <div>
                                         <select class="form-control" data-live-search="true">
                                             <option value="default">--รอบ--</option>
@@ -201,7 +201,7 @@
 
                                 </div>
 
-                                <div class="col-4 text-center">
+                                <div class="col-sm-4 text-center">
                                     <button type="submit" name="submit" id="data"
                                         class="btn btn-success btn-sm active">ดูผล</button>
                                 </div>
@@ -211,18 +211,18 @@
 
                     <hr>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตตาม Tcas (คน)</h6>
                                 </div>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
-                                        <div class="col-6">
+                                        <div class="col-sm-6">
 
                                             <canvas id="myChart"></canvas>
                                         </div>
-                                        <div class="col-6 float-right">
+                                        <div class="col-sm-6 float-right">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" cellspacing="0"
                                                     style="color: black;">
@@ -315,18 +315,18 @@
                     </div>
                     <br><br>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                                 </div>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
-                                        <div class="col-6">
+                                        <div class="col-sm-6">
 
                                             <div id="grade"></div>
                                         </div>
-                                        <div class="col-6 mx-auto">
+                                        <div class="col-sm-6 mx-auto">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" cellspacing="0"
                                                     style="color: black;">
@@ -403,18 +403,18 @@
                     </div>
                     <br><br>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนอัตราการคงอยู่ </h6>
                                 </div>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
-                                        <div class="col-6">
+                                        <div class="col-sm-6">
 
                                             <canvas id="percent"></canvas>
                                         </div>
-                                        <div class="col-6 float-right">
+                                        <div class="col-sm-6 float-right">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" cellspacing="0"
                                                     style="color: black;">
@@ -480,18 +480,18 @@
                     </div>
                     <br><br>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">สัดส่วนอัตราการคงอยู่ </h6>
                                 </div>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
-                                        <div class="col-6">
+                                        <div class="col-sm-6">
 
                                             <canvas id="percent2"></canvas>
                                         </div>
-                                        <div class="col-6 float-right">
+                                        <div class="col-sm-6 float-right">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" cellspacing="0"
                                                     style="color: black;">
@@ -678,15 +678,15 @@
                         });
                     </script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
-                    <script src='https://cdn.plot.ly/plotly-2.27.0.min.js'></script>
+                    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
                     <script>
                         var ctx = document.getElementById("grade");
+                        
                         var y1 = [3.40, 2.70, 2.00];
                         var y2 = [3.50, 2.50, 1.50];
                         var y3 = [3.43, 2.43, 1.43];
                         var y4 = [3.53, 2.53, 1.53];
                         var y5 = [3.44, 2.44, 1.44];
-
                         var รุ่น60 = {
                             y: y1,
                             type: 'box',
