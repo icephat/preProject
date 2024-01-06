@@ -244,12 +244,8 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                         </td>
                                                         <td style=\"font-weight: bold; text-align: right;\">".$academic["creditAll"]."</td>
                                                         <td style=\"font-weight: bold; text-align: right;\">".$academic["grade"]."</td>
-                                                    </tr>
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            ";
+                                                        
+                                                    </tr>";
                                                     }
                                                     ?>
                                                     <!-- <tr>
@@ -335,72 +331,31 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                             </div>
                             <div class="card-body">
                                 <div class="row " style=" justify-content: center; align-items: center;">
-                                    <div class="col-sm-2">
-                                        <div class="card">
-                                            <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                    style="color:#304f69;">หมวดวิชาศึกษาทั่วไป</span></p>
-                                            <div style="text-align: center; position: relative;">
-                                                <canvas id="donutChart"></canvas>
-                                                <div id="centerText"
-                                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                    100%<br>3.12</div>
-                                            </div>
-                                        </div>
+                                    <?php
+                                        $i=0;
+                                        foreach ($academics as $academic){
+                                            $percent = 0;
+                                            $percent = 100-($academic["credit"]*($academic["creditYet"]/100));
+                                            echo "<div class=\"col-sm-2\">
+                                                <div class=\"card\">
+                                                    <p style=\"padding: 10px;\">หน่วยกิตการเรียน &nbsp;<br><span
+                                                            style=\"color:#304f69;\">".$academic["name"]."</span></p>
+                                                    <div style=\"text-align: center; position: relative;\">
+                                                        <canvas id=\"donutChart".$i."\"></canvas>
+                                                        <div id=\"centerText\"
+                                                            style=\"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;\">
+                                                            ".$percent."%<br>".$academic["grade"]."</div>
+                                                    </div>
+                                                </div>
 
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="card">
-                                            <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                    style="color:#304f69;">หมวดวิชาเสรี</span></p>
-                                            <div style="text-align: center; position: relative;">
-                                                <canvas id="donutChart2"></canvas>
-                                                <div id="centerText"
-                                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                    80%<br>3.45</div>
-                                            </div>
-                                        </div>
+                                            </div>";
+                                            
+                                            $i++;
+                                        }
 
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="card">
-                                            <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                    style="color:#304f69;">หมวดวิชาเฉพาะบังคับ</span></p>
-                                            <div style="text-align: center; position: relative;">
-                                                <canvas id="donutChart3"></canvas>
-                                                <div id="centerText"
-                                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                    90%<br>3.00</div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="card">
-                                            <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                    style="color:#304f69;">หมวดวิชาเฉพาะเลือก</span></p>
-                                            <div style="text-align: center; position: relative;">
-                                                <canvas id="donutChart4"></canvas>
-                                                <div id="centerText"
-                                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                    90%<br>1.25</div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <div class="card">
-                                            <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                    style="color:#304f69;">หมวดวิชาเสรี</span></p>
-                                            <div style="text-align: center; position: relative;">
-                                                <canvas id="donutChart5"></canvas>
-                                                <div id="centerText"
-                                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                    100%<br>3.40</div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
+                                    
+                                    ?>
+                                
                                 </div>
                             </div>
                         </div>
@@ -672,8 +627,25 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
     <script>
+
+        <?php
+            $academicGrades=[];
+            $academicLabel=[];
+            foreach ($academics as $academic) {
+                $academicGrades[] = (float)$academic["grade"];
+                $academicLabel[] = $academic["name"];
+
+            }
+        
+        ?>
+        
+        var grades = <?php echo json_encode($academicGrades)?>;
+        console.log(grades);
+        var academicLabels = <?php echo json_encode($academicLabel)?>;
+        console.log(academicLabels);
+
         var ctx = document.getElementById("myChartSub");
-        const GPASub = [3.13, 3.23, 3.33, 3.38, 3.40];
+        const GPASub = grades;
         const GPASubcolorbar = [];
         let GPASubsize = GPASub.length;
         let GPASubcolorLoop;
@@ -698,7 +670,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
             type: 'bar',
             data: {
-                labels: ['หมวดวิชาแกน', 'หมวดวิชาศึกษาทั่วไป', 'หมวดวิชาเฉพาะบังคับ', 'หมวดวิชาเฉพาะเลือก', 'หมวดวิชาเสรี'],
+                labels: academicLabels,
                 datasets: [{
                     data: GPASub,
                     backgroundColor: GPASubcolorbar,
@@ -728,128 +700,60 @@ $student = getStudentByUsername($_SESSION["access-user"]);
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    
+        
     <script>
-        const GPAC = 3.13;
-        let GPACcolorbar = '';
-        let GPACcolor = 'rgba(211,211,211,0.8)';
-        if (GPAC >= 0.0000 && GPAC <= 1.7499) {
-            GPACcolorbar = 'rgba(255, 105, 98,0.8)';
-        }
-        else if (GPAC >= 1.7500 && GPAC <= 1.9999) {
-            GPACcolorbar = 'rgba(245, 123, 57,0.8)';
-        }
-        else if (GPAC >= 2.0000 && GPAC <= 3.2499) {
-            GPACcolorbar = 'rgba(153, 204, 153,0.8)';
+   
+        <?php
+        
+            $dataLists=[];
+            $dataPerLists=[];
+            foreach ($academics as $academic){
+                
+                $dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
+                $dataLists[] = (float)$academic["credit"]*($academic["creditYet"]/100);
+                
 
-        }
-        else if (GPAC >= 3.2500) {
-            GPACcolorbar = 'rgba(134, 188, 247,0.8)';
-        }
+            }
 
-        // ข้อมูลสำหรับ Donut Chart
-        var data = {
+        ?>
+        var perLists = <?php echo json_encode($dataPerLists)?>;
+        console.log(perLists);
+        var datalists = <?php echo json_encode($dataLists)?>;
+        console.log(datalists);
+       
+        
+        let x=0;
+        const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4"];
+        for (var name of labels) {
+            var data = {
             datasets: [{
-                data: [100, 100 - 100],
-                backgroundColor: [GPACcolorbar, GPACcolor]
+                data: [datalists[x], perLists[x]],
+                backgroundColor: ['rgba(211,211,211,0.8)','rgba(153, 204, 153,0.8)']
             }]
-        };
-        var data2 = {
-            datasets: [{
-                data: [80, 100 - 80],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data3 = {
-            datasets: [{
-                data: [90, 100 - 90],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data4 = {
-            datasets: [{
-                data: [90, 100 - 90],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data5 = {
-            datasets: [{
-                data: [100, 100 - 100],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
+            };
 
-        // สร้าง Donut Chart
-        var ctx = document.getElementById("donutChart");
-        var donutChart = new Chart(ctx, {
-            type: "doughnut",
-            data: data,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
+            var ctx = document.getElementById(name);
+            var name = new Chart(ctx, {
+                type: "doughnut",
+                data: data,
+                options: {
+                    cutoutPercentage: perLists[x],  // กำหนดค่านี้เพื่อสร้าง Donut Chart
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
                     }
                 }
-            }
-        });
-        var ctx = document.getElementById("donutChart2");
-        var donutChart2 = new Chart(ctx, {
-            type: "doughnut",
-            data: data2,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart3");
-        var donutChart3 = new Chart(ctx, {
-            type: "doughnut",
-            data: data3,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart4");
-        var donutChart4 = new Chart(ctx, {
-            type: "doughnut",
-            data: data4,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart5");
-        var donutChart5 = new Chart(ctx, {
-            type: "doughnut",
-            data: data5,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
+            });
+
+
+
+
+            x++;
+        } 
+       
 
     </script>
 
