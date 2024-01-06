@@ -395,15 +395,186 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     $academis["select"]["grade"] = round($sumGradeCreditSelect / $selectSubjectCredit,2);
 
 
-
-
-
-
-
-    //echo "ศึกษาทั่วไป : $generalSubjectCredit,อยู่ดีมีสุข : $happySubjectCredit, ผปกก : $entrepreneurshipSubjectCredit, สื่อสาร : $languageSubjectCredit, พลเมือง : $peopleSubjectCredit , สุนทรีย์ : $aestheticsSubjectCredit, วิชาเสรี : $freeSubjectCredit, วิชาแกน : $coreSubjectCredit, วิชาเฉพาะด้าน : $spacailSubjectCredit, วิชาเฉพาะเลือก : $selectSubjectCredit" . "<br>";
-    //echo print_r($academicStudents);
-
     return $academis;
+}
+
+
+function getListSubjectGroupPassInRegisByStudentId($studentId){
+
+    $student = getStudentByStudentId($studentId);
+
+    $academicStudents = [];
+
+    $course = getCourseById($student['courseId']);
+
+    //$generalSubjectPassList = getListSubjectPassInRegisByStudentIdAndSubjectCategory($studentId,"หมวดวิชาศึกษาทั่วไป");
+
+
+
+    $freeSubjectCredit = 0;
+    $freeSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือกเสรี");
+    foreach ($freeSubjects as $freeSubject) {
+        $freeSubjectCredit += $freeSubject["credit"];
+    }
+
+
+    $generalSubjectCredit = 0;
+    $generalSubjects = [];
+    // foreach($generalSubjectPassList as $generalSubject){
+
+    //     if($sumCreditGeneral < $course["generalSubjectCredit"]){
+    //         $sumCreditGeneral += $generalSubject["credit"];
+    //         //echo $sumCreditGeneral."<br>";
+    //     }
+    //     else{
+    //         $sumCregitFree += $generalSubject["credit"];
+    //         $freeSubjects[] = $generalSubject;
+    //     }
+    // }
+
+
+    $happySubjectCredit = 0;
+    $happySubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระอยู่ดีมีสุข");
+
+    foreach ($happySubjects as $happySubject) {
+
+        if ($happySubjectCredit < $course["happySubjectCredit"]) {
+            $happySubjectCredit += $happySubject["credit"];
+            $generalSubjectCredit += $happySubject["credit"];
+            $generalSubjects[] = $happySubject;
+        } else {
+            $freeSubjectCredit += $happySubject["credit"];
+            $freeSubjects[] = $happySubject;
+        }
+    }
+
+    $entrepreneurshipSubjectCredit = 0;
+    $entrepreneurshipSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระศาสตร์แห่งผู้ประกอบการ");
+
+    foreach ($entrepreneurshipSubjects as $entrepreneurshipSubject) {
+
+        if ($happySubjectCredit < $course["entrepreneurshipSubjectCredit"]) {
+            $entrepreneurshipSubjectCredit += $entrepreneurshipSubject["credit"];
+            $generalSubjectCredit += $entrepreneurshipSubject["credit"];
+            $generalSubjects[] = $entrepreneurshipSubject;
+        } else {
+            $freeSubjectCredit += $entrepreneurshipSubject["credit"];
+            $freeSubjects[] = $entrepreneurshipSubject;
+        }
+    }
+
+    $languageSubjectCredit = 0;
+    $languageSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระภาษากับการสื่อสาร");
+
+    foreach ($languageSubjects as $languageSubject) {
+
+        if ($languageSubjectCredit < $course["languageSubjectCredit"]) {
+            $languageSubjectCredit += $languageSubject["credit"];
+            $generalSubjectCredit += $languageSubject["credit"];
+            $generalSubjects[] = $languageSubject;
+        } else {
+            $freeSubjectCredit += $languageSubject["credit"];
+            $freeSubjects[] = $languageSubject;
+        }
+    }
+
+    $peopleSubjectCredit = 0;
+    $peopleSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระพลเมืองไทยและพลเมืองโลก");
+
+    foreach ($peopleSubjects as $peopleSubject) {
+
+        if ($peopleSubjectCredit < $course["peopleSubjectCredit"]) {
+            $peopleSubjectCredit += $peopleSubject["credit"];
+            $generalSubjectCredit += $peopleSubject["credit"];
+            $generalSubjects[] = $peopleSubject;
+        } else {
+            $freeSubjectCredit += $peopleSubject["credit"];
+            $freeSubjects[] = $peopleSubject;
+        }
+    }
+
+    $aestheticsSubjectCredit = 0;
+    $aestheticsSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระสุนทรียศาสตร์");
+
+    foreach ($aestheticsSubjects as $aestheticsSubject) {
+
+        if ($aestheticsSubjectCredit < $course["peopleSubjectCredit"]) {
+            $aestheticsSubjectCredit += $aestheticsSubject["credit"];
+            $generalSubjectCredit += $aestheticsSubject["credit"];
+            $generalSubjects[] = $aestheticsSubject;
+        } else {
+            $freeSubjectCredit += $aestheticsSubject["credit"];
+            $freeSubjects[] = $aestheticsSubject;
+        }
+    }
+
+
+
+
+    $coreSubjectCredit = 0;
+    $coreSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาแกน");
+
+    foreach ($coreSubjects as $coreSubject) {
+
+        if ($coreSubjectCredit < $course["coreSubjectCredit"]) {
+            $coreSubjectCredit += $coreSubject["credit"];
+        } else {
+            $freeSubjectCredit += $coreSubject["credit"];
+            $freeSubjects[] = $coreSubject;
+        }
+    }
+
+    $spacailSubjectCredit = 0;
+    $spacailSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเฉพาะด้าน");
+
+    foreach ($spacailSubjects as $spacailSubject) {
+
+        if ($spacailSubjectCredit < $course["spacailSubjectCredit"]) {
+            $spacailSubjectCredit += $spacailSubject["credit"];
+        } else {
+            $freeSubjectCredit += $coreSubject["credit"];
+            $freeSubjects[] = $spacailSubject;
+        }
+    }
+
+    $selectSubjectCredit = 0;
+    $selectSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือก");
+
+    foreach ($selectSubjects as $selectSubject) {
+
+        if ($selectSubjectCredit < $course["spacailSubjectCredit"]) {
+            $selectSubjectCredit += $selectSubject["credit"];
+        } else {
+            $freeSubjectCredit += $coreSubject["credit"];
+            $freeSubjects[] = $selectSubject;
+        }
+    }
+
+
+
+    $generalSubjectx = getListSubjectPassInRegisByStudentIdAndSubjectCategory($studentId,"หมวดวิชาศึกษาทั่วไป");
+    $generates = [];
+
+    foreach($generalSubjectx as $gene){
+        if(!in_array($gene,$freeSubjects)){
+            $generates[] = $gene;
+        }
+    }
+
+
+    $subjects["general"]["list"] = $generates;
+    $subjects["general"]["name"] = "วิชาศึกษาทั่วไป";
+    $subjects["free"]["list"] = $freeSubjects;
+    $subjects["free"]["name"] = "วิชาเสรี";
+    $subjects["core"]["list"] = $coreSubjects;
+    $subjects["core"]["name"] = "วิชาแกน";
+    $subjects["spacail"]["list"] = $spacailSubjects;
+    $subjects["spacail"]["name"] = "วิชาเฉพาะด้าน";
+    $subjects["select"]["list"] = $selectSubject;
+    $subjects["select"]["name"] = "วิชาเฉพาะเลือก";
+
+    return $subjects;
+
 }
 
 

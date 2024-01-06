@@ -185,7 +185,35 @@ $student = getStudentByUsername("b6320500611");
                                 <div class="card">
 
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item">
+                                        <?php
+
+                                            $i = 1;
+
+                                            $subjectGroups = getListSubjectGroupPassInRegisByStudentId($student["studentId"]);
+                                            $unlink = "nav-link active"; 
+                                            $tab = "true";
+
+                                            foreach($subjectGroups as $gorup){
+                                            echo "
+                                            
+                                        <li class=\"nav-item\">
+                                            <a class=\"".$unlink."\" id=\"tab".$i."-tab\" data-toggle=\"tab\" href=\"#tab".$i."\" role=\"tab\" aria-controls=\"tab".$i."\" aria-selected=".$tab.">".$gorup["name"]."</a>
+                                        </li>
+                                            
+                                            
+                                            
+                                            
+                                            ";
+                                            $tab = "false";
+                                            $i++;
+                                            $unlink = "nav-link"; 
+                                            }
+
+
+                                        
+                                            
+                                        ?>
+                                        <!-- <li class="nav-item">
                                             <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1"
                                                 role="tab" aria-controls="tab1" aria-selected="true">หมวดวิชาแกน</a>
                                         </li>
@@ -204,10 +232,93 @@ $student = getStudentByUsername("b6320500611");
                                         <li class="nav-item">
                                             <a class="nav-link" id="tab5-tab" data-toggle="tab" href="#tab5" role="tab"
                                                 aria-controls="tab5" aria-selected="false">หมวดวิชาเสรี</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                     <div class="tab-content">
-                                        <div class="tab-pane fade show active" id="tab1" role="tabpanel"
+
+
+                                        <?php
+
+                                        $i = 1;
+                                        $tabpane = "tab-pane fade show active";
+
+                                        foreach($subjectGroups as $gorup){
+                                                echo "                              
+                                                    <div class=\"".$tabpane."\" id=\"tab".$i."\" role=\"tabpanel\" aria-labelledby=\"tab".$i."-tab\">
+                                                    ";
+
+                                                    $tabpane = "tab-pane fade ";
+                                                    $i++;
+
+                                                echo "
+                                                
+
+                                            <div class=\"table-responsive\">
+                                                <table class=\"table table-striped\" id=\"dataTable\" cellspacing=\"0\"
+                                                    style=\"color: black;  \">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ปีการศึกษา</th>
+                                                            <th>ภาคการศึกษา</th>
+                                                            <th>รหัสวิชา</th>
+                                                            <th>ชื่อวิชา</th>
+                                                            <th>หมวดรายวิชา</th>
+
+                                                            <th>ผลการเรียน</th>
+                                                            <th>หน่วยกิต</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                
+                                                ";
+
+                                                foreach($gorup["list"] as $regis){
+
+                                                    echo "
+                                                    
+                                                    <tr>
+                                                            <td class=\"text-left\">".$regis["semesterYear"]."</td>
+                                                            <td class=\"text-left\">".$regis["semesterPart"]."</td>
+                                                            <td class=\"text-left\">".$regis["subjectCode"]."</td>
+                                                            <td class=\"text-left\">".$regis["nameSubjectThai"]."</td>
+                                                            <td class=\"text-left\">".$regis["subjectGroup"]."</td>
+                                                            <td class=\"text-left\">".$regis["gradeCharacter"]."</td>
+                                                            <td class=\"text-left\">".$regis["credit"]."</td>
+                                                        </tr>
+                                                    
+                                                    ";
+
+                                                }
+
+                                                echo "
+                                                    </tbody>
+                                                </table>
+                                            </div>";
+
+                                                
+                                                
+                                                echo "</div>";
+                                        }
+
+
+
+
+
+
+
+
+
+
+                                       
+                                        
+                                        
+                                       
+                                        
+                                        
+                                        ?>
+
+
+                                        <!-- <div class="tab-pane fade show active" id="tab1" role="tabpanel"
                                             aria-labelledby="tab1-tab">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" id="dataTable" cellspacing="0"
@@ -248,9 +359,8 @@ $student = getStudentByUsername("b6320500611");
 
                                                 </table>
                                             </div>
-                                        </div>
-                                        <!--นิสิตในภาค-->
-                                        <div class="tab-pane fade " id="tab2" role="tabpanel"
+                                        </div> -->
+                                        <!-- <div class="tab-pane fade " id="tab2" role="tabpanel"
                                             aria-labelledby="tab2-tab">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" id="dataTable2" cellspacing="0"
@@ -301,8 +411,6 @@ $student = getStudentByUsername("b6320500611");
                                                 </table>
                                             </div>
                                         </div>
-
-                                        <!--นิสิตในคณะ-->
                                         <div class="tab-pane fade " id="tab3" role="tabpanel"
                                             aria-labelledby="tab3-tab">
                                             <div class="table-responsive">
@@ -353,7 +461,7 @@ $student = getStudentByUsername("b6320500611");
                                                     </tbody>
                                                 </table>
                                             </div>
-                                        </div>
+                                        </div> -->
 
 
 
