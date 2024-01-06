@@ -11,7 +11,7 @@ function getListRegisByStudentIdAndSemesterId($studentId, $semesterId)
     //$regisList = $result->fetch_assoc();
 
 
-    while($my_row = $result->fetch_assoc()){
+    while ($my_row = $result->fetch_assoc()) {
         $regisList[] = $my_row;
     }
 
@@ -31,7 +31,7 @@ function getListRegisByStudentId($studentId)
     //$regisList = $result->fetch_assoc();
 
 
-    while($my_row = $result->fetch_assoc()){
+    while ($my_row = $result->fetch_assoc()) {
         $regisList[] = $my_row;
     }
 
@@ -40,6 +40,45 @@ function getListRegisByStudentId($studentId)
 
     return $regisList;
 }
+
+function getListSubjectPassInRegisByStudentIdAndSubjectCategory($studentId, $subjectCategoryName)
+{
+
+    require("connection_connect.php");
+
+    $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND subjectCategoryName = '" . $subjectCategoryName . "' AND (gradeCharacter != 'F' OR gradeCharacter != 'W' OR gradeCharacter != 'P')";
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $subjects[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $subjects;
+
+}
+
+function getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, $subjectGroup)
+{
+    require("connection_connect.php");
+
+    $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND subjectGroup = '" . $subjectGroup . "' AND (gradeCharacter != 'F' OR gradeCharacter != 'W' OR gradeCharacter != 'P')";
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $subjects[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $subjects;
+
+}
+
+
 
 
 ?>

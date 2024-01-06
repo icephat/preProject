@@ -30,7 +30,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- Custom styles for this template-->
@@ -110,59 +110,56 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                 </thead>
                                                 <tbody>
 
-                                                <?php
-                                                    $i=0;
-                                                    $gpa=0;
-                                                    $gpaNew=0.00;
-                                                    $idterm=0;
-                                                    $check=0;
+                                                    <?php
+                                                    $i = 0;
+                                                    $gpa = 0;
+                                                    $gpaNew = 0.00;
+                                                    $idterm = 0;
+                                                    $check = 0;
                                                     foreach ($student["terms"] as $term) {
 
-                                                        if ($i == 0){
-                                                            $gpa = round($term["gpaAll"],2);
+                                                        if ($i == 0) {
+                                                            $gpa = round($term["gpaAll"], 2);
                                                             $i++;
+                                                        } else {
+                                                            $gpaNew = round($term["gpaAll"], 2) - $gpa;
+                                                            $gpa = round($term["gpaAll"], 2);
                                                         }
-                                                        else{
-                                                            $gpaNew = round($term["gpaAll"],2) - $gpa;
-                                                            $gpa = round($term["gpaAll"],2);
-                                                        }
-                                                        
-                                                        $ch=" ";
-                                                        
+
+                                                        $ch = " ";
+
                                                         echo "
                                                             <tr>
-                                                                <th scope=\"row\">".$term["semesterYear"]."</th>
-                                                                <td class=\"text-center\">".$term["semesterPart"]."</td>
-                                                                <td class=\"text-center\">".$term["creditTerm"]."</td>
-                                                                <td>".round($term["gpaTerm"],2)."</td>
-                                                                <td>".round($term["gpaAll"],2)."</td>";
+                                                                <th scope=\"row\">" . $term["semesterYear"] . "</th>
+                                                                <td class=\"text-center\">" . $term["semesterPart"] . "</td>
+                                                                <td class=\"text-center\">" . $term["creditTerm"] . "</td>
+                                                                <td>" . round($term["gpaTerm"], 2) . "</td>
+                                                                <td>" . round($term["gpaAll"], 2) . "</td>";
 
-                                                                if (number_format($gpaNew,2) > 0.00){
-                                                                    $color = "color:green";
-                                                                    $ch="+";
-                                                                }
-                                                                elseif (number_format($gpaNew,2) < 0.00){
-                                                                    $color = "color:red";
-                                                                    $ch="-";
-                                                                }
-                                                                else{
-                                                                    $color = "color:green";
-                                                                    $ch="";
-                                                                }
-                                                                
-                                                               // $idterms[] = $idterm;
-                                                                echo "<td><span style=\"".$color ."\">[ ".$ch.number_format($gpaNew,2)." ]</span></td>
+                                                        if (number_format($gpaNew, 2) > 0.00) {
+                                                            $color = "color:green";
+                                                            $ch = "+";
+                                                        } elseif (number_format($gpaNew, 2) < 0.00) {
+                                                            $color = "color:red";
+                                                            $ch = "-";
+                                                        } else {
+                                                            $color = "color:green";
+                                                            $ch = "";
+                                                        }
+
+                                                        // $idterms[] = $idterm;
+                                                        echo "<td><span style=\"" . $color . "\">[ " . $ch . number_format($gpaNew, 2) . " ]</span></td>
                                                                 <td class=\"text-center\">
-                                                                    <a data-toggle=\"modal\" data-target=\"#modal".$idterm."\" >
+                                                                    <a data-toggle=\"modal\" data-target=\"#modal" . $idterm . "\" >
                                                                         <i class=\"fas fa-search fa-sm\"></i>
                                                                     </a>
 
                                                                 </td>
                                                                 
                                                             </tr>";
-                                                            $idterm++;       
+                                                        $idterm++;
                                                     }
-                                                    
+
                                                     ?>
                                                 </tbody>
                                             </table>
@@ -174,7 +171,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                     </div>
                 </div>
 
-                
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
@@ -208,6 +205,11 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                         </p>
                                         <canvas id="myChartSub"></canvas>
                                     </div>
+                                    <?php
+
+                                    $academics = getAcademicInSubjectCategoryByStudentId($student["studentId"]);
+
+                                    ?>
                                     <div class="col-sm-6">
                                         <div class="table-responsive">
                                             <table class="table table-striped" width="100%" cellspacing="0"
@@ -228,7 +230,29 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                    foreach ($academics as $academic) {
+                                                        echo "
+                                                            
                                                     <tr>
+                                                        <td>".$academic["name"]."</td>
+                                                        <td style=\"font-weight: bold; color: green; text-align: right;\">
+                                                        ".$academic["credit"]."
+                                                        </td>
+                                                        <td style=\"font-weight: bold; color: red; text-align: right;\">
+                                                        ".$academic["creditYet"]."
+                                                        </td>
+                                                        <td style=\"font-weight: bold; text-align: right;\">".$academic["creditAll"]."</td>
+                                                        <td style=\"font-weight: bold; text-align: right;\">".$academic["grade"]."</td>
+                                                    </tr>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            ";
+                                                    }
+                                                    ?>
+                                                    <!-- <tr>
                                                         <td>หมวดวิชาศึกษาทั่วไป</td>
                                                         <td style="font-weight: bold; color: green; text-align: right;">
                                                             30
@@ -288,7 +312,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                             36
                                                         </td>
                                                         <td style="font-weight: bold; text-align: right;">3.40</td>
-                                                    </tr>
+                                                    </tr> -->
                                                 </tbody>
                                             </table>
                                         </div>
@@ -423,23 +447,23 @@ $student = getStudentByUsername($_SESSION["access-user"]);
         </div>
     </div>-->
 
-        <!--modal-->
-        <?php 
-            $i=0;
-            foreach ($student["terms"] as $term){ 
-                
-                    echo "
-                        <div id=modal".$i." class=\"modal\" style=\"color: black;\">
+    <!--modal-->
+    <?php
+    $i = 0;
+    foreach ($student["terms"] as $term) {
+
+        echo "
+                        <div id=modal" . $i . " class=\"modal\" style=\"color: black;\">
                             <div class=\"modal-dialog modal-lg\">
-                                <div class=\"modal-content\">";  
-                                
-                    echo "<div class=\"modal-header\" style=\"height: 90px;\">
+                                <div class=\"modal-content\">";
+
+        echo "<div class=\"modal-header\" style=\"height: 90px;\">
                         <table class=\"modal-dialog modal-lg\" style=\"border:none; width: 85%;\">
                             <th style=\" text-align: left; \">
-                                        <h5 style=\"font-weight: bold;\">เกรด".round($term["gpaTerm"],2)."</h5>
+                                        <h5 style=\"font-weight: bold;\">เกรด" . round($term["gpaTerm"], 2) . "</h5>
                             </th>
                             <th style=\" text-align: right;\">
-                                <h5 style=\"font-weight: bold;\">GPA ".round($term["gpaAll"],2)."</h5>
+                                <h5 style=\"font-weight: bold;\">GPA " . round($term["gpaAll"], 2) . "</h5>
                             </th>
                         </table>
                         <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
@@ -448,7 +472,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 
                         </div>
-                        <h4 class=\"modal-title\" style=\"margin-left: 10px;\">ผลการเรียนของนิสิตในปีการศึกษา ".$term["semesterYear"]." " .$term["semesterPart"]."</h4>
+                        <h4 class=\"modal-title\" style=\"margin-left: 10px;\">ผลการเรียนของนิสิตในปีการศึกษา " . $term["semesterYear"] . " " . $term["semesterPart"] . "</h4>
                         <div class=\"modal-body\" id=\"std_detail\">
                             <table class=\"table\">
 
@@ -460,18 +484,18 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     </tr>
                                 </thead>
                                 <tbody>";
-                                foreach ($term["regisList"] as $regis){
-                                    echo " 
+        foreach ($term["regisList"] as $regis) {
+            echo " 
                                         <tr>
-                                            <th>".$regis["nameSubjectEng"]."</th>
-                                            <th>".$regis["gradeCharacter"]."</th>
-                                            <th>".$regis["credit"]."</th>
+                                            <th>" . $regis["nameSubjectEng"] . "</th>
+                                            <th>" . $regis["gradeCharacter"] . "</th>
+                                            <th>" . $regis["credit"] . "</th>
                                         </tr>
                                     ";
-                                }
-                                    
-                                   
-                                echo "</tbody>
+        }
+
+
+        echo "</tbody>
                             </table>
 
                                 </div>
@@ -482,40 +506,40 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                             </div>
                         </div>
                     </div>";
-                                        
+
+
+        $i++;
+    }
+
+    /*foreach ($idterms as $id) {
+        echo "
+        <div id=modal".$id." class=\"modal\" style=\"color: black;\">
+            <div class=\"modal-dialog modal-lg\">
+                <div class=\"modal-content\">";
                 
-                $i++;
-            }               
-
-                    /*foreach ($idterms as $id) {
-                        echo "
-                        <div id=modal".$id." class=\"modal\" style=\"color: black;\">
-                            <div class=\"modal-dialog modal-lg\">
-                                <div class=\"modal-content\">";
-                                
-                                    foreach ($student["terms"] as $term){
-                                        echo $term["semesterPart"];
-                                        
-                                        foreach ($term["regisList"] as $regis){
-                                            
-                                        
-                                        }
-                                        
-                                    }
-
-                                    
-                                    
-                                    
-
-                    }*/
+                    foreach ($student["terms"] as $term){
+                        echo $term["semesterPart"];
+                        
+                        foreach ($term["regisList"] as $regis){
+                            
+                        
+                        }
+                        
+                    }
 
                     
-        ?>
+                    
+                    
+
+    }*/
 
 
-    
-    
-    
+    ?>
+
+
+
+
+
     <!-- Include Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -553,24 +577,24 @@ $student = getStudentByUsername($_SESSION["access-user"]);
     <!-- Page level plugins -->
     <script src="../vendor/chart.js/Chart.min.js"></script>
 
-    
+
 
     <script>
-        
-       <?php
-            $gp = [];
-            $gpAll = [];
-            $label =[];
-            foreach ($student["terms"] as $term) {
-                
-                $floatvar =  (float)round($term["gpaTerm"],2);
-                $gp[] = $floatvar;
 
-                $floatvarAll =  (float)round($term["gpaAll"],2);
-                $gpAll[] = $floatvarAll;
+        <?php
+        $gp = [];
+        $gpAll = [];
+        $label = [];
+        foreach ($student["terms"] as $term) {
 
-                $label[] = $term["semesterPart"]." ".$term["semesterYear"];
-            }
+            $floatvar = (float) round($term["gpaTerm"], 2);
+            $gp[] = $floatvar;
+
+            $floatvarAll = (float) round($term["gpaAll"], 2);
+            $gpAll[] = $floatvarAll;
+
+            $label[] = $term["semesterPart"] . " " . $term["semesterYear"];
+        }
         ?>
         var gs = <?php echo json_encode($gp); ?>;
         console.log(gs);
@@ -839,5 +863,3 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 
 </html>
-
-
