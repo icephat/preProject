@@ -7,6 +7,7 @@ session_start();
 
 require '../function/studentFunction.php';
 
+
 $student = getStudentByUsername($_SESSION["access-user"]);
 
 
@@ -29,6 +30,8 @@ $student = getStudentByUsername($_SESSION["access-user"]);
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -107,94 +110,60 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                 </thead>
                                                 <tbody>
 
-
-                                                    <?php
-
+                                                <?php
+                                                    $i=0;
+                                                    $gpa=0;
+                                                    $gpaNew=0.00;
+                                                    $idterm=0;
+                                                    $check=0;
                                                     foreach ($student["terms"] as $term) {
+
+                                                        if ($i == 0){
+                                                            $gpa = round($term["gpaAll"],2);
+                                                            $i++;
+                                                        }
+                                                        else{
+                                                            $gpaNew = round($term["gpaAll"],2) - $gpa;
+                                                            $gpa = round($term["gpaAll"],2);
+                                                        }
+                                                        
+                                                        $ch=" ";
+                                                        
                                                         echo "
-                                                                
                                                             <tr>
                                                                 <th scope=\"row\">".$term["semesterYear"]."</th>
                                                                 <td class=\"text-center\">".$term["semesterPart"]."</td>
                                                                 <td class=\"text-center\">".$term["creditTerm"]."</td>
                                                                 <td>".round($term["gpaTerm"],2)."</td>
-                                                                <td>".round($term["gpaAll"],2)."</td>
-                                                                <td><span style=\"color:green;\">[+0.50]</span></td>
+                                                                <td>".round($term["gpaAll"],2)."</td>";
+
+                                                                if (number_format($gpaNew,2) > 0.00){
+                                                                    $color = "color:green";
+                                                                    $ch="+";
+                                                                }
+                                                                elseif (number_format($gpaNew,2) < 0.00){
+                                                                    $color = "color:red";
+                                                                    $ch="-";
+                                                                }
+                                                                else{
+                                                                    $color = "color:green";
+                                                                    $ch="";
+                                                                }
+                                                                
+                                                               // $idterms[] = $idterm;
+                                                                echo "<td><span style=\"".$color ."\">[ ".$ch.number_format($gpaNew,2)." ]</span></td>
                                                                 <td class=\"text-center\">
-                                                                    <a data-toggle=\"modal\" data-target=\"#dataModal\">
+                                                                    <a data-toggle=\"modal\" data-target=\"#modal".$idterm."\" >
                                                                         <i class=\"fas fa-search fa-sm\"></i>
                                                                     </a>
+
                                                                 </td>
-                                                            </tr>
                                                                 
-                                                                ";
+                                                            </tr>";
+                                                            $idterm++;       
                                                     }
+                                                    
                                                     ?>
-                                                    <!-- <tr>
-                                                            <th scope="row">2563</th>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">19</td>
-                                                            <td>2.13</td>
-                                                            <td>2.13</td>
-                                                            <td></td>
-                                                            <td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2563</th>
-                                                            <td class="text-center">ภาคปลาย</td>
-                                                            <td class="text-center">22</td>
-                                                            <td>3.34</td>
-                                                            <td>2.63</td>
-                                                            <td><span style="color:green;">[+0.50]</span></td>
-                                                            <td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2564</th>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">19</td>
-                                                            <td>2.60</td>
-                                                            <td>2.62</td>
-                                                            <td><span style="color:red;">[-0.01]</span></td>
-                                                            <td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2564</th>
-                                                            <td class="text-center">ภาคปลาย</td>
-                                                            <td class="text-center">22</td>
-                                                            <td>3.33</td>
-                                                            <td>2.78</td>
-                                                            <td><span style="color:green  ;">[+0.16]</span></td>
-                                                            <td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope='row'>ผลการเรียนเฉลี่ย</th>
-                                                            <td class='text-center'></td>
-                                                            <td class='text-center'>82</td>
-                                                            <td class=''>2.78</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr> -->
                                                 </tbody>
                                             </table>
                                         </div>
@@ -205,6 +174,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                     </div>
                 </div>
 
+                
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
@@ -433,7 +403,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
+    <!-- Logout Modal
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -451,7 +421,106 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
+
+        <!--modal-->
+        <?php 
+            $i=0;
+            foreach ($student["terms"] as $term){ 
+                
+                    echo "
+                        <div id=modal".$i." class=\"modal\" style=\"color: black;\">
+                            <div class=\"modal-dialog modal-lg\">
+                                <div class=\"modal-content\">";  
+                                
+                    echo "<div class=\"modal-header\" style=\"height: 90px;\">
+                        <table class=\"modal-dialog modal-lg\" style=\"border:none; width: 85%;\">
+                            <th style=\" text-align: left; \">
+                                        <h5 style=\"font-weight: bold;\">เกรด".round($term["gpaTerm"],2)."</h5>
+                            </th>
+                            <th style=\" text-align: right;\">
+                                <h5 style=\"font-weight: bold;\">GPA ".round($term["gpaAll"],2)."</h5>
+                            </th>
+                        </table>
+                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+                        <br>
+
+
+
+                        </div>
+                        <h4 class=\"modal-title\" style=\"margin-left: 10px;\">ผลการเรียนของนิสิตในปีการศึกษา ".$term["semesterYear"]." " .$term["semesterPart"]."</h4>
+                        <div class=\"modal-body\" id=\"std_detail\">
+                            <table class=\"table\">
+
+                                <thead>
+                                    <tr>
+                                        <th>รายชื่อวิชา</th>
+                                        <th>เกรดที่ได้</th>
+                                        <th>จำนวนหน่วยกิต</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+                                foreach ($term["regisList"] as $regis){
+                                    echo " 
+                                        <tr>
+                                            <th>".$regis["nameSubjectEng"]."</th>
+                                            <th>".$regis["gradeCharacter"]."</th>
+                                            <th>".$regis["credit"]."</th>
+                                        </tr>
+                                    ";
+                                }
+                                    
+                                   
+                                echo "</tbody>
+                            </table>
+
+                                </div>
+                                <div class=\"modal-footer\">
+                                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\"
+                                        style=\"font-size: 18px;\">ปิดหน้าต่าง</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+                                        
+                
+                $i++;
+            }               
+
+                    /*foreach ($idterms as $id) {
+                        echo "
+                        <div id=modal".$id." class=\"modal\" style=\"color: black;\">
+                            <div class=\"modal-dialog modal-lg\">
+                                <div class=\"modal-content\">";
+                                
+                                    foreach ($student["terms"] as $term){
+                                        echo $term["semesterPart"];
+                                        
+                                        foreach ($term["regisList"] as $regis){
+                                            
+                                        
+                                        }
+                                        
+                                    }
+
+                                    
+                                    
+                                    
+
+                    }*/
+
+                    
+        ?>
+
+
+    
+    
+    
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -483,8 +552,36 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
     <!-- Page level plugins -->
     <script src="../vendor/chart.js/Chart.min.js"></script>
+
+    
+
     <script>
-        const GPA2563 = [2.13, 3.34, 2.63, 3.33];
+        
+       <?php
+            $gp = [];
+            $gpAll = [];
+            $label =[];
+            foreach ($student["terms"] as $term) {
+                
+                $floatvar =  (float)round($term["gpaTerm"],2);
+                $gp[] = $floatvar;
+
+                $floatvarAll =  (float)round($term["gpaAll"],2);
+                $gpAll[] = $floatvarAll;
+
+                $label[] = $term["semesterPart"]." ".$term["semesterYear"];
+            }
+        ?>
+        var gs = <?php echo json_encode($gp); ?>;
+        console.log(gs);
+
+        var gsAll = <?php echo json_encode($gpAll); ?>;
+        console.log(gsAll);
+
+        const GPA2563 = gs;
+        const GPAAll = gsAll;
+        const labeljs = <?php echo json_encode($label); ?>;
+
         const GPAcolorbar = [];
         let GPAsize = GPA2563.length;
         let GPAcolorLoop;
@@ -514,11 +611,10 @@ $student = getStudentByUsername($_SESSION["access-user"]);
             //type: 'line',
             type: 'bar',
             data: {
-                labels: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+                labels: labeljs,
                 datasets: [{
                     type: 'line',
-                    label: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
-                    data: [2.13, 2.63, 2.62, 2.78],
+                    data: GPAAll,
                     borderColor: 'rgb(0, 107, 201)',
                     lineTension: 0,
                     fill: false
@@ -733,58 +829,15 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
     </script>
 
+
+
+
+
 </body>
+
+
+
 
 </html>
 
-<div id="dataModal" class="modal fade" style="color: black;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 90px;">
-                <table class="modal-dialog modal-lg" style="border:none; width: 85%;">
-                    <th style=" text-align: left; ">
-                        <h5 style="font-weight: bold;">เกรด 3.23</h5>
-                    </th>
-                    <th style=" text-align: right;">
-                        <h5 style="font-weight: bold;">GPA 3.45</h5>
-                    </th>
-                </table>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <br>
 
-
-
-            </div>
-            <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
-            <div class="modal-body" id="std_detail">
-                <table class="table">
-
-                    <thead>
-                        <tr>
-                            <th>รายชื่อวิชา</th>
-                            <th>เกรดที่ได้</th>
-                            <th>จำนวนหน่วยกิต</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>General Physics I</th>
-                            <th>B</th>
-                            <th>3</th>
-                        </tr>
-                        <tr>
-                            <th>Math I</th>
-                            <th>B</th>
-                            <th>3</th>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"
-                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-            </div>
-        </div>
-    </div>
-</div>
