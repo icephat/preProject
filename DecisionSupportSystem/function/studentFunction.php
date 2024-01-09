@@ -570,7 +570,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId){
     $subjects["core"]["name"] = "วิชาแกน";
     $subjects["spacail"]["list"] = $spacailSubjects;
     $subjects["spacail"]["name"] = "วิชาเฉพาะด้าน";
-    $subjects["select"]["list"] = $selectSubject;
+    $subjects["select"]["list"] = $selectSubjects;
     $subjects["select"]["name"] = "วิชาเฉพาะเลือก";
 
     return $subjects;

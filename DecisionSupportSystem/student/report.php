@@ -273,6 +273,19 @@ $student = getStudentByUsername("b6320500611");
                                                 ";
 
                                                 foreach($gorup["list"] as $regis){
+                                                    // echo "
+                                                    
+                                                    // <tr>
+                                                    //         <td class=\"text-left\">1</td>
+                                                    //         <td class=\"text-left\">2</td>
+                                                    //         <td class=\"text-left\">3</td>
+                                                    //         <td class=\"text-left\">4</td>
+                                                    //         <td class=\"text-left\">5</td>
+                                                    //         <td class=\"text-left\">6</td>
+                                                    //         <td class=\"text-left\">7</td>
+                                                    //     </tr>
+                                                    
+                                                    // ";
 
                                                     echo "
                                                     
