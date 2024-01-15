@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    <style>
+        .t1:hover {
+            background-color: #ececec;
+            transition: all 0.5s linear;
+        }
+    </style>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,112 +40,7 @@
             <!-- Main Content -->
             <div id="content">
 
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
-                    style="height: max-content;">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-
-                    <a href="#"><img src="../image/newLogoUniversity1.png" border="0"></a>
-                    </a>
-
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">ฐิติพงษ์ สถิรเมธีกุล</span>
-                                <img class="img-profile rounded-circle" src="../img/undraw_profile_3.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -------------------------------------------------------------------------------------------->
-                <div class="container-fluid">
-
-                    <!-- Content Row -------------------------------------------------------BOX----------------------->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-
-                        <a href="./home.html" class="col-xl-3 col-md-6 mb-4 ">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                ADVISOR</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">อาจารย์ที่ปรึกษา</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-home fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <a href="./nisit.html" class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                LIST OF STUDENTS</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิต</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-user fa-2x text-success"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <!--<a href="./report.html" class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">PREDICT
-                                                STUDENT GRADES
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                        คาดการณ์เกรดของนิสิต
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>-->
-                    </div>
+            <?php include('../layout/teacher/nisit.php'); ?>
 
                     <hr>
 
@@ -151,7 +52,7 @@
                             </h5>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <a href="./calGPAHis.html" type="button" class="btn btn-primary">ดูประวัติการคาดการณ์</a>
+                            <a href="./calGPAHis.php" type="button" class="btn btn-primary">ดูประวัติการคาดการณ์</a>
                         </div>
                     </div>
                     <hr>
@@ -749,7 +650,7 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="login.php">Logout</a>
                     </div>
                 </div>
             </div>
