@@ -17,6 +17,12 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 <head>
 
+    <style>
+        .t1:hover {
+            background-color: #ececec;
+            transition: all 0.5s linear;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -708,11 +714,12 @@ $student = getStudentByUsername($_SESSION["access-user"]);
         
             $dataLists=[];
             $dataPerLists=[];
+            $gradeLists=[];
             foreach ($academics as $academic){
                 
                 $dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
                 $dataLists[] = (float)$academic["credit"]*($academic["creditYet"]/100);
-                
+                $gradeLists[]=(float)$academic["grade"];
 
             }
 
@@ -721,15 +728,35 @@ $student = getStudentByUsername($_SESSION["access-user"]);
         console.log(perLists);
         var datalists = <?php echo json_encode($dataLists)?>;
         console.log(datalists);
-       
-        
+        var glists = <?php echo json_encode($gradeLists)?>;
+        console.log(glists);
+
+        const colorList = [];
+        let size = glists.length;
+        let color;
+        for (let i = 0; i < size; i++) {
+            if (glists[i] >= 0.0000 && glists[i] <= 1.7499) {
+                color = '#ff6962';
+            }
+            else if (glists[i] >= 1.7500 && glists[i] <= 1.9999) {
+                color = '#f57b39';
+            }
+            else if (glists[i] >= 2.0000 && glists[i] <= 3.2499) {
+                color = '#99cc99';
+            }
+            else if (glists[i] >= 3.2500) {
+                color = '#86d3f7';
+            }
+            colorList[i] = color;
+        }
         let x=0;
         const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4"];
         for (var name of labels) {
+            
             var data = {
             datasets: [{
                 data: [datalists[x], perLists[x]],
-                backgroundColor: ['rgba(211,211,211,0.8)','rgba(153, 204, 153,0.8)']
+                backgroundColor: ['rgba(211,211,211,0.8)',colorList[x]]
             }]
             };
 
