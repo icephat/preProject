@@ -25,6 +25,7 @@ function getStudentByUsername($studentUsername)
     $student["school"] = getSchoolById($student["schoolId"]);
     $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
     $student["gpax"] = getGPAX($student["studentId"]);
+    $student["credit"] = getCredit($student["studentId"]);
 
     require("connection_close.php");
 
@@ -47,6 +48,7 @@ function getStudentByStudentId($studentId)
     $student["school"] = getSchoolById($student["schoolId"]);
     $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
     $student["gpax"] = getGPAX($student["studentId"]);
+    $student["credit"] = getCredit($student["studentId"]);
 
     require("connection_close.php");
 
@@ -66,7 +68,7 @@ function getGPAX($studentId)
 
     foreach ($regisAllList as $regis) {
         //echo print_r($regis)."<br>";
-
+        if($regis["gradeCharacter"] != 'W' and $regis["gradeCharacter"] != 'P' and $regis["gradeCharacter"] != 'NP')
         $sumGradeCreditAll += $regis["gradeNumber"] * $regis["credit"];
         $sumCreditAll += $regis["credit"];
 
@@ -82,11 +84,35 @@ function getGPAX($studentId)
     return $gpaAll;
 }
 
+function getCredit($studentId)
+{
+
+    $regisAllList = getListRegisNotFAndWByStudentId($studentId);
+
+    require("connection_connect.php");
+
+    $sumCreditAll = 0;
+
+    foreach ($regisAllList as $regis) {
+        //echo print_r($regis)."<br>";
+        $sumCreditAll += $regis["credit"];
+
+
+    }
+
+
+
+
+    require("connection_close.php");
+
+    return $sumCreditAll;
+}
+
 function getListSubjectForFAndWByStudentId($studentId)
 {
 
     require("connection_connect.php");
-
+    $subjects = [];
     $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND ( gradeCharacter = 'F' OR gradeCharacter = 'W')";
     $result = $conn->query($sql);
 
@@ -108,7 +134,7 @@ function getListSubjectInRegisByStudentIdAndSubjectCategory($studentId, $subject
 
     $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND subjectCategoryName = '" . $subjectCategoryName . "' AND (gradeCharacter != 'P' OR gradeCharacter != 'W' )";
     $result = $conn->query($sql);
-
+    $subjects = [];
     while ($my_row = $result->fetch_assoc()) {
         $subjects[] = $my_row;
     }
@@ -127,6 +153,7 @@ function getListSubjectInRegisByStudentIdAndSubjectGroup($studentId, $subjectGro
     $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND subjectGroup = '" . $subjectGroup . "' AND (gradeCharacter != 'P' OR gradeCharacter != 'W' )";
     $result = $conn->query($sql);
 
+    $subjects = [];
     while ($my_row = $result->fetch_assoc()) {
         $subjects[] = $my_row;
     }
@@ -150,6 +177,8 @@ function getSumCreditSubjectCategoryByStudentId($studentId)
         $subjectCategoryCredits[] = $my_row;
     }
 
+    require("connection_close.php");
+
 
     return $subjectCategoryCredits;
 
@@ -166,6 +195,8 @@ function getSumCreditSubjectGroupByStudentId($studentId)
     while ($my_row = $result->fetch_assoc()) {
         $subjectGroupCredits[] = $my_row;
     }
+
+    require("connection_close.php");
 
 
     return $subjectGroupCredits;
@@ -220,7 +251,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     }
 
     $entrepreneurshipSubjectCredit = 0;
-    $entrepreneurshipSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระศาสตร์แห่งผู้ประกอบการ");
+    $entrepreneurshipSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระศาสตร์แห่งผู้ประกอบการ");
 
     foreach ($entrepreneurshipSubjects as $entrepreneurshipSubject) {
 
@@ -234,7 +265,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     }
 
     $languageSubjectCredit = 0;
-    $languageSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระภาษากับการสื่อสาร");
+    $languageSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระภาษากับการสื่อสาร");
 
     foreach ($languageSubjects as $languageSubject) {
 
@@ -248,7 +279,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     }
 
     $peopleSubjectCredit = 0;
-    $peopleSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระพลเมืองไทยและพลเมืองโลก");
+    $peopleSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระพลเมืองไทยและพลเมืองโลก");
 
     foreach ($peopleSubjects as $peopleSubject) {
 
@@ -262,7 +293,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     }
 
     $aestheticsSubjectCredit = 0;
-    $aestheticsSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระสุนทรียศาสตร์");
+    $aestheticsSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระสุนทรียศาสตร์");
 
     foreach ($aestheticsSubjects as $aestheticsSubject) {
 
@@ -320,16 +351,18 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
 
     $academis["general"]["credit"] = $generalSubjectCredit;
     $academis["general"]["name"] = "วิชาศึกษาทั่วไป";
-    $generalSubjects = getListSubjectInRegisByStudentIdAndSubjectCategory($studentId,"หมวดวิชาศึกษาทั่วไป");
+    $generalSubjects = getListSubjectInRegisByStudentIdAndSubjectCategory($studentId, "หมวดวิชาศึกษาทั่วไป");
     $sumGradeCreditGeneral = 0;
-    foreach($generalSubjects as $generalSubject){
-        if(!in_array($generalSubject,$freeSubjects)){
+    $generalSubjectCredit = 0;
+    foreach ($generalSubjects as $generalSubject) {
+        if (!in_array($generalSubject, $freeSubjects)) {
+            $generalSubjectCredit += $generalSubject["credit"];
             $sumGradeCreditGeneral += $generalSubject["gradeNumber"] * $generalSubject["credit"];
         }
     }
     $academis["general"]["creditAll"] = $course["generalSubjectCredit"];
     $academis["general"]["creditYet"] = $course["generalSubjectCredit"] - $academis["general"]["credit"];
-    $academis["general"]["grade"] = round($sumGradeCreditGeneral / $generalSubjectCredit,2);
+    $academis["general"]["grade"] = round($sumGradeCreditGeneral / $generalSubjectCredit, 2);
 
 
 
@@ -343,7 +376,12 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     }
     $academis["free"]["creditAll"] = $course["freeSubjectCredit"];
     $academis["free"]["creditYet"] = $course["freeSubjectCredit"] - $academis["free"]["credit"];
-    $academis["free"]["grade"] = round($sumGradeCreditFree / $freeSubjectCredit,2);
+    if ($freeSubjectCredit == 0) {
+        $academis["free"]["grade"] = 0.00;
+    } else {
+        $academis["free"]["grade"] = round($sumGradeCreditFree / $freeSubjectCredit, 2);
+    }
+
 
 
 
@@ -351,16 +389,18 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
 
     $academis["core"]["credit"] = $coreSubjectCredit;
     $academis["core"]["name"] = "วิชาแกน";
-    $cores = getListSubjectInRegisByStudentIdAndSubjectGroup($studentId,"วิชาแกน");
+    $cores = getListSubjectInRegisByStudentIdAndSubjectGroup($studentId, "วิชาแกน");
     $sumGradeCreditCore = 0;
-    foreach($cores as $core){
-        if(!in_array($core,$freeSubjects)){
+    $coreSubjectCredit = 0;
+    foreach ($cores as $core) {
+        if (!in_array($core, $freeSubjects)) {
+            $coreSubjectCredit += $core["credit"];
             $sumGradeCreditCore += $core["gradeNumber"] * $core["credit"];
         }
     }
     $academis["core"]["creditAll"] = $course["coreSubjectCredit"];
     $academis["core"]["creditYet"] = $course["coreSubjectCredit"] - $academis["core"]["credit"];
-    $academis["core"]["grade"] = round($sumGradeCreditCore / $coreSubjectCredit,2);
+    $academis["core"]["grade"] = round($sumGradeCreditCore / $coreSubjectCredit, 2);
 
 
 
@@ -368,38 +408,54 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
 
     $academis["spacail"]["credit"] = $spacailSubjectCredit;
     $academis["spacail"]["name"] = "วิชาเฉพาะด้าน";
-    $spacails = getListSubjectInRegisByStudentIdAndSubjectGroup($studentId,"วิชาเฉพาะด้าน");
+    $spacails = getListSubjectInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเฉพาะด้าน");
+    $spacailSubjectCredit = 0;
     $sumGradeCreditSpacail = 0;
-    foreach($spacails as $spacail){
-        if(!in_array($spacail,$freeSubjects)){
+    foreach ($spacails as $spacail) {
+        if (!in_array($spacail, $freeSubjects)) {
+            $spacailSubjectCredit += $spacail["credit"];
             $sumGradeCreditSpacail += $spacail["gradeNumber"] * $spacail["credit"];
         }
     }
     $academis["spacail"]["creditAll"] = $course["spacailSubjectCredit"];
     $academis["spacail"]["creditYet"] = $course["spacailSubjectCredit"] - $academis["spacail"]["credit"];
-    $academis["spacail"]["grade"] = round($sumGradeCreditSpacail / $spacailSubjectCredit,2);
+    if ($spacailSubjectCredit == 0) {
+        $academis["spacail"]["grade"] = 0.00;
+    } else {
+        $academis["spacail"]["grade"] = round($sumGradeCreditSpacail / $spacailSubjectCredit, 2);
+    }
+
 
 
 
     $academis["select"]["credit"] = $selectSubjectCredit;
     $academis["select"]["name"] = "วิชาเฉพาะเลือก";
-    $selects = getListSubjectInRegisByStudentIdAndSubjectGroup($studentId,"วิชาเลือก");
+    $selects = getListSubjectInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือก");
     $sumGradeCreditSelect = 0;
-    foreach($selects as $select){
-        if(!in_array($spacail,$freeSubjects)){
+    $selectSubjectCredit = 0;
+    foreach ($selects as $select) {
+        if (!in_array($spacail, $freeSubjects)) {
+            $selectSubjectCredit += $select["credit"];
             $sumGradeCreditSelect += $select["gradeNumber"] * $select["credit"];
         }
     }
     $academis["select"]["creditAll"] = $course["selectSubjectCredit"];
     $academis["select"]["creditYet"] = $course["selectSubjectCredit"] - $academis["select"]["credit"];
-    $academis["select"]["grade"] = round($sumGradeCreditSelect / $selectSubjectCredit,2);
+    if($selectSubjectCredit == 0){
+        $academis["select"]["grade"] = 0.00;
+    }
+    else{
+       $academis["select"]["grade"] = round($sumGradeCreditSelect / $selectSubjectCredit, 2); 
+    }
+    
 
 
     return $academis;
 }
 
 
-function getListSubjectGroupPassInRegisByStudentId($studentId){
+function getListSubjectGroupPassInRegisByStudentId($studentId)
+{
 
     $student = getStudentByStudentId($studentId);
 
@@ -449,7 +505,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId){
     }
 
     $entrepreneurshipSubjectCredit = 0;
-    $entrepreneurshipSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระศาสตร์แห่งผู้ประกอบการ");
+    $entrepreneurshipSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระศาสตร์แห่งผู้ประกอบการ");
 
     foreach ($entrepreneurshipSubjects as $entrepreneurshipSubject) {
 
@@ -464,7 +520,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId){
     }
 
     $languageSubjectCredit = 0;
-    $languageSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระภาษากับการสื่อสาร");
+    $languageSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระภาษากับการสื่อสาร");
 
     foreach ($languageSubjects as $languageSubject) {
 
@@ -479,7 +535,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId){
     }
 
     $peopleSubjectCredit = 0;
-    $peopleSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระพลเมืองไทยและพลเมืองโลก");
+    $peopleSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระพลเมืองไทยและพลเมืองโลก");
 
     foreach ($peopleSubjects as $peopleSubject) {
 
@@ -494,7 +550,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId){
     }
 
     $aestheticsSubjectCredit = 0;
-    $aestheticsSubjects= getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระสุนทรียศาสตร์");
+    $aestheticsSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระสุนทรียศาสตร์");
 
     foreach ($aestheticsSubjects as $aestheticsSubject) {
 
@@ -552,17 +608,17 @@ function getListSubjectGroupPassInRegisByStudentId($studentId){
 
 
 
-    $generalSubjectx = getListSubjectPassInRegisByStudentIdAndSubjectCategory($studentId,"หมวดวิชาศึกษาทั่วไป");
+    $generalSubjectx = getListSubjectPassInRegisByStudentIdAndSubjectCategory($studentId, "หมวดวิชาศึกษาทั่วไป");
     $generates = [];
 
-    foreach($generalSubjectx as $gene){
-        if(!in_array($gene,$freeSubjects)){
+    foreach ($generalSubjectx as $gene) {
+        if (!in_array($gene, $freeSubjects)) {
             $generates[] = $gene;
         }
     }
 
 
-    $subjects["general"]["list"] = $generates;
+    $subjects["general"]["list"] = $generalSubjects;
     $subjects["general"]["name"] = "วิชาศึกษาทั่วไป";
     $subjects["free"]["list"] = $freeSubjects;
     $subjects["free"]["name"] = "วิชาเสรี";
@@ -572,6 +628,41 @@ function getListSubjectGroupPassInRegisByStudentId($studentId){
     $subjects["spacail"]["name"] = "วิชาเฉพาะด้าน";
     $subjects["select"]["list"] = $selectSubjects;
     $subjects["select"]["name"] = "วิชาเฉพาะเลือก";
+
+    return $subjects;
+
+}
+
+function getRegisPassAndNotPassByStudentId($studentId)
+{
+
+
+    require("connection_connect.php");
+
+    $subjects = [];
+
+    $sql = "
+    
+    SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,credit,gradeCharacter
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject
+    WHERE studentId = '" . $studentId . "' AND (gradeCharacter != 'F' OR gradeCharacter != 'W') AND subjectCode IN
+    (
+    SELECT subjectCode
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject
+    WHERE studentId = '" . $studentId . "' AND (gradeCharacter = 'F' OR gradeCharacter = 'W')
+    )
+    UNION
+    SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,credit,gradeCharacter	
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject
+    WHERE studentId = '" . $studentId . "' AND (gradeCharacter = 'F' OR gradeCharacter = 'W')
+    ";
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $subjects[] = $my_row;
+    }
+
+    require("connection_close.php");
 
     return $subjects;
 

@@ -29,6 +29,17 @@
 
 </head>
 
+<?php
+
+
+        session_start();
+        
+        require_once '../function/teacherFunction.php';
+
+        $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
+
+?>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -124,6 +135,11 @@
                                             <th
                                                 style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
+                                                <?php
+                                                
+                                                $gpaxStatusCount = getCountStudentGPAXStatusByTeacherId($teacher["teacherId"]);
+                                                ?>
+
                                                 <div style="color: rgb(0, 9, 188);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 9, 188);"
@@ -132,7 +148,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px; ">10</h1>
+                                                        <h1 style="font-weight: bolder; font-size: 70px; "><?php echo $gpaxStatusCount["blue"]?></h1>
                                                     </div>
                                                     <div class="text-right">
                                                         <p>คน</p>
@@ -150,7 +166,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">22</h1>
+                                                        <h1 style="font-weight: bolder; font-size: 70px;"><?php echo $gpaxStatusCount["green"]?></h1>
                                                     </div>
                                                     <div class="text-right">
                                                         <p>คน</p>
@@ -169,7 +185,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">0</h1>
+                                                        <h1 style="font-weight: bolder; font-size: 70px;"><?php echo $gpaxStatusCount["orange"]?></h1>
                                                     </div>
                                                     <div class="text-right">
                                                         <p>คน</p>
@@ -185,7 +201,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">0</h1>
+                                                        <h1 style="font-weight: bolder; font-size: 70px;"><?php echo $gpaxStatusCount["red"]?></h1>
                                                     </div>
                                                     <div class="text-right">
                                                         <p>คน</p>
@@ -200,6 +216,13 @@
                                         style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                         <tr style="border: 1px solid black; border-collapse: collapse;">
                                             <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+                                            <?php
+                                            
+                                            $planingCount = getCountStudentByPlaningByTeacherId($teacher["teacherId"]);
+                                            
+                                            
+                                            
+                                            ?>
 
                                                 <div style="color: rgb(0, 9, 188);">
                                                     <div class="text-center">
@@ -209,7 +232,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px; ">10</h1>
+                                                        <h1 style="font-weight: bolder; font-size: 70px; "><?php echo $planingCount["plan"]["count"] ?></h1>
                                                     </div>
                                                     <div class="text-right">
                                                         <p>คน</p>
@@ -227,7 +250,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">22</h1>
+                                                        <h1 style="font-weight: bolder; font-size: 70px;"><?php echo $planingCount["notPlan"]["count"] ?></h1>
                                                     </div>
                                                     <div class="text-right">
                                                         <p>คน</p>
@@ -246,7 +269,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">0</h1>
+                                                        <h1 style="font-weight: bolder; font-size: 70px;"><?php echo $planingCount["retire"]["count"] ?></h1>
                                                     </div>
                                                     <div class="text-right">
                                                         <p>คน</p>
@@ -262,7 +285,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">0</h1>
+                                                        <h1 style="font-weight: bolder; font-size: 70px;"><?php echo $planingCount["grad"]["count"] ?></h1>
                                                     </div>
                                                     <div class="text-right">
                                                         <p>คน</p>
@@ -307,7 +330,40 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
+                                                        <?php
+                                                        
+                                                        $gens = getCountStudentPlanStatusBystudyGeneretionByTeacherId($teacher["teacherId"]);
+
+                                                        $sumPlan = 0;
+                                                        $sumNotPlan = 0;
+                                                        $sumRetire = 0;
+                                                        $sumGrad = 0;
+                                                        
+
+                                                        foreach($gens as $gen){
+                                                            echo "
+                                                            <tr>
+                                                                <td style=\" text-align: right;\">".$gen["generetion"]."</td>
+                                                                <td style=\" text-align: right;\">
+                                                                ".$gen["plan"]." คน
+                                                                </td>
+                                                                <td style=\" text-align: right;\">
+                                                                ".$gen["notPlan"]." คน
+                                                                </td>
+                                                                <td style=\" text-align: right;\">".$gen["retire"]." คน</td>
+                                                                <td style=\" text-align: right;\">".$gen["grad"]." คน</td>
+                                                            </tr>
+                                                            
+                                                            
+                                                            ";
+                                                            $sumPlan += $gen["plan"];
+                                                            $sumNotPlan += $gen["notPlan"];
+                                                            $sumRetire = $gen["retire"];
+                                                            $sumGrad = $gen["grad"];
+                                                        }
+                                                        
+                                                        ?>
+                                                        <!-- <tr>
                                                             <td style=" text-align: right;">61</td>
                                                             <td style=" text-align: right;">
                                                                 0 คน
@@ -372,14 +428,14 @@
                                                             </td>
                                                             <td style=" text-align: right;">0 คน</td>
                                                             <td style=" text-align: right;">0 คน</td>
-                                                        </tr>
+                                                        </tr> -->
 
                                                         <tr>
                                                             <th scope='row' style=" text-align: right;">รวม (คน)</th>
-                                                            <td style="font-weight: bold; text-align: right;">19 </td>
-                                                            <td style='font-weight: bold; text-align: right;'>1</td>
-                                                            <td style='font-weight: bold; text-align: right;'>0</td>
-                                                            <td style='font-weight: bold; text-align: right;'>0</td>
+                                                            <td style="font-weight: bold; text-align: right;"><?php echo $sumPlan?> </td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumNotPlan?></td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumRetire?></td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumGrad?></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
