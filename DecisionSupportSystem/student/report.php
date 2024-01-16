@@ -6,7 +6,7 @@ session_start();
 
 require '../function/studentFunction.php';
 
-$student = getStudentByUsername("b6320500611");
+$student = getStudentByUsername($_SESSION["access-user"]);
 
 
 
@@ -14,12 +14,6 @@ $student = getStudentByUsername("b6320500611");
 ?>
 
 <head>
-    <style>
-        .t1:hover {
-            background-color: #ececec;
-            transition: all 0.5s linear;
-        }
-    </style>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,7 +82,36 @@ $student = getStudentByUsername("b6320500611");
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <?php
+                                                
+                                                $subjectFs = getListSubjectForFAndWByStudentId($student["studentId"]);
+
+
+                                                foreach($subjectFs as $subjectF){
+                                                    echo "
+                                                    
+                                                    
+                                                    <tr>
+                                                        <td style=\" text-align: center;\">".$subjectF["semesterYear"]."</td>
+                                                        <td style=\" text-align: center;\">".$subjectF["semesterPart"]."</td>
+                                                        <td style=\" text-align: center;\">".$subjectF["subjectGroup"]."</td>
+                                                        <td style=\" text-align: center;\">".$subjectF["subjectCode"]."</td>
+                                                        <td style=\" text-align: left;\">
+                                                        ".$subjectF["nameSubjectEng"]."
+                                                        </td>
+                                                        <td style=\" text-align: center;\">".$subjectF["credit"]."</td>
+                                                        <td style=\" text-align: center;\">".$subjectF["gradeCharacter"]."</td>
+
+                                                    </tr>
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    ";
+                                                }
+                                                
+                                                ?>
+                                                <!-- <tr>
                                                     <td style=" text-align: center;">2</td>
                                                     <td style=" text-align: center;">ภาคปลาย</td>
                                                     <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
@@ -114,14 +137,14 @@ $student = getStudentByUsername("b6320500611");
                                                     </td>
                                                     <td style=" text-align: center;">W</td>
 
-                                                </tr>
+                                                </tr> -->
 
                                                 <tr>
                                                     <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
                                                         colspan="4">
                                                         รวม</td>
-                                                    <td style=" text-align: center;">2</td>
-                                                    <td style="text-align: center;">4</td>
+                                                    <td style=" text-align: center;">0</td>
+                                                    <td style="text-align: center;">0</td>
                                                     <td style=" text-align: center;"></td>
 
                                                 </tr>
@@ -155,7 +178,31 @@ $student = getStudentByUsername("b6320500611");
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <?php
+                                                $subjectPassAndNots = getRegisPassAndNotPassByStudentId($student["studentId"]);
+                                                
+                                                foreach($subjectPassAndNots as $subjectPassAndNot){
+                                                    echo "
+                                                    
+                                                    <tr>
+                                                        <td style=\" text-align: center;\">2</td>
+                                                        <td style=\" text-align: center;\">ภาคปลาย</td>
+                                                        <td style=\" text-align: center;\">หมวดวิชาเฉพาะบังคับ</td>
+                                                        <td style=\" text-align: center;\">02204172</td>
+                                                        <td style=\" text-align: left;\">
+                                                            Practicum in Programming and Problem Solving Skills
+                                                        </td>
+                                                        <td style=\" text-align: center;\">1</td>
+                                                        <td style=\" text-align: center;\">W,F,A</td>
+
+                                                    </tr>
+                                                    
+                                                    ";
+                                                }
+                                                
+                                                
+                                                ?>
+                                                <!-- <tr>
                                                     <td style=" text-align: center;">2</td>
                                                     <td style=" text-align: center;">ภาคปลาย</td>
                                                     <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
@@ -176,7 +223,7 @@ $student = getStudentByUsername("b6320500611");
                                                     <td style="text-align: center;">1</td>
                                                     <td style=" text-align: center;"></td>
 
-                                                </tr>
+                                                </tr> -->
 
                                             </tbody>
                                         </table>

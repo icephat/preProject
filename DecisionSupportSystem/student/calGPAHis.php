@@ -10,17 +10,15 @@ require '../function/studentFunction.php';
 $student = getStudentByUsername($_SESSION["access-user"]);
 
 
+$path = "calGPA/".$student["studentId"].".json";
+$jsonString = file_get_contents($path);
+$calGPA = json_decode($jsonString, true);
+
 
 
 ?>
 
 <head>
-    <style>
-        .t1:hover {
-            background-color: #ececec;
-            transition: all 0.5s linear;
-        }
-    </style>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,7 +60,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                     <!-- Content Row -------------------------------------------------------BOX----------------------->
                     <div class="row">
                         <div class="col-6 text-left">
-                            <h4 style="color: black;">เกรดเฉลี่ยสะสม: 3.38 หน่วยกิต: 132</h4>
+                            <h4 style="color: black;">เกรดเฉลี่ยสะสม: <?php echo round($student["gpax"],2)?> หน่วยกิต: <?php echo $student["credit"]?></h4>
                         </div>
                         
                     </div>
@@ -90,36 +88,36 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             <tr>
                                                 <td>
                                                     <p style="color: black; font-weight: bold;">GPA : <span
-                                                            style="font-weight: normal;">3.38</span></p>
+                                                            style="font-weight: normal;"><?php echo $calGPA["gpaPresent"]?></span></p>
 
                                                 </td>
                                                 <td>
                                                     <p style="color: black; font-weight: bold;">GPA : <span
-                                                            style="font-weight: normal;"> 3.40</span></p>
+                                                            style="font-weight: normal;"><?php echo $calGPA["gpaNew"]?></span></p>
 
                                                 </td>
                                                 <td>
                                                     <p style="color: black; font-weight: bold;">GPA : <span
-                                                            style="font-weight: normal;"> 3.39 <span
-                                                                style="color: green;">[+0.01]</span></span></p>
+                                                            style="font-weight: normal;"> <?php echo $calGPA["gpaxNew"]?> <span
+                                                                style="color: green;">[<?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>]</span></span></p>
 
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <p style="color: black; font-weight: bold;">หน่วยกิต : <span
-                                                            style="font-weight: normal;">132</span></p>
+                                                            style="font-weight: normal;"><?php echo $calGPA["creditPresent"]?></span></p>
 
                                                 </td>
                                                 <td>
                                                     <p style="color: black; font-weight: bold;">หน่วยกิต :<span
-                                                            style="font-weight: normal;"> 5</span></p>
+                                                            style="font-weight: normal;"><?php echo $calGPA["creditNew"]?></span></p>
 
                                                 </td>
                                                 <td>
                                                     <p style="color: black; font-weight: bold;">หน่วยกิต : <span
-                                                            style="font-weight: normal;"> 137 <span
-                                                                style="color: green;">[+5]</span></span></p>
+                                                            style="font-weight: normal;"> <?php echo $calGPA["creditNew"] + $calGPA["creditPresent"]?> <span
+                                                                style="color: green;">[+<?php echo $calGPA["creditNew"]?>]</span></span></p>
 
                                                 </td>
                                             </tr>
@@ -153,18 +151,25 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="text-center">01417167</td>
-                                                    <td>Engineering Mathematics I</td>
-                                                    <td class="text-center">C+</td>
-                                                    <td class="text-center">3</td>
+                                                <?php
+                                                
+                                                for($i=1;$i<$calGPA["count"];$i++){
+                                                    echo "
+                                                    
+                                                    <tr>
+                                                    <td class=\"text-center\">".$calGPA["subjectCode$i"]."</td>
+                                                    <td>".$calGPA["subjectName$i"]."</td>
+                                                    <td class=\"text-center\">".$calGPA["grade$i"]."</td>
+                                                    <td class=\"text-center\">".$calGPA["credit$i"]."</td>
                                                 </tr>
-                                                <tr>
-                                                    <td class="text-center">01999111</td>
-                                                    <td>Knowledge of the Land</td>
-                                                    <td class="text-center">A</td>
-                                                    <td class="text-center">2</td>
-                                                </tr>
+
+
+                                                    ";
+                                                }
+                                                
+                                                ?>
+                                                
+                                                
                                             </tbody>
                                         </table>
                                     </div>
@@ -175,7 +180,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                             </div>
                             <br><br>
                             <div style="text-align: center;">
-                                <a href="./formGPA.html" type="button" class="btn btn-primary">ย้อนกลับ</a>
+                                <a href="./formGPA.php" type="button" class="btn btn-primary">ย้อนกลับ</a>
                             </div>
                             <br><br>
                         </div>
