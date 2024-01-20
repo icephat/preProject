@@ -52,7 +52,7 @@ function getSubjectGroupCreditTermOneCourseByNameCourseAndPlanAndStudyYearAndPar
     $yearX = $year -1;
     $termX = $part + 1;
 
-    $sql = "SELECT subjectGroup,SUM(credit)
+    $sql = "SELECT subjectGroup,SUM(credit) AS credit
     FROM (SELECT studyYear,term,subjectGroup,SUM(credit) AS credit
     FROM courselist
     WHERE courseName = '".$name."' AND coursePlan = '".$plan."' AND studyYear <= ".$yearX." AND term <= ".$termX."

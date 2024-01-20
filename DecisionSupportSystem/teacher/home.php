@@ -456,6 +456,11 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 1</h6>
                                 </div>
+                                <?php
+                                
+                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],1);
+                                
+                                ?>
                                 <div class="card-body">
                                     <canvas id="pee1"></canvas>
                                 </div>
@@ -466,6 +471,11 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 2</h6>
                                 </div>
+                                <?php
+                                
+                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],2);
+                                
+                                ?>
                                 <div class="card-body">
                                     <canvas id="pee2"></canvas>
                                 </div>
@@ -476,6 +486,11 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 3</h6>
                                 </div>
+                                <?php
+                                
+                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],3);
+                                
+                                ?>
                                 <div class="card-body">
                                     <canvas id="pee3"></canvas>
                                 </div>
@@ -487,6 +502,11 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 4</h6>
                                 </div>
+                                <?php
+                                
+                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],4);
+                                
+                                ?>
                                 <div class="card-body">
                                     <canvas id="pee4"></canvas>
                                 </div>
@@ -515,6 +535,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th style=" text-align: right; ">ปีการศึกษา</th>
+                                                            <th style=" text-align: right; ">เทอม</th>
                                                             <th style="text-align: right; ">
                                                                 <span>ตามหลักสูตร</span>
                                                             </th>
@@ -526,96 +547,49 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <?php
+                                                        
+                                                        $countStudySemesters = getCountStudySemesterYearPartByTeacherID($teacher["teacherId"]);
+                                                        
+
+
+                                                        foreach($countStudySemesters as $countStudySemester){
+
+                                                        
+                                                        
+                                                        
+                                                        ?>
                                                         <tr>
-                                                            <td style=" text-align: right;">2561</td>
+                                                            <td style=" text-align: right;"><?php echo $countStudySemester["semesterYear"]?></td>
+                                                            <td style=" text-align: right;"><?php echo $countStudySemester["semesterPart"]?></td>
                                                             <td style=" text-align: right;">
-                                                                0 คน
+                                                            <?php echo $countStudySemester["planStatus"]?> คน
                                                             </td>
                                                             <td style=" text-align: right;">
-                                                                1 คน
+                                                            <?php echo $countStudySemester["notPlanStatus"]?> คน
                                                             </td>
-                                                            <td style=" text-align: right;">0 คน</td>
+                                                            <td style=" text-align: right;"><?php echo $countStudySemester["resign"]?> คน</td>
                                                             <td class="text-center">
                                                                 <a data-toggle="modal" data-target="#dataModal">
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">2562</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                2 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">2563</td>
-                                                            <td style=" text-align: right;">
-                                                                9 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                1 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">2564</td>
-                                                            <td style=" text-align: right;">
-                                                                5 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                5 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">2565</td>
-                                                            <td style=" text-align: right;">
-                                                                9 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                1 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#nisitModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">2566</td>
-                                                            <td style=" text-align: right;">
-                                                                10 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+                                                        <?php
+                                                        //กลับมา echo ดู
+                                                        //echo print_r(countStudySemester["studentPlans"]); รายชื่อนิสิตที่ตามแผน
+                                                        //echo print_r(countStudySemester["studentNotPlans"]); รายชื่อนิสิตที่ไม่ตามแผน
+                                                        //echo print_r(countStudySemester["studentResign"]); รายชื่อนิสิตที่ลาออก
+                                                        
+                                                        }
+
+
+
+
+
+
+                                                        ?>
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -635,6 +609,12 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิต ณ ปัจจุบัน</h6>
                                 </div>
+                                <?php
+                                
+                                $studyGeneretionGPAXs = getGPAXStatusGerenetionByTeacherId($teacher["teacherId"]);
+                                
+                                
+                                ?>
                                 <div class="card-body">
                                     <canvas id="learn"></canvas>
                                 </div>
@@ -645,6 +625,11 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิตจบการศึกษา </h6>
                                 </div>
+                                <?php
+                                
+                                $studyGraduateGeneretionGPAXs = getGPAXStatusGerenetionGraduateByTeacherId($teacher["teacherId"]);
+                                
+                                ?>
                                 <div class="card-body">
                                     <canvas id="learn2"></canvas>
                                 </div>
@@ -654,7 +639,7 @@
                     </div>
                     <br><br>
 
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -696,7 +681,7 @@
 
                         </div>
 
-                    </div>
+                    </div> -->
 
 
 
