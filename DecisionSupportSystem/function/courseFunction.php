@@ -79,4 +79,33 @@ function getSubjectGroupCreditTermOneCourseByNameCourseAndPlanAndStudyYearAndPar
     return $courseCredits;
 
 }
+
+
+function getCourseByDepartmentId($departmentId)
+{
+
+    require("connection_connect.php");
+
+
+
+    $sql = "SELECT courseId,nameCourseTh,nameCourseUse,planCourse
+    FROM course
+    WHERE departmentId = ".$departmentId;
+
+    $result = $conn->query($sql);
+
+    $course = [];
+
+    while ($my_row = $result->fetch_assoc()) {
+        $course[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+
+    return $course;
+
+}
+
 ?>

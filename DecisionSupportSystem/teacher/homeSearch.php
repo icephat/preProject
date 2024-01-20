@@ -38,8 +38,15 @@
         require_once '../function/semesterFunction.php';
         require_once '../function/courseFunction.php';
 
+
+
+        $courseId = $_POST["courseId"];
+        $yearSerach = $_POST["year"];
+        $partSearch = $_POST["part"];
+
         $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
         $semester = getSemesterPresent();
+        $course = getCourseById($courseId);
 
 ?>
 
@@ -76,7 +83,7 @@
                             <div class="row mx-auto">
                                 <div class="col-sm-3 text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true" name = "courseId" >
+                                        <select class="form-control" data-live-search="true" name = "courseId">
                                             <option value="default">--กรุณาเลือกหลักสูตร--</option>
 
                                             <?php
@@ -141,7 +148,7 @@
                     <div class="row">
                         <div class="col-10" style="color: black;">
                             <?php ?>
-                            <h5>ปีการศึกษา: <?php echo $semester["semesterYear"]?> &nbsp; ภาคการศึกษา: <?php echo $semester["semesterPart"]?> </h5>
+                            <h5>หลักสูตร: <?php echo $course["nameCourseUse"]." (".$course["planCourse"].") "?> ปีการศึกษา: <?php echo $yearSerach?> &nbsp; ภาคการศึกษา: <?php echo $partSearch?> </h5>
 
                         </div>
 
@@ -158,7 +165,7 @@
 
                                                 <?php
                                                 
-                                                $gpaxStatusCount = getCountStudentGPAXStatusByTeacherId($teacher["teacherId"]);
+                                                $gpaxStatusCount = getCountStudentGPAXStatusByTeacherIdAndSemesterYearAndSemesterPartAndCourseId($teacher["teacherId"],$yearSerach,$partSearch,$courseId);
                                                 ?>
 
                                                 <div style="color: rgb(0, 9, 188);">
@@ -353,7 +360,7 @@
                                                     <tbody>
                                                         <?php
                                                         
-                                                        $gens = getCountStudentPlanStatusBystudyGeneretionByTeacherId($teacher["teacherId"]);
+                                                        $gens = getCountStudentPlanStatusBystudyGeneretionByTeacherIdAndSemesterYearAndSemesterPartAndCourseId($teacher["teacherId"],$yearSerach,$partSearch,$courseId);
 
                                                         $sumPlan = 0;
                                                         $sumNotPlan = 0;
@@ -479,7 +486,7 @@
                                 </div>
                                 <?php
                                 
-                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],1);
+                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYearAndSemesterYearAndSemesterPartAndCourseId($teacher["teacherId"],1,$yearSerach,$partSearch,$courseId);
                                 
                                 ?>
                                 <div class="card-body">
@@ -494,7 +501,7 @@
                                 </div>
                                 <?php
                                 
-                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],2);
+                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYearAndSemesterYearAndSemesterPartAndCourseId($teacher["teacherId"],2,$yearSerach,$partSearch,$courseId);
                                 
                                 ?>
                                 <div class="card-body">
@@ -509,7 +516,7 @@
                                 </div>
                                 <?php
                                 
-                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],3);
+                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYearAndSemesterYearAndSemesterPartAndCourseId($teacher["teacherId"],3,$yearSerach,$partSearch,$courseId);
                                 
                                 ?>
                                 <div class="card-body">
@@ -525,7 +532,7 @@
                                 </div>
                                 <?php
                                 
-                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],4);
+                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYearAndSemesterYearAndSemesterPartAndCourseId($teacher["teacherId"],4,$yearSerach,$partSearch,$courseId);
                                 
                                 ?>
                                 <div class="card-body">
@@ -570,7 +577,7 @@
                                                     <tbody>
                                                         <?php
                                                         
-                                                        $countStudySemesters = getCountStudySemesterYearPartByTeacherID($teacher["teacherId"]);
+                                                        $countStudySemesters = getCountStudySemesterYearPartByTeacherIDAndSemesterYearAndSemesterPartAndCourseId($teacher["teacherId"],$yearSerach,$partSearch,$courseId);
                                                         
 
 
@@ -624,7 +631,7 @@
 
                     </div>
                     <br><br>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-sm-6">
                             <div class="card">
                                 <div class="card-header py-3">
@@ -657,7 +664,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
                     <br><br>
 
                     <!-- <div class="row">

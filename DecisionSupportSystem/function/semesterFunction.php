@@ -40,4 +40,27 @@ function getSemesterIdByYearAndPart($year,$part){
 
 }
 
+function getSemesterYear(){
+    require("connection_connect.php");
+
+    $years = [];
+    
+
+    $sql = "SELECT DISTINCT semesterYear FROM semester";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $years[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $years;
+
+}
+
+
+
 ?>

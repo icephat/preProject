@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2024 at 09:01 AM
+-- Generation Time: Jan 20, 2024 at 10:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -446,6 +446,7 @@ CREATE TABLE `fact_term_summary` (
   `termSummaryId` int(11) NOT NULL,
   `studentId` varchar(10) NOT NULL,
   `studentStatusId` int(11) NOT NULL,
+  `teacherId` int(11) NOT NULL,
   `creditTerm` int(11) NOT NULL,
   `gpaTerm` float NOT NULL,
   `gpaAll` float NOT NULL,
@@ -470,25 +471,25 @@ CREATE TABLE `fact_term_summary` (
 -- Dumping data for table `fact_term_summary`
 --
 
-INSERT INTO `fact_term_summary` (`termSummaryId`, `studentId`, `studentStatusId`, `creditTerm`, `gpaTerm`, `gpaAll`, `creditAll`, `studyYear`, `studyTerm`, `planStatus`, `generalSubjectCredit`, `specificSubjectCredit`, `freeSubjectCredit`, `selectSubjectCredit`, `generalSubjectCreditAll`, `specificSubjectCreditAll`, `freeSubjectCreditAll`, `selectSubjectCreditAll`, `gpaStatusId`, `gpaxStatusId`, `semesterId`) VALUES
-(56, '6320500611', 1, 19, 3.368, 3.368, 19, 1, 1, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 70),
-(57, '6320500654', 1, 19, 2.263, 2.263, 19, 1, 1, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 70),
-(58, '6320500611', 1, 22, 3.454, 3.414, 41, 1, 2, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 71),
-(59, '6320500654', 1, 19, 3.052, 2.657, 38, 1, 2, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 71),
-(60, '6320500611', 1, 6, 3.75, 3.457, 47, 2, 3, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 72),
-(61, '6320500654', 1, 6, 3.25, 2.738, 44, 2, 3, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 72),
-(62, '6320500611', 1, 20, 3.775, 3.552, 67, 2, 1, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 73),
-(63, '6320500654', 1, 20, 2.2, 2.57, 64, 2, 1, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 73),
-(64, '6320500611', 1, 18, 3.583, 3.558, 85, 2, 2, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 74),
-(65, '6320500654', 1, 14, 2.607, 2.576, 78, 2, 2, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 74),
-(66, '6320500654', 1, 3, 4, 2.629, 81, 3, 3, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 75),
-(67, '6320500611', 1, 17, 3.529, 3.553, 102, 3, 1, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 76),
-(68, '6320500654', 1, 16, 2.125, 2.546, 97, 3, 1, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 76),
-(69, '6320500611', 1, 22, 3.659, 3.572, 124, 3, 2, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 77),
-(70, '6320500654', 1, 22, 1.454, 2.344, 119, 3, 2, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 77),
-(71, '6320500654', 1, 3, 1.5, 2.323, 122, 4, 3, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 78),
-(72, '6320500611', 1, 11, 3.863, 3.596, 135, 4, 1, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 79),
-(73, '6320500654', 1, 17, 1.47, 2.219, 139, 4, 1, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 79);
+INSERT INTO `fact_term_summary` (`termSummaryId`, `studentId`, `studentStatusId`, `teacherId`, `creditTerm`, `gpaTerm`, `gpaAll`, `creditAll`, `studyYear`, `studyTerm`, `planStatus`, `generalSubjectCredit`, `specificSubjectCredit`, `freeSubjectCredit`, `selectSubjectCredit`, `generalSubjectCreditAll`, `specificSubjectCreditAll`, `freeSubjectCreditAll`, `selectSubjectCreditAll`, `gpaStatusId`, `gpaxStatusId`, `semesterId`) VALUES
+(56, '6320500611', 1, 1, 19, 3.368, 3.368, 19, 1, 1, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 70),
+(57, '6320500654', 1, 1, 19, 2.263, 2.263, 19, 1, 1, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 70),
+(58, '6320500611', 1, 1, 22, 3.454, 3.414, 41, 1, 2, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 71),
+(59, '6320500654', 1, 1, 19, 3.052, 2.657, 38, 1, 2, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 71),
+(60, '6320500611', 1, 1, 6, 3.75, 3.457, 47, 2, 3, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 72),
+(61, '6320500654', 1, 1, 6, 3.25, 2.738, 44, 2, 3, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 72),
+(62, '6320500611', 1, 1, 20, 3.775, 3.552, 67, 2, 1, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 73),
+(63, '6320500654', 1, 1, 20, 2.2, 2.57, 64, 0, 1, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 73),
+(64, '6320500611', 1, 1, 18, 3.583, 3.558, 85, 2, 2, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 74),
+(65, '6320500654', 1, 1, 14, 2.607, 2.576, 78, 2, 2, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 74),
+(66, '6320500654', 1, 1, 3, 4, 2.629, 81, 3, 3, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 75),
+(67, '6320500611', 1, 1, 17, 3.529, 3.553, 102, 3, 1, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 76),
+(68, '6320500654', 1, 1, 16, 2.125, 2.546, 97, 3, 1, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 76),
+(69, '6320500611', 1, 1, 22, 3.659, 3.572, 124, 3, 2, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 77),
+(70, '6320500654', 1, 1, 22, 1.454, 2.344, 119, 3, 2, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 77),
+(71, '6320500654', 1, 1, 3, 1.5, 2.323, 122, 4, 3, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 78),
+(72, '6320500611', 1, 1, 11, 3.863, 3.596, 135, 4, 1, 'ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 4, 1, 79),
+(73, '6320500654', 1, 1, 17, 1.47, 2.219, 139, 4, 1, 'ไม่ตามแผน', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 2, 79);
 
 -- --------------------------------------------------------
 
@@ -1114,7 +1115,8 @@ ALTER TABLE `fact_term_summary`
   ADD KEY `studentStatusId` (`studentStatusId`),
   ADD KEY `gpaStatusId` (`gpaStatusId`),
   ADD KEY `semeterId` (`semesterId`),
-  ADD KEY `gpaxStatusId` (`gpaxStatusId`);
+  ADD KEY `gpaxStatusId` (`gpaxStatusId`),
+  ADD KEY `teacherId` (`teacherId`);
 
 --
 -- Indexes for table `gpastatus`
@@ -1488,7 +1490,8 @@ ALTER TABLE `fact_term_summary`
   ADD CONSTRAINT `fact_term_summary_ibfk_3` FOREIGN KEY (`studentStatusId`) REFERENCES `studentstatus` (`studentStatusId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fact_term_summary_ibfk_4` FOREIGN KEY (`semesterId`) REFERENCES `semester` (`semesterId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fact_term_summary_ibfk_5` FOREIGN KEY (`studentId`) REFERENCES `student` (`studentId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fact_term_summary_ibfk_6` FOREIGN KEY (`gpaxStatusId`) REFERENCES `gpaxstatus` (`gpaxStatusId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fact_term_summary_ibfk_6` FOREIGN KEY (`gpaxStatusId`) REFERENCES `gpaxstatus` (`gpaxStatusId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fact_term_summary_ibfk_7` FOREIGN KEY (`teacherId`) REFERENCES `teacher` (`teacherId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `presubject`
