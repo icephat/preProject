@@ -354,12 +354,15 @@
                                                         <?php
                                                         
                                                         $gens = getCountStudentPlanStatusBystudyGeneretionByTeacherId($teacher["teacherId"]);
-
+                                                        $listgens=[];
                                                         $sumPlan = 0;
                                                         $sumNotPlan = 0;
                                                         $sumRetire = 0;
                                                         $sumGrad = 0;
-                                                        
+                                                        $sPLan=[];
+                                                        $sNotPlan=[];
+                                                        $sRetire=[];
+                                                        $sGrad=[];
 
                                                         foreach($gens as $gen){
                                                             echo "
@@ -377,10 +380,15 @@
                                                             
                                                             
                                                             ";
+                                                            $listgens[]="รุ่น ".(string)$gen["studyGeneretion"];
                                                             $sumPlan += $gen["planCount"];
+                                                            $sPLan[]=(int)$sumPlan;
                                                             $sumNotPlan += $gen["notPlanCount"];
+                                                            $sNotPlan[]=(int)$sumNotPlan;
                                                             $sumRetire = $gen["retire"];
+                                                            $sRetire[] =(int) $sumRetire;
                                                             $sumGrad = $gen["grad"];
+                                                            $sGrad[] =(int) $sumGrad;
                                                         }
                                                         
                                                         ?>
@@ -479,7 +487,22 @@
                                 </div>
                                 <?php
                                 
-                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],1);
+                                    $day = date("Y");
+                                    $thaiDay = 543 + $day;
+                                    echo substr($thaiDay, -2);
+                                    $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],1);
+                                    $pee1gen=[];
+                                    $pee1blues=[];
+                                    $pee1greens=[];
+                                    $pee1oranges=[];
+                                    $pee1reds=[];
+                                    foreach($rangeGradeStudyYearOnes as $range){
+                                        $pee1gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                        $pee1blues[]=$range["blue"];
+                                        $pee1greens[]=$range["green"];
+                                        $pee1oranges[]=$range["orange"];
+                                        $pee1reds[]=$range["red"];
+                                    }
                                 
                                 ?>
                                 <div class="card-body">
@@ -494,7 +517,19 @@
                                 </div>
                                 <?php
                                 
-                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],2);
+                                    $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],2);
+                                    $pee2gen=[];
+                                    $pee2blues=[];
+                                    $pee2greens=[];
+                                    $pee2oranges=[];
+                                    $pee2reds=[];
+                                    foreach($rangeGradeStudyYearOnes as $range){
+                                        $pee2gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                        $pee2blues[]=$range["blue"];
+                                        $pee2greens[]=$range["green"];
+                                        $pee2oranges[]=$range["orange"];
+                                        $pee2reds[]=$range["red"];
+                                    }
                                 
                                 ?>
                                 <div class="card-body">
@@ -509,7 +544,19 @@
                                 </div>
                                 <?php
                                 
-                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],3);
+                                    $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],3);
+                                    $pee3gen=[];
+                                    $pee3blues=[];
+                                    $pee3greens=[];
+                                    $pee3oranges=[];
+                                    $pee3reds=[];
+                                    foreach($rangeGradeStudyYearOnes as $range){
+                                        $pee3gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                        $pee3blues[]=$range["blue"];
+                                        $pee3greens[]=$range["green"];
+                                        $pee3oranges[]=$range["orange"];
+                                        $pee3reds[]=$range["red"];
+                                    }
                                 
                                 ?>
                                 <div class="card-body">
@@ -526,6 +573,18 @@
                                 <?php
                                 
                                 $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],4);
+                                    $pee4gen=[];
+                                    $pee4blues=[];
+                                    $pee4greens=[];
+                                    $pee4oranges=[];
+                                    $pee4reds=[];
+                                    foreach($rangeGradeStudyYearOnes as $range){
+                                        $pee4gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                        $pee4blues[]=$range["blue"];
+                                        $pee4greens[]=$range["green"];
+                                        $pee4oranges[]=$range["orange"];
+                                        $pee4reds[]=$range["red"];
+                                    }
                                 
                                 ?>
                                 <div class="card-body">
@@ -571,13 +630,19 @@
                                                         <?php
                                                         
                                                         $countStudySemesters = getCountStudySemesterYearPartByTeacherID($teacher["teacherId"]);
-                                                        
-
+                                                        $sortYears=[];
+                                                        $plans=[];
+                                                        $notPlan=[];
+                                                        $resignPlan=[];
+                                                        $idterm = 0;
 
                                                         foreach($countStudySemesters as $countStudySemester){
+                                                            
+                                                            $sortYears[] = (string)$countStudySemester["semesterYear"]." ".(string)$countStudySemester["semesterPart"];
+                                                            $plans[] = (int)$countStudySemester["planStatus"];
+                                                            $notPlan[] = (int)$countStudySemester["notPlanStatus"];
+                                                            $resignPlan[] = (int)$countStudySemester["resign"];
 
-                                                        
-                                                        
                                                         
                                                         ?>
                                                         <tr>
@@ -591,12 +656,13 @@
                                                             </td>
                                                             <td style=" text-align: right;"><?php echo $countStudySemester["resign"]?> คน</td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                                <a data-toggle="modal" data-target="#modal<?php echo $idterm?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
                                                         <?php
+                                                        $idterm++;
                                                         //กลับมา echo ดู
                                                         //echo print_r(countStudySemester["studentPlans"]); รายชื่อนิสิตที่ตามแผน
                                                         //echo print_r(countStudySemester["studentNotPlans"]); รายชื่อนิสิตที่ไม่ตามแผน
@@ -631,10 +697,22 @@
                                     <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิต ณ ปัจจุบัน</h6>
                                 </div>
                                 <?php
-                                
-                                $studyGeneretionGPAXs = getGPAXStatusGerenetionByTeacherId($teacher["teacherId"]);
-                                
-                                
+                                    $nowgen=[];
+                                    $BNG=[];
+                                    $GNG=[];
+                                    $ONG=[];
+                                    $RNG=[];
+                                    $studyGeneretionGPAXs = getGPAXStatusGerenetionByTeacherId($teacher["teacherId"]);
+                                    
+                                    foreach($studyGeneretionGPAXs as $grade){
+                                        $nowgen[] = "รุ่น ".(string)$grade["studyGeneretion"];
+                                        $BNG[] = (int)$grade["blue"];
+                                        $GNG[] = (int)$grade["green"];
+                                        $ONG[] = (int)$grade["orange"];
+                                        $RNG[] = (int)$grade["red"];
+                                    }
+                               
+                                    
                                 ?>
                                 <div class="card-body">
                                     <canvas id="learn"></canvas>
@@ -648,8 +726,19 @@
                                 </div>
                                 <?php
                                 
-                                $studyGraduateGeneretionGPAXs = getGPAXStatusGerenetionGraduateByTeacherId($teacher["teacherId"]);
-                                
+                                    $endgen=[];
+                                    $BEG=[];
+                                    $GEG=[];
+                                    $OEG=[];
+                                    $REG=[];
+                                    $studyGraduateGeneretionGPAXs = getGPAXStatusGerenetionGraduateByTeacherId($teacher["teacherId"]);
+                                    foreach($studyGraduateGeneretionGPAXs as $gradeEnd){
+                                        $endgen[] = "รุ่น ".(string)$gradeEnd["studyGeneretion"];
+                                        $BEG[] = (int)$gradeEnd["blue"];
+                                        $GEG[] = (int)$gradeEnd["green"];
+                                        $OEG[] = (int)$gradeEnd["orange"];
+                                        $REG[] = (int)$gradeEnd["red"];
+                                    }
                                 ?>
                                 <div class="card-body">
                                     <canvas id="learn2"></canvas>
@@ -704,6 +793,87 @@
 
                     </div> -->
 
+                    <!--modal-->
+                    <?php
+                        $term =0;
+                        foreach($countStudySemesters as $countStudySemester){
+
+                    ?>
+                        <div id="modal<?php echo $term?>" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>ปีการศึกษา <?php echo $countStudySemester["semesterYear"]?> ภาคการศึกษา <?php echo $countStudySemester["semesterPart"]?></h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร <?php echo $countStudySemester["planStatus"]?> คน</h5>
+                                    <?php
+                                        if((int)$countStudySemester["planStatus"] > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>เกรดเฉลี่ย</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>632xxxxxxx</th>
+                                                        <th>นายxxxxxx xxxxxx</th>
+                                                        <th>2.20</th>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php } ?>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามหลักสูตร <?php echo $countStudySemester["notPlanStatus"]?> คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>2.20</th>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร 0 คน</h5>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                        $term++;
+                        }
+                    ?>
+
 
 
 
@@ -726,6 +896,18 @@
                     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
                     <script>
+                        
+                        var gens = <?php echo json_encode($listgens); ?>;
+                        console.log(gens);
+
+                        var sPLans = <?php echo json_encode($sPLan); ?>;
+                        console.log(sPLans);
+                        var sNotPlans = <?php echo json_encode($sNotPlan); ?>;
+                        console.log(sNotPlans);
+                        var sRetires = <?php echo json_encode($sRetire); ?>;
+                        console.log(sRetires);
+                        var sGrads = <?php echo json_encode($sGrad); ?>;
+                        console.log(sGrads);
 
                         var ctx = document.getElementById("learnyear");
                         var myChart = new Chart(ctx, {
@@ -733,24 +915,30 @@
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['รุ่น 61', 'รุ่น 62', 'รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
+                                labels: gens,
                                 datasets: [
                                     {
                                         label: 'ตามหลักสูตร',
-                                        data: [0, 0, 9, 5, 9, 10],
-                                        backgroundColor: "#89cfef",
+                                        data: sPLans,
+                                        backgroundColor: "rgba(0, 9, 188,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: ['ไม่ตามหลักสุตร'],
-                                        data: [1, 2, 1, 5, 1, 0],
-                                        backgroundColor: "#ffab76",
+                                        label: ['ไม่ตามหลักสูตร'],
+                                        data: sNotPlans,
+                                        backgroundColor: "rgba(0, 110, 22,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: ['ลาออก'],
-                                        data: [0, 0, 0, 0, 0, 0],
-                                        backgroundColor: '#ff6962',
+                                        label: ['พ้นสภาพ'],
+                                        data: sRetires,
+                                        backgroundColor: 'rgba(255,128,0,0.7)',
+                                        borderWidth: 0
+                                    },
+                                    {
+                                        label: ['จบการศึกษา'],
+                                        data: sGrads,
+                                        backgroundColor: 'rgba(255, 0, 0,0.7)',
                                         borderWidth: 0
                                     }
                                 ]
@@ -771,34 +959,41 @@
                     </script>
 
                     <script>
+                        var p1gen = <?php echo json_encode($pee1gen); ?>;
+
+                        var p1blue = <?php echo json_encode($pee1blues); ?>;
+                        var p1green = <?php echo json_encode($pee1greens); ?>;
+                        var p1orange = <?php echo json_encode($pee1oranges); ?>;
+                        var p1red = <?php echo json_encode($pee1reds); ?>;
+
                         var ctx = document.getElementById("pee1");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
+                                labels: p1gen,
                                 datasets: [{
                                     label: '3.25-4.00',
-                                    data: [3, 2, 2, 1],
+                                    data: p1blue,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
-                                    data: [6, 5, 8, 9],
+                                    data: p1green,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
-                                    data: [1, 1, 0, 0],
+                                    data: p1orange,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
-                                    data: [0, 0, 0, 0],
+                                    data: p1red,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
                                 }
@@ -820,34 +1015,41 @@
                     </script>
 
                     <script>
+                        var p2gen = <?php echo json_encode($pee2gen); ?>;
+
+                        var p2blue = <?php echo json_encode($pee2blues); ?>;
+                        var p2green = <?php echo json_encode($pee2greens); ?>;
+                        var p2orange = <?php echo json_encode($pee2oranges); ?>;
+                        var p2red = <?php echo json_encode($pee2reds); ?>;
+
                         var ctx = document.getElementById("pee2");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
+                                labels: p2gen,
                                 datasets: [{
                                     label: '3.25-4.00',
-                                    data: [3, 1, 3, 0],
+                                    data: p2blue,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
-                                    data: [6, 9, 7, 0],
+                                    data: p2green,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
-                                    data: [1, 0, 0, 0],
+                                    data: p2green,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
-                                    data: [0, 0, 0, 0],
+                                    data: p2red,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
                                 }
@@ -868,34 +1070,41 @@
                         });
                     </script>
                     <script>
+                        var p3gen = <?php echo json_encode($pee3gen); ?>;
+
+                        var p3blue = <?php echo json_encode($pee3blues); ?>;
+                        var p3green = <?php echo json_encode($pee3greens); ?>;
+                        var p3orange = <?php echo json_encode($pee3oranges); ?>;
+                        var p3red = <?php echo json_encode($pee3reds); ?>;
+
                         var ctx = document.getElementById("pee3");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
+                                labels: p3gen,
                                 datasets: [{
                                     label: '3.25-4.00',
-                                    data: [3, 2, 0, 0],
+                                    data: p3blue,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
-                                    data: [6, 8, 0, 0],
+                                    data: p3green,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
-                                    data: [1, 0, 0, 0],
+                                    data: p3orange,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
-                                    data: [0, 0, 0, 0],
+                                    data: p3red,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
                                 }
@@ -916,34 +1125,42 @@
                         });
                     </script>
                     <script>
+                         var p4gen = <?php echo json_encode($pee4gen); ?>;
+
+                        var p4blue = <?php echo json_encode($pee4blues); ?>;
+                        var p4green = <?php echo json_encode($pee4greens); ?>;
+                        var p4orange = <?php echo json_encode($pee4oranges); ?>;
+                        var p4red = <?php echo json_encode($pee4reds); ?>;
+
+                        
                         var ctx = document.getElementById("pee4");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
+                                labels: p4gen,
                                 datasets: [{
                                     label: '3.25-4.00',
-                                    data: [3, 0, 0, 0],
+                                    data: p4blue,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
-                                    data: [6, 0, 0, 0],
+                                    data: p4green,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
-                                    data: [1, 0, 0, 0],
+                                    data: p4orange,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
-                                    data: [0, 0, 0, 0],
+                                    data: p4red,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
                                 }
@@ -971,6 +1188,15 @@
                     </script>
                     <script>
 
+                        var years = <?php echo json_encode($sortYears); ?>;
+                        console.log(years);
+
+                        var plans = <?php echo json_encode($plans); ?>;
+                        console.log(plans);
+                        var notPlans = <?php echo json_encode($notPlan); ?>;
+                        console.log(notPlans);
+                        var resignPlans = <?php echo json_encode($resignPlan); ?>;
+                        console.log(resignPlans);
 
                         var ctx = document.getElementById("learnnew");
                         var myChart = new Chart(ctx, {
@@ -978,22 +1204,22 @@
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['2561', '2562', '2563', '2564', '2565', '2566'],
+                                labels: years,
                                 datasets: [{
                                     label: 'ตามหลักสูตร',
-                                    data: [0, 0, 9, 5, 9, 10],
+                                    data: plans,
                                     backgroundColor: "#89cfef",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['ไม่ตามหลักสุตร'],
-                                    data: [1, 2, 1, 5, 1, 0],
+                                    data: notPlans,
                                     backgroundColor: "#ffab76",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['ลาออก'],
-                                    data: [0, 0, 0, 0, 0, 0],
+                                    data:resignPlans,
                                     backgroundColor: '#ff6962',
                                     borderWidth: 0
                                 }
@@ -1016,34 +1242,46 @@
 
                     <script>
 
+                        var gennow = <?php echo json_encode($nowgen); ?>;
+                        console.log(gennow);
+
+                        var bluegen = <?php echo json_encode($BNG); ?>;
+                        console.log(bluegen);
+                        var greengen = <?php echo json_encode($GNG); ?>;
+                        console.log(greengen);
+                        var orangegen = <?php echo json_encode($ONG); ?>;
+                        console.log(orangegen);
+                        var redgen = <?php echo json_encode($RNG); ?>;
+                        console.log(redgen);
+
                         var ctx = document.getElementById("learn");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['รหัส 61', 'รหัส 62', 'รหัส 63', 'รหัส 64', 'รหัส 65', 'รหัส 66'],
+                                labels: gennow,
                                 datasets: [{
                                     label: 'เกียรตินิยม',
-                                    data: [0, 0, 6, 4, 4, 0],
+                                    data: bluegen,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ปกติ',
-                                    data: [1, 2, 7, 6, 6, 0],
+                                    data: greengen,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'โปรสูง',
-                                    data: [0, 0, 0, 0, 0, 0],
+                                    data: orangegen,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'โปรต่ำ',
-                                    data: [0, 0, 0, 0, 0, 0],
+                                    data: redgen,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
                                 }
@@ -1065,6 +1303,17 @@
                     </script>
 
                     <script>
+                        var genend = <?php echo json_encode($endgen); ?>;
+                        console.log(genend);
+
+                        var bluegenend = <?php echo json_encode($BEG); ?>;
+                        console.log(bluegenend);
+                        var greengenend = <?php echo json_encode($GEG); ?>;
+                        console.log(greengenend);
+                        var orangegenend = <?php echo json_encode($OEG); ?>;
+                        console.log(orangegenend);
+                        var redgenend = <?php echo json_encode($REG); ?>;
+                        console.log(redgenend);
 
                         var ctx = document.getElementById("learn2");
                         var myChart = new Chart(ctx, {
@@ -1072,28 +1321,28 @@
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['รหัส 61', 'รหัส 62', 'รหัส 63', 'รหัส 64', 'รหัส 65', 'รหัส 66'],
+                                labels: genend,
                                 datasets: [{
                                     label: 'เกียรตินิยม',
-                                    data: [1, 2, 0, 0, 0, 0],
+                                    data: bluegenend,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ปกติ',
-                                    data: [8, 5, 0, 0, 0, 0],
+                                    data: greengenend,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'โปรสูง',
-                                    data: [0, 1, 0, 0, 0, 0],
+                                    data: orangegenend,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'โปรต่ำ',
-                                    data: [0, 0, 0, 0, 0, 0],
+                                    data: redgenend,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
                                 }
@@ -1150,47 +1399,3 @@
 
 </html>
 
-<div id="dataModal" class="modal fade" style="color: black;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 90px;">
-                <h5>ปีการศึกษา 2565 หลักสูตร 2565 </h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <br>
-
-
-
-            </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร 0 คน</h5>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร 1 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.20</th>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร 0 คน</h5>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"
-                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-            </div>
-        </div>
-    </div>
-</div>
