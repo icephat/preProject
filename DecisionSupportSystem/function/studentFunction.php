@@ -26,6 +26,8 @@ function getStudentByUsername($studentUsername)
     $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
     $student["gpax"] = getGPAX($student["studentId"]);
     $student["credit"] = getCredit($student["studentId"]);
+    $student["creditThree"] = getCreditThree($student["studentId"]);
+    $student["course"] = getCourseById($student["courseId"]);
 
     require("connection_close.php");
 
@@ -37,8 +39,8 @@ function getStudentByStudentId($studentId)
 {
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM student NATURAL JOIN fact_student NATURAL JOIN studentstatus WHERE $studentId = '" . $studentId . "'";
-
+    $sql = "SELECT * FROM student NATURAL JOIN fact_student NATURAL JOIN studentstatus WHERE studentId = '" . $studentId . "'";
+    
     $result = $conn->query($sql);
     $student = $result->fetch_assoc();
 
@@ -48,9 +50,16 @@ function getStudentByStudentId($studentId)
     $student["school"] = getSchoolById($student["schoolId"]);
     $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
     $student["gpax"] = getGPAX($student["studentId"]);
+    $student["course"] = getCourseById($student["courseId"]);
+    
     $student["credit"] = getCredit($student["studentId"]);
+    
+    $student["creditThree"] = getCreditThree($student["studentId"]);
 
     require("connection_close.php");
+
+
+    
 
     return $student;
 
@@ -101,11 +110,34 @@ function getCredit($studentId)
     }
 
 
+    require("connection_close.php");
+
+    return $sumCreditAll;
+}
+
+function getCreditThree($studentId)
+{
+
+    $regisAllList = getListRegisNotFAndWByStudentId($studentId);
+
+    require("connection_connect.php");
+
+    $sql = "SELECT studentId,SUM(CASE WHEN gradeCharacter != 'W' AND  gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN credit END) AS creditAll,SUM(CASE WHEN gradeCharacter != 'F' AND gradeCharacter != 'W' AND gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN credit END) AS creditPass,IFNULL(SUM(CASE WHEN gradeCharacter = 'F' OR gradeCharacter = 'NP' THEN credit END),0) AS creditNotPass
+    FROM fact_student NATURAL JOIN fact_regis NATURAL JOIN subject
+    WHERE studentId = '".$studentId."'
+    GROUP BY studentId";
+
+    $result = $conn->query($sql);
+
+    $credit = $result->fetch_assoc();
+
+
+
 
 
     require("connection_close.php");
 
-    return $sumCreditAll;
+    return $credit;
 }
 
 function getListSubjectForFAndWByStudentId($studentId)

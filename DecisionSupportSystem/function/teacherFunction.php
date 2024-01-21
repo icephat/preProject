@@ -1,6 +1,7 @@
 <?php
 
 include_once '../function/semesterFunction.php';
+include_once '../function/studentFunction.php';
 
 function getTeacherById($teacherId)
 {
@@ -629,6 +630,38 @@ function getCountStudySemesterYearPartByTeacherIDAndSemesterYearAndSemesterPartA
     require("connection_close.php");
 
     return $countStudySemesters;
+}
+
+function getStudentInAdviserBtTeacherId($teacherId){
+
+    require("connection_connect.php");
+
+
+    $students = [];
+
+    $sql = "SELECT studentId FROM fact_student WHERE teacherId = ".$teacherId;
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+        
+        
+        $student = getStudentByStudentId($my_row["studentId"]);
+        //echo $my_row["studentId"];
+
+        $students[] = $student;
+        
+        
+
+    }
+
+
+
+    require("connection_close.php");
+
+    return $students;
+
 }
 
 

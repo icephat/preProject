@@ -26,11 +26,11 @@
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-     <!-- Custom styles for this template -->
-     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
-     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-     <!-- Bootstrap core JavaScript-->
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -50,6 +50,22 @@
 
 </head>
 
+<?php
+
+session_start();
+
+require_once '../function/teacherFunction.php';
+
+
+$teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
+
+
+$students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
+
+
+
+?>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -61,183 +77,128 @@
             <!-- Main Content -->
             <div id="content">
                 <?php include('../layout/teacher/nisit.php'); ?>
-                
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-12 mx-auto">
-                            <h4 style="color: green;">รายชื่อนิสิตในที่ปรึกษา คณะวิศวกรรมศาสตร์ กำแพงแสน</h4>
-                            <div class="card">
-                                <br>
-                                <div class="table-responsive">
-                                    <table class="table table-striped" id="dataTable" cellspacing="0" style="color: black;  ">
-                                        <thead>
-                                            <tr>
-                                                <th >รหัสนิสิต</th>
-                                                <th >ชื่อ-นามสกุล</th>
-                                                <th class="text-center">ประเภทหลักสูตร</th>
-                                                <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
-                                                    (ทั้งหมด/ผ่าน/ไม่ผ่าน)
-                                                </th>
-                                                <th class="text-center">ผลการเรียน</th>
-                                                <th class="text-center">รายละเอียด</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td >612xxxxxxx</td>
-                                                <td>นายxxxxx xxxxxx</td>
-                                                <td class="text-center">วศ.คอม(ปกติ)</td>
-            
-                                                <td class="text-center"><span style='color:green;'>169</span>
-                                                    <span style='color:green;'>/169</span>
-                                                    <span style='color:red;'>/9</span>
-                                                </td>
-                                                <td class="text-center"><span style='color:green;'>2.05</span> <br>
-                                                    <span >(ปกติ)</span>
-                                                </td>
-            
-                                                <td class="text-center">
-                                                    <form action="./student_info.php">
-                                                        <!--<input type="hidden" name="std_num" value="<?php echo $row["studentid"];?>" />-->
-                                                        <!--<a type="button" name="std_info">
-                                <span class="glyphicon glyphicon-user"></span></a>-->
-                                                        <button type="submit" name="submit" class="btn btn-info btn-md"><span
-                                                                class="glyphicon glyphicon-user"></span> รายละเอียด</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td >622xxxxxxx</td>
-                                                <td>นายxxxxx xxxxxx</td>
-                                                <td class="text-center">วศ.คอม(ปกติ)</td>
-            
-                                                <td class="text-center"><span style='color:green;'>145</span>
-                                                    <span style='color:green;'>/145</span>
-                                                    <span style='color:red;'>/4</span>
-                                                </td>
-                                                <td class="text-center"><span style='color:green;'>2.66</span> <br>
-                                                    <span >(ปกติ)</span>
-                                                </td>
-            
-                                                <td class="text-center">
-                                                    <form action="./student_info.php">
-                                                        <!--<input type="hidden" name="std_num" value="<?php echo $row["studentid"];?>" />-->
-                                                        <!--<a type="button" name="std_info">
-                                <span class="glyphicon glyphicon-user"></span></a>-->
-                                                        <button type="submit" name="submit" class="btn btn-info btn-md"><span
-                                                                class="glyphicon glyphicon-user"></span> รายละเอียด</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>632xxxxxxx</td>
-                                                <td>ภัทรพร ปัญญาอุดมพร</td>
-                                                <td class="text-center">วศ.คอม(ปกติ)</td>
-            
-                                                <td class="text-center"><span style='color:green;'>128</span>
-                                                    <span style='color:green;'>/128</span>
-                                                    <span style='color:red;'>/0</span>
-                                                </td>
-                                                <td class="text-center"><span style='color:green;'>3.38</span> <br>
-                                                    <span >(ปกติ)</span>
-                                                </td>
-            
-                                                <td class="text-center">
-                                                    <form action="./student_info.php">
-                                                        <!--<input type="hidden" name="std_num" value="<?php echo $row["studentid"];?>" />-->
-                                                        <!--<a type="button" name="std_info">
-                                <span class="glyphicon glyphicon-user"></span></a>-->
-                                                        <button type="submit" name="submit" class="btn btn-info btn-md"><span
-                                                                class="glyphicon glyphicon-user"></span> รายละเอียด</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-            
-                                            <tr>
-                                                <td >632xxxxxxx</td>
-                                                <td>ภานุวัฒน์ จั่นจินดา</td>
-                                                <td class="text-center">วศ.คอม(ปกติ)</td>
-            
-                                                <td class="text-center"><span style='color:green;'>124</span>
-                                                    <span style='color:green;'>/124</span>
-                                                    <span style='color:red;'>/0</span>
-                                                </td>
-                                                <td class="text-center"><span style='color:green;'>3.65</span> <br>
-                                                    <span>(เกียรตินิยม)</span>
-                                                </td>
-            
-                                                <td class="text-center">
-                                                    <form method="post" action="student_info.php">
-                                                        <!--<input type="hidden" name="std_num" value="<?php echo $row["studentid"];?>" />-->
-                                                        <!--<a type="button" name="std_info">
-                                <span class="glyphicon glyphicon-user"></span></a>-->
-                                                        <button type="submit" name="submit" class="btn btn-info btn-md"><span
-                                                                class="glyphicon glyphicon-user"></span> รายละเอียด</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        </tbody>
 
-                                    </table>
-                                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12 mx-auto">
+                        <h4 style="color: green;">รายชื่อนิสิตในที่ปรึกษา คณะวิศวกรรมศาสตร์ กำแพงแสน</h4>
+                        <div class="card">
+                            <br>
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="dataTable" cellspacing="0"
+                                    style="color: black;  ">
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th class="text-center">ประเภทหลักสูตร</th>
+                                            <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
+                                                (ทั้งหมด/ผ่าน/ไม่ผ่าน)
+                                            </th>
+                                            <th class="text-center">ผลการเรียน</th>
+                                            <th class="text-center">รายละเอียด</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        
+                                        
+                                        
+                                        foreach($students as $student){
+
+                                        
+                                        
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $student["studentId"]?></td>
+                                            <td><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></td>
+                                            <td class="text-center"><?php echo $student["course"]["nameCourseUse"]." (".$student["course"]["planCourse"].")"?></td>
+
+                                            <td class="text-center"><span style='color:green;'><?php echo $student["creditThree"]["creditAll"]?></span>
+                                                <span style='color:green;'>/<?php echo $student["creditThree"]["creditPass"]?></span>
+                                                <span style='color:red;'>/<?php echo $student["creditThree"]["creditNotPass"]?></span>
+                                            </td>
+                                            <td class="text-center"><span style='color:green;'><?php echo round($student["gpax"],2)?></span> <br>
+                                                <span></span>
+                                            </td>
+
+                                            <td class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> รายละเอียด</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                        }
+                                        ?>
+                                        
+                                    </tbody>
+
+                                </table>
                             </div>
-
-
-
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="../vendor/jquery/jquery.min.js"></script>
-            <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Core plugin JavaScript-->
-            <script src="../vendor/jquery/jquery.min.js"></script>
-            <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-            <!-- Page level plugins -->
-            <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-            <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-            <!-- Page level custom scripts -->
-            <script src="../js/demo/datatables-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="../js/demo/datatables-demo.js"></script>
 
-            <!-- Custom scripts for all pages-->
-            <script src="../js/sb-admin-2.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="../js/sb-admin-2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
-            <!-- Bootstrap core JavaScript-->
-            <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            <!-- Core plugin JavaScript-->
-            <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-            <!-- Custom scripts for all pages-->
-            <script src="../js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="../js/sb-admin-2.min.js"></script>
 
-            <!-- Page level plugins -->
-            <script src="../vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="../vendor/chart.js/Chart.min.js"></script>
 
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $('#grade').DataTable({
-                        responsive: true,
-                        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
-                    });
-                    $('#table1').DataTable({
-                        responsive: true,
-                        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]],
-            
-                    });
-                    $('#table2').DataTable({
-                        responsive: true,
-                        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
-            
-                    });
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#grade').DataTable({
+                    responsive: true,
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
                 });
-            </script>
+                $('#table1').DataTable({
+                    responsive: true,
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]],
+
+                });
+                $('#table2').DataTable({
+                    responsive: true,
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "ทั้งหมด"]]
+
+                });
+            });
+        </script>
 
 
 </body>

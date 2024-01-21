@@ -29,6 +29,24 @@
 
 </head>
 
+<?php
+
+session_start();
+
+require_once '../function/teacherFunction.php';
+
+
+
+$teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
+
+
+$studentId = $_POST["studentId"];
+$student = getStudentByStudentId($studentId);
+
+
+
+?>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -48,10 +66,15 @@
                     <!-- Content Row -------------------------------------------------------BOX----------------------->
                     <div class="row">
                         <div class="col-sm-6 text-left">
-                            <h5 style="color: black;">6320500603 <span style="color: blue;">ภัทรพร ปัญญาอุดมพร</span>
+                            <h5 style="color: black;"><?php echo $student["studentId"] ?> <span style="color: blue;"><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"] ?></span>
                             </h5>
                         </div>
                         <div class="col-sm-6 text-right">
+                            <?php
+                            
+                                
+                            
+                            ?>
                             <a href="./calGPAHis.php" type="button" class="btn btn-primary">ดูประวัติการคาดการณ์</a>
                         </div>
                     </div>
@@ -64,7 +87,7 @@
                                     <p style="color: blue;">ชื่อ-นามสกุล (ภาษาอังกฤษ) : </p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">Phattaraporn Panyaaudomporn</p>
+                                    <p style="color: gray;"><?php echo $student["fisrtNameEng"]." ".$student["lastNameEng"] ?></p>
                                 </div>
 
                             </div>
@@ -73,7 +96,7 @@
                                     <p style="color: blue;">เบอร์โทรศัพท์ : </p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">0950427705</p>
+                                    <p style="color: gray;"><?php echo $student["tell"]?></p>
                                 </div>
 
                             </div>
@@ -82,7 +105,7 @@
                                     <p style="color: blue;">e-Mail :</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">phattaraporn.sa@ku.th</p>
+                                    <p style="color: gray;"><?php echo $student["email"]?></p>
                                 </div>
 
                             </div>
@@ -91,7 +114,7 @@
                                     <p style="color: blue;">สาขาวิชา :</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">วิศวกรรมคอมพิวเตอร์ (E29)</p>
+                                    <p style="color: gray;"><?php echo $student["department"]["departmentName"] ?></p>
                                 </div>
 
                             </div>
@@ -100,7 +123,7 @@
                                     <p style="color: blue;">การศึกษาระดับมัธยม :</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">โรงเรียนวัดธรมมจริยาภิรมย์</p>
+                                    <p style="color: gray;"><?php echo $student["school"]["schoolName"] ?></p>
                                 </div>
 
                             </div>
@@ -109,11 +132,11 @@
                                     <p style="color: blue;">ช่องทางรับเข้า :</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">แฟ้มสะสมผลงาน (รอบที่ 1)</p>
+                                    <p style="color: gray;">TCAS<?php echo $student["tcasId"]?></p>
                                 </div>
 
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
+                            <!-- <div class="row" style="margin-left: 20px; padding: auto; ">
                                 <div class="col-sm-6">
                                     <p style="color: blue;">สิทธิ์ฝึกงาน :</p>
                                 </div>
@@ -128,7 +151,7 @@
                                 <div class="col-sm-6">
                                     <p style="color: gray;">มีสิทธิ์/ <span style="color: red;">ไม่ผ่าน</span></p>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -138,7 +161,7 @@
                                     <p style="color: blue;">รหัสประจำตัวประชาชน : </p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">xxxxxxxxx4955</p>
+                                    <p style="color: gray;"><?php echo $student["personId"]?></p>
                                 </div>
 
                             </div>
@@ -147,7 +170,7 @@
                                     <p style="color: blue;">เบอร์โทรศัพท์ผู้ปกครอง : </p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">0992581852</p>
+                                    <p style="color: gray;"><?php echo $student["parentTell"]?></p>
                                 </div>
 
                             </div>
@@ -156,7 +179,7 @@
                                     <p style="color: blue;">อาจารย์ที่ปรึกษา :</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">ฐิติพงษ์ สถิรเมธีกุล</p>
+                                    <p style="color: gray;"><?php echo $student["teacher"]["titleTecherTh"].$student["teacher"]["fisrtNameTh"]." ".$student["teacher"]["lastNameTh"] ; ?></p>
                                 </div>
 
                             </div>
@@ -165,7 +188,7 @@
                                     <p style="color: blue;">ประเภทหลักสูตร :</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">ภาษาไทย (ปกติ)</p>
+                                    <p style="color: gray;"><?php echo $student["course"]["nameCourseUse"]." (".$student["course"]["planCourse"].")"?></p>
                                 </div>
 
                             </div>
@@ -174,7 +197,7 @@
                                     <p style="color: blue;">ที่อยู่โรงเรียน :</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">อำเภอบ้านแพ้ว จังหวัดสมุทรสาคร</p>
+                                    <p style="color: gray;">จังหวัด<?php echo $student["school"]["provinceName"] ?></p>
                                 </div>
 
                             </div>
@@ -183,18 +206,18 @@
                                     <p style="color: blue;">สถานะ :</p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">กำลังศึกษา</p>
+                                    <p style="color: gray;"><?php echo $student["status"]?></p>
                                 </div>
 
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
+                            <!-- <div class="row" style="margin-left: 20px; padding: auto; ">
                                 <div class="col-sm-6">
                                     <p style="color: blue;">สิทธิ์สหกิจ :</p>
                                 </div>
                                 <div class="col-sm-6">
                                     <p style="color: red;">ไม่มีสิทธิ์</p>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row" style="margin-left: 20px; padding: auto; ">
                                 <div class="col-sm-6">
                                     <p style="color: blue;">note :</p>
@@ -277,71 +300,57 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <th scope="row">2563</th>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">19</td>
-                                                            <td>2.13</td>
-                                                            <td>2.13</td>
-                                                            <td></td>
-                                                            <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2563</th>
-                                                            <td class="text-center">ภาคปลาย</td>
-                                                            <td class="text-center">22</td>
-                                                            <td>3.34</td>
-                                                            <td>2.63</td>
-                                                            <td><span style="color:green;">[+0.50]</span></td>
-                                                            <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2564</th>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">19</td>
-                                                            <td>2.60</td>
-                                                            <td>2.62</td>
-                                                            <td><span style="color:red;">[-0.01]</span></td>
-                                                            <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">2564</th>
-                                                            <td class="text-center">ภาคปลาย</td>
-                                                            <td class="text-center">22</td>
-                                                            <td>3.33</td>
-                                                            <td>2.78</td>
-                                                            <td><span style="color:green  ;">[+0.16]</span></td>
-                                                            <!--<td><a href="#myModal" data-toggl0e="modal"><span>ผลการเรียน</span></a></td>-->
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope='row'>ผลการเรียนเฉลี่ย</th>
-                                                            <td class='text-center'></td>
-                                                            <td class='text-center'>82</td>
-                                                            <td class=''>2.78</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
+                                                    <?php
+                                                    $i = 0;
+                                                    $gpa = 0;
+                                                    $gpaNew = 0.00;
+                                                    $idterm = 0;
+                                                    $check = 0;
+                                                    foreach ($student["terms"] as $term) {
+
+                                                        if ($i == 0) {
+                                                            $gpa = round($term["gpaAll"], 2);
+                                                            $i++;
+                                                        } else {
+                                                            $gpaNew = round($term["gpaAll"], 2) - $gpa;
+                                                            $gpa = round($term["gpaAll"], 2);
+                                                        }
+
+                                                        $ch = " ";
+
+                                                        echo "
+                                                            <tr>
+                                                                <th scope=\"row\">" . $term["semesterYear"] . "</th>
+                                                                <td class=\"text-center\">" . $term["semesterPart"] . "</td>
+                                                                <td class=\"text-center\">" . $term["creditTerm"] . "</td>
+                                                                <td>" . round($term["gpaTerm"], 2) . "</td>
+                                                                <td>" . round($term["gpaAll"], 2) . "</td>";
+
+                                                        if (number_format($gpaNew, 2) > 0.00) {
+                                                            $color = "color:green";
+                                                            $ch = "+";
+                                                        } elseif (number_format($gpaNew, 2) < 0.00) {
+                                                            $color = "color:red";
+                                                            $ch = "-";
+                                                        } else {
+                                                            $color = "color:green";
+                                                            $ch = "";
+                                                        }
+
+                                                        // $idterms[] = $idterm;
+                                                        echo "<td><span style=\"" . $color . "\">[ " . $ch . number_format($gpaNew, 2) . " ]</span></td>
+                                                                <td class=\"text-center\">
+                                                                    <a data-toggle=\"modal\" data-target=\"#modal" . $idterm . "\" >
+                                                                        <i class=\"fas fa-search fa-sm\"></i>
+                                                                    </a>
+
+                                                                </td>
+                                                                
+                                                            </tr>";
+                                                        $idterm++;
+                                                    }
+
+                                                    ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -358,6 +367,11 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนในแต่ละหมวดวิชา</h6>
                                 </div>
+                                <?php
+
+                                    $academics = getAcademicInSubjectCategoryByStudentId($student["studentId"]);
+
+                                    ?>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -408,7 +422,25 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
+                                                    <?php
+                                                    foreach ($academics as $academic) {
+                                                        echo "
+                                                            
+                                                    <tr>
+                                                        <td>".$academic["name"]."</td>
+                                                        <td style=\"font-weight: bold; color: green; text-align: right;\">
+                                                        ".$academic["credit"]."
+                                                        </td>
+                                                        <td style=\"font-weight: bold; color: red; text-align: right;\">
+                                                        ".$academic["creditYet"]."
+                                                        </td>
+                                                        <td style=\"font-weight: bold; text-align: right;\">".$academic["creditAll"]."</td>
+                                                        <td style=\"font-weight: bold; text-align: right;\">".$academic["grade"]."</td>
+                                                        
+                                                    </tr>";
+                                                    }
+                                                    ?>
+                                                        <!-- <tr>
                                                             <td>หมวดวิชาศึกษาทั่วไป</td>
                                                             <td
                                                                 style="font-weight: bold; color: green; text-align: right;">
@@ -478,7 +510,7 @@
                                                                 36
                                                             </td>
                                                             <td style="font-weight: bold; text-align: right;">3.40</td>
-                                                        </tr>
+                                                        </tr> -->
                                                     </tbody>
                                                 </table>
                                             </div>
