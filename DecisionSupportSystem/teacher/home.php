@@ -807,8 +807,6 @@
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <br>
 
-
-
                                     </div>
                                     <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร <?php echo $countStudySemester["planStatus"]?> คน</h5>
                                     <?php
@@ -826,11 +824,17 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <th>632xxxxxxx</th>
-                                                        <th>นายxxxxxx xxxxxx</th>
-                                                        <th>2.20</th>
-                                                    </tr>
+                                                    <?php
+                                                        foreach($countStudySemester["studentPlans"] as $sPlan){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $sPlan["studentId"]?></th>
+                                                            <th>นาย<?php echo $sPlan["fisrtNameTh"]." ".$sPlan["lastNameTh"]?></th>
+                                                            <th><?php echo $sPlan["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php
+                                                        }
+                                                    ?>
 
                                                 </tbody>
                                             </table>
@@ -839,6 +843,10 @@
                                     <?php } ?>
                                     <hr>
                                     <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามหลักสูตร <?php echo $countStudySemester["notPlanStatus"]?> คน</h5>
+                                    <?php
+                                        if((int)$countStudySemester["studentNotPlans"] > 0){
+                                            
+                                    ?>
                                     <div class="modal-body" id="std_detail">
                                         <table class="table">
 
@@ -850,18 +858,59 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th>632xxxxxxx</th>
-                                                    <th>นายxxxxxx xxxxxx</th>
-                                                    <th>2.20</th>
-                                                </tr>
+                                                <?php
+                                                    foreach($countStudySemester["studentNotPlans"] as $sNotPlan){
+                                                ?>
+                                                    <tr>
+                                                        <th><?php echo $sNotPlan["studentId"]?></th>
+                                                        <th>นาย<?php echo $sNotPlan["fisrtNameTh"]." ".$sNotPlan["lastNameTh"]?></th>
+                                                        <th><?php echo $sNotPlan["gpaAll"]?></th>
+                                                    </tr>
+                                                <?php
+                                                    }
+                                                ?>
+
 
                                             </tbody>
                                         </table>
 
                                     </div>
+                                    <?php } ?>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร 0 คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร <?php echo $countStudySemester["resign"]?> คน</h5>
+                                    <?php
+                                        if((int)$countStudySemester["studentResign"] > 0){
+                                            
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>เกรดเฉลี่ย</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countStudySemester["studentResign"] as $sRePlan){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $sRePlan["studentId"]?></th>
+                                                            <th>นาย<?php echo $sRePlan["fisrtNameTh"]." ".$sRePlan["lastNameTh"]?></th>
+                                                            <th><?php echo $sRePlan["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php
+                                                        }
+                                                    ?>
+
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php } ?>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal"
                                             style="font-size: 18px;">ปิดหน้าต่าง</button>
