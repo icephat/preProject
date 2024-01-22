@@ -149,7 +149,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                             $ch = "+";
                                                         } elseif (number_format($gpaNew, 2) < 0.00) {
                                                             $color = "color:red";
-                                                            $ch = "-";
+                                                            $ch = "";
                                                         } else {
                                                             $color = "color:green";
                                                             $ch = "";

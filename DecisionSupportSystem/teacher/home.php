@@ -354,15 +354,15 @@
                                                         <?php
                                                         
                                                         $gens = getCountStudentPlanStatusBystudyGeneretionByTeacherId($teacher["teacherId"]);
-                                                        $listgens=[];
+                                                        $listgensh=[];
                                                         $sumPlan = 0;
                                                         $sumNotPlan = 0;
                                                         $sumRetire = 0;
                                                         $sumGrad = 0;
-                                                        $sPLan=[];
-                                                        $sNotPlan=[];
-                                                        $sRetire=[];
-                                                        $sGrad=[];
+                                                        $sPLanh=[];
+                                                        $sNotPlanh=[];
+                                                        $sRetireh=[];
+                                                        $sGradh=[];
 
                                                         foreach($gens as $gen){
                                                             echo "
@@ -380,15 +380,15 @@
                                                             
                                                             
                                                             ";
-                                                            $listgens[]="รุ่น ".(string)$gen["studyGeneretion"];
+                                                            $listgensh[]="รุ่น ".(string)$gen["studyGeneretion"];
                                                             $sumPlan += $gen["planCount"];
-                                                            $sPLan[]=(int)$sumPlan;
+                                                            $sPLanh[]=(int)$sumPlan;
                                                             $sumNotPlan += $gen["notPlanCount"];
-                                                            $sNotPlan[]=(int)$sumNotPlan;
+                                                            $sNotPlanh[]=(int)$sumNotPlan;
                                                             $sumRetire = $gen["retire"];
-                                                            $sRetire[] =(int) $sumRetire;
+                                                            $sRetireh[] =(int) $sumRetire;
                                                             $sumGrad = $gen["grad"];
-                                                            $sGrad[] =(int) $sumGrad;
+                                                            $sGradh[] =(int) $sumGrad;
                                                         }
                                                         
                                                         ?>
@@ -489,20 +489,37 @@
                                 
                                     $day = date("Y");
                                     $thaiDay = 543 + $day;
-                                    echo substr($thaiDay, -2);
+                                    //echo substr($thaiDay-4, -2);
+                                    $y=substr($thaiDay-4, -2);
+                                    $yNow=substr($thaiDay, -2);
                                     $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],1);
                                     $pee1gen=[];
                                     $pee1blues=[];
                                     $pee1greens=[];
                                     $pee1oranges=[];
                                     $pee1reds=[];
-                                    foreach($rangeGradeStudyYearOnes as $range){
-                                        $pee1gen[]="รุ่น ".(string)$range["studyGeneretion"];
-                                        $pee1blues[]=$range["blue"];
-                                        $pee1greens[]=$range["green"];
-                                        $pee1oranges[]=$range["orange"];
-                                        $pee1reds[]=$range["red"];
+
+                                    for($y; $y<$yNow; $y++){
+                                        
+                                            foreach($rangeGradeStudyYearOnes as $range){
+                                                if((int)$range["studyGeneretion"] == $y){
+                                                    $pee1gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                                    $pee1blues[]=$range["blue"];
+                                                    $pee1greens[]=$range["green"];
+                                                    $pee1oranges[]=$range["orange"];
+                                                    $pee1reds[]=$range["red"];
+                                                }
+                                                else{
+                                                    $pee1gen[]="รุ่น ".(string)$y;
+                                                    $pee1blues[]="0";
+                                                    $pee1greens[]="0";
+                                                    $pee1oranges[]="0";
+                                                    $pee1reds[]="0";
+                                                }
+                                            }
+                                        
                                     }
+                                    
                                 
                                 ?>
                                 <div class="card-body">
@@ -516,20 +533,39 @@
                                     <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 2</h6>
                                 </div>
                                 <?php
-                                
+                                $day = date("Y");
+                                $thaiDay = 543 + $day;
+                                //echo substr($thaiDay-4, -2);
+                                $y=substr($thaiDay-4, -2);
+                                $yNow=substr($thaiDay, -2);
                                     $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],2);
                                     $pee2gen=[];
                                     $pee2blues=[];
                                     $pee2greens=[];
                                     $pee2oranges=[];
                                     $pee2reds=[];
-                                    foreach($rangeGradeStudyYearOnes as $range){
-                                        $pee2gen[]="รุ่น ".(string)$range["studyGeneretion"];
-                                        $pee2blues[]=$range["blue"];
-                                        $pee2greens[]=$range["green"];
-                                        $pee2oranges[]=$range["orange"];
-                                        $pee2reds[]=$range["red"];
+
+                                    for($y; $y<$yNow; $y++){
+                                        foreach($rangeGradeStudyYearOnes as $range){
+                                            if((int)$range["studyGeneretion"] == $y){
+                                            
+                                                $pee2gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                                $pee2blues[]=$range["blue"];
+                                                $pee2greens[]=$range["green"];
+                                                $pee2oranges[]=$range["orange"];
+                                                $pee2reds[]=$range["red"];    
+                                            }
+                                            else{
+                                                $pee2gen[]="รุ่น ".(string)$y;
+                                                $pee2blues[]="0";
+                                                $pee2greens[]="0";
+                                                $pee2oranges[]="0";
+                                                $pee2reds[]="0";
+                                            }
+                                        }
+
                                     }
+                                    
                                 
                                 ?>
                                 <div class="card-body">
@@ -543,19 +579,35 @@
                                     <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 3</h6>
                                 </div>
                                 <?php
-                                
+                                    $day = date("Y");
+                                    $thaiDay = 543 + $day;
+                                    //echo substr($thaiDay-4, -2);
+                                    $y=substr($thaiDay-4, -2);
+                                    $yNow=substr($thaiDay, -2);
                                     $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],3);
                                     $pee3gen=[];
                                     $pee3blues=[];
                                     $pee3greens=[];
                                     $pee3oranges=[];
                                     $pee3reds=[];
-                                    foreach($rangeGradeStudyYearOnes as $range){
-                                        $pee3gen[]="รุ่น ".(string)$range["studyGeneretion"];
-                                        $pee3blues[]=$range["blue"];
-                                        $pee3greens[]=$range["green"];
-                                        $pee3oranges[]=$range["orange"];
-                                        $pee3reds[]=$range["red"];
+
+                                    for($y; $y<$yNow; $y++){
+                                        foreach($rangeGradeStudyYearOnes as $range){
+                                            if((int)$range["studyGeneretion"] == $y){
+                                                $pee3gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                                $pee3blues[]=$range["blue"];
+                                                $pee3greens[]=$range["green"];
+                                                $pee3oranges[]=$range["orange"];
+                                                $pee3reds[]=$range["red"];
+                                            } 
+                                            else{
+                                                $pee3gen[]="รุ่น ".(string)$y;
+                                                $pee3blues[]="0";
+                                                $pee3greens[]="0";
+                                                $pee3oranges[]="0";
+                                                $pee3reds[]="0";
+                                            }
+                                        }
                                     }
                                 
                                 ?>
@@ -571,19 +623,35 @@
                                     <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 4</h6>
                                 </div>
                                 <?php
-                                
-                                $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],4);
+                                    $day = date("Y");
+                                    $thaiDay = 543 + $day;
+                                    //echo substr($thaiDay-4, -2);
+                                    $y=substr($thaiDay-4, -2);
+                                    $yNow=substr($thaiDay, -2);
+                                    $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],4);
                                     $pee4gen=[];
                                     $pee4blues=[];
                                     $pee4greens=[];
                                     $pee4oranges=[];
                                     $pee4reds=[];
-                                    foreach($rangeGradeStudyYearOnes as $range){
-                                        $pee4gen[]="รุ่น ".(string)$range["studyGeneretion"];
-                                        $pee4blues[]=$range["blue"];
-                                        $pee4greens[]=$range["green"];
-                                        $pee4oranges[]=$range["orange"];
-                                        $pee4reds[]=$range["red"];
+                                    for($y; $y<$yNow; $y++){
+
+                                        foreach($rangeGradeStudyYearOnes as $range){
+                                            if((int)$range["studyGeneretion"] == $y){
+                                                $pee4gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                                $pee4blues[]=$range["blue"];
+                                                $pee4greens[]=$range["green"];
+                                                $pee4oranges[]=$range["orange"];
+                                                $pee4reds[]=$range["red"];
+                                            }
+                                            else{
+                                                $pee4gen[]="รุ่น ".(string)$y;
+                                                $pee4blues[]="0";
+                                                $pee4greens[]="0";
+                                                $pee4oranges[]="0";
+                                                $pee4reds[]="0";
+                                            }
+                                        }
                                     }
                                 
                                 ?>
@@ -697,19 +765,34 @@
                                     <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิต ณ ปัจจุบัน</h6>
                                 </div>
                                 <?php
+                                    $day = date("Y");
+                                    $thaiDay = 543 + $day;
+                                    //echo substr($thaiDay-4, -2);
+                                    $y=substr($thaiDay-4, -2);
+                                    $yNow=substr($thaiDay, -2);
                                     $nowgen=[];
                                     $BNG=[];
                                     $GNG=[];
                                     $ONG=[];
                                     $RNG=[];
                                     $studyGeneretionGPAXs = getGPAXStatusGerenetionByTeacherId($teacher["teacherId"]);
-                                    
-                                    foreach($studyGeneretionGPAXs as $grade){
-                                        $nowgen[] = "รุ่น ".(string)$grade["studyGeneretion"];
-                                        $BNG[] = (int)$grade["blue"];
-                                        $GNG[] = (int)$grade["green"];
-                                        $ONG[] = (int)$grade["orange"];
-                                        $RNG[] = (int)$grade["red"];
+                                    for($y; $y<$yNow; $y++){
+                                        foreach($studyGeneretionGPAXs as $grade){
+                                            if((int)$range["studyGeneretion"] == $y){
+                                                $nowgen[] = "รุ่น ".(string)$grade["studyGeneretion"];
+                                                $BNG[] = (int)$grade["blue"];
+                                                $GNG[] = (int)$grade["green"];
+                                                $ONG[] = (int)$grade["orange"];
+                                                $RNG[] = (int)$grade["red"];
+                                            }
+                                            else{
+                                                $nowgen[]="รุ่น ".(string)$y;
+                                                $BNG[]="0";
+                                                $GNG[]="0";
+                                                $ONG[]="0";
+                                                $RNG[]="0";
+                                            }
+                                        }
                                     }
                                
                                     
@@ -946,17 +1029,14 @@
 
                     <script>
                         
-                        var gens = <?php echo json_encode($listgens); ?>;
-                        console.log(gens);
+                        var gensh = <?php echo json_encode($listgensh); ?>;
+                        
 
-                        var sPLans = <?php echo json_encode($sPLan); ?>;
-                        console.log(sPLans);
-                        var sNotPlans = <?php echo json_encode($sNotPlan); ?>;
-                        console.log(sNotPlans);
-                        var sRetires = <?php echo json_encode($sRetire); ?>;
-                        console.log(sRetires);
-                        var sGrads = <?php echo json_encode($sGrad); ?>;
-                        console.log(sGrads);
+                        var sPLansh = <?php echo json_encode($sPLanh); ?>;
+                        
+                        var sNotPlansh = <?php echo json_encode($sNotPlanh); ?>;
+                        var sRetiresh = <?php echo json_encode($sRetireh); ?>;
+                        var sGradsh = <?php echo json_encode($sGradh); ?>;
 
                         var ctx = document.getElementById("learnyear");
                         var myChart = new Chart(ctx, {
@@ -964,29 +1044,29 @@
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: gens,
+                                labels: gensh,
                                 datasets: [
                                     {
                                         label: 'ตามหลักสูตร',
-                                        data: sPLans,
+                                        data: sPLansh,
                                         backgroundColor: "rgba(0, 9, 188,0.7)",
                                         borderWidth: 0
                                     },
                                     {
                                         label: ['ไม่ตามหลักสูตร'],
-                                        data: sNotPlans,
+                                        data: sNotPlansh,
                                         backgroundColor: "rgba(0, 110, 22,0.7)",
                                         borderWidth: 0
                                     },
                                     {
                                         label: ['พ้นสภาพ'],
-                                        data: sRetires,
+                                        data: sRetiresh,
                                         backgroundColor: 'rgba(255,128,0,0.7)',
                                         borderWidth: 0
                                     },
                                     {
                                         label: ['จบการศึกษา'],
-                                        data: sGrads,
+                                        data: sGradsh,
                                         backgroundColor: 'rgba(255, 0, 0,0.7)',
                                         borderWidth: 0
                                     }
