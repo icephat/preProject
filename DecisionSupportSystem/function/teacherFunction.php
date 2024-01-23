@@ -286,7 +286,7 @@ function getCountGradeRangeByTeacherIdAndStudyGeneretionAndStudyYear($teacherId,
         (SELECT gpaStatusId,COUNT(*) as count
         FROM fact_term_summary NATURAL JOIN fact_student
         WHERE teacherId = " . $teacherId . " AND studyYear = " . $studyYear . " AND studyGeneretion = " . $generetion . " AND studyTerm IN 
-        (SELECT MAX(studyTerm) AS studyTerm FROM fact_term_summary NATURAL JOIN fact_student WHERE teacherId = " . $teacherId . " AND studyYear = " . $studyYear . " AND studyGeneretion = " . $generetion . ")
+        (SELECT MAX(studyTerm) AS studyTerm FROM fact_term_summary NATURAL JOIN fact_student WHERE teacherId = " . $teacherId . " AND studyYear = " . $studyYear . " AND studyGeneretion = " . $generetion . " AND studyTerm != 3)
         GROUP BY gpaStatusId) AS A
         ON gpastatus.gpaStatusId = A.gpaStatusId";
 
