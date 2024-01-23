@@ -758,7 +758,7 @@
 
                     </div>
                     <br><br>
-                    <!-- <div class="row">
+                    <div class="row">
                         <div class="col-sm-6">
                             <div class="card">
                                 <div class="card-header py-3">
@@ -770,7 +770,7 @@
                                     //echo substr($thaiDay-4, -2);
                                     $y=substr($thaiDay-4, -2);
                                     $yNow=substr($thaiDay, -2);
-                                    $studyGeneretionGPAXs = getGPAXStatusGerenetionByTeacherId($teacher["teacherId"]);
+                                    $studyGeneretionGPAXs = getGPAXStatusGerenetionByTeacherIdAndSemesterYearAndSemesterPartAndCourseId($teacher["teacherId"],$yearSerach,$partSearch,$courseId);
                                     $nowgen=[];
                                     $BNG=[];
                                     $GNG=[];
@@ -808,13 +808,13 @@
                                 </div>
                                 <?php
                                 
-                                $studyGraduateGeneretionGPAXs = getGPAXStatusGerenetionGraduateByTeacherId($teacher["teacherId"]);
-                                $endgen=[];
+                                
+                                    $endgen=[];
                                     $BEG=[];
                                     $GEG=[];
                                     $OEG=[];
                                     $REG=[];
-                                    $studyGraduateGeneretionGPAXs = getGPAXStatusGerenetionGraduateByTeacherId($teacher["teacherId"]);
+                                    $studyGraduateGeneretionGPAXs = getGPAXStatusGerenetionGraduateByTeacherIdAndSemesterYearAndSemesterPartAndCourseId($teacher["teacherId"],$yearSerach,$partSearch,$courseId);
                                     foreach($studyGraduateGeneretionGPAXs as $gradeEnd){
                                         $endgen[] = "รุ่น ".(string)$gradeEnd["studyGeneretion"];
                                         $BEG[] = (int)$gradeEnd["blue"];
@@ -829,7 +829,7 @@
                             </div>
                         </div>
 
-                    </div> -->
+                    </div>
                     <br><br>
 
                     <!-- <div class="row">

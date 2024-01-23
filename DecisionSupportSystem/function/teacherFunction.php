@@ -665,6 +665,64 @@ function getStudentInAdviserBtTeacherId($teacherId){
 }
 
 
+function getGPAXStatusGerenetionByTeacherIdAndSemesterYearAndSemesterPartAndCourseId($teacherId,$year,$part,$courseId){
+
+    $studyGeneretionGPAXs = [];
+
+    $semester = getSemesterIdByYearAndPart($year,$part);
+    require("connection_connect.php");
+
+
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN gpaxStatusId = 1 THEN gpaxStatusId END) AS blue,COUNT(CASE WHEN gpaxStatusId = 2 THEN gpaxStatusId END) AS green,COUNT(CASE WHEN gpaxStatusId = 3 THEN gpaxStatusId END) AS orange,COUNT(CASE WHEN gpaxStatusId = 4 THEN gpaxStatusId END) AS red
+    FROM fact_student NATURAL JOIN fact_term_summary
+    WHERE teacherId = ".$teacherId." AND studentStatusId = 1 AND  semesterId = ".$semester." AND courseId = ".$courseId."
+    GROUP BY studyGeneretion";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $studyGeneretionGPAXs[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $studyGeneretionGPAXs;
+
+
+
+}
+
+function getGPAXStatusGerenetionGraduateByTeacherIdAndSemesterYearAndSemesterPartAndCourseId($teacherId,$year,$part,$courseId){
+
+    $studyGeneretionGPAXs = [];
+
+    
+    $semester = getSemesterIdByYearAndPart($year,$part);
+    require("connection_connect.php");
+
+
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN gpaxStatusId = 1 THEN gpaxStatusId END) AS blue,COUNT(CASE WHEN gpaxStatusId = 2 THEN gpaxStatusId END) AS green,COUNT(CASE WHEN gpaxStatusId = 3 THEN gpaxStatusId END) AS orange,COUNT(CASE WHEN gpaxStatusId = 4 THEN gpaxStatusId END) AS red
+    FROM fact_student NATURAL JOIN fact_term_summary
+    WHERE teacherId = ".$teacherId." AND fact_term_summary.studentStatusId = 2 AND semesterId = ".$semester." AND courseId = $courseId
+    GROUP BY studyGeneretion";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $studyGeneretionGPAXs[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $studyGeneretionGPAXs;
+
+
+
+}
+
+
 
 
 ?>
