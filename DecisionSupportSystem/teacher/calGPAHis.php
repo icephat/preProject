@@ -30,6 +30,23 @@
 
 </head>
 
+<?php
+
+session_start();
+
+
+$studentId = $_GET["studentId"];
+
+
+
+$path = "../student/calGPA/" . $studentId . ".json";
+echo $path;
+$jsonString = file_get_contents($path);
+$calGPA = json_decode($jsonString, true);
+
+
+?>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -41,192 +58,213 @@
             <!-- Main Content -->
             <div id="content">
 
-            <?php include('../layout/teacher/nisit.php'); ?>
+                <?php include('../layout/teacher/nisit.php'); ?>
 
-                    <hr>
+                <hr>
 
 
-                    <!-- Content Row -------------------------------------------------------BOX----------------------->
-                    <div class="row">
-                        <div class="col-6 text-left">
-                            <h4 style="color: black;">เกรดเฉลี่ยสะสม: 3.38 หน่วยกิต: 132</h4>
-                        </div>
-                        
+                <!-- Content Row -------------------------------------------------------BOX----------------------->
+                <div class="row">
+                    <div class="col-6 text-left">
+                        <h4 style="color: black;">เกรดเฉลี่ยสะสม:
+                            <?php echo $calGPA["gpaPresent"]; ?> หน่วยกิต:
+                            <?php echo $calGPA["creditPresent"]; ?>
+                        </h4>
                     </div>
-                    <hr>
 
-                    <div class="row">
-                        <div class="col-12 mx-auto">
-                            <div class="card">
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col-12 mx-auto">
+                        <div class="card">
+                            <div class="table-responsive">
+                                <table class="table table-striped" cellspacing="0" style="color: black;">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <p>ผลการเรียนเทอมปัจจุบัน</p>
+                                            </th>
+                                            <th>
+                                                <p>ผลการเรียนจากการคำนวณ</p>
+                                            </th>
+                                            <th>
+                                                <p>ผลการเรียนที่คาดว่าจะได้</p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <p style="color: black; font-weight: bold;">GPA : <span
+                                                        style="font-weight: normal;">
+                                                        <?php echo $calGPA["gpaPresent"]; ?>
+                                                    </span></p>
+
+                                            </td>
+                                            <td>
+                                                <p style="color: black; font-weight: bold;">GPA : <span
+                                                        style="font-weight: normal;">
+                                                        <?php echo $calGPA["gpaNew"]; ?>
+                                                    </span></p>
+
+                                            </td>
+                                            <td>
+                                                <p style="color: black; font-weight: bold;">GPA : <span
+                                                        style="font-weight: normal;">
+                                                        <?php echo $calGPA["gpaxNew"] ?> <span style="color: green;">[
+                                                            <?php echo round($calGPA["gpaxNew"] - $calGPA["gpaPresent"], 2) ?>]
+                                                        </span>
+                                                    </span></p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <p style="color: black; font-weight: bold;">หน่วยกิต : <span
+                                                        style="font-weight: normal;">
+                                                        <?php echo $calGPA["creditPresent"]; ?>
+                                                    </span></p>
+
+                                            </td>
+                                            <td>
+                                                <p style="color: black; font-weight: bold;">หน่วยกิต :<span
+                                                        style="font-weight: normal;">
+                                                        <?php echo $calGPA["creditNew"]; ?>
+                                                    </span></p>
+
+                                            </td>
+                                            <td>
+                                                <p style="color: black; font-weight: bold;">หน่วยกิต : <span
+                                                        style="font-weight: normal;">
+                                                        <?php echo $calGPA["creditNew"] + $calGPA["creditPresent"] ?>
+                                                        <span style="color: green;">[+
+                                                            <?php echo $calGPA["creditNew"] ?>]
+                                                        </span>
+                                                    </span></p>
+
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-12 mx-auto">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 style="color: blue;">คำนวณผลการเรียนล่วงหน้า</h5>
+
+                            </div>
+                            <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped" cellspacing="0" style="color: black;">
                                         <thead>
                                             <tr>
-                                                <th>
-                                                    <p>ผลการเรียนเทอมปัจจุบัน</p>
-                                                </th>
-                                                <th>
-                                                    <p>ผลการเรียนจากการคำนวณ</p>
-                                                </th>
-                                                <th>
-                                                    <p>ผลการเรียนที่คาดว่าจะได้</p>
-                                                </th>
+                                                <th class="text-center">รหัสวิชา</th>
+                                                <th>ชื่อวิชา</th>
+
+                                                <th class="text-center">ผลการเรียน</th>
+                                                <th class="text-center">หน่วยกิต</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+
+                                            for ($i = 1; $i < $calGPA["count"]; $i++) {
+                                                ?>
                                             <tr>
-                                                <td>
-                                                    <p style="color: black; font-weight: bold;">GPA : <span
-                                                            style="font-weight: normal;">3.38</span></p>
-
-                                                </td>
-                                                <td>
-                                                    <p style="color: black; font-weight: bold;">GPA : <span
-                                                            style="font-weight: normal;"> 3.40</span></p>
-
-                                                </td>
-                                                <td>
-                                                    <p style="color: black; font-weight: bold;">GPA : <span
-                                                            style="font-weight: normal;"> 3.39 <span
-                                                                style="color: green;">[+0.01]</span></span></p>
-
-                                                </td>
+                                                <td class="text-center"><?php echo $calGPA["subjectCode$i"] ?></td>
+                                                <td><?php echo $calGPA["subjectName$i"] ?></td>
+                                                <td class="text-center"><?php echo $calGPA["grade$i"] ?></td>
+                                                <td class="text-center"><?php echo $calGPA["credit$i"] ?></td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <p style="color: black; font-weight: bold;">หน่วยกิต : <span
-                                                            style="font-weight: normal;">132</span></p>
+                                            <?php
 
-                                                </td>
-                                                <td>
-                                                    <p style="color: black; font-weight: bold;">หน่วยกิต :<span
-                                                            style="font-weight: normal;"> 5</span></p>
-
-                                                </td>
-                                                <td>
-                                                    <p style="color: black; font-weight: bold;">หน่วยกิต : <span
-                                                            style="font-weight: normal;"> 137 <span
-                                                                style="color: green;">[+5]</span></span></p>
-
-                                                </td>
-                                            </tr>
+                                            }
+                                            ?>
 
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-
+                            <p style="color: red; padding: 10px;">*วิชาที่สามารถ Regrade
+                                ได้ต้องเป็นรายวิชาที่ได้แต้มคะแนนต่ำกว่า 2.00 (ได้เกรดต่ำกว่า C)
+                            </p>
                         </div>
-
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-12 mx-auto">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 style="color: blue;">คำนวณผลการเรียนล่วงหน้า</h5>
-
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped" cellspacing="0" style="color: black;">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">รหัสวิชา</th>
-                                                    <th>ชื่อวิชา</th>
-
-                                                    <th class="text-center">ผลการเรียน</th>
-                                                    <th class="text-center">หน่วยกิต</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-center">01417167</td>
-                                                    <td>Engineering Mathematics I</td>
-                                                    <td class="text-center">C+</td>
-                                                    <td class="text-center">3</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">01999111</td>
-                                                    <td>Knowledge of the Land</td>
-                                                    <td class="text-center">A</td>
-                                                    <td class="text-center">2</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <p style="color: red; padding: 10px;">*วิชาที่สามารถ Regrade
-                                    ได้ต้องเป็นรายวิชาที่ได้แต้มคะแนนต่ำกว่า 2.00 (ได้เกรดต่ำกว่า C)
-                                </p>
-                            </div>
-                            <br><br>
-                            <div style="text-align: center;">
-                                <a href="./formGPA.html" type="button" class="btn btn-primary">ย้อนกลับ</a>
-                            </div>
-                            <br><br>
+                        <br><br>
+                        <div style="text-align: center;">
+                            <a href="./formGPA.html" type="button" class="btn btn-primary">ย้อนกลับ</a>
                         </div>
-
+                        <br><br>
                     </div>
-
-
-
-                    <!-- /.container-fluid --------------------------------------------------------------------------------------------->
 
                 </div>
-                <!-- End of Main Content -->
 
+
+
+                <!-- /.container-fluid --------------------------------------------------------------------------------------------->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+
 
         </div>
-        <!-- End of Page Wrapper -->
+        <!-- End of Content Wrapper -->
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+    </div>
+    <!-- End of Page Wrapper -->
 
-        <!-- Logout Modal-->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-
-        <!-- Bootstrap core JavaScript-->
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        
-
-        <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Page level plugins -->
-        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="../js/demo/datatables-demo.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="../js/sb-admin-2.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
-
-        <!-- Bootstrap core JavaScript-->
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="../js/sb-admin-2.min.js"></script>
-
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Logout Modal-->
 
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Page level plugins -->
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../js/demo/datatables-demo.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+    <!-- Page level plugins -->
 
 </body>
 

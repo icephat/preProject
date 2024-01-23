@@ -75,10 +75,20 @@ $student = getStudentByStudentId($studentId);
                     <div class="col-sm-6 text-right">
                         <?php
 
+                        if (file_exists("../student/calGPA/" . $student["studentId"] . ".json")) {
 
+
+
+                            ?>
+                        <a href="./calGPAHis.php?studentId=<?php echo $studentId?>" type="button"
+                            class="btn btn-primary">ดูประวัติการคาดการณ์</a>
+                        <?php
+
+
+
+                        }
 
                         ?>
-                        <a href="./calGPAHis.php" type="button" class="btn btn-primary">ดูประวัติการคาดการณ์</a>
                     </div>
                 </div>
                 <hr>
@@ -643,7 +653,7 @@ $student = getStudentByStudentId($studentId);
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php
+                                            <?php
                                             $subjectPassAndNots = getRegisPassAndNotPassByStudentId($student["studentId"]);
 
                                             $sumcreditF = 0;
