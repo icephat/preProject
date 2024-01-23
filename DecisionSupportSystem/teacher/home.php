@@ -539,34 +539,31 @@
                                 $y=substr($thaiDay-4, -2);
                                 $yNow=substr($thaiDay, -2);
                                     $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],2);
-                                    $pee2gen=[];
-                                    $pee2blues=[];
-                                    $pee2greens=[];
-                                    $pee2oranges=[];
-                                    $pee2reds=[];
-
+                                    $pee2genh=[];
+                                    $pee2bluesh=[];
+                                    $pee2greensh=[];
+                                    $pee2orangesh=[];
+                                    $pee2redsh=[];
                                     for($y; $y<$yNow; $y++){
                                         foreach($rangeGradeStudyYearOnes as $range){
                                             if((int)$range["studyGeneretion"] == $y){
                                             
-                                                $pee2gen[]="รุ่น ".(string)$range["studyGeneretion"];
-                                                $pee2blues[]=$range["blue"];
-                                                $pee2greens[]=$range["green"];
-                                                $pee2oranges[]=$range["orange"];
-                                                $pee2reds[]=$range["red"];    
+                                                $pee2genh[]="รุ่น ".(string)$range["studyGeneretion"];
+                                                $pee2bluesh[]=$range["blue"];
+                                                $pee2greensh[]=$range["green"];
+                                                $pee2orangesh[]=$range["orange"];
+                                                $pee2redsh[]=$range["red"];    
                                             }
                                             else{
-                                                $pee2gen[]="รุ่น ".(string)$y;
-                                                $pee2blues[]="0";
-                                                $pee2greens[]="0";
-                                                $pee2oranges[]="0";
-                                                $pee2reds[]="0";
+                                                $pee2genh[]="รุ่น ".(string)$y;
+                                                $pee2bluesh[]="0";
+                                                $pee2greensh[]="0";
+                                                $pee2orangesh[]="0";
+                                                $pee2redsh[]="0";
                                             }
                                         }
 
                                     }
-                                    
-                                
                                 ?>
                                 <div class="card-body">
                                     <canvas id="pee2"></canvas>
@@ -1142,14 +1139,13 @@
                             }
                         });
                     </script>
-
                     <script>
-                        var p2gen = <?php echo json_encode($pee2gen); ?>;
+                        var p2genh = <?php echo json_encode($pee2genh); ?>;
 
-                        var p2blue = <?php echo json_encode($pee2blues); ?>;
-                        var p2green = <?php echo json_encode($pee2greens); ?>;
-                        var p2orange = <?php echo json_encode($pee2oranges); ?>;
-                        var p2red = <?php echo json_encode($pee2reds); ?>;
+                        var p2blueh = <?php echo json_encode($pee2bluesh); ?>;
+                        var p2greenh = <?php echo json_encode($pee2greensh); ?>;
+                        var p2orangeh = <?php echo json_encode($pee2orangesh); ?>;
+                        var p2redh = <?php echo json_encode($pee2redsh); ?>;
 
                         var ctx = document.getElementById("pee2");
                         var myChart = new Chart(ctx, {
@@ -1157,28 +1153,28 @@
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: p2gen,
+                                labels: p2genh,
                                 datasets: [{
                                     label: '3.25-4.00',
-                                    data: p2blue,
+                                    data: p2blueh,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
-                                    data: p2green,
+                                    data: p2greenh,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
-                                    data: p2green,
+                                    data: p2orangeh,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
-                                    data: p2red,
+                                    data: p2redh,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
                                 }
