@@ -15,13 +15,6 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 <head>
 
-    <style>
-        .t1:hover {
-            background-color: #ececec;
-            transition: all 0.5s linear;
-        }
-    </style>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -59,55 +52,56 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
                 <?php include('../layout/student/gpa.php'); ?>
 
-                    <hr>
+                <hr>
 
 
-                    <?php include('./infoStudent.php')?>
-                    <br>
+                <?php include('./infoStudent.php') ?>
+                <br>
 
-                    <br><br>
-                    <div style="justify-content: center; align-items: center;">
-                        <div class="col-sm-12 mx-auto">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนวิชาที่ไม่ผ่านตามแผน</h6>
-                                </div>
+                <br><br>
+                <div style="justify-content: center; align-items: center;">
+                    <div class="col-sm-12 mx-auto">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนวิชาที่ไม่ผ่านตามแผน</h6>
+                            </div>
 
-                                <div class="card-body ">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped" cellspacing="0" style="color: black;  ">
-                                            <thead style="background-color: #86d3f7;">
-                                                <tr>
-                                                    <th style=" text-align: center;">ชั้นปี</th>
-                                                    <th style=" text-align: center;">ภาคการเรียน</th>
-                                                    <th style=" text-align: center;">หมวดวิชา</th>
-                                                    <th style=" text-align: center;">รหัสวิชา</th>
-                                                    <th style="text-align: left;">ชื่อรายวิชา<span>ยังไม่ผ่าน</span>
-                                                    </th>
-                                                    <th style="text-align: center;">หน่วยกิต</th>
-                                                    <th style="text-align: center;">สถานะ</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                
-                                                $subjectFs = getListSubjectForFAndWByStudentId($student["studentId"]);
+                            <div class="card-body ">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" cellspacing="0" style="color: black;  ">
+                                        <thead style="background-color: #86d3f7;">
+                                            <tr>
+                                                <th style=" text-align: center;">ปีการศึกษา</th>
+                                                <th style=" text-align: center;">ภาคการเรียน</th>
+                                                <th style=" text-align: center;">หมวดวิชา</th>
+                                                <th style=" text-align: center;">รหัสวิชา</th>
+                                                <th style="text-align: left;">ชื่อรายวิชา<span>ยังไม่ผ่าน</span>
+                                                </th>
+                                                <th style="text-align: center;">หน่วยกิต</th>
+                                                <th style="text-align: center;">สถานะ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
 
+                                            $subjectFs = getListSubjectForFAndWByStudentId($student["studentId"]);
+                                            $sumcreditF = 0;
 
-                                                foreach($subjectFs as $subjectF){
-                                                    echo "
+                                            foreach ($subjectFs as $subjectF) {
+                                                $sumcreditF += $subjectF["credit"];
+                                                echo "
                                                     
                                                     
                                                     <tr>
-                                                        <td style=\" text-align: center;\">".$subjectF["semesterYear"]."</td>
-                                                        <td style=\" text-align: center;\">".$subjectF["semesterPart"]."</td>
-                                                        <td style=\" text-align: center;\">".$subjectF["subjectGroup"]."</td>
-                                                        <td style=\" text-align: center;\">".$subjectF["subjectCode"]."</td>
+                                                        <td style=\" text-align: center;\">" . $subjectF["semesterYear"] . "</td>
+                                                        <td style=\" text-align: center;\">" . $subjectF["semesterPart"] . "</td>
+                                                        <td style=\" text-align: center;\">" . $subjectF["subjectGroup"] . "</td>
+                                                        <td style=\" text-align: center;\">" . $subjectF["subjectCode"] . "</td>
                                                         <td style=\" text-align: left;\">
-                                                        ".$subjectF["nameSubjectEng"]."
+                                                        " . $subjectF["nameSubjectThai"] . "
                                                         </td>
-                                                        <td style=\" text-align: center;\">".$subjectF["credit"]."</td>
-                                                        <td style=\" text-align: center;\">".$subjectF["gradeCharacter"]."</td>
+                                                        <td style=\" text-align: center;\">" . $subjectF["credit"] . "</td>
+                                                        <td style=\" text-align: center;\">" . $subjectF["gradeCharacter"] . "</td>
 
                                                     </tr>
                                                     
@@ -115,10 +109,10 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                     
                                                     
                                                     ";
-                                                }
-                                                
-                                                ?>
-                                                <!-- <tr>
+                                            }
+
+                                            ?>
+                                            <!-- <tr>
                                                     <td style=" text-align: center;">2</td>
                                                     <td style=" text-align: center;">ภาคปลาย</td>
                                                     <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
@@ -146,70 +140,101 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
                                                 </tr> -->
 
-                                                <tr>
-                                                    <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
-                                                        colspan="4">
-                                                        รวม</td>
-                                                    <td style=" text-align: center;">0</td>
-                                                    <td style="text-align: center;">0</td>
-                                                    <td style=" text-align: center;"></td>
+                                            <tr>
+                                                <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
+                                                    colspan="4">
+                                                    รวม</td>
+                                                <td style=" text-align: center;">
+                                                    <?php echo count($subjectFs) ?>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    <?php echo $sumcreditF ?>
+                                                </td>
+                                                <td style=" text-align: center;"></td>
 
-                                                </tr>
+                                            </tr>
 
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
-
                             </div>
-                        </div>
-                        <br><br>
-                        <div class="col-sm-12 mx-auto">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนรายวิชาตกค้างที่ผ่านแล้ว
-                                    </h6>
-                                </div>
-                                <div class="card-body ">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped" cellspacing="0" style="color: black;  ">
-                                            <thead style="background-color: #86d3f7;">
-                                                <tr>
-                                                    <th style=" text-align: center;">ชั้นปี</th>
-                                                    <th style=" text-align: center;">ภาคการเรียน</th>
-                                                    <th style=" text-align: center;">หมวดวิชา</th>
-                                                    <th style=" text-align: center;">รหัสวิชา</th>
-                                                    <th style="text-align: left;">ชื่อรายวิชา<span>ผ่านแล้ว </span></th>
-                                                    <th style="text-align: center;">หน่วยกิต</th>
-                                                    <th style="text-align: center;">สถานะ</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
-                                                $subjectPassAndNots = getRegisPassAndNotPassByStudentId($student["studentId"]);
-                                                
-                                                foreach($subjectPassAndNots as $subjectPassAndNot){
-                                                    echo "
-                                                    
-                                                    <tr>
-                                                        <td style=\" text-align: center;\">2</td>
-                                                        <td style=\" text-align: center;\">ภาคปลาย</td>
-                                                        <td style=\" text-align: center;\">หมวดวิชาเฉพาะบังคับ</td>
-                                                        <td style=\" text-align: center;\">02204172</td>
-                                                        <td style=\" text-align: left;\">
-                                                            Practicum in Programming and Problem Solving Skills
-                                                        </td>
-                                                        <td style=\" text-align: center;\">1</td>
-                                                        <td style=\" text-align: center;\">W,F,A</td>
 
-                                                    </tr>
-                                                    
-                                                    ";
-                                                }
-                                                
-                                                
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="col-sm-12 mx-auto">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนรายวิชาตกค้างที่ผ่านแล้ว
+                                </h6>
+                            </div>
+                            <div class="card-body ">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" cellspacing="0" style="color: black;  ">
+                                        <thead style="background-color: #86d3f7;">
+                                            <tr>
+                                                <th style=" text-align: center;">ปีการศึกษา</th>
+                                                <th style=" text-align: center;">ภาคการเรียน</th>
+                                                <th style=" text-align: center;">หมวดวิชา</th>
+                                                <th style=" text-align: center;">รหัสวิชา</th>
+                                                <th style="text-align: left;">ชื่อรายวิชา<span>ผ่านแล้ว </span></th>
+                                                <th style="text-align: center;">หน่วยกิต</th>
+                                                <th style="text-align: center;">สถานะ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $subjectPassAndNots = getRegisPassAndNotPassByStudentId($student["studentId"]);
+
+                                            $sumcreditF = 0;
+                                            foreach ($subjectPassAndNots as $subjectPassAndNot) {
+                                                $sumcreditF += $subjectF["credit"];
+
                                                 ?>
-                                                <!-- <tr>
+
+                                                <tr>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $subjectPassAndNot["semesterYear"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $subjectPassAndNot["semesterPart"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $subjectPassAndNot["subjectGroup"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $subjectPassAndNot["subjectCode"] ?>
+                                                    </td>
+                                                    <td style=" text-align: left;">
+                                                        <?php echo $subjectPassAndNot["nameSubjectThai"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $subjectPassAndNot["credit"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $subjectPassAndNot["gradeCharacter"] ?>
+                                                    </td>
+
+                                                </tr>
+
+                                                <?php
+                                            }
+
+                                            ?>
+                                            <tr>
+                                                <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
+                                                    colspan="4">
+                                                    รวม</td>
+                                                <td style=" text-align: center;">
+                                                    <?php echo count($subjectFs) ?>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    <?php echo $sumcreditF ?>
+                                                </td>
+                                                <td style=" text-align: center;"></td>
+
+                                            </tr>
+                                            <!-- <tr>
                                                     <td style=" text-align: center;">2</td>
                                                     <td style=" text-align: center;">ภาคปลาย</td>
                                                     <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
@@ -232,48 +257,48 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
                                                 </tr> -->
 
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <br><br>
-                        <div>
-                            <div class="col-sm-12">
-                                <div class="card">
+                    <br><br>
+                    <div>
+                        <div class="col-sm-12">
+                            <div class="card">
 
-                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <?php
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <?php
 
-                                            $i = 1;
+                                    $i = 1;
 
-                                            $subjectGroups = getListSubjectGroupPassInRegisByStudentId($student["studentId"]);
-                                            $unlink = "nav-link active"; 
-                                            $tab = "true";
+                                    $subjectGroups = getListSubjectGroupPassInRegisByStudentId($student["studentId"]);
+                                    $unlink = "nav-link active";
+                                    $tab = "true";
 
-                                            foreach($subjectGroups as $gorup){
-                                            echo "
+                                    foreach ($subjectGroups as $gorup) {
+                                        echo "
                                             
                                         <li class=\"nav-item\">
-                                            <a class=\"".$unlink."\" id=\"tab".$i."-tab\" data-toggle=\"tab\" href=\"#tab".$i."\" role=\"tab\" aria-controls=\"tab".$i."\" aria-selected=".$tab.">".$gorup["name"]."</a>
+                                            <a class=\"" . $unlink . "\" id=\"tab" . $i . "-tab\" data-toggle=\"tab\" href=\"#tab" . $i . "\" role=\"tab\" aria-controls=\"tab" . $i . "\" aria-selected=" . $tab . ">" . $gorup["name"] . "</a>
                                         </li>
                                             
                                             
                                             
                                             
                                             ";
-                                            $tab = "false";
-                                            $i++;
-                                            $unlink = "nav-link"; 
-                                            }
+                                        $tab = "false";
+                                        $i++;
+                                        $unlink = "nav-link";
+                                    }
 
 
-                                        
-                                            
-                                        ?>
-                                        <!-- <li class="nav-item">
+
+
+                                    ?>
+                                    <!-- <li class="nav-item">
                                             <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1"
                                                 role="tab" aria-controls="tab1" aria-selected="true">หมวดวิชาแกน</a>
                                         </li>
@@ -293,24 +318,24 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             <a class="nav-link" id="tab5-tab" data-toggle="tab" href="#tab5" role="tab"
                                                 aria-controls="tab5" aria-selected="false">หมวดวิชาเสรี</a>
                                         </li> -->
-                                    </ul>
-                                    <div class="tab-content">
+                                </ul>
+                                <div class="tab-content">
 
 
-                                        <?php
+                                    <?php
 
-                                        $i = 1;
-                                        $tabpane = "tab-pane fade show active";
+                                    $i = 1;
+                                    $tabpane = "tab-pane fade show active";
 
-                                        foreach($subjectGroups as $gorup){
-                                                echo "                              
-                                                    <div class=\"".$tabpane."\" id=\"tab".$i."\" role=\"tabpanel\" aria-labelledby=\"tab".$i."-tab\">
+                                    foreach ($subjectGroups as $gorup) {
+                                        echo "                              
+                                                    <div class=\"" . $tabpane . "\" id=\"tab" . $i . "\" role=\"tabpanel\" aria-labelledby=\"tab" . $i . "-tab\">
                                                     ";
 
-                                                    $tabpane = "tab-pane fade ";
-                                                    $i++;
+                                        $tabpane = "tab-pane fade ";
+                                        $i++;
 
-                                                echo "
+                                        echo "
                                                 
 
                                             <div class=\"table-responsive\">
@@ -332,46 +357,46 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                 
                                                 ";
 
-                                                foreach($gorup["list"] as $regis){
-                                                    // echo "
-                                                    
-                                                    // <tr>
-                                                    //         <td class=\"text-left\">1</td>
-                                                    //         <td class=\"text-left\">2</td>
-                                                    //         <td class=\"text-left\">3</td>
-                                                    //         <td class=\"text-left\">4</td>
-                                                    //         <td class=\"text-left\">5</td>
-                                                    //         <td class=\"text-left\">6</td>
-                                                    //         <td class=\"text-left\">7</td>
-                                                    //     </tr>
-                                                    
-                                                    // ";
-
-                                                    echo "
+                                        foreach ($gorup["list"] as $regis) {
+                                            // echo "
+                                    
+                                            // <tr>
+                                            //         <td class=\"text-left\">1</td>
+                                            //         <td class=\"text-left\">2</td>
+                                            //         <td class=\"text-left\">3</td>
+                                            //         <td class=\"text-left\">4</td>
+                                            //         <td class=\"text-left\">5</td>
+                                            //         <td class=\"text-left\">6</td>
+                                            //         <td class=\"text-left\">7</td>
+                                            //     </tr>
+                                    
+                                            // ";
+                                    
+                                            echo "
                                                     
                                                     <tr>
-                                                            <td class=\"text-left\">".$regis["semesterYear"]."</td>
-                                                            <td class=\"text-left\">".$regis["semesterPart"]."</td>
-                                                            <td class=\"text-left\">".$regis["subjectCode"]."</td>
-                                                            <td class=\"text-left\">".$regis["nameSubjectThai"]."</td>
-                                                            <td class=\"text-left\">".$regis["subjectGroup"]."</td>
-                                                            <td class=\"text-left\">".$regis["gradeCharacter"]."</td>
-                                                            <td class=\"text-left\">".$regis["credit"]."</td>
+                                                            <td class=\"text-left\">" . $regis["semesterYear"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["semesterPart"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["subjectCode"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["nameSubjectThai"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["subjectGroup"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["gradeCharacter"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["credit"] . "</td>
                                                         </tr>
                                                     
                                                     ";
 
-                                                }
+                                        }
 
-                                                echo "
+                                        echo "
                                                     </tbody>
                                                 </table>
                                             </div>";
 
-                                                
-                                                
-                                                echo "</div>";
-                                        }
+
+
+                                        echo "</div>";
+                                    }
 
 
 
@@ -382,16 +407,16 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 
 
-                                       
-                                        
-                                        
-                                       
-                                        
-                                        
-                                        ?>
 
 
-                                        <!-- <div class="tab-pane fade show active" id="tab1" role="tabpanel"
+
+
+
+
+                                    ?>
+
+
+                                    <!-- <div class="tab-pane fade show active" id="tab1" role="tabpanel"
                                             aria-labelledby="tab1-tab">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" id="dataTable" cellspacing="0"
@@ -433,7 +458,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                 </table>
                                             </div>
                                         </div> -->
-                                        <!-- <div class="tab-pane fade " id="tab2" role="tabpanel"
+                                    <!-- <div class="tab-pane fade " id="tab2" role="tabpanel"
                                             aria-labelledby="tab2-tab">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" id="dataTable2" cellspacing="0"
@@ -538,31 +563,31 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 
 
-                                    </div>
                                 </div>
                             </div>
-
-
-
                         </div>
+
 
 
                     </div>
 
 
-
-
-
-
                 </div>
-                <!-- /.container-fluid --------------------------------------------------------------------------------------------->
+
+
+
+
+
 
             </div>
-            <!-- End of Main Content -->
-
+            <!-- /.container-fluid --------------------------------------------------------------------------------------------->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Main Content -->
+
+
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

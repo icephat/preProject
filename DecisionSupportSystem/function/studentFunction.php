@@ -145,7 +145,14 @@ function getListSubjectForFAndWByStudentId($studentId)
 
     require("connection_connect.php");
     $subjects = [];
-    $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND ( gradeCharacter = 'F' OR gradeCharacter = 'W')";
+    $sql = "SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,subjectGroup,credit,gradeCharacter
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory 
+    WHERE studentId = '$studentId' AND ( gradeCharacter = 'F' OR gradeCharacter = 'W') AND subjectCode NOT IN
+    (
+        SELECT subjectCode
+        FROM fact_regis NATURAL JOIN subject
+        WHERE studentId = '$studentId' AND gradeCharacter != 'F' AND gradeCharacter != 'W'
+    )";
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
@@ -673,26 +680,39 @@ function getRegisPassAndNotPassByStudentId($studentId)
 
     $subjects = [];
 
-    $sql = "
-    
-    SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,credit,gradeCharacter
-    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject
-    WHERE studentId = '" . $studentId . "' AND (gradeCharacter != 'F' OR gradeCharacter != 'W') AND subjectCode IN
+    $sql = "SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,subjectGroup,credit,GROUP_CONCAT( gradeCharacter ORDER BY semesterYear   SEPARATOR ',') AS gradeCharacter
+    FROM
+    (
+    SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,credit,gradeCharacter,subjectGroup
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup
+    WHERE studentId = '$studentId' AND gradeCharacter != 'F' AND gradeCharacter != 'W' AND subjectCode IN
     (
     SELECT subjectCode
     FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject
-    WHERE studentId = '" . $studentId . "' AND (gradeCharacter = 'F' OR gradeCharacter = 'W')
+    WHERE studentId = '$studentId' AND (gradeCharacter = 'F' OR gradeCharacter = 'W')
     )
     UNION
-    SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,credit,gradeCharacter	
+    SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,credit,gradeCharacter,subjectGroup	
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup
+    WHERE studentId = '$studentId' AND (gradeCharacter = 'F' OR gradeCharacter = 'W') AND subjectCode IN
+     (
+    SELECT subjectCode
     FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject
-    WHERE studentId = '" . $studentId . "' AND (gradeCharacter = 'F' OR gradeCharacter = 'W')
+    WHERE studentId = '$studentId' AND gradeCharacter != 'F' AND gradeCharacter != 'W'
+    )
+    ORDER BY semesterYear
+    ) AS A
+    GROUP BY subjectCode
+    ORDER BY semesterYear
     ";
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
         $subjects[] = $my_row;
     }
+
+
+
 
     require("connection_close.php");
 
