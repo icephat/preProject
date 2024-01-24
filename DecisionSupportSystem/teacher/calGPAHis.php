@@ -207,7 +207,7 @@ $calGPA = json_decode($jsonString, true);
                         </div>
                         <br><br>
                         <div style="text-align: center;">
-                            <a href="./formGPA.html" type="button" class="btn btn-primary">ย้อนกลับ</a>
+                            <a href="./formGPA.php" type="button" class="btn btn-primary">ย้อนกลับ</a>
                         </div>
                         <br><br>
                     </div>
