@@ -343,7 +343,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                         $i=0;
                                         foreach ($academics as $academic){
                                             $percent = 0;
-                                            $percent = 100-($academic["credit"]*($academic["creditYet"]/100));
+                                            $percent = round((float)($academic["credit"]*100)/$academic["creditAll"],2);
                                             echo "<div class=\"col-sm-2\">
                                                 <div class=\"card\">
                                                     <p style=\"padding: 10px;\">หน่วยกิตการเรียน &nbsp;<br><span
@@ -718,8 +718,9 @@ $_SESSION["studentId"] = $student["studentId"];
             $dataPerLists=[];
             foreach ($academics as $academic){
                 
-                $dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
-                $dataLists[] = (float)$academic["credit"]*($academic["creditYet"]/100);
+                //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
+                $dataPerLists[] = (float)($academic["credit"]*100)/$academic["creditAll"];
+                $dataLists[] = (float)($academic["creditYet"]*100)/$academic["creditAll"];
                 
 
             }
