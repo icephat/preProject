@@ -206,9 +206,12 @@ $calGPA = json_decode($jsonString, true);
                             </p>
                         </div>
                         <br><br>
-                        <div style="text-align: center;">
-                            <a href="./formGPA.php" type="button" class="btn btn-primary">ย้อนกลับ</a>
-                        </div>
+                        <form action="./student_info.php" method = "post">
+                            <div style="text-align: center;">
+                                <input type="hidden" name="studentId" value="<?php echo $studentId; ?>" />
+                                <button href="./student_info.php" type="submit"  name="submit" class="btn btn-primary">ย้อนกลับ</button>
+                            </div>
+                        </form>
                         <br><br>
                     </div>
 
