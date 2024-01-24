@@ -105,8 +105,18 @@ $calGPA = json_decode($jsonString, true);
                                                 </td>
                                                 <td>
                                                     <p style="color: black; font-weight: bold;">GPA : <span
-                                                            style="font-weight: normal;"> <?php echo $calGPA["gpaxNew"]?> <span
-                                                                style="color: green;">[<?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>]</span></span></p>
+                                                            style="font-weight: normal;"> <?php echo $calGPA["gpaxNew"]?> 
+                                                            <?php if(round($calGPA["gpaxNew"],2) > round($calGPA["gpaPresent"],2) ){?>
+                                                                <span style="color: green;">[+ <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
+                                                                ]</span>
+                                                            <?php } elseif(round($calGPA["gpaxNew"],2) < round($calGPA["gpaPresent"],2)){?>
+                                                                <span style="color: red;">[- <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
+                                                                ]</span>
+                                                            <?php } else{?>
+                                                                <span style="color: green;">[ <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
+                                                                ]</span>
+                                                            <?php }?>
+                                                            </p>
 
                                                 </td>
                                             </tr>
