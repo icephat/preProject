@@ -80,7 +80,7 @@ $student = getStudentByStudentId($studentId);
 
 
                             ?>
-                        <a href="./calGPAHis.php?studentId=<?php echo $studentId?>" type="button"
+                        <a href="./calGPAHis.php?studentId=<?php echo $studentId ?>" type="button"
                             class="btn btn-primary">ดูประวัติการคาดการณ์</a>
                         <?php
 
@@ -260,7 +260,19 @@ $student = getStudentByStudentId($studentId);
                                 <p style="color: blue;">note :</p>
                             </div>
                             <div class="col-sm-6">
-                                <p style="color: gray;">โรคภูมิแพ้ </p>
+                                <?php
+                                if (file_exists("./note/" . $studentId . ".json")) {
+                                    $path = "./note/" . $studentId . ".json";
+                                    $jsonString = file_get_contents($path);
+                                    $remark = json_decode($jsonString, true);
+
+
+                                    ?>
+                                    <p style="color: gray;"><?php echo $remark?></p>
+                                    <?php
+
+                                }
+                                ?>
                             </div>
                         </div>
 
@@ -270,9 +282,10 @@ $student = getStudentByStudentId($studentId);
                 <br>
                 <div class="row">
                     <div class="col-sm-12 mx-auto" style="margin-left: 20px;">
-                        <form action="/action_page.php">
+                        <form action="../controller/addNote.php" method="post">
                             <p><label for="note" style="color:#0552d8;">เพิ่ม note:</label></p>
-                            <textarea style=" width: 100%;" id="w3review" name="w3review"></textarea>
+                            <textarea style=" width: 100%;" id="note" name="note"></textarea>
+                            <input type="hidden" name="studentId" value="<?php echo $studentId ?>" />
                             <br>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success center-block">บันทึก</button>
@@ -742,7 +755,7 @@ $student = getStudentByStudentId($studentId);
 
 
                                             $overSubjects = $subjectGroups["over"]["list"];
-                                            
+
                                             $sumOver = 0;
 
                                             foreach ($overSubjects as $over) {
@@ -1052,19 +1065,19 @@ $student = getStudentByStudentId($studentId);
     <script>
 
         <?php
-            $academicGrades=[];
-            $academicLabel=[];
-            foreach ($academics as $academic) {
-                $academicGrades[] = (float)$academic["grade"];
-                $academicLabel[] = $academic["name"];
+        $academicGrades = [];
+        $academicLabel = [];
+        foreach ($academics as $academic) {
+            $academicGrades[] = (float) $academic["grade"];
+            $academicLabel[] = $academic["name"];
 
-            }
-        
+        }
+
         ?>
-        
-        var grades = <?php echo json_encode($academicGrades)?>;
+
+        var grades = <?php echo json_encode($academicGrades) ?>;
         console.log(grades);
-        var academicLabels = <?php echo json_encode($academicLabel)?>;
+        var academicLabels = <?php echo json_encode($academicLabel) ?>;
         console.log(academicLabels);
 
         var ctx = document.getElementById("myChartSub");
@@ -1251,4 +1264,3 @@ $student = getStudentByStudentId($studentId);
 </body>
 
 </html>
-

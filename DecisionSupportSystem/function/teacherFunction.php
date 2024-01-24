@@ -535,8 +535,8 @@ function getCountGradeRangeByTeacherIdAndStudyYearAndSemesterYearAndSemesterPart
     require("connection_connect.php");
 
     $sqlGeneretion = "SELECT DISTINCT studyGeneretion
-        FROM fact_student NATURAL JOIN fact_term_summary
-        WHERE teacherId = " . $teacherId . " AND studyYear = " . $studyYear . " AND studyGeneretion <= ".$year." - 2500
+        FROM fact_student NATURAL JOIN fact_term_summary NATURAL JOIN semester
+        WHERE teacherId = " . $teacherId . " AND studyYear = " . $studyYear . " AND semesterPart = '".$part."' AND semesterYear = $year
         ORDER BY studyGeneretion";
 
     $generetions = [];

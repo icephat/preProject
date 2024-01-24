@@ -16,13 +16,6 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 <head>
 
-    <style>
-        .t1:hover {
-            background-color: #ececec;
-            transition: all 0.5s linear;
-        }
-    </style>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -188,7 +181,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ประเภทหลักสูตร</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["program"]["langProgram"] ?></p>
+                                    <p style="color: gray;"><?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -204,7 +197,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เกรดเฉลี่ยสะสม</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">3.42</p>
+                                    <p style="color: gray;"><?php echo round($student["gpax"],2)?></p>
                                 </div>
                             </div>
 

@@ -16,13 +16,6 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 <head>
 
-    <style>
-        .t1:hover {
-            background-color: #ececec;
-            transition: all 0.5s linear;
-        }
-    </style>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,6 +36,8 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 </head>
 
+
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -53,8 +48,10 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
             <!-- Main Content -->
             <div id="content">
+                <form class="form-valide" action="../controller/updateTell.php" method="post"
+                    enctype="multipart/form-data">
 
-                <?php include('../layout/student/info.php'); ?>
+                    <?php include('../layout/student/info.php'); ?>
                     <hr>
 
 
@@ -69,16 +66,16 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">รหัสประจำตัวนิสิต </p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">6320500603</p>
+                                    <p style="color: gray;"><?php echo $student["studentId"]?></p>
                                 </div>
-                               
+
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
                                 <div class="col-sm-6">
                                     <p style="color: black;">ชื่อ-นามสกุล (ไทย) </p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">ภัทรพร ปัญญาอุดมพร</p>
+                                    <p style="color: gray;"><?php echo $student["fisrtNameTh"]." ",$student["lastNameTh"] ?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -86,7 +83,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ชื่อ-นามสกุล (อังกฤษ)</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">Phattaraporn panyaaudomporn</p>
+                                    <p style="color: gray;"><?php echo $student["fisrtNameEng"]." ",$student["lastNameEng"] ?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -94,7 +91,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">รหัสประจำตัวประชาชน</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">xxxxxxxxx4955</p>
+                                    <p style="color: gray;"><?php echo $student["personId"]?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -102,7 +99,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เพศ</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">หญิง</p>
+                                    <p style="color: gray;"><?php echo $student["genderTh"]?></p>
                                 </div>
                             </div>
 
@@ -117,7 +114,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เบอร์โทรศัพท์</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <input class='form-control' name="num1" placeholder="0950427705" />
+                                    <input class='form-control' name="tell" value="<?php echo $student["tell"]?> " required/>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -125,7 +122,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">e-Mail</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">phattaraporn.sa@ku.th</p>
+                                    <p style="color: gray;"><?php echo $student["email"]?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -133,12 +130,12 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เบอร์โทรศัพท์ผู้ปกครอง</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <input class='form-control' name="num2" placeholder="0992581852" />
+                                    <input class='form-control' name="pTell" value="<?php echo $student["parentTell"]?>" required/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <br>
                     <hr>
 
@@ -153,16 +150,16 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">อาจารย์ที่ปรึกษา </p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;">รศ.ดร.ฐิติพงษ์ สถิรเมธีกุล</p>
+                                    <p style="color: gray;"><?php echo $student["teacher"]["titleTecherTh"].$student["teacher"]["fisrtNameTh"]." ".$student["teacher"]["lastNameTh"] ; ?></p>
                                 </div>
-                               
+
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
                                 <div class="col-sm-6">
                                     <p style="color: black;">วิทยาเขต </p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">กำแพงแสน</p>
+                                    <p style="color: gray;"><?php echo $student["department"]["campus"] ?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -170,7 +167,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">คณะ</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">วิศวกรรมศาสตร์ กำแพงแสน</p>
+                                    <p style="color: gray;"><?php echo $student["department"]["faculty"] ?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -178,7 +175,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">สาขาวิชา</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">วิศวกรรมศาสตร์คอมพิวเตอร์</p>
+                                    <p style="color: gray;"><?php echo $student["department"]["departmentName"] ?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -186,7 +183,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ประเภทหลักสูตร</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">ภาษาไทย</p>
+                                    <p style="color: gray;"><?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -194,7 +191,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">สถานภาพนิสิต</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">กำลังศึกษา</p>
+                                    <p style="color: gray;"><?php echo $student["status"]?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -202,7 +199,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เกรดเฉลี่ยสะสม</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">3.42</p>
+                                    <p style="color: gray;"><?php echo round($student["gpax"],2)?></p>
                                 </div>
                             </div>
 
@@ -217,7 +214,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ชื่อโรงเรียน</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">โรงเรียนวัดธรรมจริยาภิรมย์</p>
+                                    <p style="color: gray;"><?php echo $student["school"]["schoolName"] ?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -225,28 +222,33 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ที่อยู่โรงเรียน</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">อำเภอบ้านแพ้ว จังหวัดสมุทรสาคร</p>
+                                    <p style="color: gray;">จังหวัด<?php echo $student["school"]["provinceName"] ?></p>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
 
+                    
+
                     <br><br>
                     <div style="text-align: center;">
-                        <a type="button" class="btn btn-success"  href="./info.php" style="color: black;">บันทึก</a>
+                        <a type="button" class="btn btn-danger" href="./info.php" style="color: black;">ยกเลิก</a>
+                        <button type="summit" class="btn btn-success" style="color: black;">บันทึก</button>
+                        <!-- <a type="button" class="btn btn-success" href="./info.php" style="color: black;">บันทึก</a> -->
                     </div>
                     <br><br><br>
-
-                </div>
-                <!-- /.container-fluid --------------------------------------------------------------------------------------------->
+                </form>
 
             </div>
-            <!-- End of Main Content -->
-
+            <!-- /.container-fluid --------------------------------------------------------------------------------------------->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Main Content -->
+
+
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
