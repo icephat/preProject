@@ -6,7 +6,7 @@ function getAllSubject(){
 
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory";
+    $sql = "SELECT * FROM subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory ORDER BY subjectCode";
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {

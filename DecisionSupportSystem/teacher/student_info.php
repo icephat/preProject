@@ -716,6 +716,90 @@ $student = getStudentByStudentId($studentId);
                     </div>
                     <br><br>
 
+                    <div class="col-sm-12 mx-auto">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">วิชาเรียนที่เรียนเกินหลักสูตร
+                                </h6>
+                            </div>
+                            <div class="card-body ">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" cellspacing="0" style="color: black;  ">
+                                        <thead style="background-color: #86d3f7;">
+                                            <tr>
+                                                <th style=" text-align: center;">ปีการศึกษา</th>
+                                                <th style=" text-align: center;">ภาคการเรียน</th>
+                                                <th style=" text-align: center;">หมวดวิชา</th>
+                                                <th style=" text-align: center;">รหัสวิชา</th>
+                                                <th style="text-align: left;">ชื่อรายวิชา</th>
+                                                <th style="text-align: center;">หน่วยกิต</th>
+                                                <th style="text-align: center;">สถานะ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $subjectGroups = getListSubjectGroupPassInRegisByStudentId($student["studentId"]);
+
+
+                                            $overSubjects = $subjectGroups["over"]["list"];
+                                            
+                                            $sumOver = 0;
+
+                                            foreach ($overSubjects as $over) {
+
+
+
+                                                ?>
+
+                                                <tr>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["semesterYear"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["semesterPart"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["subjectGroup"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["subjectCode"] ?>
+                                                    </td>
+                                                    <td style=" text-align: left;">
+                                                        <?php echo $over["nameSubjectThai"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["credit"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["gradeCharacter"] ?>
+                                                    </td>
+
+                                                </tr>
+
+                                                <?php
+                                            }
+
+                                            ?>
+                                            <tr>
+                                                <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
+                                                    colspan="4">
+                                                    รวม</td>
+                                                <td style=" text-align: center;">
+                                                    <?php echo count($overSubjects) ?>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    <?php echo $sumOver ?>
+                                                </td>
+                                                <td style=" text-align: center;"></td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- /.container-fluid --------------------------------------------------------------------------------------------->
 

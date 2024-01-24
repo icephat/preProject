@@ -226,7 +226,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                     colspan="4">
                                                     รวม</td>
                                                 <td style=" text-align: center;">
-                                                    <?php echo count($subjectFs) ?>
+                                                    <?php echo count($subjectPassAndNots) ?>
                                                 </td>
                                                 <td style="text-align: center;">
                                                     <?php echo $sumcreditF ?>
@@ -234,35 +234,101 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                 <td style=" text-align: center;"></td>
 
                                             </tr>
-                                            <!-- <tr>
-                                                    <td style=" text-align: center;">2</td>
-                                                    <td style=" text-align: center;">ภาคปลาย</td>
-                                                    <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
-                                                    <td style=" text-align: center;">02204172</td>
-                                                    <td style=" text-align: left;">
-                                                        Practicum in Programming and Problem Solving Skills
-                                                    </td>
-                                                    <td style=" text-align: center;">1</td>
-                                                    <td style=" text-align: center;">W,F,A</td>
-
-                                                </tr>
-
-                                                <tr>
-                                                    <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
-                                                        colspan="4">
-                                                        รวม</td>
-                                                    <td style=" text-align: center;">1</td>
-                                                    <td style="text-align: center;">1</td>
-                                                    <td style=" text-align: center;"></td>
-
-                                                </tr> -->
-
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <br>
+
+                    <div class="col-sm-12 mx-auto">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">วิชาเรียนที่เรียนเกินหลักสูตร
+                                </h6>
+                            </div>
+                            <div class="card-body ">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" cellspacing="0" style="color: black;  ">
+                                        <thead style="background-color: #86d3f7;">
+                                            <tr>
+                                                <th style=" text-align: center;">ปีการศึกษา</th>
+                                                <th style=" text-align: center;">ภาคการเรียน</th>
+                                                <th style=" text-align: center;">หมวดวิชา</th>
+                                                <th style=" text-align: center;">รหัสวิชา</th>
+                                                <th style="text-align: left;">ชื่อรายวิชา</th>
+                                                <th style="text-align: center;">หน่วยกิต</th>
+                                                <th style="text-align: center;">สถานะ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $subjectGroups = getListSubjectGroupPassInRegisByStudentId($student["studentId"]);
+
+
+                                            $overSubjects = $subjectGroups["over"]["list"];
+                                            
+                                            $sumOver = 0;
+
+                                            foreach ($overSubjects as $over) {
+
+
+
+                                                ?>
+
+                                                <tr>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["semesterYear"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["semesterPart"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["subjectGroup"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["subjectCode"] ?>
+                                                    </td>
+                                                    <td style=" text-align: left;">
+                                                        <?php echo $over["nameSubjectThai"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["credit"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $over["gradeCharacter"] ?>
+                                                    </td>
+
+                                                </tr>
+
+                                                <?php
+                                            }
+
+                                            ?>
+                                            <tr>
+                                                <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
+                                                    colspan="4">
+                                                    รวม</td>
+                                                <td style=" text-align: center;">
+                                                    <?php echo count($overSubjects) ?>
+                                                </td>
+                                                <td style="text-align: center;">
+                                                    <?php echo $sumOver ?>
+                                                </td>
+                                                <td style=" text-align: center;"></td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
 
                     <br><br>
                     <div>
@@ -274,12 +340,13 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
                                     $i = 1;
 
-                                    $subjectGroups = getListSubjectGroupPassInRegisByStudentId($student["studentId"]);
+
                                     $unlink = "nav-link active";
                                     $tab = "true";
 
                                     foreach ($subjectGroups as $gorup) {
-                                        echo "
+                                        if ($gorup["name"] != "over") {
+                                            echo "
                                             
                                         <li class=\"nav-item\">
                                             <a class=\"" . $unlink . "\" id=\"tab" . $i . "-tab\" data-toggle=\"tab\" href=\"#tab" . $i . "\" role=\"tab\" aria-controls=\"tab" . $i . "\" aria-selected=" . $tab . ">" . $gorup["name"] . "</a>
@@ -289,9 +356,11 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             
                                             
                                             ";
-                                        $tab = "false";
-                                        $i++;
-                                        $unlink = "nav-link";
+                                            $tab = "false";
+                                            $i++;
+                                            $unlink = "nav-link";
+                                        }
+
                                     }
 
 
