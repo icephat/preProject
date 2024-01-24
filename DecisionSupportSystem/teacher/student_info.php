@@ -320,7 +320,8 @@ $student = getStudentByStudentId($studentId);
                                     </div>
                                     <div class="col-sm-6 float-right">
                                         <div class="table-responsive">
-                                            <table class="table table-striped" cellspacing="0" style="color: black;">
+                                            <table class="table table-striped" cellspacing="0"
+                                                style="color: black; font-size: small;">
                                                 <thead>
                                                     <tr>
                                                         <th>ปีการศึกษา</th>
@@ -364,7 +365,7 @@ $student = getStudentByStudentId($studentId);
                                                             $ch = "+";
                                                         } elseif (number_format($gpaNew, 2) < 0.00) {
                                                             $color = "color:red";
-                                                            $ch = "-";
+                                                            $ch = "";
                                                         } else {
                                                             $color = "color:green";
                                                             $ch = "";
@@ -435,7 +436,7 @@ $student = getStudentByStudentId($studentId);
                                     <div class="col-sm-6">
                                         <div class="table-responsive">
                                             <table class="table table-striped" width="100%" cellspacing="0"
-                                                style="color: black;">
+                                                style="color: black; font-size: small;">
                                                 <thead>
                                                     <tr>
                                                         <th>หมวดวิชา</th>
@@ -753,6 +754,95 @@ $student = getStudentByStudentId($studentId);
         </div>
     </div>
 
+    <!--modal-->
+    <?php
+    $i = 0;
+    foreach ($student["terms"] as $term) {
+
+        echo "
+                        <div id=modal" . $i . " class=\"modal\" style=\"color: black;\">
+                            <div class=\"modal-dialog modal-lg\">
+                                <div class=\"modal-content\">";
+
+        echo "<div class=\"modal-header\" style=\"height: 90px;\">
+                        <table class=\"modal-dialog modal-lg\" style=\"border:none; width: 85%;\">
+                            <th style=\" text-align: left; \">
+                                        <h5 style=\"font-weight: bold;\">เกรด" . round($term["gpaTerm"], 2) . "</h5>
+                            </th>
+                            <th style=\" text-align: right;\">
+                                <h5 style=\"font-weight: bold;\">GPA " . round($term["gpaAll"], 2) . "</h5>
+                            </th>
+                        </table>
+                        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+                        <br>
+
+
+
+                        </div>
+                        <h4 class=\"modal-title\" style=\"margin-left: 10px;\">ผลการเรียนของนิสิตในปีการศึกษา " . $term["semesterYear"] . " " . $term["semesterPart"] . "</h4>
+                        <div class=\"modal-body\" id=\"std_detail\">
+                            <table class=\"table\">
+
+                                <thead>
+                                    <tr>
+                                        <th>รายชื่อวิชา</th>
+                                        <th>เกรดที่ได้</th>
+                                        <th>จำนวนหน่วยกิต</th>
+                                    </tr>
+                                </thead>
+                                <tbody>";
+        foreach ($term["regisList"] as $regis) {
+            echo " 
+                                        <tr>
+                                            <th>" . $regis["nameSubjectEng"] . "</th>
+                                            <th>" . $regis["gradeCharacter"] . "</th>
+                                            <th>" . $regis["credit"] . "</th>
+                                        </tr>
+                                    ";
+        }
+
+
+        echo "</tbody>
+                            </table>
+
+                                </div>
+                                <div class=\"modal-footer\">
+                                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\"
+                                        style=\"font-size: 18px;\">ปิดหน้าต่าง</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+
+
+        $i++;
+    }
+
+    /*foreach ($idterms as $id) {
+        echo "
+        <div id=modal".$id." class=\"modal\" style=\"color: black;\">
+            <div class=\"modal-dialog modal-lg\">
+                <div class=\"modal-content\">";
+                
+                    foreach ($student["terms"] as $term){
+                        echo $term["semesterPart"];
+                        
+                        foreach ($term["regisList"] as $regis){
+                            
+                        
+                        }
+                        
+                    }
+
+                    
+                    
+                    
+
+    }*/
+
+
+    ?>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -784,7 +874,32 @@ $student = getStudentByStudentId($studentId);
     <!-- Page level plugins -->
     <script src="../vendor/chart.js/Chart.min.js"></script>
     <script>
-        const GPA2563 = [2.13, 3.34, 2.63, 3.33];
+
+        <?php
+        $gp = [];
+        $gpAll = [];
+        $label = [];
+        foreach ($student["terms"] as $term) {
+
+            $floatvar = (float) round($term["gpaTerm"], 2);
+            $gp[] = $floatvar;
+
+            $floatvarAll = (float) round($term["gpaAll"], 2);
+            $gpAll[] = $floatvarAll;
+
+            $label[] = $term["semesterPart"] . " " . $term["semesterYear"];
+        }
+        ?>
+        var gs = <?php echo json_encode($gp); ?>;
+        console.log(gs);
+
+        var gsAll = <?php echo json_encode($gpAll); ?>;
+        console.log(gsAll);
+
+        const GPA2563 = gs;
+        const GPAAll = gsAll;
+        const labeljs = <?php echo json_encode($label); ?>;
+
         const GPAcolorbar = [];
         let GPAsize = GPA2563.length;
         let GPAcolorLoop;
@@ -814,11 +929,10 @@ $student = getStudentByStudentId($studentId);
             //type: 'line',
             type: 'bar',
             data: {
-                labels: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+                labels: labeljs,
                 datasets: [{
                     type: 'line',
-                    label: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
-                    data: [2.13, 2.63, 2.62, 2.78],
+                    data: GPAAll,
                     borderColor: 'rgb(0, 107, 201)',
                     lineTension: 0,
                     fill: false
@@ -852,8 +966,25 @@ $student = getStudentByStudentId($studentId);
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
     <script>
+
+        <?php
+            $academicGrades=[];
+            $academicLabel=[];
+            foreach ($academics as $academic) {
+                $academicGrades[] = (float)$academic["grade"];
+                $academicLabel[] = $academic["name"];
+
+            }
+        
+        ?>
+        
+        var grades = <?php echo json_encode($academicGrades)?>;
+        console.log(grades);
+        var academicLabels = <?php echo json_encode($academicLabel)?>;
+        console.log(academicLabels);
+
         var ctx = document.getElementById("myChartSub");
-        const GPASub = [3.13, 3.23, 3.33, 3.38, 3.40];
+        const GPASub = grades;
         const GPASubcolorbar = [];
         let GPASubsize = GPASub.length;
         let GPASubcolorLoop;
@@ -878,7 +1009,7 @@ $student = getStudentByStudentId($studentId);
 
             type: 'bar',
             data: {
-                labels: ['หมวดวิชาแกน', 'หมวดวิชาศึกษาทั่วไป', 'หมวดวิชาเฉพาะบังคับ', 'หมวดวิชาเฉพาะเลือก', 'หมวดวิชาเสรี'],
+                labels: academicLabels,
                 datasets: [{
                     data: GPASub,
                     backgroundColor: GPASubcolorbar,
@@ -1037,54 +1168,3 @@ $student = getStudentByStudentId($studentId);
 
 </html>
 
-<div id="dataModal" class="modal fade" style="color: black;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 90px;">
-                <table class="modal-dialog modal-lg" style="border:none; width: 85%;">
-                    <th style=" text-align: left; ">
-                        <h5 style="font-weight: bold;">เกรด 3.23</h5>
-                    </th>
-                    <th style=" text-align: right;">
-                        <h5 style="font-weight: bold;">GPA 3.45</h5>
-                    </th>
-                </table>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <br>
-
-
-
-            </div>
-            <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
-            <div class="modal-body" id="std_detail">
-                <table class="table">
-
-                    <thead>
-                        <tr>
-                            <th>รายชื่อวิชา</th>
-                            <th>เกรดที่ได้</th>
-                            <th>จำนวนหน่วยกิต</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>General Physics I</th>
-                            <th>B</th>
-                            <th>3</th>
-                        </tr>
-                        <tr>
-                            <th>Math I</th>
-                            <th>B</th>
-                            <th>3</th>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"
-                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-            </div>
-        </div>
-    </div>
-</div>
