@@ -1176,7 +1176,7 @@
                                 },
                                 {
                                     label: '1.75-1.99',
-                                    data: p2green,
+                                    data: p2orange,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
