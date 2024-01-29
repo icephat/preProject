@@ -15,6 +15,13 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 <head>
 
+    <style>
+        .t1:hover {
+            background-color: #ececec;
+            transition: all 0.5s linear;
+        }
+    </style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -349,7 +356,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             echo "
                                             
                                         <li class=\"nav-item\">
-                                            <a class=\"" . $unlink . "\" id=\"tab" . $i . "-tab\" data-toggle=\"tab\" href=\"#tab" . $i . "\" role=\"tab\" aria-controls=\"tab" . $i . "\" aria-selected=" . $tab . ">" . $gorup["name"] . "</a>
+                                            <a class=\"" . $unlink . "\" id=\"tab" . $i . "-tab\" data-toggle=\"tab\" href=\"#tab" .$i. "\" role=\"tab\" aria-controls=\"tab" . $i . "\" aria-selected=" . $tab . ">" . $gorup["name"] . "</a>
                                         </li>
                                             
                                             
@@ -363,30 +370,8 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
                                     }
 
-
-
-
                                     ?>
-                                    <!-- <li class="nav-item">
-                                            <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1"
-                                                role="tab" aria-controls="tab1" aria-selected="true">หมวดวิชาแกน</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab"
-                                                aria-controls="tab2" aria-selected="false">หมวดวิชาศึกษาทั่วไป</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab"
-                                                aria-controls="tab3" aria-selected="false">หมวดวิชาเฉพาะบังคับ</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab4-tab" data-toggle="tab" href="#tab4" role="tab"
-                                                aria-controls="tab4" aria-selected="false">หมวดวิชาเฉพาะเลือก</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab5-tab" data-toggle="tab" href="#tab5" role="tab"
-                                                aria-controls="tab5" aria-selected="false">หมวดวิชาเสรี</a>
-                                        </li> -->
+
                                 </ul>
                                 <div class="tab-content">
 
@@ -408,7 +393,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                 
 
                                             <div class=\"table-responsive\">
-                                                <table class=\"table table-striped\" id=\"dataTable\" cellspacing=\"0\"
+                                                <table class=\"table table-striped\" id=\"dataTable".$i."\" cellspacing=\"0\"
                                                     style=\"color: black;  \">
                                                     <thead>
                                                         <tr>
@@ -427,19 +412,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                 ";
 
                                         foreach ($gorup["list"] as $regis) {
-                                            // echo "
-                                    
-                                            // <tr>
-                                            //         <td class=\"text-left\">1</td>
-                                            //         <td class=\"text-left\">2</td>
-                                            //         <td class=\"text-left\">3</td>
-                                            //         <td class=\"text-left\">4</td>
-                                            //         <td class=\"text-left\">5</td>
-                                            //         <td class=\"text-left\">6</td>
-                                            //         <td class=\"text-left\">7</td>
-                                            //     </tr>
-                                    
-                                            // ";
+ 
                                     
                                             echo "
                                                     
@@ -468,167 +441,8 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     ?>
 
-
-                                    <!-- <div class="tab-pane fade show active" id="tab1" role="tabpanel"
-                                            aria-labelledby="tab1-tab">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped" id="dataTable" cellspacing="0"
-                                                    style="color: black;  ">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ปีการศึกษา</th>
-                                                            <th>ภาคการศึกษา</th>
-                                                            <th>รหัสวิชา</th>
-                                                            <th>ชื่อวิชา</th>
-                                                            <th>หมวดรายวิชา</th>
-
-                                                            <th>ผลการเรียน</th>
-                                                            <th>หน่วยกิต</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-left">2563</td>
-                                                            <td class="text-left">ภาคต้น</td>
-                                                            <td class="text-left">01417167</td>
-                                                            <td class="text-left">Engineering Mathematics I</td>
-                                                            <td class="text-left">หมวดวิชาแกน</td>
-                                                            <td class="text-left">C+</td>
-                                                            <td class="text-left">3</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="text-left">2563</td>
-                                                            <td class="text-left">ภาคต้น</td>
-                                                            <td class="text-left">01420111</td>
-                                                            <td class="text-left">General Physics I</td>
-                                                            <td class="text-left">หมวดวิชาแกน</td>
-                                                            <td class="text-left">B</td>
-                                                            <td class="text-left">3</td>
-                                                        </tr>
-                                                    </tbody>
-
-                                                </table>
-                                            </div>
-                                        </div> -->
-                                    <!-- <div class="tab-pane fade " id="tab2" role="tabpanel"
-                                            aria-labelledby="tab2-tab">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped" id="dataTable2" cellspacing="0"
-                                                    style="color: black;  ">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ปีการศึกษา</th>
-                                                            <th>ภาคการศึกษา</th>
-                                                            <th>รหัสวิชา</th>
-                                                            <th>ชื่อวิชา</th>
-                                                            <th>หมวดวิชา</th>
-                                                            <th>ผลการเรียน</th>
-                                                            <th>หน่วยกิต</th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody>
-
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01417167</td>
-                                                            <td>Engineering Mathematics I</td>
-                                                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
-                                                            <td class="text-center">C+</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01420111</td>
-                                                            <td>General Physics I</td>
-                                                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
-                                                            <td class="text-center">B</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01420113</td>
-                                                            <td>Laboratory in Physics I</td>
-                                                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
-                                                            <td class="text-center">A</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade " id="tab3" role="tabpanel"
-                                            aria-labelledby="tab3-tab">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped" id="dataTable3" cellspacing="0"
-                                                    style="color: black;  ">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ปีการศึกษา</th>
-                                                            <th>ภาคการศึกษา</th>
-                                                            <th>รหัสวิชา</th>
-                                                            <th>ชื่อวิชา</th>
-                                                            <th>หมวดวิชา</th>
-                                                            <th>ผลการเรียน</th>
-                                                            <th>หน่วยกิต</th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody>
-
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01417167</td>
-                                                            <td>Engineering Mathematics I</td>
-                                                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
-                                                            <td class="text-center">C+</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01420111</td>
-                                                            <td>General Physics I</td>
-                                                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
-                                                            <td class="text-center">B</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01420113</td>
-                                                            <td>Laboratory in Physics I</td>
-                                                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
-                                                            <td class="text-center">A</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div> -->
 
 
 
@@ -699,7 +513,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
     <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-demo.js"></script>
+    <script src="../js/demo/datatables-demo3.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
@@ -730,9 +544,6 @@ $student = getStudentByUsername($_SESSION["access-user"]);
     <!-- Page level plugins -->
     <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-demo.js"></script>
 
 
 </body>

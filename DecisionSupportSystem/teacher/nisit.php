@@ -93,9 +93,9 @@ $students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
                                             <th>ชื่อ-นามสกุล</th>
                                             <th class="text-center">ประเภทหลักสูตร</th>
                                             <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
-                                                (ทั้งหมด/ผ่าน/ไม่ผ่าน)
+                                                (ทั้งหมดตามแผน/ผ่าน/ไม่ผ่าน)
                                             </th>
-                                            <th class="text-center">ผลการเรียน</th>
+                                            <th class="text-center">GPA</th>
                                             <th class="text-center">รายละเอียด</th>
                                         </tr>
                                     </thead>

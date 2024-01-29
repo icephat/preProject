@@ -19,15 +19,14 @@
     <title>ระบบสนับสนุนการตัดสินใจ</title>
 
     <!-- Custom fonts for this template-->
-    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -42,168 +41,132 @@
             <!-- Main Content -->
             <div id="content">
 
-                <?php include('../layout/head/nisit.php'); ?>
+            <?php include('../../layout/head/report_menu.php'); ?>
 
+                    
                     <hr>
 
 
                     <!-- Content Row -------------------------------------------------------BOX----------------------->
+                    
                     <div class="row">
-                        <div class="col-sm-6 text-left">
+                        
+                        <div class="col-6 text-left">
                             <h5 style="color: black;">6320500603 <span style="color: blue;">ภัทรพร ปัญญาอุดมพร</span>
                             </h5>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <a href="./calGPAHis.php" type="button" class="btn btn-primary">ดูประวัติการคาดการณ์</a>
+                            <a href="../../head/calGPAHis.php" type="button" class="btn btn-primary">ดูประวัติการคาดการณ์</a>
                         </div>
                     </div>
                     <hr>
-                    <!-- Content Row -------------------------------------------------------BOX----------------------->
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">ชื่อ-นามสกุล (ภาษาอังกฤษ) : </p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">Phattaraporn Panyaaudomporn</p>
-                                </div>
+                    <div class="row" style="margin-left: 20px;">
+                        <div class="col-3" style="  color: blue;">
+                            <div>
+                                <p>ชื่อ-นามสกุล (ภาษาอังกฤษ) : </p>
+                            </div>
+                            <div>
+                                <p>เบอร์โทรศัพท์ : </p>
+                            </div>
+                            <div>
+                                <p></span>e-Mail : <span style="margin-left: 20px;"></span></h5>
+                            </div>
+                            <div>
+                                <p></span>สาขาวิชา : <span style="margin-left: 20px;"></span></h5>
+                            </div>
+                            <div>
+                                <p>การศึกษาระดับมัธยม : </p>
+                            </div>
+                            <div>
+                                <p></span>ช่องทางรับเข้า : <span style="margin-left: 20px;"></span></h5>
+                            </div>
+                            <div>
+                                <p></span>สิทธิ์ฝึกงาน : <span style="margin-left: 20px;"></span></h5>
+                            </div>
+                            <div>
+                                <p></span>สิทธิ์โครงงาน : <span style="margin-left: 20px;"></span></h5>
+                            </div>
 
+                        </div>
+                        <div class="col-3">
+                            <div style="color: gray;">
+                                <p>Phattaraporn Panyaaudomporn</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">เบอร์โทรศัพท์ : </p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">0950427705</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>0950427705</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">e-Mail :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">phattaraporn.sa@ku.th</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>phattaraporn.sa@ku.th</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">สาขาวิชา :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">วิศวกรรมคอมพิวเตอร์ (E29)</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>วิศวกรรมคอมพิวเตอร์ (E29)</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">การศึกษาระดับมัธยม :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">โรงเรียนวัดธรมมจริยาภิรมย์</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>โรงเรียนวัดธรมมจริยาภิรมย์</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">ช่องทางรับเข้า :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">แฟ้มสะสมผลงาน (รอบที่ 1)</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>แฟ้มสะสมผลงาน (รอบที่ 1)</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">สิทธิ์ฝึกงาน :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">มีสิทธิ์/ <span style="color: green;">ผ่าน</span></p>
-                                </div>
+                            <div style="color: gray;">
+                                <p>มีสิทธิ์/ <span style="color: green;">ผ่าน</span></p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">สิทธิ์โครงงาน :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">มีสิทธิ์/ <span style="color: red;">ไม่ผ่าน</span></p>
-                                </div>
+                            <div style="color: gray;">
+                                <p>มีสิทธิ์/ <span style="color: red;">ไม่ผ่าน</span></p>
                             </div>
 
                         </div>
 
-                        <div class="col-sm-6">
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">รหัสประจำตัวประชาชน : </p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">xxxxxxxxx4955</p>
-                                </div>
+                        <div class="col-3" style="  color: blue;">
+                            <div>
+                                <p>รหัสประจำตัวประชาชน : </p>
+                            </div>
+                            <div>
+                                <p>เบอร์โทรศัพท์ผู้ปกครอง : </p>
+                            </div>
+                            <div>
+                                <p>อาจารย์ที่ปรึกษา : </p>
+                            </div>
+                            <div>
+                                <p>ประเภทหลักสูตร :</p>
+                            </div>
+                            <div>
+                                <p>ที่อยู่โรงเรียน : </p>
+                            </div>
+                            <div>
+                                <p>สถานะ : </p>
+                            </div>
+                            <div>
+                                <p>สิทธิ์สหกิจ : </p>
+                            </div>
+                            <div>
+                                <p>note : </p>
+                            </div>
 
+                        </div>
+                        <div class="col-3">
+                            <div style="color: gray;">
+                                <p>xxxxxxxxx4955</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">เบอร์โทรศัพท์ผู้ปกครอง : </p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">0992581852</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>0992581852</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">อาจารย์ที่ปรึกษา :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">ฐิติพงษ์ สถิรเมธีกุล</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>ฐิติพงษ์ สถิรเมธีกุล</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">ประเภทหลักสูตร :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">ภาษาไทย (ปกติ)</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>ภาษาไทย (ปกติ)</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">ที่อยู่โรงเรียน :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">อำเภอบ้านแพ้ว จังหวัดสมุทรสาคร</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>อำเภอบ้านแพ้ว จังหวัดสมุทรสาคร</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">สถานะ :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">กำลังศึกษา</p>
-                                </div>
-
+                            <div style="color: gray;">
+                                <p>กำลังศึกษา</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">สิทธิ์สหกิจ :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: red;">ไม่มีสิทธิ์</p>
-                                </div>
+                            <div style="color: gray;">
+                                <p style="color: red;">ไม่มีสิทธิ์</p>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
-                                <div class="col-sm-6">
-                                    <p style="color: blue;">note :</p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p style="color: gray;">โรคภูมิแพ้ </p>
-                                </div>
+                            <div style="color: gray;">
+                                <p>โรคภูมิแพ้</p>
                             </div>
 
                         </div>
@@ -211,10 +174,10 @@
 
                     <br>
                     <div class="row">
-                        <div class="col-sm-12 mx-auto" style="margin-left: 20px;">
+                        <div class="col-12 mx-auto" style="margin-left: 20px;">
                             <form action="/action_page.php">
                                 <p><label for="note" style="color:#0552d8;">เพิ่ม note:</label></p>
-                                <textarea style=" width: 100%;" id="w3review" name="w3review"></textarea>
+                                <textarea style=" width: 100%; " id="w3review" name="w3review"></textarea>
                                 <br>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success center-block">บันทึก</button>
@@ -229,14 +192,14 @@
 
 
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">รายงานผลการเรียนแต่ละภาคการศึกษา</h6>
                                 </div>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <p style="font-weight: bold; font-size: 12px;"><span style="color: red;">
                                                     <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
                                                         width="16" height="16" fill="currentColor"
@@ -264,7 +227,7 @@
                                             </p>
                                             <canvas id="myChart"></canvas>
                                         </div>
-                                        <div class="col-sm-6 float-right">
+                                        <div class="col-6 float-right">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" cellspacing="0"
                                                     style="color: black; font-size: small;">
@@ -356,14 +319,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนในแต่ละหมวดวิชา</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <p style="font-weight: bold; font-size: 12px;"><span style="color: red;">
                                                     <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
                                                         width="16" height="16" fill="currentColor"
@@ -391,7 +354,7 @@
                                             </p>
                                             <canvas id="myChartSub"></canvas>
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <div class="table-responsive">
                                                 <table class="table table-striped" width="100%" cellspacing="0"
                                                     style="color: black; font-size: small;">
@@ -497,104 +460,7 @@
 
                     <br><br>
                     <div class="row">
-                        <div class="col-12">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">
-                                        รายงานหน่วยกิตที่ลงทะเบียนแบ่งตามหมวดวิชา (%)</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row " style=" justify-content: center; align-items: center;">
-                                        <div class="col-sm-2">
-                                            <div class="card">
-                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                        style="color:#304f69;">ทั้งหมด</span></p>
-                                                <div style="text-align: center; position: relative;">
-                                                    <canvas id="donutChart0"></canvas>
-                                                    <div id="centerText"
-                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                        100%<br>3.12</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="card">
-                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                        style="color:#304f69;">หมวดวิชาศึกษาทั่วไป</span></p>
-                                                <div style="text-align: center; position: relative;">
-                                                    <canvas id="donutChart"></canvas>
-                                                    <div id="centerText"
-                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                        100%<br>3.12</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="card">
-                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                        style="color:#304f69;">หมวดวิชาเสรี</span></p>
-                                                <div style="text-align: center; position: relative;">
-                                                    <canvas id="donutChart2"></canvas>
-                                                    <div id="centerText"
-                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                        80%<br>3.45</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="card">
-                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                        style="color:#304f69;">หมวดวิชาเฉพาะบังคับ</span></p>
-                                                <div style="text-align: center; position: relative;">
-                                                    <canvas id="donutChart3"></canvas>
-                                                    <div id="centerText"
-                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                        90%<br>3.00</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="card">
-                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                        style="color:#304f69;">หมวดวิชาเฉพาะเลือก</span></p>
-                                                <div style="text-align: center; position: relative;">
-                                                    <canvas id="donutChart4"></canvas>
-                                                    <div id="centerText"
-                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                        90%<br>1.25</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="card">
-                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                        style="color:#304f69;">หมวดวิชาเสรี</span></p>
-                                                <div style="text-align: center; position: relative;">
-                                                    <canvas id="donutChart5"></canvas>
-                                                    <div id="centerText"
-                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                        100%<br>3.40</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <br><br>
-                    <div class="row">
-                        <div class="col-sm-12 ">
+                        <div class="col-12 ">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนวิชาที่ไม่ผ่านตามแผน</h6>
@@ -668,7 +534,7 @@
                     </div>
                     <br><br>
                     <div class="row">
-                        <div class="col-sm-12 ">
+                        <div class="col-12 ">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนวิชาที่วิชาตกค้างที่ผ่านแล้ว
@@ -725,243 +591,6 @@
                         <!-- /.container-fluid --------------------------------------------------------------------------------------------->
 
                     </div>
-
-                    <br><br>
-
-                    <div class="col-sm-12 mx-auto">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">วิชาเรียนที่เรียนเกินหลักสูตร
-                                </h6>
-                            </div>
-                            <div class="card-body ">
-                                <div class="table-responsive">
-                                    <table class="table table-striped" cellspacing="0" style="color: black;  ">
-                                        <thead style="background-color: #86d3f7;">
-                                            <tr>
-                                                <th style=" text-align: center;">ปีการศึกษา</th>
-                                                <th style=" text-align: center;">ภาคการเรียน</th>
-                                                <th style=" text-align: center;">หมวดวิชา</th>
-                                                <th style=" text-align: center;">รหัสวิชา</th>
-                                                <th style="text-align: left;">ชื่อรายวิชา</th>
-                                                <th style="text-align: center;">หน่วยกิต</th>
-                                                <th style="text-align: center;">สถานะ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            
-                                                <tr>
-                                                    <td style=" text-align: center;">xxx</td>
-                                                    <td style=" text-align: center;">xxx</td>
-                                                    <td style=" text-align: center;">xxx</td>
-                                                    <td style=" text-align: center;">xxx</td>
-                                                    <td style=" text-align: left;">xxx</td>
-                                                    <td style=" text-align: center;">xxx</td>
-                                                    <td style=" text-align: center;">xxx</td>
-
-                                                </tr>
-
-                                            <tr>
-                                                <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
-                                                    colspan="4">
-                                                    รวม</td>
-                                                <td style=" text-align: center;">x</td>
-                                                <td style="text-align: center;">x</td>
-                                                <td style=" text-align: center;"></td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <br><br>
-                    <div>
-                            <div class="col-sm-12">
-                                <div class="card">
-
-                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1"
-                                                role="tab" aria-controls="tab1" aria-selected="true">หมวดวิชาแกน</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab"
-                                                aria-controls="tab2" aria-selected="false">หมวดวิชาศึกษาทั่วไป</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab"
-                                                aria-controls="tab3" aria-selected="false">หมวดวิชาเฉพาะบังคับ</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab4-tab" data-toggle="tab" href="#tab4" role="tab"
-                                                aria-controls="tab4" aria-selected="false">หมวดวิชาเฉพาะเลือก</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="tab5-tab" data-toggle="tab" href="#tab5" role="tab"
-                                                aria-controls="tab5" aria-selected="false">หมวดวิชาเสรี</a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade show active" id="tab1" role="tabpanel"
-                                            aria-labelledby="tab1-tab">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped" id="dataTable" cellspacing="0"
-                                                    style="color: black;  ">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ปีการศึกษา</th>
-                                                            <th>ภาคการศึกษา</th>
-                                                            <th>รหัสวิชา</th>
-                                                            <th>ชื่อวิชา</th>
-                                                            <th>หมวดรายวิชา</th>
-
-                                                            <th>ผลการเรียน</th>
-                                                            <th>หน่วยกิต</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-left">2563</td>
-                                                            <td class="text-left">ภาคต้น</td>
-                                                            <td class="text-left">01417167</td>
-                                                            <td class="text-left">Engineering Mathematics I</td>
-                                                            <td class="text-left">หมวดวิชาแกน</td>
-                                                            <td class="text-left">C+</td>
-                                                            <td class="text-left">3</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="text-left">2563</td>
-                                                            <td class="text-left">ภาคต้น</td>
-                                                            <td class="text-left">01420111</td>
-                                                            <td class="text-left">General Physics I</td>
-                                                            <td class="text-left">หมวดวิชาแกน</td>
-                                                            <td class="text-left">B</td>
-                                                            <td class="text-left">3</td>
-                                                        </tr>
-                                                    </tbody>
-
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <!--นิสิตในภาค-->
-                                        <div class="tab-pane fade " id="tab2" role="tabpanel"
-                                            aria-labelledby="tab2-tab">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped" id="dataTable2" cellspacing="0"
-                                                    style="color: black;  ">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ปีการศึกษา</th>
-                                                            <th>ภาคการศึกษา</th>
-                                                            <th>รหัสวิชา</th>
-                                                            <th>ชื่อวิชา</th>
-                                                            <th>หมวดวิชา</th>
-                                                            <th>ผลการเรียน</th>
-                                                            <th>หน่วยกิต</th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody>
-
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01417167</td>
-                                                            <td>Engineering Mathematics I</td>
-                                                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
-                                                            <td class="text-center">C+</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01420111</td>
-                                                            <td>General Physics I</td>
-                                                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
-                                                            <td class="text-center">B</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01420113</td>
-                                                            <td>Laboratory in Physics I</td>
-                                                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
-                                                            <td class="text-center">A</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-
-                                        <!--นิสิตในคณะ-->
-                                        <div class="tab-pane fade " id="tab3" role="tabpanel"
-                                            aria-labelledby="tab3-tab">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped" id="dataTable3" cellspacing="0"
-                                                    style="color: black;  ">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ปีการศึกษา</th>
-                                                            <th>ภาคการศึกษา</th>
-                                                            <th>รหัสวิชา</th>
-                                                            <th>ชื่อวิชา</th>
-                                                            <th>หมวดวิชา</th>
-                                                            <th>ผลการเรียน</th>
-                                                            <th>หน่วยกิต</th>
-                                                        </tr>
-                                                    </thead>
-
-                                                    <tbody>
-
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01417167</td>
-                                                            <td>Engineering Mathematics I</td>
-                                                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
-                                                            <td class="text-center">C+</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01420111</td>
-                                                            <td>General Physics I</td>
-                                                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
-                                                            <td class="text-center">B</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">2563</td>
-                                                            <td class="text-center">ภาคต้น</td>
-                                                            <td class="text-center">01420113</td>
-                                                            <td>Laboratory in Physics I</td>
-                                                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
-                                                            <td class="text-center">A</td>
-                                                            <td class="text-center">3</td>
-                                                        </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                        </div>
                     <!-- End of Content Wrapper -->
 
                 </div>
@@ -993,90 +622,36 @@
                     </div>
                 </div>
 
-
-                <!-- dataModal -->
-                <div id="dataModal" class="modal fade" style="color: black;">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header" style="height: 90px;">
-                                <table class="modal-dialog modal-lg" style="border:none; width: 85%;">
-                                    <th style=" text-align: left; ">
-                                        <h5 style="font-weight: bold;">เกรด 3.23</h5>
-                                    </th>
-                                    <th style=" text-align: right;">
-                                        <h5 style="font-weight: bold;">GPA 3.45</h5>
-                                    </th>
-                                </table>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <br>
-
-
-
-                            </div>
-                            <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
-                            <div class="modal-body" id="std_detail">
-                                <table class="table">
-
-                                    <thead>
-                                        <tr>
-                                            <th>รายชื่อวิชา</th>
-                                            <th>เกรดที่ได้</th>
-                                            <th>จำนวนหน่วยกิต</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>General Physics I</th>
-                                            <th>B</th>
-                                            <th>3</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Math I</th>
-                                            <th>B</th>
-                                            <th>3</th>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal"
-                                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Bootstrap core JavaScript-->
-                <script src="../vendor/jquery/jquery.min.js"></script>
-                <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="../../vendor/jquery/jquery.min.js"></script>
+                <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
                 <!-- Core plugin JavaScript-->
-                <script src="../vendor/jquery/jquery.min.js"></script>
-                <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+                <script src="../../vendor/jquery/jquery.min.js"></script>
+                <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
                 <!-- Page level plugins -->
-                <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-                <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+                <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
+                <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
                 <!-- Page level custom scripts -->
-                <script src="../js/demo/datatables-demo.js"></script>
+                <script src="../../js/demo/datatables-demo.js"></script>
 
                 <!-- Custom scripts for all pages-->
-                <script src="../js/sb-admin-2.min.js"></script>
+                <script src="../../js/sb-admin-2.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
                 <!-- Bootstrap core JavaScript-->
-                <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
                 <!-- Core plugin JavaScript-->
-                <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+                <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
                 <!-- Custom scripts for all pages-->
-                <script src="../js/sb-admin-2.min.js"></script>
+                <script src="../../js/sb-admin-2.min.js"></script>
 
                 <!-- Page level plugins -->
-                <script src="../vendor/chart.js/Chart.min.js"></script>
+                <script src="../../vendor/chart.js/Chart.min.js"></script>
                 <script>
                     const GPA2563 = [2.13, 3.34, 2.63, 3.33];
                     const GPAcolorbar = [];
@@ -1085,16 +660,16 @@
 
                     for (let i = 0; i < GPAsize; i++) {
                         if (GPA2563[i] >= 0.0000 && GPA2563[i] <= 1.7499) {
-                            GPAcolorLoop = 'rgba(255, 105, 98,0.7)';
+                            GPAcolorLoop = '#ff6962';
                         }
                         else if (GPA2563[i] >= 1.7500 && GPA2563[i] <= 1.9999) {
-                            GPAcolorLoop = 'rgba(245, 123, 57,0.7)';
+                            GPAcolorLoop = '#f57b39';
                         }
                         else if (GPA2563[i] >= 2.0000 && GPA2563[i] <= 3.2499) {
-                            GPAcolorLoop = 'rgba(153, 204, 153,0.7)';
+                            GPAcolorLoop = '#99cc99';
                         }
                         else if (GPA2563[i] >= 3.2500) {
-                            GPAcolorLoop = 'rgba(134, 211, 247,0.7)';
+                            GPAcolorLoop = '#86d3f7';
                         }
                         GPAcolorbar[i] = GPAcolorLoop;
                     }
@@ -1153,16 +728,16 @@
                     let GPASubcolorLoop;
                     for (let i = 0; i < GPASubsize; i++) {
                         if (GPASub[i] >= 0.0000 && GPASub[i] <= 1.7499) {
-                            GPASubcolorLoop = 'rgba(255, 105, 98,0.7)';
+                            GPASubcolorLoop = 'rgba(255, 105, 98,0.8)';
                         }
                         else if (GPASub[i] >= 1.7500 && GPASub[i] <= 1.9999) {
-                            GPASubcolorLoop = 'rgba(245, 123, 57,0.7)';
+                            GPASubcolorLoop = 'rgba(245, 123, 57,0.8)';
                         }
                         else if (GPASub[i] >= 2.0000 && GPASub[i] <= 3.2499) {
-                            GPASubcolorLoop = 'rgba(153, 204, 153,0.7)';
+                            GPASubcolorLoop = 'rgba(153, 204, 153,0.8)';
                         }
                         else if (GPASub[i] >= 3.2500) {
-                            GPASubcolorLoop = 'rgba(134, 211, 247,0.7)';
+                            GPASubcolorLoop = 'rgba(134, 188, 247,0.8)';
                         }
                         GPASubcolorbar[i] = GPASubcolorLoop;
                     }
@@ -1254,20 +829,6 @@
                     };
 
                     // สร้าง Donut Chart
-                    var ctx = document.getElementById("donutChart0");
-                    var donutChart = new Chart(ctx, {
-                        type: "doughnut",
-                        data: data,
-                        options: {
-                            cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                            responsive: true,
-                            plugins: {
-                                legend: {
-                                    display: false
-                                }
-                            }
-                        }
-                    });
                     var ctx = document.getElementById("donutChart");
                     var donutChart = new Chart(ctx, {
                         type: "doughnut",
@@ -1345,3 +906,54 @@
 
 </html>
 
+<div id="dataModal" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <table class="modal-dialog modal-lg" style="border:none; width: 85%;">
+                    <th style=" text-align: left; ">
+                        <h5 style="font-weight: bold;">เกรด 3.23</h5>
+                    </th>
+                    <th style=" text-align: right;">
+                        <h5 style="font-weight: bold;">GPA 3.45</h5>
+                    </th>
+                </table>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
+
+
+
+            </div>
+            <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
+            <div class="modal-body" id="std_detail">
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>รายชื่อวิชา</th>
+                            <th>เกรดที่ได้</th>
+                            <th>จำนวนหน่วยกิต</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>General Physics I</th>
+                            <th>B</th>
+                            <th>3</th>
+                        </tr>
+                        <tr>
+                            <th>Math I</th>
+                            <th>B</th>
+                            <th>3</th>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>

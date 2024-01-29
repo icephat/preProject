@@ -26,6 +26,7 @@
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -568,6 +569,55 @@ $student = getStudentByStudentId($studentId);
 
                 </div>
 
+
+                <br><br>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    ร้อยละของหน่วยกิตที่ลงทะเบียนแบ่งตามหมวดวิชา (%)</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="row " style=" justify-content: center; align-items: center;">
+                                    <?php
+                                        $i=0;
+                                        foreach ($academics as $academic){
+                                            $percent = 0;
+                                            $percent = round((float)($academic["credit"]*100)/$academic["creditAll"],2);
+                                            ?>
+                                        
+                                            
+                                                <a href="./report.php#tab<?php echo $i+1?>" class="col-sm-2"  style="text-decoration: none;">
+                                                    <div class="t1 card">
+                                                        <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                                style="color:#304f69;"><?php echo $academic["name"]?></span></p>
+                                                        <div style="text-align: center; position: relative;\">
+                                                            <canvas id="donutChart<?php echo $i?>"></canvas>
+                                                            <div id="centerText"
+                                                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                                <?php echo $percent ?>%<br><?php echo $academic["grade"]?></div>
+                                                        </div>
+                                                    </div>
+
+                                                </a>
+                                            
+                                        <?php
+                                            
+                                            $i++;
+                                        }
+
+                                    
+                                    ?>
+                                
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
                 <br><br>
                 <div style="justify-content: center; align-items: center;">
 
@@ -600,25 +650,25 @@ $student = getStudentByStudentId($studentId);
                                             foreach ($subjectFs as $subjectF) {
                                                 $sumcreditF += $subjectF["credit"];
                                                 echo "
-        
-        
-        <tr>
-            <td style=\" text-align: center;\">" . $subjectF["semesterYear"] . "</td>
-            <td style=\" text-align: center;\">" . $subjectF["semesterPart"] . "</td>
-            <td style=\" text-align: center;\">" . $subjectF["subjectGroup"] . "</td>
-            <td style=\" text-align: center;\">" . $subjectF["subjectCode"] . "</td>
-            <td style=\" text-align: left;\">
-            " . $subjectF["nameSubjectThai"] . "
-            </td>
-            <td style=\" text-align: center;\">" . $subjectF["credit"] . "</td>
-            <td style=\" text-align: center;\">" . $subjectF["gradeCharacter"] . "</td>
 
-        </tr>
         
-        
-        
-        
-        ";
+                                                <tr>
+                                                    <td style=\" text-align: center;\">" . $subjectF["semesterYear"] . "</td>
+                                                    <td style=\" text-align: center;\">" . $subjectF["semesterPart"] . "</td>
+                                                    <td style=\" text-align: center;\">" . $subjectF["subjectGroup"] . "</td>
+                                                    <td style=\" text-align: center;\">" . $subjectF["subjectCode"] . "</td>
+                                                    <td style=\" text-align: left;\">
+                                                    " . $subjectF["nameSubjectThai"] . "
+                                                    </td>
+                                                    <td style=\" text-align: center;\">" . $subjectF["credit"] . "</td>
+                                                    <td style=\" text-align: center;\">" . $subjectF["gradeCharacter"] . "</td>
+
+                                                </tr>
+                                                
+                                                
+                                                
+                                                
+                                                ";
                                             }
 
                                             ?>
@@ -813,6 +863,124 @@ $student = getStudentByStudentId($studentId);
                         </div>
                     </div>
 
+                    <br><br>
+                    <div>
+                        <div class="col-sm-12">
+                            <div class="card">
+
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <?php
+
+                                    $i = 1;
+
+
+                                    $unlink = "nav-link active";
+                                    $tab = "true";
+
+                                    foreach ($subjectGroups as $gorup) {
+                                        if ($gorup["name"] != "over") {
+                                            echo "
+                                            
+                                        <li class=\"nav-item\">
+                                            <a class=\"" . $unlink . "\" id=\"tab" . $i . "-tab\" data-toggle=\"tab\" href=\"#tab" .$i. "\" role=\"tab\" aria-controls=\"tab" . $i . "\" aria-selected=" . $tab . ">" . $gorup["name"] . "</a>
+                                        </li>
+                                            
+                                            
+                                            
+                                            
+                                            ";
+                                            $tab = "false";
+                                            $i++;
+                                            $unlink = "nav-link";
+                                        }
+
+                                    }
+
+                                    ?>
+
+                                </ul>
+                                <div class="tab-content">
+
+
+                                    <?php
+
+                                    $i = 1;
+                                    $tabpane = "tab-pane fade show active";
+
+                                    foreach ($subjectGroups as $gorup) {
+                                        echo "                              
+                                                    <div class=\"" . $tabpane . "\" id=\"tab" . $i . "\" role=\"tabpanel\" aria-labelledby=\"tab" . $i . "-tab\">
+                                                    ";
+
+                                        $tabpane = "tab-pane fade ";
+                                        $i++;
+
+                                        echo "
+                                                
+
+                                            <div class=\"table-responsive\">
+                                                <table class=\"table table-striped\" id=\"dataTable".$i."\" cellspacing=\"0\"
+                                                    style=\"color: black;  \">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ปีการศึกษา</th>
+                                                            <th>ภาคการศึกษา</th>
+                                                            <th>รหัสวิชา</th>
+                                                            <th>ชื่อวิชา</th>
+                                                            <th>หมวดรายวิชา</th>
+
+                                                            <th>ผลการเรียน</th>
+                                                            <th>หน่วยกิต</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                
+                                                ";
+
+                                        foreach ($gorup["list"] as $regis) {
+ 
+                                    
+                                            echo "
+                                                    
+                                                    <tr>
+                                                            <td class=\"text-left\">" . $regis["semesterYear"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["semesterPart"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["subjectCode"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["nameSubjectThai"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["subjectGroup"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["gradeCharacter"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["credit"] . "</td>
+                                                        </tr>
+                                                    
+                                                    ";
+
+                                        }
+
+                                        echo "
+                                                    </tbody>
+                                                </table>
+                                            </div>";
+
+
+
+                                        echo "</div>";
+                                    }
+
+
+                                    ?>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
                 </div>
                 <!-- /.container-fluid --------------------------------------------------------------------------------------------->
 
@@ -915,45 +1083,23 @@ $student = getStudentByStudentId($studentId);
         $i++;
     }
 
-    /*foreach ($idterms as $id) {
-        echo "
-        <div id=modal".$id." class=\"modal\" style=\"color: black;\">
-            <div class=\"modal-dialog modal-lg\">
-                <div class=\"modal-content\">";
-                
-                    foreach ($student["terms"] as $term){
-                        echo $term["semesterPart"];
-                        
-                        foreach ($term["regisList"] as $regis){
-                            
-                        
-                        }
-                        
-                    }
-
-                    
-                    
-                    
-
-    }*/
-
 
     ?>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-demo.js"></script>
+    <script src="../js/demo/datatables-demo2.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
@@ -1003,16 +1149,16 @@ $student = getStudentByStudentId($studentId);
 
         for (let i = 0; i < GPAsize; i++) {
             if (GPA2563[i] >= 0.0000 && GPA2563[i] <= 1.7499) {
-                GPAcolorLoop = '#ff6962';
+                GPAcolorLoop = 'rgba(255, 105, 98,0.7)';
             }
             else if (GPA2563[i] >= 1.7500 && GPA2563[i] <= 1.9999) {
-                GPAcolorLoop = '#f57b39';
+                GPAcolorLoop = 'rgba(245, 123, 57,0.7)';
             }
             else if (GPA2563[i] >= 2.0000 && GPA2563[i] <= 3.2499) {
-                GPAcolorLoop = '#99cc99';
+                GPAcolorLoop = 'rgba(153, 204, 153,0.7)';
             }
             else if (GPA2563[i] >= 3.2500) {
-                GPAcolorLoop = '#86d3f7';
+                GPAcolorLoop = 'rgba(134, 211, 247,0.7)';
             }
             GPAcolorbar[i] = GPAcolorLoop;
         }
@@ -1087,16 +1233,16 @@ $student = getStudentByStudentId($studentId);
         let GPASubcolorLoop;
         for (let i = 0; i < GPASubsize; i++) {
             if (GPASub[i] >= 0.0000 && GPASub[i] <= 1.7499) {
-                GPASubcolorLoop = 'rgba(255, 105, 98,0.8)';
+                GPASubcolorLoop = 'rgba(255, 105, 98,0.7)';
             }
             else if (GPASub[i] >= 1.7500 && GPASub[i] <= 1.9999) {
-                GPASubcolorLoop = 'rgba(245, 123, 57,0.8)';
+                GPASubcolorLoop = 'rgba(245, 123, 57,0.7)';
             }
             else if (GPASub[i] >= 2.0000 && GPASub[i] <= 3.2499) {
-                GPASubcolorLoop = 'rgba(153, 204, 153,0.8)';
+                GPASubcolorLoop = 'rgba(153, 204, 153,0.7)';
             }
             else if (GPASub[i] >= 3.2500) {
-                GPASubcolorLoop = 'rgba(134, 188, 247,0.8)';
+                GPASubcolorLoop = 'rgba(134, 211, 247,0.7)';
             }
             GPASubcolorbar[i] = GPASubcolorLoop;
         }
@@ -1138,128 +1284,79 @@ $student = getStudentByStudentId($studentId);
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        const GPAC = 3.13;
-        let GPACcolorbar = '';
-        let GPACcolor = 'rgba(211,211,211,0.8)';
-        if (GPAC >= 0.0000 && GPAC <= 1.7499) {
-            GPACcolorbar = 'rgba(255, 105, 98,0.8)';
-        }
-        else if (GPAC >= 1.7500 && GPAC <= 1.9999) {
-            GPACcolorbar = 'rgba(245, 123, 57,0.8)';
-        }
-        else if (GPAC >= 2.0000 && GPAC <= 3.2499) {
-            GPACcolorbar = 'rgba(153, 204, 153,0.8)';
+   
+   <?php
+   
+       $dataLists=[];
+       $dataPerLists=[];
+       foreach ($academics as $academic){
+           
+           //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
+           $dataPerLists[] = (float)($academic["credit"]*100)/$academic["creditAll"];
+           $dataLists[] = (float)($academic["creditYet"]*100)/$academic["creditAll"];
+           
 
-        }
-        else if (GPAC >= 3.2500) {
-            GPACcolorbar = 'rgba(134, 188, 247,0.8)';
-        }
+       }
 
-        // ข้อมูลสำหรับ Donut Chart
-        var data = {
-            datasets: [{
-                data: [100, 100 - 100],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data2 = {
-            datasets: [{
-                data: [80, 100 - 80],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data3 = {
-            datasets: [{
-                data: [90, 100 - 90],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data4 = {
-            datasets: [{
-                data: [90, 100 - 90],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data5 = {
-            datasets: [{
-                data: [100, 100 - 100],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
+   ?>
+   var perLists = <?php echo json_encode($dataPerLists)?>;
+   console.log(perLists);
+   var datalists = <?php echo json_encode($dataLists)?>;
+   console.log(datalists);
 
-        // สร้าง Donut Chart
-        var ctx = document.getElementById("donutChart");
-        var donutChart = new Chart(ctx, {
-            type: "doughnut",
-            data: data,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart2");
-        var donutChart2 = new Chart(ctx, {
-            type: "doughnut",
-            data: data2,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart3");
-        var donutChart3 = new Chart(ctx, {
-            type: "doughnut",
-            data: data3,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart4");
-        var donutChart4 = new Chart(ctx, {
-            type: "doughnut",
-            data: data4,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart5");
-        var donutChart5 = new Chart(ctx, {
-            type: "doughnut",
-            data: data5,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
+   let GPAPiesize = perLists.length;
+   const GPAcolorPie = [];
+   let GPAPiecolorLoop;
+   for (let i = 0; i < GPAPiesize; i++) {
+       if (perLists[i] >= 0.0000 && perLists[i] <= 1.7499) {
+           GPAPiecolorLoop = 'rgba(255, 105, 98,0.7)';
+       }
+       else if (perLists[i] >= 1.7500 && perLists[i] <= 1.9999) {
+           GPAPiecolorLoop = 'rgba(245, 123, 57,0.7)';
+       }
+       else if (perLists[i] >= 2.0000 && perLists[i] <= 3.2499) {
+           GPAPiecolorLoop = 'rgba(153, 204, 153,0.7)';
+       }
+       else if (perLists[i] >= 3.2500) {
+           GPAPiecolorLoop = 'rgba(134, 211, 247,0.7)';
+       }
+       GPAcolorPie[i] = GPAPiecolorLoop;
+   }
+  
+   
+   let x=0;
+   const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4","donutChart5"];
+   for (var name of labels) {
+       var data = {
+       datasets: [{
+           data: [datalists[x], perLists[x]],
+           backgroundColor: ['rgba(211,211,211,0.8)',GPAcolorPie[x]]
+       }]
+       };
 
-    </script>
+       var ctx = document.getElementById(name);
+       var name = new Chart(ctx, {
+           type: "doughnut",
+           data: data,
+           options: {
+               cutoutPercentage: perLists[x],  // กำหนดค่านี้เพื่อสร้าง Donut Chart
+               responsive: true,
+               plugins: {
+                   legend: {
+                       display: false
+                   }
+               }
+           }
+       });
+
+
+
+
+       x++;
+   } 
+  
+
+</script>
 
 </body>
 

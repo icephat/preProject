@@ -156,7 +156,7 @@
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 9, 188);"
                                                             href="../report_head/grade_department/honor.php">
-                                                            <h4>เกียรตินิยม</h4>
+                                                            <h4>3.25-4.00</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -174,7 +174,7 @@
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 110, 22);"
                                                             href="../report_head/grade_department/normal.php">
-                                                            <h4>ปกติ</h4>
+                                                            <h4>2.00-3.24</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -193,7 +193,7 @@
                                                     <div class="text-center">
                                                         <a style="color: #ff8c00;"
                                                             href="../report_head/grade_department/prohigh.php">
-                                                            <h4>รอพินิจ</h4>
+                                                            <h4>1.75-1.99</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -209,7 +209,7 @@
                                                     <div class="text-center">
                                                         <a style="color: rgb(255, 0, 0);"
                                                             href="../report_head/grade_department/prodown.php">
-                                                            <h4>โปรต่ำ</h4>
+                                                            <h4>0.00-1.74</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -229,7 +229,7 @@
                                         <tr style="border: 1px solid black; border-collapse: collapse;">
                                             <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
 
-                                                <div style="color: rgb(0, 9, 188);">
+                                                <div style="color: rgb(100, 197, 215);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 9, 188);"
                                                             href="../report_head/status_department/plan.php">
@@ -247,7 +247,7 @@
 
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse; ">
-                                                <div style="color: rgb(0, 110, 22);">
+                                                <div style="color: rgb(	118, 188, 22);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 110, 22);"
                                                             href="../report_head/status_department/noplan.php">
@@ -266,7 +266,7 @@
                                         <tr>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
 
-                                                <div style="color: #ff8c00;">
+                                                <div style="color: rgb(	245, 123, 57);">
                                                     <div class="text-center">
                                                         <a style="color: #ff8c00;"
                                                             href="../report_head/status_department/retry.php">
@@ -282,7 +282,7 @@
                                                 </div>
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
-                                                <div style="color: rgb(255, 0, 0);">
+                                                <div style="color: rgb(255, 105, 98);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(255, 0, 0);"
                                                             href="../report_head/status_department/finish.php">
@@ -645,7 +645,7 @@
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 9, 188);"
                                                             href="../report_head/grade_department_remain/honor.php">
-                                                            <h4>เกียรตินิยม</h4>
+                                                            <h4>3.25-4.00</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -663,7 +663,7 @@
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 110, 22);"
                                                             href="../report_head/grade_department_remain/normal.php">
-                                                            <h4>ปกติ</h4>
+                                                            <h4>2.00-3.24</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -682,7 +682,7 @@
                                                     <div class="text-center">
                                                         <a style="color: #ff8c00;"
                                                             href="../report_head/grade_department_remain/prohigh.php">
-                                                            <h4>รอพินิจ</h4>
+                                                            <h4>1.75-1.99</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -698,7 +698,7 @@
                                                     <div class="text-center">
                                                         <a style="color: rgb(255, 0, 0);"
                                                             href="../report_head/grade_department_remain/prodown.php">
-                                                            <h4>โปรต่ำ</h4>
+                                                            <h4>0.00-1.74</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -718,7 +718,7 @@
                                         <tr style="border: 1px solid black; border-collapse: collapse;">
                                             <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
 
-                                                <div style="color: rgb(0, 9, 188);">
+                                                <div style="color: rgb(100, 197, 215);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 9, 188);"
                                                             href="../report_head/status_department_remain/plan.php">
@@ -736,7 +736,7 @@
 
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse; ">
-                                                <div style="color: rgb(0, 110, 22);">
+                                                <div style="color: rgb(	118, 188, 22);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 110, 22);"
                                                             href="../report_head/status_department_remain/noplan.php">
@@ -755,7 +755,7 @@
                                         <tr>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
 
-                                                <div style="color: #ff8c00;">
+                                                <div style="color: rgb(	245, 123, 57);">
                                                     <div class="text-center">
                                                         <a style="color: #ff8c00;"
                                                             href="../report_head/status_department_remain/retry.php">
@@ -771,7 +771,7 @@
                                                 </div>
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
-                                                <div style="color: rgb(255, 0, 0);">
+                                                <div style="color: rgb(255, 105, 98);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(255, 0, 0);"
                                                             href="../report_head/status_department_remain/finish.php">
@@ -1186,25 +1186,25 @@
                                 datasets: [{
                                     label: 'ตามแผน',
                                     data: [125, 220, 210, 198],
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ไม่ตามแผน',
                                     data: [25, 20, 22, 20],
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'พ้นสภาพ',
                                     data: [6, 60, 2, 2],
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'จบการศึกษา',
                                     data: [0, 0, 4, 0],
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -1382,25 +1382,25 @@
                                 datasets: [{
                                     label: 'ตามแผน',
                                     data: [0, 0, 0, 0],
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ไม่ตามแผน',
                                     data: [5, 25, 15, 20],
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'พ้นสภาพ',
                                     data: [0, 0, 0, 0],
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'จบการศึกษา',
                                     data: [0, 0, 0, 0],
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                                     borderWidth: 0
                                 }
                                 ]

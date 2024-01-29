@@ -56,7 +56,7 @@
 
                 <?php include('../layout/teacher/home.php'); ?>
 
-                    <div>
+                    <!--<div>
                         <form class="form-valide" action="homeSearch.php" method="post" enctype="multipart/form-data">
                             <div class="row mx-auto">
                                 <div class="col-sm-3 text-center">
@@ -145,7 +145,8 @@
 
                         </div>
 
-                    </div>
+                    </div>-->
+                    
                     <div class="row">
                         <div class="col-sm-12 ">
                             <div class="row">
@@ -165,7 +166,7 @@
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 9, 188);"
                                                             href="../report_teacher/grade/honor.php">
-                                                            <h4>เกียรตินิยม</h4>
+                                                            <h4>3.25-4.00</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -183,7 +184,7 @@
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 110, 22);"
                                                             href="../report_teacher/grade/normal.php">
-                                                            <h4>ปกติ</h4>
+                                                            <h4>2.00-3.24</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -202,7 +203,7 @@
                                                     <div class="text-center">
                                                         <a style="color: #ff8c00;"
                                                             href="../report_teacher/grade/prohigh.php">
-                                                            <h4>รอพินิจ</h4>
+                                                            <h4>1.75-1.99</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -218,7 +219,7 @@
                                                     <div class="text-center">
                                                         <a style="color: rgb(255, 0, 0);"
                                                             href="../report_teacher/grade/prodown.php">
-                                                            <h4>โปรต่ำ</h4>
+                                                            <h4>0.00-1.74</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -232,6 +233,7 @@
                                         </tr>
                                     </table>
                                 </div>
+                                
                                 <div class="col-sm-5 mx-auto">
                                     <table class="table table-hover"
                                         style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
@@ -245,7 +247,7 @@
                                             
                                             ?>
 
-                                                <div style="color: rgb(0, 9, 188);">
+                                                <div style="color: rgb(100, 197, 215);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 9, 188);"
                                                             href="../report_teacher/status/plan.php">
@@ -263,7 +265,7 @@
 
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse; ">
-                                                <div style="color: rgb(0, 110, 22);">
+                                                <div style="color: rgb(	118, 188, 22);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 110, 22);"
                                                             href="../report_teacher/status/noplan.php">
@@ -282,7 +284,7 @@
                                         <tr>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
 
-                                                <div style="color: #ff8c00;">
+                                                <div style="color: rgb(	245, 123, 57);">
                                                     <div class="text-center">
                                                         <a style="color: #ff8c00;"
                                                             href="../report_teacher/status/retry.php">
@@ -298,7 +300,7 @@
                                                 </div>
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
-                                                <div style="color: rgb(255, 0, 0);">
+                                                <div style="color: rgb(255, 105, 98);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(255, 0, 0);"
                                                             href="../report_teacher/status/finish.php">
@@ -320,7 +322,7 @@
                         </div>
 
                     </div>
-
+                    <br>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
@@ -348,6 +350,7 @@
                                                             </th>
                                                             <th style="text-align: right; ">พ้นสภาพ</th>
                                                             <th style="text-align: right; ">จบการศึกษา</th>
+                                                            <th style="text-align: center; ">รายละเอียด</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -363,33 +366,36 @@
                                                         $sNotPlanh=[];
                                                         $sRetireh=[];
                                                         $sGradh=[];
-
-                                                        foreach($gens as $gen){
-                                                            echo "
+                                                        $idtermplan=0;
+                                                        foreach($gens as $gen){ ?>
+                                                            
                                                             <tr>
-                                                                <td style=\" text-align: right;\">".$gen["studyGeneretion"]."</td>
-                                                                <td style=\" text-align: right;\">
-                                                                ".$gen["planCount"]." คน
+                                                                <td style=" text-align: right;"><?php echo $gen["studyGeneretion"]?></td>
+                                                                <td style=" text-align: right;">
+                                                                <?php echo $gen["planCount"]?> คน
                                                                 </td>
-                                                                <td style=\" text-align: right;\">
-                                                                ".$gen["notPlanCount"]." คน
+                                                                <td style=" text-align: right;"><?php echo $gen["notPlanCount"] ?> คน
                                                                 </td>
-                                                                <td style=\" text-align: right;\">".$gen["retire"]." คน</td>
-                                                                <td style=\" text-align: right;\">".$gen["grad"]." คน</td>
+                                                                <td style=" text-align: right;"><?php echo $gen["retire"]?> คน</td>
+                                                                <td style=" text-align: right;"><?php echo $gen["grad"]?> คน</td>
+                                                                <td class="text-center">
+                                                                <a data-toggle="modal" data-target="#modalPlan<?php echo $idtermplan?>" >
+                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                </a>
+                                                            </td>
                                                             </tr>
-                                                            
-                                                            
-                                                            ";
-                                                            $listgensh[]="รุ่น ".(string)$gen["studyGeneretion"];
-                                                            $sumPlan += $gen["planCount"];
-                                                            $sPLanh[]=(int)$sumPlan;
-                                                            $sumNotPlan += $gen["notPlanCount"];
-                                                            $sNotPlanh[]=(int)$sumNotPlan;
-                                                            $sumRetire = $gen["retire"];
-                                                            $sRetireh[] =(int) $sumRetire;
-                                                            $sumGrad = $gen["grad"];
-                                                            $sGradh[] =(int) $sumGrad;
-                                                        }
+                                                        <?php
+                                                                $idtermplan++;
+                                                                $listgensh[]="รุ่น ".(string)$gen["studyGeneretion"];
+                                                                $sumPlan += $gen["planCount"];
+                                                                $sPLanh[]=(int)$sumPlan;
+                                                                $sumNotPlan += $gen["notPlanCount"];
+                                                                $sNotPlanh[]=(int)$sumNotPlan;
+                                                                $sumRetire = $gen["retire"];
+                                                                $sRetireh[] =(int) $sumRetire;
+                                                                $sumGrad = $gen["grad"];
+                                                                $sGradh[] =(int) $sumGrad;
+                                                            }
                                                         
                                                         ?>
                                                         <!-- <tr>
@@ -687,7 +693,7 @@
                                                             <th style="text-align: right; ">
                                                                 <span>ไม่ตามหลักสูตร</span>
                                                             </th>
-                                                            <th style="text-align: right; ">ลาออก</th>
+                                                            <th style="text-align: right; ">พ้นสภาพ</th>
                                                             <th style="text-align: center; ">รายละเอียด</th>
                                                         </tr>
                                                     </thead>
@@ -873,6 +879,173 @@
 
                     </div> -->
 
+                    <!--modalPlan-->
+                    <?php
+                        $termPlan =0;
+                        foreach($countStudySemesters as $countStudySemester){
+
+                    ?>
+                        <div id="modalPlan<?php echo $termPlan?>" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>ปีการศึกษา <?php echo $countStudySemester["semesterYear"]?> ภาคการศึกษา <?php echo $countStudySemester["semesterPart"]?></h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน <?php echo $countStudySemester["planStatus"]?> คน</h5>
+                                    <?php
+                                        if((int)$countStudySemester["planStatus"] > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>เกรดเฉลี่ย</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countStudySemester["studentPlans"] as $sPlan){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $sPlan["studentId"]?></th>
+                                                            <th>นาย<?php echo $sPlan["fisrtNameTh"]." ".$sPlan["lastNameTh"]?></th>
+                                                            <th><?php echo round($sPlan["gpaAll"],2)?></th>
+                                                        </tr>
+                                                    <?php
+                                                        }
+                                                    ?>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php } ?>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน <?php echo $countStudySemester["notPlanStatus"]?> คน</h5>
+                                    <?php
+                                        if((int)$countStudySemester["studentNotPlans"] > 0){
+                                            
+                                    ?>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    foreach($countStudySemester["studentNotPlans"] as $sNotPlan){
+                                                ?>
+                                                    <tr>
+                                                        <th><?php echo $sNotPlan["studentId"]?></th>
+                                                        <th>นาย<?php echo $sNotPlan["fisrtNameTh"]." ".$sNotPlan["lastNameTh"]?></th>
+                                                        <th><?php echo round($sNotPlan["gpaAll"],2)?></th>
+                                                    </tr>
+                                                <?php
+                                                    }
+                                                ?>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <?php } ?>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ <?php echo $countStudySemester["resign"]?> คน</h5>
+                                    <?php
+                                        if((int)$countStudySemester["studentResign"] > 0){
+                                            
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>เกรดเฉลี่ย</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countStudySemester["studentResign"] as $sRePlan){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $sRePlan["studentId"]?></th>
+                                                            <th>นาย<?php echo $sRePlan["fisrtNameTh"]." ".$sRePlan["lastNameTh"]?></th>
+                                                            <th><?php echo round($sRePlan["gpaAll"],2)?></th>
+                                                        </tr>
+                                                    <?php
+                                                        }
+                                                    ?>
+
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php } ?>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา <?php echo $countStudySemester["resign"]?> คน</h5>
+                                    
+                                    <?php
+                                    print_r($countStudySemester);
+                                        if((int)$countStudySemester["studentResign"] > 0){
+                                            
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>เกรดเฉลี่ย</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countStudySemester["studentResign"] as $sRePlan){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $sRePlan["studentId"]?></th>
+                                                            <th>นาย<?php echo $sRePlan["fisrtNameTh"]." ".$sRePlan["lastNameTh"]?></th>
+                                                            <th><?php echo round($sRePlan["gpaAll"],2)?></th>
+                                                        </tr>
+                                                    <?php
+                                                        }
+                                                    ?>
+
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php } ?>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                        $termPlan++;
+                        }
+                    ?>
+
+
                     <!--modal-->
                     <?php
                         $term =0;
@@ -910,7 +1083,7 @@
                                                         <tr>
                                                             <th><?php echo $sPlan["studentId"]?></th>
                                                             <th>นาย<?php echo $sPlan["fisrtNameTh"]." ".$sPlan["lastNameTh"]?></th>
-                                                            <th><?php echo $sPlan["gpaAll"]?></th>
+                                                            <th><?php echo round($sPlan["gpaAll"],2)?></th>
                                                         </tr>
                                                     <?php
                                                         }
@@ -944,7 +1117,7 @@
                                                     <tr>
                                                         <th><?php echo $sNotPlan["studentId"]?></th>
                                                         <th>นาย<?php echo $sNotPlan["fisrtNameTh"]." ".$sNotPlan["lastNameTh"]?></th>
-                                                        <th><?php echo $sNotPlan["gpaAll"]?></th>
+                                                        <th><?php echo round($sNotPlan["gpaAll"],2)?></th>
                                                     </tr>
                                                 <?php
                                                     }
@@ -957,7 +1130,7 @@
                                     </div>
                                     <?php } ?>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร <?php echo $countStudySemester["resign"]?> คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ <?php echo $countStudySemester["resign"]?> คน</h5>
                                     <?php
                                         if((int)$countStudySemester["studentResign"] > 0){
                                             
@@ -979,7 +1152,7 @@
                                                         <tr>
                                                             <th><?php echo $sRePlan["studentId"]?></th>
                                                             <th>นาย<?php echo $sRePlan["fisrtNameTh"]." ".$sRePlan["lastNameTh"]?></th>
-                                                            <th><?php echo $sRePlan["gpaAll"]?></th>
+                                                            <th><?php echo round($sRePlan["gpaAll"],2)?></th>
                                                         </tr>
                                                     <?php
                                                         }
@@ -1046,25 +1219,25 @@
                                     {
                                         label: 'ตามหลักสูตร',
                                         data: sPLansh,
-                                        backgroundColor: "rgba(0, 9, 188,0.7)",
+                                        backgroundColor: "rgba(100, 197, 215,0.7)",
                                         borderWidth: 0
                                     },
                                     {
                                         label: ['ไม่ตามหลักสูตร'],
                                         data: sNotPlansh,
-                                        backgroundColor: "rgba(0, 110, 22,0.7)",
+                                        backgroundColor: "rgba(118, 188, 22,0.7)",
                                         borderWidth: 0
                                     },
                                     {
                                         label: ['พ้นสภาพ'],
                                         data: sRetiresh,
-                                        backgroundColor: 'rgba(255,128,0,0.7)',
+                                        backgroundColor: 'rgba(245, 123, 57,0.7)',
                                         borderWidth: 0
                                     },
                                     {
                                         label: ['จบการศึกษา'],
                                         data: sGradsh,
-                                        backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                        backgroundColor: 'rgba(255, 105, 98,0.7)',
                                         borderWidth: 0
                                     }
                                 ]
@@ -1333,19 +1506,19 @@
                                 datasets: [{
                                     label: 'ตามหลักสูตร',
                                     data: plans,
-                                    backgroundColor: "#89cfef",
+                                    backgroundColor: "rgba(100, 197, 215,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['ไม่ตามหลักสุตร'],
                                     data: notPlans,
-                                    backgroundColor: "#ffab76",
+                                    backgroundColor: "rgba(118, 188, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: ['ลาออก'],
+                                    label: ['พ้นสภาพ'],
                                     data:resignPlans,
-                                    backgroundColor: '#ff6962',
+                                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                                     borderWidth: 0
                                 }
                                 ]

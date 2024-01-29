@@ -86,7 +86,7 @@ $calGPA = json_decode($jsonString, true);
                                                 <p>ผลการเรียนเทอมปัจจุบัน</p>
                                             </th>
                                             <th>
-                                                <p>ผลการเรียนจากการคำนวณ</p>
+                                                <p>ผลการเรียนของเทอมที่คำนวณ</p>
                                             </th>
                                             <th>
                                                 <p>ผลการเรียนที่คาดว่าจะได้</p>
@@ -103,7 +103,7 @@ $calGPA = json_decode($jsonString, true);
 
                                             </td>
                                             <td>
-                                                <p style="color: black; font-weight: bold;">GPA : <span
+                                                <p style="color: black; font-weight: bold;">เกรดเฉลี่ย : <span
                                                         style="font-weight: normal;">
                                                         <?php echo $calGPA["gpaNew"]; ?>
                                                     </span></p>

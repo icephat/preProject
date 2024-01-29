@@ -98,6 +98,10 @@ $_SESSION["studentId"] = $student["studentId"];
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> เกรด(3.25-4.00)</span>
+                                                &nbsp;&nbsp;&nbsp;
+                                            <span style="color: rgb(0, 107, 201);">
+                                                ~ GPA
+                                            </span>
                                         </p>
                                         <canvas id="myChart"></canvas>
                                     </div>
@@ -210,6 +214,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> เกรด(3.25-4.00)</span>
+                                            
                                         </p>
                                         <canvas id="myChartSub"></canvas>
                                     </div>
@@ -225,6 +230,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                 <thead>
                                                     <tr>
                                                         <th>หมวดวิชา</th>
+                                                        <th style="text-align: right;">เกรดเฉลี่ย</th>
                                                         <th style="text-align: right;">
                                                             จำนวนหน่วยกิตที่<span
                                                                 style="color:#428f3e;">เรียนไปแล้ว</span>
@@ -234,7 +240,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                         </th>
                                                         <th style="text-align: right; ">หน่วยกิตทั้งหมด
                                                         </th>
-                                                        <th style="text-align: right;">เกรด</th>
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -244,6 +250,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                             
                                                     <tr>
                                                         <td>".$academic["name"]."</td>
+                                                        <td style=\"font-weight: bold; text-align: right;\">".$academic["grade"]."</td>
                                                         <td style=\"font-weight: bold; color: green; text-align: right;\">
                                                         ".$academic["credit"]."
                                                         </td>
@@ -251,7 +258,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                         ".$academic["creditYet"]."
                                                         </td>
                                                         <td style=\"font-weight: bold; text-align: right;\">".$academic["creditAll"]."</td>
-                                                        <td style=\"font-weight: bold; text-align: right;\">".$academic["grade"]."</td>
+                                                        
                                                         
                                                     </tr>";
                                                     }
@@ -335,7 +342,7 @@ $_SESSION["studentId"] = $student["studentId"];
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">
-                                    รายงานหน่วยกิตที่ลงทะเบียนแบ่งตามหมวดวิชา (%)</h6>
+                                    ร้อยละของหน่วยกิตที่ลงทะเบียนแบ่งตามหมวดวิชา (%)</h6>
                             </div>
                             <div class="card-body">
                                 <div class="row " style=" justify-content: center; align-items: center;">
@@ -344,19 +351,24 @@ $_SESSION["studentId"] = $student["studentId"];
                                         foreach ($academics as $academic){
                                             $percent = 0;
                                             $percent = round((float)($academic["credit"]*100)/$academic["creditAll"],2);
-                                            echo "<div class=\"col-sm-2\">
-                                                <div class=\"card\">
-                                                    <p style=\"padding: 10px;\">หน่วยกิตการเรียน &nbsp;<br><span
-                                                            style=\"color:#304f69;\">".$academic["name"]."</span></p>
-                                                    <div style=\"text-align: center; position: relative;\">
-                                                        <canvas id=\"donutChart".$i."\"></canvas>
-                                                        <div id=\"centerText\"
-                                                            style=\"position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;\">
-                                                            ".$percent."%<br>".$academic["grade"]."</div>
+                                            ?>
+                                        
+                                            
+                                                <a href="./report.php#tab<?php echo $i+1?>" class="col-sm-2"  style="text-decoration: none;">
+                                                    <div class="t1 card">
+                                                        <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                                style="color:#304f69;"><?php echo $academic["name"]?></span></p>
+                                                        <div style="text-align: center; position: relative;\">
+                                                            <canvas id="donutChart<?php echo $i?>"></canvas>
+                                                            <div id="centerText"
+                                                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                                <?php echo $percent ?>%<br><?php echo $academic["grade"]?></div>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                            </div>";
+                                                </a>
+                                            
+                                        <?php
                                             
                                             $i++;
                                         }
@@ -575,16 +587,16 @@ $_SESSION["studentId"] = $student["studentId"];
 
         for (let i = 0; i < GPAsize; i++) {
             if (GPA2563[i] >= 0.0000 && GPA2563[i] <= 1.7499) {
-                GPAcolorLoop = '#ff6962';
+                GPAcolorLoop = 'rgba(255, 105, 98,0.7)';
             }
             else if (GPA2563[i] >= 1.7500 && GPA2563[i] <= 1.9999) {
-                GPAcolorLoop = '#f57b39';
+                GPAcolorLoop = 'rgba(245, 123, 57,0.7)';
             }
             else if (GPA2563[i] >= 2.0000 && GPA2563[i] <= 3.2499) {
-                GPAcolorLoop = '#99cc99';
+                GPAcolorLoop = 'rgba(153, 204, 153,0.7)';
             }
             else if (GPA2563[i] >= 3.2500) {
-                GPAcolorLoop = '#86d3f7';
+                GPAcolorLoop = 'rgba(134, 211, 247,0.7)';
             }
             GPAcolorbar[i] = GPAcolorLoop;
         }
@@ -659,16 +671,16 @@ $_SESSION["studentId"] = $student["studentId"];
         let GPASubcolorLoop;
         for (let i = 0; i < GPASubsize; i++) {
             if (GPASub[i] >= 0.0000 && GPASub[i] <= 1.7499) {
-                GPASubcolorLoop = 'rgba(255, 105, 98,0.8)';
+                GPASubcolorLoop = 'rgba(255, 105, 98,0.7)';
             }
             else if (GPASub[i] >= 1.7500 && GPASub[i] <= 1.9999) {
-                GPASubcolorLoop = 'rgba(245, 123, 57,0.8)';
+                GPASubcolorLoop = 'rgba(245, 123, 57,0.7)';
             }
             else if (GPASub[i] >= 2.0000 && GPASub[i] <= 3.2499) {
-                GPASubcolorLoop = 'rgba(153, 204, 153,0.8)';
+                GPASubcolorLoop = 'rgba(153, 204, 153,0.7)';
             }
             else if (GPASub[i] >= 3.2500) {
-                GPASubcolorLoop = 'rgba(134, 188, 247,0.8)';
+                GPASubcolorLoop = 'rgba(134, 211, 247,0.7)';
             }
             GPASubcolorbar[i] = GPASubcolorLoop;
         }
@@ -730,15 +742,34 @@ $_SESSION["studentId"] = $student["studentId"];
         console.log(perLists);
         var datalists = <?php echo json_encode($dataLists)?>;
         console.log(datalists);
+
+        let GPAPiesize = perLists.length;
+        const GPAcolorPie = [];
+        let GPAPiecolorLoop;
+        for (let i = 0; i < GPAPiesize; i++) {
+            if (perLists[i] >= 0.0000 && perLists[i] <= 1.7499) {
+                GPAPiecolorLoop = 'rgba(255, 105, 98,0.7)';
+            }
+            else if (perLists[i] >= 1.7500 && perLists[i] <= 1.9999) {
+                GPAPiecolorLoop = 'rgba(245, 123, 57,0.7)';
+            }
+            else if (perLists[i] >= 2.0000 && perLists[i] <= 3.2499) {
+                GPAPiecolorLoop = 'rgba(153, 204, 153,0.7)';
+            }
+            else if (perLists[i] >= 3.2500) {
+                GPAPiecolorLoop = 'rgba(134, 211, 247,0.7)';
+            }
+            GPAcolorPie[i] = GPAPiecolorLoop;
+        }
        
         
         let x=0;
-        const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4"];
+        const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4","donutChart5"];
         for (var name of labels) {
             var data = {
             datasets: [{
                 data: [datalists[x], perLists[x]],
-                backgroundColor: ['rgba(211,211,211,0.8)','rgba(153, 204, 153,0.8)']
+                backgroundColor: ['rgba(211,211,211,0.8)',GPAcolorPie[x]]
             }]
             };
 
