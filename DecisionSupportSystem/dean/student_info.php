@@ -1,4 +1,4 @@
-<!DOCTYPE php>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,6 +27,7 @@
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -41,7 +42,7 @@
             <!-- Main Content -->
             <div id="content">
 
-            <?php include('../layout/dean/nisit.php'); ?>
+                <?php include('../layout/dean/nisit.php'); ?>
 
                     <hr>
 
@@ -496,6 +497,103 @@
 
                     <br><br>
                     <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">
+                                        รายงานหน่วยกิตที่ลงทะเบียนแบ่งตามหมวดวิชา (%)</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row " style=" justify-content: center; align-items: center;">
+                                        <div class="col-sm-2">
+                                            <div class="card">
+                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                        style="color:#304f69;">ทั้งหมด</span></p>
+                                                <div style="text-align: center; position: relative;">
+                                                    <canvas id="donutChart0"></canvas>
+                                                    <div id="centerText"
+                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                        100%<br>3.12</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="card">
+                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                        style="color:#304f69;">หมวดวิชาศึกษาทั่วไป</span></p>
+                                                <div style="text-align: center; position: relative;">
+                                                    <canvas id="donutChart"></canvas>
+                                                    <div id="centerText"
+                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                        100%<br>3.12</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="card">
+                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                        style="color:#304f69;">หมวดวิชาเสรี</span></p>
+                                                <div style="text-align: center; position: relative;">
+                                                    <canvas id="donutChart2"></canvas>
+                                                    <div id="centerText"
+                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                        80%<br>3.45</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="card">
+                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                        style="color:#304f69;">หมวดวิชาเฉพาะบังคับ</span></p>
+                                                <div style="text-align: center; position: relative;">
+                                                    <canvas id="donutChart3"></canvas>
+                                                    <div id="centerText"
+                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                        90%<br>3.00</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="card">
+                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                        style="color:#304f69;">หมวดวิชาเฉพาะเลือก</span></p>
+                                                <div style="text-align: center; position: relative;">
+                                                    <canvas id="donutChart4"></canvas>
+                                                    <div id="centerText"
+                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                        90%<br>1.25</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="card">
+                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                        style="color:#304f69;">หมวดวิชาเสรี</span></p>
+                                                <div style="text-align: center; position: relative;">
+                                                    <canvas id="donutChart5"></canvas>
+                                                    <div id="centerText"
+                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                        100%<br>3.40</div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <br><br>
+                    <div class="row">
                         <div class="col-sm-12 ">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -627,376 +725,623 @@
                         <!-- /.container-fluid --------------------------------------------------------------------------------------------->
 
                     </div>
+
+                    <br><br>
+
+                    <div class="col-sm-12 mx-auto">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">วิชาเรียนที่เรียนเกินหลักสูตร
+                                </h6>
+                            </div>
+                            <div class="card-body ">
+                                <div class="table-responsive">
+                                    <table class="table table-striped" cellspacing="0" style="color: black;  ">
+                                        <thead style="background-color: #86d3f7;">
+                                            <tr>
+                                                <th style=" text-align: center;">ปีการศึกษา</th>
+                                                <th style=" text-align: center;">ภาคการเรียน</th>
+                                                <th style=" text-align: center;">หมวดวิชา</th>
+                                                <th style=" text-align: center;">รหัสวิชา</th>
+                                                <th style="text-align: left;">ชื่อรายวิชา</th>
+                                                <th style="text-align: center;">หน่วยกิต</th>
+                                                <th style="text-align: center;">สถานะ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                                <tr>
+                                                    <td style=" text-align: center;">xxx</td>
+                                                    <td style=" text-align: center;">xxx</td>
+                                                    <td style=" text-align: center;">xxx</td>
+                                                    <td style=" text-align: center;">xxx</td>
+                                                    <td style=" text-align: left;">xxx</td>
+                                                    <td style=" text-align: center;">xxx</td>
+                                                    <td style=" text-align: center;">xxx</td>
+
+                                                </tr>
+
+                                            <tr>
+                                                <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
+                                                    colspan="4">
+                                                    รวม</td>
+                                                <td style=" text-align: center;">x</td>
+                                                <td style="text-align: center;">x</td>
+                                                <td style=" text-align: center;"></td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div>
+                            <div class="col-sm-12">
+                                <div class="card">
+
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1"
+                                                role="tab" aria-controls="tab1" aria-selected="true">หมวดวิชาแกน</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2" role="tab"
+                                                aria-controls="tab2" aria-selected="false">หมวดวิชาศึกษาทั่วไป</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="tab3-tab" data-toggle="tab" href="#tab3" role="tab"
+                                                aria-controls="tab3" aria-selected="false">หมวดวิชาเฉพาะบังคับ</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="tab4-tab" data-toggle="tab" href="#tab4" role="tab"
+                                                aria-controls="tab4" aria-selected="false">หมวดวิชาเฉพาะเลือก</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="tab5-tab" data-toggle="tab" href="#tab5" role="tab"
+                                                aria-controls="tab5" aria-selected="false">หมวดวิชาเสรี</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="tab1" role="tabpanel"
+                                            aria-labelledby="tab1-tab">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" id="dataTable" cellspacing="0"
+                                                    style="color: black;  ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ปีการศึกษา</th>
+                                                            <th>ภาคการศึกษา</th>
+                                                            <th>รหัสวิชา</th>
+                                                            <th>ชื่อวิชา</th>
+                                                            <th>หมวดรายวิชา</th>
+
+                                                            <th>ผลการเรียน</th>
+                                                            <th>หน่วยกิต</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-left">2563</td>
+                                                            <td class="text-left">ภาคต้น</td>
+                                                            <td class="text-left">01417167</td>
+                                                            <td class="text-left">Engineering Mathematics I</td>
+                                                            <td class="text-left">หมวดวิชาแกน</td>
+                                                            <td class="text-left">C+</td>
+                                                            <td class="text-left">3</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="text-left">2563</td>
+                                                            <td class="text-left">ภาคต้น</td>
+                                                            <td class="text-left">01420111</td>
+                                                            <td class="text-left">General Physics I</td>
+                                                            <td class="text-left">หมวดวิชาแกน</td>
+                                                            <td class="text-left">B</td>
+                                                            <td class="text-left">3</td>
+                                                        </tr>
+                                                    </tbody>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <!--นิสิตในภาค-->
+                                        <div class="tab-pane fade " id="tab2" role="tabpanel"
+                                            aria-labelledby="tab2-tab">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" id="dataTable2" cellspacing="0"
+                                                    style="color: black;  ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ปีการศึกษา</th>
+                                                            <th>ภาคการศึกษา</th>
+                                                            <th>รหัสวิชา</th>
+                                                            <th>ชื่อวิชา</th>
+                                                            <th>หมวดวิชา</th>
+                                                            <th>ผลการเรียน</th>
+                                                            <th>หน่วยกิต</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        <tr>
+                                                            <td class="text-center">2563</td>
+                                                            <td class="text-center">ภาคต้น</td>
+                                                            <td class="text-center">01417167</td>
+                                                            <td>Engineering Mathematics I</td>
+                                                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
+                                                            <td class="text-center">C+</td>
+                                                            <td class="text-center">3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">2563</td>
+                                                            <td class="text-center">ภาคต้น</td>
+                                                            <td class="text-center">01420111</td>
+                                                            <td>General Physics I</td>
+                                                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
+                                                            <td class="text-center">B</td>
+                                                            <td class="text-center">3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">2563</td>
+                                                            <td class="text-center">ภาคต้น</td>
+                                                            <td class="text-center">01420113</td>
+                                                            <td>Laboratory in Physics I</td>
+                                                            <td class="text-center">หมวดวิชาศึกษาทั่วไป</td>
+                                                            <td class="text-center">A</td>
+                                                            <td class="text-center">3</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <!--นิสิตในคณะ-->
+                                        <div class="tab-pane fade " id="tab3" role="tabpanel"
+                                            aria-labelledby="tab3-tab">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped" id="dataTable3" cellspacing="0"
+                                                    style="color: black;  ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ปีการศึกษา</th>
+                                                            <th>ภาคการศึกษา</th>
+                                                            <th>รหัสวิชา</th>
+                                                            <th>ชื่อวิชา</th>
+                                                            <th>หมวดวิชา</th>
+                                                            <th>ผลการเรียน</th>
+                                                            <th>หน่วยกิต</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        <tr>
+                                                            <td class="text-center">2563</td>
+                                                            <td class="text-center">ภาคต้น</td>
+                                                            <td class="text-center">01417167</td>
+                                                            <td>Engineering Mathematics I</td>
+                                                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
+                                                            <td class="text-center">C+</td>
+                                                            <td class="text-center">3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">2563</td>
+                                                            <td class="text-center">ภาคต้น</td>
+                                                            <td class="text-center">01420111</td>
+                                                            <td>General Physics I</td>
+                                                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
+                                                            <td class="text-center">B</td>
+                                                            <td class="text-center">3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center">2563</td>
+                                                            <td class="text-center">ภาคต้น</td>
+                                                            <td class="text-center">01420113</td>
+                                                            <td>Laboratory in Physics I</td>
+                                                            <td class="text-center">หมวดวิชาเฉพาะบังคับ</td>
+                                                            <td class="text-center">A</td>
+                                                            <td class="text-center">3</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    <!-- End of Content Wrapper -->
+
                 </div>
-                <!-- /.container-fluid --------------------------------------------------------------------------------------------->
+                <!-- End of Page Wrapper -->
 
-            </div>
-            <!-- End of Main Content -->
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="login.php">Logout</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.php">Logout</a>
+
+
+                <!-- dataModal -->
+                <div id="dataModal" class="modal fade" style="color: black;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="height: 90px;">
+                                <table class="modal-dialog modal-lg" style="border:none; width: 85%;">
+                                    <th style=" text-align: left; ">
+                                        <h5 style="font-weight: bold;">เกรด 3.23</h5>
+                                    </th>
+                                    <th style=" text-align: right;">
+                                        <h5 style="font-weight: bold;">GPA 3.45</h5>
+                                    </th>
+                                </table>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <br>
+
+
+
+                            </div>
+                            <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รายชื่อวิชา</th>
+                                            <th>เกรดที่ได้</th>
+                                            <th>จำนวนหน่วยกิต</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>General Physics I</th>
+                                            <th>B</th>
+                                            <th>3</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Math I</th>
+                                            <th>B</th>
+                                            <th>3</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"
+                                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Bootstrap core JavaScript-->
+                <script src="../vendor/jquery/jquery.min.js"></script>
+                <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+                <!-- Core plugin JavaScript-->
+                <script src="../vendor/jquery/jquery.min.js"></script>
+                <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+                <!-- Page level plugins -->
+                <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+                <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-demo.js"></script>
+                <!-- Page level custom scripts -->
+                <script src="../js/demo/datatables-demo.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+                <!-- Custom scripts for all pages-->
+                <script src="../js/sb-admin-2.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- Bootstrap core JavaScript-->
+                <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+                <!-- Core plugin JavaScript-->
+                <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin-2.min.js"></script>
+                <!-- Custom scripts for all pages-->
+                <script src="../js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
-    <script>
-        const GPA2563 = [2.13, 3.34, 2.63, 3.33];
-        const GPAcolorbar = [];
-        let GPAsize = GPA2563.length;
-        let GPAcolorLoop;
+                <!-- Page level plugins -->
+                <script src="../vendor/chart.js/Chart.min.js"></script>
+                <script>
+                    const GPA2563 = [2.13, 3.34, 2.63, 3.33];
+                    const GPAcolorbar = [];
+                    let GPAsize = GPA2563.length;
+                    let GPAcolorLoop;
 
-        for (let i = 0; i < GPAsize; i++) {
-            if (GPA2563[i] >= 0.0000 && GPA2563[i] <= 1.7499) {
-                GPAcolorLoop = '#ff6962';
-            }
-            else if (GPA2563[i] >= 1.7500 && GPA2563[i] <= 1.9999) {
-                GPAcolorLoop = '#f57b39';
-            }
-            else if (GPA2563[i] >= 2.0000 && GPA2563[i] <= 3.2499) {
-                GPAcolorLoop = '#99cc99';
-            }
-            else if (GPA2563[i] >= 3.2500) {
-                GPAcolorLoop = '#86d3f7';
-            }
-            GPAcolorbar[i] = GPAcolorLoop;
-        }
-        console.log(GPAcolorbar);
-
-
-        var ctx = document.getElementById("myChart");
-
-        var myChart = new Chart(ctx, {
-            //type: 'bar',
-            //type: 'line',
-            type: 'bar',
-            data: {
-                labels: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
-                datasets: [{
-                    type: 'line',
-                    label: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
-                    data: [2.13, 2.63, 2.62, 2.78],
-                    borderColor: 'rgb(0, 107, 201)',
-                    lineTension: 0,
-                    fill: false
-                },
-                {
-                    data: GPA2563,
-                    backgroundColor: GPAcolorbar,
-                    borderWidth: 0
-                },
-
-                ]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            max: 4,
-                            min: 0
+                    for (let i = 0; i < GPAsize; i++) {
+                        if (GPA2563[i] >= 0.0000 && GPA2563[i] <= 1.7499) {
+                            GPAcolorLoop = 'rgba(255, 105, 98,0.7)';
                         }
-                    }]
-                },
-                legend: {
-                    display: false
-                },
-                responsive: true,
-
-            }
-        });
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
-    <script>
-        var ctx = document.getElementById("myChartSub");
-        const GPASub = [3.13, 3.23, 3.33, 3.38, 3.40];
-        const GPASubcolorbar = [];
-        let GPASubsize = GPASub.length;
-        let GPASubcolorLoop;
-        for (let i = 0; i < GPASubsize; i++) {
-            if (GPASub[i] >= 0.0000 && GPASub[i] <= 1.7499) {
-                GPASubcolorLoop = 'rgba(255, 105, 98,0.8)';
-            }
-            else if (GPASub[i] >= 1.7500 && GPASub[i] <= 1.9999) {
-                GPASubcolorLoop = 'rgba(245, 123, 57,0.8)';
-            }
-            else if (GPASub[i] >= 2.0000 && GPASub[i] <= 3.2499) {
-                GPASubcolorLoop = 'rgba(153, 204, 153,0.8)';
-            }
-            else if (GPASub[i] >= 3.2500) {
-                GPASubcolorLoop = 'rgba(134, 188, 247,0.8)';
-            }
-            GPASubcolorbar[i] = GPASubcolorLoop;
-        }
-        var myChart = new Chart(ctx, {
-            //type: 'bar',
-            //type: 'line',
-
-            type: 'bar',
-            data: {
-                labels: ['หมวดวิชาแกน', 'หมวดวิชาศึกษาทั่วไป', 'หมวดวิชาเฉพาะบังคับ', 'หมวดวิชาเฉพาะเลือก', 'หมวดวิชาเสรี'],
-                datasets: [{
-                    data: GPASub,
-                    backgroundColor: GPASubcolorbar,
-                    borderWidth: 0,
-
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            max: 4,
-                            min: 0
+                        else if (GPA2563[i] >= 1.7500 && GPA2563[i] <= 1.9999) {
+                            GPAcolorLoop = 'rgba(245, 123, 57,0.7)';
                         }
-                    }]
-                },
-                legend: {
-                    display: false
-                },
-                responsive: true,
-
-            }
-
-
-        });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-        const GPAC = 3.13;
-        let GPACcolorbar = '';
-        let GPACcolor = 'rgba(211,211,211,0.8)';
-        if (GPAC >= 0.0000 && GPAC <= 1.7499) {
-            GPACcolorbar = 'rgba(255, 105, 98,0.8)';
-        }
-        else if (GPAC >= 1.7500 && GPAC <= 1.9999) {
-            GPACcolorbar = 'rgba(245, 123, 57,0.8)';
-        }
-        else if (GPAC >= 2.0000 && GPAC <= 3.2499) {
-            GPACcolorbar = 'rgba(153, 204, 153,0.8)';
-
-        }
-        else if (GPAC >= 3.2500) {
-            GPACcolorbar = 'rgba(134, 188, 247,0.8)';
-        }
-
-        // ข้อมูลสำหรับ Donut Chart
-        var data = {
-            datasets: [{
-                data: [100, 100 - 100],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data2 = {
-            datasets: [{
-                data: [80, 100 - 80],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data3 = {
-            datasets: [{
-                data: [90, 100 - 90],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data4 = {
-            datasets: [{
-                data: [90, 100 - 90],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-        var data5 = {
-            datasets: [{
-                data: [100, 100 - 100],
-                backgroundColor: [GPACcolorbar, GPACcolor]
-            }]
-        };
-
-        // สร้าง Donut Chart
-        var ctx = document.getElementById("donutChart");
-        var donutChart = new Chart(ctx, {
-            type: "doughnut",
-            data: data,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
+                        else if (GPA2563[i] >= 2.0000 && GPA2563[i] <= 3.2499) {
+                            GPAcolorLoop = 'rgba(153, 204, 153,0.7)';
+                        }
+                        else if (GPA2563[i] >= 3.2500) {
+                            GPAcolorLoop = 'rgba(134, 211, 247,0.7)';
+                        }
+                        GPAcolorbar[i] = GPAcolorLoop;
                     }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart2");
-        var donutChart2 = new Chart(ctx, {
-            type: "doughnut",
-            data: data2,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart3");
-        var donutChart3 = new Chart(ctx, {
-            type: "doughnut",
-            data: data3,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart4");
-        var donutChart4 = new Chart(ctx, {
-            type: "doughnut",
-            data: data4,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-        var ctx = document.getElementById("donutChart5");
-        var donutChart5 = new Chart(ctx, {
-            type: "doughnut",
-            data: data5,
-            options: {
-                cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
+                    console.log(GPAcolorbar);
 
-    </script>
+
+                    var ctx = document.getElementById("myChart");
+
+                    var myChart = new Chart(ctx, {
+                        //type: 'bar',
+                        //type: 'line',
+                        type: 'bar',
+                        data: {
+                            labels: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+                            datasets: [{
+                                type: 'line',
+                                label: ['ภาคต้น 2563', 'ภาคปลาย 2563', 'ภาคต้น 2564', 'ภาคปลาย 2564'],
+                                data: [2.13, 2.63, 2.62, 2.78],
+                                borderColor: 'rgb(0, 107, 201)',
+                                lineTension: 0,
+                                fill: false
+                            },
+                            {
+                                data: GPA2563,
+                                backgroundColor: GPAcolorbar,
+                                borderWidth: 0
+                            },
+
+                            ]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                        max: 4,
+                                        min: 0
+                                    }
+                                }]
+                            },
+                            legend: {
+                                display: false
+                            },
+                            responsive: true,
+
+                        }
+                    });
+                </script>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+                <script>
+                    var ctx = document.getElementById("myChartSub");
+                    const GPASub = [3.13, 3.23, 3.33, 3.38, 3.40];
+                    const GPASubcolorbar = [];
+                    let GPASubsize = GPASub.length;
+                    let GPASubcolorLoop;
+                    for (let i = 0; i < GPASubsize; i++) {
+                        if (GPASub[i] >= 0.0000 && GPASub[i] <= 1.7499) {
+                            GPASubcolorLoop = 'rgba(255, 105, 98,0.7)';
+                        }
+                        else if (GPASub[i] >= 1.7500 && GPASub[i] <= 1.9999) {
+                            GPASubcolorLoop = 'rgba(245, 123, 57,0.7)';
+                        }
+                        else if (GPASub[i] >= 2.0000 && GPASub[i] <= 3.2499) {
+                            GPASubcolorLoop = 'rgba(153, 204, 153,0.7)';
+                        }
+                        else if (GPASub[i] >= 3.2500) {
+                            GPASubcolorLoop = 'rgba(134, 211, 247,0.7)';
+                        }
+                        GPASubcolorbar[i] = GPASubcolorLoop;
+                    }
+                    var myChart = new Chart(ctx, {
+                        //type: 'bar',
+                        //type: 'line',
+
+                        type: 'bar',
+                        data: {
+                            labels: ['หมวดวิชาแกน', 'หมวดวิชาศึกษาทั่วไป', 'หมวดวิชาเฉพาะบังคับ', 'หมวดวิชาเฉพาะเลือก', 'หมวดวิชาเสรี'],
+                            datasets: [{
+                                data: GPASub,
+                                backgroundColor: GPASubcolorbar,
+                                borderWidth: 0,
+
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                        max: 4,
+                                        min: 0
+                                    }
+                                }]
+                            },
+                            legend: {
+                                display: false
+                            },
+                            responsive: true,
+
+                        }
+
+
+                    });
+                </script>
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                <script>
+                    const GPAC = 3.13;
+                    let GPACcolorbar = '';
+                    let GPACcolor = 'rgba(211,211,211,0.8)';
+                    if (GPAC >= 0.0000 && GPAC <= 1.7499) {
+                        GPACcolorbar = 'rgba(255, 105, 98,0.8)';
+                    }
+                    else if (GPAC >= 1.7500 && GPAC <= 1.9999) {
+                        GPACcolorbar = 'rgba(245, 123, 57,0.8)';
+                    }
+                    else if (GPAC >= 2.0000 && GPAC <= 3.2499) {
+                        GPACcolorbar = 'rgba(153, 204, 153,0.8)';
+
+                    }
+                    else if (GPAC >= 3.2500) {
+                        GPACcolorbar = 'rgba(134, 188, 247,0.8)';
+                    }
+
+                    // ข้อมูลสำหรับ Donut Chart
+                    var data = {
+                        datasets: [{
+                            data: [100, 100 - 100],
+                            backgroundColor: [GPACcolorbar, GPACcolor]
+                        }]
+                    };
+                    var data2 = {
+                        datasets: [{
+                            data: [80, 100 - 80],
+                            backgroundColor: [GPACcolorbar, GPACcolor]
+                        }]
+                    };
+                    var data3 = {
+                        datasets: [{
+                            data: [90, 100 - 90],
+                            backgroundColor: [GPACcolorbar, GPACcolor]
+                        }]
+                    };
+                    var data4 = {
+                        datasets: [{
+                            data: [90, 100 - 90],
+                            backgroundColor: [GPACcolorbar, GPACcolor]
+                        }]
+                    };
+                    var data5 = {
+                        datasets: [{
+                            data: [100, 100 - 100],
+                            backgroundColor: [GPACcolorbar, GPACcolor]
+                        }]
+                    };
+
+                    // สร้าง Donut Chart
+                    var ctx = document.getElementById("donutChart0");
+                    var donutChart = new Chart(ctx, {
+                        type: "doughnut",
+                        data: data,
+                        options: {
+                            cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    });
+                    var ctx = document.getElementById("donutChart");
+                    var donutChart = new Chart(ctx, {
+                        type: "doughnut",
+                        data: data,
+                        options: {
+                            cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    });
+                    var ctx = document.getElementById("donutChart2");
+                    var donutChart2 = new Chart(ctx, {
+                        type: "doughnut",
+                        data: data2,
+                        options: {
+                            cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    });
+                    var ctx = document.getElementById("donutChart3");
+                    var donutChart3 = new Chart(ctx, {
+                        type: "doughnut",
+                        data: data3,
+                        options: {
+                            cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    });
+                    var ctx = document.getElementById("donutChart4");
+                    var donutChart4 = new Chart(ctx, {
+                        type: "doughnut",
+                        data: data4,
+                        options: {
+                            cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    });
+                    var ctx = document.getElementById("donutChart5");
+                    var donutChart5 = new Chart(ctx, {
+                        type: "doughnut",
+                        data: data5,
+                        options: {
+                            cutoutPercentage: 70,  // กำหนดค่านี้เพื่อสร้าง Donut Chart
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    });
+
+                </script>
 
 </body>
 
 </html>
 
-<div id="dataModal" class="modal fade" style="color: black;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 90px;">
-                <table class="modal-dialog modal-lg" style="border:none; width: 85%;">
-                    <th style=" text-align: left; ">
-                        <h5 style="font-weight: bold;">เกรด 3.23</h5>
-                    </th>
-                    <th style=" text-align: right;">
-                        <h5 style="font-weight: bold;">GPA 3.45</h5>
-                    </th>
-                </table>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <br>
-
-
-
-            </div>
-            <h4 class="modal-title" style="margin-left: 10px;">ผลการเรียนของนิสิตในปีการศึกษา 2563 ภาคต้น</h4>
-            <div class="modal-body" id="std_detail">
-                <table class="table">
-
-                    <thead>
-                        <tr>
-                            <th>รายชื่อวิชา</th>
-                            <th>เกรดที่ได้</th>
-                            <th>จำนวนหน่วยกิต</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>General Physics I</th>
-                            <th>B</th>
-                            <th>3</th>
-                        </tr>
-                        <tr>
-                            <th>Math I</th>
-                            <th>B</th>
-                            <th>3</th>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"
-                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-            </div>
-        </div>
-    </div>
-</div>

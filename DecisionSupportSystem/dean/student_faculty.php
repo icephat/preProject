@@ -1,4 +1,4 @@
-<!DOCTYPE php>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -137,8 +137,8 @@
                                                 <div style="color: rgb(0, 9, 188);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 9, 188);"
-                                                            href="../report_head/grade_faculty/honor.php">
-                                                            <h4>เกียรตินิยม</h4>
+                                                            href="../report_dean/grade_faculty_r2/honor.php">
+                                                            <h4>3.25-4.00</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -155,8 +155,8 @@
                                                 <div style="color: rgb(0, 110, 22);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 110, 22);"
-                                                            href="../report_head/grade_faculty/normal.php">
-                                                            <h4>ปกติ</h4>
+                                                            href="../report_dean/grade_faculty_r2/normal.php">
+                                                            <h4>2.00-3.24</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -174,8 +174,8 @@
                                                 <div style="color: #ff8c00;">
                                                     <div class="text-center">
                                                         <a style="color: #ff8c00;"
-                                                            href="../report_head/grade_faculty/prohigh.php">
-                                                            <h4>รอพินิจ</h4>
+                                                            href="../report_dean/grade_faculty_r2/prohigh.php">
+                                                            <h4>1.75-1.99</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -190,8 +190,8 @@
                                                 <div style="color: rgb(255, 0, 0);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(255, 0, 0);"
-                                                            href="../report_head/grade_faculty/prodown.php">
-                                                            <h4>โปรต่ำ</h4>
+                                                            href="../report_dean/grade_faculty_r2/prodown.php">
+                                                            <h4>0.00-1.74</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -211,10 +211,10 @@
                                         <tr style="border: 1px solid black; border-collapse: collapse;">
                                             <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
 
-                                                <div style="color: rgb(0, 9, 188);">
+                                                <div style="color: rgb(100, 197, 215);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 9, 188);"
-                                                            href="../report_head/status_faculty/plan.php">
+                                                            href="../report_dean/status_faculty_r2/plan.php">
                                                             <h4>ตามแผน</h4>
                                                         </a>
                                                     </div>
@@ -229,10 +229,10 @@
 
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse; ">
-                                                <div style="color: rgb(0, 110, 22);">
+                                                <div style="color: rgb(	118, 188, 22);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(0, 110, 22);"
-                                                            href="../report_head/status_faculty/noplan.php">
+                                                            href="../report_dean/status_faculty_r2/noplan.php">
                                                             <h4>ไม่ตามแผน</h4>
                                                         </a>
                                                     </div>
@@ -248,10 +248,10 @@
                                         <tr>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
 
-                                                <div style="color: #ff8c00;">
+                                                <div style="color: rgb(	245, 123, 57);">
                                                     <div class="text-center">
                                                         <a style="color: #ff8c00;"
-                                                            href="../report_head/status_faculty/retry.php">
+                                                            href="../report_dean/status_faculty_r2/retry.php">
                                                             <h4>พ้นสภาพ</h4>
                                                         </a>
                                                     </div>
@@ -264,10 +264,10 @@
                                                 </div>
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
-                                                <div style="color: rgb(255, 0, 0);">
+                                                <div style="color: rgb(255, 105, 98);">
                                                     <div class="text-center">
                                                         <a style="color: rgb(255, 0, 0);"
-                                                            href="../report_head/status_faculty/finish.php">
+                                                            href="../report_dean/status_faculty_r2/finish.php">
                                                             <h4>จบการศึกษา</h4>
                                                         </a>
                                                     </div>
@@ -449,7 +449,7 @@
                                                             </th>
                                                             <th style="text-align: right;">
                                                                 <span>ไม่ตามหลักสูตร</span></th>
-                                                            <th style="text-align: right; ">ลาออก</th>
+                                                            <th style="text-align: right; ">พ้นสภาพ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -1058,19 +1058,19 @@
                                 datasets: [{
                                     label: 'ตามหลักสูตร',
                                     data: [40, 78],
-                                    backgroundColor: "#89cfef",
+                                    backgroundColor: "rgba(100, 197, 215,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['ไม่ตามหลักสุตร'],
                                     data: [10, 20],
-                                    backgroundColor: "#ffab76",
+                                    backgroundColor: "rgba(118, 188, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: ['ลาออก'],
+                                    label: ['พ้นสภาพ'],
                                     data: [5, 12],
-                                    backgroundColor: '#ff6962',
+                                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -1109,19 +1109,19 @@
                                     {
                                         label: 'ตามหลักสูตร',
                                         data: [60, 60, 53, 40, 49],
-                                        backgroundColor: "#89cfef",
+                                        backgroundColor: "rgba(100, 197, 215,0.7)",
                                         borderWidth: 0
                                     },
                                     {
                                         label: ['ไม่ตามหลักสุตร'],
                                         data: [0, 5, 0, 11, 3],
-                                        backgroundColor: "#ffab76",
+                                        backgroundColor: "rgba(118, 188, 22,0.7)",
                                         borderWidth: 0
                                     },
                                     {
                                         label: ['พ้นสภาพ'],
                                         data: [0, 0, 7, 9, 3],
-                                        backgroundColor: '#ff6962',
+                                        backgroundColor: 'rgba(245, 123, 57,0.7)',
                                         borderWidth: 0
                                     }
                                 ]
