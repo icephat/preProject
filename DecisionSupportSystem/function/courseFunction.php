@@ -23,7 +23,7 @@ function getCoursePresentByDepartmentId($departmentId)
 
     require("connection_connect.php");
 
-    $sql = "SELECT DISTINCT nameCourseUse
+    $sql = "SELECT DISTINCT nameCourseUse,couseStartYear
     FROM course
     WHERE departmentId = departmentId AND couseStartYear IN (SELECT MAX(couseStartYear) AS couseStartYear FROM course WHERE departmentId = departmentId)";
 
