@@ -888,21 +888,21 @@
                     <!--modalPlan-->
                     <?php
                         $termPlan =0;
-                        foreach($countStudySemesters as $countStudySemester){
+                        foreach($gens as $gen){ 
 
                     ?>
                         <div id="modalPlan<?php echo $termPlan?>" class="modal fade" style="color: black;">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header" style="height: 90px;">
-                                        <h5>ปีการศึกษา <?php echo $countStudySemester["semesterYear"]?> ภาคการศึกษา <?php echo $countStudySemester["semesterPart"]?></h5>
+                                        <h5>รุ่น <?php echo $gen["studyGeneretion"]?> </h5>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน <?php echo $countStudySemester["planStatus"]?> คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน <?php echo $sumPlan?> คน</h5>
                                     <?php
-                                        if((int)$countStudySemester["planStatus"] > 0){
+                                        if((int)$sumPlan > 0){
                                         
                                     ?>
                                         <div class="modal-body" id="std_detail">
@@ -917,12 +917,12 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                        foreach($countStudySemester["studentPlans"] as $sPlan){
+                                                        foreach($gen["studentPlans"] as $gPlan){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $sPlan["studentId"]?></th>
-                                                            <th>นาย<?php echo $sPlan["fisrtNameTh"]." ".$sPlan["lastNameTh"]?></th>
-                                                            <th><?php echo round($sPlan["gpaAll"],2)?></th>
+                                                            <th><?php echo $gPlan["studentId"]?></th>
+                                                            <th>นาย<?php echo $gPlan["fisrtNameTh"]." ".$gPlan["lastNameTh"]?></th>
+                                                            <th><?php echo round($gPlan["gpaAll"],2)?></th>
                                                         </tr>
                                                     <?php
                                                         }
@@ -934,9 +934,9 @@
                                         </div>
                                     <?php } ?>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน <?php echo $countStudySemester["notPlanStatus"]?> คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน <?php echo $sumNotPlan?> คน</h5>
                                     <?php
-                                        if((int)$countStudySemester["studentNotPlans"] > 0){
+                                        if((int)$sumNotPlan > 0){
                                             
                                     ?>
                                     <div class="modal-body" id="std_detail">
@@ -951,12 +951,12 @@
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                    foreach($countStudySemester["studentNotPlans"] as $sNotPlan){
+                                                    foreach($gen["studentNotPlans"] as $gNotPlan){
                                                 ?>
                                                     <tr>
-                                                        <th><?php echo $sNotPlan["studentId"]?></th>
-                                                        <th>นาย<?php echo $sNotPlan["fisrtNameTh"]." ".$sNotPlan["lastNameTh"]?></th>
-                                                        <th><?php echo round($sNotPlan["gpaAll"],2)?></th>
+                                                        <th><?php echo $gNotPlan["studentId"]?></th>
+                                                        <th>นาย<?php echo $gNotPlan["fisrtNameTh"]." ".$gNotPlan["lastNameTh"]?></th>
+                                                        <th><?php echo round($gNotPlan["gpaAll"],2)?></th>
                                                     </tr>
                                                 <?php
                                                     }
@@ -969,9 +969,9 @@
                                     </div>
                                     <?php } ?>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ <?php echo $countStudySemester["resign"]?> คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ <?php echo $sumRetire?> คน</h5>
                                     <?php
-                                        if((int)$countStudySemester["studentResign"] > 0){
+                                        if((int)$sumRetire > 0){
                                             
                                     ?>
                                         <div class="modal-body" id="std_detail">
@@ -986,12 +986,12 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                        foreach($countStudySemester["studentResign"] as $sRePlan){
+                                                        foreach($gen["studentResign"] as $gRePlan){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $sRePlan["studentId"]?></th>
-                                                            <th>นาย<?php echo $sRePlan["fisrtNameTh"]." ".$sRePlan["lastNameTh"]?></th>
-                                                            <th><?php echo round($sRePlan["gpaAll"],2)?></th>
+                                                            <th><?php echo $gRePlan["studentId"]?></th>
+                                                            <th>นาย<?php echo $gRePlan["fisrtNameTh"]." ".$gRePlan["lastNameTh"]?></th>
+                                                            <th><?php echo round($gRePlan["gpaAll"],2)?></th>
                                                         </tr>
                                                     <?php
                                                         }
@@ -1003,11 +1003,11 @@
 
                                         </div>
                                     <?php } ?>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา <?php echo $countStudySemester["resign"]?> คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา <?php echo $sumGrad?> คน</h5>
                                     
                                     <?php
-                                    print_r($countStudySemester);
-                                        if((int)$countStudySemester["studentResign"] > 0){
+                                    //print_r($countStudySemester);
+                                        if((int)$sumGrad > 0){
                                             
                                     ?>
                                         <div class="modal-body" id="std_detail">
@@ -1022,12 +1022,12 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                        foreach($countStudySemester["studentResign"] as $sRePlan){
+                                                        foreach($gen["studentGrads"] as $gGrad){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $sRePlan["studentId"]?></th>
-                                                            <th>นาย<?php echo $sRePlan["fisrtNameTh"]." ".$sRePlan["lastNameTh"]?></th>
-                                                            <th><?php echo round($sRePlan["gpaAll"],2)?></th>
+                                                            <th><?php echo $gGrad["studentId"]?></th>
+                                                            <th>นาย<?php echo $gGrad["fisrtNameTh"]." ".$gGrad["lastNameTh"]?></th>
+                                                            <th><?php echo round($gGrad["gpaAll"],2)?></th>
                                                         </tr>
                                                     <?php
                                                         }

@@ -468,6 +468,8 @@ $student = getStudentByStudentId($studentId);
                                                 </thead>
                                                 <tbody>
                                                     <?php
+                                                        $credit = 0;
+                                                        $creditYet = 0;
                                                     foreach ($academics as $academic) {
                                                         echo "
                                                             
@@ -483,6 +485,9 @@ $student = getStudentByStudentId($studentId);
                                                         <td style=\"font-weight: bold; text-align: right;\">" . $academic["grade"] . "</td>
                                                         
                                                     </tr>";
+                                                    $credit+=$academic["credit"];
+                                                    $creditYet+=$academic["creditYet"];
+
                                                     }
                                                     ?>
                                                     <!-- <tr>
@@ -581,14 +586,39 @@ $student = getStudentByStudentId($studentId);
                             <div class="card-body">
                                 <div class="row " style=" justify-content: center; align-items: center;">
                                     <?php
-                                        $i=0;
+                                        $percentAll = 0;
+                                        $percentCreditYetAll = 0;
+                                        $percentCreditAll =  round((float)($credit*100)/$student["course"]["totalCredit"],2);
+                                        $percentCreditYetAll =  round((float)($creditYet*100)/$student["course"]["totalCredit"],2);
+                                    ?>
+                                    <div class="col-sm-2"  style="text-decoration: none;">
+                                        <div class="t1 card">
+                                        <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                                style="color:#304f69;">ทั้งหมด</span></p>
+                                            <div style="text-align: center; position: relative;\">
+                                                <canvas id="donutChart0"></canvas>
+                                                <div id="centerText"
+                                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                    <?php echo $percentCreditAll ?>%</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <?php
+                                    
+                                        $i=1;
+                                        
                                         foreach ($academics as $academic){
                                             $percent = 0;
+                                            
                                             $percent = round((float)($academic["credit"]*100)/$academic["creditAll"],2);
                                             ?>
+
+                                                
                                         
                                             
-                                                <a href="./report.php#tab<?php echo $i+1?>" class="col-sm-2"  style="text-decoration: none;">
+                                                <a href="./student_info.php#tab<?php echo $i?>" class="col-sm-2"  style="text-decoration: none;">
                                                     <div class="t1 card">
                                                         <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
                                                                 style="color:#304f69;"><?php echo $academic["name"]?></span></p>
@@ -1303,7 +1333,9 @@ $student = getStudentByStudentId($studentId);
    console.log(perLists);
    var datalists = <?php echo json_encode($dataLists)?>;
    console.log(datalists);
-
+   var dataCreditYet = <?php echo $percentCreditYetAll;?>;
+   var dataCredit = <?php echo $percentCreditAll?>;
+   console.log(dataCreditYet);
    let GPAPiesize = perLists.length;
    const GPAcolorPie = [];
    let GPAPiecolorLoop;
@@ -1325,7 +1357,12 @@ $student = getStudentByStudentId($studentId);
   
    
    let x=0;
-   const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4","donutChart5"];
+   datalists.splice(0, 0, dataCreditYet);
+   perLists.splice(0, 0, dataCredit);
+   GPAcolorPie.splice(0, 0, 'rgba(134, 211, 247,0.7)');
+  
+   
+   const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4","donutChart5","donutChart6"];
    for (var name of labels) {
        var data = {
        datasets: [{
