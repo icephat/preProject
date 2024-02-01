@@ -167,8 +167,8 @@ function getCountStudentPlanStatusBystudyGeneretionByTeacherId($teacherId)
         
         $my_row["studentPlans"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'ตามแผน');
         $my_row["studentNotPlans"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'ไม่ตามแผน');
-        $my_row["studentRetire"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'พ้นสภาพนิสิต');
-        $my_row["studentGrad"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'จบการศึกษา');
+        $my_row["studentRetires"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'พ้นสภาพนิสิต');
+        $my_row["studentGrads"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'จบการศึกษา');
         
         $generetions[] = $my_row;
         

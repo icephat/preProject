@@ -396,7 +396,7 @@
                                                                 $sumGrad = $gen["grad"];
                                                                 $sGradh[] =(int) $sumGrad;
 
-
+                                                                //รายชื่อนิสิต ตามแผน ไม่ตามแผน พ้นสภาพนิสิต จบการศึกษา
                                                                 //$gen["studentPlans"]
                                                                 //$gen["studentNotPlans"]
                                                                 //$gen["studentRetires"]
