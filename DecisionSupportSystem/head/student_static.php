@@ -339,7 +339,7 @@
                                                     <tr>
                                                         <th rowspan="2" style=" text-align: center; width: 100px;">
                                                             รุ่น</th>
-                                                        <th colspan="8" style=" text-align: center; width: 100px;">
+                                                        <th colspan="12" style=" text-align: center; width: 100px;">
                                                             ปีการศึกษา</th>
                                                         <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
                                                         </th>
@@ -348,14 +348,15 @@
                                                 <tbody>
                                                     <tr>
                                                         <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;">2565</td>
-                                                        <td style=" text-align: center;">2566</td>
-                                                        <td style=" text-align: center;">2567</td>
-                                                        <td style=" text-align: center;">2568</td>
-                                                        <td style=" text-align: center;">2569</td>
-                                                        <td style=" text-align: center;">2570</td>
-                                                        <td style=" text-align: center;">2571</td>
-                                                        <td style=" text-align: center;">2572</td>
+                                                        <?php
+                                                             $day = date("Y");
+                                                             $thaiDay = (543 + $day)-2;
+                                                            //echo $thaiDay;
+                                                            for($i=$thaiDay;$i<$thaiDay+12;$i++){
+                                                        ?>
+                                                        
+                                                        <td style=" text-align: center;"><?php echo $i?></td>
+                                                        <?php }?>
 
                                                     </tr>
                                                     <tr>
