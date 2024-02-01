@@ -505,7 +505,7 @@
                                                     <tr>
                                                         <th rowspan="2" style=" text-align: center; width: 100px;">
                                                             รุ่น</th>
-                                                        <th colspan="8" style=" text-align: center; width: 100px;">
+                                                        <th colspan="12" style=" text-align: center; width: 100px;">
                                                             ปีการศึกษา</th>
                                                         <th rowspan="2" style=" text-align: center;">รวม(คน)</th>
                                                     </tr>
@@ -670,7 +670,7 @@
                                                     <tr>
                                                         <th rowspan="2" style=" text-align: center; width: 100px;">
                                                             รุ่น</th>
-                                                        <th colspan="8" style=" text-align: center; width: 100px;">
+                                                        <th colspan="12" style=" text-align: center; width: 100px;">
                                                             ปีการศึกษา</th>
                                                         <th rowspan="2" style=" text-align: center;">รวม(คน)</th>
                                                     </tr>
