@@ -8,6 +8,7 @@ require_once 'schoolFunction.php';
 require_once 'termSummaryFunction.php';
 require_once 'regisFunction.php';
 require_once 'courseFunction.php';
+require_once 'semesterFunction.php';
 
 
 function getStudentByUsername($studentUsername)
@@ -29,6 +30,16 @@ function getStudentByUsername($studentUsername)
     $student["creditThree"] = getCreditThree($student["studentId"]);
     $student["course"] = getCourseById($student["courseId"]);
 
+    $semester = getSemesterPresent();
+
+    $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"] +1;
+
+    if ($semester["semesterPart"] == "ภาคต้น") {
+        $student["studyTerm"] = 1;
+    } else {
+        $student["studyTerm"] = 2;
+    }
+
     require("connection_close.php");
 
     return $student;
@@ -40,7 +51,7 @@ function getStudentByStudentId($studentId)
     require("connection_connect.php");
 
     $sql = "SELECT * FROM student NATURAL JOIN fact_student NATURAL JOIN studentstatus WHERE studentId = '" . $studentId . "'";
-    
+
     $result = $conn->query($sql);
     $student = $result->fetch_assoc();
 
@@ -51,15 +62,27 @@ function getStudentByStudentId($studentId)
     $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
     $student["gpax"] = getGPAX($student["studentId"]);
     $student["course"] = getCourseById($student["courseId"]);
-    
+
+    $semester = getSemesterPresent();
+
+    $semester = getSemesterPresent();
+
+    $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"]+1;
+
+    if ($semester["semesterPart"] == "ภาคต้น") {
+        $student["studyTerm"] = 1;
+    } else {
+        $student["studyTerm"] = 2;
+    }
+
     $student["credit"] = getCredit($student["studentId"]);
-    
+
     $student["creditThree"] = getCreditThree($student["studentId"]);
 
     require("connection_close.php");
 
 
-    
+
 
     return $student;
 
@@ -77,8 +100,8 @@ function getGPAX($studentId)
 
     foreach ($regisAllList as $regis) {
         //echo print_r($regis)."<br>";
-        if($regis["gradeCharacter"] != 'W' and $regis["gradeCharacter"] != 'P' and $regis["gradeCharacter"] != 'NP')
-        $sumGradeCreditAll += $regis["gradeNumber"] * $regis["credit"];
+        if ($regis["gradeCharacter"] != 'W' and $regis["gradeCharacter"] != 'P' and $regis["gradeCharacter"] != 'NP')
+            $sumGradeCreditAll += $regis["gradeNumber"] * $regis["credit"];
         $sumCreditAll += $regis["credit"];
 
 
@@ -124,7 +147,7 @@ function getCreditThree($studentId)
 
     $sql = "SELECT studentId,SUM(CASE WHEN gradeCharacter != 'W' AND  gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN credit END) AS creditAll,SUM(CASE WHEN gradeCharacter != 'F' AND gradeCharacter != 'W' AND gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN credit END) AS creditPass,IFNULL(SUM(CASE WHEN gradeCharacter = 'F' OR gradeCharacter = 'NP' THEN credit END),0) AS creditNotPass
     FROM fact_student NATURAL JOIN fact_regis NATURAL JOIN subject
-    WHERE studentId = '".$studentId."'
+    WHERE studentId = '" . $studentId . "'
     GROUP BY studentId";
 
     $result = $conn->query($sql);
@@ -480,13 +503,12 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     }
     $academis["select"]["creditAll"] = $course["selectSubjectCredit"];
     $academis["select"]["creditYet"] = $course["selectSubjectCredit"] - $academis["select"]["credit"];
-    if($selectSubjectCredit == 0){
+    if ($selectSubjectCredit == 0) {
         $academis["select"]["grade"] = 0.00;
+    } else {
+        $academis["select"]["grade"] = round($sumGradeCreditSelect / $selectSubjectCredit, 2);
     }
-    else{
-       $academis["select"]["grade"] = round($sumGradeCreditSelect / $selectSubjectCredit, 2); 
-    }
-    
+
 
 
     return $academis;
@@ -540,11 +562,10 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
             $happySubjectCredit += $happySubject["credit"];
             $generalSubjectCredit += $happySubject["credit"];
             $generalSubjects[] = $happySubject;
-        } else if($freeSubjectCredit < $course["freeSubjectCredit"] ){
+        } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
             $freeSubjectCredit += $happySubject["credit"];
             $freeSubjects[] = $happySubject;
-        }
-        else{
+        } else {
             $overSubjects[] = $happySubject;
         }
     }
@@ -558,11 +579,10 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
             $entrepreneurshipSubjectCredit += $entrepreneurshipSubject["credit"];
             $generalSubjectCredit += $entrepreneurshipSubject["credit"];
             $generalSubjects[] = $entrepreneurshipSubject;
-        } else if($freeSubjectCredit < $course["freeSubjectCredit"] ){
+        } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
             $freeSubjectCredit += $entrepreneurshipSubject["credit"];
             $freeSubjects[] = $entrepreneurshipSubject;
-        }
-        else{
+        } else {
             $overSubjects[] = $entrepreneurshipSubject;
         }
     }
@@ -576,11 +596,10 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
             $languageSubjectCredit += $languageSubject["credit"];
             $generalSubjectCredit += $languageSubject["credit"];
             $generalSubjects[] = $languageSubject;
-        } else if($freeSubjectCredit < $course["freeSubjectCredit"] ){
+        } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
             $freeSubjectCredit += $languageSubject["credit"];
             $freeSubjects[] = $languageSubject;
-        }
-        else{
+        } else {
             $overSubjects[] = $languageSubject;
         }
     }
@@ -594,11 +613,10 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
             $peopleSubjectCredit += $peopleSubject["credit"];
             $generalSubjectCredit += $peopleSubject["credit"];
             $generalSubjects[] = $peopleSubject;
-        } else if($freeSubjectCredit < $course["freeSubjectCredit"] ){
+        } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
             $freeSubjectCredit += $peopleSubject["credit"];
             $freeSubjects[] = $peopleSubject;
-        }
-        else{
+        } else {
             $overSubjects[] = $peopleSubject;
         }
     }
@@ -612,11 +630,10 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
             $aestheticsSubjectCredit += $aestheticsSubject["credit"];
             $generalSubjectCredit += $aestheticsSubject["credit"];
             $generalSubjects[] = $aestheticsSubject;
-        } else if($freeSubjectCredit < $course["freeSubjectCredit"] ){
+        } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
             $freeSubjectCredit += $aestheticsSubject["credit"];
             $freeSubjects[] = $aestheticsSubject;
-        }
-        else{
+        } else {
             $overSubjects[] = $aestheticsSubject;
         }
     }
@@ -631,11 +648,10 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if ($coreSubjectCredit < $course["coreSubjectCredit"]) {
             $coreSubjectCredit += $coreSubject["credit"];
-        } else if($freeSubjectCredit < $course["freeSubjectCredit"] ){
+        } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
             $freeSubjectCredit += $coreSubject["credit"];
             $freeSubjects[] = $coreSubject;
-        }
-        else{
+        } else {
             $overSubjects[] = $coreSubject;
         }
     }
@@ -647,11 +663,10 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if ($spacailSubjectCredit < $course["spacailSubjectCredit"]) {
             $spacailSubjectCredit += $spacailSubject["credit"];
-        } else if($freeSubjectCredit < $course["freeSubjectCredit"] ){
+        } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
             $freeSubjectCredit += $coreSubject["credit"];
             $freeSubjects[] = $spacailSubject;
-        }
-        else{
+        } else {
             $overSubjects[] = $spacailSubject;
         }
     }
@@ -663,11 +678,10 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if ($selectSubjectCredit < $course["spacailSubjectCredit"]) {
             $selectSubjectCredit += $selectSubject["credit"];
-        } else if($freeSubjectCredit < $course["freeSubjectCredit"] ){
+        } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
             $freeSubjectCredit += $coreSubject["credit"];
             $freeSubjects[] = $selectSubject;
-        }
-        else{
+        } else {
             $overSubjects[] = $selectSubject;
         }
     }
@@ -750,6 +764,58 @@ function getRegisPassAndNotPassByStudentId($studentId)
 
 }
 
+function getSubjectNotLearnInCoureseList($studentId, $nameCourse, $planCourse, $year, $part)
+{
+
+    //$courses;
+
+    if ($part == 1) {
+        $courses = getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $planCourse, $year, $part);
+    } else {
+        $courses = getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $planCourse, $year, $part);
+    }
+
+
+    return $courses;
+
+}
+
+function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $planCourse, $year, $part)
+{
+
+    require("connection_connect.php");
+
+    $subjects = [];
+
+    $yearX = $year - 1;
+    $termX = $part + 1;
+
+    
+
+    $sql = "SELECT courseListId,studyYear,term,subjectCode,subjectGroup,credit
+    FROM courselist
+    WHERE courseName = '$nameCourse' AND coursePlan = '$planCourse' AND studyYear <= $yearX AND term <= $termX AND (subjectGroup = 'วิชาเฉพาะด้าน' OR subjectGroup = 'วิชาแกน' OR subjectGroup = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
+    FROM fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory
+    WHERE studentId = '$studentId')
+    UNION
+    SELECT courseListId,studyYear,term,subjectCode,subjectGroup,credit
+    FROM courselist
+    WHERE courseName = '$nameCourse' AND coursePlan = '$planCourse' AND studyYear = $year AND term = $part  AND (subjectGroup = 'วิชาเฉพาะด้าน' OR subjectGroup = 'วิชาแกน' OR subjectGroup = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
+    FROM fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory
+    WHERE studentId = '$studentId');";
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $subjects[] = $my_row;
+    }
+
+    require("connection_close.php");
+
+
+    
+    return $subjects;
+
+}
 
 
 

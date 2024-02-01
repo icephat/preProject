@@ -395,6 +395,12 @@
                                                                 $sRetireh[] =(int) $sumRetire;
                                                                 $sumGrad = $gen["grad"];
                                                                 $sGradh[] =(int) $sumGrad;
+
+
+                                                                //$gen["studentPlans"]
+                                                                //$gen["studentNotPlans"]
+                                                                //$gen["studentRetires"]
+                                                                //$gen["studentGrads"]
                                                             }
                                                         
                                                         ?>

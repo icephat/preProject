@@ -156,20 +156,51 @@ function getCountStudentPlanStatusBystudyGeneretionByTeacherId($teacherId)
     $semester = getSemesterPresent();
 
     $sql = "SELECT studyGeneretion,COUNT(CASE WHEN planStatus = 'ตามแผน' THEN planStatus END) AS planCount,COUNT(CASE WHEN planStatus = 'ไม่ตามแผน' THEN planStatus END) AS notPlanCount,COUNT(CASE WHEN planStatus = 'พ้นสภาพนิสิต' THEN planStatus END) AS retire,COUNT(CASE WHEN planStatus = 'จบการศึกษา' THEN planStatus END) AS grad
-    FROM fact_student NATURAL JOIN fact_term_summary NATURAL JOIN semester
-    WHERE fact_term_summary.teacherId = $teacherId AND semesterYear = ".$semester["semesterYear"]." AND semesterPart = '".$semester["semesterPart"]."'
+    FROM fact_term_summary NATURAL JOIN student NATURAL JOIN fact_student
+    WHERE teacherId = 1 AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary GROUP BY studentId)
     GROUP BY studyGeneretion";
 
     $generetions = [];
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
+        
+        $my_row["studentPlans"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'ตามแผน');
+        $my_row["studentNotPlans"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'ไม่ตามแผน');
+        $my_row["studentRetire"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'พ้นสภาพนิสิต');
+        $my_row["studentGrad"] = getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$my_row["studyGeneretion"],'จบการศึกษา');
+        
         $generetions[] = $my_row;
+        
     }
     
     require("connection_close.php");
 
     return $generetions;
+
+}
+
+function getListStudentPlanStatusBystudyGeneretionByTeacherIdAndGeneretionAndPlanStatus($teacherId,$generetion,$planStatus)
+{
+
+    require("connection_connect.php");
+
+    $semester = getSemesterPresent();
+
+    $sql = "SELECT *
+    FROM fact_term_summary NATURAL JOIN student NATURAL JOIN fact_student
+    WHERE teacherId = $teacherId AND planStatus = '$planStatus' AND studyGeneretion = $generetion AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary GROUP BY studentId)";
+
+    $students = [];
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+    
+    require("connection_close.php");
+
+    return $students;
 
 }
 
