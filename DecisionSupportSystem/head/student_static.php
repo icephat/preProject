@@ -362,9 +362,32 @@
                                                     </tr>
                                                     <?php
                                                     $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdAndStatus($teacher["departmentId"], "กำลังศึกษา");
+                                                    $g1=0;
+                                                    $g2=0;
+                                                    $g3=0;
+                                                    $g4=0;
+                                                    $g5=0;
+                                                    $g6=0;
+                                                    $g7=0;
+                                                    $g8=0;
+                                                    $g9=0;
+                                                    $g10=0;
+                                                    $g11=0;
+                                                    $g12=0;
 
                                                     foreach ($studentStudys as $studentStudy) {
-
+                                                        $g1+=(int)$studentStudy["one"];
+                                                        $g2+=(int)$studentStudy["two"];
+                                                        $g3+=(int)$studentStudy["three"];
+                                                        $g4+=(int)$studentStudy["four"];
+                                                        $g5+=(int)$studentStudy["five"];
+                                                        $g6+=(int)$studentStudy["six"];
+                                                        $g7+=(int)$studentStudy["seven"];
+                                                        $g8+=(int)$studentStudy["eight"];
+                                                        $g9+=(int)$studentStudy["nine"];
+                                                        $g10+=(int)$studentStudy["ten"];
+                                                        $g11+=(int)$studentStudy["eleven"];
+                                                        $g12+=(int)$studentStudy["twelve"];
 
                                                         ?>
                                                         <tr>
@@ -466,18 +489,18 @@
                                                     <tr>
                                                         <th scope='row' style=" text-align: center;  ">
                                                             ทุกรุ่น</th>
-                                                        <td style="font-weight: bold; text-align: center;">60 คน</td>
-                                                        <td style="font-weight: bold; text-align: center;">110 คน</td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
+                                                        <td style="font-weight: bold; text-align: center;"><?php echo $g1?> คน</td>
+                                                        <td style="font-weight: bold; text-align: center;"><?php echo $g2?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g3?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g4?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g5?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g6?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g7?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g8?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g9?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g10?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g11?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g12?> คน</td>
                                                         <td style=" font-weight: bold; text-align: center;"></td>
                                                         <td style='font-weight: bold; text-align: center;'></td>
                                                     </tr>
@@ -527,10 +550,32 @@
                                                     </tr>
                                                     <?php
                                                     $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdAndStatus($teacher["departmentId"], "พ้นสภาพนิสิต");
-
+                                                    $g21=0;
+                                                    $g22=0;
+                                                    $g23=0;
+                                                    $g24=0;
+                                                    $g25=0;
+                                                    $g26=0;
+                                                    $g27=0;
+                                                    $g28=0;
+                                                    $g29=0;
+                                                    $g210=0;
+                                                    $g211=0;
+                                                    $g212=0;
                                                     foreach ($studentStudys as $studentStudy) {
 
-
+                                                        $g21+=(int)$studentStudy["one"];
+                                                        $g22+=(int)$studentStudy["two"];
+                                                        $g23+=(int)$studentStudy["three"];
+                                                        $g24+=(int)$studentStudy["four"];
+                                                        $g25+=(int)$studentStudy["five"];
+                                                        $g26+=(int)$studentStudy["six"];
+                                                        $g27+=(int)$studentStudy["seven"];
+                                                        $g28+=(int)$studentStudy["eight"];
+                                                        $g29+=(int)$studentStudy["nine"];
+                                                        $g210+=(int)$studentStudy["ten"];
+                                                        $g211+=(int)$studentStudy["eleven"];
+                                                        $g212+=(int)$studentStudy["twelve"];
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: center;">
@@ -629,20 +674,20 @@
                                                     </tr> -->
 
                                                     <tr>
-                                                        <th scope='row' style=" text-align: center;  ">
+                                                    <th scope='row' style=" text-align: center;  ">
                                                             ทุกรุ่น</th>
-                                                        <td style="font-weight: bold; text-align: center;">60 คน</td>
-                                                        <td style="font-weight: bold; text-align: center;">110 คน</td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
+                                                        <td style="font-weight: bold; text-align: center;"><?php echo $g21?> คน</td>
+                                                        <td style="font-weight: bold; text-align: center;"><?php echo $g22?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g23?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g24?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g25?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g26?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g27?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g28?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g29?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g210?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g211?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g212?> คน</td>
                                                         <td style=" font-weight: bold; text-align: center;"></td>
                                                         <td style='font-weight: bold; text-align: center;'></td>
                                                     </tr>
@@ -692,9 +737,31 @@
                                                     </tr>
                                                     <?php
                                                     $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdAndStatus($teacher["departmentId"], "จบการศึกษา");
-
+                                                    $g31=0;
+                                                    $g32=0;
+                                                    $g33=0;
+                                                    $g34=0;
+                                                    $g35=0;
+                                                    $g36=0;
+                                                    $g37=0;
+                                                    $g38=0;
+                                                    $g39=0;
+                                                    $g310=0;
+                                                    $g311=0;
+                                                    $g312=0;
                                                     foreach ($studentStudys as $studentStudy) {
-
+                                                        $g31+=(int)$studentStudy["one"];
+                                                        $g32+=(int)$studentStudy["two"];
+                                                        $g33+=(int)$studentStudy["three"];
+                                                        $g34+=(int)$studentStudy["four"];
+                                                        $g35+=(int)$studentStudy["five"];
+                                                        $g36+=(int)$studentStudy["six"];
+                                                        $g37+=(int)$studentStudy["seven"];
+                                                        $g38+=(int)$studentStudy["eight"];
+                                                        $g39+=(int)$studentStudy["nine"];
+                                                        $g310+=(int)$studentStudy["ten"];
+                                                        $g311+=(int)$studentStudy["eleven"];
+                                                        $g312+=(int)$studentStudy["twelve"];
 
                                                         ?>
                                                         <tr>
@@ -794,20 +861,20 @@
                                                     </tr> -->
 
                                                     <tr>
-                                                        <th scope='row' style=" text-align: center;  ">
+                                                    <th scope='row' style=" text-align: center;  ">
                                                             ทุกรุ่น</th>
-                                                        <td style="font-weight: bold; text-align: center;">60 คน</td>
-                                                        <td style="font-weight: bold; text-align: center;">110 คน</td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
+                                                        <td style="font-weight: bold; text-align: center;"><?php echo $g31?> คน</td>
+                                                        <td style="font-weight: bold; text-align: center;"><?php echo $g32?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g33?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g34?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g35?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g36?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g37?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g38?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g39?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g310?> คน</td>
+                                                        <td style='font-weight: bold; text-align: center;'><?php echo $g311?> คน</td>
+                                                        <td style=" font-weight: bold; text-align: center;"><?php echo $g312?> คน</td>
                                                         <td style=" font-weight: bold; text-align: center;"></td>
                                                         <td style='font-weight: bold; text-align: center;'></td>
                                                     </tr>
