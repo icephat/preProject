@@ -344,8 +344,38 @@
                     <div class="col-sm-4">
                         <div class="card">
                             <?php
-                            $studentGeneretionGradeRangeOnes = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"], 1);
+                                $studentGeneretionGradeRangeOnes = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"], 1);
+                                $day = date("Y");
+                                $thaiDay = 543 + $day;
+                                //echo substr($thaiDay-4, -2);
+                                $y=substr($thaiDay-4, -2);
+                                $yNow=substr($thaiDay, -2);
+                                $pee1gen=[];
+                                $pee1blues=[];
+                                $pee1greens=[];
+                                $pee1oranges=[];
+                                $pee1reds=[];
 
+                                for($y; $y<$yNow; $y++){
+                                        
+                                    foreach($studentGeneretionGradeRangeOnes as $range){
+                                        if((int)$range["studyGeneretion"] == $y){
+                                            $pee1gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                            $pee1blues[]=$range["blue"];
+                                            $pee1greens[]=$range["green"];
+                                            $pee1oranges[]=$range["orange"];
+                                            $pee1reds[]=$range["red"];
+                                        }
+                                        else{
+                                            $pee1gen[]="รุ่น ".(string)$y;
+                                            $pee1blues[]="0";
+                                            $pee1greens[]="0";
+                                            $pee1oranges[]="0";
+                                            $pee1reds[]="0";
+                                        }
+                                    }
+                                
+                                }
                             ?>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 1</h6>
@@ -359,7 +389,36 @@
                         <div class="card">
                             <?php
                             $studentGeneretionGradeRangeTwos = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"], 2);
+                            $day = date("Y");
+                            $thaiDay = 543 + $day;
+                            //echo substr($thaiDay-4, -2);
+                            $y=substr($thaiDay-4, -2);
+                            $yNow=substr($thaiDay, -2);
+                            $pee2genh=[];
+                            $pee2bluesh=[];
+                            $pee2greensh=[];
+                            $pee2orangesh=[];
+                            $pee2redsh=[];
+                            for($y; $y<$yNow; $y++){
+                                foreach($studentGeneretionGradeRangeTwos as $range){
+                                    if((int)$range["studyGeneretion"] == $y){
+                                    
+                                        $pee2genh[]="รุ่น ".(string)$range["studyGeneretion"];
+                                        $pee2bluesh[]=$range["blue"];
+                                        $pee2greensh[]=$range["green"];
+                                        $pee2orangesh[]=$range["orange"];
+                                        $pee2redsh[]=$range["red"];    
+                                    }
+                                    else{
+                                        $pee2genh[]="รุ่น ".(string)$y;
+                                        $pee2bluesh[]="0";
+                                        $pee2greensh[]="0";
+                                        $pee2orangesh[]="0";
+                                        $pee2redsh[]="0";
+                                    }
+                                }
 
+                            }
                             ?>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 2</h6>
@@ -373,7 +432,34 @@
                         <div class="card">
                             <?php
                             $studentGeneretionGradeRangeThrees = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"], 3);
-
+                            $day = date("Y");
+                            $thaiDay = 543 + $day;
+                            //echo substr($thaiDay-4, -2);
+                            $y=substr($thaiDay-4, -2);
+                            $yNow=substr($thaiDay, -2);
+                            $pee3gen=[];
+                            $pee3blues=[];
+                            $pee3greens=[];
+                            $pee3oranges=[];
+                            $pee3reds=[];
+                            for($y; $y<$yNow; $y++){
+                                foreach($studentGeneretionGradeRangeThrees as $range){
+                                    if((int)$range["studyGeneretion"] == $y){
+                                        $pee3gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                        $pee3blues[]=$range["blue"];
+                                        $pee3greens[]=$range["green"];
+                                        $pee3oranges[]=$range["orange"];
+                                        $pee3reds[]=$range["red"];
+                                    } 
+                                    else{
+                                        $pee3gen[]="รุ่น ".(string)$y;
+                                        $pee3blues[]="0";
+                                        $pee3greens[]="0";
+                                        $pee3oranges[]="0";
+                                        $pee3reds[]="0";
+                                    }
+                                }
+                            }
                             ?>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 3</h6>
@@ -388,7 +474,35 @@
                         <div class="card">
                             <?php
                             $studentGeneretionGradeRangeFours = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"], 4);
+                            $day = date("Y");
+                            $thaiDay = 543 + $day;
+                            //echo substr($thaiDay-4, -2);
+                            $y=substr($thaiDay-4, -2);
+                            $yNow=substr($thaiDay, -2);
+                            $pee4gen=[];
+                            $pee4blues=[];
+                            $pee4greens=[];
+                            $pee4oranges=[];
+                            $pee4reds=[];
+                            for($y; $y<$yNow; $y++){
 
+                                foreach($studentGeneretionGradeRangeFours as $range){
+                                    if((int)$range["studyGeneretion"] == $y){
+                                        $pee4gen[]="รุ่น ".(string)$range["studyGeneretion"];
+                                        $pee4blues[]=$range["blue"];
+                                        $pee4greens[]=$range["green"];
+                                        $pee4oranges[]=$range["orange"];
+                                        $pee4reds[]=$range["red"];
+                                    }
+                                    else{
+                                        $pee4gen[]="รุ่น ".(string)$y;
+                                        $pee4blues[]="0";
+                                        $pee4greens[]="0";
+                                        $pee4oranges[]="0";
+                                        $pee4reds[]="0";
+                                    }
+                                }
+                            }
                             ?>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 4</h6>
@@ -410,7 +524,34 @@
                             <?php
 
                             $countStudentStudyingRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYearAndStatus($course["nameCourseUse"], $semester["semesterYear"], "กำลังศึกษา");
-
+                            $day = date("Y");
+                            $thaiDay = 543 + $day;
+                            //echo substr($thaiDay-4, -2);
+                            $y=substr($thaiDay-4, -2);
+                            $yNow=substr($thaiDay, -2);
+                            $nowgen=[];
+                            $BNG=[];
+                            $GNG=[];
+                            $ONG=[];
+                            $RNG=[];
+                            for($y; $y<$yNow; $y++){
+                                foreach($countStudentStudyingRangeGradeSortByGeneretions as $grade){
+                                    if((int)$range["studyGeneretion"] == $y){
+                                        $nowgen[] = "รุ่น ".(string)$grade["studyGeneretion"];
+                                        $BNG[] = (int)$grade["blue"];
+                                        $GNG[] = (int)$grade["green"];
+                                        $ONG[] = (int)$grade["orange"];
+                                        $RNG[] = (int)$grade["red"];
+                                    }
+                                    else{
+                                        $nowgen[]="รุ่น ".(string)$y;
+                                        $BNG[]="0";
+                                        $GNG[]="0";
+                                        $ONG[]="0";
+                                        $RNG[]="0";
+                                    }
+                                }
+                            }
                             ?>
                             <div class="card-body">
                                 <canvas id="learn"></canvas>
@@ -425,6 +566,18 @@
                             <?php
 
                             $countStudentGraduateRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYearAndStatus($course["nameCourseUse"], $semester["semesterYear"], "จบการศึกษา");
+                            $endgen=[];
+                            $BEG=[];
+                            $GEG=[];
+                            $OEG=[];
+                            $REG=[];
+                            foreach($countStudentGraduateRangeGradeSortByGeneretions as $gradeEnd){
+                                $endgen[] = "รุ่น ".(string)$gradeEnd["studyGeneretion"];
+                                $BEG[] = (int)$gradeEnd["blue"];
+                                $GEG[] = (int)$gradeEnd["green"];
+                                $OEG[] = (int)$gradeEnd["orange"];
+                                $REG[] = (int)$gradeEnd["red"];
+                            }
                             ?>
                             <div class="card-body">
                                 <canvas id="learn2"></canvas>
@@ -444,7 +597,17 @@
                             <?php
                             
                             $studentStatusGeneretions = getCountStudentStatusSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"]);
-                            
+                           // print_r($studentStatusGeneretions);
+                            $studyGeneretion=[];
+                            $firstEntry=[];
+                            $study=[];
+                            $grad=[];
+                            foreach($studentStatusGeneretions as $statusGeneretions){
+                                $studyGeneretion[] = "รุ่น ".(string)$statusGeneretions["studyGeneretion"];
+                                $firstEntry[] = (int)$statusGeneretions["firstEntry"];
+                                $study[] = (int)$statusGeneretions["study"];
+                                $grad[] = (int)$statusGeneretions["grad"];
+                            }
                             ?>
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
@@ -516,7 +679,18 @@
                                 <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามหลักสูตร (คน)</h6>
                             </div>
                             <?php
-                            $countPlanStatusSortBySemesterYears = getCountStudentPlanStatusSortBySemesterYearByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"]);
+                                $countPlanStatusSortBySemesterYears = getCountStudentPlanStatusSortBySemesterYearByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"]);
+                                //print_r($countPlanStatusSortBySemesterYears);
+                                $semesterLearncos=[];
+                                $planLearncos=[];
+                                $notPlanLearncos=[];
+                                $retireLearncos=[];
+                                foreach($countPlanStatusSortBySemesterYears as $planStatus){
+                                    $semesterLearncos[] = (string)$planStatus["semesterYear"];
+                                    $planLearncos[] = (int)$planStatus["plan"];
+                                    $notPlanLearncos[] = (int)$planStatus["notPlan"];
+                                    $retireLearncos[] = (int)$planStatus["retire"];
+                                }
                             ?>
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
@@ -588,8 +762,18 @@
                                 <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามรุ่น (คน)</h6>
                             </div>
                             <?php
-                            $countPlanStatusSortByGeneretions = getCountStudentPlanStatusSortByStudyGeneretionByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"]);
-                            
+                                $countPlanStatusSortByGeneretions = getCountStudentPlanStatusSortByStudyGeneretionByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"]);
+                                //print_r($countPlanStatusSortByGeneretions);
+                                $semesterGen=[];
+                                $planGen=[];
+                                $notPlanGen=[];
+                                $retireGen=[];
+                                foreach($countPlanStatusSortByGeneretions as $planStatusGen){
+                                    $semesterGen[] = "รุ่น ".(string)$planStatusGen["studyGeneretion"];
+                                    $planGen[] = (int)$planStatusGen["plan"];
+                                    $notPlanGen[] = (int)$planStatusGen["notPlan"];
+                                    $retireGen[] = (int)$planStatusGen["retire"];
+                                }
                                                     
                             ?>
                             <div class="card-body ">
@@ -625,12 +809,12 @@
                                                     <tr>
                                                         <td style=" text-align: right;"><?php echo $countPlanStatusSortByGeneretion["studyGeneretion"] ?></td>
                                                         <td style=" text-align: right;">
-                                                        <?php echo $countPlanStatusSortByGeneretion["plan"] ?></td> คน
+                                                        <?php echo $countPlanStatusSortByGeneretion["plan"] ?> คน</td> 
                                                         </td>
                                                         <td style=" text-align: right;">
-                                                        <?php echo $countPlanStatusSortByGeneretion["notPlan"] ?></td> คน
+                                                        <?php echo $countPlanStatusSortByGeneretion["notPlan"] ?> คน</td> 
                                                         </td>
-                                                        <td style=" text-align: right;"><?php echo $countPlanStatusSortByGeneretion["retire"] ?></td> คน</td>
+                                                        <td style=" text-align: right;"><?php echo $countPlanStatusSortByGeneretion["retire"] ?> คน </td>
                                                     </tr>
                                                     <?php
                                                     }
@@ -691,16 +875,24 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
                 <script>
+
+                    var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
+
+                    var firstEntrys = <?php echo json_encode($firstEntry); ?>;
+                    var studys = <?php echo json_encode($study); ?>;
+                    var grads = <?php echo json_encode($grad); ?>;
+                    
+
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 65', 'รุ่น 66'],
+                            labels: studyGeneretions,
                             datasets: [{
                                 label: 'นักศึกษาแรกเข้า',
-                                data: [55, 55],
+                                data: firstEntrys,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -714,7 +906,7 @@
                             },
                             {
                                 label: 'นักศึกษากำลังศึกษา',
-                                data: [50, 48],
+                                data: studys,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -728,7 +920,7 @@
                             },
                             {
                                 label: 'นักศึกษาจบการศึกษา',
-                                data: [64, 55, 30, 40, 55],
+                                data: grads,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -750,7 +942,6 @@
                                 yAxes: [{
                                     ticks: {
                                         beginAtZero: true,
-                                        max: 100,
                                         min: 0
                                     }
                                 }]
@@ -846,296 +1037,351 @@
                     });
                 </script>
 
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+
                 <script>
+                    var p1gen = <?php echo json_encode($pee1gen); ?>;
+
+                    var p1blue = <?php echo json_encode($pee1blues); ?>;
+                    var p1green = <?php echo json_encode($pee1greens); ?>;
+                    var p1orange = <?php echo json_encode($pee1oranges); ?>;
+                    var p1red = <?php echo json_encode($pee1reds); ?>;
+
                     var ctx = document.getElementById("pee1");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
-                        data: {
-                            labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
-                            datasets: [{
-                                label: '3.25-4.00',
-                                data: [3, 2, 2, 1],
-                                backgroundColor: "rgba(0, 9, 188,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: '2.00-3.24',
-                                data: [6, 5, 8, 9],
-                                backgroundColor: "rgba(0, 110, 22,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: '1.75-1.99',
-                                data: [1, 1, 0, 0],
-                                backgroundColor: 'rgba(255,128,0,0.7)',
-                                borderWidth: 0
-                            },
-                            {
-                                label: '0.00-1.74',
-                                data: [0, 0, 0, 0],
-                                backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                borderWidth: 0
-                            }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            scales: {
-                                x: {
-                                    stacked: true,
+                            data: {
+                                labels: p1gen,
+                                datasets: [{
+                                    label: '3.25-4.00',
+                                    data: p1blue,
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
                                 },
-                                y: {
-                                    stacked: true
+                                {
+                                    label: '2.00-3.24',
+                                    data: p1green,
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: '1.75-1.99',
+                                    data: p1orange,
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: '0.00-1.74',
+                                    data: p1red,
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
                                 }
-                            }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
 
-                        }
-                    });
+                            }
+                        });
                 </script>
 
                 <script>
+                    var p2genh = <?php echo json_encode($pee2genh); ?>;
+                    var p2blueh = <?php echo json_encode($pee2bluesh); ?>;
+                    var p2greenh = <?php echo json_encode($pee2greensh); ?>;
+                    var p2orangeh = <?php echo json_encode($pee2orangesh); ?>;
+                    var p2redh = <?php echo json_encode($pee2redsh); ?>;
+                    
                     var ctx = document.getElementById("pee2");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
-                        data: {
-                            labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
-                            datasets: [{
-                                label: '3.25-4.00',
-                                data: [3, 1, 3, 0],
-                                backgroundColor: "rgba(0, 9, 188,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: '2.00-3.24',
-                                data: [6, 9, 7, 0],
-                                backgroundColor: "rgba(0, 110, 22,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: '1.75-1.99',
-                                data: [1, 0, 0, 0],
-                                backgroundColor: 'rgba(255,128,0,0.7)',
-                                borderWidth: 0
-                            },
-                            {
-                                label: '0.00-1.74',
-                                data: [0, 0, 0, 0],
-                                backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                borderWidth: 0
-                            }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            scales: {
-                                x: {
-                                    stacked: true,
+                            data: {
+                                labels: p2genh,
+                                datasets: [{
+                                    label: '3.25-4.00',
+                                    data: p2blueh,
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
                                 },
-                                y: {
-                                    stacked: true
+                                {
+                                    label: '2.00-3.24',
+                                    data: p2greenh,
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: '1.75-1.99',
+                                    data: p2orangeh,
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: '0.00-1.74',
+                                    data: p2redh,
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
                                 }
-                            }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
 
-                        }
+                            }
                     });
                 </script>
                 <script>
+                    var p3gen = <?php echo json_encode($pee3gen); ?>;
+
+                    var p3blue = <?php echo json_encode($pee3blues); ?>;
+                    var p3green = <?php echo json_encode($pee3greens); ?>;
+                    var p3orange = <?php echo json_encode($pee3oranges); ?>;
+                    var p3red = <?php echo json_encode($pee3reds); ?>;
+
                     var ctx = document.getElementById("pee3");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
-                        data: {
-                            labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
-                            datasets: [{
-                                label: '3.25-4.00',
-                                data: [3, 2, 0, 0],
-                                backgroundColor: "rgba(0, 9, 188,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: '2.00-3.24',
-                                data: [6, 8, 0, 0],
-                                backgroundColor: "rgba(0, 110, 22,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: '1.75-1.99',
-                                data: [1, 0, 0, 0],
-                                backgroundColor: 'rgba(255,128,0,0.7)',
-                                borderWidth: 0
-                            },
-                            {
-                                label: '0.00-1.74',
-                                data: [0, 0, 0, 0],
-                                backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                borderWidth: 0
-                            }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            scales: {
-                                x: {
-                                    stacked: true,
+                            data: {
+                                labels: p3gen,
+                                datasets: [{
+                                    label: '3.25-4.00',
+                                    data: p3blue,
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
                                 },
-                                y: {
-                                    stacked: true
+                                {
+                                    label: '2.00-3.24',
+                                    data: p3green,
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: '1.75-1.99',
+                                    data: p3orange,
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: '0.00-1.74',
+                                    data: p3red,
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
                                 }
-                            }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
 
-                        }
+                            }
                     });
                 </script>
                 <script>
+                    var p4gen = <?php echo json_encode($pee4gen); ?>;
+
+                    var p4blue = <?php echo json_encode($pee4blues); ?>;
+                    var p4green = <?php echo json_encode($pee4greens); ?>;
+                    var p4orange = <?php echo json_encode($pee4oranges); ?>;
+                    var p4red = <?php echo json_encode($pee4reds); ?>;
+
+                        
                     var ctx = document.getElementById("pee4");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
-                        data: {
-                            labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
-                            datasets: [{
-                                label: '3.25-4.00',
-                                data: [3, 0, 0, 0],
-                                backgroundColor: "rgba(0, 9, 188,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: '2.00-3.24',
-                                data: [6, 0, 0, 0],
-                                backgroundColor: "rgba(0, 110, 22,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: '1.75-1.99',
-                                data: [1, 0, 0, 0],
-                                backgroundColor: 'rgba(255,128,0,0.7)',
-                                borderWidth: 0
-                            },
-                            {
-                                label: '0.00-1.74',
-                                data: [0, 0, 0, 0],
-                                backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                borderWidth: 0
-                            }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            scales: {
-                                x: {
-                                    stacked: true,
+                            data: {
+                                labels: p4gen,
+                                datasets: [{
+                                    label: '3.25-4.00',
+                                    data: p4blue,
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
                                 },
-                                y: {
-                                    stacked: true
+                                {
+                                    label: '2.00-3.24',
+                                    data: p4green,
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: '1.75-1.99',
+                                    data: p4orange,
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: '0.00-1.74',
+                                    data: p4red,
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
                                 }
-                            }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
 
-                        }
+                            }
                     });
                 </script>
                 <script>
 
-                    var ctx = document.getElementById("learn");
-                    var myChart = new Chart(ctx, {
-                        //type: 'bar',
-                        //type: 'line',
-                        type: 'bar',
-                        data: {
-                            labels: ['รหัส 61', 'รหัส 62', 'รหัส 63', 'รหัส 64', 'รหัส 65', 'รหัส 66'],
-                            datasets: [{
-                                label: 'เกียรตินิยม',
-                                data: [0, 0, 6, 4, 4, 0],
-                                backgroundColor: "rgba(0, 9, 188,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'ปกติ',
-                                data: [1, 2, 7, 6, 6, 0],
-                                backgroundColor: "rgba(0, 110, 22,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'โปรสูง',
-                                data: [0, 0, 0, 0, 0, 0],
-                                backgroundColor: 'rgba(255,128,0,0.7)',
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'โปรต่ำ',
-                                data: [0, 0, 0, 0, 0, 0],
-                                backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                borderWidth: 0
-                            }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            scales: {
-                                x: {
-                                    stacked: true,
+                        var gennow = <?php echo json_encode($nowgen); ?>;
+                        console.log(gennow);
+
+                        var bluegen = <?php echo json_encode($BNG); ?>;
+                        console.log(bluegen);
+                        var greengen = <?php echo json_encode($GNG); ?>;
+                        console.log(greengen);
+                        var orangegen = <?php echo json_encode($ONG); ?>;
+                        console.log(orangegen);
+                        var redgen = <?php echo json_encode($RNG); ?>;
+                        console.log(redgen);
+
+                        var ctx = document.getElementById("learn");
+                        var myChart = new Chart(ctx, {
+                            //type: 'bar',
+                            //type: 'line',
+                            type: 'bar',
+                            data: {
+                                labels: gennow,
+                                datasets: [{
+                                    label: 'เกียรตินิยม',
+                                    data: bluegen,
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
                                 },
-                                y: {
-                                    stacked: true
-                                }
-                            }
-
-                        }
-                    });
-                </script>
-
-                <script>
-
-                    var ctx = document.getElementById("learn2");
-                    var myChart = new Chart(ctx, {
-                        //type: 'bar',
-                        //type: 'line',
-                        type: 'bar',
-                        data: {
-                            labels: ['รหัส 61', 'รหัส 62', 'รหัส 63', 'รหัส 64', 'รหัส 65', 'รหัส 66'],
-                            datasets: [{
-                                label: 'เกียรตินิยม',
-                                data: [1, 2, 0, 0, 0, 0],
-                                backgroundColor: "rgba(0, 9, 188,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'ปกติ',
-                                data: [8, 5, 0, 0, 0, 0],
-                                backgroundColor: "rgba(0, 110, 22,0.7)",
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'โปรสูง',
-                                data: [0, 1, 0, 0, 0, 0],
-                                backgroundColor: 'rgba(255,128,0,0.7)',
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'โปรต่ำ',
-                                data: [0, 0, 0, 0, 0, 0],
-                                backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                borderWidth: 0
-                            }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            scales: {
-                                x: {
-                                    stacked: true,
+                                {
+                                    label: 'ปกติ',
+                                    data: greengen,
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
                                 },
-                                y: {
-                                    stacked: true
+                                {
+                                    label: 'โปรสูง',
+                                    data: orangegen,
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'โปรต่ำ',
+                                    data: redgen,
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
                                 }
-                            }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
 
-                        }
+                            }
+                        });
+                    </script>
+
+
+                    <script>
+                        var genend = <?php echo json_encode($endgen); ?>;
+                        console.log(genend);
+
+                        var bluegenend = <?php echo json_encode($BEG); ?>;
+                        console.log(bluegenend);
+                        var greengenend = <?php echo json_encode($GEG); ?>;
+                        console.log(greengenend);
+                        var orangegenend = <?php echo json_encode($OEG); ?>;
+                        console.log(orangegenend);
+                        var redgenend = <?php echo json_encode($REG); ?>;
+                        console.log(redgenend);
+
+                        var ctx = document.getElementById("learn2");
+                        var myChart = new Chart(ctx, {
+                            //type: 'bar',
+                            //type: 'line',
+                            type: 'bar',
+                            data: {
+                                labels: genend,
+                                datasets: [{
+                                    label: 'เกียรตินิยม',
+                                    data: bluegenend,
+                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'ปกติ',
+                                    data: greengenend,
+                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'โปรสูง',
+                                    data: orangegenend,
+                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    borderWidth: 0
+                                },
+                                {
+                                    label: 'โปรต่ำ',
+                                    data: redgenend,
+                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    borderWidth: 0
+                                }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    x: {
+                                        stacked: true,
+                                    },
+                                    y: {
+                                        stacked: true
+                                    }
+                                }
+
+                            }
                     });
                 </script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
@@ -1143,6 +1389,12 @@
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
                 </script>
                 <script>
+                  
+                    var semesterLearncos = <?php echo json_encode($semesterLearncos); ?>;
+
+                    var planLearncos = <?php echo json_encode($planLearncos); ?>;
+                    var notPlanLearncos = <?php echo json_encode($notPlanLearncos); ?>;
+                    var retireLearncos = <?php echo json_encode($retireLearncos); ?>;
 
 
                     var ctx = document.getElementById("learncos");
@@ -1151,22 +1403,22 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['2565', '2566'],
+                            labels: semesterLearncos,
                             datasets: [{
                                 label: 'ตามหลักสูตร',
-                                data: [40, 78],
+                                data: planLearncos,
                                 backgroundColor: "rgba(100, 197, 215,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: ['ไม่ตามหลักสุตร'],
-                                data: [10, 20],
+                                data: notPlanLearncos,
                                 backgroundColor: "rgba(118, 188, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: ['พ้นสภาพ'],
-                                data: [5, 12],
+                                data: retireLearncos,
                                 backgroundColor: 'rgba(245, 123, 57,0.7)',
                                 borderWidth: 0
                             }
@@ -1194,6 +1446,11 @@
                 </script>
 
                 <script>
+                    var semesterGens = <?php echo json_encode($semesterGen); ?>;
+
+                    var planGens = <?php echo json_encode($planGen); ?>;
+                    var notPlanGens = <?php echo json_encode($notPlanGen); ?>;
+                    var retireGens = <?php echo json_encode($retireGen); ?>;
 
                     var ctx = document.getElementById("learnyear");
                     var myChart = new Chart(ctx, {
@@ -1201,23 +1458,23 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 60', 'รุ่น 61', 'รุ่น 62', 'รุ่น 63', 'รุ่น 64'],
+                            labels: semesterGens,
                             datasets: [
                                 {
                                     label: 'ตามหลักสูตร',
-                                    data: [60, 60, 53, 40, 49],
+                                    data: planGens,
                                     backgroundColor: "rgba(100, 197, 215,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['ไม่ตามหลักสุตร'],
-                                    data: [0, 5, 0, 11, 3],
+                                    data: notPlanGens,
                                     backgroundColor: "rgba(118, 188, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['พ้นสภาพ'],
-                                    data: [0, 0, 7, 9, 3],
+                                    data: retireGens,
                                     backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 }
