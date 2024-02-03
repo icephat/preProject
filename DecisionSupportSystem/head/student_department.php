@@ -721,26 +721,34 @@
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
                 </script>
                 <script>
+                    var lists1 = <?php echo json_encode($lists); ?>;
+
+                    var firstEntrys1 = <?php echo json_encode($firstEntrys); ?>;
+
+                    var retires1 = <?php echo json_encode($retires); ?>;
+                    var studys1 = <?php echo json_encode($studys); ?>;
+                    var grads1 = <?php echo json_encode($grads); ?>;
+
                     var ctx = document.getElementById("myChart").getContext('2d');
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 65', 'รุ่น 66'],
+                            labels: lists1,
                             datasets: [{
 
                                 type: 'line',
                                 label: 'นักศึกษาแรกเข้า',
                                 backgroundColor: 'rgb(0, 107, 201)',
-                                data: [60, 60],
+                                data: firstEntrys1,
                                 borderColor: 'rgba(0, 107, 201,1)',
                                 lineTension: 0,
                                 fill: false
                             },
                             {
                                 label: 'นักศึกษาพ้นสภาพ',
-                                data: [10, 0],
+                                data: retires1,
                                 backgroundColor: '#ff6962',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -754,7 +762,7 @@
                             },
                             {
                                 label: 'นักศึกษากำลังศึกษา',
-                                data: [50, 60],
+                                data: studys1,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -768,7 +776,7 @@
                             },
                             {
                                 label: 'นักศึกษาจบการศึกษา',
-                                data: [0, 0],
+                                data: grads1,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -804,26 +812,33 @@
                 </script>
 
                 <script>
+                     var lists2 = <?php echo json_encode($listSem); ?>;
+
+                    var firstEntrys2 = <?php echo json_encode($firstEntrys2); ?>;
+
+                    var retires2 = <?php echo json_encode($retires2); ?>;
+                    var studys2 = <?php echo json_encode($studys2); ?>;
+                    var grads2 = <?php echo json_encode($grads2); ?>;
                     var ctx = document.getElementById("myCharts");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['2565', '2566'],
+                            labels: lists2,
                             datasets: [{
 
                                 type: 'line',
                                 backgroundColor: 'rgb(0, 107, 201)',
                                 label: 'นักศึกษาแรกเข้า',
-                                data: [60, 120],
+                                data: firstEntrys2,
                                 borderColor: 'rgba(0, 107, 201,1)',
                                 lineTension: 0,
                                 fill: false
                             },
                             {
                                 label: 'นักศึกษาพ้นสภาพ',
-                                data: [10, 10],
+                                data: retires2,
                                 backgroundColor: '#ff6962',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -837,7 +852,7 @@
                             },
                             {
                                 label: 'นักศึกษากำลังศึกษา',
-                                data: [50, 110],
+                                data: studys2,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -851,7 +866,7 @@
                             },
                             {
                                 label: 'นักศึกษาจบการศึกษา',
-                                data: [0, 0],
+                                data: grads2,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1

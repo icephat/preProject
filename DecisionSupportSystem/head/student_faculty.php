@@ -872,16 +872,21 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
                 <script>
+                    var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
+
+                    var firstEntrys = <?php echo json_encode($firstEntry); ?>;
+                    var studys = <?php echo json_encode($study); ?>;
+                    var grads = <?php echo json_encode($grad); ?>;
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 65', 'รุ่น 66'],
+                            labels: studyGeneretions,
                             datasets: [{
                                 label: 'นักศึกษาแรกเข้า',
-                                data: [55, 55],
+                                data: firstEntrys,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -895,7 +900,7 @@
                             },
                             {
                                 label: 'นักศึกษากำลังศึกษา',
-                                data: [50, 48],
+                                data: studys,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -909,7 +914,7 @@
                             },
                             {
                                 label: 'นักศึกษาจบการศึกษา',
-                                data: [64, 55, 30, 40, 55],
+                                data: grads,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -931,7 +936,6 @@
                                 yAxes: [{
                                     ticks: {
                                         beginAtZero: true,
-                                        max: 100,
                                         min: 0
                                     }
                                 }]
@@ -1027,35 +1031,45 @@
                     });
                 </script>
 
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+
                 <script>
+                    var p1gen = <?php echo json_encode($pee1gen); ?>;
+
+                    var p1blue = <?php echo json_encode($pee1blues); ?>;
+                    var p1green = <?php echo json_encode($pee1greens); ?>;
+                    var p1orange = <?php echo json_encode($pee1oranges); ?>;
+                    var p1red = <?php echo json_encode($pee1reds); ?>;
+
                     var ctx = document.getElementById("pee1");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
+                            labels: p1gen,
                             datasets: [{
                                 label: '3.25-4.00',
-                                data: [3, 2, 2, 1],
+                                data: p1blue,
                                 backgroundColor: "rgba(0, 9, 188,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: '2.00-3.24',
-                                data: [6, 5, 8, 9],
+                                data: p1green,
                                 backgroundColor: "rgba(0, 110, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: '1.75-1.99',
-                                data: [1, 1, 0, 0],
+                                data: p1orange,
                                 backgroundColor: 'rgba(255,128,0,0.7)',
                                 borderWidth: 0
                             },
                             {
                                 label: '0.00-1.74',
-                                data: [0, 0, 0, 0],
+                                data: p1red,
                                 backgroundColor: 'rgba(255, 0, 0,0.7)',
                                 borderWidth: 0
                             }
@@ -1077,34 +1091,40 @@
                 </script>
 
                 <script>
+                    var p2genh = <?php echo json_encode($pee2genh); ?>;
+
+                    var p2blueh = <?php echo json_encode($pee2bluesh); ?>;
+                    var p2greenh = <?php echo json_encode($pee2greensh); ?>;
+                    var p2orangeh = <?php echo json_encode($pee2orangesh); ?>;
+                    var p2redh = <?php echo json_encode($pee2redsh); ?>;
                     var ctx = document.getElementById("pee2");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
+                            labels: p2genh,
                             datasets: [{
                                 label: '3.25-4.00',
-                                data: [3, 1, 3, 0],
+                                data: p2blueh,
                                 backgroundColor: "rgba(0, 9, 188,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: '2.00-3.24',
-                                data: [6, 9, 7, 0],
+                                data: p2greenh,
                                 backgroundColor: "rgba(0, 110, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: '1.75-1.99',
-                                data: [1, 0, 0, 0],
+                                data: p2orangeh,
                                 backgroundColor: 'rgba(255,128,0,0.7)',
                                 borderWidth: 0
                             },
                             {
                                 label: '0.00-1.74',
-                                data: [0, 0, 0, 0],
+                                data: p2redh,
                                 backgroundColor: 'rgba(255, 0, 0,0.7)',
                                 borderWidth: 0
                             }
@@ -1125,34 +1145,40 @@
                     });
                 </script>
                 <script>
+                    var p3gen = <?php echo json_encode($pee3gen); ?>;
+
+                    var p3blue = <?php echo json_encode($pee3blues); ?>;
+                    var p3green = <?php echo json_encode($pee3greens); ?>;
+                    var p3orange = <?php echo json_encode($pee3oranges); ?>;
+                    var p3red = <?php echo json_encode($pee3reds); ?>;
                     var ctx = document.getElementById("pee3");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
+                            labels: p3gen,
                             datasets: [{
                                 label: '3.25-4.00',
-                                data: [3, 2, 0, 0],
+                                data: p3blue,
                                 backgroundColor: "rgba(0, 9, 188,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: '2.00-3.24',
-                                data: [6, 8, 0, 0],
+                                data: p3green,
                                 backgroundColor: "rgba(0, 110, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: '1.75-1.99',
-                                data: [1, 0, 0, 0],
+                                data: p3orange,
                                 backgroundColor: 'rgba(255,128,0,0.7)',
                                 borderWidth: 0
                             },
                             {
                                 label: '0.00-1.74',
-                                data: [0, 0, 0, 0],
+                                data: p3red,
                                 backgroundColor: 'rgba(255, 0, 0,0.7)',
                                 borderWidth: 0
                             }
@@ -1173,34 +1199,40 @@
                     });
                 </script>
                 <script>
+                    var p4gen = <?php echo json_encode($pee4gen); ?>;
+
+                    var p4blue = <?php echo json_encode($pee4blues); ?>;
+                    var p4green = <?php echo json_encode($pee4greens); ?>;
+                    var p4orange = <?php echo json_encode($pee4oranges); ?>;
+                    var p4red = <?php echo json_encode($pee4reds); ?>;
                     var ctx = document.getElementById("pee4");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 63', 'รุ่น 64', 'รุ่น 65', 'รุ่น 66'],
+                            labels: p4gen,
                             datasets: [{
                                 label: '3.25-4.00',
-                                data: [3, 0, 0, 0],
+                                data: p4blue,
                                 backgroundColor: "rgba(0, 9, 188,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: '2.00-3.24',
-                                data: [6, 0, 0, 0],
+                                data: p4green,
                                 backgroundColor: "rgba(0, 110, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: '1.75-1.99',
-                                data: [1, 0, 0, 0],
+                                data: p4orange,
                                 backgroundColor: 'rgba(255,128,0,0.7)',
                                 borderWidth: 0
                             },
                             {
                                 label: '0.00-1.74',
-                                data: [0, 0, 0, 0],
+                                data: p4red,
                                 backgroundColor: 'rgba(255, 0, 0,0.7)',
                                 borderWidth: 0
                             }
@@ -1221,6 +1253,13 @@
                     });
                 </script>
                 <script>
+                    var gennow = <?php echo json_encode($nowgen); ?>;
+
+                    var bluegen = <?php echo json_encode($BNG); ?>;
+                    var greengen = <?php echo json_encode($GNG); ?>;
+                    var orangegen = <?php echo json_encode($ONG); ?>;
+                    var redgen = <?php echo json_encode($RNG); ?>;
+
 
                     var ctx = document.getElementById("learn");
                     var myChart = new Chart(ctx, {
@@ -1228,28 +1267,28 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รหัส 61', 'รหัส 62', 'รหัส 63', 'รหัส 64', 'รหัส 65', 'รหัส 66'],
+                            labels: gennow,
                             datasets: [{
-                                label: 'เกียรตินิยม',
-                                data: [0, 0, 6, 4, 4, 0],
+                                label: '3.25-4.00',
+                                data: bluegen,
                                 backgroundColor: "rgba(0, 9, 188,0.7)",
                                 borderWidth: 0
                             },
                             {
-                                label: 'ปกติ',
-                                data: [1, 2, 7, 6, 6, 0],
+                                label: '2.00-3.24',
+                                data: greengen,
                                 backgroundColor: "rgba(0, 110, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
-                                label: 'โปรสูง',
-                                data: [0, 0, 0, 0, 0, 0],
+                                label: '1.75-1.99',
+                                data: orangegen,
                                 backgroundColor: 'rgba(255,128,0,0.7)',
                                 borderWidth: 0
                             },
                             {
-                                label: 'โปรต่ำ',
-                                data: [0, 0, 0, 0, 0, 0],
+                                label: '0.00-1.74',
+                                data: redgen,
                                 backgroundColor: 'rgba(255, 0, 0,0.7)',
                                 borderWidth: 0
                             }
@@ -1271,6 +1310,13 @@
                 </script>
 
                 <script>
+                    var genend = <?php echo json_encode($endgen); ?>;
+
+                    var bluegenend = <?php echo json_encode($BEG); ?>;
+                    var greengenend = <?php echo json_encode($GEG); ?>;
+                    var orangegenend = <?php echo json_encode($OEG); ?>;
+                    var redgenend = <?php echo json_encode($REG); ?>;
+
 
                     var ctx = document.getElementById("learn2");
                     var myChart = new Chart(ctx, {
@@ -1278,28 +1324,28 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รหัส 61', 'รหัส 62', 'รหัส 63', 'รหัส 64', 'รหัส 65', 'รหัส 66'],
+                            labels: genend,
                             datasets: [{
-                                label: 'เกียรตินิยม',
-                                data: [1, 2, 0, 0, 0, 0],
+                                label: '3.25-4.00',
+                                data: bluegenend,
                                 backgroundColor: "rgba(0, 9, 188,0.7)",
                                 borderWidth: 0
                             },
                             {
-                                label: 'ปกติ',
-                                data: [8, 5, 0, 0, 0, 0],
+                                label: '2.00-3.24',
+                                data: greengenend,
                                 backgroundColor: "rgba(0, 110, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
-                                label: 'โปรสูง',
-                                data: [0, 1, 0, 0, 0, 0],
+                                label: '1.75-1.99',
+                                data: orangegenend,
                                 backgroundColor: 'rgba(255,128,0,0.7)',
                                 borderWidth: 0
                             },
                             {
-                                label: 'โปรต่ำ',
-                                data: [0, 0, 0, 0, 0, 0],
+                                label: '0.00-1.74',
+                                data: redgenend,
                                 backgroundColor: 'rgba(255, 0, 0,0.7)',
                                 borderWidth: 0
                             }
@@ -1324,7 +1370,12 @@
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
                 </script>
                 <script>
+                    
+                    var semesterLearncos = <?php echo json_encode($semesterLearncos); ?>;
 
+                    var planLearncos = <?php echo json_encode($planLearncos); ?>;
+                    var notPlanLearncos = <?php echo json_encode($notPlanLearncos); ?>;
+                    var retireLearncos = <?php echo json_encode($retireLearncos); ?>;
 
                     var ctx = document.getElementById("learncos");
                     var myChart = new Chart(ctx, {
@@ -1332,22 +1383,22 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['2565', '2566'],
+                            labels: semesterLearncos,
                             datasets: [{
                                 label: 'ตามหลักสูตร',
-                                data: [40, 78],
+                                data: planLearncos,
                                 backgroundColor: "rgba(100, 197, 215,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: ['ไม่ตามหลักสุตร'],
-                                data: [10, 20],
+                                data: notPlanLearncos,
                                 backgroundColor: "rgba(118, 188, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: ['พ้นสภาพ'],
-                                data: [5, 12],
+                                data: retireLearncos,
                                 backgroundColor: 'rgba(245, 123, 57,0.7)',
                                 borderWidth: 0
                             }
