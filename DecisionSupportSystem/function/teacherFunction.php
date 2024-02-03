@@ -24,7 +24,7 @@ function getTeacherByUsernameTeacher($usernameTeacher)
     require("connection_connect.php");
     echo $usernameTeacher . "<br>";
 
-    $sql = "SELECT * FROM teacher NATURAL JOIN teacherrole NATURAL JOIN role WHERE username = '" . $usernameTeacher . "'";
+    $sql = "SELECT * FROM department NATURAL JOIN teacher NATURAL JOIN teacherrole NATURAL JOIN role WHERE username = '" . $usernameTeacher . "'";
     $result = $conn->query($sql);
     $teacher = $result->fetch_assoc();
 

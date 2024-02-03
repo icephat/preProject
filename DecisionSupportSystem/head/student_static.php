@@ -52,6 +52,7 @@
                 require_once '../function/headDeptFunction.php';
 
                 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
+                $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
                 $semester = getSemesterPresent();
 
                 ?>
@@ -147,7 +148,7 @@
 
                                                     <?php
 
-                                                    $studentStatusSortGeneretions = getCountStudentStatusSortByGeneretionByDepartmentId($teacher["departmentId"]);
+                                                    $studentStatusSortGeneretions = getCountStudentStatusSortByGeneretionByNameCourse($course["nameCourseUse"]);
 
                                                     $sumFirstEntry = 0;
                                                     $sumRetire = 0;
@@ -263,7 +264,7 @@
                                                 <tbody>
                                                     <?php
 
-                                                    $studentStatusByYears = getCountStudentStatusSortByYerByDepartmentId($teacher["departmentId"]);
+                                                    $studentStatusByYears = getCountStudentStatusSortByYearByNameCourse($course["nameCourseUse"]);
                                                     $listSem = [];
                                                     $firstEntrys2 = [];
                                                     $retires2 = [];
@@ -361,7 +362,7 @@
 
                                                     </tr>
                                                     <?php
-                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdAndStatus($teacher["departmentId"], "กำลังศึกษา");
+                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatus($course["nameCourseUse"], "กำลังศึกษา");
                                                     $g1=0;
                                                     $g2=0;
                                                     $g3=0;
@@ -549,7 +550,7 @@
 
                                                     </tr>
                                                     <?php
-                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdAndStatus($teacher["departmentId"], "พ้นสภาพนิสิต");
+                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatus($course["nameCourseUse"], "พ้นสภาพนิสิต");
                                                     $g21=0;
                                                     $g22=0;
                                                     $g23=0;
@@ -736,7 +737,7 @@
 
                                                     </tr>
                                                     <?php
-                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdAndStatus($teacher["departmentId"], "จบการศึกษา");
+                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatus($course["nameCourseUse"], "จบการศึกษา");
                                                     $g31=0;
                                                     $g32=0;
                                                     $g33=0;
