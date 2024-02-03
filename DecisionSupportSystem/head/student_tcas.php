@@ -458,16 +458,22 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
                 <script>
+                    var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
+                    
+                    var tcas1 = <?php echo json_encode($TCAS1); ?>;
+                    var tcas2 = <?php echo json_encode($TCAS2); ?>;
+                    var tcas3 = <?php echo json_encode($TCAS3); ?>;
+                    var tcas4 = <?php echo json_encode($TCAS4); ?>;  
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 60', 'รุ่น 61', 'รุ่น 62', 'รุ่น 63', 'รุ่น 64'],
+                            labels: studyGeneretions,
                             datasets: [{
                                 label: 'Tcas 1',
-                                data: [20, 15, 47, 53, 44],
+                                data: tcas1,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -481,7 +487,7 @@
                             },
                             {
                                 label: 'Tcas 2',
-                                data: [64, 40, 25, 40, 55],
+                                data: tcas2,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -495,7 +501,7 @@
                             },
                             {
                                 label: 'Tcas 3',
-                                data: [40, 55, 30, 40, 55],
+                                data: tcas3,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -509,7 +515,7 @@
                             },
                             {
                                 label: 'Tcas 4',
-                                data: [20, 30, 49, 57, 66],
+                                data: tcas4,
                                 backgroundColor: '#f8c769',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -532,7 +538,6 @@
                                 yAxes: [{
                                     ticks: {
                                         beginAtZero: true,
-                                        max: 100,
                                         min: 0
                                     }
                                 }]
@@ -545,40 +550,25 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
                 <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
                 <script>
+                    var studyGeneretionGrade = <?php echo json_encode($studyGeneretionGrade); ?>;
+                        
+                    var maxGPAX = <?php echo json_encode($maxGPAX); ?>;
+                    var minGPAX = <?php echo json_encode($minGPAX); ?>;
+                    var avgGPAX = <?php echo json_encode($avgGPAX); ?>;
+                        
+
                     var ctx = document.getElementById("grade");
-
-                    var y1 = [3.40, 2.70, 2.00];
-                    var y2 = [3.50, 2.50, 1.50];
-                    var y3 = [3.43, 2.43, 1.43];
-                    var y4 = [3.53, 2.53, 1.53];
-                    var y5 = [3.44, 2.44, 1.44];
-                    var รุ่น60 = {
-                        y: y1,
-                        type: 'box',
-                        name: 'รุ่น 60'
-                    };
-                    var รุ่น61 = {
-                        y: y2,
-                        type: 'box',
-                        name: 'รุ่น 61'
-                    };
-                    var รุ่น62 = {
-                        y: y3,
-                        type: 'box',
-                        name: 'รุ่น 62'
-                    };
-                    var รุ่น63 = {
-                        y: y4,
-                        type: 'box',
-                        name: 'รุ่น 63'
-                    };
-                    var รุ่น64 = {
-                        y: y5,
-                        type: 'box',
-                        name: 'รุ่น 64'
-                    };
-
-                    var data = [รุ่น60, รุ่น61, รุ่น62, รุ่น63, รุ่น64];
+                    var data = [];
+    
+                    for (var i = 0; i < studyGeneretionGrade.length; i++) {
+                        var generationData = {
+                            y: [maxGPAX[i], avgGPAX[i], minGPAX[i]],
+                            type: 'box',
+                            name: studyGeneretionGrade[i]
+                        };
+                        data.push(generationData);
+                    }
+    
                     Plotly.newPlot('grade', data);
                     /*var myChart = new Chart(ctx, {
                         //type: 'bar',
@@ -644,16 +634,20 @@
                 </script>
 
                 <script>
+                    var studyGeneretionPercent = <?php echo json_encode($studyGeneretionPercent); ?>;
+                    var entry = <?php echo json_encode($entry); ?>;
+                    var study = <?php echo json_encode($study); ?>;
+
                     var ctx = document.getElementById("percent");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 60', 'รุ่น 61', 'รุ่น 62', 'รุ่น 63', 'รุ่น 64'],
+                            labels: studyGeneretionPercent,
                             datasets: [{
                                 label: 'จำนวนรับเข้า',
-                                data: [50, 45, 46, 55, 50],
+                                data: entry,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -667,7 +661,7 @@
                             },
                             {
                                 label: 'จำนวนคงเหลือ',
-                                data: [43, 42, 45, 52, 48],
+                                data: study,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -697,16 +691,20 @@
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
                 </script>
                 <script>
+                    var studyGeneretionPercent2 = <?php echo json_encode($studyGeneretionPercent2); ?>;
+                    var study2 = <?php echo json_encode($study2); ?>;
+                    var retire2 = <?php echo json_encode($retire2); ?>;
+                    var percentage2 = <?php echo json_encode($percentage2); ?>;
                     var ctx = document.getElementById("percent2");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 60', 'รุ่น 61', 'รุ่น 62', 'รุ่น 63', 'รุ่น 64'],
+                            labels: studyGeneretionPercent2,
                             datasets: [{
                                 label: 'จำนวนคงอยู่',
-                                data: [86, 93.33, 97.83, 94.55, 96],
+                                data: study2,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -720,7 +718,7 @@
                             },
                             {
                                 label: 'จำนวนพ้นสภาพ',
-                                data: [14, 6.67, 2.17, 5.45, 4],
+                                data: retire2,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
