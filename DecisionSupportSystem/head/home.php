@@ -498,20 +498,21 @@
                                     <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 1</h6>
                                 </div>
                                 <?php
-                                
+
                                     $day = date("Y");
                                     $thaiDay = 543 + $day;
                                     //echo substr($thaiDay-4, -2);
                                     $y=substr($thaiDay-4, -2);
                                     $yNow=substr($thaiDay, -2);
                                     $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"],1);
+                                    //print_r($rangeGradeStudyYearOnes);
                                     $pee1gen=[];
                                     $pee1blues=[];
                                     $pee1greens=[];
                                     $pee1oranges=[];
                                     $pee1reds=[];
 
-                                    for($y; $y<$yNow; $y++){
+                                    //for($y; $y<$yNow; $y++){
                                         
                                             foreach($rangeGradeStudyYearOnes as $range){
                                                 if((int)$range["studyGeneretion"] == $y){
@@ -530,7 +531,7 @@
                                                 }
                                             }
                                         
-                                    }
+                                    //}
                                     
                                 
                                 ?>
@@ -556,7 +557,7 @@
                                     $pee2greensh=[];
                                     $pee2orangesh=[];
                                     $pee2redsh=[];
-                                    for($y; $y<$yNow; $y++){
+                                    //for($y; $y<$yNow; $y++){
                                         foreach($rangeGradeStudyYearOnes as $range){
                                             if((int)$range["studyGeneretion"] == $y){
                                             
@@ -575,7 +576,7 @@
                                             }
                                         }
 
-                                    }
+                                    //}
                                 ?>
                                 <div class="card-body">
                                     <canvas id="pee2"></canvas>
@@ -600,7 +601,7 @@
                                     $pee3oranges=[];
                                     $pee3reds=[];
 
-                                    for($y; $y<$yNow; $y++){
+                                    //for($y; $y<$yNow; $y++){
                                         foreach($rangeGradeStudyYearOnes as $range){
                                             if((int)$range["studyGeneretion"] == $y){
                                                 $pee3gen[]="รุ่น ".(string)$range["studyGeneretion"];
@@ -617,7 +618,7 @@
                                                 $pee3reds[]="0";
                                             }
                                         }
-                                    }
+                                    //}
                                 
                                 ?>
                                 <div class="card-body">
@@ -643,7 +644,7 @@
                                     $pee4greens=[];
                                     $pee4oranges=[];
                                     $pee4reds=[];
-                                    for($y; $y<$yNow; $y++){
+                                    //for($y; $y<$yNow; $y++){
 
                                         foreach($rangeGradeStudyYearOnes as $range){
                                             if((int)$range["studyGeneretion"] == $y){
@@ -661,7 +662,7 @@
                                                 $pee4reds[]="0";
                                             }
                                         }
-                                    }
+                                    //}
                                 
                                 ?>
                                 <div class="card-body">
@@ -1566,25 +1567,25 @@
                             data: {
                                 labels: gennow,
                                 datasets: [{
-                                    label: 'เกียรตินิยม',
+                                    label: '3.25-4.00',
                                     data: bluegen,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'ปกติ',
+                                    label: '2.00-3.24',
                                     data: greengen,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรสูง',
+                                    label: '1.75-1.99',
                                     data: orangegen,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรต่ำ',
+                                    label: '0.00-1.74',
                                     data: redgen,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
@@ -1627,25 +1628,25 @@
                             data: {
                                 labels: genend,
                                 datasets: [{
-                                    label: 'เกียรตินิยม',
+                                    label: '3.25-4.00',
                                     data: bluegenend,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'ปกติ',
+                                    label: '2.00-3.24',
                                     data: greengenend,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรสูง',
+                                    label: '1.75-1.99',
                                     data: orangegenend,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรต่ำ',
+                                    label: '0.00-1.74',
                                     data: redgenend,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
