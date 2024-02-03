@@ -162,10 +162,10 @@
 
                                                     foreach ($countStudentSortByGeneretions as $countStudentSortByGeneretion) {
                                                         $studyGeneretion[]="รุ่น ".(string)$countStudentSortByGeneretion["studyGeneretion"];
-                                                        $Tcas1[]=(int)$countStudentSortByGeneretion["TCAS1"];
-                                                        $Tcas2[]=(int)$countStudentSortByGeneretion["TCAS2"];
-                                                        $Tcas3[]=(int) $countStudentSortByGeneretion["TCAS3"];
-                                                        $Tcas4[]=(int)$countStudentSortByGeneretion["TCAS4"];
+                                                        $TCAS1[]=(int)$countStudentSortByGeneretion["TCAS1"];
+                                                        $TCAS2[]=(int)$countStudentSortByGeneretion["TCAS2"];
+                                                        $TCAS3[]=(int) $countStudentSortByGeneretion["TCAS3"];
+                                                        $TCAS4[]=(int)$countStudentSortByGeneretion["TCAS4"];
                                                         $sumTcas1 += $countStudentSortByGeneretion["TCAS1"];
                                                         $sumTcas2 += $countStudentSortByGeneretion["TCAS2"];
                                                         $sumTcas3 += $countStudentSortByGeneretion["TCAS3"];
@@ -191,7 +191,6 @@
 
                                                         <?php
                                                     }
-
                                                     ?>
 
                                                     <tr>
@@ -461,7 +460,7 @@
                 <script>
 
                     var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
-                        
+                    
                     var tcas1 = <?php echo json_encode($TCAS1); ?>;
                     var tcas2 = <?php echo json_encode($TCAS2); ?>;
                     var tcas3 = <?php echo json_encode($TCAS3); ?>;
@@ -541,7 +540,6 @@
                                 yAxes: [{
                                     ticks: {
                                         beginAtZero: true,
-                                        max: 100,
                                         min: 0
                                     }
                                 }]
