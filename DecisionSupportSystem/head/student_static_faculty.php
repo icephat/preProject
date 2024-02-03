@@ -356,7 +356,7 @@
                                 $pee1oranges=[];
                                 $pee1reds=[];
 
-                                for($y; $y<$yNow; $y++){
+                                //for($y; $y<$yNow; $y++){
                                         
                                     foreach($studentGeneretionGradeRangeOnes as $range){
                                         if((int)$range["studyGeneretion"] == $y){
@@ -375,7 +375,7 @@
                                         }
                                     }
                                 
-                                }
+                                //}
                             ?>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 1</h6>
@@ -399,7 +399,7 @@
                             $pee2greensh=[];
                             $pee2orangesh=[];
                             $pee2redsh=[];
-                            for($y; $y<$yNow; $y++){
+                            //for($y; $y<$yNow; $y++){
                                 foreach($studentGeneretionGradeRangeTwos as $range){
                                     if((int)$range["studyGeneretion"] == $y){
                                     
@@ -418,7 +418,7 @@
                                     }
                                 }
 
-                            }
+                            //}
                             ?>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 2</h6>
@@ -442,7 +442,7 @@
                             $pee3greens=[];
                             $pee3oranges=[];
                             $pee3reds=[];
-                            for($y; $y<$yNow; $y++){
+                            //for($y; $y<$yNow; $y++){
                                 foreach($studentGeneretionGradeRangeThrees as $range){
                                     if((int)$range["studyGeneretion"] == $y){
                                         $pee3gen[]="รุ่น ".(string)$range["studyGeneretion"];
@@ -459,7 +459,7 @@
                                         $pee3reds[]="0";
                                     }
                                 }
-                            }
+                            //}
                             ?>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 3</h6>
@@ -484,7 +484,7 @@
                             $pee4greens=[];
                             $pee4oranges=[];
                             $pee4reds=[];
-                            for($y; $y<$yNow; $y++){
+                            //for($y; $y<$yNow; $y++){
 
                                 foreach($studentGeneretionGradeRangeFours as $range){
                                     if((int)$range["studyGeneretion"] == $y){
@@ -502,7 +502,7 @@
                                         $pee4reds[]="0";
                                     }
                                 }
-                            }
+                            //}
                             ?>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 4</h6>
@@ -534,7 +534,7 @@
                             $GNG=[];
                             $ONG=[];
                             $RNG=[];
-                            for($y; $y<$yNow; $y++){
+                            //for($y; $y<$yNow; $y++){
                                 foreach($countStudentStudyingRangeGradeSortByGeneretions as $grade){
                                     if((int)$range["studyGeneretion"] == $y){
                                         $nowgen[] = "รุ่น ".(string)$grade["studyGeneretion"];
@@ -551,7 +551,7 @@
                                         $RNG[]="0";
                                     }
                                 }
-                            }
+                            //}
                             ?>
                             <div class="card-body">
                                 <canvas id="learn"></canvas>
