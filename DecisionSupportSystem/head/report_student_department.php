@@ -397,29 +397,47 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php
+                                                        $sumBlue = 0;
+                                                        $sumGreen = 0;
+                                                        $sumOrange = 0;
+                                                        $sumRed = 0;
+
+                                                        $learnLabels=[];
+                                                        $learnBlues=[];
+                                                        $learnGreens=[];
+                                                        $learnOranges=[];
+                                                        $learnReds=[];
 
                                                         foreach ($gradeRangeSortByDepartments as $dept) {
+                                                            $sumBlue+=$dept["blue"];
+                                                            $sumGreen+=$dept["green"];
+                                                            $sumOrange +=$dept["orange"];
+                                                            $sumRed+=$dept["red"];
 
+                                                            $learnLabels[]=$dept["departmentInitials"];
+                                                            $learnBlues[]=(int)$dept["blue"];
+                                                            $learnGreens[]=(int)$dept["green"];
+                                                            $learnOranges[]=(int)$dept["orange"];
+                                                            $learnReds[]=(int)$dept["red"];
+                                                        ?>
+                                                            <tr>
+                                                                <td style=" text-align: left;"><?php echo $dept["departmentInitials"] ?></td>
+                                                                <td style=" text-align: right;">
+                                                                <?php echo $dept["blue"] ?> คน
+                                                                </td>
+                                                                <td style=" text-align: right;">
+                                                                <?php echo $dept["green"] ?> คน
+                                                                </td>
+                                                                <td style=" text-align: right;"><?php echo $dept["orange"] ?> คน</td>
 
-                                                            ?>
-                                                                        <tr>
-                                                                            <td style=" text-align: left;"><?php echo $dept["departmentInitials"] ?></td>
-                                                                            <td style=" text-align: right;">
-                                                                            <?php echo $dept["blue"] ?> คน
-                                                                            </td>
-                                                                            <td style=" text-align: right;">
-                                                                            <?php echo $dept["green"] ?> คน
-                                                                            </td>
-                                                                            <td style=" text-align: right;"><?php echo $dept["orange"] ?> คน</td>
-
-                                                                            <td style=" text-align: right;"><?php echo $dept["red"] ?> คน</td>
-                                                                            <td class="text-center">
-                                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                                </a>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <?php
+                                                                <td style=" text-align: right;"><?php echo $dept["red"] ?> คน</td>
+                                                                <td class="text-center">
+                                                                    <a data-toggle="modal" data-target="#dataModal">
+                                                                        <i class="fas fa-search fa-sm"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            <?php
                                                         }
                                                         ?>
                                                         
@@ -428,10 +446,10 @@
                                                         <tr>
                                                             <th scope='row' style=" text-align: left;  ">
                                                                 ทุกภาค</th>
-                                                            <td style="font-weight: bold; text-align: right;">225 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>636 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>70 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>4 คน</td>
+                                                            <td style="font-weight: bold; text-align: right;"><?php echo $sumBlue ?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumGreen ?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumOrange ?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumRed ?> คน</td>
                                                             <td></td>
                                                         </tr>
                                                     </tbody>
@@ -478,9 +496,28 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php
+                                                            $sumPlan = 0;
+                                                            $sumNotPlan = 0;
+                                                            $sumRetire = 0;
+                                                            $sumGrad = 0;
+
+                                                            $learn2Labels=[];
+                                                            $learn2Plans=[];
+                                                            $learn2NotPlans=[];
+                                                            $learn2Retires=[];
+                                                            $learn2Grads=[];
 
                                                         foreach ($planStatusSortByDepartments as $planStatusSortByDepartment) {
+                                                            $sumPlan += $planStatusSortByDepartment["plan"];
+                                                            $sumNotPlan  += $planStatusSortByDepartment["notPlan"];
+                                                            $sumRetire  += $planStatusSortByDepartment["retire"];
+                                                            $sumGrad  += $planStatusSortByDepartment["grad"];
 
+                                                            $learn2Labels[] = $planStatusSortByDepartment["departmentInitials"];
+                                                            $learn2Plans[] = (int)$planStatusSortByDepartment["plan"];
+                                                            $learn2NotPlans[] = (int)$planStatusSortByDepartment["notPlan"];
+                                                            $learn2Retires[] = (int)$planStatusSortByDepartment["retire"];
+                                                            $learn2Grads[] = (int)$planStatusSortByDepartment["grad"];
 
                                                             ?>
                                                                     <tr>
@@ -510,10 +547,10 @@
                                                         <tr>
                                                             <th scope='row' style=" text-align: left;  ">
                                                                 ทุกภาค</th>
-                                                            <td style="font-weight: bold; text-align: right;">753 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>87 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>70 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>4 คน</td>
+                                                            <td style="font-weight: bold; text-align: right;"><?php echo $sumPlan ?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumNotPlan ?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumRetire?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumGrad?> คน</td>
                                                             <td></td>
                                                         </tr>
                                                     </tbody>
@@ -557,8 +594,16 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php
+                                                            $departmentInitials = [];
+                                                            $maxGPAX = [];
+                                                            $minGPAX = [];
+                                                            $avgGPAX = [];
 
                                                         foreach ($departmentMMAs as $departmentMMA) {
+                                                            $departmentInitials[] = $departmentMMA["departmentInitials"];
+                                                            $maxGPAX[] = (float) $departmentMMA["maxGPAX"];
+                                                            $minGPAX[] = (float) $departmentMMA["minGPAX"];
+                                                            $avgGPAX[] = (float) $departmentMMA["avgGPAX"]
                                                             ?>
                                                                 <tr style="font-weight: normal;">
                                                                     <td style=" text-align: left;"><?php echo $departmentMMA["departmentInitials"] ?></td>
@@ -811,9 +856,28 @@
                                                     </thead>
                                                     <tbody>
                                                     <?php
+                                                        $sumBlue2 = 0;
+                                                        $sumGreen2= 0;
+                                                        $sumOrange2 = 0;
+                                                        $sumRed2 = 0;
+
+                                                        $learnLabels2=[];
+                                                        $learnBlues2=[];
+                                                        $learnGreens2=[];
+                                                        $learnOranges2=[];
+                                                        $learnReds2=[];
 
                                                     foreach ($gradeRangeRemainingSortByDepartments as $deptR) {
+                                                        $sumBlue2+=$deptR["blue"];
+                                                        $sumGreen2+=$deptR["green"];
+                                                        $sumOrange2 +=$deptR["orange"];
+                                                        $sumRed2+=$deptR["red"];
 
+                                                        $learnLabels2[]=$deptR["departmentInitials"];
+                                                        $learnBlues2[]=(int)$deptR["blue"];
+                                                        $learnGreens2[]=(int)$deptR["green"];
+                                                        $learnOranges2[]=(int)$deptR["orange"];
+                                                        $learnReds2[]=(int)$deptR["red"];
 
                                                         ?>
                                                                     <tr>
@@ -841,10 +905,10 @@
                                                         <tr>
                                                             <th scope='row' style=" text-align: left;  ">
                                                                 ทุกภาค</th>
-                                                            <td style="font-weight: bold; text-align: right;">0 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>65 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>0 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>0 คน</td>
+                                                            <td style="font-weight: bold; text-align: right;"><?php echo $sumBlue2 ?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumGreen2 ?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumOrange2 ?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumRed2 ?> คน</td>
                                                             <td></td>
                                                         </tr>
                                                     </tbody>
@@ -891,9 +955,28 @@
                                                     </thead>
                                                     <tbody>
                                                     <?php
+                                                        $sumPlan2 = 0;
+                                                        $sumNotPlan2 = 0;
+                                                        $sumRetire2 = 0;
+                                                        $sumGrad2 = 0;
+
+                                                        $learn2Labels2=[];
+                                                        $learn2Plans2=[];
+                                                        $learn2NotPlans2=[];
+                                                        $learn2Retires2=[];
+                                                        $learn2Grads2=[];
 
                                                     foreach ($planStatusRemainingByDepartments as $planStatusRemainingByDepartment) {
+                                                        $sumPlan2 += $planStatusRemainingByDepartment["plan"];
+                                                        $sumNotPlan2  += $planStatusRemainingByDepartment["notPlan"];
+                                                        $sumRetire2  += $planStatusRemainingByDepartment["retire"];
+                                                        $sumGrad2 += $planStatusRemainingByDepartment["grad"];
 
+                                                        $learn2Labels2[] = $planStatusRemainingByDepartment["departmentInitials"];
+                                                        $learn2Plans2[] = (int)$planStatusRemainingByDepartment["plan"];
+                                                        $learn2NotPlans2[] = (int)$planStatusRemainingByDepartment["notPlan"];
+                                                        $learn2Retires2[] = (int)$planStatusRemainingByDepartment["retire"];
+                                                        $learn2Grads2[] = (int)$planStatusRemainingByDepartment["grad"];
 
                                                         ?>
                                                                 <tr>
@@ -921,10 +1004,10 @@
                                                         <tr>
                                                             <th scope='row' style=" text-align: left;  ">
                                                                 ทุกภาค</th>
-                                                            <td style="font-weight: bold; text-align: right;">0 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>65 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>0 คน</td>
-                                                            <td style='font-weight: bold; text-align: right;'>0 คน</td>
+                                                            <td style="font-weight: bold; text-align: right;"><?php echo $sumPlan2?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumNotPlan2?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumRetire2?> คน</td>
+                                                            <td style='font-weight: bold; text-align: right;'><?php echo $sumGrad2?> คน</td>
                                                             <td></td>
                                                         </tr>
                                                     </tbody>
@@ -1037,34 +1120,41 @@
 
                     <script>
 
+                        var learnLabels = <?php echo json_encode($learnLabels); ?>;
+
+                        var learnBlues = <?php echo json_encode($learnBlues); ?>;
+                        var learnGreens = <?php echo json_encode($learnGreens); ?>;
+                        var learnOranges = <?php echo json_encode($learnOranges); ?>;
+                        var learnReds = <?php echo json_encode($learnReds); ?>;
+
                         var ctx = document.getElementById("learn");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['วศ.คอมพิวเตอร์', 'วศ.เครื่องกล', 'วศ.โยธา', 'วศ.อาหาร'],
+                                labels: learnLabels,
                                 datasets: [{
                                     label: 'เกียรตินิยม',
-                                    data: [50, 40, 75, 60],
+                                    data: learnBlues,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ปกติ',
-                                    data: [100, 200, 178, 158],
+                                    data: learnGreens,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'โปรสูง',
-                                    data: [6, 60, 2, 2],
+                                    data: learnOranges,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'โปรต่ำ',
-                                    data: [0, 0, 4, 0],
+                                    data: learnReds,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
                                 }
@@ -1087,34 +1177,41 @@
 
                     <script>
 
+                        var learn2Labels = <?php echo json_encode($learn2Labels); ?>;
+
+                        var learn2Plans = <?php echo json_encode($learn2Plans); ?>;
+                        var learn2NotPlans = <?php echo json_encode($learn2NotPlans); ?>;
+                        var learn2Retires = <?php echo json_encode($learn2Retires); ?>;
+                        var learn2Grads = <?php echo json_encode($learn2Grads); ?>;
+
                         var ctx = document.getElementById("learn2");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['วศ.คอมพิวเตอร์', 'วศ.เครื่องกล', 'วศ.โยธา', 'วศ.อาหาร'],
+                                labels: learn2Labels,
                                 datasets: [{
                                     label: 'ตามแผน',
-                                    data: [125, 220, 210, 198],
+                                    data: learn2Plans,
                                     backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ไม่ตามแผน',
-                                    data: [25, 20, 22, 20],
+                                    data: learn2NotPlans,
                                     backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'พ้นสภาพ',
-                                    data: [6, 60, 2, 2],
+                                    data: learn2Retires,
                                     backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'จบการศึกษา',
-                                    data: [0, 0, 4, 0],
+                                    data: learn2Grads,
                                     backgroundColor: 'rgba(255, 105, 98,0.7)',
                                     borderWidth: 0
                                 }
@@ -1138,130 +1235,65 @@
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
                     <script src='https://cdn.plot.ly/plotly-2.27.0.min.js'></script>
                     <script>
+
+                        var departmentInitials = <?php echo json_encode($departmentInitials); ?>;
+                        
+                        var maxGPAX = <?php echo json_encode($maxGPAX); ?>;
+                        var minGPAX = <?php echo json_encode($minGPAX); ?>;
+                        var avgGPAX = <?php echo json_encode($avgGPAX); ?>;
+                        
+    
                         var ctx = document.getElementById("grade");
-                        var y1 = [3.40, 2.70, 2.00];
-                        var y2 = [3.50, 2.50, 1.50];
-                        var y3 = [3.43, 2.43, 1.43];
-                        var y4 = [3.53, 2.53, 1.53];
-                        var y5 = [3.44, 2.44, 1.44];
-
-                        var t1 = {
-                            y: y1,
-                            type: 'box',
-                            name: 'วศ.คอมพิวเตอร์'
-                        };
-                        var t2 = {
-                            y: y2,
-                            type: 'box',
-                            name: 'วศ.เครื่องกล'
-                        };
-                        var t3 = {
-                            y: y3,
-                            type: 'box',
-                            name: 'วศ.โยธา'
-                        };
-                        var t4 = {
-                            y: y4,
-                            type: 'box',
-                            name: 'วศ.อาหาร'
-                        };
-
-
-                        var data = [t1, t2, t3, t4];
+                        var data = [];
+    
+                        for (var i = 0; i < departmentInitials.length; i++) {
+                            var generationData = {
+                                y: [maxGPAX[i], avgGPAX[i], minGPAX[i]],
+                                type: 'box',
+                                name: departmentInitials[i]
+                            };
+                            data.push(generationData);
+                        }
+    
                         Plotly.newPlot('grade', data);
-                        /*var myChart = new Chart(ctx, {
-                            //type: 'bar',
-                            //type: 'line',
-                            
-                            type: 'bar',
-                            data: {
-                                labels: ['รุ่น 60', 'รุ่น 61', 'รุ่น 62', 'รุ่น 63', 'รุ่น 64'],
-                                datasets: [{
-                                    label: 'max',
-                                    data: [3.40, 3.50, 3.43, 3.53, 3.44],
-                                    backgroundColor: '#bfd575',
-                                    borderColor: [
-                                        'rgba(150,186,169, 1)', //1
-                                        'rgba(108,158,134, 1)',
-                                        'rgba(66,130,100, 1)',
-                                        'rgba(45,117,83, 1)',
-                                        'rgba(27,70,49, 1)', //5
-                                        'rgba(0, 51, 18, 1)'
-                                    ],
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: 'min',
-                                    data: [2.00, 1.50, 1.43, 1.53, 1.44],
-                                    backgroundColor: '#a4ebf3',
-                                    borderColor: [
-                                        'rgba(150,186,169, 1)', //1
-                                        'rgba(108,158,134, 1)',
-                                        'rgba(66,130,100, 1)',
-                                        'rgba(45,117,83, 1)',
-                                        'rgba(27,70,49, 1)', //5
-                                        'rgba(0, 51, 18, 1)'
-                                    ],
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: 'avg',
-                                    data: [2.70, 2.50, 2.43, 2.53, 2.44],
-                                    backgroundColor: '#abbdee',
-                                    borderColor: [
-                                        'rgba(150,186,169, 1)', //1
-                                        'rgba(108,158,134, 1)',
-                                        'rgba(66,130,100, 1)',
-                                        'rgba(45,117,83, 1)',
-                                        'rgba(27,70,49, 1)', //5
-                                        'rgba(0, 51, 18, 1)'
-                                    ],
-                                    borderWidth: 0
-                                }
-            
-            
-                                ]
-            
-                            },
-            
-                            options: {
-            
-                                responsive: true,
-            
-                            }
-                        });*/
                     </script>
 
                     <script>
 
+                        var learnLabels2 = <?php echo json_encode($learnLabels2); ?>;
+
+                        var learnBlues2 = <?php echo json_encode($learnBlues2); ?>;
+                        var learnGreens2 = <?php echo json_encode($learnGreens2); ?>;
+                        var learnOranges2 = <?php echo json_encode($learnOranges2); ?>;
+                        var learnReds2 = <?php echo json_encode($learnReds2); ?>;
                         var ctx = document.getElementById("learn21");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['วศ.คอมพิวเตอร์', 'วศ.เครื่องกล', 'วศ.โยธา', 'วศ.อาหาร'],
+                                labels: learnLabels2,
                                 datasets: [{
                                     label: 'เกียรตินิยม',
-                                    data: [0, 0, 0, 0],
+                                    data: learnBlues2,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ปกติ',
-                                    data: [5, 25, 15, 20],
+                                    data: learnGreens2,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'โปรสูง',
-                                    data: [0, 0, 0, 0],
+                                    data: learnOranges2,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'โปรต่ำ',
-                                    data: [0, 0, 0, 0],
+                                    data: learnReds2,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
                                 }
@@ -1283,34 +1315,41 @@
                     </script>
                     <script>
 
+                        var learn2Labels2 = <?php echo json_encode($learn2Labels2); ?>;
+
+                        var learn2Plans2 = <?php echo json_encode($learn2Plans2); ?>;
+                        var learn2NotPlans2 = <?php echo json_encode($learn2NotPlans2); ?>;
+                        var learn2Retires2 = <?php echo json_encode($learn2Retires2); ?>;
+                        var learn2Grads2 = <?php echo json_encode($learn2Grads2); ?>;
+
                         var ctx = document.getElementById("learn22");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['วศ.คอมพิวเตอร์', 'วศ.เครื่องกล', 'วศ.โยธา', 'วศ.อาหาร'],
+                                labels: learn2Labels2,
                                 datasets: [{
                                     label: 'ตามแผน',
-                                    data: [0, 0, 0, 0],
+                                    data: learn2Plans2,
                                     backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ไม่ตามแผน',
-                                    data: [5, 25, 15, 20],
+                                    data: learn2NotPlans2,
                                     backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'พ้นสภาพ',
-                                    data: [0, 0, 0, 0],
+                                    data: learn2Retires2,
                                     backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'จบการศึกษา',
-                                    data: [0, 0, 0, 0],
+                                    data: learn2Grads2,
                                     backgroundColor: 'rgba(255, 105, 98,0.7)',
                                     borderWidth: 0
                                 }
