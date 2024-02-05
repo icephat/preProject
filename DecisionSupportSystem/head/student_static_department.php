@@ -193,8 +193,29 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php
+                                                        $studyGeneretion=[];
+                                                        $TCAS1=[];
+                                                        $TCAS2=[];
+                                                        $TCAS3=[];
+                                                        $TCAS4=[];
+                                                        
+                                                        $sumTcas1 = 0;
+                                                        $sumTcas2 = 0;
+                                                        $sumTcas3 = 0;
+                                                        $sumTcas4 = 0;
+
                                                         foreach($countStudentSortByDepartments as $countStudentSortByDepartment){
 
+                                                            $sumTcas1+=$countStudentSortByDepartment["TCAS1"];
+                                                            $sumTcas2+=$countStudentSortByDepartment["TCAS2"];
+                                                            $sumTcas3+=$countStudentSortByDepartment["TCAS3"]; 
+                                                            $sumTcas4+=$countStudentSortByDepartment["TCAS4"]; 
+
+                                                            $studyGeneretion[]=$countStudentSortByDepartment["departmentInitials"] ;
+                                                            $TCAS1[]=(int)$countStudentSortByDepartment["TCAS1"];
+                                                            $TCAS2[]=(int)$countStudentSortByDepartment["TCAS2"];
+                                                            $TCAS3[]=(int)$countStudentSortByDepartment["TCAS3"];
+                                                            $TCAS4[]=(int)$countStudentSortByDepartment["TCAS4"];
                                                         
                                                         ?>
                                                         <tr>
@@ -216,10 +237,10 @@
                                                         
                                                         <tr>
                                                             <th scope='row' style=" ">ทุกภาค</th>
-                                                            <td style="font-weight: bold; text-align: center;">179 คน</td>
-                                                            <td style='font-weight: bold; text-align: center;'>204 คน</td>
-                                                            <td style='font-weight: bold; text-align: center;'>220 คน</td>
-                                                            <td style='font-weight: bold; text-align: center;'>222 คน</td>
+                                                            <td style="font-weight: bold; text-align: center;"><?php echo $sumTcas1?> คน</td>
+                                                            <td style='font-weight: bold; text-align: center;'><?php echo $sumTcas2?> คน</td>
+                                                            <td style='font-weight: bold; text-align: center;'><?php echo $sumTcas3?> คน</td>
+                                                            <td style='font-weight: bold; text-align: center;'><?php echo $sumTcas4?> คน</td>
                                                         </tr>
 
                                                     </tbody>
@@ -260,7 +281,16 @@
                                                     </thead>
                                                     <tbody>
                                                         <?php
+                                                        $studyGeneretionGrade=[];
+                                                        $maxGPAX=[];
+                                                        $minGPAX=[];
+                                                        $avgGPAX=[];
+
                                                         foreach($departmentMMAs as $departmentMMA){
+                                                            $studyGeneretionGrade[]="รุ่น ".(string)$departmentMMA["departmentInitials"];
+                                                            $maxGPAX[]=(float)$departmentMMA["maxGPAX"];
+                                                            $minGPAX[]=(float)$departmentMMA["minGPAX"];
+                                                            $avgGPAX[]=(float)$departmentMMA["avgGPAX"];
                                                         ?>
                                                         <tr style="font-weight: normal;">
                                                             <td ><?php echo $departmentMMA["departmentInitials"] ?></td>
@@ -296,6 +326,7 @@
                                 
                                 ?>
                                 <div class="card-body ">
+                                    
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
 
@@ -307,49 +338,40 @@
                                                     style="color: black;">
                                                     <thead style=" ">
                                                         <tr>
-                                                            <th style=" text-align: center; "></th>
-                                                            <th style="text-align: center; "><span>วศ.คอมพิวเตอร์</span>
+                                                            <th style=" text-align: center; ">ภาควิชา</th>
+                                                            <th style="text-align: center; "><span>จำนวนรับเข้า</span>
                                                             </th>
-                                                            <th style="text-align: center;"><span>วศ.เครื่องกล</span></th>
-                                                            <th style="text-align: center;">วศ.โยธา</th>
-                                                            <th style="text-align: center;">วศ.อาหาร</th>
+                                                            <th style="text-align: center;"><span>จำนวนคงอยู่</span></th>
+                                                            <th style="text-align: center;">คิดเป็นร้อยละ</th>
+
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <th style=" text-align: center;  ">จำนวนรับเข้า</th>
-                                                            <td style=" text-align: center;">
-                                                                50 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                45 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">46 คน</td>
-                                                            <td style=" text-align: center;">55 คน</td>
-                                                        </tr>
+                                                        <?php
+                                                        $studyGeneretionPercent=[];
+                                                        $entry=[];
+                                                        $study=[];
+                                                        
+                                                        foreach($percentageDepartments as $percentageDepartment){
 
+                                                            $studyGeneretionPercent[]= $percentageDepartment["departmentInitials"];
+                                                            $study[]=(int)$percentageDepartment["study"];
+                                                            $entry[]=(int)$percentageDepartment["entry"];
+                                                        ?>
                                                         <tr>
-                                                            <th style=" text-align: center;  ">จำนวนคงอยู่</th>
+                                                            <th style=" text-align: center;  "><?php echo $percentageDepartment["departmentInitials"]  ?></th>
                                                             <td style=" text-align: center;">
-                                                                43 คน
+                                                            <?php echo $percentageDepartment["entry"]  ?> คน
                                                             </td>
                                                             <td style=" text-align: center;">
-                                                                42 คน
+                                                            <?php echo $percentageDepartment["study"]  ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">45 คน</td>
-                                                            <td style=" text-align: center;">52 คน</td>
-                                                        </tr>
+                                                            <td style=" text-align: center;"><?php echo $percentageDepartment["percentage"]  ?></td>
 
-                                                        <tr>
-                                                            <th scope='row' style=" text-align: center;  ">คิดเป็นร้อยละ
-                                                            </th>
-                                                            <td style="font-weight: bold; text-align: center;">100 </td>
-                                                            <td style='font-weight: bold; text-align: center;'>93.75
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>93.30
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>100</td>
                                                         </tr>
+                                                        <?php
+                                                        }
+                                                        ?>
 
                                                     </tbody>
                                                 </table>
@@ -378,56 +400,43 @@
                                             <canvas id="percent2"></canvas>
                                         </div>
                                         <div class="col-sm-6 float-right">
+                                       
                                             <div class="table-responsive">
                                                 <table class="table table-striped" cellspacing="0"
                                                     style="color: black;">
                                                     <thead style=" ">
                                                         <tr>
-                                                            <th style=" text-align: center; "></th>
-                                                            <th style="text-align: center; "><span>วศ.คอมพิวเตอร์</span>
-                                                            </th>
-                                                            <th style="text-align: center;"><span>วศ.เครื่องกล</span></th>
-                                                            <th style="text-align: center;">วศ.โยธา</th>
-                                                            <th style="text-align: center;">วศ.อาหาร</th>
+                                                            <th style=" text-align: center; ">ภาควิชา</th>
+                                                            <th style="text-align: center; "><span>จำนวนคงเหลือ</span></th>
+                                                            <th style="text-align: center;"><span>จำนวนพ้นสภาพ</span></th>
+                                                            <th style="text-align: center;">คิดเป็นร้อยละ</th>
+                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <?php
+                                                        $studyGeneretionPercent2=[];
+                                                        $study2=[];
+                                                        $retire2=[];
+                                                        $percentage2=[];
+                                                        foreach($percentageRetireDepartments as $percentageRetireDepartment){
+                                                            $studyGeneretionPercent2[]=$percentageRetireDepartment["departmentInitials"];
+                                                            $study2[]=(int)$percentageRetireDepartment["study"];
+                                                            $retire2[]=(int)$percentageRetireDepartment["retire"];
+                                                            $percentage2[]=(int)$percentageRetireDepartment["percentage"];
+                                                        ?>
                                                         <tr>
-                                                            <th style=" text-align: center;  ">จำนวนคงเหลือ</th>
+                                                            
                                                             <td style=" text-align: center;">
-                                                                43 คน
+                                                                <?php echo $percentageRetireDepartment["departmentInitials"] ?>
                                                             </td>
-                                                            <td style=" text-align: center;">
-                                                                42 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">45 คน</td>
-                                                            <td style=" text-align: center;">52 คน</td>
+                                                            <td style=" text-align: center;"><?php echo $percentageRetireDepartment["study"] ?> คน</td>
+                                                            <td style=" text-align: center;"><?php echo $percentageRetireDepartment["retire"] ?> คน</td>
+                                                            <td style=" text-align: center;"><?php echo $percentageRetireDepartment["percentage"] ?></td>
                                                         </tr>
-
-                                                        <tr>
-                                                            <th style=" text-align: center;  ">จำนวนพ้นสภาพ</th>
-                                                            <td style=" text-align: center;">
-                                                                7 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                3 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">1 คน</td>
-                                                            <td style=" text-align: center;">3 คน</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th scope='row' style=" text-align: center;  ">คิดเป็นร้อยละ
-                                                            </th>
-                                                            <td style="font-weight: bold; text-align: center;">86.00
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>93.33
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>97.83
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>94.55
-                                                            </td>
-                                                        </tr>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -474,16 +483,24 @@
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
                     <script>
+
+                        var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
+                        
+                        var tcas1 = <?php echo json_encode($TCAS1); ?>;
+                        var tcas2 = <?php echo json_encode($TCAS2); ?>;
+                        var tcas3 = <?php echo json_encode($TCAS3); ?>;
+                        var tcas4 = <?php echo json_encode($TCAS4); ?>;
+
                         var ctx = document.getElementById("myChart");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['วศ.คอมพิวเตอร์', 'วศ.เครื่องกล', 'วศ.โยธา', 'วศ.อาหาร'],
+                                labels: studyGeneretions,
                                 datasets: [{
                                     label: 'Tcas 1',
-                                    data: [20, 15, 47, 53],
+                                    data: tcas1,
                                     backgroundColor: '#bfd575',
                                     borderColor: [
                                         'rgba(150,186,169, 1)', //1
@@ -497,7 +514,7 @@
                                 },
                                 {
                                     label: 'Tcas 2',
-                                    data: [64, 40, 25, 40],
+                                    data: tcas2,
                                     backgroundColor: '#a4ebf3',
                                     borderColor: [
                                         'rgba(150,186,169, 1)', //1
@@ -511,7 +528,7 @@
                                 },
                                 {
                                     label: 'Tcas 3',
-                                    data: [40, 55, 30, 40],
+                                    data: tcas3,
                                     backgroundColor: '#abbdee',
                                     borderColor: [
                                         'rgba(150,186,169, 1)', //1
@@ -525,7 +542,7 @@
                                 },
                                 {
                                     label: 'Tcas 4',
-                                    data: [20, 30, 49, 57],
+                                    data: tcas4,
                                     backgroundColor: '#f8c769',
                                     borderColor: [
                                         'rgba(150,186,169, 1)', //1
@@ -547,8 +564,6 @@
                                 scales: {
                                     yAxes: [{
                                         ticks: {
-                                            beginAtZero: true,
-                                            max: 100,
                                             min: 0
                                         }
                                     }]
@@ -561,50 +576,45 @@
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
                     <script src='https://cdn.plot.ly/plotly-2.27.0.min.js'></script>
                     <script>
+                        var studyGeneretionGrade = <?php echo json_encode($studyGeneretionGrade); ?>;
+                        
+                        var maxGPAX = <?php echo json_encode($maxGPAX); ?>;
+                        var minGPAX = <?php echo json_encode($minGPAX); ?>;
+                        var avgGPAX = <?php echo json_encode($avgGPAX); ?>;
+                        
+    
                         var ctx = document.getElementById("grade");
-                        var y1 = [3.40, 2.70, 2.00];
-                        var y2 = [3.50, 2.50, 1.50];
-                        var y3 = [3.43, 2.43, 1.43];
-                        var y4 = [3.53, 2.53, 1.53];
-                        var y5 = [3.44, 2.44, 1.44];
-
-                        var t1 = {
-                            y: y1,
-                            type: 'box',
-                            name: 'วศ.คอมพิวเตอร์'
-                        };
-                        var t2 = {
-                            y: y2,
-                            type: 'box',
-                            name: 'วศ.เครื่องกล'
-                        };
-                        var t3 = {
-                            y: y3,
-                            type: 'box',
-                            name: 'วศ.โยธา'
-                        };
-                        var t4 = {
-                            y: y4,
-                            type: 'box',
-                            name: 'วศ.อาหาร'
-                        };
-
-                        var data = [t1, t2, t3, t3, t4];
+                        var data = [];
+    
+                        for (var i = 0; i < studyGeneretionGrade.length; i++) {
+                            var generationData = {
+                                y: [maxGPAX[i], avgGPAX[i], minGPAX[i]],
+                                type: 'box',
+                                name: studyGeneretionGrade[i]
+                            };
+                            data.push(generationData);
+                        }
+    
                         Plotly.newPlot('grade', data);
                         
                     </script>
 
                     <script>
+
+                    var studyGeneretionPercent = <?php echo json_encode($studyGeneretionPercent); ?>;
+                    var entry = <?php echo json_encode($entry); ?>;
+                    var study = <?php echo json_encode($study); ?>;
+
                         var ctx = document.getElementById("percent");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['วศ.คอมพิวเตอร์', 'วศ.เครื่องกล', 'วศ.โยธา', 'วศ.อาหาร'],
+                                labels: studyGeneretionPercent,
                                 datasets: [{
                                     label: 'จำนวนรับเข้า',
-                                    data: [50, 45, 46, 55],
+                                    data: entry,
                                     backgroundColor: '#bfd575',
                                     borderColor: [
                                         'rgba(150,186,169, 1)', //1
@@ -618,7 +628,7 @@
                                 },
                                 {
                                     label: 'จำนวนคงเหลือ',
-                                    data: [43, 42, 45, 52],
+                                    data: study,
                                     backgroundColor: '#a4ebf3',
                                     borderColor: [
                                         'rgba(150,186,169, 1)', //1
@@ -655,16 +665,21 @@
                     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
                     </script>
                     <script>
+                        var studyGeneretionPercent2 = <?php echo json_encode($studyGeneretionPercent2); ?>;
+                        var study2 = <?php echo json_encode($study2); ?>;
+                        var retire2 = <?php echo json_encode($retire2); ?>;
+                        var percentage2 = <?php echo json_encode($percentage2); ?>;
+
                         var ctx = document.getElementById("percent2");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
                             //type: 'line',
                             type: 'bar',
                             data: {
-                                labels: ['วศ.คอมพิวเตอร์', 'วศ.เครื่องกล', 'วศ.โยธา', 'วศ.อาหาร'],
+                                labels: studyGeneretionPercent2,
                                 datasets: [{
                                     label: 'จำนวนคงอยู่',
-                                    data: [86, 93.33, 97.83, 94.55],
+                                    data: study2,
                                     backgroundColor: '#bfd575',
                                     borderColor: [
                                         'rgba(150,186,169, 1)', //1
@@ -678,7 +693,7 @@
                                 },
                                 {
                                     label: 'จำนวนพ้นสภาพ',
-                                    data: [14, 6.67, 2.17, 5.45],
+                                    data: retire2,
                                     backgroundColor: '#a4ebf3',
                                     borderColor: [
                                         'rgba(150,186,169, 1)', //1
