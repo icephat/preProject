@@ -41,6 +41,26 @@
             <!-- Main Content -->
             <div id="content">
 
+            <?php
+
+
+            session_start();
+
+            require_once '../function/teacherFunction.php';
+            require_once '../function/semesterFunction.php';
+            require_once '../function/courseFunction.php';
+            require_once '../function/headDeptFunction.php';
+            require_once '../function/departmentFunction.php';
+            require_once '../function/facultyFunction.php';
+
+            $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
+            $semester = getSemesterPresent();
+
+
+            $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
+
+            ?>
+
             <?php include('../layout/head/report.php'); ?>
 
                     <div>
@@ -148,6 +168,10 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตตาม Tcas (คน)</h6>
                                 </div>
                                 <div class="card-body ">
+                                    <?php
+                                    
+                                    $countStudentSortByDepartments = getCountStudentTcasSortByDepartment();
+                                    ?>
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
 
@@ -168,53 +192,27 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>วศ.คอมพิวเตอร์</td>
-                                                            <td style=" text-align: center;">
-                                                                20 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                64 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">40 คน</td>
-                                                            <td style=" text-align: center;">20 คน</td>
-                                                        </tr>
+                                                        <?php
+                                                        foreach($countStudentSortByDepartments as $countStudentSortByDepartment){
 
+                                                        
+                                                        ?>
                                                         <tr>
-                                                            <td >วศ.เครื่องกล</td>
+                                                            <td><?php echo $countStudentSortByDepartment["departmentInitials"] ?></td>
                                                             <td style=" text-align: center;">
-                                                                15 คน
+                                                            <?php echo $countStudentSortByDepartment["TCAS1"] ?> คน
                                                             </td>
                                                             <td style=" text-align: center;">
-                                                                40 คน
+                                                            <?php echo $countStudentSortByDepartment["TCAS2"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">55 คน</td>
-                                                            <td style=" text-align: center;">30 คน</td>
+                                                            <td style=" text-align: center;"><?php echo $countStudentSortByDepartment["TCAS3"] ?> คน</td>
+                                                            <td style=" text-align: center;"><?php echo $countStudentSortByDepartment["TCAS4"] ?> คน</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td >วศ.โยธา</td>
-                                                            <td style=" text-align: center;">
-                                                                47 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                25 คน
-                                                            </td>
-                                                            <td style="text-align: center;">30 คน</td>
-                                                            <td style="text-align: center;">49 คน</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td >วศ.อาหาร</td>
-                                                            <td style=" text-align: center;">
-                                                                53 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                20 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                40 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">57 คน</td>
-                                                        </tr>
+                                                        <?php
+                                                        }
+                                                        ?>
+
+                                                        
                                                         
                                                         <tr>
                                                             <th scope='row' style=" ">ทุกภาค</th>
@@ -240,6 +238,7 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                                 </div>
+                                <?php $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFaculty();?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -260,49 +259,22 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <?php
+                                                        foreach($departmentMMAs as $departmentMMA){
+                                                        ?>
                                                         <tr style="font-weight: normal;">
-                                                            <td >วศ.คอมพิวเตอร์</td>
+                                                            <td ><?php echo $departmentMMA["departmentInitials"] ?></td>
                                                             <td style=" text-align: center;">
-                                                                3.40
+                                                            <?php echo $departmentMMA["maxGPAX"] ?>
                                                             </td>
                                                             <td style=" text-align: center;">
-                                                                2.00
+                                                            <?php echo $departmentMMA["minGPAX"] ?>
                                                             </td>
-                                                            <td style=" text-align: center;">2.70 </td>
-                                                        </tr>
-
-                                                        <tr style="font-weight: normal;">
-                                                            <td >วศ.เครื่องกล</td>
-                                                            <td style=" text-align: center;">
-                                                                3.50
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                1.50
-                                                            </td>
-                                                            <td style=" text-align: center;">2.50</td>
-                                                        </tr>
-                                                        <tr style="font-weight: normal;">
-                                                            <td >วศ.โยธา</td>
-                                                            <td style=" text-align: center;">
-                                                                3.43
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                1.43
-                                                            </td>
-                                                            <td style=" text-align: center;">2.43</td>
-                                                        </tr>
-                                                        <tr style="font-weight: normal;">
-                                                            <td >วศ.อาหาร</td>
-                                                            <td style=" text-align: center;">
-                                                                3.53
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                1.53
-                                                            </td>
-                                                            <td style=" text-align: center;">2.53</td>
-                                                        </tr>
-                                                       
-
+                                                            <td style=" text-align: center;"><?php echo $departmentMMA["avgGPAX"] ?> </td>
+                                                        </tr>  
+                                                        <?php
+                                                        }
+                                                        ?>                                                    
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -319,6 +291,10 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนอัตราการคงอยู่ </h6>
                                 </div>
+                                <?php
+                                $percentageDepartments = getPercentageStudySortByDepartmentInFaculty();
+                                
+                                ?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -391,6 +367,10 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">สัดส่วนอัตราการคงอยู่ </h6>
                                 </div>
+                                <?php
+                                $percentageRetireDepartments = getPercentageStudyAndRetireSortByDepartmentInFaculty();
+                                
+                                ?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
