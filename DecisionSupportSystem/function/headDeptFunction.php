@@ -748,7 +748,7 @@ function getListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStatusName)
 
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
-    WHERE teacherId = $teacherId AND AND gpaStatusName = '$gpaStatusName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE teacherId = $teacherId AND gpaStatusName = '$gpaStatusName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
     WHERE teacherId = $teacherId GROUP BY studentId);";
 
     $result = $conn->query($sql);
@@ -805,7 +805,8 @@ function getListStudentByTeacherIdAndPlanStatus($teacherId, $planStatus)
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
     WHERE teacherId = $teacherId AND planStatus = '$planStatus' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE teacherId = $teacherId    GROUP BY studentId);";
+    WHERE teacherId = $teacherId
+    GROUP BY studentId);";
 
     $result = $conn->query($sql);
 
