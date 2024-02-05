@@ -40,6 +40,25 @@
 
             <!-- Main Content -->
             <div id="content">
+            <?php
+
+
+            session_start();
+
+            require_once '../function/teacherFunction.php';
+            require_once '../function/semesterFunction.php';
+            require_once '../function/courseFunction.php';
+            require_once '../function/headDeptFunction.php';
+            require_once '../function/departmentFunction.php';
+            require_once '../function/facultyFunction.php';
+
+            $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
+            $semester = getSemesterPresent();
+
+
+            $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
+
+            ?>
 
                 <?php include('../layout/head/report.php'); ?>
 
@@ -140,170 +159,208 @@
                     <hr>
                     <div class="row" style="color: black;">
 
-                        <h5>ทั้งหมด 935 คน 5 รุ่น (รุ่นที่ 60 61 62 63 64)</h5>
+                    <?php
+
+                    $generetions = geStudyGeneretionStudentInFaculty();
+                    $countStudentInCourse = getCountStudentInFaculty();
+
+                    ?>
+                    <h5>จำนวนนิสิต
+                        <?php echo $countStudentInCourse["countStudent"] . " คน " . count($generetions) . " รุ่น ( รุ่นที่ " ?>
+                        <?php
+                        foreach ($generetions as $generetion) {
+                            echo $generetion["studyGeneretion"];
+                        }
+                        ?>
+                        )
+                    </h5>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 ">
-                            <div class="row">
-                                <div class="col-sm-5 mx-auto">
-                                    <table class="table table-hover"
-                                        style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
-                                        <tr style="border: 1px solid black; border-collapse: collapse; ">
-                                            <th
-                                                style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
+                    <div class="col-sm-12 ">
+                        <div class="row">
+                            <div class="col-sm-5 mx-auto">
+                                <table class="table table-hover"
+                                    style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
+                                    <tr style="border: 1px solid black; border-collapse: collapse; ">
+                                        <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
-                                                <div style="color: rgb(0, 9, 188);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(0, 9, 188);"
-                                                            href="../report_head/grade_department/honor.php">
-                                                            <h4>3.25-4.00</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px; ">225</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
-                                                </div>
+                                            <?php
+                                            $countRangeGrade = getCountStudentGradeRangeInFaculty()
 
+                                                ?>
 
-                                            </th>
-                                            <th style="border: 1px solid black; border-collapse: collapse; ">
-                                                <div style="color: rgb(0, 110, 22);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(0, 110, 22);"
-                                                            href="../report_head/grade_department/normal.php">
-                                                            <h4>2.00-3.24</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">636</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                            <div style="color: rgb(0, 9, 188);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(0, 9, 188);"
+                                                        href="../report_head/grade_faculty/honor.php">
+                                                        <h4>3.25-4.00</h4>
+                                                    </a>
                                                 </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th style="border: 1px solid black; border-collapse: collapse; ">
-
-                                                <div style="color: #ff8c00;">
-                                                    <div class="text-center">
-                                                        <a style="color: #ff8c00;"
-                                                            href="../report_head/grade_department/prohigh.php">
-                                                            <h4>1.75-1.99</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">70</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px; ">
+                                                        <?php echo $countRangeGrade["blue"] ?>
+                                                    </h1>
                                                 </div>
-                                            </th>
-                                            <th style="border: 1px solid black; border-collapse: collapse;">
-                                                <div style="color: rgb(255, 0, 0);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(255, 0, 0);"
-                                                            href="../report_head/grade_department/prodown.php">
-                                                            <h4>0.00-1.74</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">4</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
                                                 </div>
-                                            </th>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-sm-5 mx-auto">
-                                    <table class="table table-hover"
-                                        style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
-                                        <tr style="border: 1px solid black; border-collapse: collapse;">
-                                            <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
-
-                                                <div style="color: rgb(100, 197, 215);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(0, 9, 188);"
-                                                            href="../report_head/status_department/plan.php">
-                                                            <h4>ตามแผน</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px; ">800</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
-                                                </div>
+                                            </div>
 
 
-                                            </th>
-                                            <th style="border: 1px solid black; border-collapse: collapse; ">
-                                                <div style="color: rgb(	118, 188, 22);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(0, 110, 22);"
-                                                            href="../report_head/status_department/noplan.php">
-                                                            <h4>ไม่ตามแผน</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">150</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                        </th>
+                                        <th style="border: 1px solid black; border-collapse: collapse; ">
+                                            <div style="color: rgb(0, 110, 22);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(0, 110, 22);"
+                                                        href="../report_head/grade_faculty/normal.php">
+                                                        <h4>2.00-3.24</h4>
+                                                    </a>
                                                 </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th style="border: 1px solid black; border-collapse: collapse;">
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countRangeGrade["green"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="border: 1px solid black; border-collapse: collapse; ">
 
-                                                <div style="color: rgb(	245, 123, 57);">
-                                                    <div class="text-center">
-                                                        <a style="color: #ff8c00;"
-                                                            href="../report_head/status_department/retry.php">
-                                                            <h4>พ้นสภาพ</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">50</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                            <div style="color: #ff8c00;">
+                                                <div class="text-center">
+                                                    <a style="color: #ff8c00;"
+                                                        href="../report_head/grade_faculty/prohigh.php">
+                                                        <h4>1.75-1.99</h4>
+                                                    </a>
                                                 </div>
-                                            </th>
-                                            <th style="border: 1px solid black; border-collapse: collapse;">
-                                                <div style="color: rgb(255, 105, 98);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(255, 0, 0);"
-                                                            href="../report_head/status_department/finish.php">
-                                                            <h4>จบการศึกษา</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">0</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countRangeGrade["orange"] ?>
+                                                    </h1>
                                                 </div>
-                                            </th>
-                                        </tr>
-                                    </table>
-                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
+                                            <div style="color: rgb(255, 0, 0);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(255, 0, 0);"
+                                                        href="../report_head/grade_faculty/prodown.php">
+                                                        <h4>0.00-1.74</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countRangeGrade["red"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-5 mx-auto">
+                                <table class="table table-hover"
+                                    style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+                                    <tr style="border: 1px solid black; border-collapse: collapse;">
+                                        <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+                                            <?php
+                                            $countPlanStatus = getCountStudentPlanStatusInFaculty()
+
+                                                ?>
+
+                                            <div style="color: rgb(100, 197, 215);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(0, 9, 188);"
+                                                        href="../report_head/status_faculty/plan.php">
+                                                        <h4>ตามแผน</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px; ">
+                                                        <?php echo $countPlanStatus["plan"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+
+
+                                        </th>
+                                        <th style="border: 1px solid black; border-collapse: collapse; ">
+                                            <div style="color: rgb(	118, 188, 22);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(0, 110, 22);"
+                                                        href="../report_head/status_faculty/noplan.php">
+                                                        <h4>ไม่ตามแผน</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countPlanStatus["notPlan"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
+
+                                            <div style="color: rgb(	245, 123, 57);">
+                                                <div class="text-center">
+                                                    <a style="color: #ff8c00;"
+                                                        href="../report_head/status_faculty/retry.php">
+                                                        <h4>พ้นสภาพ</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countPlanStatus["retire"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
+                                            <div style="color: rgb(255, 105, 98);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(255, 0, 0);"
+                                                        href="../report_head/status_faculty/finish.php">
+                                                        <h4>จบการศึกษา</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countPlanStatus["grad"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
-
                     </div>
+
+                </div>
 
                     <br><br>
                     <div class="row">
@@ -312,6 +369,10 @@
                                 <!--<div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
+                                <?php
+                                $gradeRangeSortByDepartments = getGradeRangeSortByDepartmentInFaculty();
+
+                                ?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -335,72 +396,33 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.คอมพิวเตอร์</td>
-                                                            <td style=" text-align: right;">
-                                                                50 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                100 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">6 คน</td>
+                                                        <?php
 
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+                                                        foreach ($gradeRangeSortByDepartments as $dept) {
 
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.เครื่องกล</td>
-                                                            <td style=" text-align: right;">
-                                                                40 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                200 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">60 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.โยธา</td>
-                                                            <td style=" text-align: right;">
-                                                                75 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                178 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">2 คน</td>
-                                                            <td style=" text-align: right;">4 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.อาหาร</td>
-                                                            <td style=" text-align: right;">
-                                                                60 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                158 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">2 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+
+                                                            ?>
+                                                                        <tr>
+                                                                            <td style=" text-align: left;"><?php echo $dept["departmentInitials"] ?></td>
+                                                                            <td style=" text-align: right;">
+                                                                            <?php echo $dept["blue"] ?> คน
+                                                                            </td>
+                                                                            <td style=" text-align: right;">
+                                                                            <?php echo $dept["green"] ?> คน
+                                                                            </td>
+                                                                            <td style=" text-align: right;"><?php echo $dept["orange"] ?> คน</td>
+
+                                                                            <td style=" text-align: right;"><?php echo $dept["red"] ?> คน</td>
+                                                                            <td class="text-center">
+                                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                                                    <i class="fas fa-search fa-sm"></i>
+                                                                                </a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <?php
+                                                        }
+                                                        ?>
+                                                        
 
 
                                                         <tr>
@@ -428,6 +450,10 @@
                                 <!--<div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
+                                <?php
+                                $planStatusSortByDepartments = getplanStatusSortByDepartmentInFaculty();
+
+                                ?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -451,72 +477,34 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.คอมพิวเตอร์</td>
-                                                            <td style=" text-align: right;">
-                                                                125 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                25 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">6 คน</td>
+                                                        <?php
 
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal2">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+                                                        foreach ($planStatusSortByDepartments as $planStatusSortByDepartment) {
 
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.เครื่องกล</td>
-                                                            <td style=" text-align: right;">
-                                                                220 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                20 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">60 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal2">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.โยธา</td>
-                                                            <td style=" text-align: right;">
-                                                                210 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                22 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">2 คน</td>
-                                                            <td style=" text-align: right;">4 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal2">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.อาหาร</td>
-                                                            <td style=" text-align: right;">
-                                                                198 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                20 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">2 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal2">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+
+                                                            ?>
+                                                                    <tr>
+                                                                        <td style=" text-align: left;"><?php echo $planStatusSortByDepartment["departmentInitials"] ?></td>
+                                                                        <td style=" text-align: right;">
+                                                                        <?php echo $planStatusSortByDepartment["plan"] ?> คน
+                                                                        </td>
+                                                                        <td style=" text-align: right;">
+                                                                        <?php echo $planStatusSortByDepartment["notPlan"] ?> คน
+                                                                        </td>
+                                                                        <td style=" text-align: right;"><?php echo $planStatusSortByDepartment["retire"] ?> คน</td>
+
+                                                                        <td style=" text-align: right;"><?php echo $planStatusSortByDepartment["grad"] ?> คน</td>
+                                                                        <td class="text-center">
+                                                                            <a data-toggle="modal" data-target="#dataModal2">
+                                                                                <i class="fas fa-search fa-sm"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <?php
+                                                        }
+                                                        ?>
+
+                                                        
 
 
                                                         <tr>
@@ -544,6 +532,10 @@
                                 <!--<div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                                 </div>-->
+                                <?php
+                                $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFaculty();
+
+                                ?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -564,58 +556,25 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr style="font-weight: normal;">
-                                                            <td style=" text-align: left;">วศ.คอมพิวเตอร์</td>
-                                                            <td style=" text-align: center;">
-                                                                3.40
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                2.00
-                                                            </td>
-                                                            <td style=" text-align: center;">2.70 </td>
-                                                        </tr>
+                                                        <?php
 
-                                                        <tr style="font-weight: normal;">
-                                                            <td style=" text-align: left;">วศ.เครื่องกล</td>
-                                                            <td style=" text-align: center;">
-                                                                3.50
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                1.50
-                                                            </td>
-                                                            <td style=" text-align: center;">2.50</td>
-                                                        </tr>
-                                                        <tr style="font-weight: normal;">
-                                                            <td style=" text-align: left;">วศ.โยธา</td>
-                                                            <td style=" text-align: center;">
-                                                                3.43
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                2.43
-                                                            </td>
-                                                            <td style=" text-align: center;">1.53</td>
-                                                        </tr>
-                                                        <tr style="font-weight: normal;">
-                                                            <td style=" text-align: left;">วศ.อาหาร</td>
-                                                            <td style=" text-align: center;">
-                                                                3.53
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                2.44
-                                                            </td>
-                                                            <td style=" text-align: center;">1.44</td>
-                                                        </tr>
-                                                        <tr style="font-weight: normal;">
-                                                            <td style=" text-align: left;  ">
-                                                                ทุกภาค</td>
-                                                            <td style=" text-align: center;">
-                                                                2.77
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                1.67
-                                                            </td>
-                                                            <td style=" text-align: center;">1.63</td>
-                                                        </tr>
+                                                        foreach ($departmentMMAs as $departmentMMA) {
+                                                            ?>
+                                                                <tr style="font-weight: normal;">
+                                                                    <td style=" text-align: left;"><?php echo $departmentMMA["departmentInitials"] ?></td>
+                                                                    <td style=" text-align: center;">
+                                                                    <?php echo $departmentMMA["maxGPAX"] ?>
+                                                                    </td>
+                                                                    <td style=" text-align: center;">
+                                                                    <?php echo $departmentMMA["minGPAX"] ?>
+                                                                    </td>
+                                                                    <td style=" text-align: center;"><?php echo $departmentMMA["avgGPAX"] ?></td>
+                                                                </tr>
+                                                                <?php
+                                                        }
+                                                        ?>
+
+                                                        
 
 
                                                     </tbody>
@@ -632,167 +591,191 @@
                         <h5 style="color: black;">นิสิตตกค้าง</h5>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12 ">
-                            <div class="row">
-                                <div class="col-sm-5 mx-auto">
-                                    <table class="table table-hover"
-                                        style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
-                                        <tr style="border: 1px solid black; border-collapse: collapse; ">
-                                            <th
-                                                style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
+                    <div class="col-sm-12 ">
+                        <div class="row">
+                            <div class="col-sm-5 mx-auto">
+                                <table class="table table-hover"
+                                    style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
+                                    <tr style="border: 1px solid black; border-collapse: collapse; ">
+                                        <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
-                                                <div style="color: rgb(0, 9, 188);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(0, 9, 188);"
-                                                            href="../report_head/grade_department_remain/honor.php">
-                                                            <h4>3.25-4.00</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px; ">0</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
-                                                </div>
+                                            <?php
+                                            $countRangeGrade = getCountStudentRemainingGradeRangeInFaculty()
 
+                                                ?>
 
-                                            </th>
-                                            <th style="border: 1px solid black; border-collapse: collapse; ">
-                                                <div style="color: rgb(0, 110, 22);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(0, 110, 22);"
-                                                            href="../report_head/grade_department_remain/normal.php">
-                                                            <h4>2.00-3.24</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">65</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                            <div style="color: rgb(0, 9, 188);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(0, 9, 188);"
+                                                        href="../report_head/grade_faculty/honor.php">
+                                                        <h4>3.25-4.00</h4>
+                                                    </a>
                                                 </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th style="border: 1px solid black; border-collapse: collapse; ">
-
-                                                <div style="color: #ff8c00;">
-                                                    <div class="text-center">
-                                                        <a style="color: #ff8c00;"
-                                                            href="../report_head/grade_department_remain/prohigh.php">
-                                                            <h4>1.75-1.99</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">0</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px; ">
+                                                        <?php echo $countRangeGrade["blue"] ?>
+                                                    </h1>
                                                 </div>
-                                            </th>
-                                            <th style="border: 1px solid black; border-collapse: collapse;">
-                                                <div style="color: rgb(255, 0, 0);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(255, 0, 0);"
-                                                            href="../report_head/grade_department_remain/prodown.php">
-                                                            <h4>0.00-1.74</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">0</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
                                                 </div>
-                                            </th>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-sm-5 mx-auto">
-                                    <table class="table table-hover"
-                                        style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
-                                        <tr style="border: 1px solid black; border-collapse: collapse;">
-                                            <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
-
-                                                <div style="color: rgb(100, 197, 215);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(0, 9, 188);"
-                                                            href="../report_head/status_department_remain/plan.php">
-                                                            <h4>ตามแผน</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px; ">0</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
-                                                </div>
+                                            </div>
 
 
-                                            </th>
-                                            <th style="border: 1px solid black; border-collapse: collapse; ">
-                                                <div style="color: rgb(	118, 188, 22);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(0, 110, 22);"
-                                                            href="../report_head/status_department_remain/noplan.php">
-                                                            <h4>ไม่ตามแผน</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">60</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                        </th>
+                                        <th style="border: 1px solid black; border-collapse: collapse; ">
+                                            <div style="color: rgb(0, 110, 22);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(0, 110, 22);"
+                                                        href="../report_head/grade_faculty/normal.php">
+                                                        <h4>2.00-3.24</h4>
+                                                    </a>
                                                 </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th style="border: 1px solid black; border-collapse: collapse;">
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countRangeGrade["green"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="border: 1px solid black; border-collapse: collapse; ">
 
-                                                <div style="color: rgb(	245, 123, 57);">
-                                                    <div class="text-center">
-                                                        <a style="color: #ff8c00;"
-                                                            href="../report_head/status_department_remain/retry.php">
-                                                            <h4>พ้นสภาพ</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">5</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                            <div style="color: #ff8c00;">
+                                                <div class="text-center">
+                                                    <a style="color: #ff8c00;"
+                                                        href="../report_head/grade_faculty/prohigh.php">
+                                                        <h4>1.75-1.99</h4>
+                                                    </a>
                                                 </div>
-                                            </th>
-                                            <th style="border: 1px solid black; border-collapse: collapse;">
-                                                <div style="color: rgb(255, 105, 98);">
-                                                    <div class="text-center">
-                                                        <a style="color: rgb(255, 0, 0);"
-                                                            href="../report_head/status_department_remain/finish.php">
-                                                            <h4>จบการศึกษา</h4>
-                                                        </a>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">0</h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countRangeGrade["orange"] ?>
+                                                    </h1>
                                                 </div>
-                                            </th>
-                                        </tr>
-                                    </table>
-                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
+                                            <div style="color: rgb(255, 0, 0);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(255, 0, 0);"
+                                                        href="../report_head/grade_faculty/prodown.php">
+                                                        <h4>0.00-1.74</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countRangeGrade["red"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-5 mx-auto">
+                                <table class="table table-hover"
+                                    style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+                                    <tr style="border: 1px solid black; border-collapse: collapse;">
+                                        <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+                                            <?php
+                                            $countPlanStatus = getCountStudentRemainingPlanStatusInFaculty()
+
+                                                ?>
+
+                                            <div style="color: rgb(100, 197, 215);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(0, 9, 188);"
+                                                        href="../report_head/status_faculty/plan.php">
+                                                        <h4>ตามแผน</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px; ">
+                                                        <?php echo $countPlanStatus["plan"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+
+
+                                        </th>
+                                        <th style="border: 1px solid black; border-collapse: collapse; ">
+                                            <div style="color: rgb(	118, 188, 22);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(0, 110, 22);"
+                                                        href="../report_head/status_faculty/noplan.php">
+                                                        <h4>ไม่ตามแผน</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countPlanStatus["notPlan"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
+
+                                            <div style="color: rgb(	245, 123, 57);">
+                                                <div class="text-center">
+                                                    <a style="color: #ff8c00;"
+                                                        href="../report_head/status_faculty/retry.php">
+                                                        <h4>พ้นสภาพ</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countPlanStatus["retire"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
+                                            <div style="color: rgb(255, 105, 98);">
+                                                <div class="text-center">
+                                                    <a style="color: rgb(255, 0, 0);"
+                                                        href="../report_head/status_faculty/finish.php">
+                                                        <h4>จบการศึกษา</h4>
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countPlanStatus["grad"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
-
                     </div>
+
+                </div>
                     <br><br>
                     <div class="row">
                         <div class="col-sm-12">
@@ -800,6 +783,10 @@
                                 <!--<div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
+                                <?php
+                                $gradeRangeRemainingSortByDepartments = getGradeRangeRemainingSortByDepartmentInFaculty();
+
+                                ?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -823,72 +810,32 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.คอมพิวเตอร์</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                5 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
+                                                    <?php
 
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal21">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+                                                    foreach ($gradeRangeRemainingSortByDepartments as $deptR) {
 
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.เครื่องกล</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                25 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal21">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.โยธา</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                15 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal21">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.อาหาร</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                20 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal21">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+
+                                                        ?>
+                                                                    <tr>
+                                                                        <td style=" text-align: left;"><?php echo $deptR["departmentInitials"] ?></td>
+                                                                        <td style=" text-align: right;">
+                                                                        <?php echo $deptR["blue"] ?> คน
+                                                                        </td>
+                                                                        <td style=" text-align: right;">
+                                                                        <?php echo $deptR["green"] ?> คน
+                                                                        </td>
+                                                                        <td style=" text-align: right;"><?php echo $deptR["orange"] ?> คน</td>
+
+                                                                        <td style=" text-align: right;"><?php echo $deptR["red"] ?> คน</td>
+                                                                        <td class="text-center">
+                                                                            <a data-toggle="modal" data-target="#dataModal">
+                                                                                <i class="fas fa-search fa-sm"></i>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                    <?php
+                                                    }
+                                                    ?>
 
 
                                                         <tr>
@@ -916,6 +863,10 @@
                                 <!--<div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
+                                <?php
+                                $planStatusRemainingByDepartments = getplanStatusRemainingSortByDepartmentInFaculty();
+
+                                ?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -939,72 +890,32 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.คอมพิวเตอร์</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                5 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
+                                                    <?php
 
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal22">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+                                                    foreach ($planStatusRemainingByDepartments as $planStatusRemainingByDepartment) {
 
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.เครื่องกล</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                25 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal22">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.โยธา</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                15 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal22">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: left;">วศ.อาหาร</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                20 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal22">
-                                                                    <i class="fas fa-search fa-sm"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
+
+                                                        ?>
+                                                                <tr>
+                                                                    <td style=" text-align: left;"><?php echo $planStatusRemainingByDepartment["departmentInitials"] ?></td>
+                                                                    <td style=" text-align: right;">
+                                                                    <?php echo $planStatusRemainingByDepartment["plan"] ?> คน
+                                                                    </td>
+                                                                    <td style=" text-align: right;">
+                                                                    <?php echo $planStatusRemainingByDepartment["notPlan"] ?> คน
+                                                                    </td>
+                                                                    <td style=" text-align: right;"><?php echo $planStatusRemainingByDepartment["retire"] ?> คน</td>
+
+                                                                    <td style=" text-align: right;"><?php echo $planStatusRemainingByDepartment["grad"] ?> คน</td>
+                                                                    <td class="text-center">
+                                                                        <a data-toggle="modal" data-target="#dataModal2">
+                                                                            <i class="fas fa-search fa-sm"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <?php
+                                                    }
+                                                    ?>
 
 
                                                         <tr>
