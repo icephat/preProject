@@ -726,8 +726,8 @@ function getGradeRangeSortByAdviserByDepartmentId($departmentId)
     while ($my_row = $result->fetch_assoc()) {
 
         $my_row["blues"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "blue");
-        $my_row["greens"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "greens");
-        $my_row["oranges"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "oranges");
+        $my_row["greens"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "green");
+        $my_row["oranges"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "orange");
         $my_row["reds"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "red");
         $gradeRangeSortByAdvisers[] = $my_row;
     }
@@ -748,8 +748,8 @@ function getListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStatusName)
 
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
-    WHERE teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE teacherId = $teacherId AND gpaStatusName = '$gpaStatusName'   GROUP BY studentId);";
+    WHERE teacherId = $teacherId AND AND gpaStatusName = '$gpaStatusName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE teacherId = $teacherId GROUP BY studentId);";
 
     $result = $conn->query($sql);
 
@@ -804,8 +804,8 @@ function getListStudentByTeacherIdAndPlanStatus($teacherId, $planStatus)
 
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
-    WHERE teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE teacherId = $teacherId AND planStatus = '$planStatus'   GROUP BY studentId);";
+    WHERE teacherId = $teacherId AND planStatus = '$planStatus' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE teacherId = $teacherId    GROUP BY studentId);";
 
     $result = $conn->query($sql);
 
@@ -868,8 +868,8 @@ function getRemainingGradeRangeSortByAdviserByDepartmentId($departmentId)
     while ($my_row = $result->fetch_assoc()) {
 
         $my_row["blues"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "blue");
-        $my_row["greens"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "greens");
-        $my_row["oranges"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "oranges");
+        $my_row["greens"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "green");
+        $my_row["oranges"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "orange");
         $my_row["reds"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "red");
         $gradeRangeSortByAdvisers[] = $my_row;
     }
@@ -890,8 +890,8 @@ function getRemainingListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStat
 
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
-    WHERE teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE teacherId = $teacherId AND gpaStatusName = '$gpaStatusName' And studyYear > 4  GROUP BY studentId);";
+    WHERE teacherId = $teacherId AND gpaStatusName = '$gpaStatusName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE teacherId = $teacherId  And studyYear > 4  GROUP BY studentId);";
 
     $result = $conn->query($sql);
 
@@ -946,8 +946,8 @@ function getListRemainingStudentByTeacherIdAndPlanStatus($teacherId, $planStatus
 
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
-    WHERE teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE teacherId = $teacherId AND planStatus = '$planStatus' And studyYear > 4 GROUP BY studentId);";
+    WHERE teacherId = $teacherId AND planStatus = '$planStatus' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE teacherId = $teacherId  And studyYear > 4 GROUP BY studentId);";
 
     $result = $conn->query($sql);
 
