@@ -174,7 +174,7 @@
                                             <?php
                                             $countRangeGrade = getCountStudentGradeRangeByDepartmrntIdAndSemesterYear($teacher["departmentId"], $semester["semesterYear"])
 
-                                                ?>
+                                            ?>
 
                                             <div style="color: rgb(0, 9, 188);">
                                                 <div class="text-center">
@@ -389,9 +389,26 @@
                                                     $sumOrange = 0;
                                                     $sumRed = 0;
 
+                                                    $learnLabels=[];
+                                                    $learnBlues=[];
+                                                    $learnGreens=[];
+                                                    $learnOranges=[];
+                                                    $learnReds=[];
+
+
                                                     foreach ($gradeRangeSortByAdvisers as $adviser) {
 
+                                                        $sumBlue+=$adviser["blue"];
+                                                        $sumGreen+=$adviser["green"];
+                                                        $sumOrange+=$adviser["orange"];
+                                                        $sumRed+=$adviser["red"];
 
+                                                        $learnLabels[]=$adviser["titleTecherTh"] . "" . $adviser["fisrtNameTh"];
+                                                        $learnBlues[]=$adviser["blue"];
+                                                        $learnGreens[]=$adviser["green"];
+                                                        $learnOranges[]=$adviser["orange"];
+                                                        $learnReds[]=$adviser["red"];
+                                                        $idLearn=0;
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: left;">
@@ -411,12 +428,13 @@
                                                                 <?php echo $adviser["red"] ?> คน
                                                             </td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                            <a data-toggle="modal" data-target="#modalLearn<?php echo $idLearn?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
                                                         <?php
+                                                        $idLearn++;
                                                     }
                                                     ?>
 
@@ -469,7 +487,7 @@
                                     </div>
                                     <div class="col-sm-6 float-right">
                                         <div class="table-responsive">
-                                            <table class="table table-striped" cellspacing="0" style="color: black;">
+                                            <table class="table table-striped" cellspacing="0" style="color: black; ">
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: left; ">ชื่ออาจารย์</th>
@@ -490,8 +508,23 @@
                                                     $sumRetire = 0;
                                                     $sumGrad = 0;
 
-                                                    foreach ($planStatusSortByAdvisers as $advi) {
+                                                    $learn2Labels=[];
+                                                    $learn2Blues=[];
+                                                    $learn2Greens=[];
+                                                    $learn2Oranges=[];
+                                                    $learn2Reds=[];
 
+                                                    foreach ($planStatusSortByAdvisers as $advi) {
+                                                        $sumPlan+=$advi["plan"];
+                                                        $sumNotPlan+=$advi["notPlan"];
+                                                        $sumRetire+=$advi["retire"];
+                                                        $sumGrad+=$advi["grad"];
+
+                                                        $learn2Labels[]=$advi["titleTecherTh"] . "" . $advi["fisrtNameTh"];
+                                                        $learn2Blues[]=$advi["plan"];
+                                                        $learn2Greens[]=$advi["notPlan"];
+                                                        $learn2Oranges[]=$advi["retire"];
+                                                        $learn2Reds[]=$advi["grad"];
 
                                                         ?>
                                                         <tr>
@@ -563,12 +596,13 @@
                                 ?>
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
+                                        
 
                                         <div id="grade"></div>
                                     </div>
                                     <div class="col-sm-6 mx-auto">
                                         <div class="table-responsive">
-                                            <table class="table table-striped" cellspacing="0" style="color: black;">
+                                            <table class="table table-striped" cellspacing="0" style="color: black; " >
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: left; "><span>อาจารย์</span></th>
@@ -582,6 +616,15 @@
                                                     <?php
                                                     
                                                     foreach($adviserMMAs as $mmf){
+                                                        $advisorGeneretionGrade = [];
+                                                        $maxGPAX = [];
+                                                        $minGPAX = [];
+                                                        $avgGPAX = [];
+
+                                                        $advisorGeneretionGrade[]=$mmf["titleTecherTh"] . "" . $mmf["fisrtNameTh"];
+                                                        $maxGPAX[]=$mmf["maxGPAX"];
+                                                        $minGPAX[]=$mmf["minGPAX"];
+                                                        $avgGPAX[]=$mmf["avgGPAX"];
                                                     ?>
                                                     <tr style="font-weight: normal;">
                                                         <td style=" text-align: left;"><?php echo $mmf["titleTecherTh"] . "" . $mmf["fisrtNameTh"] . " " . $mmf["lastNameTh"] ?></td>
@@ -653,7 +696,25 @@
                                                     $sumOrange = 0;
                                                     $sumRed = 0;
 
+                                                    $learn21Labels=[];
+                                                    $learn21Blues=[];
+                                                    $learn21Greens=[];
+                                                    $learn21Orangs=[];
+                                                    $learn21Reds=[];
+
+
                                                     foreach ($remainingGradeRangeSortByAdvisers as $adviser) {
+                                                        
+                                                        $sumBlue+=$adviser["blue"];
+                                                        $sumGreen+= $adviser["green"];
+                                                        $sumOrange+=$adviser["orange"];
+                                                        $sumRed+=$adviser["red"];
+
+                                                        $learn21Labels[]=$adviser["titleTecherTh"] . "" . $adviser["fisrtNameTh"];
+                                                        $learn21Blues[]=$adviser["blue"];
+                                                        $learn21Greens[]=$adviser["green"];
+                                                        $learn21Orangs[]=$adviser["orange"];
+                                                        $learn21Reds[]=$adviser["red"];
 
 
                                                         ?>
@@ -754,10 +815,25 @@
                                                     $sumNotPlan = 0;
                                                     $sumRetire = 0;
                                                     $sumGrad = 0;
+                                                    $learn22Labels=[];
+                                                    $learn22Blues=[];
+                                                    $learn22Greens=[];
+                                                    $learn22Oranges=[];
+                                                    $learn22Reds=[];
 
                                                     foreach ($remainingPlanStatusSortByAdvisers as $advi) {
 
 
+                                                        $sumPlan+=$advi["plan"];
+                                                        $sumNotPlan+= $advi["notPlan"];
+                                                        $sumRetire+=$advi["retire"];
+                                                        $sumGrad+=$advi["grad"];
+
+                                                        $learn22Labels[]=$adviser["titleTecherTh"] . "" . $adviser["fisrtNameTh"];
+                                                        $learn22Blues[]=$adviser["blue"];
+                                                        $learn22Greens[]=$adviser["green"];
+                                                        $learn22Orangs[]=$adviser["orange"];
+                                                        $learn22Reds[]=$adviser["red"];
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: left;">
@@ -882,6 +958,135 @@
 
                 </div> -->
 
+                <!-- madalLearn -->
+                
+                <?php
+                        $idLearns=0;
+                        foreach ($gradeRangeSortByAdvisers as $adviser) { 
+                            
+
+                ?>
+                <div id="modalLearn<?php echo $idLearns?>" class="modal fade" style="color: black;">
+                    <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header" style="height: 90px;">
+                                    <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <br>
+
+                                </div>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 5 คน</h5>
+                                <div class="modal-body" id="std_detail">
+                                    <table class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>รหัสนิสิต</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>เกรดเฉลี่ย</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach($adviser["studentId"] as $advi){
+                                            ?>
+                                            <tr>
+                                                <th><?php echo $advi["departmentId"]?></th>
+                                                <th>นายxxxxxx xxxxxx</th>
+                                                <th>3.38</th>
+                                            </tr>
+                                            <?php
+                                                }
+                                            ?>
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <hr>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 5 คน</h5>
+                                <div class="modal-body" id="std_detail">
+                                    <table class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>รหัสนิสิต</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>เกรดเฉลี่ย</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>632xxxxxxx</th>
+                                                <th>นายxxxxxx xxxxxx</th>
+                                                <th>2.85</th>
+                                            </tr>
+                                            <tr>
+                                                <th>632xxxxxxx</th>
+                                                <th>นายxxxxxx xxxxxx</th>
+                                                <th>2.59</th>
+                                            </tr>
+                                            <tr>
+                                                <th>632xxxxxxx</th>
+                                                <th>นายxxxxxx xxxxxx</th>
+                                                <th>3.01</th>
+                                            </tr>
+                                            <tr>
+                                                <th>632xxxxxxx</th>
+                                                <th>นายxxxxxx xxxxxx</th>
+                                                <th>3.05</th>
+                                            </tr>
+                                            <tr>
+                                                <th>632xxxxxxx</th>
+                                                <th>นายxxxxxx xxxxxx</th>
+                                                <th>3.10</th>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <hr>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 0 คน</h5>
+                                <hr>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 1 คน</h5>
+                                <div class="modal-body" id="std_detail">
+                                    <table class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>รหัสนิสิต</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>เกรดเฉลี่ย</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>632xxxxxxx</th>
+                                                <th>นายxxxxxx xxxxxx</th>
+                                                <th>1.45</th>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <hr>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                                        style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    $idLearns++;
+                    }
+                ?>
+
 
 
 
@@ -896,9 +1101,16 @@
                 </script>
 
 
+                
 
 
                 <script>
+
+                    var learnLabels = <?php echo json_encode($learnLabels); ?>;
+                    var learnBlues = <?php echo json_encode($learnBlues); ?>;
+                    var learnGreens = <?php echo json_encode($learnGreens); ?>;
+                    var learnOranges = <?php echo json_encode($learnOranges); ?>;
+                    var learnReds = <?php echo json_encode($learnReds); ?>;
 
                     var ctx = document.getElementById("learn");
                     var myChart = new Chart(ctx, {
@@ -906,28 +1118,28 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
+                            labels: learnLabels,
                             datasets: [{
-                                label: 'เกียรตินิยม',
-                                data: [2, 3],
+                                label: '3.25-4.00',
+                                data: learnBlues,
                                 backgroundColor: "rgba(0, 9, 188,0.7)",
                                 borderWidth: 0
                             },
                             {
-                                label: 'ปกติ',
-                                data: [5, 8],
+                                label: '2.00-3.24',
+                                data: learnGreens,
                                 backgroundColor: "rgba(0, 110, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
-                                label: 'โปรสูง',
-                                data: [0, 2],
+                                label: '1.75-1.99',
+                                data: learnOranges,
                                 backgroundColor: 'rgba(255,128,0,0.7)',
                                 borderWidth: 0
                             },
                             {
-                                label: 'โปรต่ำ',
-                                data: [1, 0],
+                                label: '0.00-1.74',
+                                data: learnReds,
                                 backgroundColor: 'rgba(255, 0, 0,0.7)',
                                 borderWidth: 0
                             }
@@ -949,6 +1161,11 @@
                 </script>
 
                 <script>
+                    var learn2Labels = <?php echo json_encode($learn2Labels); ?>;
+                    var learn2Blues = <?php echo json_encode($learn2Blues); ?>;
+                    var learn2Greens = <?php echo json_encode($learn2Greens); ?>;
+                    var learn2Oranges = <?php echo json_encode($learn2Oranges); ?>;
+                    var learn2Reds = <?php echo json_encode($learn2Reds); ?>;
 
                     var ctx = document.getElementById("learn2");
                     var myChart = new Chart(ctx, {
@@ -956,29 +1173,29 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
+                            labels: learn2Labels,
                             datasets: [{
                                 label: 'ตามแผน',
-                                data: [2, 3],
-                                backgroundColor: "rgba(0, 9, 188,0.7)",
+                                data: learn2Blues,
+                                backgroundColor: "rgba(100, 197, 215,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: 'ไม่ตามแผน',
-                                data: [5, 8],
-                                backgroundColor: "rgba(0, 110, 22,0.7)",
+                                data: learn2Greens,
+                                backgroundColor: "rgba(118, 188, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: 'พ้นสภาพ',
-                                data: [0, 2],
-                                backgroundColor: 'rgba(255,128,0,0.7)',
+                                data: learn2Oranges,
+                                backgroundColor: 'rgba(	245, 123, 57,0.7)',
                                 borderWidth: 0
                             },
                             {
                                 label: 'จบการศึกษา',
-                                data: [1, 0],
-                                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                data: learn2Reds,
+                                backgroundColor: 'rgba(255, 105, 98,0.7)',
                                 borderWidth: 0
                             }
                             ]
@@ -999,6 +1216,11 @@
                 </script>
 
                 <script>
+                    var learn21Labels = <?php echo json_encode($learn21Labels); ?>;
+                    var learn21Blues = <?php echo json_encode($learn21Blues); ?>;
+                    var learn21Greens = <?php echo json_encode($learn21Greens); ?>;
+                    var learn21Orangs = <?php echo json_encode($learn21Orangs); ?>;
+                    var learn21Reds = <?php echo json_encode($learn21Reds); ?>;
 
                     var ctx = document.getElementById("learn21");
                     var myChart = new Chart(ctx, {
@@ -1006,28 +1228,28 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
+                            labels: learn21Labels,
                             datasets: [{
-                                label: 'เกียรตินิยม',
-                                data: [0, 0],
+                                label: '3.25-4.00',
+                                data: learn21Blues,
                                 backgroundColor: "rgba(0, 9, 188,0.7)",
                                 borderWidth: 0
                             },
                             {
-                                label: 'ปกติ',
-                                data: [1, 0],
+                                label: '2.00-3.24',
+                                data: learn21Greens,
                                 backgroundColor: "rgba(0, 110, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
-                                label: 'โปรสูง',
-                                data: [1, 2],
+                                label: '1.75-1.99',
+                                data: learn21Orangs,
                                 backgroundColor: 'rgba(255,128,0,0.7)',
                                 borderWidth: 0
                             },
                             {
-                                label: 'โปรต่ำ',
-                                data: [0, 0],
+                                label: '0.00-1.74',
+                                data: learn21Reds,
                                 backgroundColor: 'rgba(255, 0, 0,0.7)',
                                 borderWidth: 0
                             }
@@ -1049,35 +1271,41 @@
                 </script>
                 <script>
 
+                    var learn22Labels = <?php echo json_encode($learn22Labels); ?>;
+                    var learn22Blues = <?php echo json_encode($learn22Blues); ?>;
+                    var learn22Greens = <?php echo json_encode($learn22Greens); ?>;
+                    var learn22Orangs = <?php echo json_encode($learn22Orangs); ?>;
+                    var learn22Reds = <?php echo json_encode($learn22Reds); ?>;
+
                     var ctx = document.getElementById("learn22");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
+                            labels: learn22Labels,
                             datasets: [{
                                 label: 'ตามแผน',
-                                data: [0, 0],
-                                backgroundColor: "rgba(0, 9, 188,0.7)",
+                                data: learn22Blues,
+                                backgroundColor: "rgba(100, 197, 215,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: 'ไม่ตามแผน',
-                                data: [3, 2],
-                                backgroundColor: "rgba(0, 110, 22,0.7)",
+                                data: learn22Greens,
+                                backgroundColor: "rgba(118, 188, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: 'พ้นสภาพ',
-                                data: [0, 2],
-                                backgroundColor: 'rgba(255,128,0,0.7)',
+                                data: learn22Orangs,
+                                backgroundColor: 'rgba(	245, 123, 57,0.7)',
                                 borderWidth: 0
                             },
                             {
                                 label: 'จบการศึกษา',
-                                data: [0, 0],
-                                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                data: learn22Reds,
+                                backgroundColor: 'rgba(255, 105, 98,0.7)',
                                 borderWidth: 0
                             }
                             ]
@@ -1100,26 +1328,25 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
                 <script src='https://cdn.plot.ly/plotly-2.27.0.min.js'></script>
                 <script>
+
+
+                    var advisorGeneretionGrade = <?php echo json_encode($advisorGeneretionGrade); ?>;
+                        
+                    var maxGPAX = <?php echo json_encode($maxGPAX); ?>;
+                    var minGPAX = <?php echo json_encode($minGPAX); ?>;
+                    var avgGPAX = <?php echo json_encode($avgGPAX); ?>;
+
                     var ctx = document.getElementById("grade");
-                    var y1 = [3.40, 2.70, 2.00];
-                    var y2 = [3.50, 2.50, 1.50];
-                    var y3 = [3.43, 2.43, 1.43];
-                    var y4 = [3.53, 2.53, 1.53];
-                    var y5 = [3.44, 2.44, 1.44];
-
-                    var t1 = {
-                        y: y1,
-                        type: 'box',
-                        name: 'อ.ฐิติพงษ์'
-                    };
-                    var t2 = {
-                        y: y2,
-                        type: 'box',
-                        name: 'อ.วรัญญา'
-                    };
-
-
-                    var data = [t1, t2];
+                    var data = [];
+    
+                    for (var i = 0; i < advisorGeneretionGrade.length; i++) {
+                        var generationData = {
+                            y: [maxGPAX[i], avgGPAX[i], minGPAX[i]],
+                            type: 'box',
+                            name: advisorGeneretionGrade[i]
+                        };
+                        data.push(generationData);
+                    }
                     Plotly.newPlot('grade', data);
                     /*var myChart = new Chart(ctx, {
                         //type: 'bar',
@@ -1209,122 +1436,7 @@
 
 </html>
 
-<div id="dataModal" class="modal fade" style="color: black;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 90px;">
-                <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <br>
 
-
-
-            </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 5 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.38</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.45</th>
-                        </tr>
-
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 5 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.85</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.59</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.01</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.05</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.10</th>
-                        </tr>
-
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 0 คน</h5>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 1 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>1.45</th>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"
-                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div id="dataModal2" class="modal fade" style="color: black;">
     <div class="modal-dialog modal-lg">
