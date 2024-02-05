@@ -1135,25 +1135,25 @@
                             data: {
                                 labels: learnLabels,
                                 datasets: [{
-                                    label: 'เกียรตินิยม',
+                                    label: '3.25-4.00',
                                     data: learnBlues,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'ปกติ',
+                                    label: '2.00-3.24',
                                     data: learnGreens,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรสูง',
+                                    label: '1.75-1.99',
                                     data: learnOranges,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรต่ำ',
+                                    label: '0.00-1.99',
                                     data: learnReds,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
@@ -1274,25 +1274,25 @@
                             data: {
                                 labels: learnLabels2,
                                 datasets: [{
-                                    label: 'เกียรตินิยม',
+                                    label: '3.25-4.00',
                                     data: learnBlues2,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'ปกติ',
+                                    label: '2.00-3.24',
                                     data: learnGreens2,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรสูง',
+                                    label: '1.75-1.99',
                                     data: learnOranges2,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรต่ำ',
+                                    label: '0.00-1.74',
                                     data: learnReds2,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
