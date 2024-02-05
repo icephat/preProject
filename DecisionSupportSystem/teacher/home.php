@@ -900,9 +900,9 @@
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน <?php echo $sumPlan?> คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน <?php echo sizeof($gen["studentPlans"])?> คน</h5>
                                     <?php
-                                        if((int)$sumPlan > 0){
+                                        if(sizeof($gen["studentPlans"]) > 0){
                                         
                                     ?>
                                         <div class="modal-body" id="std_detail">
@@ -934,9 +934,9 @@
                                         </div>
                                     <?php } ?>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน <?php echo $sumNotPlan?> คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน <?php echo sizeof($gen["studentNotPlans"])?> คน</h5>
                                     <?php
-                                        if((int)$sumNotPlan > 0){
+                                        if(sizeof($gen["studentNotPlans"]) > 0){
                                             
                                     ?>
                                     <div class="modal-body" id="std_detail">
