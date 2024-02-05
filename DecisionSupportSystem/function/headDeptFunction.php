@@ -708,5 +708,262 @@ function getPercentageStudyAndRetireSortByGeneretionByDepartmentId($departmentId
 
 }
 
+function getGradeRangeSortByAdviserByDepartmentId($departmentId)
+{
+
+    require("connection_connect.php");
+
+    $gradeRangeSortByAdvisers = [];
+
+    $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE departmentId = $departmentId GROUP BY studentId)
+    GROUP BY teacherId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+        $my_row["blues"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "blue");
+        $my_row["greens"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "greens");
+        $my_row["oranges"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "oranges");
+        $my_row["reds"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "red");
+        $gradeRangeSortByAdvisers[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $gradeRangeSortByAdvisers;
+
+}
+
+function getListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStatusName)
+{
+
+    require("connection_connect.php");
+
+    $students = [];
+
+    $sql = "SELECT *
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE teacherId = $teacherId AND gpaStatusName <= '$gpaStatusName'   GROUP BY studentId);";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
+
+}
+
+function getPlanStatusSortByAdviserByDepartmentId($departmentId)
+{
+
+    require("connection_connect.php");
+
+    $planStatusSortByAdvisers = [];
+
+    $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN planStatus = 'ตามแผน' THEN studentId END) AS plan,COUNT(CASE WHEN planStatus = 'ไม่ตามแผน' THEN studentId END) AS notPlan,COUNT(CASE WHEN planStatus = 'พ้นสภาพนิสิต' THEN studentId END) AS retire ,COUNT(CASE WHEN planStatus = 'จบการศึกษา' THEN studentId END) AS grad
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE departmentId = $departmentId GROUP BY studentId)
+    GROUP BY teacherId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+        $my_row["plans"] = getListStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "ตามแผน");
+        $my_row["notPlans"] = getListStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "ไม่ตามแผน");
+        $my_row["retires"] = getListStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "พ้นสภาพนิสิต");
+        $my_row["grads"] = getListStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "จบการศึกษา");
+        $planStatusSortByAdvisers[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $planStatusSortByAdvisers;
+
+}
+
+function getListStudentByTeacherIdAndPlanStatus($teacherId, $planStatus)
+{
+
+    require("connection_connect.php");
+
+    $students = [];
+
+    $sql = "SELECT *
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE teacherId = $teacherId AND planStatus <= '$planStatus'   GROUP BY studentId);";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
+
+}
+
+function getMaxMinAVGGPAXSortByAdviserByDepartmentId($departmentId)
+{
+
+
+    require("connection_connect.php");
+
+    $advisorMMAs = [];
+
+    $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,ROUND(MAX(gpaAll),2) AS maxGPAX,ROUND(AVG(gpaAll),2) AS avgGPAX,ROUND(MIN(gpaAll),2) AS minGPAX
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE departmentId = $departmentId GROUP BY studentId)
+    GROUP BY teacherId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+
+        $advisorMMAs[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $advisorMMAs;
+
+}
+
+
+function getRemainingGradeRangeSortByAdviserByDepartmentId($departmentId)
+{
+
+    require("connection_connect.php");
+
+    $gradeRangeSortByAdvisers = [];
+
+    $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE departmentId = $departmentId And studyYear < 4 GROUP BY studentId)
+    GROUP BY teacherId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+        $my_row["blues"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "blue");
+        $my_row["greens"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "greens");
+        $my_row["oranges"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "oranges");
+        $my_row["reds"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "red");
+        $gradeRangeSortByAdvisers[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $gradeRangeSortByAdvisers;
+
+}
+
+function getRemainingListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStatusName)
+{
+
+    require("connection_connect.php");
+
+    $students = [];
+
+    $sql = "SELECT *
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE teacherId = $teacherId AND gpaStatusName <= '$gpaStatusName' And studyYear < 4  GROUP BY studentId);";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
+
+}
+
+function getRemainingPlanStatusSortByAdviserByDepartmentId($departmentId)
+{
+
+    require("connection_connect.php");
+
+    $planStatusSortByAdvisers = [];
+
+    $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN planStatus = 'ตามแผน' THEN studentId END) AS plan,COUNT(CASE WHEN planStatus = 'ไม่ตามแผน' THEN studentId END) AS notPlan,COUNT(CASE WHEN planStatus = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,COUNT(CASE WHEN planStatus = 'จบการศึกษา' THEN studentId END) AS grad
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE departmentId = $departmentId And studyYear < 4 GROUP BY studentId)
+    GROUP BY teacherId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+        $my_row["plans"] = getListRemainingStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "ตามแผน");
+        $my_row["notPlans"] = getListRemainingStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "ไม่ตามแผน");
+        $my_row["retires"] = getListRemainingStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "พ้นสภาพนิสิต");
+        $my_row["grads"] = getListRemainingStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "จบการศึกษา");
+        $planStatusSortByAdvisers[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $planStatusSortByAdvisers;
+
+}
+
+function getListRemainingStudentByTeacherIdAndPlanStatus($teacherId, $planStatus)
+{
+
+    require("connection_connect.php");
+
+    $students = [];
+
+    $sql = "SELECT *
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    WHERE teacherId = $teacherId AND planStatus <= '$planStatus' And studyYear < 4 GROUP BY studentId);";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
+
+}
+
+
+
+
 
 ?>
