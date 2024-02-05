@@ -394,7 +394,7 @@
                                                     $learnGreens=[];
                                                     $learnOranges=[];
                                                     $learnReds=[];
-
+                                                    $idLearn=0;
 
                                                     foreach ($gradeRangeSortByAdvisers as $adviser) {
 
@@ -408,7 +408,7 @@
                                                         $learnGreens[]=$adviser["green"];
                                                         $learnOranges[]=$adviser["orange"];
                                                         $learnReds[]=$adviser["red"];
-                                                        $idLearn=0;
+                                                        
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: left;">
@@ -513,6 +513,7 @@
                                                     $learn2Greens=[];
                                                     $learn2Oranges=[];
                                                     $learn2Reds=[];
+                                                    $idLearn2=0;
 
                                                     foreach ($planStatusSortByAdvisers as $advi) {
                                                         $sumPlan+=$advi["plan"];
@@ -545,12 +546,13 @@
                                                                 <?php echo $advi["grad"] ?> คน
                                                             </td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                                <a data-toggle="modal" data-target="#modalLearn2<?php echo $idLearn2?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
                                                         <?php
+                                                        $idLearn++;
                                                     }
                                                     ?>
 
@@ -701,8 +703,8 @@
                                                     $learn21Greens=[];
                                                     $learn21Orangs=[];
                                                     $learn21Reds=[];
-
-
+                                                    $idLearn=0;
+                                                    //print_r($remainingGradeRangeSortByAdvisers);
                                                     foreach ($remainingGradeRangeSortByAdvisers as $adviser) {
                                                         
                                                         $sumBlue+=$adviser["blue"];
@@ -736,7 +738,7 @@
                                                                 <?php echo $adviser["red"] ?> คน
                                                             </td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                                <a data-toggle="modal" data-target="#modalLearn3<?php echo $idLearn3?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
@@ -791,7 +793,7 @@
                                     ?>
                                     <div class="col-sm-6">
 
-                                        <canvas id="learn22"></canvas>
+                                        <canvas id="learns2"></canvas>
                                     </div>
                                     <div class="col-sm-6 float-right">
                                         <div class="table-responsive">
@@ -816,11 +818,11 @@
                                                     $sumRetire = 0;
                                                     $sumGrad = 0;
                                                     $learn22Labels=[];
-                                                    $learn22Blues=[];
-                                                    $learn22Greens=[];
-                                                    $learn22Oranges=[];
-                                                    $learn22Reds=[];
-
+                                                    $learn22Plan=[];
+                                                    $learn22NotPlan=[];
+                                                    $learn22Retire=[];
+                                                    $learn22Grads=[];
+                                                    $idLearn4=0;
                                                     foreach ($remainingPlanStatusSortByAdvisers as $advi) {
 
 
@@ -830,10 +832,10 @@
                                                         $sumGrad+=$advi["grad"];
 
                                                         $learn22Labels[]=$adviser["titleTecherTh"] . "" . $adviser["fisrtNameTh"];
-                                                        $learn22Blues[]=$adviser["blue"];
-                                                        $learn22Greens[]=$adviser["green"];
-                                                        $learn22Orangs[]=$adviser["orange"];
-                                                        $learn22Reds[]=$adviser["red"];
+                                                        $learn22Plan[]=$adviser["plan"];
+                                                        $learn22NotPlan[]=$adviser["notPlan"];
+                                                        $learn22Retire[]=$adviser["retire"];
+                                                        $learn22Grads[]=$adviser["grad"];
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: left;">
@@ -853,12 +855,13 @@
                                                                 <?php echo $advi["grad"] ?> คน
                                                             </td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                                <a data-toggle="modal" data-target="#modalLearn4<?php echo $idLearn4?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
                                                         <?php
+                                                        $idLearn4++;
                                                     }
                                                     ?>
 
@@ -975,7 +978,11 @@
                                     <br>
 
                                 </div>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 5 คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม <?php echo sizeof($adviser["blues"])?> คน</h5>
+                                <?php
+                                    if(sizeof($adviser["blues"])> 0){
+                                        
+                                ?>
                                 <div class="modal-body" id="std_detail">
                                     <table class="table table-striped">
 
@@ -988,12 +995,12 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                                foreach($adviser["studentId"] as $advi){
+                                                foreach($adviser["blues"] as $advi){
                                             ?>
                                             <tr>
-                                                <th><?php echo $advi["departmentId"]?></th>
-                                                <th>นายxxxxxx xxxxxx</th>
-                                                <th>3.38</th>
+                                                <th><?php echo $advi["studentId"]?></th>
+                                                <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                                <th><?php echo round($advi["gpaTerm"],2)?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1004,8 +1011,13 @@
                                     </table>
 
                                 </div>
+                                <?php }?>
                                 <hr>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 5 คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ <?php echo sizeof($adviser["greens"])?> คน</h5>
+                                <?php
+                                    if(sizeof($adviser["greens"])> 0){
+                                        
+                                ?>
                                 <div class="modal-body" id="std_detail">
                                     <table class="table table-striped">
 
@@ -1017,41 +1029,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                                foreach($adviser["greens"] as $advi){
+                                            ?>
                                             <tr>
-                                                <th>632xxxxxxx</th>
-                                                <th>นายxxxxxx xxxxxx</th>
-                                                <th>2.85</th>
+                                                <th><?php echo $advi["studentId"]?></th>
+                                                <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                                <th><?php echo round($advi["gpaTerm"],2)?></th>
                                             </tr>
-                                            <tr>
-                                                <th>632xxxxxxx</th>
-                                                <th>นายxxxxxx xxxxxx</th>
-                                                <th>2.59</th>
-                                            </tr>
-                                            <tr>
-                                                <th>632xxxxxxx</th>
-                                                <th>นายxxxxxx xxxxxx</th>
-                                                <th>3.01</th>
-                                            </tr>
-                                            <tr>
-                                                <th>632xxxxxxx</th>
-                                                <th>นายxxxxxx xxxxxx</th>
-                                                <th>3.05</th>
-                                            </tr>
-                                            <tr>
-                                                <th>632xxxxxxx</th>
-                                                <th>นายxxxxxx xxxxxx</th>
-                                                <th>3.10</th>
-                                            </tr>
+                                            <?php
+                                                }
+                                            ?>
 
 
                                         </tbody>
                                     </table>
 
                                 </div>
+                                <?php }?>
                                 <hr>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 0 คน</h5>
-                                <hr>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 1 คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ <?php echo sizeof($adviser["oranges"])?> คน</h5>
+                                <?php
+                                    if(sizeof($adviser["oranges"])> 0){
+                                        
+                                ?>
                                 <div class="modal-body" id="std_detail">
                                     <table class="table table-striped">
 
@@ -1063,16 +1064,58 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                                foreach($adviser["oranges"] as $advi){
+                                            ?>
                                             <tr>
-                                                <th>632xxxxxxx</th>
-                                                <th>นายxxxxxx xxxxxx</th>
-                                                <th>1.45</th>
+                                                <th><?php echo $advi["studentId"]?></th>
+                                                <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                                <th><?php echo round($advi["gpaTerm"],2)?></th>
                                             </tr>
+                                            <?php
+                                                }
+                                            ?>
+
 
                                         </tbody>
                                     </table>
 
                                 </div>
+                                <?php }?>
+                                <hr>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ <?php echo sizeof($adviser["reds"])?> คน</h5>
+                                <?php
+                                    if(sizeof($adviser["reds"])> 0){
+                                        
+                                ?>
+                                <div class="modal-body" id="std_detail">
+                                    <table class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>รหัสนิสิต</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>เกรดเฉลี่ย</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach($adviser["reds"] as $advi){
+                                            ?>
+                                            <tr>
+                                                <th><?php echo $advi["studentId"]?></th>
+                                                <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                                <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                            </tr>
+                                            <?php
+                                                }
+                                            ?>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <?php } ?>
                                 <hr>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal"
@@ -1087,7 +1130,515 @@
                     }
                 ?>
 
+                <!-- modal2 -->
+                <?php
+                        $idLearns2=0;
+                        foreach ($remainingPlanStatusSortByAdvisers as $adviser) { 
+                            
 
+                ?>
+                <div id="modalLearn2<?php echo $idLearns2?>" class="modal fade" style="color: black;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="height: 90px;">
+                            <h5><?php echo $adviser["titleTecherTh"].$adviser["fisrtNameTh"]." ".$adviser["lastNameTh"]?></h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <br>
+
+
+
+                            </div>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน <?php echo sizeof($adviser["plans"])?> คน</h5>
+                            <?php
+                                if(sizeof($adviser["plans"])> 0){
+                                        
+                            ?>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table table-striped">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>เกรดเฉลี่ย</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        foreach($adviser["plans"] as $advi){
+                                        ?>
+                                        <tr>
+                                            <th><?php echo $advi["studentId"]?></th>
+                                            <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                            <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <?php }?>
+                            <hr>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน <?php echo sizeof($adviser["notPlans"])?> คน</h5>
+                            <?php
+                                if(sizeof($adviser["notPlans"])> 0){
+                                        
+                            ?>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table table-striped">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>เกรดเฉลี่ย</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            foreach($adviser["notPlans"] as $advi){
+                                        ?>
+                                        <tr>
+                                            <th><?php echo $advi["studentId"]?></th>
+                                            <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                            <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <?php }?>
+                            <hr>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ <?php echo sizeof($adviser["retires"])?> คน</h5>
+                            <?php
+                                if(sizeof($adviser["retires"])> 0){
+                                        
+                            ?>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table table-striped">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>เกรดเฉลี่ย</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            foreach($adviser["retires"] as $advi){
+                                        ?>
+                                        <tr>
+                                            <th><?php echo $advi["studentId"]?></th>
+                                            <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                            <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <?php }?>
+                            <hr>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา <?php echo sizeof($adviser["grads"])?> คน</h5>
+                            <?php
+                                if(sizeof($adviser["grads"])> 0){
+                                        
+                            ?>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table table-striped">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>เกรดเฉลี่ย</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            foreach($adviser["grads"] as $advi){
+                                        ?>
+                                        <tr>
+                                            <th><?php echo $advi["studentId"]?></th>
+                                            <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                            <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <?php }?>
+                            <hr>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"
+                                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    $idLearns2++;
+                    }
+                ?>
+
+                <!-- modal3-->
+                <?php
+                        $idLearns3=0;
+                        foreach ($remainingGradeRangeSortByAdvisers as $adviser) { 
+                            
+
+                ?>
+                <div id="modalLearn3<?php echo $idLearns3?>" class="modal fade" style="color: black;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="height: 90px;">
+                            <h5><?php echo $adviser["titleTecherTh"].$adviser["fisrtNameTh"]." ".$adviser["lastNameTh"]?></h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <br>
+
+                            </div>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม <?php echo sizeof($adviser["blues"])?> คน</h5>
+                                <?php
+                                    if(sizeof($adviser["blues"])> 0){
+                                        
+                                ?>
+                                <div class="modal-body" id="std_detail">
+                                    <table class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>รหัสนิสิต</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>เกรดเฉลี่ย</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach($adviser["blues"] as $advi){
+                                            ?>
+                                            <tr>
+                                                <th><?php echo $advi["studentId"]?></th>
+                                                <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                                <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                            </tr>
+                                            <?php
+                                                }
+                                            ?>
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <?php }?>
+                                <hr>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ <?php echo sizeof($adviser["greens"])?> คน</h5>
+                                <?php
+                                    if(sizeof($adviser["greens"])> 0){
+                                        
+                                ?>
+                                <div class="modal-body" id="std_detail">
+                                    <table class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>รหัสนิสิต</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>เกรดเฉลี่ย</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach($adviser["greens"] as $advi){
+                                            ?>
+                                            <tr>
+                                                <th><?php echo $advi["studentId"]?></th>
+                                                <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                                <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                            </tr>
+                                            <?php
+                                                }
+                                            ?>
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <?php }?>
+                                <hr>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ <?php echo sizeof($adviser["oranges"])?> คน</h5>
+                                <?php
+                                    if(sizeof($adviser["oranges"])> 0){
+                                        
+                                ?>
+                                <div class="modal-body" id="std_detail">
+                                    <table class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>รหัสนิสิต</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>เกรดเฉลี่ย</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach($adviser["oranges"] as $advi){
+                                            ?>
+                                            <tr>
+                                                <th><?php echo $advi["studentId"]?></th>
+                                                <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                                <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                            </tr>
+                                            <?php
+                                                }
+                                            ?>
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <?php }?>
+                                <hr>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ <?php echo sizeof($adviser["reds"])?> คน</h5>
+                                <?php
+                                    if(sizeof($adviser["reds"])> 0){
+                                        
+                                ?>
+                                <div class="modal-body" id="std_detail">
+                                    <table class="table table-striped">
+
+                                        <thead>
+                                            <tr>
+                                                <th>รหัสนิสิต</th>
+                                                <th>ชื่อ-นามสกุล</th>
+                                                <th>เกรดเฉลี่ย</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                                foreach($adviser["reds"] as $advi){
+                                            ?>
+                                            <tr>
+                                                <th><?php echo $advi["studentId"]?></th>
+                                                <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                                <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                            </tr>
+                                            <?php
+                                                }
+                                            ?>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <?php }?>
+
+                            <hr>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"
+                                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    $idLearns3++;
+                    }
+                ?>
+
+                <!--modal4-->
+                <?php
+                        $idLearns4=0;
+                        foreach ($remainingPlanStatusSortByAdvisers as $adviser) { 
+                            
+
+                ?>
+                <div id="modalLearn4<?php echo $idLearns4?>" class="modal fade" style="color: black;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="height: 90px;">
+                                <h5><?php echo $adviser["titleTecherTh"].$adviser["fisrtNameTh"]." ".$adviser["lastNameTh"]?></h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <br>
+
+
+
+                            </div>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน <?php echo sizeof($adviser["plans"])?> คน</h5>
+                            <?php
+                                if(sizeof($adviser["plans"])> 0){
+                                        
+                            ?>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table table-striped">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>เกรดเฉลี่ย</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        foreach($adviser["plans"] as $advi){
+                                        ?>
+                                        <tr>
+                                            <th><?php echo $advi["studentId"]?></th>
+                                            <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                            <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <?php }?>
+                            <hr>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน <?php echo sizeof($adviser["notPlans"])?> คน</h5>
+                            <?php
+                                if(sizeof($adviser["notPlans"])> 0){
+                                        
+                            ?>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table table-striped">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>เกรดเฉลี่ย</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            foreach($adviser["notPlans"] as $advi){
+                                        ?>
+                                        <tr>
+                                            <th><?php echo $advi["studentId"]?></th>
+                                            <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                            <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <?php }?>
+                            <hr>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ <?php echo sizeof($adviser["retires"])?> คน</h5>
+                            <?php
+                                if(sizeof($adviser["retires"])> 0){
+                                        
+                            ?>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table table-striped">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>เกรดเฉลี่ย</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            foreach($adviser["retires"] as $advi){
+                                        ?>
+                                        <tr>
+                                            <th><?php echo $advi["studentId"]?></th>
+                                            <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                            <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <?php }?>
+                            <hr>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา <?php echo sizeof($adviser["grads"])?> คน</h5>
+                            <?php
+                                if(sizeof($adviser["grads"])> 0){
+                                        
+                            ?>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table table-striped">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>เกรดเฉลี่ย</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            foreach($adviser["grads"] as $advi){
+                                        ?>
+                                        <tr>
+                                            <th><?php echo $advi["studentId"]?></th>
+                                            <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
+                                            <th><?php echo round($advi["gpaTerm"],2)?></th>
+                                        </tr>
+                                        <?php
+                                            }
+                                        ?>
+
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <?php }?>
+                            <hr>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"
+                                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    $idLearns4++;
+                    }
+                ?>
+
+                
 
 
                 <!-- Page level plugins -->
@@ -1221,7 +1772,7 @@
                     var learn21Greens = <?php echo json_encode($learn21Greens); ?>;
                     var learn21Orangs = <?php echo json_encode($learn21Orangs); ?>;
                     var learn21Reds = <?php echo json_encode($learn21Reds); ?>;
-
+                    
                     var ctx = document.getElementById("learn21");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
@@ -1272,12 +1823,12 @@
                 <script>
 
                     var learn22Labels = <?php echo json_encode($learn22Labels); ?>;
-                    var learn22Blues = <?php echo json_encode($learn22Blues); ?>;
-                    var learn22Greens = <?php echo json_encode($learn22Greens); ?>;
-                    var learn22Orangs = <?php echo json_encode($learn22Orangs); ?>;
-                    var learn22Reds = <?php echo json_encode($learn22Reds); ?>;
-
-                    var ctx = document.getElementById("learn22");
+                    var learn22Plan = <?php echo json_encode($learn22Plan); ?>;
+                    var learn22NotPlan = <?php echo json_encode($learn22NotPlan); ?>;
+                    var learn22Retire = <?php echo json_encode($learn22Retire); ?>;
+                    var learn22Grads = <?php echo json_encode($learn22Grads); ?>;
+                    
+                    var ctx = document.getElementById("learns2");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
@@ -1286,25 +1837,25 @@
                             labels: learn22Labels,
                             datasets: [{
                                 label: 'ตามแผน',
-                                data: learn22Blues,
+                                data: learn22Plan,
                                 backgroundColor: "rgba(100, 197, 215,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: 'ไม่ตามแผน',
-                                data: learn22Greens,
+                                data: learn22NotPlan,
                                 backgroundColor: "rgba(118, 188, 22,0.7)",
                                 borderWidth: 0
                             },
                             {
                                 label: 'พ้นสภาพ',
-                                data: learn22Orangs,
+                                data: learn22Retire,
                                 backgroundColor: 'rgba(	245, 123, 57,0.7)',
                                 borderWidth: 0
                             },
                             {
                                 label: 'จบการศึกษา',
-                                data: learn22Reds,
+                                data: learn22Grads,
                                 backgroundColor: 'rgba(255, 105, 98,0.7)',
                                 borderWidth: 0
                             }
@@ -1438,310 +1989,4 @@
 
 
 
-<div id="dataModal2" class="modal fade" style="color: black;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 90px;">
-                <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <br>
 
-
-
-            </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 5 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.38</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.45</th>
-                        </tr>
-
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 5 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.85</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.59</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.01</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.05</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.10</th>
-                        </tr>
-
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 1 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>1.45</th>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"
-                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div id="dataModal3" class="modal fade" style="color: black;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 90px;">
-                <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <br>
-
-
-
-            </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 0 คน</h5>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 1 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.85</th>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 1 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.85</th>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 0 คน</h5>
-
-            <hr>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"
-                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="dataModal4" class="modal fade" style="color: black;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 90px;">
-                <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <br>
-
-
-
-            </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 0 คน</h5>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 3 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.85</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.59</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.01</th>
-                        </tr>
-
-
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 0 คน</h5>
-
-            <hr>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"
-                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="dataModal5" class="modal fade" style="color: black;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header" style="height: 90px;">
-                <h5>อาจารย์ที่ปรึกษา ฐิติพงษ์ สถิรเมธีกุล </h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <br>
-
-
-
-            </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 0 คน</h5>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 3 คน</h5>
-            <div class="modal-body" id="std_detail">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>รหัสนิสิต</th>
-                            <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.85</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>2.59</th>
-                        </tr>
-                        <tr>
-                            <th>632xxxxxxx</th>
-                            <th>นายxxxxxx xxxxxx</th>
-                            <th>3.01</th>
-                        </tr>
-
-
-
-                    </tbody>
-                </table>
-
-            </div>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
-            <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 0 คน</h5>
-
-            <hr>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"
-                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-            </div>
-        </div>
-    </div>
-</div>
