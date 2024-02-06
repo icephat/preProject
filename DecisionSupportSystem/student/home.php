@@ -244,23 +244,27 @@ $_SESSION["studentId"] = $student["studentId"];
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php
+                                                <?php
+                                                        $credit = 0;
+                                                        $creditYet = 0;
                                                     foreach ($academics as $academic) {
                                                         echo "
                                                             
                                                     <tr>
-                                                        <td>".$academic["name"]."</td>
-                                                        <td style=\"font-weight: bold; text-align: right;\">".$academic["grade"]."</td>
+                                                        <td>" . $academic["name"] . "</td>
                                                         <td style=\"font-weight: bold; color: green; text-align: right;\">
-                                                        ".$academic["credit"]."
+                                                        " . $academic["credit"] . "
                                                         </td>
                                                         <td style=\"font-weight: bold; color: red; text-align: right;\">
-                                                        ".$academic["creditYet"]."
+                                                        " . $academic["creditYet"] . "
                                                         </td>
-                                                        <td style=\"font-weight: bold; text-align: right;\">".$academic["creditAll"]."</td>
-                                                        
+                                                        <td style=\"font-weight: bold; text-align: right;\">" . $academic["creditAll"] . "</td>
+                                                        <td style=\"font-weight: bold; text-align: right;\">" . $academic["grade"] . "</td>
                                                         
                                                     </tr>";
+                                                    $credit+=$academic["credit"];
+                                                    $creditYet+=$academic["creditYet"];
+
                                                     }
                                                     ?>
                                                     <!-- <tr>
@@ -347,14 +351,39 @@ $_SESSION["studentId"] = $student["studentId"];
                             <div class="card-body">
                                 <div class="row " style=" justify-content: center; align-items: center;">
                                     <?php
-                                        $i=0;
+                                        $percentAll = 0;
+                                        $percentCreditYetAll = 0;
+                                        $percentCreditAll =  round((float)($credit*100)/$student["course"]["totalCredit"],2);
+                                        $percentCreditYetAll =  round((float)($creditYet*100)/$student["course"]["totalCredit"],2);
+                                    ?>
+                                    <div class="col-sm-2"  style="text-decoration: none;">
+                                        <div class="t1 card">
+                                        <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                                style="color:#304f69;">ทั้งหมด</span></p>
+                                            <div style="text-align: center; position: relative;\">
+                                                <canvas id="donutChart0"></canvas>
+                                                <div id="centerText"
+                                                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                    <?php echo $percentCreditAll ?>%</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <?php
+                                    
+                                        $i=1;
+                                        
                                         foreach ($academics as $academic){
                                             $percent = 0;
+                                            
                                             $percent = round((float)($academic["credit"]*100)/$academic["creditAll"],2);
                                             ?>
+
+                                                
                                         
                                             
-                                                <a href="./report.php#tab<?php echo $i+1?>" class="col-sm-2"  style="text-decoration: none;">
+                                                <a href="./student_info.php#tab<?php echo $i?>" class="col-sm-2"  style="text-decoration: none;">
                                                     <div class="t1 card">
                                                         <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
                                                                 style="color:#304f69;"><?php echo $academic["name"]?></span></p>
@@ -721,10 +750,8 @@ $_SESSION["studentId"] = $student["studentId"];
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-        
-    <script>
-   
-        <?php
+    <script> 
+            <?php
         
             $dataLists=[];
             $dataPerLists=[];
@@ -739,14 +766,15 @@ $_SESSION["studentId"] = $student["studentId"];
             }
 
         ?>
+            var dataGrades = <?php echo json_encode($dataGrades)?>;
+            console.log(dataGrades);
         var perLists = <?php echo json_encode($dataPerLists)?>;
         console.log(perLists);
-        var dataGrades = <?php echo json_encode($dataGrades)?>;
-        console.log(dataGrades);
-        console.log("123123123132123");
         var datalists = <?php echo json_encode($dataLists)?>;
         console.log(datalists);
-
+        var dataCreditYet = <?php echo $percentCreditYetAll;?>;
+        var dataCredit = <?php echo $percentCreditAll?>;
+        console.log(dataCreditYet);
         let GPAPiesize = dataGrades.length;
         const GPAcolorPie = [];
         let GPAPiecolorLoop;
@@ -765,10 +793,15 @@ $_SESSION["studentId"] = $student["studentId"];
             }
             GPAcolorPie[i] = GPAPiecolorLoop;
         }
-       
+        
         
         let x=0;
-        const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4","donutChart5"];
+        datalists.splice(0, 0, dataCreditYet);
+        perLists.splice(0, 0, dataCredit);
+        GPAcolorPie.splice(0, 0, 'rgba(134, 211, 247,0.7)');
+        
+        
+        const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4","donutChart5","donutChart6"];
         for (var name of labels) {
             var data = {
             datasets: [{
@@ -797,9 +830,10 @@ $_SESSION["studentId"] = $student["studentId"];
 
             x++;
         } 
-       
+  
 
-    </script>
+</script>
+
 
 
 
