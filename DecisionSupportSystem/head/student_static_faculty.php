@@ -64,7 +64,7 @@
                 <div>
                     <form>
                         <div class="row mx-auto">
-                            <div class="column col-sm-3">
+                            <div class="column col-sm-4">
                                 <div class="text-center">
                                     <h5>หลักสูตร<span style="color: red;">*</span></th>
                                 </div>
@@ -82,26 +82,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="column col-sm-3">
-                                <div class="text-center">
-                                    <h5>ปีการศึกษา<span style="color: red;">*</span></th>
-                                </div>
-                                <div class="text-center">
-                                    <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกปีสืบค้น--</option>
-
-                                            <option value="2561">2561
-                                            </option>
-                                            <option value="2562">2562</option>
-                                            <option value="2561">2563
-                                            </option>
-                                            <option value="2562">2564</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column col-sm-3">
+                            
+                            <div class="column col-sm-4">
                                 <div class="text-center">
                                     <h5>ปีที่สืบค้น<span style="color: red;">*</span></th>
                                 </div>
@@ -150,7 +132,7 @@
                             echo $generetion["studyGeneretion"];
                         }
                         ?>
-                        )
+                        
                     </h5>
                 </div>
                 <div class="row">
@@ -171,7 +153,7 @@
                                                 <div class="text-center">
                                                     <a style="color: rgb(0, 9, 188);"
                                                         href="../report_head/grade_faculty/honor.php">
-                                                        <h4>3.25-4.00</h4>
+                                                        <h4>GPAX 3.25-4.00</h4>
                                                     </a>
                                                 </div>
                                                 <div class="text-center">
@@ -191,7 +173,7 @@
                                                 <div class="text-center">
                                                     <a style="color: rgb(0, 110, 22);"
                                                         href="../report_head/grade_faculty/normal.php">
-                                                        <h4>2.00-3.24</h4>
+                                                        <h4>GPAX 2.00-3.24</h4>
                                                     </a>
                                                 </div>
                                                 <div class="text-center">
@@ -212,7 +194,7 @@
                                                 <div class="text-center">
                                                     <a style="color: #ff8c00;"
                                                         href="../report_head/grade_faculty/prohigh.php">
-                                                        <h4>1.75-1.99</h4>
+                                                        <h4>GPAX 1.75-1.99</h4>
                                                     </a>
                                                 </div>
                                                 <div class="text-center">
@@ -230,7 +212,7 @@
                                                 <div class="text-center">
                                                     <a style="color: rgb(255, 0, 0);"
                                                         href="../report_head/grade_faculty/prodown.php">
-                                                        <h4>0.00-1.74</h4>
+                                                        <h4>GPAX 0.00-1.74</h4>
                                                     </a>
                                                 </div>
                                                 <div class="text-center">
@@ -519,7 +501,7 @@
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิต ณ ปัจจุบัน</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิต ณ ปี</h6>
                             </div>
                             <?php
 
@@ -561,7 +543,7 @@
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิตจบการศึกษา </h6>
+                                <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิตจบการศึกษา ณ ปี </h6>
                             </div>
                             <?php
 
@@ -592,7 +574,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                             </div>
                             <?php
                             
@@ -676,7 +658,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามหลักสูตร (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามหลักสูตร (คน)</h6>
                             </div>
                             <?php
                                 $countPlanStatusSortBySemesterYears = getCountStudentPlanStatusSortBySemesterYearByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"]);
@@ -759,7 +741,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามรุ่น (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามรุ่น (คน)</h6>
                             </div>
                             <?php
                                 $countPlanStatusSortByGeneretions = getCountStudentPlanStatusSortByStudyGeneretionByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"]);
@@ -891,7 +873,7 @@
                         data: {
                             labels: studyGeneretions,
                             datasets: [{
-                                label: 'นักศึกษาแรกเข้า',
+                                label: 'นิสิตแรกเข้า',
                                 data: firstEntrys,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
@@ -905,7 +887,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษากำลังศึกษา',
+                                label: 'นิสิตกำลังศึกษา',
                                 data: studys,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -919,7 +901,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาจบการศึกษา',
+                                label: 'นิสิตจบการศึกษา',
                                 data: grads,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
@@ -961,7 +943,7 @@
                         data: {
                             labels: ['2565', '2566'],
                             datasets: [{
-                                label: 'นักศึกษาแรกเข้า',
+                                label: 'นิสิตแรกเข้า',
                                 data: [60, 60],
                                 backgroundColor: '#bfd575',
                                 borderColor: [
@@ -975,7 +957,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาพ้นสภาพ',
+                                label: 'นิสิตพ้นสภาพ',
                                 data: [0, 10],
                                 backgroundColor: '#ff6962',
                                 borderColor: [
@@ -989,7 +971,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษากำลังศึกษา',
+                                label: 'นิสิตกำลังศึกษา',
                                 data: [50, 110],
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -1003,7 +985,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาจบการศึกษา',
+                                label: 'นิสิตจบการศึกษา',
                                 data: [0, 0],
                                 backgroundColor: '#abbdee',
                                 borderColor: [
@@ -1283,25 +1265,25 @@
                             data: {
                                 labels: gennow,
                                 datasets: [{
-                                    label: 'เกียรตินิยม',
+                                    label: '3.25-4.00',
                                     data: bluegen,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'ปกติ',
+                                    label: '2.00-3.24',
                                     data: greengen,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรสูง',
+                                    label: '1.75-1.99',
                                     data: orangegen,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรต่ำ',
+                                    label: '0.00-1.74',
                                     data: redgen,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
@@ -1345,25 +1327,25 @@
                             data: {
                                 labels: genend,
                                 datasets: [{
-                                    label: 'เกียรตินิยม',
+                                    label: '3.25-4.00',
                                     data: bluegenend,
                                     backgroundColor: "rgba(0, 9, 188,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'ปกติ',
+                                    label: '2.00-3.24',
                                     data: greengenend,
                                     backgroundColor: "rgba(0, 110, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรสูง',
+                                    label: '1.75-1.99',
                                     data: orangegenend,
                                     backgroundColor: 'rgba(255,128,0,0.7)',
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'โปรต่ำ',
+                                    label: '0.00-1.74',
                                     data: redgenend,
                                     backgroundColor: 'rgba(255, 0, 0,0.7)',
                                     borderWidth: 0
