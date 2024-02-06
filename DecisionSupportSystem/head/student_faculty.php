@@ -64,7 +64,7 @@
                 <div>
                     <form>
                         <div class="row mx-auto">
-                            <div class="column col-sm-3">
+                            <div class="column col-sm-4">
 
                                 <div class="text-center">
                                     <h5>ภาควิชา<span style="color: red;">*</span></th>
@@ -82,27 +82,7 @@
                                 </div>
                             </div>
 
-                            <div class="column col-sm-3">
-
-                                <div class="text-center">
-                                    <h5>ปีการศึกษา<span style="color: red;">*</span></th>
-                                </div>
-                                <div class="text-center">
-                                    <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกปีสืบค้น--</option>
-
-                                            <option value="2561">2561
-                                            </option>
-                                            <option value="2562">2562</option>
-                                            <option value="2561">2563
-                                            </option>
-                                            <option value="2562">2564</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column col-sm-3">
+                            <div class="column col-sm-4">
                                 <div class="text-center">
                                     <h5>ปีที่สืบค้น<span style="color: red;">*</span></th>
                                 </div>
