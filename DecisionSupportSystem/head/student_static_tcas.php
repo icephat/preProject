@@ -91,13 +91,14 @@
                                     <div>
                                         <select class="form-control" data-live-search="true">
                                             <option value="default">--รอบ--</option>
-
-                                            <option value="2561">Tcas 1
+                                            <option value="2561">ทุกรอบ
                                             </option>
-                                            <option value="2562">Tcas 2</option>
-                                            <option value="2561">Tcas 3
+                                            <option value="2561">รอบ 1
                                             </option>
-                                            <option value="2562">Tcas 4</option>
+                                            <option value="2562">รอบ 2</option>
+                                            <option value="2561">รอบ 3
+                                            </option>
+                                            <option value="2562">รอบ 4</option>
                                         </select>
                                     </div>
                                 </div>
@@ -295,7 +296,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนอัตราการคงอยู่ </h6>
+                                <h6 class="m-0 font-weight-bold text-primary">อัตราคงอยู่ </h6>
                             </div>
                             <?php
                                 $percentageGeneretions = getPercentageStudySortByGeneretionByCourseName($course["nameCourseUse"]);
@@ -313,9 +314,9 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รุ่นการศึกษา</th>
-                                                        <th style="text-align: center; "><span>จำนวนรับเข้า</span>
+                                                        <th style="text-align: center; "><span>รับเข้า</span>
                                                         </th>
-                                                        <th style="text-align: center;"><span>จำนวนคงอยู่</span></th>
+                                                        <th style="text-align: center;"><span>คงอยู่</span></th>
                                                         <th style="text-align: center;">คิดเป็นร้อยละ</th>
 
                                                     </tr>
@@ -362,7 +363,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">สัดส่วนอัตราการคงอยู่ </h6>
+                                <h6 class="m-0 font-weight-bold text-primary">อัตราพ้นสภาพ </h6>
                             </div>
                             <?php
                             $percentageRetireGeneretions = getPercentageStudyAndRetireSortByGeneretionByCourseName($course["nameCourseUse"]);
@@ -380,8 +381,8 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รุ่นการศึกษา</th>
-                                                        <th style="text-align: center; "><span>จำนวนคงเหลือ</span></th>
-                                                        <th style="text-align: center;"><span>จำนวนพ้นสภาพ</span></th>
+                                                        <th style="text-align: center; "><span>รับเข้า</span></th>
+                                                        <th style="text-align: center;"><span>พ้นสภาพ</span></th>
                                                         <th style="text-align: center;">คิดเป็นร้อยละ</th>
                                                         
                                                     </tr>

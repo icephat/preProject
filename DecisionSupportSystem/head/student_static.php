@@ -69,9 +69,9 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
+                                        <select class="form-control" data-live-search="true" >
                                             <option value="default">--กรุณาเลือกหลักสูตร--</option>
-
+                                           
                                             <option value="2561">หลักสูตรวิศวกรรมศาสตร์บัณฑิต สาขาวิศวกรรมคอมพิวเตอร์
                                                 (หลักสูตรปรับปรุง พ.ศ.2560)
                                             </option>
@@ -119,9 +119,14 @@
                 </div>
 
                 <hr>
+                
                 <div class="row">
                     <div class="col-sm-12">
+                    
                         <div class="card shadow mb-4">
+                            <div class="card-header">
+                                <h5 style="color: black;">หลักสูตร รุ่น ปีการศึกษา</h5>
+                            </div>
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
@@ -171,7 +176,7 @@
                                                         $retires[] = (int) $gen["retire"];
                                                         $studys[] = (int) $gen["study"];
                                                         $grads[] = (int) $gen["grad"];
-                                                        $lists[] = $gen["studyGeneretion"];
+                                                        $lists[] = "รุ่น ".$gen["studyGeneretion"];
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: right;">
@@ -350,15 +355,26 @@
                                                     <tr>
                                                         <td style=" text-align: center;"></td>
                                                         <?php
+                                                        $x=0;
+                                                        $color="";
                                                         $year = getCoursePresentByDepartmentId($teacher["departmentId"])["couseStartYear"];
                                                         //echo $thaiDay;
                                                         for ($i = $year; $i < $year + 12; $i++) {
+                                                            if($x>=0 && $x<5){
+                                                                $color="#878787";
+                                                            }
+                                                            elseif($x>=5 && $x<8){
+                                                                $color="#bebebe";
+                                                            }
+                                                            else{
+                                                                $color="#cecece";
+                                                            }
                                                             ?>
-
-                                                            <td style=" text-align: center;">
+                                                            
+                                                            <td style=" text-align: center; background-color: <?php echo $color;?>">
                                                                 <?php echo $i ?>
                                                             </td>
-                                                        <?php } ?>
+                                                        <?php $x++;} ?>
 
                                                     </tr>
                                                     <?php
@@ -538,15 +554,26 @@
                                                     <tr>
                                                         <td style=" text-align: center;"></td>
                                                         <?php
+                                                        $x=0;
+                                                        $color="";
                                                         $year = getCoursePresentByDepartmentId($teacher["departmentId"])["couseStartYear"];
                                                         //echo $thaiDay;
                                                         for ($i = $year; $i < $year + 12; $i++) {
+                                                            if($x>=0 && $x<5){
+                                                                $color="#878787";
+                                                            }
+                                                            elseif($x>=5 && $x<8){
+                                                                $color="#bebebe";
+                                                            }
+                                                            else{
+                                                                $color="#cecece";
+                                                            }
                                                             ?>
-
-                                                            <td style=" text-align: center;">
+                                                            
+                                                            <td style=" text-align: center; background-color: <?php echo $color;?>">
                                                                 <?php echo $i ?>
                                                             </td>
-                                                        <?php } ?>
+                                                        <?php $x++;} ?>
 
                                                     </tr>
                                                     <?php
@@ -725,15 +752,26 @@
                                                     <tr>
                                                         <td style=" text-align: center;"></td>
                                                         <?php
+                                                        $x=0;
+                                                        $color="";
                                                         $year = getCoursePresentByDepartmentId($teacher["departmentId"])["couseStartYear"];
                                                         //echo $thaiDay;
                                                         for ($i = $year; $i < $year + 12; $i++) {
+                                                            if($x>=0 && $x<5){
+                                                                $color="#878787";
+                                                            }
+                                                            elseif($x>=5 && $x<8){
+                                                                $color="#bebebe";
+                                                            }
+                                                            else{
+                                                                $color="#cecece";
+                                                            }
                                                             ?>
-
-                                                            <td style=" text-align: center;">
+                                                            
+                                                            <td style=" text-align: center; background-color: <?php echo $color;?>">
                                                                 <?php echo $i ?>
                                                             </td>
-                                                        <?php } ?>
+                                                        <?php $x++;} ?>
 
                                                     </tr>
                                                     <?php
@@ -948,7 +986,7 @@
                             datasets: [{
 
                                 type: 'line',
-                                label: 'นักศึกษาแรกเข้า',
+                                label: 'นิสิตแรกเข้า',
                                 backgroundColor: 'rgb(0, 107, 201)',
                                 data: firstEntrys1,
                                 borderColor: 'rgba(0, 107, 201,1)',
@@ -956,7 +994,7 @@
                                 fill: false
                             },
                             {
-                                label: 'นักศึกษาพ้นสภาพ',
+                                label: 'นิสิตพ้นสภาพ',
                                 data: retires1,
                                 backgroundColor: '#ff6962',
                                 borderColor: [
@@ -970,7 +1008,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษากำลังศึกษา',
+                                label: 'นิสิตกำลังศึกษา',
                                 data: studys1,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -984,7 +1022,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาจบการศึกษา',
+                                label: 'นิสิตจบการศึกษา',
                                 data: grads1,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
@@ -1042,14 +1080,14 @@
 
                                 type: 'line',
                                 backgroundColor: 'rgb(0, 107, 201)',
-                                label: 'นักศึกษาแรกเข้า',
+                                label: 'นิสิตแรกเข้า',
                                 data: firstEntrys2,
                                 borderColor: 'rgba(0, 107, 201,1)',
                                 lineTension: 0,
                                 fill: false
                             },
                             {
-                                label: 'นักศึกษาพ้นสภาพ',
+                                label: 'นิสิตพ้นสภาพ',
                                 data: retires2,
                                 backgroundColor: '#ff6962',
                                 borderColor: [
@@ -1063,7 +1101,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษากำลังศึกษา',
+                                label: 'นิสิตกำลังศึกษา',
                                 data: studys2,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -1077,7 +1115,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาจบการศึกษา',
+                                label: 'นิสิตจบการศึกษา',
                                 data: grads2,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
