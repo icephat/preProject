@@ -258,7 +258,7 @@ $student = getStudentByStudentId($studentId);
                             </div> -->
                         <div class="row" style="margin-left: 20px; padding: auto; ">
                             <div class="col-sm-6">
-                                <p style="color: blue;">note :</p>
+                                <p style="color: blue;">note (หมายเหตุ):</p>
                             </div>
                             <div class="col-sm-6">
                                 <?php
@@ -1317,18 +1317,21 @@ $student = getStudentByStudentId($studentId);
    
    <?php
    
-       $dataLists=[];
-       $dataPerLists=[];
-       foreach ($academics as $academic){
-           
-           //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
-           $dataPerLists[] = (float)($academic["credit"]*100)/$academic["creditAll"];
-           $dataLists[] = (float)($academic["creditYet"]*100)/$academic["creditAll"];
-           
+    $dataLists=[];
+    $dataPerLists=[];
+    $dataGrades=[];
+    foreach ($academics as $academic){
+        
+        //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
+        $dataPerLists[] = (float)($academic["credit"]*100)/$academic["creditAll"];
+        $dataLists[] = (float)($academic["creditYet"]*100)/$academic["creditAll"];
+        $dataGrades[]= (float)$academic["grade"];
 
-       }
+    }
 
    ?>
+    var dataGrades = <?php echo json_encode($dataGrades)?>;
+    console.log(dataGrades);
    var perLists = <?php echo json_encode($dataPerLists)?>;
    console.log(perLists);
    var datalists = <?php echo json_encode($dataLists)?>;
@@ -1336,20 +1339,20 @@ $student = getStudentByStudentId($studentId);
    var dataCreditYet = <?php echo $percentCreditYetAll;?>;
    var dataCredit = <?php echo $percentCreditAll?>;
    console.log(dataCreditYet);
-   let GPAPiesize = perLists.length;
+   let GPAPiesize = dataGrades.length;
    const GPAcolorPie = [];
    let GPAPiecolorLoop;
    for (let i = 0; i < GPAPiesize; i++) {
-       if (perLists[i] >= 0.0000 && perLists[i] <= 1.7499) {
+       if (dataGrades[i] >= 0.0000 && dataGrades[i] <= 1.7499) {
            GPAPiecolorLoop = 'rgba(255, 105, 98,0.7)';
        }
-       else if (perLists[i] >= 1.7500 && perLists[i] <= 1.9999) {
+       else if (dataGrades[i] >= 1.7500 && dataGrades[i] <= 1.9999) {
            GPAPiecolorLoop = 'rgba(245, 123, 57,0.7)';
        }
-       else if (perLists[i] >= 2.0000 && perLists[i] <= 3.2499) {
+       else if (dataGrades[i] >= 2.0000 && dataGrades[i] <= 3.2499) {
            GPAPiecolorLoop = 'rgba(153, 204, 153,0.7)';
        }
-       else if (perLists[i] >= 3.2500) {
+       else if (dataGrades[i] >= 3.2500) {
            GPAPiecolorLoop = 'rgba(134, 211, 247,0.7)';
        }
        GPAcolorPie[i] = GPAPiecolorLoop;
