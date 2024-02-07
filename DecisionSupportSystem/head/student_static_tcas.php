@@ -57,12 +57,14 @@
 
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
 
+                $courses = getCourseNameByDepartmentId($teacher["departmentId"]) ;
+
                 ?>
 
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form>
+                    <form class="form-valide" action="../controller/calGPAController.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
                                 <div class="text-center">
@@ -70,15 +72,18 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกหลักสูตร--</option>
-
-                                            <option value="2561">หลักสูตรวิศวกรรมศาสตร์บัณฑิต สาขาวิศวกรรมคอมพิวเตอร์
-                                                (หลักสูตรปรับปรุง พ.ศ.2560)
-                                            </option>
-                                            <option value="2562">หลักสูตรวิศวกรรมศาสตร์บัณฑิต สาขาวิศวกรรมคอมพิวเตอร์
-                                                (หลักสูตรปรับปรุง พ.ศ.2565)</option>
-                                        </select>
+                                    <select class="form-control" data-live-search="true" name = "nameCourse" >
+                                            
+                                            <?php
+                                            foreach($courses as $cou){
+                                            ?>
+                                             <option value=" <?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
+                                             </option>
+                                             <?php
+                                             }
+                                             ?>
+                                             
+                                         </select>
                                     </div>
                                 </div>
                             </div>
@@ -89,16 +94,16 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--รอบ--</option>
-                                            <option value="2561">ทุกรอบ
+                                        <select class="form-control" data-live-search="true" name = "tcas">
+                                            
+                                            <option value="0">ทุกรอบ
                                             </option>
-                                            <option value="2561">รอบ 1
+                                            <option value="1">รอบ 1
                                             </option>
-                                            <option value="2562">รอบ 2</option>
-                                            <option value="2561">รอบ 3
+                                            <option value="2">รอบ 2</option>
+                                            <option value="3">รอบ 3
                                             </option>
-                                            <option value="2562">รอบ 4</option>
+                                            <option value="4">รอบ 4</option>
                                         </select>
                                     </div>
                                 </div>

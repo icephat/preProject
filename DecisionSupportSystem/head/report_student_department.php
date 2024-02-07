@@ -179,7 +179,7 @@
                     <div class="col-sm-12 ">
                         <div class="row">
                             <div class="col-sm-5 mx-auto">
-                                <table class="table "
+                                <table class="table table-hover"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
@@ -191,9 +191,10 @@
 
                                             <div style="color: rgb(0, 9, 188);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(0, 9, 188);">
+                                                    <a style="color: rgb(0, 9, 188);"
+                                                        href="../report_head/grade_faculty/honor.php">
                                                         <h4>3.25-4.00</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px; ">
@@ -210,9 +211,10 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(0, 110, 22);">
+                                                    <a style="color: rgb(0, 110, 22);"
+                                                        href="../report_head/grade_faculty/normal.php">
                                                         <h4>2.00-3.24</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -230,9 +232,10 @@
 
                                             <div style="color: #ff8c00;">
                                                 <div class="text-center">
-                                                    <div style="color: #ff8c00;">
+                                                    <a style="color: #ff8c00;"
+                                                        href="../report_head/grade_faculty/prohigh.php">
                                                         <h4>1.75-1.99</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -247,9 +250,10 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 0, 0);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(255, 0, 0);">
+                                                    <a style="color: rgb(255, 0, 0);"
+                                                        href="../report_head/grade_faculty/prodown.php">
                                                         <h4>0.00-1.74</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -265,7 +269,7 @@
                                 </table>
                             </div>
                             <div class="col-sm-5 mx-auto">
-                                <table class="table "
+                                <table class="table table-hover"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
@@ -276,9 +280,10 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(100, 197, 215);">
+                                                    <a style="color: rgb(100, 197, 215);"
+                                                        href="../report_head/status_faculty/plan.php">
                                                         <h4>ตามแผน</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px; ">
@@ -295,9 +300,10 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	118, 188, 22);">
+                                                    <a style="color: rgb(	118, 188, 22);"
+                                                        href="../report_head/status_faculty/noplan.php">
                                                         <h4>ไม่ตามแผน</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -315,9 +321,10 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	245, 123, 57);">
+                                                    <a style="color: rgb(	245, 123, 57);"
+                                                        href="../report_head/status_faculty/retry.php">
                                                         <h4>พ้นสภาพ</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -332,9 +339,10 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <div style="color:  rgb(255, 105, 98);">
+                                                    <a style="color:  rgb(255, 105, 98);"
+                                                        href="../report_head/status_faculty/finish.php">
                                                         <h4>จบการศึกษา</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -643,9 +651,10 @@
 
                                             <div style="color: rgb(0, 9, 188);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(0, 9, 188);">
+                                                    <a style="color: rgb(0, 9, 188);"
+                                                        href="../report_head/grade_faculty/honor.php">
                                                         <h4>3.25-4.00</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px; ">
@@ -662,9 +671,10 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(0, 110, 22);">
+                                                    <a style="color: rgb(0, 110, 22);"
+                                                        href="../report_head/grade_faculty/normal.php">
                                                         <h4>2.00-3.24</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -682,9 +692,10 @@
 
                                             <div style="color: #ff8c00;">
                                                 <div class="text-center">
-                                                    <div style="color: #ff8c00;">
+                                                    <a style="color: #ff8c00;"
+                                                        href="../report_head/grade_faculty/prohigh.php">
                                                         <h4>1.75-1.99</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -699,9 +710,10 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 0, 0);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(255, 0, 0);">
+                                                    <a style="color: rgb(255, 0, 0);"
+                                                        href="../report_head/grade_faculty/prodown.php">
                                                         <h4>0.00-1.74</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -728,9 +740,10 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(100, 197, 215);">
+                                                    <a style="color: rgb(100, 197, 215);"
+                                                        href="../report_head/status_faculty/plan.php">
                                                         <h4>ตามแผน</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px; ">
@@ -747,9 +760,10 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	118, 188, 22);">
+                                                    <a style="color: rgb(	118, 188, 22);"
+                                                        href="../report_head/status_faculty/noplan.php">
                                                         <h4>ไม่ตามแผน</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -767,9 +781,10 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	245, 123, 57);">
+                                                    <a style="color: rgb(	245, 123, 57);"
+                                                        href="../report_head/status_faculty/retry.php">
                                                         <h4>พ้นสภาพ</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -784,9 +799,10 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(255, 105, 98);">
+                                                    <a style="color: rgb(255, 105, 98);"
+                                                        href="../report_head/status_faculty/finish.php">
                                                         <h4>จบการศึกษา</h4>
-                                                    </div>
+                                                    </a>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">

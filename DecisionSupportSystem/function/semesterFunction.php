@@ -46,7 +46,8 @@ function getSemesterYear(){
     $years = [];
     
 
-    $sql = "SELECT DISTINCT semesterYear FROM semester";
+    $sql = "SELECT DISTINCT semesterYear FROM semester
+    ORDER BY semesterYear DESC";
 
     $result = $conn->query($sql);
 

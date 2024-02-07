@@ -54,6 +54,10 @@
                 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
                 $semester = getSemesterPresent();
+                $semesterYear = $_POST["year"];
+                $courseName = $_POST["courseName"];
+
+                //echo $courseName;
 
 
                 $courses = getCourseNameByDepartmentId($teacher["departmentId"]) ;
@@ -64,7 +68,7 @@
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form class="form-valide" action="student_static_search.php" method="post" enctype="multipart/form-data">
+                <form class="form-valide" action="student_static_search.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
 
@@ -78,7 +82,7 @@
                                            <?php
                                            foreach($courses as $cou){
                                            ?>
-                                            <option value="<?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
+                                            <option value="<?php echo $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
                                             </option>
                                             <?php
                                             }
@@ -132,7 +136,7 @@
                     
                         <div class="card shadow mb-4">
                             <div class="card-header">
-                            <h5 style="color: black;">หลักสูตร <?php echo $course["nameCourseUse"]?> ปีการศึกษา <?php echo $semester["semesterYear"]?></h5>
+                                <h5 style="color: black;">หลักสูตร <?php echo $courseName?> ปีการศึกษา <?php echo $semesterYear?></h5>
                             </div>
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
@@ -160,7 +164,7 @@
 
                                                     <?php
 
-                                                    $studentStatusSortGeneretions = getCountStudentStatusSortByGeneretionByNameCourseAndSemesterYear($course["nameCourseUse"],$semester["semesterYear"]);
+                                                    $studentStatusSortGeneretions = getCountStudentStatusSortByGeneretionByNameCourseAndSemesterYear($courseName,$semesterYear);
 
                                                     $sumFirstEntry = 0;
                                                     $sumRetire = 0;
@@ -276,7 +280,7 @@
                                                 <tbody>
                                                     <?php
 
-                                                    $studentStatusByYears = getCountStudentStatusSortByYearByNameCourseAndSemesterYear($course["nameCourseUse"],$semester["semesterYear"]);
+                                                    $studentStatusByYears = getCountStudentStatusSortByYearByNameCourseAndSemesterYear($courseName,$semesterYear);
                                                     $listSem = [];
                                                     $firstEntrys2 = [];
                                                     $retires2 = [];
@@ -364,7 +368,7 @@
                                                         <?php
                                                         $x=0;
                                                         $color="";
-                                                        $year = getCoursePresentByDepartmentId($teacher["departmentId"])["couseStartYear"];
+                                                        $year = getCourseByCourseName($courseName)["couseStartYear"];
                                                         //echo $thaiDay;
                                                         for ($i = $year; $i < $year + 12; $i++) {
                                                             if($x>=0 && $x<5){
@@ -385,7 +389,7 @@
 
                                                     </tr>
                                                     <?php
-                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "กำลังศึกษา",$semester["semesterYear"]);
+                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($courseName,"กำลังศึกษา",$semesterYear);
                                                     $g1=0;
                                                     $g2=0;
                                                     $g3=0;
@@ -563,7 +567,7 @@
                                                         <?php
                                                         $x=0;
                                                         $color="";
-                                                        $year = getCoursePresentByDepartmentId($teacher["departmentId"])["couseStartYear"];
+                                                        $year = getCourseByCourseName($courseName)["couseStartYear"];
                                                         //echo $thaiDay;
                                                         for ($i = $year; $i < $year + 12; $i++) {
                                                             if($x>=0 && $x<5){
@@ -584,7 +588,7 @@
 
                                                     </tr>
                                                     <?php
-                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "พ้นสภาพนิสิต",$semester["semesterYear"]);
+                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "พ้นสภาพนิสิต",$semesterYear);
                                                     $g21=0;
                                                     $g22=0;
                                                     $g23=0;
@@ -761,7 +765,7 @@
                                                         <?php
                                                         $x=0;
                                                         $color="";
-                                                        $year = getCoursePresentByDepartmentId($teacher["departmentId"])["couseStartYear"];
+                                                        $year = getCourseByCourseName($courseName)["couseStartYear"];
                                                         //echo $thaiDay;
                                                         for ($i = $year; $i < $year + 12; $i++) {
                                                             if($x>=0 && $x<5){
@@ -782,7 +786,7 @@
 
                                                     </tr>
                                                     <?php
-                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "จบการศึกษา",$semester["semesterYear"]);
+                                                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "จบการศึกษา",$semesterYear);
                                                     $g31=0;
                                                     $g32=0;
                                                     $g33=0;

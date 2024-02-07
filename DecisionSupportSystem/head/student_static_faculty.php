@@ -57,12 +57,15 @@
 
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
 
+                $courses = getCourseNameByDepartmentId($teacher["departmentId"]) ;
+                $semesterYears = getSemesterYear();
+
                 ?>
 
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form>
+                    <form class="form-valide" action="../controller/calGPAController.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
                                 <div class="text-center">
@@ -70,15 +73,18 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกหลักสูตร--</option>
-
-                                            <option value="2561">หลักสูตรวิศวกรรมศาสตร์บัณฑิต สาขาวิศวกรรมคอมพิวเตอร์
-                                                (หลักสูตรปรับปรุง พ.ศ.2560)
-                                            </option>
-                                            <option value="2562">หลักสูตรวิศวกรรมศาสตร์บัณฑิต สาขาวิศวกรรมคอมพิวเตอร์
-                                                (หลักสูตรปรับปรุง พ.ศ.2565)</option>
-                                        </select>
+                                    <select class="form-control" data-live-search="true" name = "nameCourse" >
+                                            
+                                            <?php
+                                            foreach($courses as $cou){
+                                            ?>
+                                             <option value=" <?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
+                                             </option>
+                                             <?php
+                                             }
+                                             ?>
+                                             
+                                         </select>
                                     </div>
                                 </div>
                             </div>
@@ -89,15 +95,15 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกปีสืบค้น--</option>
-
-                                            <option value="2561">2561
-                                            </option>
-                                            <option value="2562">2562</option>
-                                            <option value="2561">2563
-                                            </option>
-                                            <option value="2562">2564</option>
+                                        <select class="form-control" data-live-search="true" name = "year">
+                                            
+                                            <?php
+                                            foreach($semesterYears as $year){
+                                            ?>
+                                            <option value="<?php echo $year["semesterYear"]?>"><?php echo $year["semesterYear"]?></option>
+                                            <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
