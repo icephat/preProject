@@ -818,6 +818,7 @@
                     </div>
                 </div>
 
+               
                 <!-- modalblue -->
                 <div id="modalblue" class="modal fade" style="color: black;">
                             <div class="modal-dialog modal-lg">
@@ -828,8 +829,11 @@
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-                                    
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countRangeGrade["blues"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countRangeGrade["blues"]) > 0){
+                                        
+                                    ?>
                                         <div class="modal-body" id="std_detail">
                                             <table class="table">
 
@@ -841,17 +845,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                        foreach($countRangeGrade["blues"] as $student){
+                                                    ?>
                                                     <tr>
-                                                            <th>632050000</th>
-                                                            <th>นายxxx xxx</th>
-                                                            <th>3.333</th>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
                                                     </tr>
-                                                    
+                                                    <?php
+                                                    }?>
 
                                                 </tbody>
                                             </table>
 
                                         </div>
+                                    <?php }?>
                                     
                                     <hr>
                                     
@@ -874,8 +883,11 @@
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-                                    
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countRangeGrade["greens"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countRangeGrade["greens"]) > 0){
+                                        
+                                    ?>
                                         <div class="modal-body" id="std_detail">
                                             <table class="table">
 
@@ -887,18 +899,21 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                            <th>632050000</th>
-                                                            <th>นายxxx xxx</th>
-                                                            <th>3.333</th>
-                                                    </tr>
-                                                    
+                                                    <?php
+                                                        foreach($countRangeGrade["greens"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
 
                                                 </tbody>
                                             </table>
 
                                         </div>
-                                    
+                                    <?php }?>
                                     <hr>
                                     
                                     <div class="modal-footer">
@@ -920,8 +935,11 @@
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-                                    
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countRangeGrade["oranges"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countRangeGrade["oranges"]) > 0){
+                                        
+                                    ?>
                                         <div class="modal-body" id="std_detail">
                                             <table class="table">
 
@@ -933,18 +951,21 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                            <th>632050000</th>
-                                                            <th>นายxxx xxx</th>
-                                                            <th>3.333</th>
-                                                    </tr>
-                                                    
+                                                    <?php
+                                                        foreach($countRangeGrade["greens"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
 
                                                 </tbody>
                                             </table>
 
                                         </div>
-                                    
+                                    <?php }?>
                                     <hr>
                                     
                                     <div class="modal-footer">
@@ -966,8 +987,11 @@
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-                                    
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countRangeGrade["reds"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countRangeGrade["reds"]) > 0){
+                                        
+                                    ?>
                                         <div class="modal-body" id="std_detail">
                                             <table class="table">
 
@@ -979,18 +1003,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                            <th>632050000</th>
-                                                            <th>นายxxx xxx</th>
-                                                            <th>3.333</th>
-                                                    </tr>
+                                                    <?php
+                                                        foreach($countRangeGrade["reds"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
                                                     
 
                                                 </tbody>
                                             </table>
 
                                         </div>
-                                    
+                                    <?php }?>
                                     <hr>
                                     
                                     <div class="modal-footer">
@@ -1012,8 +1040,11 @@
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-                                    
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countPlanStatus["plans"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countPlanStatus["plans"]) > 0){
+                                        
+                                    ?>
                                         <div class="modal-body" id="std_detail">
                                             <table class="table">
 
@@ -1025,18 +1056,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                            <th>632050000</th>
-                                                            <th>นายxxx xxx</th>
-                                                            <th>3.333</th>
-                                                    </tr>
+                                                    <?php
+                                                        foreach($countPlanStatus["plans"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
                                                     
 
                                                 </tbody>
                                             </table>
 
                                         </div>
-                                    
+                                    <?php }?>
                                     <hr>
                                     
                                     <div class="modal-footer">
@@ -1058,8 +1093,11 @@
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-                                    
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countPlanStatus["notPlans"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countPlanStatus["notPlans"]) > 0){
+                                        
+                                    ?>
                                         <div class="modal-body" id="std_detail">
                                             <table class="table">
 
@@ -1071,18 +1109,21 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                            <th>632050000</th>
-                                                            <th>นายxxx xxx</th>
-                                                            <th>3.333</th>
-                                                    </tr>
-                                                    
+                                                    <?php
+                                                        foreach($countPlanStatus["notPlans"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
 
                                                 </tbody>
                                             </table>
 
                                         </div>
-                                    
+                                    <?php }?>
                                     <hr>
                                     
                                     <div class="modal-footer">
@@ -1104,8 +1145,11 @@
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-                                    
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countPlanStatus["retires"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countPlanStatus["retires"]) > 0){
+                                        
+                                    ?>
                                         <div class="modal-body" id="std_detail">
                                             <table class="table">
 
@@ -1117,18 +1161,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                            <th>632050000</th>
-                                                            <th>นายxxx xxx</th>
-                                                            <th>3.333</th>
-                                                    </tr>
+                                                    <?php
+                                                        foreach($countPlanStatus["retires"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
                                                     
 
                                                 </tbody>
                                             </table>
 
                                         </div>
-                                    
+                                    <?php }?>
                                     <hr>
                                     
                                     <div class="modal-footer">
@@ -1150,8 +1198,11 @@
                                         <br>
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-                                    
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countPlanStatus["grads"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countPlanStatus["grads"]) > 0){
+                                        
+                                    ?>
                                         <div class="modal-body" id="std_detail">
                                             <table class="table">
 
@@ -1163,18 +1214,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                            <th>632050000</th>
-                                                            <th>นายxxx xxx</th>
-                                                            <th>3.333</th>
-                                                    </tr>
+                                                    <?php
+                                                        foreach($countPlanStatus["grads"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
                                                     
 
                                                 </tbody>
                                             </table>
 
                                         </div>
-                                    
+                                    <?php }?>
                                     <hr>
                                     
                                     <div class="modal-footer">
