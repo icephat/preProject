@@ -249,7 +249,7 @@
 
                                                 <div style="color: rgb(100, 197, 215);">
                                                     <div class="text-center">
-                                                        <a style="color: rgb(0, 9, 188);"
+                                                        <a style="color: rgb(100, 197, 215);"
                                                             href="../report_teacher/status/plan.php">
                                                             <h4>ตามแผน</h4>
                                                         </a>
@@ -267,7 +267,7 @@
                                             <th style="border: 1px solid black; border-collapse: collapse; ">
                                                 <div style="color: rgb(	118, 188, 22);">
                                                     <div class="text-center">
-                                                        <a style="color: rgb(0, 110, 22);"
+                                                        <a style="color: rgb(118, 188, 22);"
                                                             href="../report_teacher/status/noplan.php">
                                                             <h4>ไม่ตามแผน</h4>
                                                         </a>
@@ -286,7 +286,7 @@
 
                                                 <div style="color: rgb(	245, 123, 57);">
                                                     <div class="text-center">
-                                                        <a style="color: #ff8c00;"
+                                                        <a style="color: rgb(	245, 123, 57);"
                                                             href="../report_teacher/status/retry.php">
                                                             <h4>พ้นสภาพ</h4>
                                                         </a>
@@ -302,7 +302,7 @@
                                             <th style="border: 1px solid black; border-collapse: collapse;">
                                                 <div style="color: rgb(255, 105, 98);">
                                                     <div class="text-center">
-                                                        <a style="color: rgb(255, 0, 0);"
+                                                        <a style="color: rgb(255, 105, 98);"
                                                             href="../report_teacher/status/finish.php">
                                                             <h4>จบการศึกษา</h4>
                                                         </a>
@@ -327,7 +327,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามรุ่น (คน)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามรุ่น (คน)</h6>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -677,7 +677,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามปีการศึกษา (คน)
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามปีการศึกษา (คน)
                                     </h6>
                                 </div>
                                 <div class="card-body">

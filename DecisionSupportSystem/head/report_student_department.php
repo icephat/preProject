@@ -280,7 +280,7 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 9, 188);"
+                                                    <a style="color: rgb(100, 197, 215);"
                                                         href="../report_head/status_faculty/plan.php">
                                                         <h4>ตามแผน</h4>
                                                     </a>
@@ -300,7 +300,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);"
+                                                    <a style="color: rgb(	118, 188, 22);"
                                                         href="../report_head/status_faculty/noplan.php">
                                                         <h4>ไม่ตามแผน</h4>
                                                     </a>
@@ -321,7 +321,7 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: #ff8c00;"
+                                                    <a style="color: rgb(	245, 123, 57);"
                                                         href="../report_head/status_faculty/retry.php">
                                                         <h4>พ้นสภาพ</h4>
                                                     </a>
@@ -339,7 +339,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 0, 0);"
+                                                    <a style="color:  rgb(255, 105, 98);"
                                                         href="../report_head/status_faculty/finish.php">
                                                         <h4>จบการศึกษา</h4>
                                                     </a>
@@ -386,11 +386,11 @@
                                                     <thead style=" ">
                                                         <tr>
                                                             <th style=" text-align: left; ">ภาควิชา</th>
-                                                            <th style="text-align: right; ">เกียรตินิยม
+                                                            <th style="text-align: right; ">3.25-4.00
                                                             </th>
-                                                            <th style="text-align: right;">ปกติ</th>
-                                                            <th style="text-align: right;">รอพินิจ</th>
-                                                            <th style="text-align: right;">โปรต่ำ</th>
+                                                            <th style="text-align: right;">2.00-3.24</th>
+                                                            <th style="text-align: right;">1.75-1.99</th>
+                                                            <th style="text-align: right;">0.00-1.74</th>
 
                                                             <th style="text-align: right;">รายละเอียด</th>
                                                         </tr>
@@ -740,7 +740,7 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 9, 188);"
+                                                    <a style="color: rgb(100, 197, 215);"
                                                         href="../report_head/status_faculty/plan.php">
                                                         <h4>ตามแผน</h4>
                                                     </a>
@@ -760,7 +760,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);"
+                                                    <a style="color: rgb(	118, 188, 22);"
                                                         href="../report_head/status_faculty/noplan.php">
                                                         <h4>ไม่ตามแผน</h4>
                                                     </a>
@@ -781,7 +781,7 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: #ff8c00;"
+                                                    <a style="color: rgb(	245, 123, 57);"
                                                         href="../report_head/status_faculty/retry.php">
                                                         <h4>พ้นสภาพ</h4>
                                                     </a>
@@ -799,7 +799,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 0, 0);"
+                                                    <a style="color: rgb(255, 105, 98);"
                                                         href="../report_head/status_faculty/finish.php">
                                                         <h4>จบการศึกษา</h4>
                                                     </a>
@@ -845,11 +845,11 @@
                                                     <thead style=" ">
                                                         <tr>
                                                             <th style=" text-align: left; ">ภาควิชา</th>
-                                                            <th style="text-align: right; ">เกียรตินิยม
+                                                            <th style="text-align: right; ">3.25-4.00
                                                             </th>
-                                                            <th style="text-align: right;">ปกติ</th>
-                                                            <th style="text-align: right;">รอพินิจ</th>
-                                                            <th style="text-align: right;">โปรต่ำ</th>
+                                                            <th style="text-align: right;">2.00-3.24</th>
+                                                            <th style="text-align: right;">1.75-1.99</th>
+                                                            <th style="text-align: right;">0.00-1.74</th>
 
                                                             <th style="text-align: right;">รายละเอียด</th>
                                                         </tr>
@@ -1390,7 +1390,7 @@
 
 
             </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 50 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 50 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1419,7 +1419,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 100 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 100 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped" id="grade" cellspacing="0">
 
@@ -1463,7 +1463,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 6 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 6 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1486,7 +1486,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
             <hr>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"
@@ -1647,10 +1647,10 @@
 
 
             </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 0 คน</h5>
 
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 5 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 5 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped" id="grade" cellspacing="0">
 
@@ -1694,9 +1694,9 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 0 คน</h5>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
             <hr>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"

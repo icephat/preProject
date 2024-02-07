@@ -94,12 +94,12 @@
                                             <select class="form-control" data-live-search="true">
                                                 <option value="default">--รอบ TCAS--</option>
 
-                                                <option value="2561">Tcas 1
+                                                <option value="2561">รอบที่ 1
                                                 </option>
-                                                <option value="2562">Tcas 2</option>
-                                                <option value="2561">Tcas 3
+                                                <option value="2562">รอบที่ 2</option>
+                                                <option value="2561">รอบที่ 3
                                                 </option>
-                                                <option value="2562">Tcas 4</option>
+                                                <option value="2562">รอบที่ 4</option>
                                             </select>
                                         </div>
                                     </div>
@@ -184,11 +184,11 @@
                                                     <thead style=" ">
                                                         <tr>
                                                             <th >ภาควิชา</th>
-                                                            <th style="text-align: center; "><span>Tcas 1</span>
+                                                            <th style="text-align: center; "><span>รอบที่ 1</span>
                                                             </th>
-                                                            <th style="text-align: center;"><span>Tcas 2</span></th>
-                                                            <th style="text-align: center;">Tcas 3</th>
-                                                            <th style="text-align: center;">Tcas 4</th>
+                                                            <th style="text-align: center;"><span>รอบที่ 2</span></th>
+                                                            <th style="text-align: center;">รอบที่ 3</th>
+                                                            <th style="text-align: center;">รอบที่ 4</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -499,7 +499,7 @@
                             data: {
                                 labels: studyGeneretions,
                                 datasets: [{
-                                    label: 'Tcas 1',
+                                    label: 'รอบที่ 1',
                                     data: tcas1,
                                     backgroundColor: '#bfd575',
                                     borderColor: [
@@ -513,7 +513,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'Tcas 2',
+                                    label: 'รอบที่ 2',
                                     data: tcas2,
                                     backgroundColor: '#a4ebf3',
                                     borderColor: [
@@ -527,7 +527,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'Tcas 3',
+                                    label: 'รอบที่ 3',
                                     data: tcas3,
                                     backgroundColor: '#abbdee',
                                     borderColor: [
@@ -541,7 +541,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'Tcas 4',
+                                    label: 'รอบที่ 4',
                                     data: tcas4,
                                     backgroundColor: '#f8c769',
                                     borderColor: [

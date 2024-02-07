@@ -240,7 +240,7 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 9, 188);"
+                                                    <a style="color: rgb(100, 197, 215);"
                                                         href="../report_head/status_faculty/plan.php">
                                                         <h4>ตามแผน</h4>
                                                     </a>
@@ -260,7 +260,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);"
+                                                    <a style="color: rgb(	118, 188, 22);"
                                                         href="../report_head/status_faculty/noplan.php">
                                                         <h4>ไม่ตามแผน</h4>
                                                     </a>
@@ -281,7 +281,7 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: #ff8c00;"
+                                                    <a style="color: rgb(	245, 123, 57);"
                                                         href="../report_head/status_faculty/retry.php">
                                                         <h4>พ้นสภาพ</h4>
                                                     </a>
@@ -299,7 +299,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 0, 0);"
+                                                    <a style="color: rgb(255, 105, 98);"
                                                         href="../report_head/status_faculty/finish.php">
                                                         <h4>จบการศึกษา</h4>
                                                     </a>
