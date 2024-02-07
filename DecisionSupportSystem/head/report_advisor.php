@@ -99,8 +99,6 @@
                                     <div>
                                         <select class="form-control" data-live-search="true">
                                             <option value="default">--กรุณาเลือกภาคการศึกษา--</option>
-                                            <option value="2561">ทุกภาค
-                                            </option>
                                             <option value="2561">ต้น
                                             </option>
                                             <option value="2562">ปลาย</option>
@@ -372,11 +370,11 @@
                                                 <thead>
                                                     <tr>
                                                         <th style=" text-align: left; ">ชื่ออาจารย์</th>
-                                                        <th style="text-align: right; ">เกียรตินิยม
+                                                        <th style="text-align: right; ">3.25-4.00
                                                         </th>
-                                                        <th style="text-align: right;">ปกติ</th>
-                                                        <th style="text-align: right;">รอพินิจ</th>
-                                                        <th style="text-align: right;">โปรต่ำ</th>
+                                                        <th style="text-align: right;">2.00-3.24</th>
+                                                        <th style="text-align: right;">1.75-1.99</th>
+                                                        <th style="text-align: right;">0.00-1.74</th>
 
                                                         <th style="text-align: right;">รายละเอียด</th>
                                                     </tr>
@@ -546,13 +544,13 @@
                                                                 <?php echo $advi["grad"] ?> คน
                                                             </td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#modalLearn2<?php echo $idLearn2?>" >
+                                                                <a data-toggle="modal" data-target="#modal<?php echo $idLearn2?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
                                                         <?php
-                                                        $idLearn++;
+                                                        $idLearn2++;
                                                     }
                                                     ?>
 
@@ -681,11 +679,11 @@
                                                 <thead>
                                                     <tr>
                                                         <th style=" text-align: left; ">ชื่ออาจารย์</th>
-                                                        <th style="text-align: right; ">เกียรตินิยม
+                                                        <th style="text-align: right; ">3.25-4.00
                                                         </th>
-                                                        <th style="text-align: right;">ปกติ</th>
-                                                        <th style="text-align: right;">รอพินิจ</th>
-                                                        <th style="text-align: right;">โปรต่ำ</th>
+                                                        <th style="text-align: right;">2.00-3.24</th>
+                                                        <th style="text-align: right;">1.75-1.99</th>
+                                                        <th style="text-align: right;">0.00-1.74</th>
 
                                                         <th style="text-align: right;">รายละเอียด</th>
                                                     </tr>
@@ -703,7 +701,7 @@
                                                     $learn21Greens=[];
                                                     $learn21Orangs=[];
                                                     $learn21Reds=[];
-                                                    $idLearn=0;
+                                                    $idLearn3=0;
                                                     //print_r($remainingGradeRangeSortByAdvisers);
                                                     foreach ($remainingGradeRangeSortByAdvisers as $adviser) {
                                                         
@@ -744,6 +742,7 @@
                                                             </td>
                                                         </tr>
                                                         <?php
+                                                        $idLearn3++;
                                                     }
                                                     ?>
 
@@ -978,7 +977,7 @@
                                     <br>
 
                                 </div>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม <?php echo sizeof($adviser["blues"])?> คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 <?php echo sizeof($adviser["blues"])?> คน</h5>
                                 <?php
                                     if(sizeof($adviser["blues"])> 0){
                                         
@@ -1013,7 +1012,7 @@
                                 </div>
                                 <?php }?>
                                 <hr>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ <?php echo sizeof($adviser["greens"])?> คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 <?php echo sizeof($adviser["greens"])?> คน</h5>
                                 <?php
                                     if(sizeof($adviser["greens"])> 0){
                                         
@@ -1048,7 +1047,7 @@
                                 </div>
                                 <?php }?>
                                 <hr>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ <?php echo sizeof($adviser["oranges"])?> คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 <?php echo sizeof($adviser["oranges"])?> คน</h5>
                                 <?php
                                     if(sizeof($adviser["oranges"])> 0){
                                         
@@ -1083,7 +1082,7 @@
                                 </div>
                                 <?php }?>
                                 <hr>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ <?php echo sizeof($adviser["reds"])?> คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 <?php echo sizeof($adviser["reds"])?> คน</h5>
                                 <?php
                                     if(sizeof($adviser["reds"])> 0){
                                         
@@ -1130,14 +1129,16 @@
                     }
                 ?>
 
-                <!-- modal2 -->
+                <!-- modalLearn2 -->
                 <?php
                         $idLearns2=0;
-                        foreach ($remainingPlanStatusSortByAdvisers as $adviser) { 
+                        
+                        foreach ($planStatusSortByAdvisers as $adviser) { 
                             
 
                 ?>
-                <div id="modalLearn2<?php echo $idLearns2?>" class="modal fade" style="color: black;">
+                <div id="modal<?php echo $idLearns2?>" class="modal fade" style="color: black;">
+                
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header" style="height: 90px;">
@@ -1316,7 +1317,7 @@
                                 <br>
 
                             </div>
-                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม <?php echo sizeof($adviser["blues"])?> คน</h5>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 <?php echo sizeof($adviser["blues"])?> คน</h5>
                                 <?php
                                     if(sizeof($adviser["blues"])> 0){
                                         
@@ -1351,7 +1352,7 @@
                                 </div>
                                 <?php }?>
                                 <hr>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ <?php echo sizeof($adviser["greens"])?> คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 <?php echo sizeof($adviser["greens"])?> คน</h5>
                                 <?php
                                     if(sizeof($adviser["greens"])> 0){
                                         
@@ -1386,7 +1387,7 @@
                                 </div>
                                 <?php }?>
                                 <hr>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ <?php echo sizeof($adviser["oranges"])?> คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 <?php echo sizeof($adviser["oranges"])?> คน</h5>
                                 <?php
                                     if(sizeof($adviser["oranges"])> 0){
                                         
@@ -1421,7 +1422,7 @@
                                 </div>
                                 <?php }?>
                                 <hr>
-                                <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ <?php echo sizeof($adviser["reds"])?> คน</h5>
+                                <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 <?php echo sizeof($adviser["reds"])?> คน</h5>
                                 <?php
                                     if(sizeof($adviser["reds"])> 0){
                                         
