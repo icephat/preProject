@@ -1405,7 +1405,12 @@
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
                 </script>
 
-                <script>
+<script>
+                    var semesterGen = <?php echo json_encode($semesterGen); ?>;
+
+                    var planGen = <?php echo json_encode($planGen); ?>;
+                    var notPlanGen = <?php echo json_encode($notPlanGen); ?>;
+                    var retireGen = <?php echo json_encode($retireGen); ?>;
 
                     var ctx = document.getElementById("learnyear");
                     var myChart = new Chart(ctx, {
@@ -1413,23 +1418,23 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: ['รุ่น 60', 'รุ่น 61', 'รุ่น 62', 'รุ่น 63', 'รุ่น 64'],
+                            labels: semesterGen,
                             datasets: [
                                 {
                                     label: 'ตามหลักสูตร',
-                                    data: [60, 60, 53, 40, 49],
+                                    data: planGen,
                                     backgroundColor: "rgba(100, 197, 215,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['ไม่ตามหลักสุตร'],
-                                    data: [0, 5, 0, 11, 3],
+                                    data: notPlanGen,
                                     backgroundColor: "rgba(118, 188, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['พ้นสภาพ'],
-                                    data: [0, 0, 7, 9, 3],
+                                    data: retireGen,
                                     backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 }
