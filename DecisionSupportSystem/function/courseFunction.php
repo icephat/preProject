@@ -168,4 +168,34 @@ function getCountStudentInCourseByCouseName($courseName)
     return $countStudentInCourse;
 }
 
+function getCourseNameByDepartmentId($departmentId)
+{
+
+    require("connection_connect.php");
+
+
+
+    $sql = "SELECT DISTINCT nameCourseUse
+    FROM course
+    WHERE departmentId = $departmentId
+    ORDER BY couseStartYear DESC"
+
+    ;
+
+    $result = $conn->query($sql);
+
+    $course = [];
+
+    while ($my_row = $result->fetch_assoc()) {
+        $course[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+
+    return $course;
+
+}
+
 ?>
