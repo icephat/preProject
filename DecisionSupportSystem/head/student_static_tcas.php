@@ -64,7 +64,7 @@
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form class="form-valide" action="../controller/calGPAController.php" method="post" enctype="multipart/form-data">
+                    <form class="form-valide" action="student_static_tcas_search.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
                                 <div class="text-center">
@@ -72,12 +72,12 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                    <select class="form-control" data-live-search="true" name = "nameCourse" >
+                                    <select class="form-control" data-live-search="true" name = "courseName" >
                                             
                                             <?php
                                             foreach($courses as $cou){
                                             ?>
-                                             <option value=" <?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
+                                             <option value="<?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
                                              </option>
                                              <?php
                                              }
@@ -125,6 +125,7 @@
 
                 <hr>
                 <div class="row">
+                <h5 style="color: black;">หลักสูตร <?php echo $course["nameCourseUse"]?></h5>
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
