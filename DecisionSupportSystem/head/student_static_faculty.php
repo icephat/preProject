@@ -65,7 +65,7 @@
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form class="form-valide" action="../controller/calGPAController.php" method="post" enctype="multipart/form-data">
+                    <form class="form-valide" action="student_static_faculty_search.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
                                 <div class="text-center">
@@ -73,12 +73,12 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                    <select class="form-control" data-live-search="true" name = "nameCourse" >
+                                    <select class="form-control" data-live-search="true" name = "courseName" >
                                             
                                             <?php
                                             foreach($courses as $cou){
                                             ?>
-                                             <option value=" <?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
+                                             <option value="<?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
                                              </option>
                                              <?php
                                              }
@@ -138,7 +138,7 @@
                             echo $generetion["studyGeneretion"];
                         }
                         ?>
-                        
+                        )
                     </h5>
                 </div>
                 <div class="row">

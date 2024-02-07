@@ -61,7 +61,7 @@ function getCountStudentStatusSortByYearByNameCourseAndSemesterYear($course, $ye
 
 }
 
-function getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course, $status,$year)
+function getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course, $status, $year)
 {
 
     require("connection_connect.php");
@@ -103,10 +103,40 @@ function getCountStudentGradeRangeByCourseNameAndSemesterYear($courseName, $seme
     $result = $conn->query($sql);
     $countRangeGrade = $result->fetch_assoc();
 
+    $countRangeGrade["blues"] = geStudentListInGradeRangeByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "blue");
+    $countRangeGrade["greens"] = geStudentListInGradeRangeByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "green");
+    $countRangeGrade["oranges"] = geStudentListInGradeRangeByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "orange");
+    $countRangeGrade["reds"] = geStudentListInGradeRangeByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "red");
+
 
     require("connection_close.php");
 
     return $countRangeGrade;
+
+}
+
+function geStudentListInGradeRangeByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, $gradeRange)
+{
+
+    require("connection_connect.php");
+
+    $students = [];
+    $sql = "SELECT studentId,fisrtNameTh,lastNameTh,round(gpaTerm,2) AS gpaTerm,round(gpaAll,2) AS gpaAll
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN student INNER JOIN course ON fact_student.courseId = course.courseId
+    WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS  termSummaryId FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear  AND gpaStatusName = '$gradeRange'
+    GROUP BY studentId);";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
 
 }
 
@@ -122,10 +152,38 @@ function getCountStudentPlanStatusByCourseNameAndSemesterYear($courseName, $seme
     $result = $conn->query($sql);
     $countPlanStatus = $result->fetch_assoc();
 
+    $countPlanStatus["ิplans"] = geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "ตามแผน");
+    $countPlanStatus["notPlans"] = geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "ไม่ตามแผน");
+    $countPlanStatus["retires"] = geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "พ้นสภาพนิสิต");
+    $countPlanStatus["grads"] = geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "จบการศึกษา");
+
 
     require("connection_close.php");
 
     return $countPlanStatus;
+
+}
+
+function geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, $planStatus)
+{
+
+    require("connection_connect.php");
+
+    $students = [];
+    $sql = "SELECT studentId,fisrtNameTh,lastNameTh,round(gpaTerm,2) AS gpaTerm,round(gpaAll,2) AS gpaAll
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN student  INNER JOIN course ON fact_student.courseId = course.courseId
+    WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear AND planStatus = '$planStatus'  GROUP BY studentId);";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
 
 }
 
