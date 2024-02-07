@@ -51,9 +51,13 @@
                 require_once '../function/semesterFunction.php';
                 //require_once '../function/courseFunction.php';
                 require_once '../function/headDeptFunction.php';
+                require_once '../function/departmentFunction.php';
 
                 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                 $semester = getSemesterPresent();
+
+                $departments = getAllDepartment();
+                $semesterYears = getSemesterYear();
 
 
                 //$course = getCoursePresentByDepartmentId($teacher["departmentId"]);
@@ -71,12 +75,16 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกภาควิชา--</option>
+                                        <select class="form-control" data-live-search="true" name = "departmentId">
+                                            
+                                        <?php
+                                        foreach($departments as $department){
+                                        ?>
 
-                                            <option value="2561">วิศวกรรมคอมพิวเตอร์
-                                            </option>
-                                            <option value="2562">วิศวกรรมเครื่องกล</option>
+                                            <option value="<?php echo $department["departmentId"] ?>"><?php echo $department["departmentName"] ?></option>
+                                        <?php
+                                        }
+                                        ?>
                                         </select>
                                     </div>
                                 </div>
@@ -87,15 +95,15 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกปีการศึกษา--</option>
-
-                                            <option value="2561">2561
-                                            </option>
-                                            <option value="2562">2562</option>
-                                            <option value="2561">2563
-                                            </option>
-                                            <option value="2562">2564</option>
+                                    <select class="form-control" data-live-search="true" name = "year">
+                                            
+                                            <?php
+                                            foreach($semesterYears as $year){
+                                            ?>
+                                            <option value="<?php echo $year["semesterYear"]?>"><?php echo $year["semesterYear"]?></option>
+                                            <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -320,7 +328,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
@@ -680,7 +688,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
 
 

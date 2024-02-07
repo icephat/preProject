@@ -152,7 +152,7 @@ function getCountStudentPlanStatusByCourseNameAndSemesterYear($courseName, $seme
     $result = $conn->query($sql);
     $countPlanStatus = $result->fetch_assoc();
 
-    $countPlanStatus["ิplans"] = geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "ตามแผน");
+    $countPlanStatus["plans"] = geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "ตามแผน");
     $countPlanStatus["notPlans"] = geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "ไม่ตามแผน");
     $countPlanStatus["retires"] = geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "พ้นสภาพนิสิต");
     $countPlanStatus["grads"] = geStudentListInPlanStatusByCourseNameAndSemesterYearAndGradeRange($courseName, $semesterYear, "จบการศึกษา");
@@ -451,10 +451,11 @@ function getCountStudentStatusSortByYearByDepartmrntId($departmentId)
 
 
 
-    $sql = "SELECT semesterYear,COUNT(studentId) AS firstEntry,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN status END) AS retire,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN status END) AS study,COUNT(CASE WHEN status = 'จบการศึกษา' THEN status END) AS grad
+    $sql = "SELECT semesterYear,COUNT(CASE WHEN tcasYear = semesterYear THEN studentId END) AS firstEntry,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN status END) AS retire,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN status END) AS study,COUNT(CASE WHEN status = 'จบการศึกษา' THEN status END) AS grad
     FROM studentstatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN fact_student WHERE departmentId = $departmentId  GROUP BY studentId,studyYear)
     GROUP BY semesterYear;";
+
 
     $result = $conn->query($sql);
 

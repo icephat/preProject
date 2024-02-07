@@ -16,6 +16,25 @@ function getDepartmentById($departmentId)
 
 }
 
+function getAllDepartment()
+{
+
+    require("connection_connect.php");
+
+    $sql = "SELECT * FROM department";
+    $result = $conn->query($sql);
+    $departments = [];
+
+    while ($my_row = $result->fetch_assoc()) {
+        $departments[] = $my_row;
+    }
+
+    require("connection_close.php");
+
+    return $departments;
+
+}
+
 function getCountStudentInDepartmentByDepartmentId($departmentId)
 {
     require("connection_connect.php");
