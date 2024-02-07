@@ -55,6 +55,9 @@
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
                 $semester = getSemesterPresent();
 
+
+                $courses = getCourseNameByDepartmentId($teacher["departmentId"]) ;
+
                 ?>
 
                 <?php include('../layout/head/report.php'); ?>
@@ -69,14 +72,17 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true" >
-                                            <option value="default">--กรุณาเลือกหลักสูตร--</option>
-                                           
-                                            <option value="2561">หลักสูตรวิศวกรรมศาสตร์บัณฑิต สาขาวิศวกรรมคอมพิวเตอร์
-                                                (หลักสูตรปรับปรุง พ.ศ.2560)
+                                        <select class="form-control" data-live-search="true" name = "nameCourse">
+                                            
+                                           <?php
+                                           foreach($courses as $cou){
+                                           ?>
+                                            <option value=" <?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
                                             </option>
-                                            <option value="2562">หลักสูตรวิศวกรรมศาสตร์บัณฑิต สาขาวิศวกรรมคอมพิวเตอร์
-                                                (หลักสูตรปรับปรุง พ.ศ.2565)</option>
+                                            <?php
+                                            }
+                                            ?>
+                                            
                                         </select>
                                     </div>
                                 </div>
