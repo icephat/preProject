@@ -114,9 +114,9 @@ $_SESSION["studentId"] = $student["studentId"];
                                                         <th>ปีการศึกษา</th>
                                                         <th>ภาคการศึกษา</th>
                                                         <th>หน่วยกิต</th>
-                                                        <th>ผลการเรียน</th>
                                                         <th>GPA</th>
-                                                        <th class="text-center">#</th>
+                                                        <th>GPAX</th>
+                                                        <th class="text-center">+-GPAX</th>
                                                         <th>รายละเอียด</th>
                                                     </tr>
                                                 </thead>
@@ -231,6 +231,8 @@ $_SESSION["studentId"] = $student["studentId"];
                                                     <tr>
                                                         <th>หมวดวิชา</th>
                                                         <th style="text-align: right;">เกรดเฉลี่ย</th>
+                                                        <th style="text-align: right; ">หน่วยกิตทั้งหมด
+                                                        </th>
                                                         <th style="text-align: right;">
                                                             จำนวนหน่วยกิตที่<span
                                                                 style="color:#428f3e;">เรียนไปแล้ว</span>
@@ -238,8 +240,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                         <th style="text-align: right; ">
                                                             จำนวนหน่วยกิตที่<span style="color:red;">ยังไม่เรียน</span>
                                                         </th>
-                                                        <th style="text-align: right; ">หน่วยกิตทั้งหมด
-                                                        </th>
+                                                        
                                                         
                                                     </tr>
                                                 </thead>
@@ -252,14 +253,15 @@ $_SESSION["studentId"] = $student["studentId"];
                                                             
                                                     <tr>
                                                         <td>" . $academic["name"] . "</td>
+                                                        <td style=\"font-weight: bold; text-align: right;\">
+                                                        " . $academic["grade"]. "
+                                                        </td>
+                                                        <td style=\"font-weight: bold; text-align: right;\">" . $academic["creditAll"] . "</td>
                                                         <td style=\"font-weight: bold; color: green; text-align: right;\">
                                                         " . $academic["credit"] . "
                                                         </td>
-                                                        <td style=\"font-weight: bold; color: red; text-align: right;\">
-                                                        " . $academic["creditYet"] . "
-                                                        </td>
-                                                        <td style=\"font-weight: bold; text-align: right;\">" . $academic["creditAll"] . "</td>
-                                                        <td style=\"font-weight: bold; text-align: right;\">" . $academic["grade"] . "</td>
+                                                        <td style=\"font-weight: bold; color: red; text-align: right;\">" . $academic["creditYet"] . "</td>
+                                                        
                                                         
                                                     </tr>";
                                                     $credit+=$academic["credit"];
@@ -267,67 +269,7 @@ $_SESSION["studentId"] = $student["studentId"];
 
                                                     }
                                                     ?>
-                                                    <!-- <tr>
-                                                        <td>หมวดวิชาศึกษาทั่วไป</td>
-                                                        <td style="font-weight: bold; color: green; text-align: right;">
-                                                            30
-                                                        </td>
-                                                        <td style="font-weight: bold; color: red; text-align: right;">
-                                                            0
-                                                        </td>
-                                                        <td style="font-weight: bold; text-align: right;">30</td>
-                                                        <td style="font-weight: bold; text-align: right;">3.13</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>หมวดวิชาเสรี</td>
-                                                        <td style="font-weight: bold; color: green; text-align: right;">
-                                                            6
-                                                        </td>
-                                                        <td style="font-weight: bold; color: red; text-align: right;">
-                                                            0
-                                                        </td>
-                                                        <td style="font-weight: bold; text-align: right;">6</td>
-                                                        <td style="font-weight: bold; text-align: right;">3.23</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>หมวดวิชาเฉพาะบังคับ</td>
-                                                        <td style="font-weight: bold; color: green; text-align: right;">
-                                                            98
-                                                        </td>
-                                                        <td style="font-weight: bold; color: red; text-align: right;">
-                                                            6
-                                                        </td>
-                                                        <td style="font-weight: bold; text-align: right;">
-                                                            104
-                                                        </td>
-                                                        <td style="font-weight: bold; text-align: right;">3.33</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>หมวดวิชาเฉพาะเลือก</td>
-                                                        <td style="font-weight: bold; color: green; text-align: right;">
-                                                            98
-                                                        </td>
-                                                        <td style="font-weight: bold; color: red; text-align: right;">
-                                                            6
-                                                        </td>
-                                                        <td style="font-weight: bold; text-align: right;">
-                                                            104
-                                                        </td>
-                                                        <td style="font-weight: bold; text-align: right;">3.38</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>หมวดวิชาเสรี</td>
-                                                        <td style="font-weight: bold; color: green; text-align: right;">
-                                                            36
-                                                        </td>
-                                                        <td style="font-weight: bold; color: red; text-align: right;">
-                                                            0
-                                                        </td>
-                                                        <td style="font-weight: bold; text-align: right;">
-                                                            36
-                                                        </td>
-                                                        <td style="font-weight: bold; text-align: right;">3.40</td>
-                                                    </tr> -->
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
@@ -464,10 +406,10 @@ $_SESSION["studentId"] = $student["studentId"];
         echo "<div class=\"modal-header\" style=\"height: 90px;\">
                         <table class=\"modal-dialog modal-lg\" style=\"border:none; width: 85%;\">
                             <th style=\" text-align: left; \">
-                                        <h5 style=\"font-weight: bold;\">เกรด" . round($term["gpaTerm"], 2) . "</h5>
+                                        <h5 style=\"font-weight: bold;\">GPA" . round($term["gpaTerm"], 2) . "</h5>
                             </th>
                             <th style=\" text-align: right;\">
-                                <h5 style=\"font-weight: bold;\">GPA " . round($term["gpaAll"], 2) . "</h5>
+                                <h5 style=\"font-weight: bold;\">GPAX " . round($term["gpaAll"], 2) . "</h5>
                             </th>
                         </table>
                         <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
