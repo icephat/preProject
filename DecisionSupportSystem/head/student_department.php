@@ -61,13 +61,13 @@
 
 
                 //$course = getCoursePresentByDepartmentId($teacher["departmentId"]);
-
+                
                 ?>
 
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form>
+                    <form class="form-valide" action="student_department_search.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
                                 <div class="text-center">
@@ -75,16 +75,18 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true" name = "departmentId">
-                                            
-                                        <?php
-                                        foreach($departments as $department){
-                                        ?>
+                                        <select class="form-control" data-live-search="true" name="departmentId">
 
-                                            <option value="<?php echo $department["departmentId"] ?>"><?php echo $department["departmentName"] ?></option>
-                                        <?php
-                                        }
-                                        ?>
+                                            <?php
+                                            foreach ($departments as $department) {
+                                                ?>
+
+                                                <option value="<?php echo $department["departmentId"] ?>">
+                                                    <?php echo $department["departmentName"] ?>
+                                                </option>
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -95,13 +97,15 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                    <select class="form-control" data-live-search="true" name = "year">
-                                            
+                                        <select class="form-control" data-live-search="true" name="year">
+
                                             <?php
-                                            foreach($semesterYears as $year){
-                                            ?>
-                                            <option value="<?php echo $year["semesterYear"]?>"><?php echo $year["semesterYear"]?></option>
-                                            <?php
+                                            foreach ($semesterYears as $year) {
+                                                ?>
+                                                <option value="<?php echo $year["semesterYear"] ?>">
+                                                    <?php echo $year["semesterYear"] ?>
+                                                </option>
+                                                <?php
                                             }
                                             ?>
                                         </select>
@@ -124,6 +128,7 @@
                 </div>
 
                 <hr>
+                <h5>ภาควิชา<?php echo $teacher["departmentName"] ?> ปีการศึกษา <?php echo $semester["semesterYear"] ?></h5>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
@@ -151,7 +156,7 @@
 
                                                     <?php
 
-                                                    $studentStatusSortGeneretions = getCountStudentStatusSortByGeneretionByDepartmentId($teacher["departmentId"]);
+                                                    $studentStatusSortGeneretions = getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
 
                                                     $sumFirstEntry = 0;
                                                     $sumRetire = 0;
@@ -267,7 +272,7 @@
                                                 <tbody>
                                                     <?php
 
-                                                    $studentStatusByYears = getCountStudentStatusSortByYearByDepartmrntId($teacher["departmentId"]);
+                                                    $studentStatusByYears = getCountStudentStatusSortByYearByDepartmrntIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
                                                     $listSem = [];
                                                     $firstEntrys2 = [];
                                                     $retires2 = [];
@@ -334,6 +339,10 @@
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">นิสิตคงเหลือ (กำลังศึกษา)</h6>
                             </div>
+                            <?php
+
+                            $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "กำลังศึกษา", $semester["semesterYear"]);
+                            ?>
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-12 mx-auto float-right">
@@ -351,51 +360,243 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                            <td style=" text-align: center;"></td>
-                                                            <?php
-                                                            $x=0;
-                                                            $color="";
-                                                            $year = 2566;
-                                                            //echo $thaiDay;
-                                                            for ($i = $year; $i < $year + 5; $i++) {
-                                                            
-                                                                ?>
-                                                                
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $i ?>
-                                                                </td>
-                                                            <?php $x++;} ?>
+                                                        <td style=" text-align: center;"></td>
+                                                        <?php
+                                                        $x = 0;
+                                                        $color = "";
+                                                        $year = $semester["semesterYear"] - 4;
+                                                        //echo $thaiDay;
+                                                        for ($i = $year; $i < $year + 5; $i++) {
+
+                                                            ?>
+
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $i ?>
+                                                            </td>
+                                                            <?php $x++;
+                                                        } ?>
 
                                                     </tr>
 
-                                                    <?php 
-                                                        $x=0;
-                                                        $color="";
-                                                        $year = 2566;
-                                                        //echo $thaiDay;
-                                                        for ($i = $year; $i < $year + 5; $i++) {
-                                                        
-                                                            ?>
-                                                            
+                                                    <?php
+                                                    $x = 0;
+                                                    $color = "";
+                                                    $generetion = 66 - 4;
+                                                    //echo $thaiDay;
+                                                    foreach ($studentStudys as $studentStudy) {
+
+                                                        ?>
+
                                                         <tr>
-                                                            <td style=" text-align: center;"><?php echo $i?></td>
                                                             <td style=" text-align: center;">
-                                                                60 คน
+                                                                <?php echo $studentStudy["studyGeneretion"] ?>
                                                             </td>
                                                             <td style=" text-align: center;">
-                                                                50 คน
+                                                                <?php echo $studentStudy["one"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;">50</td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["two"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["three"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["four"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["five"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center; font-weight: bold;">-</td>
                                                         </tr>
 
-                                                        <?php $x++;} ?>
-                                                        
-                                                    
-                                                    
-                                                    
+                                                        <?php
+                                                    } ?>
+
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">นิสิตพ้นสภาพ</h6>
+                            </div>
+                            <?php
+
+                            $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "พ้นสภาพนิสิต", $semester["semesterYear"]);
+                            ?>
+                            <div class="card-body ">
+                                <div class="row" style="padding: 20px;">
+                                    <div class="col-sm-12 mx-auto float-right">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped" cellspacing="0" style="color: black;">
+                                                <thead style=" ">
+                                                    <tr>
+                                                        <th rowspan="2" style=" text-align: center; width: 100px;">
+                                                            รุ่น</th>
+                                                        <th colspan="5" style=" text-align: center; width: 100px;">
+                                                            ปีการศึกษา</th>
+                                                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=" text-align: center;"></td>
+                                                        <?php
+                                                        $x = 0;
+                                                        $color = "";
+                                                        $year = $semester["semesterYear"] - 4;
+                                                        //echo $thaiDay;
+                                                        for ($i = $year; $i < $year + 5; $i++) {
+
+                                                            ?>
+
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $i ?>
+                                                            </td>
+                                                            <?php $x++;
+                                                        } ?>
+
+                                                    </tr>
+
+                                                    <?php
+                                                    $x = 0;
+                                                    $color = "";
+                                                    $generetion = 66 - 4;
+                                                    //echo $thaiDay;
+                                                    foreach ($studentStudys as $studentStudy) {
+
+                                                        ?>
+
+                                                        <tr>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["studyGeneretion"] ?>
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["one"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["two"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["three"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["four"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["five"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center; font-weight: bold;">-</td>
+                                                        </tr>
+
+                                                        <?php
+                                                    } ?>
+
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">นิสิตจบการศึกษา</h6>
+                            </div>
+                            <?php
+
+                            $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "จบการศึกษา", $semester["semesterYear"]);
+                            ?>
+                            <div class="card-body ">
+                                <div class="row" style="padding: 20px;">
+                                    <div class="col-sm-12 mx-auto float-right">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped" cellspacing="0" style="color: black;">
+                                                <thead style=" ">
+                                                    <tr>
+                                                        <th rowspan="2" style=" text-align: center; width: 100px;">
+                                                            รุ่น</th>
+                                                        <th colspan="5" style=" text-align: center; width: 100px;">
+                                                            ปีการศึกษา</th>
+                                                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=" text-align: center;"></td>
+                                                        <?php
+                                                        $x = 0;
+                                                        $color = "";
+                                                        $year = $semester["semesterYear"] - 4;
+                                                        //echo $thaiDay;
+                                                        for ($i = $year; $i < $year + 5; $i++) {
+
+                                                            ?>
+
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $i ?>
+                                                            </td>
+                                                            <?php $x++;
+                                                        } ?>
+
+                                                    </tr>
+
+                                                    <?php
+                                                    $x = 0;
+                                                    $color = "";
+                                                    $generetion = 66 - 4;
+                                                    //echo $thaiDay;
+                                                    foreach ($studentStudys as $studentStudy) {
+
+                                                        ?>
+
+                                                        <tr>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["studyGeneretion"] ?>
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["one"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["two"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["three"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["four"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["five"] ?> คน
+                                                            </td>
+                                                            <td style=" text-align: center; font-weight: bold;">-</td>
+                                                        </tr>
+
+                                                        <?php
+                                                    } ?>
+
+
+
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -774,7 +975,7 @@
                 </script>
 
                 <script>
-                     var lists2 = <?php echo json_encode($listSem); ?>;
+                    var lists2 = <?php echo json_encode($listSem); ?>;
 
                     var firstEntrys2 = <?php echo json_encode($firstEntrys2); ?>;
 

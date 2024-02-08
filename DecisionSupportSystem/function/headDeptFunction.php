@@ -416,7 +416,7 @@ function getPercentageStudyAndRetireSortByGeneretionByCourseName($courseName)
 
 }
 
-function getCountStudentStatusSortByGeneretionByDepartmentId($departmentId)
+function getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -426,7 +426,7 @@ function getCountStudentStatusSortByGeneretionByDepartmentId($departmentId)
 
     $sql = "SELECT studyGeneretion,COUNT(studentId) AS firstEntry,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN status END) AS retire,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN status END) AS study,COUNT(CASE WHEN status = 'จบการศึกษา' THEN status END) AS grad
     FROM studentstatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
-    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN fact_student WHERE departmentId = $departmentId  GROUP BY studentId)
+    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student WHERE departmentId = $departmentId AND semesterYear <= $semesterYear  GROUP BY studentId)
     GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
@@ -443,7 +443,7 @@ function getCountStudentStatusSortByGeneretionByDepartmentId($departmentId)
 
 }
 
-function getCountStudentStatusSortByYearByDepartmrntId($departmentId)
+function getCountStudentStatusSortByYearByDepartmrntIdAndSemesterYear($departmentId,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -454,7 +454,7 @@ function getCountStudentStatusSortByYearByDepartmrntId($departmentId)
 
     $sql = "SELECT semesterYear,COUNT(CASE WHEN tcasYear = semesterYear THEN studentId END) AS firstEntry,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN status END) AS retire,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN status END) AS study,COUNT(CASE WHEN status = 'จบการศึกษา' THEN status END) AS grad
     FROM studentstatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
-    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN fact_student WHERE departmentId = $departmentId  GROUP BY studentId,studyYear)
+    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  WHERE departmentId = $departmentId AND semesterYear <= $semesterYear  GROUP BY studentId,studyYear)
     GROUP BY semesterYear;";
 
 
@@ -472,34 +472,35 @@ function getCountStudentStatusSortByYearByDepartmrntId($departmentId)
 
 }
 
-// function getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmrntIdIdAndStatus($departmentId, $status)
-// {
+function getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($departmentId, $status, $semesterYear)
+{
 
-//     require("connection_connect.php");
+    require("connection_connect.php");
 
-//     $yearStatus = [];
+    $yearStatus = [];
 
-//     //$course = getCoursePresentByDepartmentId($departmentId)["nameCourseUse"];
+    //$course = getCoursePresentByDepartmentId($departmentId)["nameCourseUse"];
 
-//     $sql = "SELECT studyGeneretion,COUNT(CASE WHEN semesterYear = couseStartYear THEN studentId END) AS one,COUNT(CASE WHEN semesterYear = couseStartYear+1 THEN studentId END) AS two,COUNT(CASE WHEN semesterYear = couseStartYear+2 THEN studentId END) AS three,COUNT(CASE WHEN semesterYear = couseStartYear+3 THEN studentId END) AS four,COUNT(CASE WHEN semesterYear = couseStartYear+4 THEN studentId END) AS five,COUNT(CASE WHEN semesterYear = couseStartYear+5 THEN studentId END) AS six,COUNT(CASE WHEN semesterYear = couseStartYear+6 THEN studentId END) AS seven,COUNT(CASE WHEN semesterYear = couseStartYear+7 THEN studentId END) AS eight,COUNT(CASE WHEN semesterYear = couseStartYear+8 THEN studentId END) AS nine,COUNT(CASE WHEN semesterYear = couseStartYear+9 THEN studentId END) AS ten,COUNT(CASE WHEN semesterYear = couseStartYear+10 THEN studentId END) AS eleven,COUNT(CASE WHEN semesterYear = couseStartYear+11 THEN studentId END) AS twelve
-//     FROM studentstatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId
-//     WHERE nameCourseUse = '$course' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId 
-//     WHERE nameCourseUse = '$course'  GROUP BY studentId,studyYear) AND status = '$status'
-//     GROUP BY studyGeneretion";
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN semesterYear = $semesterYear-4 THEN studentId END) AS one,COUNT(CASE WHEN semesterYear = $semesterYear-3 THEN studentId END) AS two,COUNT(CASE WHEN semesterYear = $semesterYear-2 THEN studentId END) AS three,COUNT(CASE WHEN semesterYear = $semesterYear-1 THEN studentId END) AS four,COUNT(CASE WHEN semesterYear = $semesterYear THEN studentId END) AS five
+    FROM studentstatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
+    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN fact_student
+    WHERE departmentId = $departmentId AND semesterYear <= $semesterYear
+    GROUP BY studentId,studyYear) AND status = '$status' AND studyGeneretion >= $semesterYear-2504 AND studyGeneretion <= $semesterYear-2500
+    GROUP BY studyGeneretion;";
 
-//     $result = $conn->query($sql);
+    $result = $conn->query($sql);
 
-//     while ($my_row = $result->fetch_assoc()) {
-//         $yearStatus[] = $my_row;
-//     }
+    while ($my_row = $result->fetch_assoc()) {
+        $yearStatus[] = $my_row;
+    }
 
 
 
-//     require("connection_close.php");
+    require("connection_close.php");
 
-//     return $yearStatus;
+    return $yearStatus;
 
-// }
+}
 
 
 function getCountStudentGradeRangeByDepartmrntIdAndSemesterYear($departmentId, $semesterYear)
