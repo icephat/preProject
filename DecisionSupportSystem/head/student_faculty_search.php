@@ -60,6 +60,12 @@
                 $departments = getAllDepartment();
                 $semesterYears = getSemesterYear();
 
+                $departmentId = $_POST["departmentId"];
+                $semesterYear = $_POST["year"];
+
+
+                $department = getDepartmentById($departmentId);
+
                 ?>
 
                 <?php include('../layout/head/report.php'); ?>
@@ -77,10 +83,10 @@
                                         <select class="form-control" data-live-search="true" name = "departmentId">
                                             
                                             <?php
-                                            foreach($departments as $department){
+                                            foreach($departments as $dpm){
                                             ?>
     
-                                                <option value="<?php echo $department["departmentId"] ?>"><?php echo $department["departmentName"] ?></option>
+                                                <option value="<?php echo $dpm["departmentId"] ?>"><?php echo $dpm["departmentName"] ?></option>
                                             <?php
                                             }
                                             ?>
@@ -98,9 +104,9 @@
                                         <select class="form-control" data-live-search="true" name = "year">
                                             
                                             <?php
-                                            foreach($semesterYears as $year){
+                                            foreach($semesterYears as $y){
                                             ?>
-                                            <option value="<?php echo $year["semesterYear"]?>"><?php echo $year["semesterYear"]?></option>
+                                            <option value="<?php echo $y["semesterYear"]?>"><?php echo $y["semesterYear"]?></option>
                                             <?php
                                             }
                                             ?>
@@ -127,12 +133,13 @@
                 <div class="row" style="color: black;">
                     <?php
 
-                    $generetions = getGeneretionInCourseByDepartmentId($teacher["departmentId"]);
-                    $countStudentInCourse = getCountStudentInDepartmentByDepartmentId($teacher["departmentId"]);
+                    $generetions = getGeneretionInCourseByDepartmentId($departmentId);
+                    $countStudentInCourse = getCountStudentInDepartmentByDepartmentId($departmentId);
 
                     ?>
                     <h5>ภาควิชา
-                        <?php echo $teacher["departmentName"] . " ปีการศึกษา ".$semester["semesterYear"] ?>
+                        <?php echo $department["departmentName"] . " ปีการศึกษา ".$semesterYear ?>
+                        
                     </h5>
                 </div>
                 <div class="row">
@@ -145,7 +152,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
-                                            $countRangeGrade = getCountStudentGradeRangeByDepartmrntIdAndSemesterYear($teacher["departmentId"], $semester["semesterYear"])
+                                            $countRangeGrade = getCountStudentGradeRangeByDepartmrntIdAndSemesterYear($departmentId, $semesterYear)
 
                                                 ?>
 
@@ -234,8 +241,7 @@
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
-                                            $countPlanStatus = getCountStudentPlanStatusByDepartmrntIdAndSemesterYear($teacher["departmentId"], $semester["semesterYear"])
-
+                                            $countPlanStatus = getCountStudentPlanStatusByDepartmrntIdAndSemesterYear($departmentId, $semesterYear);
                                                 ?>
 
                                             <div style="color: rgb(100, 197, 215);">
@@ -326,7 +332,7 @@
                     <div class="col-sm-4">
                         <div class="card">
                             <?php
-                            $studentGeneretionGradeRangeOnes = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 1);
+                            $studentGeneretionGradeRangeOnes = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear, 1);
                             $day = date("Y");
                             $thaiDay = 543 + $day;
                             //echo substr($thaiDay-4, -2);
@@ -369,7 +375,7 @@
                     <div class="col-sm-4">
                         <div class="card">
                             <?php
-                            $studentGeneretionGradeRangeTwos = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 2);
+                            $studentGeneretionGradeRangeTwos = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear, 2);
                             $day = date("Y");
                             $thaiDay = 543 + $day;
                             //echo substr($thaiDay-4, -2);
@@ -411,7 +417,7 @@
                     <div class="col-sm-4">
                         <div class="card">
                             <?php
-                            $studentGeneretionGradeRangeThrees = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 3);
+                            $studentGeneretionGradeRangeThrees = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear, 3);
                             $day = date("Y");
                             $thaiDay = 543 + $day;
                             //echo substr($thaiDay-4, -2);
@@ -452,7 +458,7 @@
                     <div class="col-sm-4" style="margin-top: 25px;">
                         <div class="card">
                             <?php
-                            $studentGeneretionGradeRangeFours = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 4);
+                            $studentGeneretionGradeRangeFours = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear, 4);
                             $day = date("Y");
                             $thaiDay = 543 + $day;
                             //echo substr($thaiDay-4, -2);
@@ -501,7 +507,7 @@
                             </div>
                             <?php
 
-                            $countStudentStudyingRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYearAndStatus($teacher["departmentId"], $semester["semesterYear"], "กำลังศึกษา");
+                            $countStudentStudyingRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYearAndStatus($departmentId, $semesterYear, "กำลังศึกษา");
                             $day = date("Y");
                             $thaiDay = 543 + $day;
                             //echo substr($thaiDay-4, -2);
@@ -539,7 +545,7 @@
                         <div class="card">
                             <?php
 
-                            $countStudentGraduateRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYearAndStatus($teacher["departmentId"], $semester["semesterYear"], "จบการศึกษา");
+                            $countStudentGraduateRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYearAndStatus($departmentId, $semesterYear, "จบการศึกษา");
                             $endgen = [];
                             $BEG = [];
                             $GEG = [];
@@ -573,7 +579,7 @@
                             </div>
                             <?php
 
-                            $studentStatusGeneretions = getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"]);
+                            $studentStatusGeneretions = getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear);
                             // print_r($studentStatusGeneretions);
                             $studyGeneretion = [];
                             $firstEntry = [];
@@ -656,7 +662,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามหลักสูตร (คน)</h6>
                             </div>
                             <?php
-                                $countPlanStatusSortBySemesterYears = getCountStudentPlanStatusSortBySemesterYearByDepartmentIdAndSemesterYear($teacher["departmentId"], $semester["semesterYear"]);
+                                $countPlanStatusSortBySemesterYears = getCountStudentPlanStatusSortBySemesterYearByDepartmentIdAndSemesterYear($departmentId, $semesterYear);
                                 //print_r($countPlanStatusSortBySemesterYears);
                                 $semesterLearncos=[];
                                 $planLearncos=[];
@@ -740,7 +746,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามรุ่น (คน)</h6>
                             </div>
                             <?php
-                                $countPlanStatusSortByGeneretions = getCountStudentPlanStatusSortByStudyGeneretionByDepartmentAndSemesterYear($teacher["departmentId"], $semester["semesterYear"]);
+                                $countPlanStatusSortByGeneretions = getCountStudentPlanStatusSortByStudyGeneretionByDepartmentAndSemesterYear($departmentId, $semesterYear);
                                 //print_r($countPlanStatusSortByGeneretions);
                                 $semesterGen=[];
                                 $planGen=[];
