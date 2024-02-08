@@ -104,9 +104,7 @@
 
                                                         <td class="text-center">
                                                             <form action="./student_info.php">
-                                                                <!--<input type="hidden" name="std_num" value="<?html echo $row["studentid"];?>" />-->
-                                                                <!--<a type="button" name="std_info">
-                                        <span class="glyphicon glyphicon-user"></span></a>-->
+                                                               
                                                                 <button type="submit" name="submit"
                                                                     class="btn btn-info btn-md"><span
                                                                         class="glyphicon glyphicon-user"></span>
@@ -130,9 +128,8 @@
 
                                                         <td class="text-center">
                                                             <form action="./student_info.php">
-                                                                <!--<input type="hidden" name="std_num" value="<?html echo $row["studentid"];?>" />-->
-                                                                <!--<a type="button" name="std_info">
-                                        <span class="glyphicon glyphicon-user"></span></a>-->
+                                                            <input type="hidden" name="studentId" value="" />
+                                                                    
                                                                 <button type="submit" name="submit"
                                                                     class="btn btn-info btn-md"><span
                                                                         class="glyphicon glyphicon-user"></span>
@@ -156,9 +153,7 @@
 
                                                         <td class="text-center">
                                                             <form action="./student_info.php">
-                                                                <!--<input type="hidden" name="std_num" value="<?html echo $row["studentid"];?>" />-->
-                                                                <!--<a type="button" name="std_info">
-                                        <span class="glyphicon glyphicon-user"></span></a>-->
+                                                            <input type="hidden" name="studentId" value="" />
                                                                 <button type="submit" name="submit"
                                                                     class="btn btn-info btn-md"><span
                                                                         class="glyphicon glyphicon-user"></span>
@@ -183,9 +178,7 @@
 
                                                         <td class="text-center">
                                                             <form method="post" action="student_info.php">
-                                                                <!--<input type="hidden" name="std_num" value="<?html echo $row["studentid"];?>" />-->
-                                                                <!--<a type="button" name="std_info">
-                                        <span class="glyphicon glyphicon-user"></span></a>-->
+                                                            <input type="hidden" name="studentId" value="" />
                                                                 <button type="submit" name="submit"
                                                                     class="btn btn-info btn-md"><span
                                                                         class="glyphicon glyphicon-user"></span>
@@ -233,9 +226,7 @@
                                                         </td>
                                                         <td >
                                                             <form action="./student_info.php">
-                                                                <!--<input type="hidden" name="std_num" value="<?html echo $row[" studentid"];?>" />-->
-                                                                <!--<a type="button" name="std_info">
-                                                   <span class="glyphicon glyphicon-user"></span></a>-->
+                                                            <input type="hidden" name="studentId" value="" />
                                                                 <button type="submit" name="submit"
                                                                     class="btn btn-info btn-md"><span
                                                                         class="glyphicon glyphicon-user"></span>
@@ -259,9 +250,7 @@
 
                                                         <td >
                                                             <form action="./student_info.php">
-                                                                <!--<input type="hidden" name="std_num" value="<?html echo $row["studentid"];?>" />-->
-                                                                <!--<a type="button" name="std_info">
-                                        <span class="glyphicon glyphicon-user"></span></a>-->
+                                                            <input type="hidden" name="studentId" value="" />
                                                                 <button type="submit" name="submit"
                                                                     class="btn btn-info btn-md"><span
                                                                         class="glyphicon glyphicon-user"></span>
@@ -285,9 +274,7 @@
 
                                                         <td >
                                                             <form action="./student_info.php">
-                                                                <!--<input type="hidden" name="std_num" value="<?html echo $row["studentid"];?>" />-->
-                                                                <!--<a type="button" name="std_info">
-                                        <span class="glyphicon glyphicon-user"></span></a>-->
+                                                            <input type="hidden" name="studentId" value="" />
                                                                 <button type="submit" name="submit"
                                                                     class="btn btn-info btn-md"><span
                                                                         class="glyphicon glyphicon-user"></span>
@@ -310,9 +297,7 @@
 
                                                         <td >
                                                             <form action="./student_info.php">
-                                                                <!--<input type="hidden" name="std_num" value="<?html echo $row["studentid"];?>" />-->
-                                                                <!--<a type="button" name="std_info">
-                                        <span class="glyphicon glyphicon-user"></span></a>-->
+                                                            <input type="hidden" name="studentId" value="" />
                                                                 <button type="submit" name="submit"
                                                                     class="btn btn-info btn-md"><span
                                                                         class="glyphicon glyphicon-user"></span>
