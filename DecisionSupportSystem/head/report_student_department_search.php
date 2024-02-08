@@ -63,6 +63,8 @@
 
             $generetions = geStudyGeneretionStudentInFaculty();
 
+            $semesterYear = $_POST["semesterYear"]
+
 
 
             ?>
@@ -72,29 +74,7 @@
                     <div>
                         <form class="form-valide" action="../controller/reportStudentDepartmentearch.php" method="post" enctype="multipart/form-data">
                             <div class="row mx-auto">
-                                <!-- <div class="column mx-auto col-sm-2">
-                                    <div class="text-center">
-                                        <h5>ภาควิชา<span style="color: red;">*</span></th>
-                                    </div>
-                                    <div class="text-center">
-                                        <div>
-                                        <select class="form-control" data-live-search="true" name="departmentId">
-
-                                        <option value="0">ทุกภาค</option>
-                                                <?php
-                                                foreach ($departments as $department) {
-                                                    ?>
-
-                                                    <option value="<?php echo $department["departmentId"] ?>">
-                                                        <?php echo $department["departmentName"] ?>
-                                                    </option>
-                                                    <?php
-                                                }
-                                                ?>
-                                        </select>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                
 
                                 <div class="column mx-auto col-sm-2">
                                     <div class="text-center">
@@ -163,7 +143,7 @@
                     $countStudentInCourse = getCountStudentInFaculty();
 
                     ?>
-                    <h5>คณะวิศวกรรมศาสตร์ ปีการศึกษา <?php echo $semester["semesterYear"] ?>
+                    <h5>คณะวิศวกรรมศาสตร์ ปีการศึกษา <?php echo $semesterYear ?>
                     </h5>
                     </div>
                     <div class="row">
@@ -176,7 +156,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
-                                            $countRangeGrade = getCountStudentGradeRangeInFacultyฺSemesterYearBySemesterYear($semester["semesterYear"])
+                                            $countRangeGrade = getCountStudentGradeRangeInFacultyฺSemesterYearBySemesterYear($semesterYear)
 
                                                 ?>
 
@@ -261,7 +241,7 @@
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
-                                            $countPlanStatus = getCountStudentPlanStatusInFacultyBySemesterYear($semester["semesterYear"])
+                                            $countPlanStatus = getCountStudentPlanStatusInFacultyBySemesterYear($semesterYear)
 
                                                 ?>
 
@@ -353,7 +333,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $gradeRangeSortByDepartments = getGradeRangeSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $gradeRangeSortByDepartments = getGradeRangeSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
@@ -452,7 +432,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $planStatusSortByDepartments = getplanStatusSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $planStatusSortByDepartments = getplanStatusSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
@@ -553,7 +533,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                                 </div>-->
                                 <?php
-                                $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
@@ -628,7 +608,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
-                                            $countRangeGrade = getCountStudentRemainingGradeRangeInFacultyBySemesterYear($semester["semesterYear"])
+                                            $countRangeGrade = getCountStudentRemainingGradeRangeInFacultyBySemesterYear($semesterYear)
 
                                                 ?>
 
@@ -713,7 +693,7 @@
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
-                                            $countPlanStatus = getCountStudentRemainingPlanStatusInFacultyBySemesterYear($semester["semesterYear"])
+                                            $countPlanStatus = getCountStudentRemainingPlanStatusInFacultyBySemesterYear($semesterYear)
 
                                                 ?>
 
@@ -804,7 +784,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $gradeRangeRemainingSortByDepartments = getGradeRangeRemainingSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $gradeRangeRemainingSortByDepartments = getGradeRangeRemainingSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
@@ -903,7 +883,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $planStatusRemainingByDepartments = getplanStatusRemainingSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $planStatusRemainingByDepartments = getplanStatusRemainingSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
