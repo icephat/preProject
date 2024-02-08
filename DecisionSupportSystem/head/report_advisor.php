@@ -55,6 +55,10 @@
                 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                 $semester = getSemesterPresent();
 
+                $generetions = getGeneretionInCourseByDepartmentId($teacher["departmentId"]);
+
+                $semesterYears = getSemesterYear();
+
 
 
 
@@ -71,27 +75,23 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกปีการศึกษา--</option>
+                                        <select class="form-control" data-live-search="true" name="year">
 
-                                            <option value="2561">2560
-                                            </option>
-                                            <option value="2561">2561
-                                            </option>
-                                            <option value="2561">2562
-                                            </option>
-                                            <option value="2561">2563
-                                            </option>
-                                            <option value="2561">2564
-                                            </option>
-
-                                            <option value="2562">2565</option>
+                                            <?php
+                                            foreach ($semesterYears as $year) {
+                                                ?>
+                                                <option value="<?php echo $year["semesterYear"] ?>">
+                                                    <?php echo $year["semesterYear"] ?>
+                                                </option>
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="column col-sm-3">
+                            <!-- <div class="column col-sm-3">
                                 <div class="text-center">
                                     <h5>ภาคการศึกษา<span style="color: red;">*</span></th>
                                 </div>
@@ -105,23 +105,25 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="column col-sm-3">
                                 <div class="text-center">
                                     <h5>รุ่นที่สืบค้น<span style="color: red;">*</span></th>
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกรุ่นสืบค้น--</option>
-                                            <option value="2561">ทุกรุ่น
-                                            </option>
-                                            <option value="2561">61
-                                            </option>
-                                            <option value="2562">62</option>
-                                            <option value="2561">63
-                                            </option>
-                                            <option value="2562">64</option>
+                                        <select class="form-control" data-live-search="true" name = "generetion">
+                                            
+                                            <option value="0">ทุกรุ่น</option>
+                                            <?php
+                                            foreach ($generetions as $generetion) {
+                                                ?>
+                                                <option value="<?php echo $generetion["studyGeneretion"] ?>">
+                                                    <?php echo $generetion["studyGeneretion"] ?>
+                                                </option>
+                                                <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
@@ -146,18 +148,11 @@
 
                     <?php
 
-                    $generetions = getGeneretionInCourseByDepartmentId($teacher["departmentId"]);
+                    
                     $countStudentInCourse = getCountStudentInDepartmentByDepartmentId($teacher["departmentId"]);
 
                     ?>
-                    <h5>ภาควิชา
-                        <?php echo $teacher["departmentName"] . " " . $countStudentInCourse["studentCount"] . " คน " . count($generetions) . " รุ่น ( รุ่นที่ " ?>
-                        <?php
-                        foreach ($generetions as $generetion) {
-                            echo $generetion["studyGeneretion"];
-                        }
-                        ?>
-                        )
+                    <h5>ภาควิชา<?php echo $teacher["departmentName"] . " ปีการศึกษา ".$semester["semesterYear"] ?>
                     </h5>
                 </div>
                 <div class="row">
@@ -349,7 +344,7 @@
                                 <div class="row" style="padding: 20px;">
                                     <?php
 
-                                    $gradeRangeSortByAdvisers = getGradeRangeSortByAdviserByDepartmentId($teacher["departmentId"]);
+                                    $gradeRangeSortByAdvisers = getGradeRangeSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
 
                                     ?>
                                     <div class="col-sm-6">
@@ -468,7 +463,7 @@
                                 <div class="row" style="padding: 20px;">
                                     <?php
 
-                                    $planStatusSortByAdvisers = getPlanStatusSortByAdviserByDepartmentId($teacher["departmentId"]);
+                                    $planStatusSortByAdvisers = getPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
 
                                     ?>
                                     <div class="col-sm-6">
@@ -584,7 +579,7 @@
                                 </div>-->
                             <div class="card-body ">
                                 <?php
-                                $adviserMMAs = getMaxMinAVGGPAXSortByAdviserByDepartmentId($teacher["departmentId"])
+                                $adviserMMAs = getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"])
                                 ?>
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
@@ -658,7 +653,7 @@
                                 <div class="row" style="padding: 20px;">
                                     <?php
 
-                                    $remainingGradeRangeSortByAdvisers = getRemainingGradeRangeSortByAdviserByDepartmentId($teacher["departmentId"]);
+                                    $remainingGradeRangeSortByAdvisers = getRemainingGradeRangeSortByAdviserByDepartmentIdAnd($teacher["departmentId"],$semester["semesterYear"]);
 
                                     ?>
                                     <div class="col-sm-6">
@@ -779,7 +774,7 @@
                                 <div class="row" style="padding: 20px;">
                                     <?php
 
-                                    $remainingPlanStatusSortByAdvisers = getRemainingPlanStatusSortByAdviserByDepartmentId($teacher["departmentId"]);
+                                    $remainingPlanStatusSortByAdvisers = getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
 
                                     ?>
                                     <div class="col-sm-6">

@@ -56,6 +56,7 @@
 
 
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
+                $departments = getAllDepartment();
 
                 ?>
 
@@ -71,11 +72,19 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกภาควิชา--</option>
-                                            <option value="2561">วิศวกรรมคอมพิวเตอร์ </option>
-                                            <option value="2562">วิศวกรรมเครื่องกล</option>
-                                        </select>
+                                    <select class="form-control" data-live-search="true" name="departmentId">
+
+                                                <?php
+                                                foreach ($departments as $department) {
+                                                    ?>
+
+                                                    <option value="<?php echo $department["departmentId"] ?>">
+                                                        <?php echo $department["departmentName"] ?>
+                                                    </option>
+                                                    <?php
+                                                }
+                                                ?>
+                                    </select>
                                     </div>
                                 </div>
                             </div>
@@ -86,15 +95,15 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--รอบ--</option>
+                                        <select class="form-control" data-live-search="true" name = "tcas">
+                                            <option value="0">ทุกรอบ</option>
 
-                                            <option value="2561">Tcas 1
+                                            <option value="1">รอบที่ 1
                                             </option>
-                                            <option value="2562">Tcas 2</option>
-                                            <option value="2561">Tcas 3
+                                            <option value="2">รอบที่ 2</option>
+                                            <option value="3">รอบที่ 3
                                             </option>
-                                            <option value="2562">Tcas 4</option>
+                                            <option value="4">รอบที่ 4</option>
                                         </select>
                                     </div>
                                 </div>
@@ -115,6 +124,7 @@
                 </div>
 
                 <hr>
+                <h5>ภาควิชา<?php echo $teacher["departmentName"] ?></h5>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">

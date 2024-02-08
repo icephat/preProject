@@ -58,6 +58,12 @@
 
             $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
 
+            $departments = getAllDepartment();
+            $semesterYears = getSemesterYear();
+
+            $generetions = geStudyGeneretionStudentInFaculty();
+
+
             ?>
 
                 <?php include('../layout/head/report.php'); ?>
@@ -71,15 +77,20 @@
                                     </div>
                                     <div class="text-center">
                                         <div>
-                                            <select class="form-control" data-live-search="true">
-                                                <option value="default">--กรุณาเลือกภาควิชา--</option>
+                                        <select class="form-control" data-live-search="true" name="departmentId">
 
-                                                <option value="2561">คอมพิวเตอร์
-                                                </option>
-                                                <option value="2562">เครื่องกล</option>
-                                                <option value="2562">โยธา</option>
-                                                <option value="2562">อาหาร</option>
-                                            </select>
+                                        <option value="0">ทุกภาค</option>
+                                                <?php
+                                                foreach ($departments as $department) {
+                                                    ?>
+
+                                                    <option value="<?php echo $department["departmentId"] ?>">
+                                                        <?php echo $department["departmentName"] ?>
+                                                    </option>
+                                                    <?php
+                                                }
+                                                ?>
+                                        </select>
                                         </div>
                                     </div>
                                 </div>
@@ -90,34 +101,17 @@
                                     </div>
                                     <div class="text-center">
                                         <div>
-                                            <select class="form-control" data-live-search="true">
-                                                <option value="default">--กรุณาเลือกปีการศึกษา--</option>
+                                            <select class="form-control" data-live-search="true" name="year">
 
-                                                <option value="2561">2561
-                                                </option>
-                                                <option value="2562">2562</option>
-                                                <option value="2561">2563
-                                                </option>
-                                                <option value="2562">2564</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="column mx-auto col-sm-2">
-                                    <div class="text-center">
-                                        <h5>ภาคการศึกษา<span style="color: red;">*</span></th>
-                                    </div>
-                                    <div class="text-center">
-                                        <div>
-                                            <select class="form-control" data-live-search="true">
-                                                <option value="default">--กรุณาเลือกปีการศึกษา--</option>
-
-                                                <option value="2561">2561
-                                                </option>
-                                                <option value="2562">2562</option>
-                                                <option value="2561">2563
-                                                </option>
-                                                <option value="2562">2564</option>
+                                                <?php
+                                                foreach ($semesterYears as $year) {
+                                                    ?>
+                                                    <option value="<?php echo $year["semesterYear"] ?>">
+                                                        <?php echo $year["semesterYear"] ?>
+                                                    </option>
+                                                    <?php
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
@@ -128,15 +122,18 @@
                                     </div>
                                     <div class="text-center">
                                         <div>
-                                            <select class="form-control" data-live-search="true">
-                                                <option value="default">--กรุณาเลือกรุ่น--</option>
+                                            <select class="form-control" data-live-search="true" name = "generetion">
+                                                <option value="default">ทุกรุ่น</option>
 
-                                                <option value="2561">61
-                                                </option>
-                                                <option value="2562">62</option>
-                                                <option value="2561">63
-                                                </option>
-                                                <option value="2562">64</option>
+                                                <?php
+                                                foreach ($generetions as $generetion) {
+                                                    ?>
+                                                    <option value="<?php echo $generetion["studyGeneretion"] ?>">
+                                                        <?php echo $generetion["studyGeneretion"] ?>
+                                                    </option>
+                                                    <?php
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
@@ -161,18 +158,11 @@
 
                     <?php
 
-                    $generetions = geStudyGeneretionStudentInFaculty();
+                    
                     $countStudentInCourse = getCountStudentInFaculty();
 
                     ?>
-                    <h5>จำนวนนิสิต
-                        <?php echo $countStudentInCourse["countStudent"] . " คน " . count($generetions) . " รุ่น ( รุ่นที่ " ?>
-                        <?php
-                        foreach ($generetions as $generetion) {
-                            echo $generetion["studyGeneretion"];
-                        }
-                        ?>
-                        )
+                    <h5>คณะวิศวกรรมศาสตร์ ปีการศึกษา <?php echo $semester["semesterYear"] ?>
                     </h5>
                     </div>
                     <div class="row">
@@ -185,7 +175,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
-                                            $countRangeGrade = getCountStudentGradeRangeInFaculty()
+                                            $countRangeGrade = getCountStudentGradeRangeInFacultyฺSemesterYearBySemesterYear($semester["semesterYear"])
 
                                                 ?>
 
@@ -270,7 +260,7 @@
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
-                                            $countPlanStatus = getCountStudentPlanStatusInFaculty()
+                                            $countPlanStatus = getCountStudentPlanStatusInFacultyBySemesterYear($semester["semesterYear"])
 
                                                 ?>
 
@@ -362,7 +352,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $gradeRangeSortByDepartments = getGradeRangeSortByDepartmentInFaculty();
+                                $gradeRangeSortByDepartments = getGradeRangeSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
 
                                 ?>
                                 <div class="card-body ">
@@ -461,7 +451,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $planStatusSortByDepartments = getplanStatusSortByDepartmentInFaculty();
+                                $planStatusSortByDepartments = getplanStatusSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
 
                                 ?>
                                 <div class="card-body ">
@@ -562,7 +552,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                                 </div>-->
                                 <?php
-                                $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFaculty();
+                                $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
 
                                 ?>
                                 <div class="card-body ">
@@ -637,7 +627,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
-                                            $countRangeGrade = getCountStudentRemainingGradeRangeInFaculty()
+                                            $countRangeGrade = getCountStudentRemainingGradeRangeInFacultyBySemesterYear($semester["semesterYear"])
 
                                                 ?>
 
@@ -722,7 +712,7 @@
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
-                                            $countPlanStatus = getCountStudentRemainingPlanStatusInFaculty()
+                                            $countPlanStatus = getCountStudentRemainingPlanStatusInFacultyBySemesterYear($semester["semesterYear"])
 
                                                 ?>
 
@@ -813,7 +803,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $gradeRangeRemainingSortByDepartments = getGradeRangeRemainingSortByDepartmentInFaculty();
+                                $gradeRangeRemainingSortByDepartments = getGradeRangeRemainingSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
 
                                 ?>
                                 <div class="card-body ">
@@ -912,7 +902,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $planStatusRemainingByDepartments = getplanStatusRemainingSortByDepartmentInFaculty();
+                                $planStatusRemainingByDepartments = getplanStatusRemainingSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
 
                                 ?>
                                 <div class="card-body ">

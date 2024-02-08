@@ -837,7 +837,7 @@ function getPercentageStudyAndRetireSortByGeneretionByDepartmentId($departmentId
 
 }
 
-function getGradeRangeSortByAdviserByDepartmentId($departmentId)
+function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -847,17 +847,17 @@ function getGradeRangeSortByAdviserByDepartmentId($departmentId)
     $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE departmentId = $departmentId GROUP BY studentId)
+    WHERE departmentId = $departmentId AND semesterYear <= $semesterYear   GROUP BY studentId)
     GROUP BY teacherId;";
 
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["blues"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "blue");
-        $my_row["greens"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "green");
-        $my_row["oranges"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "orange");
-        $my_row["reds"] = getListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "red");
+        $my_row["blues"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "blue",$semesterYear);
+        $my_row["greens"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "green",$semesterYear);
+        $my_row["oranges"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "orange",$semesterYear);
+        $my_row["reds"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "red",$semesterYear);
         $gradeRangeSortByAdvisers[] = $my_row;
     }
 
@@ -868,7 +868,7 @@ function getGradeRangeSortByAdviserByDepartmentId($departmentId)
 
 }
 
-function getListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStatusName)
+function getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($teacherId, $gpaStatusName,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -878,7 +878,7 @@ function getListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStatusName)
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
     WHERE teacherId = $teacherId AND gpaStatusName = '$gpaStatusName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE teacherId = $teacherId GROUP BY studentId);";
+    WHERE teacherId = $teacherId AND semesterYear <= $semesterYear  GROUP BY studentId);";
 
     $result = $conn->query($sql);
 
@@ -893,7 +893,7 @@ function getListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStatusName)
 
 }
 
-function getPlanStatusSortByAdviserByDepartmentId($departmentId)
+function getPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -903,17 +903,18 @@ function getPlanStatusSortByAdviserByDepartmentId($departmentId)
     $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN planStatus = 'ตามแผน' THEN studentId END) AS plan,COUNT(CASE WHEN planStatus = 'ไม่ตามแผน' THEN studentId END) AS notPlan,COUNT(CASE WHEN planStatus = 'พ้นสภาพนิสิต' THEN studentId END) AS retire ,COUNT(CASE WHEN planStatus = 'จบการศึกษา' THEN studentId END) AS grad
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE departmentId = $departmentId GROUP BY studentId)
+    WHERE departmentId = $departmentId AND semesterYear <= $semesterYear
+    GROUP BY studentId)
     GROUP BY teacherId;";
 
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["plans"] = getListStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "ตามแผน");
-        $my_row["notPlans"] = getListStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "ไม่ตามแผน");
-        $my_row["retires"] = getListStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "พ้นสภาพนิสิต");
-        $my_row["grads"] = getListStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "จบการศึกษา");
+        $my_row["plans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ตามแผน",$semesterYear);
+        $my_row["notPlans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ไม่ตามแผน",$semesterYear);
+        $my_row["retires"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "พ้นสภาพนิสิต",$semesterYear);
+        $my_row["grads"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "จบการศึกษา",$semesterYear);
         $planStatusSortByAdvisers[] = $my_row;
     }
 
@@ -924,7 +925,7 @@ function getPlanStatusSortByAdviserByDepartmentId($departmentId)
 
 }
 
-function getListStudentByTeacherIdAndPlanStatus($teacherId, $planStatus)
+function getListStudentByTeacherIdAndPlanStatusAndSemesterYear($teacherId, $planStatus,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -934,7 +935,7 @@ function getListStudentByTeacherIdAndPlanStatus($teacherId, $planStatus)
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
     WHERE teacherId = $teacherId AND planStatus = '$planStatus' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE teacherId = $teacherId
+    WHERE teacherId = $teacherId AND semesterYear <= $semesterYear
     GROUP BY studentId);";
 
     $result = $conn->query($sql);
@@ -950,7 +951,7 @@ function getListStudentByTeacherIdAndPlanStatus($teacherId, $planStatus)
 
 }
 
-function getMaxMinAVGGPAXSortByAdviserByDepartmentId($departmentId)
+function getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
 {
 
 
@@ -961,7 +962,7 @@ function getMaxMinAVGGPAXSortByAdviserByDepartmentId($departmentId)
     $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,ROUND(MAX(gpaAll),2) AS maxGPAX,ROUND(AVG(gpaAll),2) AS avgGPAX,ROUND(MIN(gpaAll),2) AS minGPAX
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE departmentId = $departmentId GROUP BY studentId)
+    WHERE departmentId = $departmentId AND semesterYear <= $semesterYear GROUP BY studentId)
     GROUP BY teacherId;";
 
     $result = $conn->query($sql);
@@ -980,7 +981,7 @@ function getMaxMinAVGGPAXSortByAdviserByDepartmentId($departmentId)
 }
 
 
-function getRemainingGradeRangeSortByAdviserByDepartmentId($departmentId)
+function getRemainingGradeRangeSortByAdviserByDepartmentIdAnd($departmentId,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -990,17 +991,17 @@ function getRemainingGradeRangeSortByAdviserByDepartmentId($departmentId)
     $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE departmentId = $departmentId And studyYear > 4 GROUP BY studentId)
+    WHERE departmentId = $departmentId And studyYear > 4 AND semesterYear <= $semesterYear GROUP BY studentId)
     GROUP BY teacherId;";
 
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["blues"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "blue");
-        $my_row["greens"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "green");
-        $my_row["oranges"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "orange");
-        $my_row["reds"] = getRemainingListStudentByTeacherIdAndGPAStatusName($my_row["teacherId"], "red");
+        $my_row["blues"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "blue",$semesterYear);
+        $my_row["greens"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "green",$semesterYear);
+        $my_row["oranges"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "orange",$semesterYear);
+        $my_row["reds"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "red",$semesterYear);
         $gradeRangeSortByAdvisers[] = $my_row;
     }
 
@@ -1011,7 +1012,7 @@ function getRemainingGradeRangeSortByAdviserByDepartmentId($departmentId)
 
 }
 
-function getRemainingListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStatusName)
+function getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($teacherId, $gpaStatusName,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -1021,7 +1022,7 @@ function getRemainingListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStat
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
     WHERE teacherId = $teacherId AND gpaStatusName = '$gpaStatusName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE teacherId = $teacherId  And studyYear > 4  GROUP BY studentId);";
+    WHERE teacherId = $teacherId  And studyYear > 4 AND semesterYear <= $semesterYear  GROUP BY studentId);";
 
     $result = $conn->query($sql);
 
@@ -1036,7 +1037,7 @@ function getRemainingListStudentByTeacherIdAndGPAStatusName($teacherId, $gpaStat
 
 }
 
-function getRemainingPlanStatusSortByAdviserByDepartmentId($departmentId)
+function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -1046,17 +1047,17 @@ function getRemainingPlanStatusSortByAdviserByDepartmentId($departmentId)
     $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN planStatus = 'ตามแผน' THEN studentId END) AS plan,COUNT(CASE WHEN planStatus = 'ไม่ตามแผน' THEN studentId END) AS notPlan,COUNT(CASE WHEN planStatus = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,COUNT(CASE WHEN planStatus = 'จบการศึกษา' THEN studentId END) AS grad
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE departmentId = $departmentId And studyYear > 4 GROUP BY studentId)
+    WHERE departmentId = $departmentId And studyYear > 4 AND semesterYear <= $semesterYear GROUP BY studentId)
     GROUP BY teacherId;";
 
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["plans"] = getListRemainingStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "ตามแผน");
-        $my_row["notPlans"] = getListRemainingStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "ไม่ตามแผน");
-        $my_row["retires"] = getListRemainingStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "พ้นสภาพนิสิต");
-        $my_row["grads"] = getListRemainingStudentByTeacherIdAndPlanStatus($my_row["teacherId"], "จบการศึกษา");
+        $my_row["plans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ตามแผน",$semesterYear);
+        $my_row["notPlans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ไม่ตามแผน",$semesterYear);
+        $my_row["retires"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "พ้นสภาพนิสิต",$semesterYear);
+        $my_row["grads"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "จบการศึกษา",$semesterYear);
         $planStatusSortByAdvisers[] = $my_row;
     }
 
@@ -1067,7 +1068,7 @@ function getRemainingPlanStatusSortByAdviserByDepartmentId($departmentId)
 
 }
 
-function getListRemainingStudentByTeacherIdAndPlanStatus($teacherId, $planStatus)
+function getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($teacherId, $planStatus,$semesterYear)
 {
 
     require("connection_connect.php");
@@ -1077,7 +1078,7 @@ function getListRemainingStudentByTeacherIdAndPlanStatus($teacherId, $planStatus
     $sql = "SELECT *
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
     WHERE teacherId = $teacherId AND planStatus = '$planStatus' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
-    WHERE teacherId = $teacherId  And studyYear > 4 GROUP BY studentId);";
+    WHERE teacherId = $teacherId  And studyYear > 4 AND semesterYear <= $semesterYear GROUP BY studentId);";
 
     $result = $conn->query($sql);
 
