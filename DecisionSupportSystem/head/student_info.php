@@ -273,9 +273,9 @@
                                                             <th>ปีการศึกษา</th>
                                                             <th>ภาคการศึกษา</th>
                                                             <th>หน่วยกิต</th>
-                                                            <th>ผลการเรียน</th>
                                                             <th>GPA</th>
-                                                            <th class="text-center">#</th>
+                                                            <th>GPAX</th>
+                                                            <th class="text-center">+-GPAX</th>
                                                             <th>รายละเอียด</th>
                                                         </tr>
                                                     </thead>
@@ -398,16 +398,16 @@
                                                     <thead>
                                                         <tr>
                                                             <th>หมวดวิชา</th>
+                                                            <th style="text-align: right;">เกรดเฉลี่ย</th>
+                                                            <th style="text-align: right; ">หน่วยกิตทั้งหมด
+                                                            </th>
                                                             <th style="text-align: right;">
                                                                 จำนวนหน่วยกิตที่<span
                                                                     style="color:#428f3e;">เรียนไปแล้ว</span>
                                                             </th>
                                                             <th style="text-align: right; ">
-                                                                จำนวนหน่วยกิตที่<span
-                                                                    style="color:red;">ยังไม่เรียน</span></th>
-                                                            <th style="text-align: right; ">หน่วยกิตทั้งหมด
+                                                                จำนวนหน่วยกิตที่<span style="color:red;">ยังไม่เรียน</span>
                                                             </th>
-                                                            <th style="text-align: right;">เกรด</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -415,73 +415,16 @@
                                                             <td>หมวดวิชาศึกษาทั่วไป</td>
                                                             <td
                                                                 style="font-weight: bold; color: green; text-align: right;">
+                                                                3.13
+                                                            </td>
+                                                            <td
+                                                                style="font-weight: bold; color: red; text-align: right;">
                                                                 30
                                                             </td>
-                                                            <td
-                                                                style="font-weight: bold; color: red; text-align: right;">
-                                                                0
-                                                            </td>
                                                             <td style="font-weight: bold; text-align: right;">30</td>
-                                                            <td style="font-weight: bold; text-align: right;">3.13</td>
+                                                            <td style="font-weight: bold; text-align: right;">0</td>
                                                         </tr>
-                                                        <tr>
-                                                            <td>หมวดวิชาเสรี</td>
-                                                            <td
-                                                                style="font-weight: bold; color: green; text-align: right;">
-                                                                6
-                                                            </td>
-                                                            <td
-                                                                style="font-weight: bold; color: red; text-align: right;">
-                                                                0
-                                                            </td>
-                                                            <td style="font-weight: bold; text-align: right;">6</td>
-                                                            <td style="font-weight: bold; text-align: right;">3.23</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>หมวดวิชาเฉพาะบังคับ</td>
-                                                            <td
-                                                                style="font-weight: bold; color: green; text-align: right;">
-                                                                98
-                                                            </td>
-                                                            <td
-                                                                style="font-weight: bold; color: red; text-align: right;">
-                                                                6
-                                                            </td>
-                                                            <td style="font-weight: bold; text-align: right;">
-                                                                104
-                                                            </td>
-                                                            <td style="font-weight: bold; text-align: right;">3.33</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>หมวดวิชาเฉพาะเลือก</td>
-                                                            <td
-                                                                style="font-weight: bold; color: green; text-align: right;">
-                                                                98
-                                                            </td>
-                                                            <td
-                                                                style="font-weight: bold; color: red; text-align: right;">
-                                                                6
-                                                            </td>
-                                                            <td style="font-weight: bold; text-align: right;">
-                                                                104
-                                                            </td>
-                                                            <td style="font-weight: bold; text-align: right;">3.38</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>หมวดวิชาเสรี</td>
-                                                            <td
-                                                                style="font-weight: bold; color: green; text-align: right;">
-                                                                36
-                                                            </td>
-                                                            <td
-                                                                style="font-weight: bold; color: red; text-align: right;">
-                                                                0
-                                                            </td>
-                                                            <td style="font-weight: bold; text-align: right;">
-                                                                36
-                                                            </td>
-                                                            <td style="font-weight: bold; text-align: right;">3.40</td>
-                                                        </tr>
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
