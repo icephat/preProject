@@ -248,7 +248,7 @@
                                                         <tr>
                                                             <th rowspan="2" style=" text-align: center; width: 100px;">
                                                                 รุ่น</th>
-                                                            <th colspan="8" style=" text-align: center; width: 100px;">
+                                                            <th colspan="12" style=" text-align: center; width: 100px;">
                                                                 ปีการศึกษา</th>
                                                             <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
                                                             </th>
@@ -257,14 +257,27 @@
                                                     <tbody>
                                                         <tr>
                                                             <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;">2565</td>
-                                                            <td style=" text-align: center;">2566</td>
-                                                            <td style=" text-align: center;">2567</td>
-                                                            <td style=" text-align: center;">2568</td>
-                                                            <td style=" text-align: center;">2569</td>
-                                                            <td style=" text-align: center;">2570</td>
-                                                            <td style=" text-align: center;">2571</td>
-                                                            <td style=" text-align: center;">2572</td>
+                                                            <?php
+                                                            $x=0;
+                                                            $color="";
+                                                            $year = 2566;
+                                                            //echo $thaiDay;
+                                                            for ($i = $year; $i < $year + 12; $i++) {
+                                                                if($x>=0 && $x<5){
+                                                                    $color="#878787";
+                                                                }
+                                                                elseif($x>=5 && $x<8){
+                                                                    $color="#bebebe";
+                                                                }
+                                                                else{
+                                                                    $color="#cecece";
+                                                                }
+                                                                ?>
+                                                                
+                                                                <td style=" text-align: center; background-color: <?php echo $color;?>">
+                                                                    <?php echo $i ?>
+                                                                </td>
+                                                            <?php $x++;} ?>
 
                                                         </tr>
                                                         <tr>
@@ -275,6 +288,10 @@
                                                             <td style=" text-align: center;">
                                                                 50 คน
                                                             </td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
@@ -295,45 +312,13 @@
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center; font-weight: bold;">60 </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td style=" text-align: center;">2567</td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style="text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style="text-align: center; font-weight: bold;"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: center;">2568</td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: center;">2569</td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;"></td>
-                                                        </tr>
-
+                                                       
                                                         <tr>
                                                             <th scope='row' style=" text-align: center;  ">รวม (คน)</th>
                                                             <td style="font-weight: bold; text-align: center;">60 </td>
@@ -379,21 +364,36 @@
                                                     <tbody>
                                                         <tr>
                                                             <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;">2565</td>
-                                                            <td style=" text-align: center;">2566</td>
-                                                            <td style=" text-align: center;">2567</td>
-                                                            <td style=" text-align: center;">2568</td>
-                                                            <td style=" text-align: center;">2569</td>
-                                                            <td style=" text-align: center;">2570</td>
-                                                            <td style=" text-align: center;">2571</td>
-                                                            <td style=" text-align: center;">2572</td>
-                                                            
+                                                            <?php
+                                                            $x=0;
+                                                            $color="";
+                                                            $year = 2566;
+                                                            //echo $thaiDay;
+                                                            for ($i = $year; $i < $year + 12; $i++) {
+                                                                if($x>=0 && $x<5){
+                                                                    $color="#878787";
+                                                                }
+                                                                elseif($x>=5 && $x<8){
+                                                                    $color="#bebebe";
+                                                                }
+                                                                else{
+                                                                    $color="#cecece";
+                                                                }
+                                                                ?>
+                                                                
+                                                                <td style=" text-align: center; background-color: <?php echo $color;?>">
+                                                                    <?php echo $i ?>
+                                                                </td>
+                                                            <?php $x++;} ?>
+
                                                         </tr>
                                                         <tr>
                                                             <td style=" text-align: center;">2565</td>
-                                                            <td style=" text-align: center;">0 คน</td>
                                                             <td style=" text-align: center;">
-                                                                10 คน
+                                                                60 คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                50 คน
                                                             </td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
@@ -401,13 +401,17 @@
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;">10</td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center; font-weight: bold;">50</td>
                                                         </tr>
                                                         <tr>
                                                             <td style=" text-align: center;">2566</td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;">
-                                                                0 คน
+                                                                60 คน
                                                             </td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
@@ -415,49 +419,17 @@
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;">0</td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center; font-weight: bold;">60 </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td style=" text-align: center;">2567</td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style="text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style="text-align: center; font-weight: bold;"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: center;">2568</td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: center;">2569</td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;"></td>
-                                                        </tr>
-                                    
+                                                       
                                                         <tr>
                                                             <th scope='row' style=" text-align: center;  ">รวม (คน)</th>
-                                                            <td style="font-weight: bold; text-align: center;">0 </td>
-                                                            <td style="font-weight: bold; text-align: center;">10</td>
+                                                            <td style="font-weight: bold; text-align: center;">60 </td>
+                                                            <td style="font-weight: bold; text-align: center;">110</td>
                                                             <td style='font-weight: bold; text-align: center;'></td>
                                                             <td style='font-weight: bold; text-align: center;'></td>
                                                             <td style='font-weight: bold; text-align: center;'></td>
@@ -499,83 +471,72 @@
                                                     <tbody>
                                                         <tr>
                                                             <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;">2565</td>
-                                                            <td style=" text-align: center;">2566</td>
-                                                            <td style=" text-align: center;">2567</td>
-                                                            <td style=" text-align: center;">2568</td>
-                                                            <td style=" text-align: center;">2569</td>
-                                                            <td style=" text-align: center;">2570</td>
-                                                            <td style=" text-align: center;">2571</td>
-                                                            <td style=" text-align: center;">2572</td>
-                                                            
+                                                            <?php
+                                                            $x=0;
+                                                            $color="";
+                                                            $year = 2566;
+                                                            //echo $thaiDay;
+                                                            for ($i = $year; $i < $year + 12; $i++) {
+                                                                if($x>=0 && $x<5){
+                                                                    $color="#878787";
+                                                                }
+                                                                elseif($x>=5 && $x<8){
+                                                                    $color="#bebebe";
+                                                                }
+                                                                else{
+                                                                    $color="#cecece";
+                                                                }
+                                                                ?>
+                                                                
+                                                                <td style=" text-align: center; background-color: <?php echo $color;?>">
+                                                                    <?php echo $i ?>
+                                                                </td>
+                                                            <?php $x++;} ?>
+
                                                         </tr>
                                                         <tr>
                                                             <td style=" text-align: center;">2565</td>
                                                             <td style=" text-align: center;">
-                                                                0 คน
+                                                                60 คน
                                                             </td>
-                                                            <td style=" text-align: center;">0 คน</td>
-                                                            <td style=" text-align: center;"> </td>
+                                                            <td style=" text-align: center;">
+                                                                50 คน
+                                                            </td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;">0</td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center; font-weight: bold;">50</td>
                                                         </tr>
                                                         <tr>
                                                             <td style=" text-align: center;">2566</td>
                                                             <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;">0 คน</td>
+                                                            <td style=" text-align: center;">
+                                                                60 คน
+                                                            </td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
                                                             <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;">0</td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center; font-weight: bold;">60 </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td style=" text-align: center;">2567</td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"> </td>
-                                                            <td style="text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style="text-align: center; font-weight: bold;"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: center;">2568</td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: center;">2569</td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center;"></td>
-                                                            <td style=" text-align: center; font-weight: bold;"></td>
-                                                        </tr>
-                                    
+                                                       
                                                         <tr>
                                                             <th scope='row' style=" text-align: center;  ">รวม (คน)</th>
-                                                            <td style="font-weight: bold; text-align: center;">0</td>
-                                                            <td style="font-weight: bold; text-align: center;">0</td>
+                                                            <td style="font-weight: bold; text-align: center;">60 </td>
+                                                            <td style="font-weight: bold; text-align: center;">110</td>
                                                             <td style='font-weight: bold; text-align: center;'></td>
                                                             <td style='font-weight: bold; text-align: center;'></td>
                                                             <td style='font-weight: bold; text-align: center;'></td>
@@ -644,7 +605,7 @@
                                 datasets: [{
                                     
                                     type: 'line',
-                                    label: 'นักศึกษาแรกเข้า',
+                                    label: 'นิสิตแรกเข้า',
                                     backgroundColor: 'rgb(0, 107, 201)',
                                     data: [60, 60],
                                     borderColor: 'rgba(0, 107, 201,1)',
@@ -652,7 +613,7 @@
                                     fill: false
                                 },
                                 {
-                                    label: 'นักศึกษาพ้นสภาพ',
+                                    label: 'นิสิตพ้นสภาพ',
                                     data: [10, 0],
                                     backgroundColor: '#ff6962',
                                     borderColor: [
@@ -666,7 +627,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'นักศึกษากำลังศึกษา',
+                                    label: 'นิสิตกำลังศึกษา',
                                     data: [50, 60],
                                     backgroundColor: '#a4ebf3',
                                     borderColor: [
@@ -680,7 +641,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'นักศึกษาจบการศึกษา',
+                                    label: 'นิสิตจบการศึกษา',
                                     data: [0, 0],
                                     backgroundColor: '#abbdee',
                                     borderColor: [
@@ -728,14 +689,14 @@
                                    
                                     type: 'line',
                                     backgroundColor: 'rgb(0, 107, 201)',
-                                    label: 'นักศึกษาแรกเข้า',
+                                    label: 'นิสิตแรกเข้า',
                                     data: [60, 120],
                                     borderColor: 'rgba(0, 107, 201,1)',
                                     lineTension: 0,
                                     fill: false
                                 },
                                 {
-                                    label: 'นักศึกษาพ้นสภาพ',
+                                    label: 'นิสิตพ้นสภาพ',
                                     data: [10, 10],
                                     backgroundColor: '#ff6962',
                                     borderColor: [
@@ -749,7 +710,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'นักศึกษากำลังศึกษา',
+                                    label: 'นิสิตกำลังศึกษา',
                                     data: [50, 110],
                                     backgroundColor: '#a4ebf3',
                                     borderColor: [
@@ -763,7 +724,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'นักศึกษาจบการศึกษา',
+                                    label: 'นิสิตจบการศึกษา',
                                     data: [0, 0],
                                     backgroundColor: '#abbdee',
                                     borderColor: [

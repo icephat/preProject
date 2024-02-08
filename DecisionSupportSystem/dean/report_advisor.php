@@ -145,9 +145,8 @@
 
                                                 <div style="color: rgb(0, 9, 188);">
                                                     <div class="text-center">
-                                                        <a style="color: rgb(0, 9, 188);"
-                                                            href="../report_dean/grade_advisor/honor.php">
-                                                            <h4>เกียรตินิยม</h4>
+                                                        <a style="color: rgb(0, 9, 188);"  href="#" data-toggle="modal" data-target="#modalblue">
+                                                            <h4>3.25-4.00</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -163,9 +162,8 @@
                                             <th style="border: 1px solid black; border-collapse: collapse; ">
                                                 <div style="color: rgb(0, 110, 22);">
                                                     <div class="text-center">
-                                                        <a style="color: rgb(0, 110, 22);"
-                                                            href="../report_dean/grade_advisor/normal.php">
-                                                            <h4>ปกติ</h4>
+                                                        <a style="color: rgb(0, 110, 22);"  href="#" data-toggle="modal" data-target="#modalgreen">
+                                                            <h4>2.00-3.24</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -182,9 +180,8 @@
 
                                                 <div style="color: #ff8c00;">
                                                     <div class="text-center">
-                                                        <a style="color: #ff8c00;"
-                                                            href="../report_dean/grade_advisor/prohigh.php">
-                                                            <h4>รอพินิจ</h4>
+                                                        <a style="color: #ff8c00;"  href="#" data-toggle="modal" data-target="#modalorange">
+                                                            <h4>1.75-1.99</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -198,9 +195,8 @@
                                             <th style="border: 1px solid black; border-collapse: collapse;">
                                                 <div style="color: rgb(255, 0, 0);">
                                                     <div class="text-center">
-                                                        <a style="color: rgb(255, 0, 0);"
-                                                            href="../report_dean/grade_advisor/prodown.php">
-                                                            <h4>โปรต่ำ</h4>
+                                                        <a style="color: rgb(255, 0, 0);"  href="#" data-toggle="modal" data-target="#modalred">
+                                                            <h4>0.00-1.74</h4>
                                                         </a>
                                                     </div>
                                                     <div class="text-center">
@@ -220,10 +216,9 @@
                                         <tr style="border: 1px solid black; border-collapse: collapse;">
                                             <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
 
-                                                <div style="color: rgb(0, 9, 188);">
+                                                <div style="color: rgb(100, 197, 215);">
                                                     <div class="text-center">
-                                                        <a style="color: rgb(0, 9, 188);"
-                                                            href="../report_dean/status_advisor/plan.php">
+                                                        <a style="color: rgb(100, 197, 215);"  href="#" data-toggle="modal" data-target="#modalblue2">
                                                             <h4>ตามแผน</h4>
                                                         </a>
                                                     </div>
@@ -238,10 +233,9 @@
 
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse; ">
-                                                <div style="color: rgb(0, 110, 22);">
+                                                <div style="color: rgb(	118, 188, 22);">
                                                     <div class="text-center">
-                                                        <a style="color: rgb(0, 110, 22);"
-                                                            href="../report_dean/status_advisor/noplan.php">
+                                                        <a style="color: rgb(118, 188, 22);" href="#" data-toggle="modal" data-target="#modalgreen2">
                                                             <h4>ไม่ตามแผน</h4>
                                                         </a>
                                                     </div>
@@ -257,10 +251,9 @@
                                         <tr>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
 
-                                                <div style="color: #ff8c00;">
+                                                <div style="color: rgb(	245, 123, 57);">
                                                     <div class="text-center">
-                                                        <a style="color: #ff8c00;"
-                                                            href="../report_dean/status_advisor/retry.php">
+                                                        <a style="color: rgb(245, 123, 57);" href="#" data-toggle="modal" data-target="#modalorange2">
                                                             <h4>พ้นสภาพ</h4>
                                                         </a>
                                                     </div>
@@ -273,10 +266,9 @@
                                                 </div>
                                             </th>
                                             <th style="border: 1px solid black; border-collapse: collapse;">
-                                                <div style="color: rgb(255, 0, 0);">
+                                                <div style="color: rgb(255, 105, 98);">
                                                     <div class="text-center">
-                                                        <a style="color: rgb(255, 0, 0);"
-                                                            href="../report_dean/status_advisor/finish.php">
+                                                        <a style="color: rgb(255, 105, 98);" href="#" data-toggle="modal" data-target="#modalred2">
                                                             <h4>จบการศึกษา</h4>
                                                         </a>
                                                     </div>
@@ -295,12 +287,13 @@
                         </div>
 
                     </div>
+
                     <br><br>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <!--<div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                                 </div>-->
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
@@ -315,11 +308,11 @@
                                                     <thead>
                                                         <tr>
                                                             <th style=" text-align: left; ">ชื่ออาจารย์</th>
-                                                            <th style="text-align: right; ">เกียรตินิยม
+                                                            <th style="text-align: right; ">3.25-4.00
                                                             </th>
-                                                            <th style="text-align: right;">ปกติ</th>
-                                                            <th style="text-align: right;">รอพินิจ</th>
-                                                            <th style="text-align: right;">โปรต่ำ</th>
+                                                            <th style="text-align: right;">2.00-3.24</th>
+                                                            <th style="text-align: right;">1.75-1.99</th>
+                                                            <th style="text-align: right;">0.00-1.74</th>
 
                                                             <th style="text-align: right;">รายละเอียด</th>
                                                         </tr>
@@ -384,7 +377,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <!--<div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                                 </div>-->
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
@@ -541,7 +534,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <!--<div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                                 </div>-->
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
@@ -556,11 +549,11 @@
                                                     <thead>
                                                         <tr>
                                                             <th style=" text-align: left; ">ชื่ออาจารย์</th>
-                                                            <th style="text-align: right; ">เกียรตินิยม
+                                                            <th style="text-align: right; ">3.25-4.00
                                                             </th>
-                                                            <th style="text-align: right;">ปกติ</th>
-                                                            <th style="text-align: right;">รอพินิจ</th>
-                                                            <th style="text-align: right;">โปรต่ำ</th>
+                                                            <th style="text-align: right;">2.00-3.24</th>
+                                                            <th style="text-align: right;">1.75-1.99</th>
+                                                            <th style="text-align: right;">0.00-1.74</th>
 
                                                             <th style="text-align: right;">รายละเอียด</th>
                                                         </tr>
@@ -626,7 +619,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <!--<div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                                 </div>-->
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
@@ -706,7 +699,7 @@
                         </div>
                     </div>
                     <br><br>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
@@ -766,7 +759,549 @@
 
                             </div>
 
+                        </div>-->
+                        <!-- modalblue -->
+                        <div id="modalblue" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ช่วงเกรด 3.25-4.00 </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 0 คน</h5>
+                                    
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                        <tr>
+                                                            <th>63202651</th>
+                                                            <th>xxx xxxx</th>
+                                                            <th>3.33</th>
+                                                        </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    
+                                    
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- modalgreen -->
+                    <div id="modalgreen" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ช่วงเกรด 2.00-3.24 </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 0 คน</h5>
+                                    
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                        <tr>
+                                                            <th>63202651</th>
+                                                            <th>xxx xxxx</th>
+                                                            <th>3.33</th>
+                                                        </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalorange -->
+                    <div id="modalorange" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ช่วงเกรด 1.75-1.99 </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 0 คน</h5>
+                                    <
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                        <tr>
+                                                            <th>63202651</th>
+                                                            <th>xxx xxxx</th>
+                                                            <th>3.33</th>
+                                                        </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalred -->
+                    <div id="modalred" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ช่วงเกรด 0.00-1.74 </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 0 คน</h5>
+                                    
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                
+                                                        <tr>
+                                                            <th>63202651</th>
+                                                            <th>xxx xxxx</th>
+                                                            <th>3.33</th>
+                                                        </tr>
+                                                    
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalblue2 -->
+                    <div id="modalblue2" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ตามแผน </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 0 คน</h5>
+                                   
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                        
+                                                        <tr>
+                                                            <th>63202651</th>
+                                                            <th>xxx xxxx</th>
+                                                            <th>3.33</th>
+                                                        </tr>
+                                                    
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalgreen2 -->
+                    <div id="modalgreen2" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ไม่ตามแผน </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 0 คน</h5>
+                                    
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                        <tr>
+                                                            <th>63202651</th>
+                                                            <th>xxx xxxx</th>
+                                                            <th>3.33</th>
+                                                        </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalorange2 -->
+                    <div id="modalorange2" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต พ้นสภาพ </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 0 คน</h5>
+                                    
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                        
+                                                        <tr>
+                                                            <th>63202651</th>
+                                                            <th>xxx xxxx</th>
+                                                            <th>3.33</th>
+                                                        </tr>
+                                                    
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    
+                                        
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalred2 -->
+                    <div id="modalred2" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต จบการศึกษา </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 0 คน</h5>
+                                    
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                        <tr>
+                                                            <th>63202651</th>
+                                                            <th>xxx xxxx</th>
+                                                            <th>3.33</th>
+                                                        </tr>
+                                                    
+                                                    
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- modalPlan -->
+
+                <div id="modalPlan" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>ปีการศึกษา 2566 ภาคการศึกษา ต้น</h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 1 คน</h5>
+                                    
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                            <th>xxxxxxx</th>
+                                                            <th>นายxxxxxx xxxxxx</th>
+                                                            <th>xxxx</th>
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 1 คน</h5>
+                                
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>GPAX</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                            <th>xxxxxxx</th>
+                                                            <th>นายxxxxxx xxxxxx</th>
+                                                            <th>xxxx</th>
+                                                        </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 1 คน</h5>
+                                   
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                    
+                                                <tr>
+                                                            <th>xxxxxxx</th>
+                                                            <th>นายxxxxxx xxxxxx</th>
+                                                            <th>xxxx</th>
+                                                        </tr>
+                                                 
+
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                   
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 1 คน</h5>
+                                    
+                                   
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    
+                                                        <tr>
+                                                            <th>xxxxxxx</th>
+                                                            <th>นายxxxxxx xxxxxx</th>
+                                                            <th>xxxx</th>
+                                                        </tr>
+                                                  
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                <!-- dataModal -->
+                <div id="dataModal" class="modal fade" style="color: black;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="height: 90px;">
+                                <h5>ปีการศึกษา 2565 หลักสูตร 2565 </h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <br>
+
+
+
+                            </div>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร 0 คน</h5>
+                            <hr>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามหลักสูตร 1 คน</h5>
+                            <div class="modal-body" id="std_detail">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>GPAX</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>632xxxxxxx</th>
+                                            <th>นายxxxxxx xxxxxx</th>
+                                            <th>2.20</th>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <hr>
+                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"
+                                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -793,25 +1328,25 @@
                                 data: {
                                     labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
                                     datasets: [{
-                                        label: 'เกียรตินิยม',
+                                        label: '3.25-4.00',
                                         data: [2, 3],
                                         backgroundColor: "rgba(0, 9, 188,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'ปกติ',
+                                        label: '2.00-3.24',
                                         data: [5, 8],
                                         backgroundColor: "rgba(0, 110, 22,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'โปรสูง',
+                                        label: '1.75-1.99',
                                         data: [0, 2],
                                         backgroundColor: 'rgba(255,128,0,0.7)',
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'โปรต่ำ',
+                                        label: '0.00-1.74',
                                         data: [1, 0],
                                         backgroundColor: 'rgba(255, 0, 0,0.7)',
                                         borderWidth: 0
@@ -893,25 +1428,25 @@
                                 data: {
                                     labels: ['อ.ฐิติพงษ์', 'อ.วรัญญา'],
                                     datasets: [{
-                                        label: 'เกียรตินิยม',
+                                        label: '3.25-4.00',
                                         data: [0, 0],
                                         backgroundColor: "rgba(0, 9, 188,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'ปกติ',
+                                        label: '2.00-3.24',
                                         data: [1, 0],
                                         backgroundColor: "rgba(0, 110, 22,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'โปรสูง',
+                                        label: '1.75-1.99',
                                         data: [1, 2],
                                         backgroundColor: 'rgba(255,128,0,0.7)',
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'โปรต่ำ',
+                                        label: '0.00-1.74',
                                         data: [0, 0],
                                         backgroundColor: 'rgba(255, 0, 0,0.7)',
                                         borderWidth: 0
@@ -1083,7 +1618,7 @@
                         <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
                         <!-- Page level custom scripts -->
-                        <script src="../js/demo/datatables-demo.js"></script>
+                        <script src="../js/demo/datatables-demoModal.js"></script>
 
 
 
@@ -1101,7 +1636,7 @@
 
 
             </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 5 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 5 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1109,7 +1644,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1130,7 +1665,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 5 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 5 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1138,7 +1673,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1174,9 +1709,9 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 0 คน</h5>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 1 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 1 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1184,7 +1719,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1226,7 +1761,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1255,7 +1790,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1301,7 +1836,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1334,9 +1869,9 @@
 
 
             </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 0 คน</h5>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 1 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 1 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1344,7 +1879,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1359,7 +1894,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 1 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 1 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1367,7 +1902,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1382,7 +1917,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
 
             <hr>
             <div class="modal-footer">
@@ -1414,7 +1949,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1475,7 +2010,7 @@
                         <tr>
                             <th>รหัสนิสิต</th>
                             <th>ชื่อ-นามสกุล</th>
-                            <th>เกรดเฉลี่ย</th>
+                            <th>GPAX</th>
                         </tr>
                     </thead>
                     <tbody>

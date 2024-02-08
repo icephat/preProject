@@ -71,14 +71,14 @@
                                     <div class="text-center">
                                         <div>
                                             <select class="form-control" data-live-search="true">
-                                                <option value="default">--รอบ--</option>
-
-                                                <option value="2561">Tcas 1
+                                                <option value="0">ทุกรอบ
                                                 </option>
-                                                <option value="2562">Tcas 2</option>
-                                                <option value="2561">Tcas 3
+                                                <option value="1">รอบ 1
                                                 </option>
-                                                <option value="2562">Tcas 4</option>
+                                                <option value="2">รอบ 2</option>
+                                                <option value="3">รอบ 3
+                                                </option>
+                                                <option value="4">รอบ 4</option>
                                             </select>
                                         </div>
                                     </div>
@@ -117,11 +117,11 @@
                                                     <thead style=" ">
                                                         <tr>
                                                             <th style=" text-align: center; ">รุ่น</th>
-                                                            <th style="text-align: center; "><span>Tcas 1</span>
+                                                            <th style="text-align: center; "><span>รอบที่ 1</span>
                                                             </th>
-                                                            <th style="text-align: center;"><span>Tcas 2</span></th>
-                                                            <th style="text-align: center;">Tcas 3</th>
-                                                            <th style="text-align: center;">Tcas 4</th>
+                                                            <th style="text-align: center;"><span>รอบที่ 2</span></th>
+                                                            <th style="text-align: center;">รอบที่ 3</th>
+                                                            <th style="text-align: center;">รอบที่ 4</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -294,7 +294,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนอัตราการคงอยู่ </h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">อัตราคงอยู่ </h6>
                                 </div>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
@@ -308,53 +308,23 @@
                                                     style="color: black;">
                                                     <thead style=" ">
                                                         <tr>
-                                                            <th style=" text-align: center; "></th>
-                                                            <th style="text-align: center; "><span>รุ่น 60</span>
+                                                            <th style=" text-align: center; ">รุ่นการศึกษา</th>
+                                                            <th style="text-align: center; "><span>รับเข้า</span>
                                                             </th>
-                                                            <th style="text-align: center;"><span>รุ่น 61</span></th>
-                                                            <th style="text-align: center;">รุ่น 62</th>
-                                                            <th style="text-align: center;">รุ่น 63</th>
-                                                            <th style="text-align: center;">รุ่น 64</th>
+                                                            <th style="text-align: center;"><span>คงอยู่</span></th>
+                                                            <th style="text-align: center;">คิดเป็นร้อยละ</th>
+
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <th style=" text-align: center;  ">จำนวนรับเข้า</th>
-                                                            <td style=" text-align: center;">
-                                                                50 คน
+                                                            <th style=" text-align: center;  ">63</th>
+                                                            <td style=" text-align: center;">20 คน
                                                             </td>
-                                                            <td style=" text-align: center;">
-                                                                45 คน
+                                                            <td style=" text-align: center;">10 คน
                                                             </td>
-                                                            <td style=" text-align: center;">46 คน</td>
-                                                            <td style=" text-align: center;">55 คน</td>
-                                                            <td style=" text-align: center;">50 คน</td>
-                                                        </tr>
+                                                            <td style=" text-align: center;">50.00</td>
 
-                                                        <tr>
-                                                            <th style=" text-align: center;  ">จำนวนคงอยู่</th>
-                                                            <td style=" text-align: center;">
-                                                                43 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                42 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">45 คน</td>
-                                                            <td style=" text-align: center;">52 คน</td>
-                                                            <td style=" text-align: center;">48 คน</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th scope='row' style=" text-align: center;  ">คิดเป็นร้อยละ
-                                                            </th>
-                                                            <td style="font-weight: bold; text-align: center;">100 </td>
-                                                            <td style='font-weight: bold; text-align: center;'>93.75
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>93.30
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>100</td>
-                                                            <td style='font-weight: bold; text-align: center;'>98.25
-                                                            </td>
                                                         </tr>
 
                                                     </tbody>
@@ -371,7 +341,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">สัดส่วนอัตราการคงอยู่ </h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">อัตราพ้นสภาพ </h6>
                                 </div>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
@@ -385,55 +355,20 @@
                                                     style="color: black;">
                                                     <thead style=" ">
                                                         <tr>
-                                                            <th style=" text-align: center; "></th>
-                                                            <th style="text-align: center; "><span>รุ่น 60</span>
-                                                            </th>
-                                                            <th style="text-align: center;"><span>รุ่น 61</span></th>
-                                                            <th style="text-align: center;">รุ่น 62</th>
-                                                            <th style="text-align: center;">รุ่น 63</th>
-                                                            <th style="text-align: center;">รุ่น 64</th>
+                                                            <th style=" text-align: center; ">รุ่นการศึกษา</th>
+                                                            <th style="text-align: center; "><span>รับเข้า</span></th>
+                                                            <th style="text-align: center;"><span>พ้นสภาพ</span></th>
+                                                            <th style="text-align: center;">คิดเป็นร้อยละ</th>
+                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <th style=" text-align: center;  ">จำนวนคงเหลือ</th>
-                                                            <td style=" text-align: center;">
-                                                                43 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                42 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">45 คน</td>
-                                                            <td style=" text-align: center;">52 คน</td>
-                                                            <td style=" text-align: center;">48 คน</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th style=" text-align: center;  ">จำนวนพ้นสภาพ</th>
-                                                            <td style=" text-align: center;">
-                                                                7 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                3 คน
-                                                            </td>
-                                                            <td style=" text-align: center;">1 คน</td>
-                                                            <td style=" text-align: center;">3 คน</td>
-                                                            <td style=" text-align: center;">2 คน</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th scope='row' style=" text-align: center;  ">คิดเป็นร้อยละ
-                                                            </th>
-                                                            <td style="font-weight: bold; text-align: center;">86.00
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>93.33
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>97.83
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>94.55
-                                                            </td>
-                                                            <td style='font-weight: bold; text-align: center;'>96.00
-                                                            </td>
+                                                    <tr>
+                                                        
+                                                        <td style=" text-align: center;">63</td>
+                                                            <td style=" text-align: center;">20 คน</td>
+                                                            <td style=" text-align: center;">10 คน</td>
+                                                            <td style=" text-align: center;">50</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -489,7 +424,7 @@
                             data: {
                                 labels: ['รุ่น 60', 'รุ่น 61', 'รุ่น 62', 'รุ่น 63', 'รุ่น 64'],
                                 datasets: [{
-                                    label: 'Tcas 1',
+                                    label: 'รอบที่ 1',
                                     data: [20, 15, 47, 53, 44],
                                     backgroundColor: '#bfd575',
                                     borderColor: [
@@ -503,7 +438,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'Tcas 2',
+                                    label: 'รอบที่ 2',
                                     data: [64, 40, 25, 40, 55],
                                     backgroundColor: '#a4ebf3',
                                     borderColor: [
@@ -517,7 +452,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'Tcas 3',
+                                    label: 'รอบที่ 3',
                                     data: [40, 55, 30, 40, 55],
                                     backgroundColor: '#abbdee',
                                     borderColor: [
@@ -531,7 +466,7 @@
                                     borderWidth: 0
                                 },
                                 {
-                                    label: 'Tcas 4',
+                                    label: 'รอบที่ 4',
                                     data: [20, 30, 49, 57, 66],
                                     backgroundColor: '#f8c769',
                                     borderColor: [
