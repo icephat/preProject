@@ -343,7 +343,7 @@
                                                     <tr>
                                                         <th rowspan="2" style=" text-align: center; width: 100px;">
                                                             รุ่น</th>
-                                                        <th colspan="12" style=" text-align: center; width: 100px;">
+                                                        <th colspan="5" style=" text-align: center; width: 100px;">
                                                             ปีการศึกษา</th>
                                                         <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
                                                         </th>
@@ -357,76 +357,45 @@
                                                             $color="";
                                                             $year = 2566;
                                                             //echo $thaiDay;
-                                                            for ($i = $year; $i < $year + 12; $i++) {
-                                                                if($x>=0 && $x<5){
-                                                                    $color="#878787";
-                                                                }
-                                                                elseif($x>=5 && $x<8){
-                                                                    $color="#bebebe";
-                                                                }
-                                                                else{
-                                                                    $color="#cecece";
-                                                                }
+                                                            for ($i = $year; $i < $year + 5; $i++) {
+                                                            
                                                                 ?>
                                                                 
-                                                                <td style=" text-align: center; background-color: <?php echo $color;?>">
+                                                                <td style=" text-align: center;">
                                                                     <?php echo $i ?>
                                                                 </td>
                                                             <?php $x++;} ?>
 
                                                     </tr>
-                                                    <tr>
-                                                        <td style=" text-align: center;">2565</td>
-                                                        <td style=" text-align: center;">
-                                                            60 คน
-                                                        </td>
-                                                        <td style=" text-align: center;">
-                                                            50 คน
-                                                        </td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center; font-weight: bold;">50</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style=" text-align: center;">2566</td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;">
-                                                            60 คน
-                                                        </td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center;"></td>
-                                                        <td style=" text-align: center; font-weight: bold;">50</td>
-                                                    </tr>
-                                                   
-                                                    <tr>
-                                                        <th scope='row' style=" text-align: center;  ">
-                                                            ทุกรุ่น</th>
-                                                        <td style="font-weight: bold; text-align: center;">60 คน</td>
-                                                        <td style="font-weight: bold; text-align: center;">110 คน</td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style=" font-weight: bold; text-align: center;"></td>
-                                                        <td style='font-weight: bold; text-align: center;'></td>
-                                                    </tr>
+
+                                                    <?php 
+                                                        $x=0;
+                                                        $color="";
+                                                        $year = 2566;
+                                                        //echo $thaiDay;
+                                                        for ($i = $year; $i < $year + 5; $i++) {
+                                                        
+                                                            ?>
+                                                            
+                                                        <tr>
+                                                            <td style=" text-align: center;"><?php echo $i?></td>
+                                                            <td style=" text-align: center;">
+                                                                60 คน
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                50 คน
+                                                            </td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center;"></td>
+                                                            <td style=" text-align: center; font-weight: bold;">50</td>
+                                                        </tr>
+
+                                                        <?php $x++;} ?>
+                                                        
+                                                    
+                                                    
+                                                    
                                                 </tbody>
                                             </table>
                                         </div>
