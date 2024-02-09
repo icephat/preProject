@@ -59,12 +59,15 @@
 
                 $courses = getCourseNameByDepartmentId($teacher["departmentId"]) ;
 
+                $courseName = $_POST["courseName"];
+                $tcas = $_POST["tcas"];
+
                 ?>
 
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form class="form-valide" action="../controller/calGPAController.php" method="post" enctype="multipart/form-data">
+                    <form class="form-valide" action="../controller/headSearchCourseTcas.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
                                 <div class="text-center">
@@ -72,12 +75,12 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                    <select class="form-control" data-live-search="true" name = "nameCourse" >
+                                    <select class="form-control" data-live-search="true" name = "courseName" >
                                             
                                             <?php
                                             foreach($courses as $cou){
                                             ?>
-                                             <option value=" <?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
+                                             <option value="<?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
                                              </option>
                                              <?php
                                              }
@@ -124,6 +127,7 @@
                 </div>
 
                 <hr>
+                <h5>หลักสูตร <?php echo $courseName ?> รอบที่  <?php echo $tcas ?></h5>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
@@ -131,8 +135,8 @@
                                 <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตตาม Tcas (คน)</h6>
                             </div>
                             <?php
-                                $countStudentSortByGeneretions = getCountStudentTcasSortByStudyGeneretionByCourseName($course["nameCourseUse"]);
-                               // print_r($countStudentSortByGeneretions);
+                                $countStudentSortByGeneretions = getCountStudentTcasSortByStudyGeneretionByCourseNameAndTcasRound($courseName,$tcas);
+                               //print_r($countStudentSortByGeneretions);
                                 
                             ?>
                             <div class="card-body ">
@@ -147,7 +151,7 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รุ่น</th>
-                                                        <th style="text-align: center; "><span>รอบที่ 1</span>
+                                                        <th style="text-align: center; "><span>รอบที่ <?php echo $tcas ?></span>
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -165,21 +169,14 @@
 
                                                     foreach ($countStudentSortByGeneretions as $countStudentSortByGeneretion) {
                                                         $studyGeneretion[]="รุ่น ".(string)$countStudentSortByGeneretion["studyGeneretion"];
-                                                        $TCAS1[]=(int)$countStudentSortByGeneretion["TCAS1"];
-                                                        $TCAS2[]=(int)$countStudentSortByGeneretion["TCAS2"];
-                                                        $TCAS3[]=(int) $countStudentSortByGeneretion["TCAS3"];
-                                                        $TCAS4[]=(int)$countStudentSortByGeneretion["TCAS4"];
-                                                        $sumTcas1 += $countStudentSortByGeneretion["TCAS1"];
-                                                        $sumTcas2 += $countStudentSortByGeneretion["TCAS2"];
-                                                        $sumTcas3 += $countStudentSortByGeneretion["TCAS3"];
-                                                        $sumTcas4 += $countStudentSortByGeneretion["TCAS4"];
+
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: center;">
                                                                 <?php echo $countStudentSortByGeneretion["studyGeneretion"] ?>
                                                             </td>
                                                             <td style=" text-align: center;">
-                                                                <?php echo $countStudentSortByGeneretion["TCAS1"] ?> คน
+                                                                <?php echo $countStudentSortByGeneretion["tcasCount"] ?> คน
                                                             </td>
                                                         </tr>
 
@@ -211,8 +208,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                             </div>
                             <?php
-                                $gpaMMAs = getMaxMinAvgGPAXByCourseName($course["nameCourseUse"]);
-                                //print_r($gpaMMAs);
+                                $gpaMMAs = getMaxMinAvgGPAXByCourseNameAndRound($courseName,$tcas);
                             ?>
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
@@ -283,7 +279,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">อัตราคงอยู่ </h6>
                             </div>
                             <?php
-                                $percentageGeneretions = getPercentageStudySortByGeneretionByCourseName($course["nameCourseUse"]);
+                                $percentageGeneretions = getPercentageStudySortByGeneretionByCourseNameAndRound($courseName,$tcas);
                                 //print_r($percentageGeneretions);
                             ?>
                             <div class="card-body ">
@@ -350,7 +346,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">อัตราพ้นสภาพ </h6>
                             </div>
                             <?php
-                            $percentageRetireGeneretions = getPercentageStudyAndRetireSortByGeneretionByCourseName($course["nameCourseUse"]);
+                            $percentageRetireGeneretions = getPercentageStudyAndRetireSortByGeneretionByCourseNameAndRound($courseName,$tcas);
                             //print_r( $percentageRetireGeneretions);
                             ?>
                             <div class="card-body ">

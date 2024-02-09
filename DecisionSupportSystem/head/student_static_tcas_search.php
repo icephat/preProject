@@ -62,19 +62,14 @@
 
                 $courseName = $_POST["courseName"];
 
-                $tcas = $_POST["tcas"];
-
-                if($tcas != 0){
-                    header('Location: ' . 'student_static_tcas_search_round.php');
-                    exit();
-                }
+                
 
                 ?>
 
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form class="form-valide" action="student_static_tcas_search.php" method="post" enctype="multipart/form-data">
+                    <form class="form-valide" action="../controller/headSearchCourseTcas.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
                                 <div class="text-center">
