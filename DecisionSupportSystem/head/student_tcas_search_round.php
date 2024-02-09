@@ -56,13 +56,19 @@
 
 
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
+                $departments = getAllDepartment();
+
+
+                $departmentId = $_POST["departmentId"];
+                $dept = getDepartmentById($departmentId);
+                $round = $_POST["tcas"];
 
                 ?>
 
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form>
+                    <form class="form-valide" action="../controller/headSearchDepartmentTcas.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
 
@@ -71,11 +77,19 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--กรุณาเลือกภาควิชา--</option>
-                                            <option value="2561">วิศวกรรมคอมพิวเตอร์ </option>
-                                            <option value="2562">วิศวกรรมเครื่องกล</option>
-                                        </select>
+                                    <select class="form-control" data-live-search="true" name="departmentId">
+
+                                                <?php
+                                                foreach ($departments as $department) {
+                                                    ?>
+
+                                                    <option value="<?php echo $department["departmentId"] ?>">
+                                                        <?php echo $department["departmentName"] ?>
+                                                    </option>
+                                                    <?php
+                                                }
+                                                ?>
+                                    </select>
                                     </div>
                                 </div>
                             </div>
@@ -86,15 +100,15 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true">
-                                            <option value="default">--รอบ--</option>
+                                        <select class="form-control" data-live-search="true" name = "tcas">
+                                            <option value="0">ทุกรอบ</option>
 
-                                            <option value="2561">Tcas 1
+                                            <option value="1">รอบที่ 1
                                             </option>
-                                            <option value="2562">Tcas 2</option>
-                                            <option value="2561">Tcas 3
+                                            <option value="2">รอบที่ 2</option>
+                                            <option value="3">รอบที่ 3
                                             </option>
-                                            <option value="2562">Tcas 4</option>
+                                            <option value="4">รอบที่ 4</option>
                                         </select>
                                     </div>
                                 </div>
@@ -115,13 +129,14 @@
                 </div>
 
                 <hr>
+                <h5 style="color:black;">ภาควิชา<?php echo $dept["departmentName"] ?> รอบที่ <?php echo $round?></h5>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตตาม Tcas (คน)</h6>
                                 <?php
-                                $countStudentSortByGeneretions = getCountStudentTcasSortByStudyGeneretionByDepartmentId($teacher["departmentId"]);
+                                $countStudentSortByGeneretions = getCountStudentTcasSortByStudyGeneretionByDepartmentIdAndRound($departmentId,$round);
                                 // print_r($countStudentSortByGeneretions);
                                 
                                 ?>
@@ -138,7 +153,7 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รุ่น</th>
-                                                        <th style="text-align: center; "><span>รอบที่ 1</span>
+                                                        <th style="text-align: center; "><span>รอบที่ <?php echo $round?></span>
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -146,20 +161,24 @@
                                                     <?php
                                                     $studyGeneretion = [];
                                                     $TCAS1 = [];
+                                                    $TCAS2 = [];
+                                                    $TCAS3 = [];
+                                                    $TCAS4 = [];
                                                     $sumTcas1 = 0;
+                                                    $sumTcas2 = 0;
+                                                    $sumTcas3 = 0;
+                                                    $sumTcas4 = 0;
 
                                                     foreach ($countStudentSortByGeneretions as $countStudentSortByGeneretion) {
                                                         $studyGeneretion[] = "รุ่น " . (string) $countStudentSortByGeneretion["studyGeneretion"];
-                                                        $TCAS1[] = (int) $countStudentSortByGeneretion["TCAS1"];
-                                                        $sumTcas1 += $countStudentSortByGeneretion["TCAS1"];
+
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: center;">
                                                                 <?php echo $countStudentSortByGeneretion["studyGeneretion"] ?>
                                                             </td>
                                                             <td style=" text-align: center;">
-                                                                <?php echo $countStudentSortByGeneretion["TCAS1"] ?> คน
-                                                            </td>
+                                                                <?php echo $countStudentSortByGeneretion["tcasCount"] ?> คน
                                                         </tr>
 
                                                         <?php
@@ -170,6 +189,7 @@
                                                         <td style="font-weight: bold; text-align: center;">
                                                             <?php echo $sumTcas1 ?> คน
                                                         </td>
+
                                                     </tr>
 
                                                 </tbody>
@@ -189,7 +209,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                             </div>
                             <?php
-                            $gpaMMAs = getMaxMinAvgGPAXByDepartmentId($teacher["departmentId"]);
+                            $gpaMMAs = getMaxMinAvgGPAXByDepartmentIdAndRound($departmentId,$round);
                             //print_r($gpaMMAs);
                             ?>
                             <div class="card-body ">
@@ -265,7 +285,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">จำนวนอัตราการคงอยู่ </h6>
                             </div>
                             <?php
-                                $percentageGeneretions = getPercentageStudySortByGeneretionByDepartmentId($teacher["departmentId"]);
+                                $percentageGeneretions = getPercentageStudySortByGeneretionByDepartmentIdAndRound($departmentId,$round);
                                 //print_r($percentageGeneretions);
                             ?>
                             <div class="card-body ">
@@ -332,7 +352,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">สัดส่วนอัตราการคงอยู่ </h6>
                             </div>
                             <?php
-                            $percentageRetireGeneretions = getPercentageStudyAndRetireSortByGeneretionByDepartmentId($teacher["departmentId"]);
+                            $percentageRetireGeneretions = getPercentageStudyAndRetireSortByGeneretionByDepartmentIdAndRound($departmentId,$round);
                             //print_r( $percentageRetireGeneretions);
                             ?>
                             <div class="card-body ">
@@ -427,7 +447,10 @@
                 <script>
                     var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
                     
-                    var tcas1 = <?php echo json_encode($TCAS1); ?>; 
+                    var tcas1 = <?php echo json_encode($TCAS1); ?>;
+                    var tcas2 = <?php echo json_encode($TCAS2); ?>;
+                    var tcas3 = <?php echo json_encode($TCAS3); ?>;
+                    var tcas4 = <?php echo json_encode($TCAS4); ?>;  
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
@@ -449,7 +472,49 @@
                                 ],
                                 borderWidth: 0
                             },
-                            
+                            {
+                                label: 'รอบที่ 2',
+                                data: tcas2,
+                                backgroundColor: '#a4ebf3',
+                                borderColor: [
+                                    'rgba(150,186,169, 1)', //1
+                                    'rgba(108,158,134, 1)',
+                                    'rgba(66,130,100, 1)',
+                                    'rgba(45,117,83, 1)',
+                                    'rgba(27,70,49, 1)', //5
+                                    'rgba(0, 51, 18, 1)'
+                                ],
+                                borderWidth: 0
+                            },
+                            {
+                                label: 'รอบที่ 3',
+                                data: tcas3,
+                                backgroundColor: '#abbdee',
+                                borderColor: [
+                                    'rgba(150,186,169, 1)', //1
+                                    'rgba(108,158,134, 1)',
+                                    'rgba(66,130,100, 1)',
+                                    'rgba(45,117,83, 1)',
+                                    'rgba(27,70,49, 1)', //5
+                                    'rgba(0, 51, 18, 1)'
+                                ],
+                                borderWidth: 0
+                            },
+                            {
+                                label: 'รอบที่ 4',
+                                data: tcas4,
+                                backgroundColor: '#f8c769',
+                                borderColor: [
+                                    'rgba(150,186,169, 1)', //1
+                                    'rgba(108,158,134, 1)',
+                                    'rgba(66,130,100, 1)',
+                                    'rgba(45,117,83, 1)',
+                                    'rgba(27,70,49, 1)', //5
+                                    'rgba(0, 51, 18, 1)'
+                                ],
+                                borderWidth: 0
+                            },
+
 
                             ]
 
