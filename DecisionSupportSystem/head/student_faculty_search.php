@@ -158,8 +158,7 @@
 
                                             <div style="color: rgb(0, 9, 188);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 9, 188);"
-                                                        href="../report_head/grade_faculty/honor.php">
+                                                    <a style="color: rgb(0, 9, 188);" href="#" data-toggle="modal" data-target="#modalblue">
                                                         <h4>3.25-4.00</h4>
                                                     </a>
                                                 </div>
@@ -178,8 +177,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);"
-                                                        href="../report_head/grade_faculty/normal.php">
+                                                    <a style="color: rgb(0, 110, 22);" href="#" data-toggle="modal" data-target="#modalgreen">
                                                         <h4>2.00-3.24</h4>
                                                     </a>
                                                 </div>
@@ -199,8 +197,7 @@
 
                                             <div style="color: #ff8c00;">
                                                 <div class="text-center">
-                                                    <a style="color: #ff8c00;"
-                                                        href="../report_head/grade_faculty/prohigh.php">
+                                                    <a style="color: #ff8c00;" href="#" data-toggle="modal" data-target="#modalorange">
                                                         <h4>1.75-1.99</h4>
                                                     </a>
                                                 </div>
@@ -217,8 +214,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 0, 0);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 0, 0);"
-                                                        href="../report_head/grade_faculty/prodown.php">
+                                                    <a style="color: rgb(255, 0, 0);" href="#" data-toggle="modal" data-target="#modalred">
                                                         <h4>0.00-1.74</h4>
                                                     </a>
                                                 </div>
@@ -246,8 +242,7 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(100, 197, 215);"
-                                                        href="../report_head/status_faculty/plan.php">
+                                                    <a style="color: rgb(100, 197, 215);" href="#" data-toggle="modal" data-target="#modalblue2">
                                                         <h4>ตามแผน</h4>
                                                     </a>
                                                 </div>
@@ -266,8 +261,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	118, 188, 22);"
-                                                        href="../report_head/status_faculty/noplan.php">
+                                                    <a style="color: rgb(	118, 188, 22);" href="#" data-toggle="modal" data-target="#modalgreen2">
                                                         <h4>ไม่ตามแผน</h4>
                                                     </a>
                                                 </div>
@@ -287,8 +281,7 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	245, 123, 57);"
-                                                        href="../report_head/status_faculty/retry.php">
+                                                    <a style="color: rgb(	245, 123, 57);" href="#" data-toggle="modal" data-target="#modalorange2">
                                                         <h4>พ้นสภาพ</h4>
                                                     </a>
                                                 </div>
@@ -305,8 +298,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 105, 98);"
-                                                        href="../report_head/status_faculty/finish.php">
+                                                    <a style="color:  rgb(255, 105, 98);" href="#" data-toggle="modal" data-target="#modalred2">
                                                         <h4>จบการศึกษา</h4>
                                                     </a>
                                                 </div>
@@ -821,6 +813,427 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- modalblue -->
+                <div id="modalblue" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ช่วงเกรด 3.25-4.00 </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countRangeGrade["blues"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countRangeGrade["blues"]) > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countRangeGrade["blues"] as $student){
+                                                    ?>
+                                                    <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                    </tr>
+                                                    <?php
+                                                    }?>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php }?>
+                                    
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalgreen -->
+                    <div id="modalgreen" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ช่วงเกรด 2.00-3.24 </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countRangeGrade["greens"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countRangeGrade["greens"]) > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countRangeGrade["greens"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php }?>
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalorange -->
+                    <div id="modalorange" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ช่วงเกรด 1.75-1.99 </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countRangeGrade["oranges"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countRangeGrade["oranges"]) > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countRangeGrade["greens"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php }?>
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalred -->
+                    <div id="modalred" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ช่วงเกรด 0.00-1.74 </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countRangeGrade["reds"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countRangeGrade["reds"]) > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countRangeGrade["reds"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
+                                                    
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php }?>
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalblue2 -->
+                    <div id="modalblue2" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ตามแผน </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countPlanStatus["plans"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countPlanStatus["plans"]) > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countPlanStatus["plans"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
+                                                    
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php }?>
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalgreen2 -->
+                    <div id="modalgreen2" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต ไม่ตามแผน </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countPlanStatus["notPlans"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countPlanStatus["notPlans"]) > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countPlanStatus["notPlans"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php }?>
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalorange2 -->
+                    <div id="modalorange2" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต พ้นสภาพ </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countPlanStatus["retires"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countPlanStatus["retires"]) > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countPlanStatus["retires"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
+                                                    
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php }?>
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- modalred2 -->
+                    <div id="modalred2" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>รายชื่อนิสิต จบการศึกษา </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo sizeof($countPlanStatus["grads"])?> คน</h5>
+                                    <?php
+                                        if(sizeof($countPlanStatus["grads"]) > 0){
+                                        
+                                    ?>
+                                        <div class="modal-body" id="std_detail">
+                                            <table class="table">
+
+                                                <thead>
+                                                    <tr>
+                                                        <th>รหัสนิสิต</th>
+                                                        <th>ชื่อ-นามสกุล</th>
+                                                        <th>GPAX</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                        foreach($countPlanStatus["grads"] as $student){
+                                                    ?>
+                                                        <tr>
+                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                        </tr>
+                                                    <?php }?>
+                                                    
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    <?php }?>
+                                    <hr>
+                                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
 

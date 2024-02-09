@@ -78,7 +78,7 @@
                         <div class="row mx-auto">
                             
 
-                            <div class="column mx-auto col-sm-2">
+                            <div class="column mx-auto col-sm-4">
                                 <div class="text-center">
                                     <h5>ปีการศึกษา<span style="color: red;">*</span></th>
                                 </div>
@@ -99,7 +99,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="column mx-auto col-sm-2">
+                            <div class="column mx-auto col-sm-4">
                                 <div class="text-center">
                                     <h5>รุ่น<span style="color: red;">*</span></th>
                                 </div>
@@ -121,7 +121,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="column mx-auto col-sm-2">
+                            <div class="column mx-auto col-sm-3">
                                 <div class="text-center">
                                     <br>
                                 </div>
@@ -379,7 +379,7 @@
                                                     $learnGreens = [];
                                                     $learnOranges = [];
                                                     $learnReds = [];
-
+                                                    $id=0;
                                                     foreach ($gradeRangeSortByDepartments as $dept) {
                                                         $sumBlue += $dept["blue"];
                                                         $sumGreen += $dept["green"];
@@ -410,12 +410,13 @@
                                                                 <?php echo $dept["red"] ?> คน
                                                             </td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                                <a data-toggle="modal" data-target="#dataModal<?php echo $id?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
                                                         <?php
+                                                        $id++;
                                                     }
                                                     ?>
 
@@ -491,7 +492,7 @@
                                                     $learn2NotPlans = [];
                                                     $learn2Retires = [];
                                                     $learn2Grads = [];
-
+                                                    $id=0;
                                                     foreach ($planStatusSortByDepartments as $planStatusSortByDepartment) {
                                                         $sumPlan += $planStatusSortByDepartment["plan"];
                                                         $sumNotPlan += $planStatusSortByDepartment["notPlan"];
@@ -523,12 +524,13 @@
                                                                 <?php echo $planStatusSortByDepartment["grad"] ?> คน
                                                             </td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal2">
+                                                                <a data-toggle="modal" data-target="#dataModal2<?php echo $id?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
                                                         <?php
+                                                        $id++;
                                                     }
                                                     ?>
 
@@ -867,7 +869,7 @@
                                                     $learnGreens2 = [];
                                                     $learnOranges2 = [];
                                                     $learnReds2 = [];
-
+                                                    $idmodal=0;
                                                     foreach ($gradeRangeRemainingSortByDepartments as $deptR) {
                                                         $sumBlue2 += $deptR["blue"];
                                                         $sumGreen2 += $deptR["green"];
@@ -899,12 +901,13 @@
                                                                 <?php echo $deptR["red"] ?> คน
                                                             </td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal">
+                                                                <a data-toggle="modal" data-target="#dataModal3<?php echo $idmodal?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
                                                         <?php
+                                                        $idmodal++;
                                                     }
                                                     ?>
 
@@ -979,7 +982,7 @@
                                                     $learn2NotPlans2 = [];
                                                     $learn2Retires2 = [];
                                                     $learn2Grads2 = [];
-
+                                                    $idmodal=0;
                                                     foreach ($planStatusRemainingByDepartments as $planStatusRemainingByDepartment) {
                                                         $sumPlan2 += $planStatusRemainingByDepartment["plan"];
                                                         $sumNotPlan2 += $planStatusRemainingByDepartment["notPlan"];
@@ -1011,12 +1014,13 @@
                                                                 <?php echo $planStatusRemainingByDepartment["grad"] ?> คน
                                                             </td>
                                                             <td class="text-center">
-                                                                <a data-toggle="modal" data-target="#dataModal2">
+                                                                <a data-toggle="modal" data-target="#dataModal4<?php echo $idmodal?>" >
                                                                     <i class="fas fa-search fa-sm"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
                                                         <?php
+                                                        $idmodal++;
                                                     }
                                                     ?>
 
@@ -1850,6 +1854,437 @@
         </div>
     </div>
     </div>
+
+    <?php
+                        $id=0;
+                        
+                        foreach ($gradeRangeSortByDepartments as $dept) {
+                            
+                    ?>
+
+                        <div id="dataModal<?php echo $id?>" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>วศ.คอมพิวเตอร์ </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 0 คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table table-striped">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.38</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.45</th>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 100 คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table table-striped" id="grade" cellspacing="0">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>2.85</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>2.59</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.01</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.05</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.10</th>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 6 คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table table-striped">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>1.45</th>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
+                                    <hr>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    <?php 
+                        $id++;
+                    }?>
+
+                    <?php
+                        $id=0;
+                        
+                        foreach ($planStatusSortByDepartments as $planStatusSortByDepartment) {
+                            
+                    ?>
+
+                        <div id="dataModal2<?php echo $id?>" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>วศ.คอมพิวเตอร์</h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 225 คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table table-striped">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.38</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.45</th>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 636 คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table table-striped">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>2.85</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>2.59</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.01</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.05</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.10</th>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 700 คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table table-striped">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>1.45</th>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 4 คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table table-striped">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>1.45</th>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php $id++;}?>
+
+                    <?php
+                        $id=0;
+                        
+                        foreach ($gradeRangeRemainingSortByDepartments as $deptR) {
+                            
+                    ?>
+
+                        <div id="dataModal3<?php echo $id?>" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>วศ.คอมพิวเตอร์ </h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 0 คน</h5>
+
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 5 คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table table-striped" id="grade" cellspacing="0">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>2.85</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>2.59</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.01</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.05</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.10</th>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 0 คน</h5>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
+                                    <hr>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    <?php $id++; }?>
+
+                    <?php
+                        $id=0;
+                        
+                        foreach ($planStatusRemainingByDepartments as $planStatusRemainingByDepartment) {
+                            
+                    ?>
+                        <div id="dataModal4<?php echo $id?>" class="modal fade" style="color: black;">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="height: 90px;">
+                                        <h5>วศ.คอมพิวเตอร์</h5>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <br>
+
+
+
+                                    </div>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 0 คน</h5>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 5 คน</h5>
+                                    <div class="modal-body" id="std_detail">
+                                        <table class="table table-striped">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>รหัสนิสิต</th>
+                                                    <th>ชื่อ-นามสกุล</th>
+                                                    <th>เกรดเฉลี่ย</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>2.85</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>2.59</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.01</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.05</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>632xxxxxxx</th>
+                                                    <th>นายxxxxxx xxxxxx</th>
+                                                    <th>3.10</th>
+                                                </tr>
+
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
+                                    <hr>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 0 คน</h5>
+                                    <hr>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                                            style="font-size: 18px;">ปิดหน้าต่าง</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php $id++; }?>
 
 
 
