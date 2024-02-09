@@ -64,6 +64,8 @@
 
             $generetions = geStudyGeneretionStudentInFaculty();
 
+            $gen = $_POST["generetion"];
+
             ?>
 
             <?php include('../layout/head/report.php'); ?>
@@ -172,7 +174,7 @@
                     </div>
 
                     <hr>
-                    <h5>คณะวิศวกรรมศาสตร์ กำแพงแสน </h5>
+                    <h5>คณะวิศวกรรมศาสตร์ กำแพงแสน รุ่นที่ <?php echo $gen ?></h5>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
@@ -182,7 +184,7 @@
                                 <div class="card-body ">
                                     <?php
                                     
-                                    $countStudentSortByDepartments = getCountStudentTcasSortByDepartmentBySemesterYear($semester["semesterYear"]);
+                                    $countStudentSortByDepartments = getCountStudentTcasSortByDepartmentBySemesterYearAndGeneretion($semester["semesterYear"],$gen);
                                     ?>
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -271,7 +273,7 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                                 </div>
-                                <?php $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);?>
+                                <?php $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYearAndGeneretion($semester["semesterYear"],$gen);?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -334,7 +336,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนอัตราการคงอยู่ </h6>
                                 </div>
                                 <?php
-                                $percentageDepartments = getPercentageStudySortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $percentageDepartments = getPercentageStudySortByDepartmentInFacultyBySemesterYearAndGeneretion($semester["semesterYear"],$gen);
                                 
                                 ?>
                                 <div class="card-body ">
@@ -402,7 +404,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">สัดส่วนอัตราการคงอยู่ </h6>
                                 </div>
                                 <?php
-                                $percentageRetireDepartments = getPercentageStudyAndRetireSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $percentageRetireDepartments = getPercentageStudyAndRetireSortByDepartmentInFacultyBySemesterYearAndGeneretion($semester["semesterYear"],$gen);
                                 
                                 ?>
                                 <div class="card-body ">

@@ -55,18 +55,23 @@
 
             $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
             $semester = getSemesterPresent();
+            $semesterYear = $semester["semesterYear"];
 
 
             $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
+            $generetions = geStudyGeneretionStudentInFaculty();
+
+
+            $round = $_POST["tcas"];
 
             ?>
 
             <?php include('../layout/head/report.php'); ?>
 
                     <div>
-                        <form>
+                        <form class="form-valide" action="../controller/headSearchFacultyTcas.php" method="post" enctype="multipart/form-data">
                             <div class="row mx-auto">
-                                <div class="column mx-auto col-sm-2">
+                                <!-- <div class="column mx-auto col-sm-2">
                                     <div class="text-center">
                                         <h5>ภาควิชา<span style="color: red;">*</span></th>
                                     </div>
@@ -84,22 +89,22 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="column mx-auto col-sm-2">
                                     <div class="text-center">
                                         <h5>รอบ TCAS<span style="color: red;">*</span></th>
                                     </div>
                                     <div class="text-center">
                                         <div>
-                                            <select class="form-control" data-live-search="true">
-                                                <option value="default">--รอบ TCAS--</option>
+                                            <select class="form-control" data-live-search="true" name = "tcas">
+                                                <option value="0">ทุกรอบ</option>
 
-                                                <option value="2561">รอบที่ 1
+                                                <option value="1">รอบที่ 1
                                                 </option>
-                                                <option value="2562">รอบที่ 2</option>
-                                                <option value="2561">รอบที่ 3
+                                                <option value="2">รอบที่ 2</option>
+                                                <option value="3">รอบที่ 3
                                                 </option>
-                                                <option value="2562">รอบที่ 4</option>
+                                                <option value="4">รอบที่ 4</option>
                                             </select>
                                         </div>
                                     </div>
@@ -110,22 +115,23 @@
                                     </div>
                                     <div class="text-center">
                                         <div>
-                                            <select class="form-control" data-live-search="true">
-                                                <option value="default">--รุ่น--</option>
+                                            <select class="form-control" data-live-search="true" name = "generetion">
+                                                <option value="0">ทุกรุ่น</option>
 
-                                                <option value="2561">61
-                                                </option>
-                                                <option value="2562">62</option>
-                                                <option value="2561">63
-                                                </option>
-                                                <option value="2562">64</option>
-                                                <option value="2562">65</option>
-                                                <option value="2562">66</option>
+                                                <?php
+                                                foreach ($generetions as $generetion) {
+                                                    ?>
+                                                    <option value="<?php echo $generetion["studyGeneretion"] ?>">
+                                                        <?php echo $generetion["studyGeneretion"] ?>
+                                                    </option>
+                                                    <?php
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column mx-auto col-sm-2">
+                                <!-- <div class="column mx-auto col-sm-2">
                                     <div class="text-center">
                                         <h5>จำนวนปีย้อนหลัง<span style="color: red;">*</span></th>
                                     </div>
@@ -144,7 +150,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="column mx-auto col-sm-2">
                                     <div class="text-center">
                                         <br>
@@ -161,6 +167,7 @@
                     </div>
 
                     <hr>
+                    <h5>คณะวิศวกรรมศาสตร์ กำแพงแสน รอบที่ <?php echo $round ?></h5>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
@@ -170,7 +177,7 @@
                                 <div class="card-body ">
                                     <?php
                                     
-                                    $countStudentSortByDepartments = getCountStudentTcasSortByDepartment();
+                                    $countStudentSortByDepartments = getCountStudentTcasSortByDepartmentBySemesterYearAndRound($semesterYear,$round);
                                     ?>
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -184,7 +191,7 @@
                                                     <thead style=" ">
                                                         <tr>
                                                             <th >ภาควิชา</th>
-                                                            <th style="text-align: center; "><span>รอบที่ 1</span>
+                                                            <th style="text-align: center; "><span>รอบที่ <?php echo $round ?></span>
                                                             </th>
                                                         </tr>
                                                     </thead>
@@ -237,7 +244,7 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                                 </div>
-                                <?php $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFaculty();?>
+                                <?php $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYearAndRound($semesterYear,$round); ?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -300,7 +307,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนอัตราการคงอยู่ </h6>
                                 </div>
                                 <?php
-                                $percentageDepartments = getPercentageStudySortByDepartmentInFaculty();
+                                $percentageDepartments = getPercentageStudySortByDepartmentInFacultyBySemesterYearAndRound($semesterYear,$round);;
                                 
                                 ?>
                                 <div class="card-body ">
@@ -368,7 +375,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">สัดส่วนอัตราการคงอยู่ </h6>
                                 </div>
                                 <?php
-                                $percentageRetireDepartments = getPercentageStudyAndRetireSortByDepartmentInFaculty();
+                                $percentageRetireDepartments = getPercentageStudyAndRetireSortByDepartmentInFacultyBySemesterYearAndRound($semesterYear,$round);;
                                 
                                 ?>
                                 <div class="card-body ">

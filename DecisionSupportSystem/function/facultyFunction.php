@@ -276,6 +276,36 @@ function getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYear($semesterYear)
 
 }
 
+function getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYearAndRound($semesterYear,$round)
+{
+
+
+    require("connection_connect.php");
+
+    $departmentMMAs = [];
+
+    $sql = "SELECT departmentName,departmentInitials,ROUND(MAX(gpaAll),2) AS maxGPAX,ROUND(AVG(gpaAll),2) AS avgGPAX,ROUND(MIN(gpaAll),2) AS minGPAX
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN department
+    WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE semesterYear <= $semesterYear AND tcasRound = $round
+    GROUP BY studentId)
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+
+        $departmentMMAs[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $departmentMMAs;
+
+}
+
 function getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYearAndGeneretion($semesterYear,$generetion)
 {
 
@@ -288,6 +318,36 @@ function getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYearAndGeneretion($s
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN department
     WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
     WHERE semesterYear <= $semesterYear AND studyGeneretion = $generetion
+    GROUP BY studentId)
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+
+        $departmentMMAs[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $departmentMMAs;
+
+}
+
+function getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYearAndGeneretionAndRound($semesterYear,$generetion,$round)
+{
+
+
+    require("connection_connect.php");
+
+    $departmentMMAs = [];
+
+    $sql = "SELECT departmentName,departmentInitials,ROUND(MAX(gpaAll),2) AS maxGPAX,ROUND(AVG(gpaAll),2) AS avgGPAX,ROUND(MIN(gpaAll),2) AS minGPAX
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN department
+    WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE semesterYear <= $semesterYear AND studyGeneretion = $generetion AND tcasRound = $round
     GROUP BY studentId)
     GROUP BY departmentId;";
 
@@ -532,6 +592,80 @@ function getCountStudentTcasSortByDepartmentBySemesterYear($semesterYear)
 
 }
 
+function getCountStudentTcasSortByDepartmentBySemesterYearAndRound($semesterYear,$round)
+{
+
+    require("connection_connect.php");
+
+    $countStudentSortByDepartments = [];
+
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasName = 'TCAS1' THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasName = 'TCAS2' THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasName = 'TCAS3' THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasName = 'TCAS4' THEN studentId END) AS TCAS4
+    FROM department NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE tcasYear <= $semesterYear AND tcasRound = $round
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $countStudentSortByDepartments[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $countStudentSortByDepartments;
+
+}
+
+function getCountStudentTcasSortByDepartmentBySemesterYearAndGeneretion($semesterYear,$generetion)
+{
+
+    require("connection_connect.php");
+
+    $countStudentSortByDepartments = [];
+
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasName = 'TCAS1' THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasName = 'TCAS2' THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasName = 'TCAS3' THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasName = 'TCAS4' THEN studentId END) AS TCAS4
+    FROM department NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE tcasYear <= $semesterYear AND studyGeneretion = $generetion
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $countStudentSortByDepartments[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $countStudentSortByDepartments;
+
+}
+function getCountStudentTcasSortByDepartmentBySemesterYearAndGeneretionAndRound($semesterYear,$generetion,$round)
+{
+
+    require("connection_connect.php");
+
+    $countStudentSortByDepartments = [];
+
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasName = 'TCAS1' THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasName = 'TCAS2' THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasName = 'TCAS3' THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasName = 'TCAS4' THEN studentId END) AS TCAS4
+    FROM department NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE tcasYear <= $semesterYear AND studyGeneretion = $generetion AND tcasRound = $round
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $countStudentSortByDepartments[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $countStudentSortByDepartments;
+
+}
+
 function getPercentageStudySortByDepartmentInFacultyBySemesterYear($semesterYear)
 {
 
@@ -543,6 +677,87 @@ function getPercentageStudySortByDepartmentInFacultyBySemesterYear($semesterYear
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  NATURAL JOIN department
     WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
     WHERE semesterYear <= $semesterYear
+    GROUP BY studentId)
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $percentageDepartments[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $percentageDepartments;
+
+}
+
+function getPercentageStudySortByDepartmentInFacultyBySemesterYearAndRound($semesterYear,$round)
+{
+
+    require("connection_connect.php");
+
+    $percentageDepartments = [];
+
+    $sql = "SELECT departmentName,departmentInitials,COUNT(studentId) AS entry,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  NATURAL JOIN department
+    WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE semesterYear <= $semesterYear AND tcasRound = $round
+    GROUP BY studentId)
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $percentageDepartments[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $percentageDepartments;
+
+}
+
+function getPercentageStudySortByDepartmentInFacultyBySemesterYearAndGeneretion($semesterYear,$generetion)
+{
+
+    require("connection_connect.php");
+
+    $percentageDepartments = [];
+
+    $sql = "SELECT departmentName,departmentInitials,COUNT(studentId) AS entry,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  NATURAL JOIN department
+    WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE semesterYear <= $semesterYear AND studyGeneretion = $generetion
+    GROUP BY studentId)
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $percentageDepartments[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $percentageDepartments;
+
+}
+
+function getPercentageStudySortByDepartmentInFacultyBySemesterYearAndRoundAndGeneretion($semesterYear,$round,$generetion)
+{
+
+    require("connection_connect.php");
+
+    $percentageDepartments = [];
+
+    $sql = "SELECT departmentName,departmentInitials,COUNT(studentId) AS entry,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  NATURAL JOIN department
+    WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE semesterYear <= $semesterYear AND tcasRound = $round AND studyGeneretion = $generetion
     GROUP BY studentId)
     GROUP BY departmentId;";
 
@@ -571,6 +786,87 @@ function getPercentageStudyAndRetireSortByDepartmentInFacultyBySemesterYear($sem
     WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
     WHERE semesterYear <= $semesterYear
     GROUP BY studentId)
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $percentageRetireDepartments[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $percentageRetireDepartments;
+
+}
+
+function getPercentageStudyAndRetireSortByDepartmentInFacultyBySemesterYearAndRound($semesterYear,$round)
+{
+
+    require("connection_connect.php");
+
+    $percentageRetireDepartments = [];
+
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  NATURAL JOIN department
+    WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE semesterYear <= $semesterYear AND tcasRound = $round
+    GROUP BY studentId)
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $percentageRetireDepartments[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $percentageRetireDepartments;
+
+}
+
+function getPercentageStudyAndRetireSortByDepartmentInFacultyBySemesterYearAndGeneretion($semesterYear,$generetion)
+{
+
+    require("connection_connect.php");
+
+    $percentageRetireDepartments = [];
+
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  NATURAL JOIN department
+    WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
+    WHERE semesterYear <= $semesterYear AND studyGeneretion = $generetion
+    GROUP BY studentId)
+    GROUP BY departmentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $percentageRetireDepartments[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $percentageRetireDepartments;
+
+}
+
+function getPercentageStudyAndRetireSortByDepartmentInFacultyBySemesterYearAndRoundAndGeneretion($semesterYear,$round,$generetion)
+{
+
+    require("connection_connect.php");
+
+    $percentageRetireDepartments = [];
+
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  NATURAL JOIN department
+    WHERE termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas
+    WHERE semesterYear <= $semesterYear AND tcasRound = $round AND studyGeneretion = $generetion
+    GROUP BY studentId) 
     GROUP BY departmentId;";
 
     $result = $conn->query($sql);
