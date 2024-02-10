@@ -128,7 +128,7 @@
                 </div>
 
                 <hr>
-                <h5>ภาควิชา<?php echo $teacher["departmentName"] ?> ปีการศึกษา <?php echo $semester["semesterYear"] ?></h5>
+                <h5 style="color:black;">ภาควิชา<?php echo $teacher["departmentName"] ?> ปีการศึกษา <?php echo $semester["semesterYear"] ?></h5>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">

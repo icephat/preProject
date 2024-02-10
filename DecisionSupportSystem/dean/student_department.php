@@ -97,6 +97,7 @@
 
                     <hr>
                     <div class="row">
+                        <h5 style="color:black;">ภาควิชาวิศวกรรมคอมพิวเตอร์ ปีการศึกษา 2564</h5>
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-body ">

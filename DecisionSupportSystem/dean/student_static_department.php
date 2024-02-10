@@ -47,7 +47,7 @@
                         <form>
                             <div class="row mx-auto">
 
-                                <div class="column mx-auto col-sm-2">
+                                <!--<div class="column mx-auto col-sm-2">
                                     <div class="text-center">
                                         <h5>ภาควิชา<span style="color: red;">*</span></th>
                                     </div>
@@ -65,8 +65,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="column mx-auto col-sm-2">
+                                </div>-->
+                                <div class="column mx-auto col-sm-4">
                                     <div class="text-center">
                                         <h5>รอบ TCAS<span style="color: red;">*</span></th>
                                     </div>
@@ -85,7 +85,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column mx-auto col-sm-2">
+                                <div class="column mx-auto col-sm-4">
                                     <div class="text-center">
                                         <h5>รุ่น<span style="color: red;">*</span></th>
                                     </div>
@@ -106,7 +106,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column mx-auto col-sm-2">
+                                <!--<div class="column mx-auto col-sm-2">
                                     <div class="text-center">
                                         <h5>จำนวนปีย้อนหลัง<span style="color: red;">*</span></th>
                                     </div>
@@ -125,8 +125,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="column mx-auto col-sm-2">
+                                </div>-->
+                                <div class="column mx-auto col-sm-3">
                                     <div class="text-center">
                                         <br>
                                     </div>
@@ -141,6 +141,10 @@
                     </div>
 
                     <hr>
+                    <div class="row" style="color: black;">
+
+                        <h5>คณะวิศวกรรมศาสตร์ กำแพงแสน</h5>
+                    </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">

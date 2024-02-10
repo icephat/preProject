@@ -1824,7 +1824,7 @@
 
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 0 คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 3.25-4.00 0 คน</h5>
                                     <div class="modal-body" id="std_detail">
                                         <table class="table table-striped">
 
@@ -1853,7 +1853,7 @@
 
                                     </div>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 100 คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;"> รายชื่อนิสิต ช่วงเกรด 2.00-3.24 100 คน</h5>
                                     <div class="modal-body" id="std_detail">
                                         <table class="table table-striped" id="grade" cellspacing="0">
 
@@ -1897,7 +1897,7 @@
 
                                     </div>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 6 คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 1.75-1.99 6 คน</h5>
                                     <div class="modal-body" id="std_detail">
                                         <table class="table table-striped">
 
@@ -1920,7 +1920,7 @@
 
                                     </div>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 0.00-1.74 0 คน</h5>
                                     <hr>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal"

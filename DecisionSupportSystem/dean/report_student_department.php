@@ -55,7 +55,7 @@
                         <form>
                             <div class="row mx-auto">
 
-                                <div class="column mx-auto col-sm-2">
+                                <!--<div class="column mx-auto col-sm-2">
                                     <div class="text-center">
                                         <h5>ภาควิชา<span style="color: red;">*</span></th>
                                     </div>
@@ -72,9 +72,9 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
-                                <div class="column mx-auto col-sm-2">
+                                <div class="column mx-auto col-sm-4">
                                     <div class="text-center">
                                         <h5>ปีการศึกษา<span style="color: red;">*</span></th>
                                     </div>
@@ -93,7 +93,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column mx-auto col-sm-2">
+                                <!--<div class="column mx-auto col-sm-2">
                                     <div class="text-center">
                                         <h5>ภาคการศึกษา<span style="color: red;">*</span></th>
                                     </div>
@@ -111,8 +111,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="column mx-auto col-sm-2">
+                                </div>-->
+                                <div class="column mx-auto col-sm-4">
                                     <div class="text-center">
                                         <h5>รุ่น<span style="color: red;">*</span></th>
                                     </div>
@@ -131,7 +131,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column mx-auto col-sm-2">
+                                <div class="column mx-auto col-sm-3">
                                     <div class="text-center">
                                         <br>
                                     </div>
@@ -150,7 +150,7 @@
                     <hr>
                     <div class="row" style="color: black;">
 
-                        <h5>ทั้งหมด 935 คน 5 รุ่น (รุ่นที่ 60 61 62 63 64)</h5>
+                        <h5>คณะวิศวกรรมศาสตร์ ปีการศึกษา 2566</h5>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 ">
@@ -327,11 +327,11 @@
                                                     <thead style=" ">
                                                         <tr>
                                                             <th style=" text-align: left; ">ภาควิชา</th>
-                                                            <th style="text-align: right; ">เกียรตินิยม
+                                                            <th style="text-align: right; ">3.25-4.00
                                                             </th>
-                                                            <th style="text-align: right;">ปกติ</th>
-                                                            <th style="text-align: right;">รอพินิจ</th>
-                                                            <th style="text-align: right;">โปรต่ำ</th>
+                                                            <th style="text-align: right;">2.00-3.24</th>
+                                                            <th style="text-align: right;">1.75-1.99</th>
+                                                            <th style="text-align: right;">0.00-1.74</th>
 
                                                             <th style="text-align: right;">รายละเอียด</th>
                                                         </tr>
@@ -807,11 +807,11 @@
                                                     <thead style=" ">
                                                         <tr>
                                                             <th style=" text-align: left; ">ภาควิชา</th>
-                                                            <th style="text-align: right; ">เกียรตินิยม
+                                                            <th style="text-align: right; ">3.25-4.00
                                                             </th>
-                                                            <th style="text-align: right;">ปกติ</th>
-                                                            <th style="text-align: right;">รอพินิจ</th>
-                                                            <th style="text-align: right;">โปรต่ำ</th>
+                                                            <th style="text-align: right;">2.00-3.24</th>
+                                                            <th style="text-align: right;">1.75-1.99</th>
+                                                            <th style="text-align: right;">0.00-1.74</th>
 
                                                             <th style="text-align: right;">รายละเอียด</th>
                                                         </tr>
@@ -1871,25 +1871,25 @@
                                 data: {
                                     labels: ['วศ.คอมพิวเตอร์', 'วศ.เครื่องกล', 'วศ.โยธา', 'วศ.อาหาร'],
                                     datasets: [{
-                                        label: 'เกียรตินิยม',
+                                        label: '3.25-4.00',
                                         data: [50, 40, 75, 60],
                                         backgroundColor: "rgba(0, 9, 188,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'ปกติ',
+                                        label: '2.00-3.24',
                                         data: [100, 200, 178, 158],
                                         backgroundColor: "rgba(0, 110, 22,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'โปรสูง',
+                                        label: '1.75-1.99',
                                         data: [6, 60, 2, 2],
                                         backgroundColor: 'rgba(255,128,0,0.7)',
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'โปรต่ำ',
+                                        label: '0.00-1.74',
                                         data: [0, 0, 4, 0],
                                         backgroundColor: 'rgba(255, 0, 0,0.7)',
                                         borderWidth: 0
@@ -2068,25 +2068,25 @@
                                 data: {
                                     labels: ['วศ.คอมพิวเตอร์', 'วศ.เครื่องกล', 'วศ.โยธา', 'วศ.อาหาร'],
                                     datasets: [{
-                                        label: 'เกียรตินิยม',
+                                        label: '3.25-4.00',
                                         data: [0, 0, 0, 0],
                                         backgroundColor: "rgba(0, 9, 188,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'ปกติ',
+                                        label: '2.00-3.24',
                                         data: [5, 25, 15, 20],
                                         backgroundColor: "rgba(0, 110, 22,0.7)",
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'โปรสูง',
+                                        label: '1.75-1.99',
                                         data: [0, 0, 0, 0],
                                         backgroundColor: 'rgba(255,128,0,0.7)',
                                         borderWidth: 0
                                     },
                                     {
-                                        label: 'โปรต่ำ',
+                                        label: '0.00-1.74',
                                         data: [0, 0, 0, 0],
                                         backgroundColor: 'rgba(255, 0, 0,0.7)',
                                         borderWidth: 0
@@ -2196,7 +2196,7 @@
 
 
             </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 50 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 3.25-4.00 50 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -2225,7 +2225,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 100 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 2.00-3.24 100 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped" id="grade" cellspacing="0">
 
@@ -2269,7 +2269,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 6 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 1.75-1.99 6 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -2292,7 +2292,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 0.00-1.74 0 คน</h5>
             <hr>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"
@@ -2453,10 +2453,10 @@
 
 
             </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตเกียรตินิยม 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 3.25-4.00 0 คน</h5>
 
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตปกติ 5 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 2.00-3.24 5 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped" id="grade" cellspacing="0">
 
@@ -2500,9 +2500,9 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตรอพินิจ 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 1.75-1.99 0 คน</h5>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิตโปรต่ำ 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 0.00-1.74 0 คน</h5>
             <hr>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"

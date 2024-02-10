@@ -70,14 +70,13 @@
                                     <div class="text-center">
                                         <div>
                                             <select class="form-control" data-live-search="true">
-                                                <option value="default">--รอบ--</option>
-
-                                                <option value="2561">รอบที่ 1
-                                                </option>
-                                                <option value="2562">รอบที่ 2</option>
-                                                <option value="2561">รอบที่ 3
-                                                </option>
-                                                <option value="2562">รอบที่ 4</option>
+                                            <option value="0">ทุกรอบ</option>
+                                            <option value="1">รอบที่ 1
+                                            </option>
+                                            <option value="2">รอบที่ 2</option>
+                                            <option value="3">รอบที่ 3
+                                            </option>
+                                            <option value="4">รอบที่ 4</option>
                                             </select>
                                         </div>
                                     </div>
@@ -99,6 +98,7 @@
 
                     <hr>
                     <div class="row">
+                        <h5 style="color:black;">ภาควิชาวิศวกรรมคอมพิวเตอร์</h5>
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">

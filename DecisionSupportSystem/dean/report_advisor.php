@@ -49,7 +49,7 @@
                         <form>
                             <div class="row mx-auto">
 
-                                <div class="column col-sm-3">
+                                <div class="column col-sm-4">
 
                                     <div class="text-center">
                                         <h5>ปีการศึกษา<span style="color: red;">*</span></th>
@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
 
-                                <div class="column col-sm-3">
+                                <!--<div class="column col-sm-3">
                                     <div class="text-center">
                                         <h5>ภาคการศึกษา<span style="color: red;">*</span></th>
                                     </div>
@@ -92,8 +92,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="column col-sm-3">
+                                </div>-->
+                                <div class="column col-sm-4">
                                     <div class="text-center">
                                         <h5>รุ่นที่สืบค้น<span style="color: red;">*</span></th>
                                     </div>
@@ -131,7 +131,7 @@
                     <hr>
                     <div class="row" style="color: black;">
 
-                        <h5>ทั้งหมด 250 คน 5 รุ่น (รุ่นที่ 60 61 62 63 64)</h5>
+                        <h5>ภาควิชาวิศวกรรมคอมพิวเตอร์ ปีการศึกษา 2566</h5>
                     </div>
                     <div class="row">
                         <div class="col-sm-12 ">
@@ -1257,52 +1257,7 @@
                             </div>
                         </div>
 
-                <!-- dataModal -->
-                <div id="dataModal" class="modal fade" style="color: black;">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header" style="height: 90px;">
-                                <h5>ปีการศึกษา 2565 หลักสูตร 2565 </h5>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <br>
-
-
-
-                            </div>
-                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามหลักสูตร 0 คน</h5>
-                            <hr>
-                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามหลักสูตร 1 คน</h5>
-                            <div class="modal-body" id="std_detail">
-                                <table class="table">
-
-                                    <thead>
-                                        <tr>
-                                            <th>รหัสนิสิต</th>
-                                            <th>ชื่อ-นามสกุล</th>
-                                            <th>GPAX</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>632xxxxxxx</th>
-                                            <th>นายxxxxxx xxxxxx</th>
-                                            <th>2.20</th>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-
-                            </div>
-                            <hr>
-                            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal"
-                                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                
 
 
 
@@ -1636,7 +1591,7 @@
 
 
             </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 5 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 3.25-4.00 5 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1665,7 +1620,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 5 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 2.00-3.24 5 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1709,9 +1664,9 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 1.75-1.99 0 คน</h5>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 1 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;"> รายชื่อนิสิต ช่วงเกรด0.00-1.74 1 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1869,9 +1824,9 @@
 
 
             </div>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 3.25-4.00 0 คน</h5>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 1 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;"> รายชื่อนิสิต ช่วงเกรด 2.00-3.24 1 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1894,7 +1849,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 1 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 1.75-1.99 1 คน</h5>
             <div class="modal-body" id="std_detail">
                 <table class="table table-striped">
 
@@ -1917,7 +1872,7 @@
 
             </div>
             <hr>
-            <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
+            <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 0.00-1.74 0 คน</h5>
 
             <hr>
             <div class="modal-footer">

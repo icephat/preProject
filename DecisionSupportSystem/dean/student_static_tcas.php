@@ -99,6 +99,7 @@
 
                     <hr>
                     <div class="row">
+                         <h5 style="color:black;">หลักสูตร วศ.คอม 60</h5>
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
