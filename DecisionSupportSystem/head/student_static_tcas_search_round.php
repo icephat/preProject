@@ -127,7 +127,7 @@
                 </div>
 
                 <hr>
-                <h5>หลักสูตร <?php echo $courseName ?> รอบที่  <?php echo $tcas ?></h5>
+                <h5 style="color:black;">หลักสูตร <?php echo $courseName ?> รอบที่  <?php echo $tcas ?></h5>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
@@ -158,18 +158,13 @@
                                                 <tbody>
                                                     <?php
                                                     $studyGeneretion=[];
-                                                    $TCAS1=[];
-                                                    $TCAS2=[];
-                                                    $TCAS3=[];
-                                                    $TCAS4=[];
-                                                    $sumTcas1 = 0;
-                                                    $sumTcas2 = 0;
-                                                    $sumTcas3 = 0;
-                                                    $sumTcas4 = 0;
+                                                    $TCAS=[];
+                                                    $sumTcas = 0;
 
                                                     foreach ($countStudentSortByGeneretions as $countStudentSortByGeneretion) {
-                                                        $studyGeneretion[]="รุ่น ".(string)$countStudentSortByGeneretion["studyGeneretion"];
-
+                                                        $studyGeneretion[]="รุ่น ". $countStudentSortByGeneretion["studyGeneretion"];
+                                                        $TCAS[]=(int)$countStudentSortByGeneretion["tcasCount"];
+                                                        $sumTcas+=(int)$countStudentSortByGeneretion["tcasCount"];
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: center;">
@@ -187,7 +182,7 @@
                                                     <tr>
                                                         <th scope='row' style=" text-align: center; ">ทุกรอบ</th>
                                                         <td style="font-weight: bold; text-align: center;">
-                                                            <?php echo $sumTcas1 ?> คน
+                                                            <?php echo $sumTcas ?> คน
                                                         </td>
                                                     </tr>
 
@@ -442,8 +437,10 @@
 
                     var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
                     
-                    var tcas1 = <?php echo json_encode($TCAS1); ?>; 
-
+                    var label = <?php echo json_encode($tcas); ?>;
+                    
+                    var tcas1 = <?php echo json_encode($TCAS); ?>; 
+                    
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
@@ -452,7 +449,7 @@
                         data: {
                             labels: studyGeneretions,
                             datasets: [{
-                                label: 'Tcas 1',
+                                label: "รอบที่ "+label,
                                 data: tcas1,
                                 backgroundColor: '#bfd575',
                                 borderColor: [

@@ -68,7 +68,7 @@
                 <div>
                     <form class="form-valide" action="../controller/headAdvisorSearch.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
-                            <div class="column col-sm-3">
+                            <div class="column col-sm-4">
 
                                 <div class="text-center">
                                     <h5>ปีการศึกษา<span style="color: red;">*</span></th>
@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="column col-sm-3">
+                            <div class="column col-sm-4">
                                 <div class="text-center">
                                     <h5>รุ่นที่สืบค้น<span style="color: red;">*</span></th>
                                 </div>

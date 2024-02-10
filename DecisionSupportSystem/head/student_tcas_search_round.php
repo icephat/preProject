@@ -159,19 +159,14 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    $studyGeneretion = [];
-                                                    $TCAS1 = [];
-                                                    $TCAS2 = [];
-                                                    $TCAS3 = [];
-                                                    $TCAS4 = [];
-                                                    $sumTcas1 = 0;
-                                                    $sumTcas2 = 0;
-                                                    $sumTcas3 = 0;
-                                                    $sumTcas4 = 0;
+                                                     $studyGeneretion=[];
+                                                     $TCAS=[];
+                                                     $sumTcas = 0;
 
                                                     foreach ($countStudentSortByGeneretions as $countStudentSortByGeneretion) {
                                                         $studyGeneretion[] = "รุ่น " . (string) $countStudentSortByGeneretion["studyGeneretion"];
-
+                                                        $TCAS[]=(int)$countStudentSortByGeneretion["tcasCount"];
+                                                        $sumTcas+=(int)$countStudentSortByGeneretion["tcasCount"];
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: center;">
@@ -187,7 +182,7 @@
                                                     <tr>
                                                         <th scope='row' style=" text-align: center; ">ทุกรุ่น</th>
                                                         <td style="font-weight: bold; text-align: center;">
-                                                            <?php echo $sumTcas1 ?> คน
+                                                            <?php echo $sumTcas ?> คน
                                                         </td>
 
                                                     </tr>
@@ -445,12 +440,11 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
                 <script>
-                    var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
+                   var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
                     
-                    var tcas1 = <?php echo json_encode($TCAS1); ?>;
-                    var tcas2 = <?php echo json_encode($TCAS2); ?>;
-                    var tcas3 = <?php echo json_encode($TCAS3); ?>;
-                    var tcas4 = <?php echo json_encode($TCAS4); ?>;  
+                    var label = <?php echo json_encode($round); ?>;
+                    
+                    var tcas = <?php echo json_encode($TCAS); ?>; 
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
@@ -459,8 +453,8 @@
                         data: {
                             labels: studyGeneretions,
                             datasets: [{
-                                label: 'รอบที่ 1',
-                                data: tcas1,
+                                label: "รอบที่ "+label,
+                                data: tcas,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -472,50 +466,7 @@
                                 ],
                                 borderWidth: 0
                             },
-                            {
-                                label: 'รอบที่ 2',
-                                data: tcas2,
-                                backgroundColor: '#a4ebf3',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'รอบที่ 3',
-                                data: tcas3,
-                                backgroundColor: '#abbdee',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'รอบที่ 4',
-                                data: tcas4,
-                                backgroundColor: '#f8c769',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
-                                borderWidth: 0
-                            },
-
-
+                           
                             ]
 
                         },

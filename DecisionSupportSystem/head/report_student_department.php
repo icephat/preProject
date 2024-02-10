@@ -1058,7 +1058,7 @@
                         </div>-->
 
                         <!-- modalblue -->
-                <div id="modalblue" class="modal fade" style="color: black;">
+                        <div id="modalblue" class="modal fade" style="color: black;">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header" style="height: 90px;">

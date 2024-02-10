@@ -418,7 +418,7 @@
                                                                 <td style=" text-align: center;">
                                                                     <?php echo $studentStudy["five"] ?> คน
                                                                 </td>
-                                                                <td style=" text-align: center; font-weight: bold;"><?php echo $sum?></td>
+                                                                <td style=" text-align: center; font-weight: bold;"><?php echo $studentStudy["five"] ?></td>
                                                             </tr>
 
                                                             <?php

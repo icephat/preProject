@@ -91,7 +91,7 @@
                                         </div>
                                     </div>
                                 </div> -->
-                                <div class="column mx-auto col-sm-2">
+                                <div class="column mx-auto col-sm-4">
                                     <div class="text-center">
                                         <h5>รอบ TCAS<span style="color: red;">*</span></th>
                                     </div>
@@ -110,7 +110,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="column mx-auto col-sm-2">
+                                <div class="column mx-auto col-sm-4">
                                     <div class="text-center">
                                         <h5>รุ่น<span style="color: red;">*</span></th>
                                     </div>
@@ -152,7 +152,7 @@
                                         </div>
                                     </div>
                                 </div> -->
-                                <div class="column mx-auto col-sm-2">
+                                <div class="column mx-auto col-sm-3">
                                     <div class="text-center">
                                         <br>
                                     </div>
@@ -168,7 +168,7 @@
                     </div>
 
                     <hr>
-                    <h5>คณะวิศวกรรมศาสตร์ กำแพงแสน รอบที่ <?php echo $round ?> รุ่นที่ <?php echo $gen ?></h5>
+                    <h5 style="color:black;">คณะวิศวกรรมศาสตร์ กำแพงแสน รอบที่ <?php echo $round ?> รุ่นที่ <?php echo $gen ?></h5>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
@@ -473,7 +473,7 @@
                         var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
                         
                         var tcas1 = <?php echo json_encode($TCAS1); ?>;
-
+                        var label = <?php echo json_encode($round); ?>;                  
                         var ctx = document.getElementById("myChart");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
@@ -482,7 +482,7 @@
                             data: {
                                 labels: studyGeneretions,
                                 datasets: [{
-                                    label: 'รอบที่ 1',
+                                    label: 'รอบที่ '+label,
                                     data: tcas1,
                                     backgroundColor: '#bfd575',
                                     borderColor: [

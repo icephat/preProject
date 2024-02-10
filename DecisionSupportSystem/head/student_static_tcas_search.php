@@ -153,11 +153,11 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รุ่น</th>
-                                                        <th style="text-align: center; "><span>Tcas 1</span>
+                                                        <th style="text-align: center; "><span>รอบที่ 1</span>
                                                         </th>
-                                                        <th style="text-align: center;"><span>Tcas 2</span></th>
-                                                        <th style="text-align: center;">Tcas 3</th>
-                                                        <th style="text-align: center;">Tcas 4</th>
+                                                        <th style="text-align: center;"><span>รอบที่ 2</span></th>
+                                                        <th style="text-align: center;">รอบที่ 3</th>
+                                                        <th style="text-align: center;">รอบที่ 4</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -486,7 +486,7 @@
                         data: {
                             labels: studyGeneretions,
                             datasets: [{
-                                label: 'Tcas 1',
+                                label: 'รอบที่ 1',
                                 data: tcas1,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
@@ -500,7 +500,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'Tcas 2',
+                                label: 'รอบที่ 2',
                                 data: tcas2,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -514,7 +514,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'Tcas 3',
+                                label: 'รอบที่ 3',
                                 data: tcas3,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
@@ -528,7 +528,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'Tcas 4',
+                                label: 'รอบที่ 4',
                                 data: tcas4,
                                 backgroundColor: '#f8c769',
                                 borderColor: [
