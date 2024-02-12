@@ -182,7 +182,7 @@
 
                                             <div style="color: rgb(0, 9, 188);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 9, 188);" href="#" data-toggle="modal" data-target="#modalblue">
+                                                    <a style="color: rgb(0, 9, 188);" ><!--href="#" data-toggle="modal" data-target="#modalblue"-->
                                                         <h4>3.25-4.00</h4>
                                                     </a>
                                                 </div>
@@ -201,7 +201,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);" href="#" data-toggle="modal" data-target="#modalgreen">
+                                                    <a style="color: rgb(0, 110, 22);"><!-- href="#" data-toggle="modal" data-target="#modalgreen"-->
                                                         <h4>2.00-3.24</h4>
                                                     </a>
                                                 </div>
@@ -221,7 +221,7 @@
 
                                             <div style="color: #ff8c00;">
                                                 <div class="text-center">
-                                                    <a style="color: #ff8c00;" href="#" data-toggle="modal" data-target="#modalorange">
+                                                    <a style="color: #ff8c00;" ><!--href="#" data-toggle="modal" data-target="#modalorange"-->
                                                         <h4>1.75-1.99</h4>
                                                     </a>
                                                 </div>
@@ -238,7 +238,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 0, 0);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 0, 0);" href="#" data-toggle="modal" data-target="#modalred">
+                                                    <a style="color: rgb(255, 0, 0);" ><!--href="#" data-toggle="modal" data-target="#modalred"-->
                                                         <h4>0.00-1.74</h4>
                                                     </a>
                                                 </div>
@@ -267,7 +267,7 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(100, 197, 215);" href="#" data-toggle="modal" data-target="#modalblue2">
+                                                    <a style="color: rgb(100, 197, 215);" ><!--href="#" data-toggle="modal" data-target="#modalblue2"-->
                                                         <h4>ตามแผน</h4>
                                                     </a>
                                                 </div>
@@ -286,7 +286,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	118, 188, 22);" href="#" data-toggle="modal" data-target="#modalgreen2">
+                                                    <a style="color: rgb(	118, 188, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen2"-->
                                                         <h4>ไม่ตามแผน</h4>
                                                     </a>
                                                 </div>
@@ -306,7 +306,7 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	245, 123, 57);" href="#" data-toggle="modal" data-target="#modalorange2">
+                                                    <a style="color: rgb(	245, 123, 57);"><!-- href="#" data-toggle="modal" data-target="#modalorange2"-->
                                                         <h4>พ้นสภาพ</h4>
                                                     </a>
                                                 </div>
@@ -323,7 +323,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color:  rgb(255, 105, 98);" href="#" data-toggle="modal" data-target="#modalred2">
+                                                    <a style="color:  rgb(255, 105, 98);" ><!--href="#" data-toggle="modal" data-target="#modalred2"-->
                                                         <h4>จบการศึกษา</h4>
                                                     </a>
                                                 </div>
@@ -375,7 +375,7 @@
                                                             <th style="text-align: right;">1.75-1.99</th>
                                                             <th style="text-align: right;">0.00-1.74</th>
 
-                                                            <th style="text-align: right;">รายละเอียด</th>
+                                                            <!--<th style="text-align: right;">รายละเอียด</th>-->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -415,11 +415,11 @@
                                                                 <td style=" text-align: right;"><?php echo $dept["orange"] ?> คน</td>
 
                                                                 <td style=" text-align: right;"><?php echo $dept["red"] ?> คน</td>
-                                                                <td class="text-center">
+                                                                <!--<td class="text-center">
                                                                     <a data-toggle="modal" data-target="#dataModal<?php echo $id?>" >
                                                                         <i class="fas fa-search fa-sm"></i>
                                                                     </a>
-                                                                </td>
+                                                                </td>-->
                                                             </tr>
                                                             <?php 
                                                             $id++;
@@ -435,7 +435,7 @@
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumGreen ?> คน</td>
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumOrange ?> คน</td>
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumRed ?> คน</td>
-                                                            <td></td>
+                                                            <!--<td></td>-->
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -476,7 +476,7 @@
                                                             <th style="text-align: right;">พ้นสภาพ</th>
                                                             <th style="text-align: right;">จบการศึกษา</th>
 
-                                                            <th style="text-align: right;">รายละเอียด</th>
+                                                            <!--<th style="text-align: right;">รายละเอียด</th>-->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -516,11 +516,11 @@
                                                                         <td style=" text-align: right;"><?php echo $planStatusSortByDepartment["retire"] ?> คน</td>
 
                                                                         <td style=" text-align: right;"><?php echo $planStatusSortByDepartment["grad"] ?> คน</td>
-                                                                        <td class="text-center">
+                                                                        <!--<td class="text-center">
                                                                             <a data-toggle="modal" data-target="#dataModal2<?php echo $id?>" >
                                                                                 <i class="fas fa-search fa-sm"></i>
                                                                             </a>
-                                                                        </td>
+                                                                        </td>-->
                                                                     </tr>
                                                                     <?php
                                                                     $id++;
@@ -537,7 +537,7 @@
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumNotPlan ?> คน</td>
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumRetire?> คน</td>
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumGrad?> คน</td>
-                                                            <td></td>
+                                                            <!--<td></td>-->
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -637,7 +637,7 @@
 
                                             <div style="color: rgb(0, 9, 188);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 9, 188);" href="#" data-toggle="modal" data-target="#modalblue3">
+                                                    <a style="color: rgb(0, 9, 188);" ><!--href="#" data-toggle="modal" data-target="#modalblue3"-->
                                                         <h4>3.25-4.00</h4>
                                                     </a>
                                                 </div>
@@ -656,7 +656,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);" href="#" data-toggle="modal" data-target="#modalgreen3">
+                                                    <a style="color: rgb(0, 110, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen3"-->
                                                         <h4>2.00-3.24</h4>
                                                     </a>
                                                 </div>
@@ -676,7 +676,7 @@
 
                                             <div style="color: #ff8c00;">
                                                 <div class="text-center">
-                                                    <a style="color: #ff8c00;" href="#" data-toggle="modal" data-target="#modalorange3">
+                                                    <a style="color: #ff8c00;" ><!--href="#" data-toggle="modal" data-target="#modalorange3"-->
                                                         <h4>1.75-1.99</h4>
                                                     </a>
                                                 </div>
@@ -693,7 +693,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 0, 0);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 0, 0);" href="#" data-toggle="modal" data-target="#modalred3">
+                                                    <a style="color: rgb(255, 0, 0);" ><!--href="#" data-toggle="modal" data-target="#modalred3"-->
                                                         <h4>0.00-1.74</h4>
                                                     </a>
                                                 </div>
@@ -722,7 +722,7 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(100, 197, 215);" href="#" data-toggle="modal" data-target="#modalblue4">
+                                                    <a style="color: rgb(100, 197, 215);" ><!--href="#" data-toggle="modal" data-target="#modalblue4"-->
                                                         <h4>ตามแผน</h4>
                                                     </a>
                                                 </div>
@@ -741,7 +741,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	118, 188, 22);" href="#" data-toggle="modal" data-target="#modalgreen4">
+                                                    <a style="color: rgb(	118, 188, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen4"-->
                                                         <h4>ไม่ตามแผน</h4>
                                                     </a>
                                                 </div>
@@ -761,7 +761,7 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	245, 123, 57);" href="#" data-toggle="modal" data-target="#modalorange4">
+                                                    <a style="color: rgb(	245, 123, 57);" ><!--href="#" data-toggle="modal" data-target="#modalorange4"-->
                                                         <h4>พ้นสภาพ</h4>
                                                     </a>
                                                 </div>
@@ -778,7 +778,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 105, 98);" href="#" data-toggle="modal" data-target="#modalred4">
+                                                    <a style="color: rgb(255, 105, 98);"><!-- href="#" data-toggle="modal" data-target="#modalred4"-->
                                                         <h4>จบการศึกษา</h4>
                                                     </a>
                                                 </div>
@@ -829,7 +829,7 @@
                                                             <th style="text-align: right;">1.75-1.99</th>
                                                             <th style="text-align: right;">0.00-1.74</th>
 
-                                                            <th style="text-align: right;">รายละเอียด</th>
+                                                            <!--<th style="text-align: right;">รายละเอียด</th>-->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -870,11 +870,11 @@
                                                                         <td style=" text-align: right;"><?php echo $deptR["orange"] ?> คน</td>
 
                                                                         <td style=" text-align: right;"><?php echo $deptR["red"] ?> คน</td>
-                                                                        <td class="text-center">
+                                                                        <!--<td class="text-center">
                                                                             <a data-toggle="modal" data-target="#dataModal3<?php echo $idmodal?>" >
                                                                                 <i class="fas fa-search fa-sm"></i>
                                                                             </a>
-                                                                        </td>
+                                                                        </td>-->
                                                                     </tr>
                                                     <?php
                                                     $idmodal++;
@@ -889,7 +889,7 @@
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumGreen2 ?> คน</td>
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumOrange2 ?> คน</td>
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumRed2 ?> คน</td>
-                                                            <td></td>
+                                                            <!--<td></td>-->
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -930,7 +930,7 @@
                                                             <th style="text-align: right;">พ้นสภาพ</th>
                                                             <th style="text-align: right;">จบการศึกษา</th>
 
-                                                            <th style="text-align: right;">รายละเอียด</th>
+                                                            <!--<th style="text-align: right;">รายละเอียด</th>-->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -970,11 +970,11 @@
                                                                     <td style=" text-align: right;"><?php echo $planStatusRemainingByDepartment["retire"] ?> คน</td>
 
                                                                     <td style=" text-align: right;"><?php echo $planStatusRemainingByDepartment["grad"] ?> คน</td>
-                                                                    <td class="text-center">
+                                                                    <!--<td class="text-center">
                                                                         <a data-toggle="modal" data-target="#dataModal4<?php echo $idmodal?>" >
                                                                                 <i class="fas fa-search fa-sm"></i>
                                                                         </a>
-                                                                    </td>
+                                                                    </td>-->
                                                                 </tr>
                                                                 <?php
                                                                 $idmodal++;
@@ -989,7 +989,7 @@
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumNotPlan2?> คน</td>
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumRetire2?> คน</td>
                                                             <td style='font-weight: bold; text-align: right;'><?php echo $sumGrad2?> คน</td>
-                                                            <td></td>
+                                                            <!--<td></td>-->
                                                         </tr>
                                                     </tbody>
                                                 </table>
