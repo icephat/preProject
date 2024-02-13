@@ -74,5 +74,38 @@ function getGeneretionInCourseByDepartmentId($departmentId)
     return $generetions;
 }
 
+function getStudentByDepartmentId($departmentId)
+{
+
+    require("connection_connect.php");
+
+
+    $students = [];
+
+    $sql = "SELECT studentId FROM fact_student WHERE departmentId = " . $departmentId;
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+
+
+
+        $student = getStudentByStudentId($my_row["studentId"]);
+        //echo $my_row["studentId"];
+
+        $students[] = $student;
+
+
+
+    }
+
+
+
+    require("connection_close.php");
+
+    return $students;
+
+}
+
 
 ?>
