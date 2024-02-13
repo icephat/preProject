@@ -918,6 +918,7 @@ $semester = getSemesterPresent();
                     </div> -->
 
                 <!-- modalblue -->
+               
                 <div id="modalblue" class="modal fade" style="color: black;">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -927,8 +928,11 @@ $semester = getSemesterPresent();
                                 <br>
 
                             </div>
-                            <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-
+                            <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo $gpaxStatusCount["blue"]?> คน</h5>
+                            <?php
+                                if((int)$gpaxStatusCount["blue"] > 0){
+                                        
+                            ?>
                             <div class="modal-body" id="std_detail">
                                 <table class="table">
 
@@ -940,18 +944,23 @@ $semester = getSemesterPresent();
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                            foreach($gpaxStatusCount["blues"] as $student){
+                                               
+                                        ?>
                                         <tr>
-                                            <th>632050000</th>
-                                            <th>นายxxx xxx</th>
-                                            <th>3.333</th>
+                                            <th><?php echo $student["studentId"]?></th>
+                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                            <th><?php echo $student["gpaAll"]?></th>
                                         </tr>
-
+                                        <?php
+                                        }?>
 
                                     </tbody>
                                 </table>
 
                             </div>
-
+                            <?php }?>
                             <hr>
 
                             <div class="modal-footer">
@@ -973,8 +982,11 @@ $semester = getSemesterPresent();
                             <br>
 
                         </div>
-                        <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-
+                        <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo $gpaxStatusCount["green"]?> คน</h5>
+                        <?php
+                                if((int)$gpaxStatusCount["green"] > 0){
+                                        
+                            ?>
                         <div class="modal-body" id="std_detail">
                             <table class="table">
 
@@ -986,17 +998,22 @@ $semester = getSemesterPresent();
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th>632050000</th>
-                                        <th>นายxxx xxx</th>
-                                        <th>3.333</th>
-                                    </tr>
+                                    <?php
+                                        foreach($gpaxStatusCount["greens"] as $student){
+                                    ?>
+                                        <tr>
+                                            <th><?php echo $student["studentId"]?></th>
+                                            <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                            <th><?php echo $student["gpaAll"]?></th>
+                                        </tr>
+                                    <?php }?>
 
 
                                 </tbody>
                             </table>
 
                         </div>
+                        <?php }?>
 
                         <hr>
 
@@ -1019,8 +1036,11 @@ $semester = getSemesterPresent();
                         <br>
 
                     </div>
-                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-
+                    <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo $gpaxStatusCount["orange"]?> คน</h5>
+                    <?php
+                        if((int)$gpaxStatusCount["orange"] > 0){
+                                    
+                    ?>
                     <div class="modal-body" id="std_detail">
                         <table class="table">
 
@@ -1032,17 +1052,22 @@ $semester = getSemesterPresent();
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>632050000</th>
-                                    <th>นายxxx xxx</th>
-                                    <th>3.333</th>
-                                </tr>
+                                <?php
+                                    foreach($gpaxStatusCount["oranges"] as $student){
+                                ?>
+                                    <tr>
+                                        <th><?php echo $student["studentId"]?></th>
+                                        <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                        <th><?php echo $student["gpaAll"]?></th>
+                                    </tr>
+                                <?php }?>
 
 
                             </tbody>
                         </table>
 
                     </div>
+                    <?php }?>
 
                     <hr>
 
@@ -1065,8 +1090,11 @@ $semester = getSemesterPresent();
                     <br>
 
                 </div>
-                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-
+                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo $gpaxStatusCount["red"]?> คน</h5>
+                <?php
+                    if((int)$gpaxStatusCount["red"] > 0){
+                                    
+                ?>
                 <div class="modal-body" id="std_detail">
                     <table class="table">
 
@@ -1078,17 +1106,23 @@ $semester = getSemesterPresent();
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>632050000</th>
-                                <th>นายxxx xxx</th>
-                                <th>3.333</th>
-                            </tr>
+                            <?php
+                                foreach($gpaxStatusCount["reds"] as $student){
+                            ?>
+                                <tr>
+                                    <th><?php echo $student["studentId"]?></th>
+                                    <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                    <th><?php echo $student["gpaAll"]?></th>
+                                </tr>
+                            <?php }?>
 
 
                         </tbody>
+
                     </table>
 
                 </div>
+                <?php }?>
 
                 <hr>
 
@@ -1112,8 +1146,11 @@ $semester = getSemesterPresent();
                     <br>
 
                 </div>
-                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-
+                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo $planingCount["plan"]?> คน</h5>
+                <?php
+                    if((int)$planingCount["plan"] > 0){
+                                    
+                ?>
                 <div class="modal-body" id="std_detail">
                     <table class="table">
 
@@ -1125,18 +1162,22 @@ $semester = getSemesterPresent();
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>632050000</th>
-                                <th>นายxxx xxx</th>
-                                <th>3.333</th>
-                            </tr>
+                            <?php
+                                foreach($planingCount["plans"] as $student){
+                            ?>
+                                <tr>
+                                    <th><?php echo $student["studentId"]?></th>
+                                    <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                    <th><?php echo $student["gpaAll"]?></th>
+                                </tr>
+                            <?php }?>
 
 
                         </tbody>
                     </table>
 
                 </div>
-
+                <?php }?>
                 <hr>
 
                 <div class="modal-footer">
@@ -1158,8 +1199,11 @@ $semester = getSemesterPresent();
                     <br>
 
                 </div>
-                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-
+                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo $planingCount["notPlan"]?> คน</h5>
+                <?php
+                    if((int)$planingCount["notPlan"] > 0){
+                                    
+                ?>
                 <div class="modal-body" id="std_detail">
                     <table class="table">
 
@@ -1171,18 +1215,22 @@ $semester = getSemesterPresent();
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>632050000</th>
-                                <th>นายxxx xxx</th>
-                                <th>3.333</th>
-                            </tr>
+                            <?php
+                                foreach($planingCount["notPlans"] as $student){
+                            ?>
+                                <tr>
+                                    <th><?php echo $student["studentId"]?></th>
+                                    <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                    <th><?php echo $student["gpaAll"]?></th>
+                                </tr>
+                            <?php }?>
 
 
                         </tbody>
                     </table>
 
                 </div>
-
+                <?php }?>
                 <hr>
 
                 <div class="modal-footer">
@@ -1204,8 +1252,11 @@ $semester = getSemesterPresent();
                     <br>
 
                 </div>
-                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-
+                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo $planingCount["retire"]?> คน</h5>
+                <?php
+                    if((int)$planingCount["retire"] > 0){
+                                    
+                ?>
                 <div class="modal-body" id="std_detail">
                     <table class="table">
 
@@ -1217,17 +1268,22 @@ $semester = getSemesterPresent();
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>632050000</th>
-                                <th>นายxxx xxx</th>
-                                <th>3.333</th>
-                            </tr>
+                            <?php
+                                foreach($planingCount["retires"] as $student){
+                            ?>
+                                <tr>
+                                    <th><?php echo $student["studentId"]?></th>
+                                    <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                    <th><?php echo $student["gpaAll"]?></th>
+                                </tr>
+                            <?php }?>
 
 
                         </tbody>
                     </table>
 
                 </div>
+                <?php }?>
 
                 <hr>
 
@@ -1250,8 +1306,11 @@ $semester = getSemesterPresent();
                     <br>
 
                 </div>
-                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต 10 คน</h5>
-
+                <h5 class="modal-title" style="margin-left: 10px;">จำนวนนิสิต <?php echo $planingCount["grad"]?> คน</h5>
+                <?php
+                    if((int)$planingCount["grad"] > 0){
+                                    
+                ?>
                 <div class="modal-body" id="std_detail">
                     <table class="table">
 
@@ -1263,17 +1322,22 @@ $semester = getSemesterPresent();
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>632050000</th>
-                                <th>นายxxx xxx</th>
-                                <th>3.333</th>
-                            </tr>
+                            <?php
+                                foreach($planingCount["grads"] as $student){
+                            ?>
+                                <tr>
+                                    <th><?php echo $student["studentId"]?></th>
+                                    <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
+                                    <th><?php echo $student["gpaAll"]?></th>
+                                </tr>
+                            <?php }?>
 
 
                         </tbody>
                     </table>
 
                 </div>
+                <?php }?>
 
                 <hr>
 
