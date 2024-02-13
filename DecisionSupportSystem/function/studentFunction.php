@@ -15,7 +15,7 @@ function getStudentByUsername($studentUsername)
 {
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM student NATURAL JOIN fact_student NATURAL JOIN studentstatus WHERE studentUsername = '" . $studentUsername . "'";
+    $sql = "SELECT * FROM student NATURAL JOIN fact_student WHERE studentUsername = '" . $studentUsername . "'";
 
     $result = $conn->query($sql);
     $student = $result->fetch_assoc();
@@ -29,10 +29,11 @@ function getStudentByUsername($studentUsername)
     $student["credit"] = getCredit($student["studentId"]);
     $student["creditThree"] = getCreditThree($student["studentId"]);
     $student["course"] = getCourseById($student["courseId"]);
+    $student["status"] = getStudentStatusByStudentId($student["studentId"]);
 
     $semester = getSemesterPresent();
 
-    $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"] +1;
+    $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"] + 1;
 
     if ($semester["semesterPart"] == "ภาคต้น") {
         $student["studyTerm"] = 1;
@@ -46,11 +47,13 @@ function getStudentByUsername($studentUsername)
 
 }
 
+
+
 function getStudentByStudentId($studentId)
 {
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM student NATURAL JOIN fact_student NATURAL JOIN studentstatus WHERE studentId = '" . $studentId . "'";
+    $sql = "SELECT * FROM student NATURAL JOIN fact_student WHERE studentId = '" . $studentId . "'";
 
     $result = $conn->query($sql);
     $student = $result->fetch_assoc();
@@ -62,12 +65,13 @@ function getStudentByStudentId($studentId)
     $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
     $student["gpax"] = getGPAX($student["studentId"]);
     $student["course"] = getCourseById($student["courseId"]);
+    $student["status"] = getStudentStatusByStudentId($student["studentId"]);
 
     $semester = getSemesterPresent();
 
     $semester = getSemesterPresent();
 
-    $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"]+1;
+    $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"] + 1;
 
     if ($semester["semesterPart"] == "ภาคต้น") {
         $student["studyTerm"] = 1;
@@ -86,6 +90,26 @@ function getStudentByStudentId($studentId)
 
     return $student;
 
+}
+
+function getStudentStatusByStudentId($studentId)
+{
+    require("connection_connect.php");
+
+    $sql = "SELECT *
+    FROM  fact_term_summary NATURAL JOIN studentStatus
+    WHERE studentId = $studentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
+    WHERE studentId = $studentId
+    GROUP BY studentId);";
+
+    $result = $conn->query($sql);
+    $status = $result->fetch_assoc();
+
+
+
+    require("connection_close.php");
+
+    return $status["status"];
 }
 
 function getGPAX($studentId)
@@ -790,7 +814,7 @@ function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $pl
     $yearX = $year - 1;
     $termX = $part + 1;
 
-    
+
 
     $sql = "SELECT courseListId,studyYear,term,subjectCode,subjectGroup,credit
     FROM courselist
@@ -812,7 +836,7 @@ function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $pl
     require("connection_close.php");
 
 
-    
+
     return $subjects;
 
 }

@@ -131,6 +131,8 @@ function getstudentListByTeacherIdAndStatus($teacherId,$gradeRange)
 
     $semester = getSemesterPresent();
 
+    $countGPAXs = [];
+
 
     $sql = "SELECT studentId,fisrtNameTh,lastNameTh,round(gpaTerm,2) AS gpaTerm,round(gpaAll,2) AS gpaAll
     FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN student
@@ -140,7 +142,9 @@ function getstudentListByTeacherIdAndStatus($teacherId,$gradeRange)
 
     $result = $conn->query($sql);
 
-    $countGPAXs = $result->fetch_assoc();
+    while ($my_row = $result->fetch_assoc()) {
+        $countGPAXs[] = $my_row;
+    }
 
 
     require("connection_close.php");
@@ -387,7 +391,7 @@ function getCountStudySemesterYearPartByTeacherID($teacherId)
 {
     require("connection_connect.php");
 
-    $sql = "SELECT semesterYear,semesterPart,COUNT(CASE WHEN planStatus = 'ตามแผน' THEN planStatus END) AS planStatus,COUNT(CASE WHEN planStatus = 'ไม่ตามแผน' THEN planStatus END) AS notPlanStatus,COUNT(CASE WHEN planStatus = 'ลาออก' THEN planStatus END) AS resign
+    $sql = "SELECT semesterYear,semesterPart,COUNT(CASE WHEN planStatus = 'ตามแผน' THEN planStatus END) AS planStatus,COUNT(CASE WHEN planStatus = 'ไม่ตามแผน' THEN planStatus END) AS notPlanStatus,COUNT(CASE WHEN planStatus = 'พ้นสภาพนิสิต' THEN planStatus END) AS resign
         FROM fact_student NATURAL JOIN fact_term_summary NATURAL JOIN semester
         WHERE teacherId = " . $teacherId . " AND semesterPart != 'ภาคฤดูร้อน'
         GROUP BY semesterYear,semesterPart";
@@ -400,7 +404,7 @@ function getCountStudySemesterYearPartByTeacherID($teacherId)
 
         $my_row["studentPlans"] = getListStudentByTeacherIDAndPlanStatusAndSemesterYearAndSemesterYear($teacherId, 'ตามแผน', $my_row["semesterYear"], $my_row["semesterPart"]);
         $my_row["studentNotPlans"] = getListStudentByTeacherIDAndPlanStatusAndSemesterYearAndSemesterYear($teacherId, 'ไม่ตามแผน', $my_row["semesterYear"], $my_row["semesterPart"]);
-        $my_row["studentResign"] = getListStudentByTeacherIDAndPlanStatusAndSemesterYearAndSemesterYear($teacherId, 'ลาออก', $my_row["semesterYear"], $my_row["semesterPart"]);
+        $my_row["studentResign"] = getListStudentByTeacherIDAndPlanStatusAndSemesterYearAndSemesterYear($teacherId, 'พ้นสภาพนิสิต', $my_row["semesterYear"], $my_row["semesterPart"]);
         $countStudySemesters[] = $my_row;
 
     }
