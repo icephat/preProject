@@ -114,9 +114,10 @@ $students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
                                             <td><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></td>
                                             <td class="text-center"><?php echo $student["course"]["nameCourseUse"]." (".$student["course"]["planCourse"].")"?></td>
 
-                                            <td class="text-center"><span style='color:green;'><?php echo $student["creditThree"]["creditAll"]?></span>
+                                            <td class="text-center"><span style='color:green;'><?php echo $student["course"]["totalCredit"]?></span>
                                                 <span style='color:green;'>/<?php echo $student["creditThree"]["creditPass"]?></span>
-                                                <span style='color:red;'>/<?php echo $student["creditThree"]["creditNotPass"]?></span>
+                                                <?php $notPass = $student["course"]["totalCredit"] - $student["creditThree"]["creditPass"]?>
+                                                <span style='color:red;'>/<?php echo $notPass?></span>
                                             </td>
                                             <td class="text-center"><span style='color:green;'><?php echo round($student["gpax"],2)?></span> <br>
                                                 <span></span>
