@@ -818,7 +818,7 @@
                     </div>
                 </div>
 
-               
+               <?php print_r($countRangeGrade["blues"])?>
                 <!-- modalblue -->
                 <div id="modalblue" class="modal fade" style="color: black;">
                             <div class="modal-dialog modal-lg">

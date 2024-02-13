@@ -277,7 +277,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนอัตราการคงอยู่ </h6>
+                                <h6 class="m-0 font-weight-bold text-primary">อัตราคงอยู่ </h6>
                             </div>
                             <?php
                                 $percentageGeneretions = getPercentageStudySortByGeneretionByDepartmentIdAndRound($departmentId,$round);
@@ -344,7 +344,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">สัดส่วนอัตราการคงอยู่ </h6>
+                                <h6 class="m-0 font-weight-bold text-primary">อัตราพ้นสภาพ </h6>
                             </div>
                             <?php
                             $percentageRetireGeneretions = getPercentageStudyAndRetireSortByGeneretionByDepartmentIdAndRound($departmentId,$round);
