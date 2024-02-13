@@ -796,7 +796,22 @@ function getSubjectNotLearnInCoureseList($studentId, $nameCourse, $planCourse, $
     if ($part == 1) {
         $courses = getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $planCourse, $year, $part);
     } else {
-        $courses = getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $planCourse, $year, $part);
+        $courses = getSubjectNotLearnInCoureseListSecondTerm($studentId, $nameCourse, $planCourse, $year, $part);
+    }
+
+    $selectSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือก");
+
+    $selects = [];
+
+    foreach($selectSubjects as $selectSubject){
+        for($i = 0;$i<count($courses);$i++){
+
+            if($courses[$i]["subjectGroup"] == "วิชาเลือก"){
+                if($courses[$i]["credit"] == $selectSubject["credit"]){
+                    array_splice($courses,$i);
+                }
+            }
+        }
     }
 
 
@@ -823,6 +838,34 @@ function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $pl
     WHERE studentId = '$studentId')
     UNION
     SELECT courseListId,studyYear,term,subjectCode,subjectGroup,credit
+    FROM courselist
+    WHERE courseName = '$nameCourse' AND coursePlan = '$planCourse' AND studyYear = $year AND term = $part  AND (subjectGroup = 'วิชาเฉพาะด้าน' OR subjectGroup = 'วิชาแกน' OR subjectGroup = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
+    FROM fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory
+    WHERE studentId = '$studentId');";
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $subjects[] = $my_row;
+    }
+
+    require("connection_close.php");
+
+
+
+    return $subjects;
+
+}
+function getSubjectNotLearnInCoureseListSecondTerm($studentId, $nameCourse, $planCourse, $year, $part)
+{
+
+    require("connection_connect.php");
+
+    $subjects = [];
+
+    
+
+
+    $sql = "SELECT courseListId,studyYear,term,subjectCode,subjectGroup,credit
     FROM courselist
     WHERE courseName = '$nameCourse' AND coursePlan = '$planCourse' AND studyYear = $year AND term = $part  AND (subjectGroup = 'วิชาเฉพาะด้าน' OR subjectGroup = 'วิชาแกน' OR subjectGroup = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
     FROM fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory

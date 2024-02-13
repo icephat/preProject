@@ -5,8 +5,10 @@
 session_start();
 
 require '../function/studentFunction.php';
+//require '../function/semesterFunction.php';
 
 $student = getStudentByUsername($_SESSION["access-user"]);
+//$semester = getSemesterPresent();
 
 
 
@@ -119,20 +121,34 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             }
 
                                             ?>
-                                            <!-- <tr>
-                                                    <td style=" text-align: center;">2</td>
-                                                    <td style=" text-align: center;">ภาคปลาย</td>
-                                                    <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
-                                                    <td style=" text-align: center;">02204172</td>
+                                            <?php
+                                            
+                                            
+                                            $courseNotLearns = getSubjectNotLearnInCoureseList($student["studentId"],$student["course"]["nameCourseUse"],$student["course"]["planCourse"],$student["studyYear"],$student["studyTerm"]);
+                                            
+
+                                            foreach($courseNotLearns as $courseNotLearn){
+                                                $sumcreditF += $courseNotLearn["credit"];
+                                            ?>
+                                            <tr>
+                                                    <td style=" text-align: center;"></td>
+                                                    <td style=" text-align: center;"></td>
+                                                    <td style=" text-align: center;"><?php echo $courseNotLearn["subjectGroup"]?></td>
+                                                    <td style=" text-align: center;"><?php echo $courseNotLearn["subjectCode"]?></td>
                                                     <td style=" text-align: left;">
-                                                        Practicum in Programming and Problem Solving Skills
+                                                        
                                                     </td>
-                                                    <td style=" text-align: center;">1</td>
-                                                    <td style=" text-align: center;">W,F</td>
+                                                    <td style=" text-align: center;"><?php echo $courseNotLearn["credit"]?></td>
+                                                    <td style=" text-align: center;"></td>
 
                                                 </tr>
+                                            <?php
+                                            }
+                                            ?>
 
-                                                <tr>
+                                            
+
+                                                <!-- <tr>
                                                     <td style=" text-align: center;">2</td>
                                                     <td style=" text-align: center;">ภาคปลาย</td>
                                                     <td style=" text-align: center;">หมวดวิชาเฉพาะบังคับ</td>
