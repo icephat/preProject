@@ -168,7 +168,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                     colspan="4">
                                                     รวม</td>
                                                 <td style=" text-align: center;">
-                                                    <?php echo count($subjectFs) ?>
+                                                    <?php 
+                                                    $s = count($subjectFs) + count($courseNotLearns);
+                                                    echo $s ?>
                                                 </td>
                                                 <td style="text-align: center;">
                                                     <?php echo $sumcreditF ?>
