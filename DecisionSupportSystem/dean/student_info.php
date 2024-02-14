@@ -42,7 +42,7 @@
             <!-- Main Content -->
             <div id="content">
 
-                <?php include('../layout/dean/nisit.php'); ?>
+               <?php include('../layout/dean/nisit.php'); ?>
 
                     <hr>
 
@@ -424,7 +424,7 @@
                                                             <td style="font-weight: bold; text-align: right;">30</td>
                                                             <td style="font-weight: bold; text-align: right;">0</td>
                                                         </tr>
-                                                       
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>

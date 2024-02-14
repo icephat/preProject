@@ -41,7 +41,7 @@
             <!-- Main Content -->
             <div id="content">
 
-            <?php include('../layout/dean/report.php'); ?>
+               <?php include('../layout/dean/report.php'); ?>
                     <hr>
                     <div class="row ">
                         <div class="col-sm-4 mx-auto">
@@ -49,7 +49,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./student_static.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/line-chart.png" style="width: 150px; height: 150px"><br>
+                                            <img src="../image/line-chart.png" style="width: 150px; height: 150px" ><br>
                                         </fieldset>
                                     </a>
                                 </div>
@@ -134,7 +134,7 @@
                             </div>
                         </div>
                         <br><br>
-                        <div class="col-sm-4 ">
+                        <div class="col-sm-4 " style="margin-top: 20px;">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./report_advisor.php">
@@ -149,7 +149,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 ">
+                        <div class="col-sm-4 " style="margin-top: 20px;">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./report_student_department.php">
@@ -164,7 +164,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 mx-auto">
+                        <div class="col-sm-4 mx-auto" style="margin-top: 20px;">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_static_department.php">
@@ -222,6 +222,9 @@
 
                     <!-- Page level plugins -->
                     <script src="../vendor/chart.js/Chart.min.js"></script>
+                    <!-- Bootstrap core JavaScript-->
+                    <script src="../vendor/jquery/jquery.min.js"></script>
+                    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 

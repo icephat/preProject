@@ -68,7 +68,7 @@
 
             ?>
 
-            <?php include('../layout/head/report.php'); ?>
+           <?php include('../layout/dean/report.php'); ?>
 
                     <div>
                         <form class="form-valide" action="../controller/headSearchFacultyTcas.php" method="post" enctype="multipart/form-data">

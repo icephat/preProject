@@ -582,12 +582,7 @@
                             $firstEntry=[];
                             $study=[];
                             $grad=[];
-                            foreach($studentStatusGeneretions as $statusGeneretions){
-                                $studyGeneretion[] = "รุ่น ".(string)$statusGeneretions["studyGeneretion"];
-                                $firstEntry[] = (int)$statusGeneretions["firstEntry"];
-                                $study[] = (int)$statusGeneretions["study"];
-                                $grad[] = (int)$statusGeneretions["grad"];
-                            }
+                          
                             ?>
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
@@ -614,6 +609,14 @@
                                                     $sumStudy = 0;
                                                     $sumGrad = 0;
                                                     foreach($studentStatusGeneretions as $generetionCountStatus){
+                                                        if((string)$generetionCountStatus["studyGeneretion"] != null){
+                                                            $studyGeneretion[] = "รุ่น ".(string)$generetionCountStatus["studyGeneretion"];
+                                                        
+                                                        }
+                                                        $firstEntry[] = (int)$generetionCountStatus["firstEntry"];
+                                                        $study[] = (int)$generetionCountStatus["study"];
+                                                        $grad[] = (int)$generetionCountStatus["grad"];
+
                                                         $sumFisrtEntry += $generetionCountStatus["firstEntry"];
                                                         $sumStudy += $generetionCountStatus["study"];
                                                         $sumGrad += $generetionCountStatus["grad"];

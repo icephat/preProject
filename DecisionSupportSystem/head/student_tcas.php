@@ -326,7 +326,7 @@
                                                         <th style="text-align: center; "><span>จำนวนรับเข้า</span>
                                                         </th>
                                                         <th style="text-align: center;"><span>จำนวนคงอยู่</span></th>
-                                                        <th style="text-align: center;">คิดเป็นร้อยละ</th>
+                                                        <th style="text-align: center;">ร้อยละ</th>
 
                                                     </tr>
                                                 </thead>
@@ -392,7 +392,7 @@
                                                         <th style=" text-align: center; ">รุ่นการศึกษา</th>
                                                         <th style="text-align: center; "><span>จำนวนคงเหลือ</span></th>
                                                         <th style="text-align: center;"><span>จำนวนพ้นสภาพ</span></th>
-                                                        <th style="text-align: center;">คิดเป็นร้อยละ</th>
+                                                        <th style="text-align: center;">ร้อยละ</th>
                                                         
                                                     </tr>
                                                 </thead>
@@ -415,7 +415,11 @@
                                                         </td>
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["study"] ?> คน</td>
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["retire"] ?> คน</td>
-                                                        <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["percentage"] ?></td>
+                                                        <?php if((string)$percentageRetireGeneretion["studyGeneretion"] !=null){?>
+                                                            <td style=" text-align: center;"><?php echo ((int)$percentageRetireGeneretion["retire"]/(int)$percentageRetireGeneretion["study"])*100 ?></td>
+                                                        <?php }else{?>
+                                                            <td style=" text-align: center;"></td>
+                                                        <?php }?>
                                                     </tr>
                                                     <?php
                                                     }

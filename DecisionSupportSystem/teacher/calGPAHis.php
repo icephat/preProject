@@ -96,21 +96,21 @@ $calGPA = json_decode($jsonString, true);
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <p style="color: black; font-weight: bold;">GPA : <span
+                                                <p style="color: black; font-weight: bold;">GPAX : <span
                                                         style="font-weight: normal;">
                                                         <?php echo $calGPA["gpaPresent"]; ?>
                                                     </span></p>
 
                                             </td>
                                             <td>
-                                                <p style="color: black; font-weight: bold;">เกรดเฉลี่ย : <span
+                                                <p style="color: black; font-weight: bold;">GPA : <span
                                                         style="font-weight: normal;">
                                                         <?php echo $calGPA["gpaNew"]; ?>
                                                     </span></p>
 
                                             </td>
                                             <td>
-                                                <p style="color: black; font-weight: bold;">GPA : <span
+                                                <p style="color: black; font-weight: bold;">GPAX : <span
                                                     style="font-weight: normal;"> <?php echo $calGPA["gpaxNew"]?> 
                                                         <?php if(round($calGPA["gpaxNew"],2) > round($calGPA["gpaPresent"],2) ){?>
                                                             <span style="color: green;">[+ <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>

@@ -77,17 +77,17 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <p style="color: black; font-weight: bold;">GPA : <span
+                                                    <p style="color: black; font-weight: bold;">GPAX : <span
                                                             style="font-weight: normal;">3.38</span></p>
 
                                                 </td>
                                                 <td>
-                                                    <p style="color: black; font-weight: bold;">เกรดเฉลี่ย : <span
+                                                    <p style="color: black; font-weight: bold;">GPA : <span
                                                             style="font-weight: normal;"> 3.40</span></p>
 
                                                 </td>
                                                 <td>
-                                                    <p style="color: black; font-weight: bold;">GPA : <span
+                                                    <p style="color: black; font-weight: bold;">GPAX : <span
                                                             style="font-weight: normal;"> 3.39 <span
                                                                 style="color: green;">[+0.01]</span></span></p>
 

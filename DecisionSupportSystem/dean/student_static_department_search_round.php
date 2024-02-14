@@ -55,20 +55,18 @@
 
             $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
             $semester = getSemesterPresent();
+            $semesterYear = $semester["semesterYear"];
 
 
             $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
-
-            $departments = getAllDepartment();
-            $semesterYears = getSemesterYear();
-
             $generetions = geStudyGeneretionStudentInFaculty();
 
-            $gen = $_POST["generetion"];
+
+            $round = $_POST["tcas"];
 
             ?>
 
-            <?php include('../layout/head/report.php'); ?>
+           <?php include('../layout/dean/report.php'); ?>
 
                     <div>
                         <form class="form-valide" action="../controller/headSearchFacultyTcas.php" method="post" enctype="multipart/form-data">
@@ -79,19 +77,15 @@
                                     </div>
                                     <div class="text-center">
                                         <div>
-                                            <select class="form-control" data-live-search="true" name="departmentId">
+                                            <select class="form-control" data-live-search="true">
+                                                <option value="default">--กรุณาเลือกภาควิชา--</option>
 
-                                                <option value="0">ทุกภาค</option>
-                                                        <?php
-                                                        foreach ($departments as $department) {
-                                                            ?>
-
-                                                            <option value="<?php echo $department["departmentId"] ?>">
-                                                                <?php echo $department["departmentName"] ?>
-                                                            </option>
-                                                            <?php
-                                                        }
-                                                        ?>
+                                                <option value="2561">วศ.คอมพิวเตอร์
+                                                </option>
+                                                <option value="2562">วศ.เครื่องกล</option>
+                                                <option value="2561">วศ.โยธา
+                                                </option>
+                                                <option value="2562">วศ.อาหาร</option>
                                             </select>
                                         </div>
                                     </div>
@@ -139,21 +133,20 @@
                                 </div>
                                 <!-- <div class="column mx-auto col-sm-2">
                                     <div class="text-center">
-                                        <h5>ปีการศึกษา<span style="color: red;">*</span></th>
+                                        <h5>จำนวนปีย้อนหลัง<span style="color: red;">*</span></th>
                                     </div>
                                     <div class="text-center">
                                         <div>
-                                            <select class="form-control" data-live-search="true" name="year">
+                                            <select class="form-control" data-live-search="true">
+                                                <option value="default">--ปีย้อนหลัง--</option>
 
-                                                <?php
-                                                foreach ($semesterYears as $year) {
-                                                    ?>
-                                                    <option value="<?php echo $year["semesterYear"] ?>">
-                                                        <?php echo $year["semesterYear"] ?>
-                                                    </option>
-                                                    <?php
-                                                }
-                                                ?>
+                                                <option value="2561">1
+                                                </option>
+                                                <option value="2562">2</option>
+                                                <option value="2561">3
+                                                </option>
+                                                <option value="2562">4</option>
+                                                <option value="2562">5</option>
                                             </select>
                                         </div>
                                     </div>
@@ -174,7 +167,7 @@
                     </div>
 
                     <hr>
-                    <h5 style="color:black;">คณะวิศวกรรมศาสตร์ กำแพงแสน รุ่นที่ <?php echo $gen ?></h5>
+                    <h5 style="color:black;">คณะวิศวกรรมศาสตร์ กำแพงแสน รอบที่ <?php echo $round ?></h5>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
@@ -184,7 +177,7 @@
                                 <div class="card-body ">
                                     <?php
                                     
-                                    $countStudentSortByDepartments = getCountStudentTcasSortByDepartmentBySemesterYearAndGeneretion($semester["semesterYear"],$gen);
+                                    $countStudentSortByDepartments = getCountStudentTcasSortByDepartmentBySemesterYearAndRound($semesterYear,$round);
                                     ?>
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -198,38 +191,23 @@
                                                     <thead style=" ">
                                                         <tr>
                                                             <th >ภาควิชา</th>
-                                                            <th style="text-align: center; "><span>รอบที่ 1</span>
+                                                            <th style="text-align: center; "><span>รอบที่ <?php echo $round ?></span>
                                                             </th>
-                                                            <th style="text-align: center;"><span>รอบที่ 2</span></th>
-                                                            <th style="text-align: center;">รอบที่ 3</th>
-                                                            <th style="text-align: center;">รอบที่ 4</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
                                                         $studyGeneretion=[];
                                                         $TCAS1=[];
-                                                        $TCAS2=[];
-                                                        $TCAS3=[];
-                                                        $TCAS4=[];
                                                         
                                                         $sumTcas1 = 0;
-                                                        $sumTcas2 = 0;
-                                                        $sumTcas3 = 0;
-                                                        $sumTcas4 = 0;
 
                                                         foreach($countStudentSortByDepartments as $countStudentSortByDepartment){
 
                                                             $sumTcas1+=$countStudentSortByDepartment["TCAS1"];
-                                                            $sumTcas2+=$countStudentSortByDepartment["TCAS2"];
-                                                            $sumTcas3+=$countStudentSortByDepartment["TCAS3"]; 
-                                                            $sumTcas4+=$countStudentSortByDepartment["TCAS4"]; 
 
                                                             $studyGeneretion[]=$countStudentSortByDepartment["departmentInitials"] ;
                                                             $TCAS1[]=(int)$countStudentSortByDepartment["TCAS1"];
-                                                            $TCAS2[]=(int)$countStudentSortByDepartment["TCAS2"];
-                                                            $TCAS3[]=(int)$countStudentSortByDepartment["TCAS3"];
-                                                            $TCAS4[]=(int)$countStudentSortByDepartment["TCAS4"];
                                                         
                                                         ?>
                                                         <tr>
@@ -237,11 +215,7 @@
                                                             <td style=" text-align: center;">
                                                             <?php echo $countStudentSortByDepartment["TCAS1"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
-                                                            <?php echo $countStudentSortByDepartment["TCAS2"] ?> คน
-                                                            </td>
-                                                            <td style=" text-align: center;"><?php echo $countStudentSortByDepartment["TCAS3"] ?> คน</td>
-                                                            <td style=" text-align: center;"><?php echo $countStudentSortByDepartment["TCAS4"] ?> คน</td>
+                                                            
                                                         </tr>
                                                         <?php
                                                         }
@@ -252,9 +226,6 @@
                                                         <tr>
                                                             <th scope='row' style=" ">ทุกภาค</th>
                                                             <td style="font-weight: bold; text-align: center;"><?php echo $sumTcas1?> คน</td>
-                                                            <td style='font-weight: bold; text-align: center;'><?php echo $sumTcas2?> คน</td>
-                                                            <td style='font-weight: bold; text-align: center;'><?php echo $sumTcas3?> คน</td>
-                                                            <td style='font-weight: bold; text-align: center;'><?php echo $sumTcas4?> คน</td>
                                                         </tr>
 
                                                     </tbody>
@@ -273,7 +244,7 @@
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                                 </div>
-                                <?php $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYearAndGeneretion($semester["semesterYear"],$gen);?>
+                                <?php $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYearAndRound($semesterYear,$round); ?>
                                 <div class="card-body ">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-6">
@@ -336,7 +307,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">อัตราคงอยู่ </h6>
                                 </div>
                                 <?php
-                                $percentageDepartments = getPercentageStudySortByDepartmentInFacultyBySemesterYearAndGeneretion($semester["semesterYear"],$gen);
+                                $percentageDepartments = getPercentageStudySortByDepartmentInFacultyBySemesterYearAndRound($semesterYear,$round);;
                                 
                                 ?>
                                 <div class="card-body ">
@@ -404,7 +375,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">อัตราพ้นสภาพ </h6>
                                 </div>
                                 <?php
-                                $percentageRetireDepartments = getPercentageStudyAndRetireSortByDepartmentInFacultyBySemesterYearAndGeneretion($semester["semesterYear"],$gen);
+                                $percentageRetireDepartments = getPercentageStudyAndRetireSortByDepartmentInFacultyBySemesterYearAndRound($semesterYear,$round);;
                                 
                                 ?>
                                 <div class="card-body ">
@@ -450,7 +421,8 @@
                                                                 <td style=" text-align: center;"><?php echo ((int)$percentageRetireDepartment["retire"]/(int)$percentageRetireDepartment["study"])*100 ?></td>
                                                             <?php }else{?>
                                                                 <td style=" text-align: center;"></td>
-                                                            <?php }?></tr>
+                                                            <?php }?>
+                                                        </tr>
                                                         <?php
                                                         }
                                                         ?>
@@ -504,10 +476,7 @@
                         var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
                         
                         var tcas1 = <?php echo json_encode($TCAS1); ?>;
-                        var tcas2 = <?php echo json_encode($TCAS2); ?>;
-                        var tcas3 = <?php echo json_encode($TCAS3); ?>;
-                        var tcas4 = <?php echo json_encode($TCAS4); ?>;
-
+                        var label = <?php echo json_encode($round); ?>;
                         var ctx = document.getElementById("myChart");
                         var myChart = new Chart(ctx, {
                             //type: 'bar',
@@ -516,7 +485,7 @@
                             data: {
                                 labels: studyGeneretions,
                                 datasets: [{
-                                    label: 'รอบที่ 1',
+                                    label: 'รอบที่ '+label,
                                     data: tcas1,
                                     backgroundColor: '#bfd575',
                                     borderColor: [
@@ -529,48 +498,7 @@
                                     ],
                                     borderWidth: 0
                                 },
-                                {
-                                    label: 'รอบที่ 2',
-                                    data: tcas2,
-                                    backgroundColor: '#a4ebf3',
-                                    borderColor: [
-                                        'rgba(150,186,169, 1)', //1
-                                        'rgba(108,158,134, 1)',
-                                        'rgba(66,130,100, 1)',
-                                        'rgba(45,117,83, 1)',
-                                        'rgba(27,70,49, 1)', //5
-                                        'rgba(0, 51, 18, 1)'
-                                    ],
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: 'รอบที่ 3',
-                                    data: tcas3,
-                                    backgroundColor: '#abbdee',
-                                    borderColor: [
-                                        'rgba(150,186,169, 1)', //1
-                                        'rgba(108,158,134, 1)',
-                                        'rgba(66,130,100, 1)',
-                                        'rgba(45,117,83, 1)',
-                                        'rgba(27,70,49, 1)', //5
-                                        'rgba(0, 51, 18, 1)'
-                                    ],
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: 'รอบที่ 4',
-                                    data: tcas4,
-                                    backgroundColor: '#f8c769',
-                                    borderColor: [
-                                        'rgba(150,186,169, 1)', //1
-                                        'rgba(108,158,134, 1)',
-                                        'rgba(66,130,100, 1)',
-                                        'rgba(45,117,83, 1)',
-                                        'rgba(27,70,49, 1)', //5
-                                        'rgba(0, 51, 18, 1)'
-                                    ],
-                                    borderWidth: 0
-                                },
+                                
 
 
                                 ]

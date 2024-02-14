@@ -324,7 +324,7 @@
                                                         <th style="text-align: center; "><span>รับเข้า</span>
                                                         </th>
                                                         <th style="text-align: center;"><span>คงอยู่</span></th>
-                                                        <th style="text-align: center;">คิดเป็นร้อยละ</th>
+                                                        <th style="text-align: center;">ร้อยละ</th>
 
                                                     </tr>
                                                 </thead>
@@ -334,8 +334,10 @@
                                                     $entry=[];
                                                     $study=[];
                                                     foreach($percentageGeneretions as $percentageGeneretion){
-
-                                                        $studyGeneretionPercent[]= "รุ่น ".(string)$percentageGeneretion["studyGeneretion"];
+                                                        if((string)$percentageGeneretion["studyGeneretion"]!=null){
+                                                            $studyGeneretionPercent[]= "รุ่น ".(string)$percentageGeneretion["studyGeneretion"];
+                                                        
+                                                        }
                                                         $study[]=(int)$percentageGeneretion["study"];
                                                         $entry[]=(int)$percentageGeneretion["entry"];
                                                     ?>
@@ -390,7 +392,7 @@
                                                         <th style=" text-align: center; ">รุ่นการศึกษา</th>
                                                         <th style="text-align: center; "><span>รับเข้า</span></th>
                                                         <th style="text-align: center;"><span>พ้นสภาพ</span></th>
-                                                        <th style="text-align: center;">คิดเป็นร้อยละ</th>
+                                                        <th style="text-align: center;">ร้อยละ</th>
                                                         
                                                     </tr>
                                                 </thead>
@@ -401,7 +403,10 @@
                                                     $retire2=[];
                                                     $percentage2=[];
                                                     foreach($percentageRetireGeneretions as $percentageRetireGeneretion){
-                                                        $studyGeneretionPercent2[]="รุ่น ".(string)$percentageRetireGeneretion["studyGeneretion"];
+                                                        if((string)$percentageRetireGeneretion["studyGeneretion"]){
+                                                            $studyGeneretionPercent2[]="รุ่น ".(string)$percentageRetireGeneretion["studyGeneretion"];
+                                                        
+                                                        }
                                                         $study2[]=(int)$percentageRetireGeneretion["study"];
                                                         $retire2[]=(int)$percentageRetireGeneretion["retire"];
                                                         $percentage2[]=(int)$percentageRetireGeneretion["percentage"];
@@ -413,7 +418,11 @@
                                                         </td>
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["study"] ?> คน</td>
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["retire"] ?> คน</td>
-                                                        <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["percentage"] ?></td>
+                                                        <?php if((string)$percentageRetireGeneretion["studyGeneretion"] !=null){?>
+                                                            <td style=" text-align: center;"><?php echo ((int)$percentageRetireGeneretion["retire"]/(int)$percentageRetireGeneretion["study"])*100 ?></td>
+                                                        <?php }else{?>
+                                                            <td style=" text-align: center;"></td>
+                                                        <?php }?>
                                                     </tr>
                                                     <?php
                                                     }

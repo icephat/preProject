@@ -1841,7 +1841,8 @@ $semester = getSemesterPresent();
                         stacked: true,
                     },
                     y: {
-                        stacked: true
+                        stacked: true,
+                        beginAtZero: true // เพิ่มค่านี้เพื่อให้แกน y เริ่มต้นที่ 0
                     }
                 }
 

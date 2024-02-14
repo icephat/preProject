@@ -40,7 +40,6 @@
 
             <!-- Main Content -->
             <div id="content">
-
                 <?php
 
 
@@ -50,6 +49,7 @@
                 require_once '../function/semesterFunction.php';
                 require_once '../function/courseFunction.php';
                 require_once '../function/headDeptFunction.php';
+                require_once '../function/departmentFunction.php';
 
                 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                 $semester = getSemesterPresent();
@@ -57,38 +57,44 @@
 
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
 
-                $courses = getCourseNameByDepartmentId($teacher["departmentId"]) ;
+                $departments = getAllDepartment();
                 $semesterYears = getSemesterYear();
+
+                $departmentId = $_POST["departmentId"];
+                $semesterYear = $_POST["year"];
+
+
+                $department = getDepartmentById($departmentId);
 
                 ?>
 
                <?php include('../layout/dean/report.php'); ?>
 
                 <div>
-                    <form class="form-valide" action="student_static_faculty_search.php" method="post" enctype="multipart/form-data">
+                    <form class="form-valide" action="student_faculty_search.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
+
                                 <div class="text-center">
-                                    <h5>หลักสูตร<span style="color: red;">*</span></th>
+                                    <h5>ภาควิชา<span style="color: red;">*</span></th>
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                    <select class="form-control" data-live-search="true" name = "courseName" >
+                                        <select class="form-control" data-live-search="true" name = "departmentId">
                                             
                                             <?php
-                                            foreach($courses as $cou){
+                                            foreach($departments as $dpm){
                                             ?>
-                                             <option value="<?php echo  $cou["nameCourseUse"]?>"><?php echo  $cou["nameCourseUse"]?>
-                                             </option>
-                                             <?php
-                                             }
-                                             ?>
-                                             
-                                         </select>
+    
+                                                <option value="<?php echo $dpm["departmentId"] ?>"><?php echo $dpm["departmentName"] ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="column col-sm-4">
                                 <div class="text-center">
                                     <h5>ปีที่สืบค้น<span style="color: red;">*</span></th>
@@ -98,9 +104,9 @@
                                         <select class="form-control" data-live-search="true" name = "year">
                                             
                                             <?php
-                                            foreach($semesterYears as $year){
+                                            foreach($semesterYears as $y){
                                             ?>
-                                            <option value="<?php echo $year["semesterYear"]?>"><?php echo $year["semesterYear"]?></option>
+                                            <option value="<?php echo $y["semesterYear"]?>"><?php echo $y["semesterYear"]?></option>
                                             <?php
                                             }
                                             ?>
@@ -127,18 +133,13 @@
                 <div class="row" style="color: black;">
                     <?php
 
-                    $generetions = getGeneretionInCourseByCouseName($course["nameCourseUse"]);
-                    $countStudentInCourse = getCountStudentInCourseByCouseName($course["nameCourseUse"]);
+                    $generetions = getGeneretionInCourseByDepartmentId($departmentId);
+                    $countStudentInCourse = getCountStudentInDepartmentByDepartmentId($departmentId);
 
                     ?>
-                    <h5>หลักสูตร
-                        <?php echo $course["nameCourseUse"] . " ทั้งหมด " . $countStudentInCourse["studentCount"] . " คน " . count($generetions) . " รุ่น ( รุ่นที่ " ?>
-                        <?php
-                        foreach ($generetions as $generetion) {
-                            echo $generetion["studyGeneretion"];
-                        }
-                        ?>
-                        )
+                    <h5>ภาควิชา
+                        <?php echo $department["departmentName"] . " ปีการศึกษา ".$semesterYear ?>
+                        
                     </h5>
                 </div>
                 <div class="row">
@@ -151,14 +152,14 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
-                                            $countRangeGrade = getCountStudentGradeRangeByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"])
+                                            $countRangeGrade = getCountStudentGradeRangeByDepartmrntIdAndSemesterYear($departmentId, $semesterYear)
 
                                                 ?>
 
                                             <div style="color: rgb(0, 9, 188);">
                                                 <div class="text-center">
                                                     <a style="color: rgb(0, 9, 188);" href="#" data-toggle="modal" data-target="#modalblue">
-                                                        <h4>GPAX 3.25-4.00</h4>
+                                                        <h4>3.25-4.00</h4>
                                                     </a>
                                                 </div>
                                                 <div class="text-center">
@@ -177,7 +178,7 @@
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
                                                     <a style="color: rgb(0, 110, 22);" href="#" data-toggle="modal" data-target="#modalgreen">
-                                                        <h4>GPAX 2.00-3.24</h4>
+                                                        <h4>2.00-3.24</h4>
                                                     </a>
                                                 </div>
                                                 <div class="text-center">
@@ -197,7 +198,7 @@
                                             <div style="color: #ff8c00;">
                                                 <div class="text-center">
                                                     <a style="color: #ff8c00;" href="#" data-toggle="modal" data-target="#modalorange">
-                                                        <h4>GPAX 1.75-1.99</h4>
+                                                        <h4>1.75-1.99</h4>
                                                     </a>
                                                 </div>
                                                 <div class="text-center">
@@ -214,7 +215,7 @@
                                             <div style="color: rgb(255, 0, 0);">
                                                 <div class="text-center">
                                                     <a style="color: rgb(255, 0, 0);" href="#" data-toggle="modal" data-target="#modalred">
-                                                        <h4>GPAX 0.00-1.74</h4>
+                                                        <h4>0.00-1.74</h4>
                                                     </a>
                                                 </div>
                                                 <div class="text-center">
@@ -236,8 +237,7 @@
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
-                                            $countPlanStatus = getCountStudentPlanStatusByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"])
-
+                                            $countPlanStatus = getCountStudentPlanStatusByDepartmrntIdAndSemesterYear($departmentId, $semesterYear);
                                                 ?>
 
                                             <div style="color: rgb(100, 197, 215);">
@@ -298,7 +298,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 105, 98);" href="#" data-toggle="modal" data-target="#modalred2">
+                                                    <a style="color:  rgb(255, 105, 98);" href="#" data-toggle="modal" data-target="#modalred2">
                                                         <h4>จบการศึกษา</h4>
                                                     </a>
                                                 </div>
@@ -324,38 +324,37 @@
                     <div class="col-sm-4">
                         <div class="card">
                             <?php
-                                $studentGeneretionGradeRangeOnes = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"], 1);
-                                $day = date("Y");
-                                $thaiDay = 543 + $day;
-                                //echo substr($thaiDay-4, -2);
-                                $y=substr($thaiDay-4, -2);
-                                $yNow=substr($thaiDay, -2);
-                                $pee1gen=[];
-                                $pee1blues=[];
-                                $pee1greens=[];
-                                $pee1oranges=[];
-                                $pee1reds=[];
+                            $studentGeneretionGradeRangeOnes = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear, 1);
+                            $day = date("Y");
+                            $thaiDay = 543 + $day;
+                            //echo substr($thaiDay-4, -2);
+                            $y = substr($thaiDay - 4, -2);
+                            $yNow = substr($thaiDay, -2);
+                            $pee1gen = [];
+                            $pee1blues = [];
+                            $pee1greens = [];
+                            $pee1oranges = [];
+                            $pee1reds = [];
 
-                                //for($y; $y<$yNow; $y++){
-                                        
-                                    foreach($studentGeneretionGradeRangeOnes as $range){
-                                        if((int)$range["studyGeneretion"] == $y){
-                                            $pee1gen[]="รุ่น ".(string)$range["studyGeneretion"];
-                                            $pee1blues[]=$range["blue"];
-                                            $pee1greens[]=$range["green"];
-                                            $pee1oranges[]=$range["orange"];
-                                            $pee1reds[]=$range["red"];
-                                        }
-                                        else{
-                                            $pee1gen[]="รุ่น ".(string)$y;
-                                            $pee1blues[]="0";
-                                            $pee1greens[]="0";
-                                            $pee1oranges[]="0";
-                                            $pee1reds[]="0";
-                                        }
-                                    }
-                                
-                                //}
+                            //for($y; $y<$yNow; $y++){
+                            
+                            foreach ($studentGeneretionGradeRangeOnes as $range) {
+                                if ((int) $range["studyGeneretion"] == $y) {
+                                    $pee1gen[] = "รุ่น " . (string) $range["studyGeneretion"];
+                                    $pee1blues[] = $range["blue"];
+                                    $pee1greens[] = $range["green"];
+                                    $pee1oranges[] = $range["orange"];
+                                    $pee1reds[] = $range["red"];
+                                } else {
+                                    $pee1gen[] = "รุ่น " . (string) $y;
+                                    $pee1blues[] = "0";
+                                    $pee1greens[] = "0";
+                                    $pee1oranges[] = "0";
+                                    $pee1reds[] = "0";
+                                }
+                            }
+
+                            //}
                             ?>
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 1</h6>
@@ -368,35 +367,34 @@
                     <div class="col-sm-4">
                         <div class="card">
                             <?php
-                            $studentGeneretionGradeRangeTwos = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"], 2);
+                            $studentGeneretionGradeRangeTwos = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear, 2);
                             $day = date("Y");
                             $thaiDay = 543 + $day;
                             //echo substr($thaiDay-4, -2);
-                            $y=substr($thaiDay-4, -2);
-                            $yNow=substr($thaiDay, -2);
-                            $pee2genh=[];
-                            $pee2bluesh=[];
-                            $pee2greensh=[];
-                            $pee2orangesh=[];
-                            $pee2redsh=[];
+                            $y = substr($thaiDay - 4, -2);
+                            $yNow = substr($thaiDay, -2);
+                            $pee2genh = [];
+                            $pee2bluesh = [];
+                            $pee2greensh = [];
+                            $pee2orangesh = [];
+                            $pee2redsh = [];
                             //for($y; $y<$yNow; $y++){
-                                foreach($studentGeneretionGradeRangeTwos as $range){
-                                    if((int)$range["studyGeneretion"] == $y){
-                                    
-                                        $pee2genh[]="รุ่น ".(string)$range["studyGeneretion"];
-                                        $pee2bluesh[]=$range["blue"];
-                                        $pee2greensh[]=$range["green"];
-                                        $pee2orangesh[]=$range["orange"];
-                                        $pee2redsh[]=$range["red"];    
-                                    }
-                                    else{
-                                        $pee2genh[]="รุ่น ".(string)$y;
-                                        $pee2bluesh[]="0";
-                                        $pee2greensh[]="0";
-                                        $pee2orangesh[]="0";
-                                        $pee2redsh[]="0";
-                                    }
+                            foreach ($studentGeneretionGradeRangeTwos as $range) {
+                                if ((int) $range["studyGeneretion"] == $y) {
+
+                                    $pee2genh[] = "รุ่น " . (string) $range["studyGeneretion"];
+                                    $pee2bluesh[] = $range["blue"];
+                                    $pee2greensh[] = $range["green"];
+                                    $pee2orangesh[] = $range["orange"];
+                                    $pee2redsh[] = $range["red"];
+                                } else {
+                                    $pee2genh[] = "รุ่น " . (string) $y;
+                                    $pee2bluesh[] = "0";
+                                    $pee2greensh[] = "0";
+                                    $pee2orangesh[] = "0";
+                                    $pee2redsh[] = "0";
                                 }
+                            }
 
                             //}
                             ?>
@@ -411,34 +409,33 @@
                     <div class="col-sm-4">
                         <div class="card">
                             <?php
-                            $studentGeneretionGradeRangeThrees = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"], 3);
+                            $studentGeneretionGradeRangeThrees = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear, 3);
                             $day = date("Y");
                             $thaiDay = 543 + $day;
                             //echo substr($thaiDay-4, -2);
-                            $y=substr($thaiDay-4, -2);
-                            $yNow=substr($thaiDay, -2);
-                            $pee3gen=[];
-                            $pee3blues=[];
-                            $pee3greens=[];
-                            $pee3oranges=[];
-                            $pee3reds=[];
+                            $y = substr($thaiDay - 4, -2);
+                            $yNow = substr($thaiDay, -2);
+                            $pee3gen = [];
+                            $pee3blues = [];
+                            $pee3greens = [];
+                            $pee3oranges = [];
+                            $pee3reds = [];
                             //for($y; $y<$yNow; $y++){
-                                foreach($studentGeneretionGradeRangeThrees as $range){
-                                    if((int)$range["studyGeneretion"] == $y){
-                                        $pee3gen[]="รุ่น ".(string)$range["studyGeneretion"];
-                                        $pee3blues[]=$range["blue"];
-                                        $pee3greens[]=$range["green"];
-                                        $pee3oranges[]=$range["orange"];
-                                        $pee3reds[]=$range["red"];
-                                    } 
-                                    else{
-                                        $pee3gen[]="รุ่น ".(string)$y;
-                                        $pee3blues[]="0";
-                                        $pee3greens[]="0";
-                                        $pee3oranges[]="0";
-                                        $pee3reds[]="0";
-                                    }
+                            foreach ($studentGeneretionGradeRangeThrees as $range) {
+                                if ((int) $range["studyGeneretion"] == $y) {
+                                    $pee3gen[] = "รุ่น " . (string) $range["studyGeneretion"];
+                                    $pee3blues[] = $range["blue"];
+                                    $pee3greens[] = $range["green"];
+                                    $pee3oranges[] = $range["orange"];
+                                    $pee3reds[] = $range["red"];
+                                } else {
+                                    $pee3gen[] = "รุ่น " . (string) $y;
+                                    $pee3blues[] = "0";
+                                    $pee3greens[] = "0";
+                                    $pee3oranges[] = "0";
+                                    $pee3reds[] = "0";
                                 }
+                            }
                             //}
                             ?>
                             <div class="card-header py-3">
@@ -453,35 +450,34 @@
                     <div class="col-sm-4" style="margin-top: 25px;">
                         <div class="card">
                             <?php
-                            $studentGeneretionGradeRangeFours = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"], 4);
+                            $studentGeneretionGradeRangeFours = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear, 4);
                             $day = date("Y");
                             $thaiDay = 543 + $day;
                             //echo substr($thaiDay-4, -2);
-                            $y=substr($thaiDay-4, -2);
-                            $yNow=substr($thaiDay, -2);
-                            $pee4gen=[];
-                            $pee4blues=[];
-                            $pee4greens=[];
-                            $pee4oranges=[];
-                            $pee4reds=[];
+                            $y = substr($thaiDay - 4, -2);
+                            $yNow = substr($thaiDay, -2);
+                            $pee4gen = [];
+                            $pee4blues = [];
+                            $pee4greens = [];
+                            $pee4oranges = [];
+                            $pee4reds = [];
                             //for($y; $y<$yNow; $y++){
-
-                                foreach($studentGeneretionGradeRangeFours as $range){
-                                    if((int)$range["studyGeneretion"] == $y){
-                                        $pee4gen[]="รุ่น ".(string)$range["studyGeneretion"];
-                                        $pee4blues[]=$range["blue"];
-                                        $pee4greens[]=$range["green"];
-                                        $pee4oranges[]=$range["orange"];
-                                        $pee4reds[]=$range["red"];
-                                    }
-                                    else{
-                                        $pee4gen[]="รุ่น ".(string)$y;
-                                        $pee4blues[]="0";
-                                        $pee4greens[]="0";
-                                        $pee4oranges[]="0";
-                                        $pee4reds[]="0";
-                                    }
+                            
+                            foreach ($studentGeneretionGradeRangeFours as $range) {
+                                if ((int) $range["studyGeneretion"] == $y) {
+                                    $pee4gen[] = "รุ่น " . (string) $range["studyGeneretion"];
+                                    $pee4blues[] = $range["blue"];
+                                    $pee4greens[] = $range["green"];
+                                    $pee4oranges[] = $range["orange"];
+                                    $pee4reds[] = $range["red"];
+                                } else {
+                                    $pee4gen[] = "รุ่น " . (string) $y;
+                                    $pee4blues[] = "0";
+                                    $pee4greens[] = "0";
+                                    $pee4oranges[] = "0";
+                                    $pee4reds[] = "0";
                                 }
+                            }
                             //}
                             ?>
                             <div class="card-header py-3">
@@ -499,38 +495,37 @@
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิต ณ ปี</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิต ณ ปัจจุบัน</h6>
                             </div>
                             <?php
 
-                            $countStudentStudyingRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYearAndStatus($course["nameCourseUse"], $semester["semesterYear"], "กำลังศึกษา");
+                            $countStudentStudyingRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYearAndStatus($departmentId, $semesterYear, "กำลังศึกษา");
                             $day = date("Y");
                             $thaiDay = 543 + $day;
                             //echo substr($thaiDay-4, -2);
-                            $y=substr($thaiDay-4, -2);
-                            $yNow=substr($thaiDay, -2);
-                            $nowgen=[];
-                            $BNG=[];
-                            $GNG=[];
-                            $ONG=[];
-                            $RNG=[];
+                            $y = substr($thaiDay - 4, -2);
+                            $yNow = substr($thaiDay, -2);
+                            $nowgen = [];
+                            $BNG = [];
+                            $GNG = [];
+                            $ONG = [];
+                            $RNG = [];
                             //for($y; $y<$yNow; $y++){
-                                foreach($countStudentStudyingRangeGradeSortByGeneretions as $grade){
-                                    if((int)$range["studyGeneretion"] == $y){
-                                        $nowgen[] = "รุ่น ".(string)$grade["studyGeneretion"];
-                                        $BNG[] = (int)$grade["blue"];
-                                        $GNG[] = (int)$grade["green"];
-                                        $ONG[] = (int)$grade["orange"];
-                                        $RNG[] = (int)$grade["red"];
-                                    }
-                                    else{
-                                        $nowgen[]="รุ่น ".(string)$y;
-                                        $BNG[]="0";
-                                        $GNG[]="0";
-                                        $ONG[]="0";
-                                        $RNG[]="0";
-                                    }
+                            foreach ($countStudentStudyingRangeGradeSortByGeneretions as $grade) {
+                                if ((int) $range["studyGeneretion"] == $y) {
+                                    $nowgen[] = "รุ่น " . (string) $grade["studyGeneretion"];
+                                    $BNG[] = (int) $grade["blue"];
+                                    $GNG[] = (int) $grade["green"];
+                                    $ONG[] = (int) $grade["orange"];
+                                    $RNG[] = (int) $grade["red"];
+                                } else {
+                                    $nowgen[] = "รุ่น " . (string) $y;
+                                    $BNG[] = "0";
+                                    $GNG[] = "0";
+                                    $ONG[] = "0";
+                                    $RNG[] = "0";
                                 }
+                            }
                             //}
                             ?>
                             <div class="card-body">
@@ -540,25 +535,25 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="card">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิตจบการศึกษา ณ ปี </h6>
-                            </div>
                             <?php
 
-                            $countStudentGraduateRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYearAndStatus($course["nameCourseUse"], $semester["semesterYear"], "จบการศึกษา");
-                            $endgen=[];
-                            $BEG=[];
-                            $GEG=[];
-                            $OEG=[];
-                            $REG=[];
-                            foreach($countStudentGraduateRangeGradeSortByGeneretions as $gradeEnd){
-                                $endgen[] = "รุ่น ".(string)$gradeEnd["studyGeneretion"];
-                                $BEG[] = (int)$gradeEnd["blue"];
-                                $GEG[] = (int)$gradeEnd["green"];
-                                $OEG[] = (int)$gradeEnd["orange"];
-                                $REG[] = (int)$gradeEnd["red"];
+                            $countStudentGraduateRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYearAndStatus($departmentId, $semesterYear, "จบการศึกษา");
+                            $endgen = [];
+                            $BEG = [];
+                            $GEG = [];
+                            $OEG = [];
+                            $REG = [];
+                            foreach ($countStudentGraduateRangeGradeSortByGeneretions as $gradeEnd) {
+                                $endgen[] = "รุ่น " . (string) $gradeEnd["studyGeneretion"];
+                                $BEG[] = (int) $gradeEnd["blue"];
+                                $GEG[] = (int) $gradeEnd["green"];
+                                $OEG[] = (int) $gradeEnd["orange"];
+                                $REG[] = (int) $gradeEnd["red"];
                             }
                             ?>
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิตจบการศึกษา </h6>
+                            </div>
                             <div class="card-body">
                                 <canvas id="learn2"></canvas>
                             </div>
@@ -572,17 +567,22 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                             </div>
                             <?php
-                            
-                            $studentStatusGeneretions = getCountStudentStatusSortByGeneretionByCourseNameAndSemesterYearAndStudyYear($course["nameCourseUse"], $semester["semesterYear"]);
-                           // print_r($studentStatusGeneretions);
-                            $studyGeneretion=[];
-                            $firstEntry=[];
-                            $study=[];
-                            $grad=[];
-                          
+
+                            $studentStatusGeneretions = getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($departmentId, $semesterYear);
+                            // print_r($studentStatusGeneretions);
+                            $studyGeneretion = [];
+                            $firstEntry = [];
+                            $study = [];
+                            $grad = [];
+                            foreach ($studentStatusGeneretions as $statusGeneretions) {
+                                $studyGeneretion[] = "รุ่น " . (string) $statusGeneretions["studyGeneretion"];
+                                $firstEntry[] = (int) $statusGeneretions["firstEntry"];
+                                $study[] = (int) $statusGeneretions["study"];
+                                $grad[] = (int) $statusGeneretions["grad"];
+                            }
                             ?>
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
@@ -604,19 +604,11 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php
+                                                <?php
                                                     $sumFisrtEntry = 0;
                                                     $sumStudy = 0;
                                                     $sumGrad = 0;
                                                     foreach($studentStatusGeneretions as $generetionCountStatus){
-                                                        if((string)$generetionCountStatus["studyGeneretion"] != null){
-                                                            $studyGeneretion[] = "รุ่น ".(string)$generetionCountStatus["studyGeneretion"];
-                                                        
-                                                        }
-                                                        $firstEntry[] = (int)$generetionCountStatus["firstEntry"];
-                                                        $study[] = (int)$generetionCountStatus["study"];
-                                                        $grad[] = (int)$generetionCountStatus["grad"];
-
                                                         $sumFisrtEntry += $generetionCountStatus["firstEntry"];
                                                         $sumStudy += $generetionCountStatus["study"];
                                                         $sumGrad += $generetionCountStatus["grad"];
@@ -659,10 +651,10 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามหลักสูตร (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามหลักสูตร (คน)</h6>
                             </div>
                             <?php
-                                $countPlanStatusSortBySemesterYears = getCountStudentPlanStatusSortBySemesterYearByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"]);
+                                $countPlanStatusSortBySemesterYears = getCountStudentPlanStatusSortBySemesterYearByDepartmentIdAndSemesterYear($departmentId, $semesterYear);
                                 //print_r($countPlanStatusSortBySemesterYears);
                                 $semesterLearncos=[];
                                 $planLearncos=[];
@@ -728,6 +720,7 @@
                                                         <td style='font-weight: bold; text-align: right;'><?php echo $sumRetire ?> คน</td>
                                                     </tr>
 
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -742,10 +735,10 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามรุ่น (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามรุ่น (คน)</h6>
                             </div>
                             <?php
-                                $countPlanStatusSortByGeneretions = getCountStudentPlanStatusSortByStudyGeneretionByCourseNameAndSemesterYear($course["nameCourseUse"], $semester["semesterYear"]);
+                                $countPlanStatusSortByGeneretions = getCountStudentPlanStatusSortByStudyGeneretionByDepartmentAndSemesterYear($departmentId, $semesterYear);
                                 //print_r($countPlanStatusSortByGeneretions);
                                 $semesterGen=[];
                                 $planGen=[];
@@ -778,7 +771,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php
+                                                <?php
                                                     
                                                     $sumPlanGen = 0;
                                                     $sumNotPlanGen = 0;
@@ -821,7 +814,6 @@
                     </div>
                 </div>
 
-               <?php print_r($countRangeGrade["blues"])?>
                 <!-- modalblue -->
                 <div id="modalblue" class="modal fade" style="color: black;">
                             <div class="modal-dialog modal-lg">
@@ -1242,7 +1234,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
 
 
@@ -1281,14 +1272,11 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
 
                 <script>
-
                     var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
 
                     var firstEntrys = <?php echo json_encode($firstEntry); ?>;
                     var studys = <?php echo json_encode($study); ?>;
                     var grads = <?php echo json_encode($grad); ?>;
-                    
-
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
@@ -1297,7 +1285,7 @@
                         data: {
                             labels: studyGeneretions,
                             datasets: [{
-                                label: 'นิสิตแรกเข้า',
+                                label: 'นักศึกษาแรกเข้า',
                                 data: firstEntrys,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
@@ -1311,7 +1299,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นิสิตกำลังศึกษา',
+                                label: 'นักศึกษากำลังศึกษา',
                                 data: studys,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -1325,7 +1313,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นิสิตจบการศึกษา',
+                                label: 'นักศึกษาจบการศึกษา',
                                 data: grads,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
@@ -1367,7 +1355,7 @@
                         data: {
                             labels: ['2565', '2566'],
                             datasets: [{
-                                label: 'นิสิตแรกเข้า',
+                                label: 'นักศึกษาแรกเข้า',
                                 data: [60, 60],
                                 backgroundColor: '#bfd575',
                                 borderColor: [
@@ -1381,7 +1369,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นิสิตพ้นสภาพ',
+                                label: 'นักศึกษาพ้นสภาพ',
                                 data: [0, 10],
                                 backgroundColor: '#ff6962',
                                 borderColor: [
@@ -1395,7 +1383,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นิสิตกำลังศึกษา',
+                                label: 'นักศึกษากำลังศึกษา',
                                 data: [50, 110],
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -1409,7 +1397,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นิสิตจบการศึกษา',
+                                label: 'นักศึกษาจบการศึกษา',
                                 data: [0, 0],
                                 backgroundColor: '#abbdee',
                                 borderColor: [
@@ -1459,101 +1447,101 @@
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
-                            data: {
-                                labels: p1gen,
-                                datasets: [{
-                                    label: '3.25-4.00',
-                                    data: p1blue,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '2.00-3.24',
-                                    data: p1green,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '1.75-1.99',
-                                    data: p1orange,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '0.00-1.74',
-                                    data: p1red,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                    borderWidth: 0
-                                }
-                                ]
+                        data: {
+                            labels: p1gen,
+                            datasets: [{
+                                label: '3.25-4.00',
+                                data: p1blue,
+                                backgroundColor: "rgba(0, 9, 188,0.7)",
+                                borderWidth: 0
                             },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    x: {
-                                        stacked: true,
-                                    },
-                                    y: {
-                                        stacked: true
-                                    }
-                                }
-
+                            {
+                                label: '2.00-3.24',
+                                data: p1green,
+                                backgroundColor: "rgba(0, 110, 22,0.7)",
+                                borderWidth: 0
+                            },
+                            {
+                                label: '1.75-1.99',
+                                data: p1orange,
+                                backgroundColor: 'rgba(255,128,0,0.7)',
+                                borderWidth: 0
+                            },
+                            {
+                                label: '0.00-1.74',
+                                data: p1red,
+                                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                borderWidth: 0
                             }
-                        });
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: {
+                                    stacked: true,
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            }
+
+                        }
+                    });
                 </script>
 
                 <script>
                     var p2genh = <?php echo json_encode($pee2genh); ?>;
+
                     var p2blueh = <?php echo json_encode($pee2bluesh); ?>;
                     var p2greenh = <?php echo json_encode($pee2greensh); ?>;
                     var p2orangeh = <?php echo json_encode($pee2orangesh); ?>;
                     var p2redh = <?php echo json_encode($pee2redsh); ?>;
-                    
                     var ctx = document.getElementById("pee2");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
-                            data: {
-                                labels: p2genh,
-                                datasets: [{
-                                    label: '3.25-4.00',
-                                    data: p2blueh,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '2.00-3.24',
-                                    data: p2greenh,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '1.75-1.99',
-                                    data: p2orangeh,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '0.00-1.74',
-                                    data: p2redh,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                    borderWidth: 0
-                                }
-                                ]
+                        data: {
+                            labels: p2genh,
+                            datasets: [{
+                                label: '3.25-4.00',
+                                data: p2blueh,
+                                backgroundColor: "rgba(0, 9, 188,0.7)",
+                                borderWidth: 0
                             },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    x: {
-                                        stacked: true,
-                                    },
-                                    y: {
-                                        stacked: true
-                                    }
-                                }
-
+                            {
+                                label: '2.00-3.24',
+                                data: p2greenh,
+                                backgroundColor: "rgba(0, 110, 22,0.7)",
+                                borderWidth: 0
+                            },
+                            {
+                                label: '1.75-1.99',
+                                data: p2orangeh,
+                                backgroundColor: 'rgba(255,128,0,0.7)',
+                                borderWidth: 0
+                            },
+                            {
+                                label: '0.00-1.74',
+                                data: p2redh,
+                                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                borderWidth: 0
                             }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: {
+                                    stacked: true,
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            }
+
+                        }
                     });
                 </script>
                 <script>
@@ -1563,52 +1551,51 @@
                     var p3green = <?php echo json_encode($pee3greens); ?>;
                     var p3orange = <?php echo json_encode($pee3oranges); ?>;
                     var p3red = <?php echo json_encode($pee3reds); ?>;
-
                     var ctx = document.getElementById("pee3");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
-                            data: {
-                                labels: p3gen,
-                                datasets: [{
-                                    label: '3.25-4.00',
-                                    data: p3blue,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '2.00-3.24',
-                                    data: p3green,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '1.75-1.99',
-                                    data: p3orange,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '0.00-1.74',
-                                    data: p3red,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                    borderWidth: 0
-                                }
-                                ]
+                        data: {
+                            labels: p3gen,
+                            datasets: [{
+                                label: '3.25-4.00',
+                                data: p3blue,
+                                backgroundColor: "rgba(0, 9, 188,0.7)",
+                                borderWidth: 0
                             },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    x: {
-                                        stacked: true,
-                                    },
-                                    y: {
-                                        stacked: true
-                                    }
-                                }
-
+                            {
+                                label: '2.00-3.24',
+                                data: p3green,
+                                backgroundColor: "rgba(0, 110, 22,0.7)",
+                                borderWidth: 0
+                            },
+                            {
+                                label: '1.75-1.99',
+                                data: p3orange,
+                                backgroundColor: 'rgba(255,128,0,0.7)',
+                                borderWidth: 0
+                            },
+                            {
+                                label: '0.00-1.74',
+                                data: p3red,
+                                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                borderWidth: 0
                             }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: {
+                                    stacked: true,
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            }
+
+                        }
                     });
                 </script>
                 <script>
@@ -1618,176 +1605,164 @@
                     var p4green = <?php echo json_encode($pee4greens); ?>;
                     var p4orange = <?php echo json_encode($pee4oranges); ?>;
                     var p4red = <?php echo json_encode($pee4reds); ?>;
-
-                        
                     var ctx = document.getElementById("pee4");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
                         //type: 'line',
                         type: 'bar',
-                            data: {
-                                labels: p4gen,
-                                datasets: [{
-                                    label: '3.25-4.00',
-                                    data: p4blue,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '2.00-3.24',
-                                    data: p4green,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '1.75-1.99',
-                                    data: p4orange,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '0.00-1.74',
-                                    data: p4red,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                    borderWidth: 0
-                                }
-                                ]
+                        data: {
+                            labels: p4gen,
+                            datasets: [{
+                                label: '3.25-4.00',
+                                data: p4blue,
+                                backgroundColor: "rgba(0, 9, 188,0.7)",
+                                borderWidth: 0
                             },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    x: {
-                                        stacked: true,
-                                    },
-                                    y: {
-                                        stacked: true
-                                    }
-                                }
-
+                            {
+                                label: '2.00-3.24',
+                                data: p4green,
+                                backgroundColor: "rgba(0, 110, 22,0.7)",
+                                borderWidth: 0
+                            },
+                            {
+                                label: '1.75-1.99',
+                                data: p4orange,
+                                backgroundColor: 'rgba(255,128,0,0.7)',
+                                borderWidth: 0
+                            },
+                            {
+                                label: '0.00-1.74',
+                                data: p4red,
+                                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                borderWidth: 0
                             }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: {
+                                    stacked: true,
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            }
+
+                        }
                     });
                 </script>
                 <script>
+                    var gennow = <?php echo json_encode($nowgen); ?>;
 
-                        var gennow = <?php echo json_encode($nowgen); ?>;
-                        console.log(gennow);
+                    var bluegen = <?php echo json_encode($BNG); ?>;
+                    var greengen = <?php echo json_encode($GNG); ?>;
+                    var orangegen = <?php echo json_encode($ONG); ?>;
+                    var redgen = <?php echo json_encode($RNG); ?>;
 
-                        var bluegen = <?php echo json_encode($BNG); ?>;
-                        console.log(bluegen);
-                        var greengen = <?php echo json_encode($GNG); ?>;
-                        console.log(greengen);
-                        var orangegen = <?php echo json_encode($ONG); ?>;
-                        console.log(orangegen);
-                        var redgen = <?php echo json_encode($RNG); ?>;
-                        console.log(redgen);
 
-                        var ctx = document.getElementById("learn");
-                        var myChart = new Chart(ctx, {
-                            //type: 'bar',
-                            //type: 'line',
-                            type: 'bar',
-                            data: {
-                                labels: gennow,
-                                datasets: [{
-                                    label: '3.25-4.00',
-                                    data: bluegen,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '2.00-3.24',
-                                    data: greengen,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '1.75-1.99',
-                                    data: orangegen,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '0.00-1.74',
-                                    data: redgen,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                    borderWidth: 0
-                                }
-                                ]
+                    var ctx = document.getElementById("learn");
+                    var myChart = new Chart(ctx, {
+                        //type: 'bar',
+                        //type: 'line',
+                        type: 'bar',
+                        data: {
+                            labels: gennow,
+                            datasets: [{
+                                label: '3.25-4.00',
+                                data: bluegen,
+                                backgroundColor: "rgba(0, 9, 188,0.7)",
+                                borderWidth: 0
                             },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    x: {
-                                        stacked: true,
-                                    },
-                                    y: {
-                                        stacked: true
-                                    }
-                                }
-
-                            }
-                        });
-                    </script>
-
-
-                    <script>
-                        var genend = <?php echo json_encode($endgen); ?>;
-                        console.log(genend);
-
-                        var bluegenend = <?php echo json_encode($BEG); ?>;
-                        console.log(bluegenend);
-                        var greengenend = <?php echo json_encode($GEG); ?>;
-                        console.log(greengenend);
-                        var orangegenend = <?php echo json_encode($OEG); ?>;
-                        console.log(orangegenend);
-                        var redgenend = <?php echo json_encode($REG); ?>;
-                        console.log(redgenend);
-
-                        var ctx = document.getElementById("learn2");
-                        var myChart = new Chart(ctx, {
-                            //type: 'bar',
-                            //type: 'line',
-                            type: 'bar',
-                            data: {
-                                labels: genend,
-                                datasets: [{
-                                    label: '3.25-4.00',
-                                    data: bluegenend,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '2.00-3.24',
-                                    data: greengenend,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '1.75-1.99',
-                                    data: orangegenend,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
-                                    borderWidth: 0
-                                },
-                                {
-                                    label: '0.00-1.74',
-                                    data: redgenend,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
-                                    borderWidth: 0
-                                }
-                                ]
+                            {
+                                label: '2.00-3.24',
+                                data: greengen,
+                                backgroundColor: "rgba(0, 110, 22,0.7)",
+                                borderWidth: 0
                             },
-                            options: {
-                                responsive: true,
-                                scales: {
-                                    x: {
-                                        stacked: true,
-                                    },
-                                    y: {
-                                        stacked: true
-                                    }
-                                }
-
+                            {
+                                label: '1.75-1.99',
+                                data: orangegen,
+                                backgroundColor: 'rgba(255,128,0,0.7)',
+                                borderWidth: 0
+                            },
+                            {
+                                label: '0.00-1.74',
+                                data: redgen,
+                                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                borderWidth: 0
                             }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: {
+                                    stacked: true,
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            }
+
+                        }
+                    });
+                </script>
+
+                <script>
+                    var genend = <?php echo json_encode($endgen); ?>;
+
+                    var bluegenend = <?php echo json_encode($BEG); ?>;
+                    var greengenend = <?php echo json_encode($GEG); ?>;
+                    var orangegenend = <?php echo json_encode($OEG); ?>;
+                    var redgenend = <?php echo json_encode($REG); ?>;
+
+
+                    var ctx = document.getElementById("learn2");
+                    var myChart = new Chart(ctx, {
+                        //type: 'bar',
+                        //type: 'line',
+                        type: 'bar',
+                        data: {
+                            labels: genend,
+                            datasets: [{
+                                label: '3.25-4.00',
+                                data: bluegenend,
+                                backgroundColor: "rgba(0, 9, 188,0.7)",
+                                borderWidth: 0
+                            },
+                            {
+                                label: '2.00-3.24',
+                                data: greengenend,
+                                backgroundColor: "rgba(0, 110, 22,0.7)",
+                                borderWidth: 0
+                            },
+                            {
+                                label: '1.75-1.99',
+                                data: orangegenend,
+                                backgroundColor: 'rgba(255,128,0,0.7)',
+                                borderWidth: 0
+                            },
+                            {
+                                label: '0.00-1.74',
+                                data: redgenend,
+                                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                borderWidth: 0
+                            }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: {
+                                    stacked: true,
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            }
+
+                        }
                     });
                 </script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
@@ -1795,13 +1770,12 @@
                 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
                 </script>
                 <script>
-                  
+                    
                     var semesterLearncos = <?php echo json_encode($semesterLearncos); ?>;
 
                     var planLearncos = <?php echo json_encode($planLearncos); ?>;
                     var notPlanLearncos = <?php echo json_encode($notPlanLearncos); ?>;
                     var retireLearncos = <?php echo json_encode($retireLearncos); ?>;
-
 
                     var ctx = document.getElementById("learncos");
                     var myChart = new Chart(ctx, {
@@ -1852,11 +1826,11 @@
                 </script>
 
                 <script>
-                    var semesterGens = <?php echo json_encode($semesterGen); ?>;
+                    var semesterGen = <?php echo json_encode($semesterGen); ?>;
 
-                    var planGens = <?php echo json_encode($planGen); ?>;
-                    var notPlanGens = <?php echo json_encode($notPlanGen); ?>;
-                    var retireGens = <?php echo json_encode($retireGen); ?>;
+                    var planGen = <?php echo json_encode($planGen); ?>;
+                    var notPlanGen = <?php echo json_encode($notPlanGen); ?>;
+                    var retireGen = <?php echo json_encode($retireGen); ?>;
 
                     var ctx = document.getElementById("learnyear");
                     var myChart = new Chart(ctx, {
@@ -1864,23 +1838,23 @@
                         //type: 'line',
                         type: 'bar',
                         data: {
-                            labels: semesterGens,
+                            labels: semesterGen,
                             datasets: [
                                 {
                                     label: 'ตามหลักสูตร',
-                                    data: planGens,
+                                    data: planGen,
                                     backgroundColor: "rgba(100, 197, 215,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['ไม่ตามหลักสุตร'],
-                                    data: notPlanGens,
+                                    data: notPlanGen,
                                     backgroundColor: "rgba(118, 188, 22,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['พ้นสภาพ'],
-                                    data: retireGens,
+                                    data: retireGen,
                                     backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 }

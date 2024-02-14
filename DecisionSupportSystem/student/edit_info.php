@@ -93,14 +93,14 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: gray;"><?php echo $student["fisrtNameEng"]." ",$student["lastNameEng"] ?></p>
                                 </div>
                             </div>
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
+                            <!--<div class="row" style="margin-left: 20px; padding: auto; ">
                                 <div class="col-sm-6">
                                     <p style="color: black;">รหัสประจำตัวประชาชน</p>
                                 </div>
                                 <div class="col-sm-6 ">
                                     <p style="color: gray;"><?php echo $student["personId"]?></p>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="row" style="margin-left: 20px; padding: auto; ">
                                 <div class="col-sm-6">
                                     <p style="color: black;">เพศ</p>

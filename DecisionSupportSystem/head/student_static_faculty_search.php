@@ -588,7 +588,10 @@
                             $study=[];
                             $grad=[];
                             foreach($studentStatusGeneretions as $statusGeneretions){
-                                $studyGeneretion[] = "รุ่น ".(string)$statusGeneretions["studyGeneretion"];
+                                if((string)$statusGeneretions["studyGeneretion"] != null){
+                                    $studyGeneretion[] = "รุ่น ".(string)$statusGeneretions["studyGeneretion"];
+                                
+                                }
                                 $firstEntry[] = (int)$statusGeneretions["firstEntry"];
                                 $study[] = (int)$statusGeneretions["study"];
                                 $grad[] = (int)$statusGeneretions["grad"];

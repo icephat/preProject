@@ -59,6 +59,8 @@
 
                 $semesterYears = getSemesterYear();
 
+                $semesterYear = $_POST["semesterYear"];
+
 
 
 
@@ -152,7 +154,7 @@
                     $countStudentInCourse = getCountStudentInDepartmentByDepartmentId($teacher["departmentId"]);
 
                     ?>
-                    <h5>ภาควิชา<?php echo $teacher["departmentName"] . " ปีการศึกษา ".$semester["semesterYear"] ?>
+                    <h5>ภาควิชา<?php echo $teacher["departmentName"] . " ปีการศึกษา ".$semesterYear ?>
                     </h5>
                 </div>
                 <div class="row">
@@ -165,7 +167,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
-                                            $countRangeGrade = getCountStudentGradeRangeByDepartmrntIdAndSemesterYear($teacher["departmentId"], $semester["semesterYear"])
+                                            $countRangeGrade = getCountStudentGradeRangeByDepartmrntIdAndSemesterYear($teacher["departmentId"], $semesterYear)
 
                                             ?>
 
@@ -250,7 +252,7 @@
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
-                                            $countPlanStatus = getCountStudentPlanStatusByDepartmrntIdAndSemesterYear($teacher["departmentId"], $semester["semesterYear"])
+                                            $countPlanStatus = getCountStudentPlanStatusByDepartmrntIdAndSemesterYear($teacher["departmentId"], $semesterYear)
 
                                                 ?>
 
@@ -342,10 +344,9 @@
                                 </div>-->
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
-                                
                                     <?php
 
-                                    $gradeRangeSortByAdvisers = getGradeRangeSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
+                                    $gradeRangeSortByAdvisers = getGradeRangeSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semesterYear);
 
                                     ?>
                                     <div class="col-sm-6">
@@ -464,7 +465,7 @@
                                 <div class="row" style="padding: 20px;">
                                     <?php
 
-                                    $planStatusSortByAdvisers = getPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
+                                    $planStatusSortByAdvisers = getPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semesterYear);
 
                                     ?>
                                     <div class="col-sm-6">
@@ -580,7 +581,7 @@
                                 </div>-->
                             <div class="card-body ">
                                 <?php
-                                $adviserMMAs = getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"])
+                                $adviserMMAs = getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semesterYear)
                                 ?>
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
@@ -654,7 +655,7 @@
                                 <div class="row" style="padding: 20px;">
                                     <?php
 
-                                    $remainingGradeRangeSortByAdvisers = getRemainingGradeRangeSortByAdviserByDepartmentIdAnd($teacher["departmentId"],$semester["semesterYear"]);
+                                    $remainingGradeRangeSortByAdvisers = getRemainingGradeRangeSortByAdviserByDepartmentIdAnd($teacher["departmentId"],$semesterYear);
 
                                     ?>
                                     <div class="col-sm-6">
@@ -775,7 +776,7 @@
                                 <div class="row" style="padding: 20px;">
                                     <?php
 
-                                    $remainingPlanStatusSortByAdvisers = getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
+                                    $remainingPlanStatusSortByAdvisers = getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($teacher["departmentId"],$semesterYear);
 
                                     ?>
                                     <div class="col-sm-6">

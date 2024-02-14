@@ -63,6 +63,8 @@
 
             $generetions = geStudyGeneretionStudentInFaculty();
 
+            $semesterYear = $_POST["semesterYear"]
+
 
 
             ?>
@@ -72,29 +74,7 @@
                     <div>
                         <form class="form-valide" action="../controller/reportStudentDepartmentearch.php" method="post" enctype="multipart/form-data">
                             <div class="row mx-auto">
-                                <!-- <div class="column mx-auto col-sm-2">
-                                    <div class="text-center">
-                                        <h5>ภาควิชา<span style="color: red;">*</span></th>
-                                    </div>
-                                    <div class="text-center">
-                                        <div>
-                                        <select class="form-control" data-live-search="true" name="departmentId">
-
-                                        <option value="0">ทุกภาค</option>
-                                                <?php
-                                                foreach ($departments as $department) {
-                                                    ?>
-
-                                                    <option value="<?php echo $department["departmentId"] ?>">
-                                                        <?php echo $department["departmentName"] ?>
-                                                    </option>
-                                                    <?php
-                                                }
-                                                ?>
-                                        </select>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                
 
                                 <div class="column mx-auto col-sm-4">
                                     <div class="text-center">
@@ -163,7 +143,7 @@
                     $countStudentInCourse = getCountStudentInFaculty();
 
                     ?>
-                    <h5>คณะวิศวกรรมศาสตร์ ปีการศึกษา <?php echo $semester["semesterYear"] ?>
+                    <h5>คณะวิศวกรรมศาสตร์ ปีการศึกษา <?php echo $semesterYear ?>
                     </h5>
                     </div>
                     <div class="row">
@@ -176,7 +156,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
-                                            $countRangeGrade = getCountStudentGradeRangeInFacultyฺSemesterYearBySemesterYear($semester["semesterYear"])
+                                            $countRangeGrade = getCountStudentGradeRangeInFacultyฺSemesterYearBySemesterYear($semesterYear)
 
                                                 ?>
 
@@ -201,7 +181,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);"><!-- href="#" data-toggle="modal" data-target="#modalgreen"-->
+                                                    <a style="color: rgb(0, 110, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen"-->
                                                         <h4>2.00-3.24</h4>
                                                     </a>
                                                 </div>
@@ -261,7 +241,7 @@
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
-                                            $countPlanStatus = getCountStudentPlanStatusInFacultyBySemesterYear($semester["semesterYear"])
+                                            $countPlanStatus = getCountStudentPlanStatusInFacultyBySemesterYear($semesterYear)
 
                                                 ?>
 
@@ -306,7 +286,7 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	245, 123, 57);"><!-- href="#" data-toggle="modal" data-target="#modalorange2"-->
+                                                    <a style="color: rgb(	245, 123, 57);" ><!--href="#" data-toggle="modal" data-target="#modalorange2"-->
                                                         <h4>พ้นสภาพ</h4>
                                                     </a>
                                                 </div>
@@ -353,7 +333,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $gradeRangeSortByDepartments = getGradeRangeSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $gradeRangeSortByDepartments = getGradeRangeSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
@@ -391,7 +371,6 @@
                                                         $learnOranges=[];
                                                         $learnReds=[];
                                                         $id=0;
-
                                                         foreach ($gradeRangeSortByDepartments as $dept) {
                                                             $sumBlue+=$dept["blue"];
                                                             $sumGreen+=$dept["green"];
@@ -417,11 +396,11 @@
                                                                 <td style=" text-align: right;"><?php echo $dept["red"] ?> คน</td>
                                                                 <!--<td class="text-center">
                                                                     <a data-toggle="modal" data-target="#dataModal<?php echo $id?>" >
-                                                                        <i class="fas fa-search fa-sm"></i>
+                                                                        <i class="fas fa-search fa-sm"></i>-->
                                                                     </a>
-                                                                </td>-->
+                                                                </td>
                                                             </tr>
-                                                            <?php 
+                                                            <?php
                                                             $id++;
                                                         }
                                                         ?>
@@ -454,7 +433,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $planStatusSortByDepartments = getplanStatusSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $planStatusSortByDepartments = getplanStatusSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
@@ -556,7 +535,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                                 </div>-->
                                 <?php
-                                $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $departmentMMAs = getMaxMinAVGGPAXSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
@@ -631,7 +610,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
-                                            $countRangeGrade = getCountStudentRemainingGradeRangeInFacultyBySemesterYear($semester["semesterYear"])
+                                            $countRangeGrade = getCountStudentRemainingGradeRangeInFacultyBySemesterYear($semesterYear)
 
                                                 ?>
 
@@ -656,7 +635,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen3"-->
+                                                    <a style="color: rgb(0, 110, 22);"><!-- href="#" data-toggle="modal" data-target="#modalgreen3"-->
                                                         <h4>2.00-3.24</h4>
                                                     </a>
                                                 </div>
@@ -716,13 +695,13 @@
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
-                                            $countPlanStatus = getCountStudentRemainingPlanStatusInFacultyBySemesterYear($semester["semesterYear"])
+                                            $countPlanStatus = getCountStudentRemainingPlanStatusInFacultyBySemesterYear($semesterYear)
 
                                                 ?>
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(100, 197, 215);" ><!--href="#" data-toggle="modal" data-target="#modalblue4"-->
+                                                    <a style="color: rgb(100, 197, 215);"><!-- href="#" data-toggle="modal" data-target="#modalblue4"-->
                                                         <h4>ตามแผน</h4>
                                                     </a>
                                                 </div>
@@ -761,7 +740,7 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	245, 123, 57);" ><!--href="#" data-toggle="modal" data-target="#modalorange4"-->
+                                                    <a style="color: rgb(	245, 123, 57);"><!-- href="#" data-toggle="modal" data-target="#modalorange4"-->
                                                         <h4>พ้นสภาพ</h4>
                                                     </a>
                                                 </div>
@@ -778,7 +757,7 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 105, 98);"><!-- href="#" data-toggle="modal" data-target="#modalred4"-->
+                                                    <a style="color: rgb(255, 105, 98);" ><!--href="#" data-toggle="modal" data-target="#modalred4"-->
                                                         <h4>จบการศึกษา</h4>
                                                     </a>
                                                 </div>
@@ -807,7 +786,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $gradeRangeRemainingSortByDepartments = getGradeRangeRemainingSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $gradeRangeRemainingSortByDepartments = getGradeRangeRemainingSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
@@ -845,7 +824,6 @@
                                                         $learnOranges2=[];
                                                         $learnReds2=[];
                                                         $idmodal=0;
-
                                                     foreach ($gradeRangeRemainingSortByDepartments as $deptR) {
                                                         $sumBlue2+=$deptR["blue"];
                                                         $sumGreen2+=$deptR["green"];
@@ -908,7 +886,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
                                 </div>-->
                                 <?php
-                                $planStatusRemainingByDepartments = getplanStatusRemainingSortByDepartmentInFacultyBySemesterYear($semester["semesterYear"]);
+                                $planStatusRemainingByDepartments = getplanStatusRemainingSortByDepartmentInFacultyBySemesterYear($semesterYear);
 
                                 ?>
                                 <div class="card-body ">
@@ -972,7 +950,7 @@
                                                                     <td style=" text-align: right;"><?php echo $planStatusRemainingByDepartment["grad"] ?> คน</td>
                                                                     <!--<td class="text-center">
                                                                         <a data-toggle="modal" data-target="#dataModal4<?php echo $idmodal?>" >
-                                                                                <i class="fas fa-search fa-sm"></i>
+                                                                            <i class="fas fa-search fa-sm"></i>
                                                                         </a>
                                                                     </td>-->
                                                                 </tr>
@@ -1058,7 +1036,7 @@
                         </div>-->
 
                         <!-- modalblue -->
-                        <div id="modalblue" class="modal fade" style="color: black;">
+                <div id="modalblue" class="modal fade" style="color: black;">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header" style="height: 90px;">
@@ -1805,7 +1783,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <?php
                         $id=0;
                         
@@ -1824,7 +1802,7 @@
 
 
                                     </div>
-                                    <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 3.25-4.00 0 คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 0 คน</h5>
                                     <div class="modal-body" id="std_detail">
                                         <table class="table table-striped">
 
@@ -1853,7 +1831,7 @@
 
                                     </div>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;"> รายชื่อนิสิต ช่วงเกรด 2.00-3.24 100 คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 100 คน</h5>
                                     <div class="modal-body" id="std_detail">
                                         <table class="table table-striped" id="grade" cellspacing="0">
 
@@ -1897,7 +1875,7 @@
 
                                     </div>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 1.75-1.99 6 คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 6 คน</h5>
                                     <div class="modal-body" id="std_detail">
                                         <table class="table table-striped">
 
@@ -1920,7 +1898,7 @@
 
                                     </div>
                                     <hr>
-                                    <h5 class="modal-title" style="margin-left: 10px;">รายชื่อนิสิต ช่วงเกรด 0.00-1.74 0 คน</h5>
+                                    <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
                                     <hr>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal"
@@ -1931,9 +1909,7 @@
 
 
                         </div>
-                    <?php 
-                        $id++;
-                    }?>
+                    <?php $id++;}?>
 
                     <?php
                         $id=0;
@@ -2239,6 +2215,7 @@
 
 
 
+
                     <!-- Bootstrap core JavaScript-->
                     <script src="../vendor/jquery/jquery.min.js"></script>
                     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -2539,9 +2516,400 @@
 
 </html>
 
+<div id="dataModal" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <h5>วศ.คอมพิวเตอร์ </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
 
 
 
+            </div>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 50 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.38</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.45</th>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 100 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped" id="grade" cellspacing="0">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.59</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.01</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.05</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.10</th>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 6 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>1.45</th>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="dataModal2" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <h5>วศ.คอมพิวเตอร์</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
 
 
 
+            </div>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 225 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.38</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.45</th>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 636 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.59</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.01</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.05</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.10</th>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 700 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>1.45</th>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 4 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>1.45</th>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dataModal21" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <h5>วศ.คอมพิวเตอร์ </h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
+
+
+
+            </div>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต3.25-4.00 0 คน</h5>
+
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต2.00-3.24 5 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped" id="grade" cellspacing="0">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.59</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.01</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.05</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.10</th>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต1.75-1.99 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิต0.00-1.74 0 คน</h5>
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="dataModal22" class="modal fade" style="color: black;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 90px;">
+                <h5>วศ.คอมพิวเตอร์</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <br>
+
+
+
+            </div>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน 5 คน</h5>
+            <div class="modal-body" id="std_detail">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>เกรดเฉลี่ย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.85</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>2.59</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.01</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.05</th>
+                        </tr>
+                        <tr>
+                            <th>632xxxxxxx</th>
+                            <th>นายxxxxxx xxxxxx</th>
+                            <th>3.10</th>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+            </div>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ 0 คน</h5>
+            <hr>
+            <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา 0 คน</h5>
+            <hr>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"
+                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+    </div>
+</div>
