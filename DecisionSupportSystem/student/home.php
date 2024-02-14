@@ -248,26 +248,34 @@ $_SESSION["studentId"] = $student["studentId"];
                                                 <?php
                                                         $credit = 0;
                                                         $creditYet = 0;
-                                                    foreach ($academics as $academic) {
-                                                        echo "
+                                                        $creditCheck=0;
+                                                        foreach ($academics as $academic) {
+                                                            echo "
+                                                                
+                                                        <tr>
+                                                            <td>" . $academic["name"] . "</td>
+                                                            <td style=\"font-weight: bold; text-align: right;\">
+                                                            " . $academic["grade"] . "
+                                                            </td>
+                                                            <td style=\"font-weight: bold; text-align: right;\">" . $academic["creditAll"] . "</td>
+                                                            <td style=\"font-weight: bold; color: green; text-align: right;\">
+                                                            " . $academic["credit"] . "
+                                                            </td>";
+                                                            if($academic["creditYet"] < 0){
+                                                                $creditCheck = 0;
+                                                            }
+                                                            else{
+                                                                $creditCheck = $academic["creditYet"];
+                                                            }
+                                                            echo
+                                                             "<td style=\"font-weight: bold; color: red; text-align: right;\">" . $creditCheck . "</td>
                                                             
-                                                    <tr>
-                                                        <td>" . $academic["name"] . "</td>
-                                                        <td style=\"font-weight: bold; text-align: right;\">
-                                                        " . $academic["grade"]. "
-                                                        </td>
-                                                        <td style=\"font-weight: bold; text-align: right;\">" . $academic["creditAll"] . "</td>
-                                                        <td style=\"font-weight: bold; color: green; text-align: right;\">
-                                                        " . $academic["credit"] . "
-                                                        </td>
-                                                        <td style=\"font-weight: bold; color: red; text-align: right;\">" . $academic["creditYet"] . "</td>
-                                                        
-                                                        
-                                                    </tr>";
-                                                    $credit+=$academic["credit"];
-                                                    $creditYet+=$academic["creditYet"];
-
-                                                    }
+                                                            
+                                                        </tr>";
+                                                            $credit += $academic["credit"];
+                                                            $creditYet += $academic["creditYet"];
+    
+                                                        }
                                                     ?>
                                                     
                                                 </tbody>
@@ -692,31 +700,39 @@ $_SESSION["studentId"] = $student["studentId"];
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <script> 
-            <?php
-        
-            $dataLists=[];
-            $dataPerLists=[];
-            $dataGrades=[];
-            foreach ($academics as $academic){
-                
-                //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
-                $dataPerLists[] = (float)($academic["credit"]*100)/$academic["creditAll"];
-                $dataLists[] = (float)($academic["creditYet"]*100)/$academic["creditAll"];
-                $dataGrades[]= (float)$academic["grade"];
+    <script>
 
+        <?php
+
+        $dataLists = [];
+        $dataPerLists = [];
+        $dataGrades = [];
+        foreach ($academics as $academic) {
+
+            //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
+            $dataPerLists[] = (float) ($academic["credit"] * 100) / $academic["creditAll"];
+            if((float) ($academic["creditYet"] * 100) / $academic["creditAll"] >= 0){
+                $dataLists[] = (float) ($academic["creditYet"] * 100) / $academic["creditAll"];
             }
+            else if((float) ($academic["creditYet"] * 100) / $academic["creditAll"] < 0){
+                $dataLists[] = 0;
+            }
+            
+            $dataGrades[] = (float) $academic["grade"];
+
+        }
 
         ?>
-            var dataGrades = <?php echo json_encode($dataGrades)?>;
-            console.log(dataGrades);
-        var perLists = <?php echo json_encode($dataPerLists)?>;
+        var dataGrades = <?php echo json_encode($dataGrades) ?>;
+        console.log(dataGrades);
+        var perLists = <?php echo json_encode($dataPerLists) ?>;
         console.log(perLists);
-        var datalists = <?php echo json_encode($dataLists)?>;
-        console.log(datalists);
-        var dataCreditYet = <?php echo $percentCreditYetAll;?>;
-        var dataCredit = <?php echo $percentCreditAll?>;
-        console.log(dataCreditYet);
+        var datalists = <?php echo json_encode($dataLists) ?>;
+        
+        var dataCreditYet = <?php echo $percentCreditYetAll; ?>;
+        
+        var dataCredit = <?php echo $percentCreditAll ?>;
+       
         let GPAPiesize = dataGrades.length;
         const GPAcolorPie = [];
         let GPAPiecolorLoop;
@@ -735,21 +751,33 @@ $_SESSION["studentId"] = $student["studentId"];
             }
             GPAcolorPie[i] = GPAPiecolorLoop;
         }
-        
-        
-        let x=0;
+
+        let colorAll;
+        if(dataCredit <= 25){
+            colorAll = 'rgba(255, 105, 98,0.7)';
+        }
+        else if(dataCredit > 25 && dataCredit <= 50){
+            colorAll = 'rgba(245, 123, 57,0.7)';
+        }
+        else if(dataCredit > 50 && dataCredit <=75){
+            colorAll = 'rgba(153, 204, 153,0.7)';
+        }
+        else if(dataCredit > 75){
+            colorAll = 'rgba(134, 211, 247,0.7)';
+        }
+        let x = 0;
         datalists.splice(0, 0, dataCreditYet);
         perLists.splice(0, 0, dataCredit);
-        GPAcolorPie.splice(0, 0, 'rgba(134, 211, 247,0.7)');
-        
-        
-        const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4","donutChart5","donutChart6"];
+        GPAcolorPie.splice(0, 0, colorAll);
+
+
+        const labels = ["donutChart0", "donutChart1", "donutChart2", "donutChart3", "donutChart4", "donutChart5", "donutChart6"];
         for (var name of labels) {
             var data = {
-            datasets: [{
-                data: [datalists[x], perLists[x]],
-                backgroundColor: ['rgba(211,211,211,0.8)',GPAcolorPie[x]]
-            }]
+                datasets: [{
+                    data: [datalists[x], perLists[x]],
+                    backgroundColor: ['rgba(211,211,211,0.8)', GPAcolorPie[x]]
+                }]
             };
 
             var ctx = document.getElementById(name);
@@ -771,10 +799,10 @@ $_SESSION["studentId"] = $student["studentId"];
 
 
             x++;
-        } 
-  
+        }
 
-</script>
+
+    </script>
 
 
 

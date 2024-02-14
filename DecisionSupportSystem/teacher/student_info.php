@@ -474,6 +474,7 @@ $student = getStudentByStudentId($studentId);
                                                     <?php
                                                     $credit = 0;
                                                     $creditYet = 0;
+                                                    $creditCheck=0;
                                                     foreach ($academics as $academic) {
                                                         echo "
                                                             
@@ -485,8 +486,15 @@ $student = getStudentByStudentId($studentId);
                                                         <td style=\"font-weight: bold; text-align: right;\">" . $academic["creditAll"] . "</td>
                                                         <td style=\"font-weight: bold; color: green; text-align: right;\">
                                                         " . $academic["credit"] . "
-                                                        </td>
-                                                        <td style=\"font-weight: bold; color: red; text-align: right;\">" . $academic["creditYet"] . "</td>
+                                                        </td>";
+                                                        if($academic["creditYet"] < 0){
+                                                            $creditCheck = 0;
+                                                        }
+                                                        else{
+                                                            $creditCheck = $academic["creditYet"];
+                                                        }
+                                                        echo
+                                                         "<td style=\"font-weight: bold; color: red; text-align: right;\">" . $creditCheck . "</td>
                                                         
                                                         
                                                     </tr>";
@@ -525,6 +533,7 @@ $student = getStudentByStudentId($studentId);
                                     $percentCreditYetAll = 0;
                                     $percentCreditAll = round((float) ($credit * 100) / $student["course"]["totalCredit"], 2);
                                     $percentCreditYetAll = round((float) ($creditYet * 100) / $student["course"]["totalCredit"], 2);
+                                    
                                     ?>
                                     <div class="col-sm-2" style="text-decoration: none;">
                                         <div class="t1 card">
@@ -1297,7 +1306,13 @@ $student = getStudentByStudentId($studentId);
 
             //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
             $dataPerLists[] = (float) ($academic["credit"] * 100) / $academic["creditAll"];
-            $dataLists[] = (float) ($academic["creditYet"] * 100) / $academic["creditAll"];
+            if((float) ($academic["creditYet"] * 100) / $academic["creditAll"] >= 0){
+                $dataLists[] = (float) ($academic["creditYet"] * 100) / $academic["creditAll"];
+            }
+            else if((float) ($academic["creditYet"] * 100) / $academic["creditAll"] < 0){
+                $dataLists[] = 0;
+            }
+            
             $dataGrades[] = (float) $academic["grade"];
 
         }
@@ -1308,10 +1323,11 @@ $student = getStudentByStudentId($studentId);
         var perLists = <?php echo json_encode($dataPerLists) ?>;
         console.log(perLists);
         var datalists = <?php echo json_encode($dataLists) ?>;
-        console.log(datalists);
+
         var dataCreditYet = <?php echo $percentCreditYetAll; ?>;
+        
         var dataCredit = <?php echo $percentCreditAll ?>;
-        console.log(dataCreditYet);
+       
         let GPAPiesize = dataGrades.length;
         const GPAcolorPie = [];
         let GPAPiecolorLoop;
@@ -1331,11 +1347,23 @@ $student = getStudentByStudentId($studentId);
             GPAcolorPie[i] = GPAPiecolorLoop;
         }
 
-
+        let colorAll;
+        if(dataCredit <= 25){
+            colorAll = 'rgba(255, 105, 98,0.7)';
+        }
+        else if(dataCredit > 25 && dataCredit <= 50){
+            colorAll = 'rgba(245, 123, 57,0.7)';
+        }
+        else if(dataCredit > 50 && dataCredit <=75){
+            colorAll = 'rgba(153, 204, 153,0.7)';
+        }
+        else if(dataCredit > 75){
+            colorAll = 'rgba(134, 211, 247,0.7)';
+        }
         let x = 0;
         datalists.splice(0, 0, dataCreditYet);
         perLists.splice(0, 0, dataCredit);
-        GPAcolorPie.splice(0, 0, 'rgba(134, 211, 247,0.7)');
+        GPAcolorPie.splice(0, 0, colorAll);
 
 
         const labels = ["donutChart0", "donutChart1", "donutChart2", "donutChart3", "donutChart4", "donutChart5", "donutChart6"];
