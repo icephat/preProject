@@ -135,7 +135,7 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <div class="row" style="margin-left: 20px; padding: auto; ">
+                            <!--<div class="row" style="margin-left: 20px; padding: auto; ">
                                 <div class="col-sm-6">
                                     <p style="color: blue;">รหัสประจำตัวประชาชน : </p>
                                 </div>
@@ -143,7 +143,7 @@
                                     <p style="color: gray;">xxxxxxxxx4955</p>
                                 </div>
 
-                            </div>
+                            </div>-->
                             <div class="row" style="margin-left: 20px; padding: auto; ">
                                 <div class="col-sm-6">
                                     <p style="color: blue;">เบอร์โทรศัพท์ผู้ปกครอง : </p>
