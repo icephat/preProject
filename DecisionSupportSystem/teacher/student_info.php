@@ -269,7 +269,9 @@ $student = getStudentByStudentId($studentId);
 
 
                                     ?>
-                                    <p style="color: gray;"><?php echo $remark?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $remark ?>
+                                    </p>
                                     <?php
 
                                 }
@@ -464,21 +466,21 @@ $student = getStudentByStudentId($studentId);
                                                         <th style="text-align: right; ">
                                                             จำนวนหน่วยกิตที่<span style="color:red;">ยังไม่เรียน</span>
                                                         </th>
-                                                        
-                                                        
+
+
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <?php
-                                                        $credit = 0;
-                                                        $creditYet = 0;
+                                                    <?php
+                                                    $credit = 0;
+                                                    $creditYet = 0;
                                                     foreach ($academics as $academic) {
                                                         echo "
                                                             
                                                     <tr>
                                                         <td>" . $academic["name"] . "</td>
                                                         <td style=\"font-weight: bold; text-align: right;\">
-                                                        " . $academic["grade"]. "
+                                                        " . $academic["grade"] . "
                                                         </td>
                                                         <td style=\"font-weight: bold; text-align: right;\">" . $academic["creditAll"] . "</td>
                                                         <td style=\"font-weight: bold; color: green; text-align: right;\">
@@ -488,12 +490,12 @@ $student = getStudentByStudentId($studentId);
                                                         
                                                         
                                                     </tr>";
-                                                    $credit+=$academic["credit"];
-                                                    $creditYet+=$academic["creditYet"];
+                                                        $credit += $academic["credit"];
+                                                        $creditYet += $academic["creditYet"];
 
                                                     }
                                                     ?>
-                                                    
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -519,60 +521,66 @@ $student = getStudentByStudentId($studentId);
                             <div class="card-body">
                                 <div class="row " style=" justify-content: center; align-items: center;">
                                     <?php
-                                        $percentAll = 0;
-                                        $percentCreditYetAll = 0;
-                                        $percentCreditAll =  round((float)($credit*100)/$student["course"]["totalCredit"],2);
-                                        $percentCreditYetAll =  round((float)($creditYet*100)/$student["course"]["totalCredit"],2);
+                                    $percentAll = 0;
+                                    $percentCreditYetAll = 0;
+                                    $percentCreditAll = round((float) ($credit * 100) / $student["course"]["totalCredit"], 2);
+                                    $percentCreditYetAll = round((float) ($creditYet * 100) / $student["course"]["totalCredit"], 2);
                                     ?>
-                                    <div class="col-sm-2"  style="text-decoration: none;">
+                                    <div class="col-sm-2" style="text-decoration: none;">
                                         <div class="t1 card">
-                                        <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                                style="color:#304f69;">ทั้งหมด</span></p>
+                                            <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                    style="color:#304f69;">ทั้งหมด</span></p>
                                             <div style="text-align: center; position: relative;\">
                                                 <canvas id="donutChart0"></canvas>
                                                 <div id="centerText"
                                                     style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                    <?php echo $percentCreditAll ?>%</div>
+                                                    <?php echo $percentCreditAll ?>%
+                                                </div>
                                             </div>
                                         </div>
 
                                     </div>
 
                                     <?php
-                                    
-                                        $i=1;
-                                        
-                                        foreach ($academics as $academic){
-                                            $percent = 0;
-                                            
-                                            $percent = round((float)($academic["credit"]*100)/$academic["creditAll"],2);
-                                            ?>
 
-                                                
-                                        
-                                            
-                                                <a href="./student_info.php#tab<?php echo $i?>" class="col-sm-2"  style="text-decoration: none;">
-                                                    <div class="t1 card">
-                                                        <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
-                                                                style="color:#304f69;"><?php echo $academic["name"]?></span></p>
-                                                        <div style="text-align: center; position: relative;\">
-                                                            <canvas id="donutChart<?php echo $i?>"></canvas>
-                                                            <div id="centerText"
-                                                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                                <?php echo $percent ?>%<br><?php echo $academic["grade"]?></div>
-                                                        </div>
+                                    $i = 1;
+
+                                    foreach ($academics as $academic) {
+                                        $percent = 0;
+
+                                        $percent = round((float) ($academic["credit"] * 100) / $academic["creditAll"], 2);
+                                        ?>
+
+
+
+
+                                        <a href="./student_info.php#tab<?php echo $i ?>" class="col-sm-2"
+                                            style="text-decoration: none;">
+                                            <div class="t1 card">
+                                                <p style="padding: 10px;">หน่วยกิตการเรียน &nbsp;<br><span
+                                                        style="color:#304f69;">
+                                                        <?php echo $academic["name"] ?>
+                                                    </span></p>
+                                                <div style="text-align: center; position: relative;\">
+                                                    <canvas id="donutChart<?php echo $i ?>"></canvas>
+                                                    <div id="centerText"
+                                                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
+                                                        <?php echo $percent ?>%<br>
+                                                        <?php echo $academic["grade"] ?>
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                </a>
-                                            
+                                        </a>
+
                                         <?php
-                                            
-                                            $i++;
-                                        }
 
-                                    
+                                        $i++;
+                                    }
+
+
                                     ?>
-                                
+
                                 </div>
                             </div>
                         </div>
@@ -635,12 +643,44 @@ $student = getStudentByStudentId($studentId);
                                             }
 
                                             ?>
+                                            <?php
+
+
+                                            $courseNotLearns = getSubjectNotLearnInCoureseList($student["studentId"], $student["course"]["nameCourseUse"], $student["course"]["planCourse"], $student["studyYear"], $student["studyTerm"]);
+
+
+                                            foreach ($courseNotLearns as $courseNotLearn) {
+                                                $sumcreditF += $courseNotLearn["credit"];
+                                                ?>
+                                                <tr>
+                                                    <td style=" text-align: center;"></td>
+                                                    <td style=" text-align: center;"></td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $courseNotLearn["subjectGroup"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $courseNotLearn["subjectCode"] ?>
+                                                    </td>
+                                                    <td style=" text-align: left;">
+
+                                                    </td>
+                                                    <td style=" text-align: center;">
+                                                        <?php echo $courseNotLearn["credit"] ?>
+                                                    </td>
+                                                    <td style=" text-align: center;"></td>
+
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
                                             <tr>
                                                 <td style="background-color: #86d3f7; font-weight: bold; color: black; text-align: center;"
                                                     colspan="4">
                                                     รวม</td>
                                                 <td style=" text-align: center;">
-                                                    <?php echo count($subjectFs) ?>
+                                                    <?php 
+                                                    $s = count($subjectFs)+count($courseNotLearns);
+                                                    echo $s ?>
                                                 </td>
                                                 <td style="text-align: center;">
                                                     <?php echo $sumcreditF ?>
@@ -845,7 +885,7 @@ $student = getStudentByStudentId($studentId);
                                             echo "
                                             
                                         <li class=\"nav-item\">
-                                            <a class=\"" . $unlink . "\" id=\"tab" . $i . "-tab\" data-toggle=\"tab\" href=\"#tab" .$i. "\" role=\"tab\" aria-controls=\"tab" . $i . "\" aria-selected=" . $tab . ">" . $gorup["name"] . "</a>
+                                            <a class=\"" . $unlink . "\" id=\"tab" . $i . "-tab\" data-toggle=\"tab\" href=\"#tab" . $i . "\" role=\"tab\" aria-controls=\"tab" . $i . "\" aria-selected=" . $tab . ">" . $gorup["name"] . "</a>
                                         </li>
                                             
                                             
@@ -882,7 +922,7 @@ $student = getStudentByStudentId($studentId);
                                                 
 
                                             <div class=\"table-responsive\">
-                                                <table class=\"table table-striped\" id=\"dataTable".$i."\" cellspacing=\"0\"
+                                                <table class=\"table table-striped\" id=\"dataTable" . $i . "\" cellspacing=\"0\"
                                                     style=\"color: black;  \">
                                                     <thead>
                                                         <tr>
@@ -901,8 +941,8 @@ $student = getStudentByStudentId($studentId);
                                                 ";
 
                                         foreach ($gorup["list"] as $regis) {
- 
-                                    
+
+
                                             echo "
                                                     
                                                     <tr>
@@ -1050,16 +1090,16 @@ $student = getStudentByStudentId($studentId);
     ?>
 
     <!-- Bootstrap core JavaScript-->
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="../js/demo/datatables-demo2.js"></script>
@@ -1247,89 +1287,89 @@ $student = getStudentByStudentId($studentId);
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-   
-   <?php
-   
-    $dataLists=[];
-    $dataPerLists=[];
-    $dataGrades=[];
-    foreach ($academics as $academic){
-        
-        //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
-        $dataPerLists[] = (float)($academic["credit"]*100)/$academic["creditAll"];
-        $dataLists[] = (float)($academic["creditYet"]*100)/$academic["creditAll"];
-        $dataGrades[]= (float)$academic["grade"];
 
-    }
+        <?php
 
-   ?>
-    var dataGrades = <?php echo json_encode($dataGrades)?>;
-    console.log(dataGrades);
-   var perLists = <?php echo json_encode($dataPerLists)?>;
-   console.log(perLists);
-   var datalists = <?php echo json_encode($dataLists)?>;
-   console.log(datalists);
-   var dataCreditYet = <?php echo $percentCreditYetAll;?>;
-   var dataCredit = <?php echo $percentCreditAll?>;
-   console.log(dataCreditYet);
-   let GPAPiesize = dataGrades.length;
-   const GPAcolorPie = [];
-   let GPAPiecolorLoop;
-   for (let i = 0; i < GPAPiesize; i++) {
-       if (dataGrades[i] >= 0.0000 && dataGrades[i] <= 1.7499) {
-           GPAPiecolorLoop = 'rgba(255, 105, 98,0.7)';
-       }
-       else if (dataGrades[i] >= 1.7500 && dataGrades[i] <= 1.9999) {
-           GPAPiecolorLoop = 'rgba(245, 123, 57,0.7)';
-       }
-       else if (dataGrades[i] >= 2.0000 && dataGrades[i] <= 3.2499) {
-           GPAPiecolorLoop = 'rgba(153, 204, 153,0.7)';
-       }
-       else if (dataGrades[i] >= 3.2500) {
-           GPAPiecolorLoop = 'rgba(134, 211, 247,0.7)';
-       }
-       GPAcolorPie[i] = GPAPiecolorLoop;
-   }
-  
-   
-   let x=0;
-   datalists.splice(0, 0, dataCreditYet);
-   perLists.splice(0, 0, dataCredit);
-   GPAcolorPie.splice(0, 0, 'rgba(134, 211, 247,0.7)');
-  
-   
-   const labels = ["donutChart0", "donutChart1", "donutChart2","donutChart3","donutChart4","donutChart5","donutChart6"];
-   for (var name of labels) {
-       var data = {
-       datasets: [{
-           data: [datalists[x], perLists[x]],
-           backgroundColor: ['rgba(211,211,211,0.8)',GPAcolorPie[x]]
-       }]
-       };
+        $dataLists = [];
+        $dataPerLists = [];
+        $dataGrades = [];
+        foreach ($academics as $academic) {
 
-       var ctx = document.getElementById(name);
-       var name = new Chart(ctx, {
-           type: "doughnut",
-           data: data,
-           options: {
-               cutoutPercentage: perLists[x],  // กำหนดค่านี้เพื่อสร้าง Donut Chart
-               responsive: true,
-               plugins: {
-                   legend: {
-                       display: false
-                   }
-               }
-           }
-       });
+            //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
+            $dataPerLists[] = (float) ($academic["credit"] * 100) / $academic["creditAll"];
+            $dataLists[] = (float) ($academic["creditYet"] * 100) / $academic["creditAll"];
+            $dataGrades[] = (float) $academic["grade"];
+
+        }
+
+        ?>
+        var dataGrades = <?php echo json_encode($dataGrades) ?>;
+        console.log(dataGrades);
+        var perLists = <?php echo json_encode($dataPerLists) ?>;
+        console.log(perLists);
+        var datalists = <?php echo json_encode($dataLists) ?>;
+        console.log(datalists);
+        var dataCreditYet = <?php echo $percentCreditYetAll; ?>;
+        var dataCredit = <?php echo $percentCreditAll ?>;
+        console.log(dataCreditYet);
+        let GPAPiesize = dataGrades.length;
+        const GPAcolorPie = [];
+        let GPAPiecolorLoop;
+        for (let i = 0; i < GPAPiesize; i++) {
+            if (dataGrades[i] >= 0.0000 && dataGrades[i] <= 1.7499) {
+                GPAPiecolorLoop = 'rgba(255, 105, 98,0.7)';
+            }
+            else if (dataGrades[i] >= 1.7500 && dataGrades[i] <= 1.9999) {
+                GPAPiecolorLoop = 'rgba(245, 123, 57,0.7)';
+            }
+            else if (dataGrades[i] >= 2.0000 && dataGrades[i] <= 3.2499) {
+                GPAPiecolorLoop = 'rgba(153, 204, 153,0.7)';
+            }
+            else if (dataGrades[i] >= 3.2500) {
+                GPAPiecolorLoop = 'rgba(134, 211, 247,0.7)';
+            }
+            GPAcolorPie[i] = GPAPiecolorLoop;
+        }
 
 
+        let x = 0;
+        datalists.splice(0, 0, dataCreditYet);
+        perLists.splice(0, 0, dataCredit);
+        GPAcolorPie.splice(0, 0, 'rgba(134, 211, 247,0.7)');
 
 
-       x++;
-   } 
-  
+        const labels = ["donutChart0", "donutChart1", "donutChart2", "donutChart3", "donutChart4", "donutChart5", "donutChart6"];
+        for (var name of labels) {
+            var data = {
+                datasets: [{
+                    data: [datalists[x], perLists[x]],
+                    backgroundColor: ['rgba(211,211,211,0.8)', GPAcolorPie[x]]
+                }]
+            };
 
-</script>
+            var ctx = document.getElementById(name);
+            var name = new Chart(ctx, {
+                type: "doughnut",
+                data: data,
+                options: {
+                    cutoutPercentage: perLists[x],  // กำหนดค่านี้เพื่อสร้าง Donut Chart
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+
+
+
+
+            x++;
+        }
+
+
+    </script>
 
 </body>
 
