@@ -344,7 +344,7 @@
 
                 <?php 
                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($courseName,"กำลังศึกษา",$semesterYear);
-                   if (count($studentStudys) > 0) {
+                   
                    
                 ?>
                     <div class="row">
@@ -395,7 +395,7 @@
 
                                                         </tr>
                                                         <?php
-                                                        $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($courseName,"กำลังศึกษา",$semesterYear);
+                                                        
                                                         $g1=0;
                                                         $g2=0;
                                                         $g3=0;
@@ -431,40 +431,74 @@
                                                                     <?php echo $studentStudy["studyGeneretion"] ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["one"] ?> คน
+                                                                    <?php 
+                                                                    
+                                                                    if($studentStudy["one"] != 0)
+                                                                        echo $studentStudy["one"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["two"] ?> คน
+                                                                    <?php 
+                                                                    if($studentStudy["two"] != 0)
+                                                                        echo $studentStudy["two"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["three"] ?> คน
+                                                                
+                                                                    <?php 
+                                                                    if($studentStudy["three"] != 0)
+                                                                        echo $studentStudy["three"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["four"] ?> คน
+                                                                    <?php 
+                                                                    if($studentStudy["four"] != 0)
+                                                                        echo $studentStudy["four"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["five"] ?> คน
+                                                                    <?php 
+                                                                    
+                                                                    if($studentStudy["five"] != 0)
+                                                                        echo $studentStudy["five"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["six"] ?> คน
+                                                                    <?php 
+                                                                    if($studentStudy["six"] != 0)
+                                                                        echo $studentStudy["six"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["seven"] ?> คน
+                                                                    <?php 
+                                                                        if($studentStudy["seven"] != 0)
+                                                                        echo $studentStudy["seven"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["eight"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["eight"] != 0)
+                                                                        echo $studentStudy["eight"]." คน" ?>
+                                                                
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["nine"] ?> คน
+                                                                    <?php 
+                                                                        if($studentStudy["nine"] != 0)
+                                                                        echo $studentStudy["nine"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["ten"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["ten"] != 0)
+                                                                        echo $studentStudy["ten"]." คน" ?>
+                                                                   
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["eleven"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["eleven"] != 0)
+                                                                        echo $studentStudy["eleven"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["twelve"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["twelve"] != 0)
+                                                                        echo $studentStudy["twelve"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center; font-weight: bold;"><?php echo $sum?></td>
                                                             </tr>
@@ -499,11 +533,11 @@
                             </div>
                         </div>
                     </div>
-                <?php }?>
+                <?php ?>
 
                 <?php 
                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "พ้นสภาพนิสิต",$semesterYear);
-                   if (count($studentStudys) > 0) {
+                   
                    
                 ?>
                     <div class="row">
@@ -553,7 +587,7 @@
 
                                                         </tr>
                                                         <?php
-                                                        $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "พ้นสภาพนิสิต",$semesterYear);
+                                                        
                                                         $g21=0;
                                                         $g22=0;
                                                         $g23=0;
@@ -588,40 +622,74 @@
                                                                     <?php echo $studentStudy["studyGeneretion"] ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["one"] ?> คน
+                                                                    <?php 
+                                                                    
+                                                                    if($studentStudy["one"] != 0)
+                                                                        echo $studentStudy["one"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["two"] ?> คน
+                                                                    <?php 
+                                                                    if($studentStudy["two"] != 0)
+                                                                        echo $studentStudy["two"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["three"] ?> คน
+                                                                
+                                                                    <?php 
+                                                                    if($studentStudy["three"] != 0)
+                                                                        echo $studentStudy["three"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["four"] ?> คน
+                                                                    <?php 
+                                                                    if($studentStudy["four"] != 0)
+                                                                        echo $studentStudy["four"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["five"] ?> คน
+                                                                    <?php 
+                                                                    
+                                                                    if($studentStudy["five"] != 0)
+                                                                        echo $studentStudy["five"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["six"] ?> คน
+                                                                    <?php 
+                                                                    if($studentStudy["six"] != 0)
+                                                                        echo $studentStudy["six"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["seven"] ?> คน
+                                                                    <?php 
+                                                                        if($studentStudy["seven"] != 0)
+                                                                        echo $studentStudy["seven"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["eight"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["eight"] != 0)
+                                                                        echo $studentStudy["eight"]." คน" ?>
+                                                                
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["nine"] ?> คน
+                                                                    <?php 
+                                                                        if($studentStudy["nine"] != 0)
+                                                                        echo $studentStudy["nine"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["ten"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["ten"] != 0)
+                                                                        echo $studentStudy["ten"]." คน" ?>
+                                                                   
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["eleven"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["eleven"] != 0)
+                                                                        echo $studentStudy["eleven"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["twelve"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["twelve"] != 0)
+                                                                        echo $studentStudy["twelve"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center; font-weight: bold;"><?php echo $sum?></td>
                                                             </tr>
@@ -706,11 +774,11 @@
                             </div>
                         </div>
                     </div>
-                <?php }?>
+                <?php ?>
 
                 <?php 
                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "จบการศึกษา",$semesterYear);
-                   if (count($studentStudys) > 0) {
+                   
                    
                 ?>
                     <div class="row">
@@ -760,7 +828,7 @@
 
                                                         </tr>
                                                         <?php
-                                                        $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "จบการศึกษา",$semesterYear);
+                                                        
                                                         $g31=0;
                                                         $g32=0;
                                                         $g33=0;
@@ -795,45 +863,79 @@
                                                                     <?php echo $studentStudy["studyGeneretion"] ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["one"] ?> คน
+                                                                    <?php 
+                                                                    
+                                                                    if($studentStudy["one"] != 0)
+                                                                        echo $studentStudy["one"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["two"] ?> คน
+                                                                    <?php 
+                                                                    if($studentStudy["two"] != 0)
+                                                                        echo $studentStudy["two"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["three"] ?> คน
+                                                                
+                                                                    <?php 
+                                                                    if($studentStudy["three"] != 0)
+                                                                        echo $studentStudy["three"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["four"] ?> คน
+                                                                    <?php 
+                                                                    if($studentStudy["four"] != 0)
+                                                                        echo $studentStudy["four"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["five"] ?> คน
+                                                                    <?php 
+                                                                    
+                                                                    if($studentStudy["five"] != 0)
+                                                                        echo $studentStudy["five"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["six"] ?> คน
+                                                                    <?php 
+                                                                    if($studentStudy["six"] != 0)
+                                                                        echo $studentStudy["six"]." คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["seven"] ?> คน
+                                                                    <?php 
+                                                                        if($studentStudy["seven"] != 0)
+                                                                        echo $studentStudy["seven"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["eight"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["eight"] != 0)
+                                                                        echo $studentStudy["eight"]." คน" ?>
+                                                                
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["nine"] ?> คน
+                                                                    <?php 
+                                                                        if($studentStudy["nine"] != 0)
+                                                                        echo $studentStudy["nine"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["ten"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["ten"] != 0)
+                                                                        echo $studentStudy["ten"]." คน" ?>
+                                                                   
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["eleven"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["eleven"] != 0)
+                                                                        echo $studentStudy["eleven"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["twelve"] ?> คน
+                                                                <?php 
+                                                                        if($studentStudy["twelve"] != 0)
+                                                                        echo $studentStudy["twelve"]." คน" ?>
+                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center; font-weight: bold;"><?php echo $sum?></td>
                                                             </tr>
                                                             <?php
-                                                        }
+                                                        
                                                         ?>
                                                         <!-- <tr>
                                                             <td style=" text-align: center;">2566</td>
