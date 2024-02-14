@@ -30,7 +30,7 @@ if ($check->num_rows > 0) {
 
     <?php
 } else {
-    header('Location: ' . '../head/nisit.php');
+    header('Location: ' . '../head/noFindNisit.php');
     exit();
 
 }
