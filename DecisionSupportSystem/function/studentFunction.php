@@ -92,6 +92,49 @@ function getStudentByStudentId($studentId)
 
 }
 
+function getStudentByStudentIdForInsert($studentId)
+{
+    require("connection_connect.php");
+
+    $sql = "SELECT * FROM student NATURAL JOIN fact_student WHERE studentId = '" . $studentId . "'";
+
+    $result = $conn->query($sql);
+    $student = $result->fetch_assoc();
+
+    $student["teacher"] = getTeacherById($student["teacherId"]);
+    $student["program"] = getProgramById($student["programId"]);
+    $student["department"] = getDepartmentById($student["departmentId"]);
+    $student["school"] = getSchoolById($student["schoolId"]);
+    $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
+    $student["gpax"] = getGPAX($student["studentId"]);
+    $student["course"] = getCourseById($student["courseId"]);
+    //$student["status"] = getStudentStatusByStudentId($student["studentId"]);
+
+    $semester = getSemesterPresent();
+
+    $semester = getSemesterPresent();
+
+    $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"] + 1;
+
+    if ($semester["semesterPart"] == "ภาคต้น") {
+        $student["studyTerm"] = 1;
+    } else {
+        $student["studyTerm"] = 2;
+    }
+
+    $student["credit"] = getCredit($student["studentId"]);
+
+    $student["creditThree"] = getCreditThree($student["studentId"]);
+
+    require("connection_close.php");
+
+
+
+
+    return $student;
+
+}
+
 function getStudentStatusByStudentId($studentId)
 {
     require("connection_connect.php");
@@ -104,6 +147,8 @@ function getStudentStatusByStudentId($studentId)
 
     $result = $conn->query($sql);
     $status = $result->fetch_assoc();
+
+    
 
 
 

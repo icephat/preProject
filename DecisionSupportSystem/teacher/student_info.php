@@ -725,7 +725,7 @@ $student = getStudentByStudentId($studentId);
 
                                             $sumcreditF = 0;
                                             foreach ($subjectPassAndNots as $subjectPassAndNot) {
-                                                $sumcreditF += $subjectF["credit"];
+                                                $sumcreditF += $subjectPassAndNot["credit"];
 
                                                 ?>
 
@@ -763,7 +763,7 @@ $student = getStudentByStudentId($studentId);
                                                     colspan="4">
                                                     รวม</td>
                                                 <td style=" text-align: center;">
-                                                    <?php echo count($subjectFs) ?>
+                                                    <?php echo count($subjectPassAndNots) ?>
                                                 </td>
                                                 <td style="text-align: center;">
                                                     <?php echo $sumcreditF ?>
