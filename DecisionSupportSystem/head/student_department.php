@@ -67,7 +67,8 @@
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form class="form-valide" action="student_department_search.php" method="post" enctype="multipart/form-data">
+                    <form class="form-valide" action="student_department_search.php" method="post"
+                        enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
                                 <div class="text-center">
@@ -128,7 +129,10 @@
                 </div>
 
                 <hr>
-                <h5 style="color:black;">ภาควิชา<?php echo $teacher["departmentName"] ?> ปีการศึกษา <?php echo $semester["semesterYear"] ?></h5>
+                <h5 style="color:black;">ภาควิชา
+                    <?php echo $teacher["departmentName"] ?> ปีการศึกษา
+                    <?php echo $semester["semesterYear"] ?>
+                </h5>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
@@ -156,7 +160,7 @@
 
                                                     <?php
 
-                                                    $studentStatusSortGeneretions = getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
+                                                    $studentStatusSortGeneretions = getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYear($teacher["departmentId"], $semester["semesterYear"]);
 
                                                     $sumFirstEntry = 0;
                                                     $sumRetire = 0;
@@ -272,7 +276,7 @@
                                                 <tbody>
                                                     <?php
 
-                                                    $studentStatusByYears = getCountStudentStatusSortByYearByDepartmrntIdAndSemesterYear($teacher["departmentId"],$semester["semesterYear"]);
+                                                    $studentStatusByYears = getCountStudentStatusSortByYearByDepartmrntIdAndSemesterYear($teacher["departmentId"], $semester["semesterYear"]);
                                                     $listSem = [];
                                                     $firstEntrys2 = [];
                                                     $retires2 = [];
@@ -333,347 +337,433 @@
                         </div>
                     </div>
                 </div>
-                <?php 
-                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "กำลังศึกษา", $semester["semesterYear"]);
-                    if (count($studentStudys) > 0) {
-                   
+                <?php
+                $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "กำลังศึกษา", $semester["semesterYear"]);
+
+
                 ?>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">นิสิตคงเหลือ (กำลังศึกษา)</h6>
-                                </div>
-                                
-                                <div class="card-body ">
-                                    <div class="row" style="padding: 20px;">
-                                        <div class="col-sm-12 mx-auto float-right">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped" cellspacing="0" style="color: black;">
-                                                    <thead style=" ">
-                                                        <tr>
-                                                            <th rowspan="2" style=" text-align: center; width: 100px;">
-                                                                รุ่น</th>
-                                                            <th colspan="5" style=" text-align: center; width: 100px;">
-                                                                ปีการศึกษา</th>
-                                                            <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td style=" text-align: center;"></td>
-                                                            <?php
-                                                            $x = 0;
-                                                            $color = "";
-                                                            $year = $semester["semesterYear"] - 4;
-                                                            //echo $thaiDay;
-                                                            for ($i = $year; $i < $year + 5; $i++) {
-
-                                                                ?>
-
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $i ?>
-                                                                </td>
-                                                                <?php $x++;
-                                                            } ?>
-
-                                                        </tr>
-
-                                                        <?php
-                                                        $x = 0;
-                                                        $generetion = 66 - 4;
-                                                        $g1=0;
-                                                        $g2=0;
-                                                        $g3=0;
-                                                        $g4=0;
-                                                        $g5=0;
-                                                        //echo $thaiDay;
-                                                        foreach ($studentStudys as $studentStudy) {
-                                                            $sum=0;
-                                                            $g1+=(int)$studentStudy["one"];
-                                                            $g2+=(int)$studentStudy["two"];
-                                                            $g3+=(int)$studentStudy["three"];
-                                                            $g4+=(int)$studentStudy["four"];
-                                                            $g5+=(int)$studentStudy["five"];
-                                                            $sum=$g1+$g2+$g1+$g4+$g5;
-                                                            ?>
-
-                                                            <tr>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["studyGeneretion"] ?>
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["one"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["two"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["three"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["four"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["five"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center; font-weight: bold;"><?php echo $studentStudy["five"] ?></td>
-                                                            </tr>
-
-                                                            <?php
-                                                        } ?>
-
-                                                        <tr>
-                                                            <th scope='row' style=" text-align: center;  ">
-                                                                ทุกรุ่น</th>
-                                                            <td style="font-weight: bold; text-align: center;"><?php echo $g1?> คน</td>
-                                                            <td style="font-weight: bold; text-align: center;"><?php echo $g2?> คน</td>
-                                                            <td style='font-weight: bold; text-align: center;'><?php echo $g3?> คน</td>
-                                                            <td style='font-weight: bold; text-align: center;'><?php echo $g4?> คน</td>
-                                                            <td style='font-weight: bold; text-align: center;'><?php echo $g5?> คน</td>
-                                                            <td style=" font-weight: bold; text-align: center;"></td>
-                                                        </tr>
-
-
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">นิสิตคงเหลือ (กำลังศึกษา)</h6>
                             </div>
-                        </div>
-                    </div>
-                <?php }?>
 
-                <?php 
-                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "พ้นสภาพนิสิต", $semester["semesterYear"]);
-                    if (count($studentStudys) > 0) {
-                   
-                ?>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">นิสิตพ้นสภาพ</h6>
-                                </div>
-                                <?php
-
-                                $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "พ้นสภาพนิสิต", $semester["semesterYear"]);
-                                ?>
-                                <div class="card-body ">
-                                    <div class="row" style="padding: 20px;">
-                                        <div class="col-sm-12 mx-auto float-right">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped" cellspacing="0" style="color: black;">
-                                                    <thead style=" ">
-                                                        <tr>
-                                                            <th rowspan="2" style=" text-align: center; width: 100px;">
-                                                                รุ่น</th>
-                                                            <th colspan="5" style=" text-align: center; width: 100px;">
-                                                                ปีการศึกษา</th>
-                                                            <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td style=" text-align: center;"></td>
-                                                            <?php
-                                                            $x = 0;
-                                                            $color = "";
-                                                            $year = $semester["semesterYear"] - 4;
-                                                            //echo $thaiDay;
-                                                            for ($i = $year; $i < $year + 5; $i++) {
-
-                                                                ?>
-
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $i ?>
-                                                                </td>
-                                                                <?php $x++;
-                                                            } ?>
-
-                                                        </tr>
-
+                            <div class="card-body ">
+                                <div class="row" style="padding: 20px;">
+                                    <div class="col-sm-12 mx-auto float-right">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped" cellspacing="0" style="color: black;">
+                                                <thead style=" ">
+                                                    <tr>
+                                                        <th rowspan="2" style=" text-align: center; width: 100px;">
+                                                            รุ่น</th>
+                                                        <th colspan="5" style=" text-align: center; width: 100px;">
+                                                            ปีการศึกษา</th>
+                                                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=" text-align: center;"></td>
                                                         <?php
                                                         $x = 0;
                                                         $color = "";
-                                                        $generetion = 66 - 4;
-                                                        $g1=0;
-                                                        $g2=0;
-                                                        $g3=0;
-                                                        $g4=0;
-                                                        $g5=0;
+                                                        $year = $semester["semesterYear"] - 4;
                                                         //echo $thaiDay;
-                                                        foreach ($studentStudys as $studentStudy) {
-                                                            $sum=0;
-                                                            $g1+=(int)$studentStudy["one"];
-                                                            $g2+=(int)$studentStudy["two"];
-                                                            $g3+=(int)$studentStudy["three"];
-                                                            $g4+=(int)$studentStudy["four"];
-                                                            $g5+=(int)$studentStudy["five"];
-                                                            $sum=$g1+$g2+$g1+$g4+$g5;
+                                                        for ($i = $year; $i < $year + 5; $i++) {
+
                                                             ?>
 
-                                                            <tr>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["studyGeneretion"] ?>
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["one"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["two"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["three"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["four"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["five"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center; font-weight: bold;"><?php echo $sum?></td>
-                                                            </tr>
-
-                                                            <?php
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $i ?>
+                                                            </td>
+                                                            <?php $x++;
                                                         } ?>
 
-                                                            <tr>
-                                                                <th scope='row' style=" text-align: center;  ">
-                                                                    ทุกรุ่น</th>
-                                                                <td style="font-weight: bold; text-align: center;"><?php echo $g1?> คน</td>
-                                                                <td style="font-weight: bold; text-align: center;"><?php echo $g2?> คน</td>
-                                                                <td style='font-weight: bold; text-align: center;'><?php echo $g3?> คน</td>
-                                                                <td style='font-weight: bold; text-align: center;'><?php echo $g4?> คน</td>
-                                                                <td style='font-weight: bold; text-align: center;'><?php echo $g5?> คน</td>
-                                                                <td style=" font-weight: bold; text-align: center;"></td>
-                                                            </tr>
+                                                    </tr>
 
+                                                    <?php
+                                                    $x = 0;
+                                                    $generetion = 66 - 4;
+                                                    $g1 = 0;
+                                                    $g2 = 0;
+                                                    $g3 = 0;
+                                                    $g4 = 0;
+                                                    $g5 = 0;
+                                                    //echo $thaiDay;
+                                                    foreach ($studentStudys as $studentStudy) {
+                                                        $sum = 0;
+                                                        $g1 += (int) $studentStudy["one"];
+                                                        $g2 += (int) $studentStudy["two"];
+                                                        $g3 += (int) $studentStudy["three"];
+                                                        $g4 += (int) $studentStudy["four"];
+                                                        $g5 += (int) $studentStudy["five"];
+                                                        $sum = $g1 + $g2 + $g1 + $g4 + $g5;
+                                                        ?>
 
-
-
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php }?>
-
-                <?php 
-                    $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "จบการศึกษา", $semester["semesterYear"]);
-                    if (count($studentStudys) > 0) {
-                   
-                ?>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">นิสิตจบการศึกษา</h6>
-                                </div>
-                                
-                                <div class="card-body ">
-                                    <div class="row" style="padding: 20px;">
-                                        <div class="col-sm-12 mx-auto float-right">
-                                            <div class="table-responsive">
-                                                <table class="table table-striped" cellspacing="0" style="color: black;">
-                                                    <thead style=" ">
                                                         <tr>
-                                                            <th rowspan="2" style=" text-align: center; width: 100px;">
-                                                                รุ่น</th>
-                                                            <th colspan="5" style=" text-align: center; width: 100px;">
-                                                                ปีการศึกษา</th>
-                                                            <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td style=" text-align: center;"></td>
-                                                            <?php
-                                                            $x = 0;
-                                                            $color = "";
-                                                            $year = $semester["semesterYear"] - 4;
-                                                            //echo $thaiDay;
-                                                            for ($i = $year; $i < $year + 5; $i++) {
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["studyGeneretion"] ?>
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php
 
-                                                                ?>
-
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $i ?>
+                                                                if ($studentStudy["one"] != 0)
+                                                                    echo $studentStudy["one"] . " คน" ?>
                                                                 </td>
-                                                                <?php $x++;
-                                                            } ?>
+                                                                <td style=" text-align: center;">
+                                                                <?php
+                                                                if ($studentStudy["two"] != 0)
+                                                                    echo $studentStudy["two"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
 
+                                                                <?php
+                                                                if ($studentStudy["three"] != 0)
+                                                                    echo $studentStudy["three"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+                                                                <?php
+                                                                if ($studentStudy["four"] != 0)
+                                                                    echo $studentStudy["four"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+                                                                <?php
+
+                                                                if ($studentStudy["five"] != 0)
+                                                                    echo $studentStudy["five"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center; font-weight: bold;">
+                                                                <?php echo $studentStudy["five"] ?>
+                                                            </td>
                                                         </tr>
 
                                                         <?php
-                                                        $x = 0;
-                                                        $color = "";
-                                                        $generetion = 66 - 4;
-                                                        $g1=0;
-                                                        $g2=0;
-                                                        $g3=0;
-                                                        $g4=0;
-                                                        $g5=0;
-                                                        //echo $thaiDay;
-                                                        foreach ($studentStudys as $studentStudy) {
-                                                            $sum=0;
-                                                            $g1+=(int)$studentStudy["one"];
-                                                            $g2+=(int)$studentStudy["two"];
-                                                            $g3+=(int)$studentStudy["three"];
-                                                            $g4+=(int)$studentStudy["four"];
-                                                            $g5+=(int)$studentStudy["five"];
-                                                            $sum=$g1+$g2+$g1+$g4+$g5;
-                                                            ?>
+                                                    } ?>
 
-                                                            <tr>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["studyGeneretion"] ?>
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["one"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["two"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["three"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["four"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php echo $studentStudy["five"] ?> คน
-                                                                </td>
-                                                                <td style=" text-align: center; font-weight: bold;">-</td>
-                                                            </tr>
-
-                                                            <?php
-                                                        } ?>
+                                                    <tr>
+                                                        <th scope='row' style=" text-align: center;  ">
+                                                            ทุกรุ่น</th>
+                                                        <td style="font-weight: bold; text-align: center;">
+                                                            <?php echo $g1 ?> คน
+                                                        </td>
+                                                        <td style="font-weight: bold; text-align: center;">
+                                                            <?php echo $g2 ?> คน
+                                                        </td>
+                                                        <td style='font-weight: bold; text-align: center;'>
+                                                            <?php echo $g3 ?> คน
+                                                        </td>
+                                                        <td style='font-weight: bold; text-align: center;'>
+                                                            <?php echo $g4 ?> คน
+                                                        </td>
+                                                        <td style='font-weight: bold; text-align: center;'>
+                                                            <?php echo $g5 ?> คน
+                                                        </td>
+                                                        <td style=" font-weight: bold; text-align: center;"></td>
+                                                    </tr>
 
 
 
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <?php }?>
+                </div>
+                <?php ?>
+
+                <?php
+                $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "พ้นสภาพนิสิต", $semester["semesterYear"]);
+
+
+                ?>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">นิสิตพ้นสภาพ</h6>
+                            </div>
+                            <?php
+
+                            $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "พ้นสภาพนิสิต", $semester["semesterYear"]);
+                            ?>
+                            <div class="card-body ">
+                                <div class="row" style="padding: 20px;">
+                                    <div class="col-sm-12 mx-auto float-right">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped" cellspacing="0" style="color: black;">
+                                                <thead style=" ">
+                                                    <tr>
+                                                        <th rowspan="2" style=" text-align: center; width: 100px;">
+                                                            รุ่น</th>
+                                                        <th colspan="5" style=" text-align: center; width: 100px;">
+                                                            ปีการศึกษา</th>
+                                                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=" text-align: center;"></td>
+                                                        <?php
+                                                        $x = 0;
+                                                        $color = "";
+                                                        $year = $semester["semesterYear"] - 4;
+                                                        //echo $thaiDay;
+                                                        for ($i = $year; $i < $year + 5; $i++) {
+
+                                                            ?>
+
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $i ?>
+                                                            </td>
+                                                            <?php $x++;
+                                                        } ?>
+
+                                                    </tr>
+
+                                                    <?php
+                                                    $x = 0;
+                                                    $color = "";
+                                                    $generetion = 66 - 4;
+                                                    $g1 = 0;
+                                                    $g2 = 0;
+                                                    $g3 = 0;
+                                                    $g4 = 0;
+                                                    $g5 = 0;
+                                                    //echo $thaiDay;
+                                                    foreach ($studentStudys as $studentStudy) {
+                                                        $sum = 0;
+                                                        $g1 += (int) $studentStudy["one"];
+                                                        $g2 += (int) $studentStudy["two"];
+                                                        $g3 += (int) $studentStudy["three"];
+                                                        $g4 += (int) $studentStudy["four"];
+                                                        $g5 += (int) $studentStudy["five"];
+                                                        $sum = $g1 + $g2 + $g1 + $g4 + $g5;
+                                                        ?>
+
+                                                        <tr>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["studyGeneretion"] ?>
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php
+
+                                                                if ($studentStudy["one"] != 0)
+                                                                    echo $studentStudy["one"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+                                                                <?php
+                                                                if ($studentStudy["two"] != 0)
+                                                                    echo $studentStudy["two"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+
+                                                                <?php
+                                                                if ($studentStudy["three"] != 0)
+                                                                    echo $studentStudy["three"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+                                                                <?php
+                                                                if ($studentStudy["four"] != 0)
+                                                                    echo $studentStudy["four"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+                                                                <?php
+
+                                                                if ($studentStudy["five"] != 0)
+                                                                    echo $studentStudy["five"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center; font-weight: bold;">
+                                                                <td style=" text-align: center; font-weight: bold;">
+                                                                <?php echo $studentStudy["five"] ?>
+                                                            </td>
+                                                        </tr>
+
+                                                        <?php
+                                                    } ?>
+
+                                                    <tr>
+                                                        <th scope='row' style=" text-align: center;  ">
+                                                            ทุกรุ่น</th>
+                                                        <td style="font-weight: bold; text-align: center;">
+                                                            <?php echo $g1 ?> คน
+                                                        </td>
+                                                        <td style="font-weight: bold; text-align: center;">
+                                                            <?php echo $g2 ?> คน
+                                                        </td>
+                                                        <td style='font-weight: bold; text-align: center;'>
+                                                            <?php echo $g3 ?> คน
+                                                        </td>
+                                                        <td style='font-weight: bold; text-align: center;'>
+                                                            <?php echo $g4 ?> คน
+                                                        </td>
+                                                        <td style='font-weight: bold; text-align: center;'>
+                                                            <?php echo $g5 ?> คน
+                                                        </td>
+                                                        <td style=" font-weight: bold; text-align: center;"></td>
+                                                    </tr>
+
+
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php ?>
+
+                <?php
+                $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($teacher["departmentId"], "จบการศึกษา", $semester["semesterYear"]);
+
+
+                ?>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">นิสิตจบการศึกษา</h6>
+                            </div>
+
+                            <div class="card-body ">
+                                <div class="row" style="padding: 20px;">
+                                    <div class="col-sm-12 mx-auto float-right">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped" cellspacing="0" style="color: black;">
+                                                <thead style=" ">
+                                                    <tr>
+                                                        <th rowspan="2" style=" text-align: center; width: 100px;">
+                                                            รุ่น</th>
+                                                        <th colspan="5" style=" text-align: center; width: 100px;">
+                                                            ปีการศึกษา</th>
+                                                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td style=" text-align: center;"></td>
+                                                        <?php
+                                                        $x = 0;
+                                                        $color = "";
+                                                        $year = $semester["semesterYear"] - 4;
+                                                        //echo $thaiDay;
+                                                        for ($i = $year; $i < $year + 5; $i++) {
+
+                                                            ?>
+
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $i ?>
+                                                            </td>
+                                                            <?php $x++;
+                                                        } ?>
+
+                                                    </tr>
+
+                                                    <?php
+                                                    $x = 0;
+                                                    $color = "";
+                                                    $generetion = 66 - 4;
+                                                    $g1 = 0;
+                                                    $g2 = 0;
+                                                    $g3 = 0;
+                                                    $g4 = 0;
+                                                    $g5 = 0;
+                                                    //echo $thaiDay;
+                                                    foreach ($studentStudys as $studentStudy) {
+                                                        $sum = 0;
+                                                        $g1 += (int) $studentStudy["one"];
+                                                        $g2 += (int) $studentStudy["two"];
+                                                        $g3 += (int) $studentStudy["three"];
+                                                        $g4 += (int) $studentStudy["four"];
+                                                        $g5 += (int) $studentStudy["five"];
+                                                        $sum = $g1 + $g2 + $g1 + $g4 + $g5;
+                                                        ?>
+
+                                                        <tr>
+                                                            <td style=" text-align: center;">
+                                                                <?php echo $studentStudy["studyGeneretion"] ?>
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php
+
+                                                                if ($studentStudy["one"] != 0)
+                                                                    echo $studentStudy["one"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+                                                                <?php
+                                                                if ($studentStudy["two"] != 0)
+                                                                    echo $studentStudy["two"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+
+                                                                <?php
+                                                                if ($studentStudy["three"] != 0)
+                                                                    echo $studentStudy["three"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+                                                                <?php
+                                                                if ($studentStudy["four"] != 0)
+                                                                    echo $studentStudy["four"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center;">
+                                                                <?php
+
+                                                                if ($studentStudy["five"] != 0)
+                                                                    echo $studentStudy["five"] . " คน" ?>
+                                                                </td>
+                                                                <td style=" text-align: center; font-weight: bold;">
+                                                                <?php echo $studentStudy["five"] ?>
+                                                            </tr>
+
+                                                        <?php
+                                                    } ?>
+
+                                                    <tr>
+                                                        <th scope='row' style=" text-align: center;  ">
+                                                            ทุกรุ่น</th>
+                                                        <td style="font-weight: bold; text-align: center;">
+                                                            <?php echo $g1 ?> คน
+                                                        </td>
+                                                        <td style="font-weight: bold; text-align: center;">
+                                                            <?php echo $g2 ?> คน
+                                                        </td>
+                                                        <td style='font-weight: bold; text-align: center;'>
+                                                            <?php echo $g3 ?> คน
+                                                        </td>
+                                                        <td style='font-weight: bold; text-align: center;'>
+                                                            <?php echo $g4 ?> คน
+                                                        </td>
+                                                        <td style='font-weight: bold; text-align: center;'>
+                                                            <?php echo $g5 ?> คน
+                                                        </td>
+                                                        <td style=" font-weight: bold; text-align: center;"></td>
+                                                    </tr>
+
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php ?>
                 <!--<div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
