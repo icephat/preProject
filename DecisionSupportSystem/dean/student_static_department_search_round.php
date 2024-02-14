@@ -69,7 +69,7 @@
            <?php include('../layout/dean/report.php'); ?>
 
                     <div>
-                        <form class="form-valide" action="../controller/headSearchFacultyTcas.php" method="post" enctype="multipart/form-data">
+                        <form class="form-valide" action="../controller/deanSearchFacultyTcas.php" method="post" enctype="multipart/form-data">
                             <div class="row mx-auto">
                                 <!-- <div class="column mx-auto col-sm-2">
                                     <div class="text-center">
