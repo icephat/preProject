@@ -42,6 +42,7 @@
 
 session_start();
 
+
 require_once '../function/teacherFunction.php';
 require_once '../function/departmentFunction.php';
 
