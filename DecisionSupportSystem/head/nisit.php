@@ -254,17 +254,19 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                 <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
                                     <br>
                                     <div class="col-12 mx-auto">
-                                        <div class=" text-center">
-                                            <h5 style="margin-left: 20px;">โปรดระบุรหัส หรือ ชื่อนิสิต</h3>
-                                                <br>
-                                                <input type="text" class="form-control"
-                                                    placeholder="ค้นหารหัส หรือ ชื่อนิสิต">
-                                                <br>
-                                                <form action="./student_info.php">
+                                        <form action="../controller/headStudentSearch.php" method = "POST" >
+                                            <div class=" text-center">
+                                                <h5 style="margin-left: 20px;">โปรดระบุรหัสนิสิต</h3>
+                                                    <br>
+                                                    <input type="text" class="form-control" name = "studentId"  
+                                                        placeholder="รหัสนิสิต" required>
+                                                    <br>
+
                                                     <button class="btn btn-primary"
                                                         style="font-size: 20px;">Search</button>
-                                                </form>
-                                        </div>
+
+                                            </div>
+                                        </form>
 
                                     </div>
                                     <br>
