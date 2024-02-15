@@ -141,6 +141,27 @@
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
+                                    <p style="font-weight: bold; font-size: 12px;">
+                                            <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
+                                            
+                                            <span style="color: red; ">
+                                            &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
+                                                    width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
+                                                    viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg> นิสิตพ้นสภาพ</span>
+                                            <span style="color: #a4ebf3;">&nbsp;&nbsp;&nbsp; <svg style="color: #a4ebf3;"
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg> นิสิตกำลังศึกษา</span>
+                                            <span style="color: #abbdee;">&nbsp;&nbsp;&nbsp;<svg style="color: #abbdee;"
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg> นิสิตจบการศึกษา</span>
+                                            
+                                        </p>
 
                                         <canvas id="myChart"></canvas>
                                     </div>
@@ -259,6 +280,27 @@
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
+                                    <p style="font-weight: bold; font-size: 12px;">
+                                            <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
+                                            
+                                            <span style="color: red; ">
+                                            &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
+                                                    width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
+                                                    viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg> นิสิตพ้นสภาพ</span>
+                                            <span style="color: #a4ebf3;">&nbsp;&nbsp;&nbsp; <svg style="color: #a4ebf3;"
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg> นิสิตกำลังศึกษา</span>
+                                            <span style="color: #abbdee;">&nbsp;&nbsp;&nbsp;<svg style="color: #abbdee;"
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg> นิสิตจบการศึกษา</span>
+                                            
+                                        </p>
 
                                         <canvas id="myCharts"></canvas>
                                     </div>
@@ -1055,11 +1097,8 @@
                 <!-- Page level plugins -->
                 <script src="../vendor/chart.js/Chart.min.js"></script>
 
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
-                </script>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
-                </script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+
                 <script>
 
                     var lists1 = <?php echo json_encode($lists); ?>;
@@ -1084,7 +1123,7 @@
                                 label: 'นิสิตแรกเข้า',
                                 backgroundColor: 'rgb(0, 107, 201)',
                                 data: firstEntrys1,
-                              
+                                borderColor: 'rgba(0, 107, 201,1)',
 
                                 lineTension: 0,
                                 fill: false
@@ -1118,7 +1157,6 @@
 
                         options: {
                             scales: {
-
                                 x: {
                                     stacked: true,
                                 },
@@ -1126,12 +1164,14 @@
                                     stacked: true
                                 }
                             },
-                            legend: {
-                                display: false
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
                             },
                             responsive: true,
-
                         }
+                        
                     });
                 </script>
 
@@ -1167,42 +1207,21 @@
                                 label: 'นิสิตพ้นสภาพ',
                                 data: retires2,
                                 backgroundColor: '#ff6962',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
+                             
                                 borderWidth: 0
                             },
                             {
                                 label: 'นิสิตกำลังศึกษา',
                                 data: studys2,
                                 backgroundColor: '#a4ebf3',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
+                              
                                 borderWidth: 0
                             },
                             {
                                 label: 'นิสิตจบการศึกษา',
                                 data: grads2,
                                 backgroundColor: '#abbdee',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
+                               
                                 borderWidth: 0
                             }
 
@@ -1220,7 +1239,11 @@
                                     stacked: true
                                 }
                             },
-
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            },
                             responsive: true,
 
                         }
