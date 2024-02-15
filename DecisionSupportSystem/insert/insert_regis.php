@@ -14,7 +14,7 @@ $part = "ภาคต้น";
 
 
 
-
+$p = 8;
 
 
 $studentIds = [];
@@ -24,8 +24,8 @@ $studentIds = [];
 //ภาคฤดูร้อน
 
 // Open uploaded CSV file with read-only mode
-$csvFile = fopen("D:\CPEKU\Project66\\regis_csv\\".$year."_1_regis.csv", 'r');
-
+// $csvFile = fopen("D:\CPEKU\Project66\\regis_csv\\".$year."_1_regis.csv", 'r');
+$csvFile = fopen("D:\CPEKU\Project66\\regis_csv\\per\\per$p.csv", 'r');
 // Skip the first line
 fgetcsv($csvFile);
 
@@ -83,13 +83,13 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $resultRoom = $conn->query($sqlRoom);
     $room1 = $resultRoom->fetch_assoc();
     $roomId = $room1["roomId"];
-    //echo $sqlRoom."<br>";
+    echo $sqlRoom."<br>";
 
     $sqlTypeRegis = "SELECT * FROM typeregis WHERE type = '" . $typeRegis . "'";
     $resultTypeRegis = $conn->query($sqlTypeRegis);
     $typeRegis = $resultTypeRegis->fetch_assoc();
     $typeRegisId = $typeRegis["typeRegisId"];
-    //echo $typeRegisId."<br>";
+    echo $typeRegisId."<br>";
 
     $sqlSubject = "SELECT * FROM subject WHERE subjectCode = '" . $subjectCode . "' AND subjectCourse = " . $subjectCourse;
     $resultSubject = $conn->query($sqlSubject);
@@ -162,7 +162,8 @@ foreach ($studentIds as $sId) {
 
     foreach ($regisList as $regis) {
         //echo print_r($regis)."<br>";
-        if ($gradeCharacter != 'W' and $gradeCharacter != 'P') {
+        if ($regis["gradeCharacter"] != 'W' and $regis["gradeCharacter"] != 'P' and $regis["gradeCharacter"] != 'NP') {
+            echo $regis["gradeCharacter"]."<br>";
             $sumGradeCreditTerm += $regis["gradeNumber"] * $regis["credit"];
             $sumCreditTerm += $regis["credit"];
         }
@@ -183,7 +184,8 @@ foreach ($studentIds as $sId) {
 
     foreach ($regisAllList as $regis) {
         //echo print_r($regis)."<br>";
-        if ($gradeCharacter != 'W' and $gradeCharacter != 'P') {
+        if ($regis["gradeCharacter"] != 'W' and $regis["gradeCharacter"] != 'P' and $regis["gradeCharacter"] != 'NP') {
+            echo $regis["gradeCharacter"]."<br>";
             $sumGradeCreditAll += $regis["gradeNumber"] * $regis["credit"];
             $sumCreditAll += $regis["credit"];
         }
