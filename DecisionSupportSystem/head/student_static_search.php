@@ -423,7 +423,7 @@
                                                             $g10+=(int)$studentStudy["ten"];
                                                             $g11+=(int)$studentStudy["eleven"];
                                                             $g12+=(int)$studentStudy["twelve"];
-                                                            $sum=$g1+$g2+$g1+$g4+$g5+$g6+$g7+$g8+$g9+$g10+$g11+$g12;
+                                                            $sum=0;
 
                                                             ?>
                                                             <tr>
@@ -433,71 +433,107 @@
                                                                 <td style=" text-align: center;">
                                                                     <?php 
                                                                     
-                                                                    if($studentStudy["one"] != 0)
-                                                                        echo $studentStudy["one"]." คน" ?>
+                                                                    if($studentStudy["one"] > 0){
+                                                                        echo $studentStudy["one"]." คน" ;
+                                                                        $sum = $studentStudy["one"] ;
+                                                                    }
+                                                                        ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                    if($studentStudy["two"] != 0)
-                                                                        echo $studentStudy["two"]." คน" ?>
+                                                                    if($studentStudy["two"] > 0){
+                                                                        echo $studentStudy["two"]." คน";
+                                                                        $sum = $studentStudy["two"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 
                                                                     <?php 
-                                                                    if($studentStudy["three"] != 0)
-                                                                        echo $studentStudy["three"]." คน" ?>
+                                                                    if($studentStudy["three"] > 0){
+                                                                        echo $studentStudy["three"]." คน";
+                                                                        $sum = $studentStudy["three"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                    if($studentStudy["four"] != 0)
-                                                                        echo $studentStudy["four"]." คน" ?>
+                                                                    if($studentStudy["four"] > 0){
+                                                                        echo $studentStudy["four"]." คน";
+                                                                        $sum = $studentStudy["four"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
                                                                     
-                                                                    if($studentStudy["five"] != 0)
-                                                                        echo $studentStudy["five"]." คน" ?>
+                                                                    if($studentStudy["five"] > 0){
+                                                                        echo $studentStudy["five"]." คน" ;
+                                                                        $sum = $studentStudy["five"] ;
+                                                                    }
+                                                                        ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                    if($studentStudy["six"] != 0)
-                                                                        echo $studentStudy["six"]." คน" ?>
+                                                                    if($studentStudy["six"] > 0){
+                                                                        echo $studentStudy["six"]." คน";
+                                                                        $sum = $studentStudy["six"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                        if($studentStudy["seven"] != 0)
-                                                                        echo $studentStudy["seven"]." คน" ?>
+                                                                        if($studentStudy["seven"] > 0){
+                                                                            echo $studentStudy["seven"]." คน" ;
+                                                                            $sum = $studentStudy["seven"] ;
+                                                                        }
+                                                                        ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["eight"] != 0)
-                                                                        echo $studentStudy["eight"]." คน" ?>
+                                                                        if($studentStudy["eight"] > 0){
+                                                                             echo $studentStudy["eight"]." คน";
+                                                                             $sum = $studentStudy["eight"] ;
+                                                                        }
+                                                                        ?>
                                                                 
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                        if($studentStudy["nine"] != 0)
-                                                                        echo $studentStudy["nine"]." คน" ?>
+                                                                        if($studentStudy["nine"] > 0){
+                                                                            echo $studentStudy["nine"]." คน" ;
+                                                                            $sum = $studentStudy["nine"] ;
+                                                                        }
+                                                                        ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["ten"] != 0)
-                                                                        echo $studentStudy["ten"]." คน" ?>
+                                                                        if($studentStudy["ten"] > 0){
+                                                                            echo $studentStudy["ten"]." คน" ;
+                                                                            $sum = $studentStudy["ten"];
+                                                                        }
+                                                                        ?>
                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["eleven"] != 0)
-                                                                        echo $studentStudy["eleven"]." คน" ?>
+                                                                        if($studentStudy["eleven"] > 0){
+                                                                            echo $studentStudy["eleven"]." คน" ;
+                                                                            $sum =$studentStudy["eleven"];
+                                                                        }
+                                                                        ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["twelve"] != 0)
-                                                                        echo $studentStudy["twelve"]." คน" ?>
+                                                                        if($studentStudy["twelve"] > 0){
+                                                                            echo $studentStudy["twelve"]." คน";
+                                                                            $sum = $studentStudy["twelve"];
+                                                                        }
+                                                                         ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center; font-weight: bold;"><?php echo $sum?></td>
@@ -614,8 +650,8 @@
                                                             $g210+=(int)$studentStudy["ten"];
                                                             $g211+=(int)$studentStudy["eleven"];
                                                             $g212+=(int)$studentStudy["twelve"];
-                                                            $sum=$g21+$g22+$g23+$g24+$g25+$g26+$g27+$g28+$g29+$g210+$g211+$g212;
-                                                        
+                                                            $sum=0;
+
                                                             ?>
                                                             <tr>
                                                                 <td style=" text-align: center;">
@@ -624,71 +660,107 @@
                                                                 <td style=" text-align: center;">
                                                                     <?php 
                                                                     
-                                                                    if($studentStudy["one"] != 0)
-                                                                        echo $studentStudy["one"]." คน" ?>
+                                                                    if($studentStudy["one"] > 0){
+                                                                        echo $studentStudy["one"]." คน" ;
+                                                                        $sum = $studentStudy["one"] ;
+                                                                    }
+                                                                        ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                    if($studentStudy["two"] != 0)
-                                                                        echo $studentStudy["two"]." คน" ?>
+                                                                    if($studentStudy["two"] > 0){
+                                                                        echo $studentStudy["two"]." คน";
+                                                                        $sum = $studentStudy["two"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 
                                                                     <?php 
-                                                                    if($studentStudy["three"] != 0)
-                                                                        echo $studentStudy["three"]." คน" ?>
+                                                                    if($studentStudy["three"] > 0){
+                                                                        echo $studentStudy["three"]." คน";
+                                                                        $sum = $studentStudy["three"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                    if($studentStudy["four"] != 0)
-                                                                        echo $studentStudy["four"]." คน" ?>
+                                                                    if($studentStudy["four"] > 0){
+                                                                        echo $studentStudy["four"]." คน";
+                                                                        $sum = $studentStudy["four"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
                                                                     
-                                                                    if($studentStudy["five"] != 0)
-                                                                        echo $studentStudy["five"]." คน" ?>
+                                                                    if($studentStudy["five"] > 0){
+                                                                        echo $studentStudy["five"]." คน" ;
+                                                                        $sum = $studentStudy["five"] ;
+                                                                    }
+                                                                        ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                    if($studentStudy["six"] != 0)
-                                                                        echo $studentStudy["six"]." คน" ?>
+                                                                    if($studentStudy["six"] > 0){
+                                                                        echo $studentStudy["six"]." คน";
+                                                                        $sum = $studentStudy["six"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                        if($studentStudy["seven"] != 0)
-                                                                        echo $studentStudy["seven"]." คน" ?>
+                                                                        if($studentStudy["seven"] > 0){
+                                                                            echo $studentStudy["seven"]." คน" ;
+                                                                            $sum = $studentStudy["seven"] ;
+                                                                        }
+                                                                        ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["eight"] != 0)
-                                                                        echo $studentStudy["eight"]." คน" ?>
+                                                                        if($studentStudy["eight"] > 0){
+                                                                             echo $studentStudy["eight"]." คน";
+                                                                             $sum = $studentStudy["eight"] ;
+                                                                        }
+                                                                        ?>
                                                                 
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                        if($studentStudy["nine"] != 0)
-                                                                        echo $studentStudy["nine"]." คน" ?>
+                                                                        if($studentStudy["nine"] > 0){
+                                                                            echo $studentStudy["nine"]." คน" ;
+                                                                            $sum = $studentStudy["nine"] ;
+                                                                        }
+                                                                        ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["ten"] != 0)
-                                                                        echo $studentStudy["ten"]." คน" ?>
+                                                                        if($studentStudy["ten"] > 0){
+                                                                            echo $studentStudy["ten"]." คน" ;
+                                                                            $sum = $studentStudy["ten"];
+                                                                        }
+                                                                        ?>
                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["eleven"] != 0)
-                                                                        echo $studentStudy["eleven"]." คน" ?>
+                                                                        if($studentStudy["eleven"] > 0){
+                                                                            echo $studentStudy["eleven"]." คน" ;
+                                                                            $sum =$studentStudy["eleven"];
+                                                                        }
+                                                                        ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["twelve"] != 0)
-                                                                        echo $studentStudy["twelve"]." คน" ?>
+                                                                        if($studentStudy["twelve"] > 0){
+                                                                            echo $studentStudy["twelve"]." คน";
+                                                                            $sum = $studentStudy["twelve"];
+                                                                        }
+                                                                         ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center; font-weight: bold;"><?php echo $sum?></td>
@@ -806,7 +878,7 @@
                                                             $g310+=(int)$studentStudy["ten"];
                                                             $g311+=(int)$studentStudy["eleven"];
                                                             $g312+=(int)$studentStudy["twelve"];
-                                                            $sum=$g31+$g32+$g31+$g34+$g35+$g36+$g37+$g38+$g39+$g310+$g311+$g312;
+                                                            $sum=0;
 
                                                             ?>
                                                             <tr>
@@ -816,71 +888,107 @@
                                                                 <td style=" text-align: center;">
                                                                     <?php 
                                                                     
-                                                                    if($studentStudy["one"] != 0)
-                                                                        echo $studentStudy["one"]." คน" ?>
+                                                                    if($studentStudy["one"] > 0){
+                                                                        echo $studentStudy["one"]." คน" ;
+                                                                        $sum = $studentStudy["one"] ;
+                                                                    }
+                                                                        ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                    if($studentStudy["two"] != 0)
-                                                                        echo $studentStudy["two"]." คน" ?>
+                                                                    if($studentStudy["two"] > 0){
+                                                                        echo $studentStudy["two"]." คน";
+                                                                        $sum = $studentStudy["two"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 
                                                                     <?php 
-                                                                    if($studentStudy["three"] != 0)
-                                                                        echo $studentStudy["three"]." คน" ?>
+                                                                    if($studentStudy["three"] > 0){
+                                                                        echo $studentStudy["three"]." คน";
+                                                                        $sum = $studentStudy["three"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                    if($studentStudy["four"] != 0)
-                                                                        echo $studentStudy["four"]." คน" ?>
+                                                                    if($studentStudy["four"] > 0){
+                                                                        echo $studentStudy["four"]." คน";
+                                                                        $sum = $studentStudy["four"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
                                                                     
-                                                                    if($studentStudy["five"] != 0)
-                                                                        echo $studentStudy["five"]." คน" ?>
+                                                                    if($studentStudy["five"] > 0){
+                                                                        echo $studentStudy["five"]." คน" ;
+                                                                        $sum = $studentStudy["five"] ;
+                                                                    }
+                                                                        ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                    if($studentStudy["six"] != 0)
-                                                                        echo $studentStudy["six"]." คน" ?>
+                                                                    if($studentStudy["six"] > 0){
+                                                                        echo $studentStudy["six"]." คน";
+                                                                        $sum = $studentStudy["six"] ;
+                                                                    }
+                                                                         ?>
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                        if($studentStudy["seven"] != 0)
-                                                                        echo $studentStudy["seven"]." คน" ?>
+                                                                        if($studentStudy["seven"] > 0){
+                                                                            echo $studentStudy["seven"]." คน" ;
+                                                                            $sum = $studentStudy["seven"] ;
+                                                                        }
+                                                                        ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["eight"] != 0)
-                                                                        echo $studentStudy["eight"]." คน" ?>
+                                                                        if($studentStudy["eight"] > 0){
+                                                                             echo $studentStudy["eight"]." คน";
+                                                                             $sum = $studentStudy["eight"] ;
+                                                                        }
+                                                                        ?>
                                                                 
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                     <?php 
-                                                                        if($studentStudy["nine"] != 0)
-                                                                        echo $studentStudy["nine"]." คน" ?>
+                                                                        if($studentStudy["nine"] > 0){
+                                                                            echo $studentStudy["nine"]." คน" ;
+                                                                            $sum = $studentStudy["nine"] ;
+                                                                        }
+                                                                        ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["ten"] != 0)
-                                                                        echo $studentStudy["ten"]." คน" ?>
+                                                                        if($studentStudy["ten"] > 0){
+                                                                            echo $studentStudy["ten"]." คน" ;
+                                                                            $sum = $studentStudy["ten"];
+                                                                        }
+                                                                        ?>
                                                                    
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["eleven"] != 0)
-                                                                        echo $studentStudy["eleven"]." คน" ?>
+                                                                        if($studentStudy["eleven"] > 0){
+                                                                            echo $studentStudy["eleven"]." คน" ;
+                                                                            $sum =$studentStudy["eleven"];
+                                                                        }
+                                                                        ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center;">
                                                                 <?php 
-                                                                        if($studentStudy["twelve"] != 0)
-                                                                        echo $studentStudy["twelve"]." คน" ?>
+                                                                        if($studentStudy["twelve"] > 0){
+                                                                            echo $studentStudy["twelve"]." คน";
+                                                                            $sum = $studentStudy["twelve"];
+                                                                        }
+                                                                         ?>
                                                                     
                                                                 </td>
                                                                 <td style=" text-align: center; font-weight: bold;"><?php echo $sum?></td>
@@ -976,7 +1084,8 @@
                                 label: 'นิสิตแรกเข้า',
                                 backgroundColor: 'rgb(0, 107, 201)',
                                 data: firstEntrys1,
-                                borderColor: 'rgba(0, 107, 201,1)',
+                              
+
                                 lineTension: 0,
                                 fill: false
                             },
@@ -984,42 +1093,21 @@
                                 label: 'นิสิตพ้นสภาพ',
                                 data: retires1,
                                 backgroundColor: '#ff6962',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
+                               
                                 borderWidth: 0
                             },
                             {
                                 label: 'นิสิตกำลังศึกษา',
                                 data: studys1,
                                 backgroundColor: '#a4ebf3',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
+                              
                                 borderWidth: 0
                             },
                             {
                                 label: 'นิสิตจบการศึกษา',
                                 data: grads1,
                                 backgroundColor: '#abbdee',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
+                               
                                 borderWidth: 0
                             },
 
@@ -1038,7 +1126,9 @@
                                     stacked: true
                                 }
                             },
-
+                            legend: {
+                                display: false
+                            },
                             responsive: true,
 
                         }
