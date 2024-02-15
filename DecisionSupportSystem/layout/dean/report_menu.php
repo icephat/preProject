@@ -63,16 +63,16 @@ style="height: max-content;">
 
     <!-- Earnings (Monthly) Card Example -->
     <a href="../../dean/select.php" class="col-xl-3 col-md-6 mb-4"  style="text-decoration: none;">
-        <div class="t1 card border-left-success shadow h-100 py-2">
+        <div class="t1 card border-left-info shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                             REPORT</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">รายงาน</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-book fa-2x text-success"></i>
+                        <i class="fas fa-book fa-2x text-info"></i>
                     </div>
                 </div>
             </div>
@@ -104,11 +104,11 @@ style="height: max-content;">
         </div>
     </a>-->
     <a href="../../dean/nisit.php" class="col-xl-3 col-md-6 mb-4"  style="text-decoration: none;">
-        <div class="t1 card border-left-danger shadow h-100 py-2">
+        <div class="t1 card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             LIST OF STUDENTS</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิต</div>
                     </div>
