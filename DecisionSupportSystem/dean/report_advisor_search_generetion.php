@@ -1400,7 +1400,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1435,7 +1435,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1470,7 +1470,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1505,7 +1505,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1572,7 +1572,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1607,7 +1607,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1642,7 +1642,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1677,7 +1677,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1740,7 +1740,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1775,7 +1775,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1810,7 +1810,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1845,7 +1845,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1910,7 +1910,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1945,7 +1945,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1980,7 +1980,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2015,7 +2015,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>

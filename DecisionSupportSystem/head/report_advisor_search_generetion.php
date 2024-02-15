@@ -1400,7 +1400,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1410,7 +1410,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1435,7 +1435,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1445,7 +1445,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1470,7 +1470,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1480,7 +1480,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1505,7 +1505,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1515,7 +1515,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1572,7 +1572,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1582,7 +1582,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1607,7 +1607,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1617,7 +1617,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1642,7 +1642,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1652,7 +1652,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1677,7 +1677,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1687,7 +1687,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1740,7 +1740,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1750,7 +1750,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1775,7 +1775,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1785,7 +1785,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1810,7 +1810,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1820,7 +1820,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1845,7 +1845,7 @@
                                             <tr>
                                                 <th class="text-center">รหัสนิสิต</th>
                                                 <th>ชื่อ-นามสกุล</th>
-                                                <th class="text-center">เกรดเฉลี่ย</th>
+                                                <th class="text-center">GPAX</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1855,7 +1855,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1910,7 +1910,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1920,7 +1920,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1945,7 +1945,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1955,7 +1955,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1980,7 +1980,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -1990,7 +1990,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -2015,7 +2015,7 @@
                                         <tr>
                                             <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">เกรดเฉลี่ย</th>
+                                            <th class="text-center">GPAX</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -2025,7 +2025,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo round($advi["gpaTerm"],2)?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }

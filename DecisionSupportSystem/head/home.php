@@ -54,7 +54,7 @@ $semester = getSemesterPresent();
             <!-- Main Content -->
             <div id="content">
 
-            <?php include('../layout/head/home.php'); ?>
+                <?php include('../layout/head/home.php'); ?>
 
                 <!--<div>
                         <form class="form-valide" action="homeSearch.php" method="post" enctype="multipart/form-data">
@@ -1505,11 +1505,11 @@ $semester = getSemesterPresent();
                                                 <?php echo $gPlan["fisrtNameTh"] . " " . $gPlan["lastNameTh"] ?>
                                             </th>
                                             <th class="text-center">
-                                                <?php echo round($gPlan["gpaAll"], 2) ?>
+                                                <?php echo number_format($gPlan["gpaAll"], 2, '.', '');?>
                                             </th>
                                             <th class="text-center">
                                                 <form action="./student_info.php" method = "post">
-                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <input type="hidden" name="studentId" value="<?php echo $gPlan["studentId"]; ?>" />
                                                     <!--<a type="button" name="std_info">
                                 <span class="glyphicon glyphicon-user"></span></a>-->
                                                     <button type="submit" name="submit"
@@ -1560,11 +1560,12 @@ $semester = getSemesterPresent();
                                                 <?php echo $gNotPlan["fisrtNameTh"] . " " . $gNotPlan["lastNameTh"] ?>
                                             </th>
                                             <th class="text-center">
-                                                <?php echo round($gNotPlan["gpaAll"], 2) ?>
+                                                
+                                                <?php echo number_format($gNotPlan["gpaAll"], 2, '.', '');?>
                                             </th>
                                             <th class="text-center">
                                                 <form action="./student_info.php" method = "post">
-                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <input type="hidden" name="studentId" value="<?php echo $gNotPlan["studentId"]; ?>" />
                                                     <!--<a type="button" name="std_info">
                                 <span class="glyphicon glyphicon-user"></span></a>-->
                                                     <button type="submit" name="submit"
@@ -1616,7 +1617,19 @@ $semester = getSemesterPresent();
                                                 <?php echo $gRePlan["fisrtNameTh"] . " " . $gRePlan["lastNameTh"] ?>
                                             </th>
                                             <th class="text-center">
-                                                <?php echo round($gRePlan["gpaAll"], 2) ?>
+                                                <?php echo number_format($gRePlan["gpaAll"], 2, '.', '');?>
+                                            </th>
+                                            <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $gRePlan["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
                                             </th>
                                         </tr>
                                         <?php
@@ -1661,11 +1674,11 @@ $semester = getSemesterPresent();
                                                 <?php echo $gGrad["fisrtNameTh"] . " " . $gGrad["lastNameTh"] ?>
                                             </th>
                                             <th class="text-center">
-                                                <?php echo round($gGrad["gpaAll"], 2) ?>
+                                                <?php echo number_format($gGrad["gpaAll"], 2, '.', '');?>
                                             </th>
                                             <th class="text-center">
                                                 <form action="./student_info.php" method = "post">
-                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <input type="hidden" name="studentId" value="<?php echo $gGrad["studentId"]; ?>" />
                                                     <!--<a type="button" name="std_info">
                                 <span class="glyphicon glyphicon-user"></span></a>-->
                                                     <button type="submit" name="submit"
@@ -1747,11 +1760,11 @@ $semester = getSemesterPresent();
                                                 <?php echo $sPlan["fisrtNameTh"] . " " . $sPlan["lastNameTh"] ?>
                                             </th>
                                             <th class="text-center">
-                                                <?php echo round($sPlan["gpaAll"], 2) ?>
+                                                <?php echo number_format($sPlan["gpaAll"], 2, '.', '');?>
                                             </th>
                                             <th class="text-center">
                                                 <form action="./student_info.php" method = "post">
-                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <input type="hidden" name="studentId" value="<?php echo $sPlan["studentId"]; ?>" />
                                                     <!--<a type="button" name="std_info">
                                 <span class="glyphicon glyphicon-user"></span></a>-->
                                                     <button type="submit" name="submit"
@@ -1802,11 +1815,11 @@ $semester = getSemesterPresent();
                                                 <?php echo $sNotPlan["fisrtNameTh"] . " " . $sNotPlan["lastNameTh"] ?>
                                             </th>
                                             <th class="text-center">
-                                                <?php echo round($sNotPlan["gpaAll"], 2) ?>
+                                                <?php echo number_format($sNotPlan["gpaAll"], 2, '.', '');?>
                                             </th>
                                             <th class="text-center">
                                                 <form action="./student_info.php" method = "post">
-                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <input type="hidden" name="studentId" value="<?php echo $sNotPlan["studentId"]; ?>" />
                                                     <!--<a type="button" name="std_info">
                                 <span class="glyphicon glyphicon-user"></span></a>-->
                                                     <button type="submit" name="submit"
@@ -1858,11 +1871,11 @@ $semester = getSemesterPresent();
                                                 <?php echo $sRePlan["fisrtNameTh"] . " " . $sRePlan["lastNameTh"] ?>
                                             </th>
                                             <th class="text-center">
-                                                <?php echo round($sRePlan["gpaAll"], 2) ?>
+                                                <?php echo number_format($sRePlan["gpaAll"], 2, '.', '');?>
                                             </th>
                                             <th class="text-center">
                                                 <form action="./student_info.php" method = "post">
-                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <input type="hidden" name="studentId" value="<?php echo $sRePlan["studentId"]; ?>" />
                                                     <!--<a type="button" name="std_info">
                                 <span class="glyphicon glyphicon-user"></span></a>-->
                                                     <button type="submit" name="submit"
