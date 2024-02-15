@@ -345,7 +345,7 @@ $student = getStudentByStudentId($studentId);
                                                         <th>หน่วยกิต</th>
                                                         <th>GPA</th>
                                                         <th>GPAX</th>
-                                                        <th class="text-center">+-GPAX</th>
+                                                        <th class="text-right">+-GPAX</th>
                                                         <th>รายละเอียด</th>
                                                     </tr>
                                                 </thead>
@@ -359,11 +359,11 @@ $student = getStudentByStudentId($studentId);
                                                     foreach ($student["terms"] as $term) {
 
                                                         if ($i == 0) {
-                                                            $gpa = round($term["gpaAll"], 2);
+                                                            $gpa = number_format($term["gpaAll"], 2, '.', '');
                                                             $i++;
                                                         } else {
-                                                            $gpaNew = round($term["gpaAll"], 2) - $gpa;
-                                                            $gpa = round($term["gpaAll"], 2);
+                                                            $gpaNew = number_format($term["gpaAll"], 2, '.', '') - $gpa;
+                                                            $gpa = number_format($term["gpaAll"], 2, '.', '');
                                                         }
 
                                                         $ch = " ";
@@ -373,8 +373,8 @@ $student = getStudentByStudentId($studentId);
                                                                 <th scope=\"row\">" . $term["semesterYear"] . "</th>
                                                                 <td class=\"text-center\">" . $term["semesterPart"] . "</td>
                                                                 <td class=\"text-center\">" . $term["creditTerm"] . "</td>
-                                                                <td>" . round($term["gpaTerm"], 2) . "</td>
-                                                                <td>" . round($term["gpaAll"], 2) . "</td>";
+                                                                <td>" . number_format($term["gpaTerm"], 2, '.', '') . "</td>
+                                                                <td>" . number_format($term["gpaAll"], 2, '.', '') . "</td>";
 
                                                         if (number_format($gpaNew, 2) > 0.00) {
                                                             $color = "color:green";
@@ -388,7 +388,7 @@ $student = getStudentByStudentId($studentId);
                                                         }
 
                                                         // $idterms[] = $idterm;
-                                                        echo "<td><span style=\"" . $color . "\">[ " . $ch . number_format($gpaNew, 2) . " ]</span></td>
+                                                        echo "<td class=\"text-right\"><span style=\"" . $color . "\"> " . $ch . number_format($gpaNew, 2) . " </span></td>
                                                                 <td class=\"text-center\">
                                                                     <a data-toggle=\"modal\" data-target=\"#modal" . $idterm . "\" >
                                                                         <i class=\"fas fa-search fa-sm\"></i>
@@ -481,7 +481,7 @@ $student = getStudentByStudentId($studentId);
                                                     <tr>
                                                         <td>" . $academic["name"] . "</td>
                                                         <td style=\"font-weight: bold; text-align: right;\">
-                                                        " . $academic["grade"] . "
+                                                        " . number_format($academic["grade"], 2, '.', '') . "
                                                         </td>
                                                         <td style=\"font-weight: bold; text-align: right;\">" . $academic["creditAll"] . "</td>
                                                         <td style=\"font-weight: bold; color: green; text-align: right;\">
@@ -531,8 +531,8 @@ $student = getStudentByStudentId($studentId);
                                     <?php
                                     $percentAll = 0;
                                     $percentCreditYetAll = 0;
-                                    $percentCreditAll = round((float) ($credit * 100) / $student["course"]["totalCredit"], 2);
-                                    $percentCreditYetAll = round((float) ($creditYet * 100) / $student["course"]["totalCredit"], 2);
+                                    $percentCreditAll = number_format( ($credit * 100) / $student["course"]["totalCredit"], 2, '.', '');
+                                    $percentCreditYetAll = number_format(($creditYet * 100) / $student["course"]["totalCredit"], 2, '.', '');
                                     
                                     ?>
                                     <div class="col-sm-2" style="text-decoration: none;">
@@ -544,6 +544,7 @@ $student = getStudentByStudentId($studentId);
                                                 <div id="centerText"
                                                     style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
                                                     <?php echo $percentCreditAll ?>%
+                                                    <?php echo number_format($student["gpax"], 2, '.', '') ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -575,7 +576,7 @@ $student = getStudentByStudentId($studentId);
                                                     <div id="centerText"
                                                         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
                                                         <?php echo $percent ?>%<br>
-                                                        <?php echo $academic["grade"] ?>
+                                                        <?php echo number_format($academic["grade"], 2, '.', '') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1044,10 +1045,10 @@ $student = getStudentByStudentId($studentId);
         echo "<div class=\"modal-header\" style=\"height: 90px;\">
                         <table class=\"modal-dialog modal-lg\" style=\"border:none; width: 85%;\">
                             <th style=\" text-align: left; \">
-                                        <h5 style=\"font-weight: bold;\">GPA" . round($term["gpaTerm"], 2) . "</h5>
+                                        <h5 style=\"font-weight: bold;\">GPA" . number_format($term["gpaTerm"], 2, '.', '') . "</h5>
                             </th>
                             <th style=\" text-align: right;\">
-                                <h5 style=\"font-weight: bold;\">GPAX " . round($term["gpaAll"], 2) . "</h5>
+                                <h5 style=\"font-weight: bold;\">GPAX " . number_format($term["gpaAll"], 2, '.', '') . "</h5>
                             </th>
                         </table>
                         <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
@@ -1062,18 +1063,20 @@ $student = getStudentByStudentId($studentId);
 
                                 <thead>
                                     <tr>
-                                        <th>รายชื่อวิชา</th>
-                                        <th>เกรดที่ได้</th>
+                                        
+                                        <th>GPA</th>
                                         <th>จำนวนหน่วยกิต</th>
+                                        <th>รายชื่อวิชา</th>
                                     </tr>
                                 </thead>
                                 <tbody>";
         foreach ($term["regisList"] as $regis) {
             echo " 
                                         <tr>
-                                            <th>" . $regis["nameSubjectEng"] . "</th>
+                                            
                                             <th>" . $regis["gradeCharacter"] . "</th>
                                             <th>" . $regis["credit"] . "</th>
+                                            <th>" . $regis["nameSubjectEng"] . "</th>
                                         </tr>
                                     ";
         }
@@ -1136,10 +1139,10 @@ $student = getStudentByStudentId($studentId);
         $label = [];
         foreach ($student["terms"] as $term) {
 
-            $floatvar = (float) round($term["gpaTerm"], 2);
+            $floatvar = (float) number_format($term["gpaTerm"], 2, '.', '');
             $gp[] = $floatvar;
 
-            $floatvarAll = (float) round($term["gpaAll"], 2);
+            $floatvarAll = (float) number_format($term["gpaAll"], 2, '.', '');
             $gpAll[] = $floatvarAll;
 
             $label[] = $term["semesterPart"] . " " . $term["semesterYear"];

@@ -90,13 +90,13 @@ $students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
                                     style="color: black;  ">
                                     <thead>
                                         <tr>
-                                            <th>รหัสนิสิต</th>
+                                            <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th class="text-center">ประเภทหลักสูตร</th>
+                                            <th >ประเภทหลักสูตร</th>
                                             <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
                                                 (ทั้งหมดตามแผน/ผ่าน/ไม่ผ่าน)
                                             </th>
-                                            <th class="text-center">GPA</th>
+                                            <th class="text-center">GPAX</th>
                                             <th class="text-center">รายละเอียด</th>
                                         </tr>
                                     </thead>
@@ -111,16 +111,16 @@ $students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
                                         
                                         ?>
                                         <tr>
-                                            <td><?php echo $student["studentId"]?></td>
+                                            <td class="text-center"><?php echo $student["studentId"]?></td>
                                             <td><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></td>
-                                            <td class="text-center"><?php echo $student["course"]["nameCourseUse"]." (".$student["course"]["planCourse"].")"?></td>
+                                            <td><?php echo $student["course"]["nameCourseUse"]." (".$student["course"]["planCourse"].")"?></td>
 
                                             <td class="text-center"><span style='color:green;'><?php echo $student["course"]["totalCredit"]?></span>
                                                 <span style='color:green;'>/<?php echo $student["creditThree"]["creditPass"]?></span>
                                                 <?php $notPass = $student["course"]["totalCredit"] - $student["creditThree"]["creditPass"]?>
                                                 <span style='color:red;'>/<?php echo $notPass?></span>
                                             </td>
-                                            <td class="text-center"><span style='color:green;'><?php echo round($student["gpax"],2)?></span> <br>
+                                            <td class="text-center"><span class="text-center" style='color:green;'><?php echo number_format($student["gpax"], 2, '.', '');?></span> <br>
                                                 <span></span>
                                             </td>
 

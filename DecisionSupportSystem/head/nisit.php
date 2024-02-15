@@ -42,7 +42,6 @@
 
 session_start();
 
-
 require_once '../function/teacherFunction.php';
 require_once '../function/departmentFunction.php';
 
@@ -100,13 +99,13 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                             style="color: black;  ">
                                             <thead>
                                                 <tr>
-                                                    <th>รหัสนิสิต</th>
+                                                    <th class="text-center">รหัสนิสิต</th>
                                                     <th>ชื่อ-นามสกุล</th>
-                                                    <th class="text-center">ประเภทหลักสูตร</th>
+                                                    <th >ประเภทหลักสูตร</th>
                                                     <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
                                                         (ทั้งหมด/ผ่าน/ไม่ผ่าน)
                                                     </th>
-                                                    <th class="text-center">ผลการเรียน</th>
+                                                    <th class="text-center">GPAX</th>
                                                     <th class="text-center">รายละเอียด</th>
                                                 </tr>
                                             </thead>
@@ -121,13 +120,13 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
                                                     ?>
                                                     <tr>
-                                                        <td>
+                                                        <td class="text-center">
                                                             <?php echo $student["studentId"] ?>
                                                         </td>
                                                         <td>
                                                             <?php echo $student["fisrtNameTh"] . " " . $student["lastNameTh"] ?>
                                                         </td>
-                                                        <td class="text-center">
+                                                        <td >
                                                             <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
                                                         </td>
 
@@ -143,7 +142,7 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                             </span>
                                                         </td>
                                                         <td class="text-center"><span style='color:green;'>
-                                                                <?php echo round($student["gpax"], 2) ?>
+                                                        <?php echo number_format($student["gpax"], 2, '.', '');?>
                                                             </span> <br>
                                                             <span></span>
                                                         </td>
@@ -177,15 +176,15 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                             style="color: black;  ">
                                             <thead>
                                                 <tr>
-                                                    <th>รหัสนิสิต</th>
+                                                    <th class="text-center">รหัสนิสิต</th>
                                                     <th>ชื่อ-นามสกุล</th>
                                                     <th>ประเภทหลักสูตร</th>
                                                     <th>ที่ปรึกษา</th>
 
-                                                    <th>หน่วยกิตที่ลงทะเบียน<br>
+                                                    <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
                                                         (ทั้งหมด/ผ่าน/ไม่ผ่าน)</th>
-                                                    <th>ผลการเรียน</th>
-                                                    <th>รายละเอียด</th>
+                                                    <th class="text-center">GPAX</th>
+                                                    <th class="text-center">รายละเอียด</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -199,13 +198,13 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
                                                     ?>
                                                     <tr>
-                                                        <td>
+                                                        <td class="text-center">
                                                             <?php echo $student["studentId"] ?>
                                                         </td>
                                                         <td>
                                                             <?php echo $student["fisrtNameTh"] . " " . $student["lastNameTh"] ?>
                                                         </td>
-                                                        <td class="text-center">
+                                                        <td >
                                                             <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
                                                         </td>
 
@@ -225,7 +224,7 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                             </span>
                                                         </td>
                                                         <td class="text-center"><span style='color:green;'>
-                                                                <?php echo round($student["gpax"], 2) ?>
+                                                        <?php echo number_format($student["gpax"], 2, '.', '');?>
                                                             </span> <br>
                                                             <span></span>
                                                         </td>
@@ -254,7 +253,7 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                 <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
                                     <br>
                                     <div class="col-12 mx-auto">
-                                        <form action="../controller/headStudentSearch.php" method = "POST" >
+                                        <form action="../controller/deanStudentSearch.php" method = "POST" >
                                             <div class=" text-center">
                                                 <h5 style="margin-left: 20px;">โปรดระบุรหัสนิสิต</h3>
                                                     <br>

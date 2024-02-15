@@ -100,9 +100,9 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                             style="color: black;  ">
                                             <thead>
                                                 <tr>
-                                                    <th>รหัสนิสิต</th>
+                                                    <th class="text-center">รหัสนิสิต</th>
                                                     <th>ชื่อ-นามสกุล</th>
-                                                    <th class="text-center">ประเภทหลักสูตร</th>
+                                                    <th >ประเภทหลักสูตร</th>
                                                     <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
                                                         (ทั้งหมด/ผ่าน/ไม่ผ่าน)
                                                     </th>
@@ -121,13 +121,13 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
                                                     ?>
                                                     <tr>
-                                                        <td>
+                                                        <td  class="text-center">
                                                             <?php echo $student["studentId"] ?>
                                                         </td>
                                                         <td>
                                                             <?php echo $student["fisrtNameTh"] . " " . $student["lastNameTh"] ?>
                                                         </td>
-                                                        <td class="text-center">
+                                                        <td >
                                                             <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
                                                         </td>
 
@@ -177,15 +177,15 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                             style="color: black;  ">
                                             <thead>
                                                 <tr>
-                                                    <th>รหัสนิสิต</th>
+                                                    <th class="text-center">รหัสนิสิต</th>
                                                     <th>ชื่อ-นามสกุล</th>
                                                     <th>ประเภทหลักสูตร</th>
                                                     <th>ที่ปรึกษา</th>
 
-                                                    <th>หน่วยกิตที่ลงทะเบียน<br>
+                                                    <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
                                                         (ทั้งหมด/ผ่าน/ไม่ผ่าน)</th>
-                                                    <th>ผลการเรียน</th>
-                                                    <th>รายละเอียด</th>
+                                                    <th class="text-center">ผลการเรียน</th>
+                                                    <th class="text-center">รายละเอียด</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -199,17 +199,17 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
                                                     ?>
                                                     <tr>
-                                                        <td>
+                                                        <td class="text-center">
                                                             <?php echo $student["studentId"] ?>
                                                         </td>
                                                         <td>
                                                             <?php echo $student["fisrtNameTh"] . " " . $student["lastNameTh"] ?>
                                                         </td>
-                                                        <td class="text-center">
+                                                        <td >
                                                             <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
                                                         </td>
 
-                                                        <td class="text-center">
+                                                        <td >
                                                             <?php echo $student["teacher"]["fisrtNameTh"] . " (" . $student["teacher"]["lastNameTh"] . ")" ?>
                                                         </td>
 

@@ -432,18 +432,20 @@ $_SESSION["studentId"] = $student["studentId"];
 
                                 <thead>
                                     <tr>
-                                        <th>รายชื่อวิชา</th>
-                                        <th>เกรดที่ได้</th>
+                                        
+                                        <th>GPA</th>
                                         <th>จำนวนหน่วยกิต</th>
+                                        <th>รายชื่อวิชา</th>
                                     </tr>
                                 </thead>
                                 <tbody>";
         foreach ($term["regisList"] as $regis) {
             echo " 
                                         <tr>
-                                            <th>" . $regis["nameSubjectEng"] . "</th>
+                                            
                                             <th>" . $regis["gradeCharacter"] . "</th>
                                             <th>" . $regis["credit"] . "</th>
+                                            <th>" . $regis["nameSubjectEng"] . "</th>
                                         </tr>
                                     ";
         }

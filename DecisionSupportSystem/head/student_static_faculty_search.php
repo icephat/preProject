@@ -847,9 +847,9 @@
 
                                                 <thead>
                                                     <tr>
-                                                        <th>รหัสนิสิต</th>
+                                                        <th class="text-center">รหัสนิสิต</th>
                                                         <th>ชื่อ-นามสกุล</th>
-                                                        <th>GPAX</th>
+                                                        <th class="text-center">GPAX</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -857,9 +857,9 @@
                                                         foreach($countRangeGrade["blues"] as $student){
                                                     ?>
                                                     <tr>
-                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                            <th class="text-center"><?php echo $student["gpaAll"]?></th>
                                                     </tr>
                                                     <?php
                                                     }?>
@@ -901,9 +901,9 @@
 
                                                 <thead>
                                                     <tr>
-                                                        <th>รหัสนิสิต</th>
+                                                        <th class="text-center">รหัสนิสิต</th>
                                                         <th>ชื่อ-นามสกุล</th>
-                                                        <th>GPAX</th>
+                                                        <th class="text-center">GPAX</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -911,9 +911,9 @@
                                                         foreach($countRangeGrade["greens"] as $student){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                            <th class="text-center"><?php echo $student["gpaAll"]?></th>
                                                         </tr>
                                                     <?php }?>
 
@@ -953,9 +953,9 @@
 
                                                 <thead>
                                                     <tr>
-                                                        <th>รหัสนิสิต</th>
+                                                        <th class="text-center">รหัสนิสิต</th>
                                                         <th>ชื่อ-นามสกุล</th>
-                                                        <th>GPAX</th>
+                                                        <th class="text-center">GPAX</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -963,9 +963,9 @@
                                                         foreach($countRangeGrade["greens"] as $student){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                            <th class="text-center"><?php echo $student["gpaAll"]?></th>
                                                         </tr>
                                                     <?php }?>
 
@@ -1005,9 +1005,9 @@
 
                                                 <thead>
                                                     <tr>
-                                                        <th>รหัสนิสิต</th>
+                                                        <th class="text-center">รหัสนิสิต</th>
                                                         <th>ชื่อ-นามสกุล</th>
-                                                        <th>GPAX</th>
+                                                        <th class="text-center">GPAX</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -1015,9 +1015,9 @@
                                                         foreach($countRangeGrade["reds"] as $student){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                            <th class="text-center"><?php echo $student["gpaAll"]?></th>
                                                         </tr>
                                                     <?php }?>
                                                     
@@ -1058,9 +1058,9 @@
 
                                                 <thead>
                                                     <tr>
-                                                        <th>รหัสนิสิต</th>
+                                                        <th class="text-center">รหัสนิสิต</th>
                                                         <th>ชื่อ-นามสกุล</th>
-                                                        <th>GPAX</th>
+                                                        <th class="text-center">GPAX</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -1068,9 +1068,9 @@
                                                         foreach($countPlanStatus["plans"] as $student){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                            <th class="text-center"><?php echo $student["gpaAll"]?></th>
                                                         </tr>
                                                     <?php }?>
                                                     
@@ -1111,9 +1111,9 @@
 
                                                 <thead>
                                                     <tr>
-                                                        <th>รหัสนิสิต</th>
+                                                        <th class="text-center">รหัสนิสิต</th>
                                                         <th>ชื่อ-นามสกุล</th>
-                                                        <th>GPAX</th>
+                                                        <th class="text-center">GPAX</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -1121,9 +1121,9 @@
                                                         foreach($countPlanStatus["notPlans"] as $student){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                            <th class="text-center"><?php echo $student["gpaAll"]?></th>
                                                         </tr>
                                                     <?php }?>
 
@@ -1163,9 +1163,9 @@
 
                                                 <thead>
                                                     <tr>
-                                                        <th>รหัสนิสิต</th>
-                                                        <th>ชื่อ-นามสกุล</th>
-                                                        <th>GPAX</th>
+                                                        <th class="text-center">รหัสนิสิต</th>
+                                                        <th >ชื่อ-นามสกุล</th>
+                                                        <th class="text-center">GPAX</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -1173,9 +1173,9 @@
                                                         foreach($countPlanStatus["retires"] as $student){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                            <th class="text-center"><?php echo $student["gpaAll"]?></th>
                                                         </tr>
                                                     <?php }?>
                                                     
@@ -1216,9 +1216,9 @@
 
                                                 <thead>
                                                     <tr>
-                                                        <th>รหัสนิสิต</th>
+                                                        <th class="text-center">รหัสนิสิต</th>
                                                         <th>ชื่อ-นามสกุล</th>
-                                                        <th>GPAX</th>
+                                                        <th class="text-center">GPAX</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -1226,9 +1226,9 @@
                                                         foreach($countPlanStatus["grads"] as $student){
                                                     ?>
                                                         <tr>
-                                                            <th><?php echo $student["studentId"]?></th>
+                                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                                            <th><?php echo $student["gpaAll"]?></th>
+                                                            <th class="text-center"><?php echo $student["gpaAll"]?></th>
                                                         </tr>
                                                     <?php }?>
                                                     

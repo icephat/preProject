@@ -1091,12 +1091,7 @@
                 <!-- Page level plugins -->
                 <script src="../vendor/chart.js/Chart.min.js"></script>
 
-                
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
-                </script>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js">
-                </script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
                 <script>
 
                     var lists1 = <?php echo json_encode($lists); ?>;

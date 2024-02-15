@@ -54,7 +54,7 @@ $semester = getSemesterPresent();
             <!-- Main Content -->
             <div id="content">
 
-               <?php include('../layout/dean/home.php'); ?>
+            <?php include('../layout/dean/home.php'); ?>
 
                 <!--<div>
                         <form class="form-valide" action="homeSearch.php" method="post" enctype="multipart/form-data">
@@ -151,7 +151,7 @@ $semester = getSemesterPresent();
                     <div class="col-sm-12 ">
                         <div class="row">
                             <div class="col-sm-5 mx-auto">
-                                <table class="table table-hover"
+                                <table class="table "
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
@@ -159,6 +159,7 @@ $semester = getSemesterPresent();
                                             <?php
 
                                             $gpaxStatusCount = getCountStudentGPAXStatusByTeacherId($teacher["teacherId"]);
+                                            
                                             ?>
 
                                             <div style="color: rgb(0, 9, 188);">
@@ -242,13 +243,15 @@ $semester = getSemesterPresent();
                             </div>
 
                             <div class="col-sm-5 mx-auto">
-                                <table class="table table-hover"
+                                <table class="table "
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
 
                                             $planingCount = getCountStudentByPlaningByTeacherId($teacher["teacherId"]);
+
+
 
                                             ?>
 
@@ -340,7 +343,7 @@ $semester = getSemesterPresent();
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามรุ่น (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามรุ่น (คน)</h6>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -534,7 +537,6 @@ $semester = getSemesterPresent();
                             $y = substr($thaiDay - 4, -2);
                             $yNow = substr($thaiDay, -2);
                             $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"], 1);
-                            //print_r($rangeGradeStudyYearOnes);
                             $pee1gen = [];
                             $pee1blues = [];
                             $pee1greens = [];
@@ -603,7 +605,7 @@ $semester = getSemesterPresent();
                                 }
                             }
 
-                            //}
+                            // }
                             ?>
                             <div class="card-body">
                                 <canvas id="pee2"></canvas>
@@ -702,7 +704,7 @@ $semester = getSemesterPresent();
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามปีการศึกษา (คน)
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามปีการศึกษา (คน)
                                 </h6>
                             </div>
                             <div class="card-body">
@@ -938,9 +940,10 @@ $semester = getSemesterPresent();
 
                                     <thead>
                                         <tr>
-                                            <th>รหัสนิสิต</th>
+                                            <th class="text-center">รหัสนิสิต</th>
                                             <th>ชื่อ-นามสกุล</th>
-                                            <th>GPAX</th>
+                                            <th class="text-center">GPAX</th>
+                                            <th class="text-center">รายละเอียด</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -949,9 +952,21 @@ $semester = getSemesterPresent();
                                                
                                         ?>
                                         <tr>
-                                            <th><?php echo $student["studentId"]?></th>
+                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                            <th><?php echo $student["gpaAll"]?></th>
+                                            <th class="text-center"><?php echo number_format($student["gpaAll"], 2, '.', '');?></th>
+                                            <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
+                                            </th>
                                         </tr>
                                         <?php
                                         }?>
@@ -992,9 +1007,10 @@ $semester = getSemesterPresent();
 
                                 <thead>
                                     <tr>
-                                        <th>รหัสนิสิต</th>
+                                        <th class="text-center">รหัสนิสิต</th>
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>GPAX</th>
+                                        <th class="text-center">GPAX</th>
+                                        <th class="text-center">รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1002,9 +1018,21 @@ $semester = getSemesterPresent();
                                         foreach($gpaxStatusCount["greens"] as $student){
                                     ?>
                                         <tr>
-                                            <th><?php echo $student["studentId"]?></th>
+                                            <th class="text-center"><?php echo $student["studentId"]?></th>
                                             <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                            <th><?php echo $student["gpaAll"]?></th>
+                                            <th class="text-center"><?php echo number_format($student["gpaAll"], 2, '.', '');?></th>
+                                            <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
+                                            </th>
                                         </tr>
                                     <?php }?>
 
@@ -1046,9 +1074,10 @@ $semester = getSemesterPresent();
 
                             <thead>
                                 <tr>
-                                    <th>รหัสนิสิต</th>
+                                    <th class="text-center">รหัสนิสิต</th>
                                     <th>ชื่อ-นามสกุล</th>
-                                    <th>GPAX</th>
+                                    <th class="text-center">GPAX</th>
+                                    <th class="text-center">รายละเอียด</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -1056,9 +1085,21 @@ $semester = getSemesterPresent();
                                     foreach($gpaxStatusCount["oranges"] as $student){
                                 ?>
                                     <tr>
-                                        <th><?php echo $student["studentId"]?></th>
+                                        <th class="text-center"><?php echo $student["studentId"]?></th>
                                         <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                        <th><?php echo $student["gpaAll"]?></th>
+                                        <th class="text-center"><?php echo number_format($student["gpaAll"], 2, '.', '');?></th>
+                                        <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
+                                            </th>
                                     </tr>
                                 <?php }?>
 
@@ -1100,9 +1141,10 @@ $semester = getSemesterPresent();
 
                         <thead>
                             <tr>
-                                <th>รหัสนิสิต</th>
+                                <th class="text-center">รหัสนิสิต</th>
                                 <th>ชื่อ-นามสกุล</th>
-                                <th>GPAX</th>
+                                <th class="text-center">GPAX</th>
+                                <th class="text-center">รายละเอียด</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1110,9 +1152,21 @@ $semester = getSemesterPresent();
                                 foreach($gpaxStatusCount["reds"] as $student){
                             ?>
                                 <tr>
-                                    <th><?php echo $student["studentId"]?></th>
+                                    <th class="text-center"><?php echo $student["studentId"]?></th>
                                     <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                    <th><?php echo $student["gpaAll"]?></th>
+                                    <th class="text-center"><?php echo number_format($student["gpaAll"], 2, '.', '');?></th>
+                                    <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
+                                            </th>
                                 </tr>
                             <?php }?>
 
@@ -1156,9 +1210,10 @@ $semester = getSemesterPresent();
 
                         <thead>
                             <tr>
-                                <th>รหัสนิสิต</th>
+                                <th class="text-center">รหัสนิสิต</th>
                                 <th>ชื่อ-นามสกุล</th>
-                                <th>GPAX</th>
+                                <th class="text-center">GPAX</th>
+                                <th class="text-center">รายละเอียด</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1166,9 +1221,21 @@ $semester = getSemesterPresent();
                                 foreach($planingCount["plans"] as $student){
                             ?>
                                 <tr>
-                                    <th><?php echo $student["studentId"]?></th>
+                                    <th class="text-center"><?php echo $student["studentId"]?></th>
                                     <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                    <th><?php echo $student["gpaAll"]?></th>
+                                    <th class="text-center"><?php echo number_format($student["gpaAll"], 2, '.', '');?></th>
+                                    <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
+                                            </th>
                                 </tr>
                             <?php }?>
 
@@ -1209,9 +1276,10 @@ $semester = getSemesterPresent();
 
                         <thead>
                             <tr>
-                                <th>รหัสนิสิต</th>
+                                <th class="text-center">รหัสนิสิต</th>
                                 <th>ชื่อ-นามสกุล</th>
-                                <th>GPAX</th>
+                                <th class="text-center">GPAX</th>
+                                <th class="text-center">รายละเอียด</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1219,9 +1287,21 @@ $semester = getSemesterPresent();
                                 foreach($planingCount["notPlans"] as $student){
                             ?>
                                 <tr>
-                                    <th><?php echo $student["studentId"]?></th>
+                                    <th class="text-center"><?php echo $student["studentId"]?></th>
                                     <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                    <th><?php echo $student["gpaAll"]?></th>
+                                    <th class="text-center"><?php echo number_format($student["gpaAll"], 2, '.', '');?></th>
+                                    <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
+                                            </th>
                                 </tr>
                             <?php }?>
 
@@ -1262,9 +1342,10 @@ $semester = getSemesterPresent();
 
                         <thead>
                             <tr>
-                                <th>รหัสนิสิต</th>
+                                <th class="text-center">รหัสนิสิต</th>
                                 <th>ชื่อ-นามสกุล</th>
-                                <th>GPAX</th>
+                                <th class="text-center">GPAX</th>
+                                <th class="text-center">รายละเอียด</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1272,9 +1353,21 @@ $semester = getSemesterPresent();
                                 foreach($planingCount["retires"] as $student){
                             ?>
                                 <tr>
-                                    <th><?php echo $student["studentId"]?></th>
+                                    <th class="text-center"><?php echo $student["studentId"]?></th>
                                     <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                    <th><?php echo $student["gpaAll"]?></th>
+                                    <th class="text-center"><?php echo number_format($student["gpaAll"], 2, '.', '');?></th>
+                                    <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
+                                            </th>
                                 </tr>
                             <?php }?>
 
@@ -1316,9 +1409,10 @@ $semester = getSemesterPresent();
 
                         <thead>
                             <tr>
-                                <th>รหัสนิสิต</th>
+                                <th class="text-center">รหัสนิสิต</th>
                                 <th>ชื่อ-นามสกุล</th>
-                                <th>GPAX</th>
+                                <th class="text-center">GPAX</th>
+                                <th class="text-center">รายละเอียด</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1326,9 +1420,21 @@ $semester = getSemesterPresent();
                                 foreach($planingCount["grads"] as $student){
                             ?>
                                 <tr>
-                                    <th><?php echo $student["studentId"]?></th>
+                                    <th class="text-center"><?php echo $student["studentId"]?></th>
                                     <th><?php echo $student["fisrtNameTh"]." ".$student["lastNameTh"]?></th>
-                                    <th><?php echo $student["gpaAll"]?></th>
+                                    <th class="text-center"><?php echo number_format($student["gpaAll"], 2, '.', '');?></th>
+                                    <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
+                                            </th>
                                 </tr>
                             <?php }?>
 
@@ -1349,6 +1455,8 @@ $semester = getSemesterPresent();
         </div>
     </div>
     </div>
+
+
 
     <!--modalPlan-->
     <?php
@@ -1379,9 +1487,10 @@ $semester = getSemesterPresent();
 
                                 <thead>
                                     <tr>
-                                        <th>รหัสนิสิต</th>
+                                        <th class="text-center">รหัสนิสิต</th>
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>เกรดเฉลี่ย</th>
+                                        <th class="text-center">GPAX</th>
+                                        <th class="text-center">รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1389,14 +1498,26 @@ $semester = getSemesterPresent();
                                     foreach ($gen["studentPlans"] as $gPlan) {
                                         ?>
                                         <tr>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo $gPlan["studentId"] ?>
                                             </th>
                                             <th>นาย
                                                 <?php echo $gPlan["fisrtNameTh"] . " " . $gPlan["lastNameTh"] ?>
                                             </th>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo round($gPlan["gpaAll"], 2) ?>
+                                            </th>
+                                            <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
                                             </th>
                                         </tr>
                                         <?php
@@ -1421,9 +1542,10 @@ $semester = getSemesterPresent();
 
                                 <thead>
                                     <tr>
-                                        <th>รหัสนิสิต</th>
+                                        <th class="text-center">รหัสนิสิต</th>
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>เกรดเฉลี่ย</th>
+                                        <th class="text-center">GPAX</th>
+                                        <th class="text-center">รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1431,14 +1553,26 @@ $semester = getSemesterPresent();
                                     foreach ($gen["studentNotPlans"] as $gNotPlan) {
                                         ?>
                                         <tr>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo $gNotPlan["studentId"] ?>
                                             </th>
                                             <th>นาย
                                                 <?php echo $gNotPlan["fisrtNameTh"] . " " . $gNotPlan["lastNameTh"] ?>
                                             </th>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo round($gNotPlan["gpaAll"], 2) ?>
+                                            </th>
+                                            <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
                                             </th>
                                         </tr>
                                         <?php
@@ -1464,9 +1598,10 @@ $semester = getSemesterPresent();
 
                                 <thead>
                                     <tr>
-                                        <th>รหัสนิสิต</th>
+                                        <th class="text-center">รหัสนิสิต</th>
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>เกรดเฉลี่ย</th>
+                                        <th class="text-center">GPAX</th>
+                                        <th class="text-center">รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1474,13 +1609,13 @@ $semester = getSemesterPresent();
                                     foreach ($gen["studentResign"] as $gRePlan) {
                                         ?>
                                         <tr>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo $gRePlan["studentId"] ?>
                                             </th>
                                             <th>นาย
                                                 <?php echo $gRePlan["fisrtNameTh"] . " " . $gRePlan["lastNameTh"] ?>
                                             </th>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo round($gRePlan["gpaAll"], 2) ?>
                                             </th>
                                         </tr>
@@ -1508,9 +1643,10 @@ $semester = getSemesterPresent();
 
                                 <thead>
                                     <tr>
-                                        <th>รหัสนิสิต</th>
+                                        <th class="text-center">รหัสนิสิต</th>
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>เกรดเฉลี่ย</th>
+                                        <th class="text-center">GPAX</th>
+                                        <th class="text-center">รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1518,14 +1654,26 @@ $semester = getSemesterPresent();
                                     foreach ($gen["studentGrads"] as $gGrad) {
                                         ?>
                                         <tr>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo $gGrad["studentId"] ?>
                                             </th>
                                             <th>นาย
                                                 <?php echo $gGrad["fisrtNameTh"] . " " . $gGrad["lastNameTh"] ?>
                                             </th>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo round($gGrad["gpaAll"], 2) ?>
+                                            </th>
+                                            <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
                                             </th>
                                         </tr>
                                         <?php
@@ -1581,9 +1729,10 @@ $semester = getSemesterPresent();
 
                                 <thead>
                                     <tr>
-                                        <th>รหัสนิสิต</th>
+                                        <th class="text-center">รหัสนิสิต</th>
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>เกรดเฉลี่ย</th>
+                                        <th class="text-center">GPAX</th>
+                                        <th class="text-center">รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1591,14 +1740,26 @@ $semester = getSemesterPresent();
                                     foreach ($countStudySemester["studentPlans"] as $sPlan) {
                                         ?>
                                         <tr>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo $sPlan["studentId"] ?>
                                             </th>
                                             <th>นาย
                                                 <?php echo $sPlan["fisrtNameTh"] . " " . $sPlan["lastNameTh"] ?>
                                             </th>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo round($sPlan["gpaAll"], 2) ?>
+                                            </th>
+                                            <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
                                             </th>
                                         </tr>
                                         <?php
@@ -1623,9 +1784,10 @@ $semester = getSemesterPresent();
 
                                 <thead>
                                     <tr>
-                                        <th>รหัสนิสิต</th>
+                                        <th class="text-center">รหัสนิสิต</th>
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>เกรดเฉลี่ย</th>
+                                        <th class="text-center">GPAX</th>
+                                        <th class="text-center">รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1633,14 +1795,26 @@ $semester = getSemesterPresent();
                                     foreach ($countStudySemester["studentNotPlans"] as $sNotPlan) {
                                         ?>
                                         <tr>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo $sNotPlan["studentId"] ?>
                                             </th>
                                             <th>นาย
                                                 <?php echo $sNotPlan["fisrtNameTh"] . " " . $sNotPlan["lastNameTh"] ?>
                                             </th>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo round($sNotPlan["gpaAll"], 2) ?>
+                                            </th>
+                                            <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
                                             </th>
                                         </tr>
                                         <?php
@@ -1666,9 +1840,10 @@ $semester = getSemesterPresent();
 
                                 <thead>
                                     <tr>
-                                        <th>รหัสนิสิต</th>
+                                        <th class="text-center">รหัสนิสิต</th>
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>เกรดเฉลี่ย</th>
+                                        <th class="text-center">GPAX</th>
+                                        <th class="text-center">รายละเอียด</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -1676,14 +1851,26 @@ $semester = getSemesterPresent();
                                     foreach ($countStudySemester["studentResign"] as $sRePlan) {
                                         ?>
                                         <tr>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo $sRePlan["studentId"] ?>
                                             </th>
                                             <th>นาย
                                                 <?php echo $sRePlan["fisrtNameTh"] . " " . $sRePlan["lastNameTh"] ?>
                                             </th>
-                                            <th>
+                                            <th class="text-center">
                                                 <?php echo round($sRePlan["gpaAll"], 2) ?>
+                                            </th>
+                                            <th class="text-center">
+                                                <form action="./student_info.php" method = "post">
+                                                    <input type="hidden" name="studentId" value="<?php echo $student["studentId"]; ?>" />
+                                                    <!--<a type="button" name="std_info">
+                                <span class="glyphicon glyphicon-user"></span></a>-->
+                                                    <button type="submit" name="submit"
+                                                        class="btn btn-info btn-md"><span
+                                                            class="glyphicon glyphicon-user"></span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                                    </svg></button>
+                                                </form>
                                             </th>
                                         </tr>
                                         <?php
@@ -1837,7 +2024,8 @@ $semester = getSemesterPresent();
                         stacked: true,
                     },
                     y: {
-                        stacked: true
+                        stacked: true,
+                        beginAtZero: true // เพิ่มค่านี้เพื่อให้แกน y เริ่มต้นที่ 0
                     }
                 }
 
