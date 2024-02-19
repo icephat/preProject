@@ -504,7 +504,7 @@
                                                                     if ($studentStudy["five"] != 0)
                                                                         echo $studentStudy["five"] . " คน" ?>
                                                                     </td>
-                                                                    <td style=" text-align: center; font-weight: bold;">
+                                                                    
                                                                     <td style=" text-align: center; font-weight: bold;">
                                                                     <?php echo $studentStudy["five"] ?>
                                                                 </td>
@@ -646,7 +646,7 @@
                                                                     if ($studentStudy["five"] != 0)
                                                                         echo $studentStudy["five"] . " คน" ?>
                                                                     </td>
-                                                                    <td style=" text-align: center; font-weight: bold;">
+                                                                    
                                                                     <td style=" text-align: center; font-weight: bold;">
                                                                     <?php echo $studentStudy["five"] ?>
                                                                 </td>
@@ -788,7 +788,7 @@
                                                                     if ($studentStudy["five"] != 0)
                                                                         echo $studentStudy["five"] . " คน" ?>
                                                                     </td>
-                                                                    <td style=" text-align: center; font-weight: bold;">
+                                                                    
                                                                     <td style=" text-align: center; font-weight: bold;">
                                                                     <?php echo $studentStudy["five"] ?>
                                                                 </td>
