@@ -561,7 +561,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                             </div>
                             <?php
 
@@ -645,7 +645,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามหลักสูตร (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามหลักสูตร (คน)</h6>
                             </div>
                             <?php
                                 $countPlanStatusSortBySemesterYears = getCountStudentPlanStatusSortBySemesterYearByDepartmentIdAndSemesterYear($teacher["departmentId"], $semester["semesterYear"]);
@@ -729,7 +729,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษาแยกตามรุ่น (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามรุ่น (คน)</h6>
                             </div>
                             <?php
                                 $countPlanStatusSortByGeneretions = getCountStudentPlanStatusSortByStudyGeneretionByDepartmentAndSemesterYear($teacher["departmentId"], $semester["semesterYear"]);
@@ -1279,7 +1279,7 @@
                         data: {
                             labels: studyGeneretions,
                             datasets: [{
-                                label: 'นักศึกษาแรกเข้า',
+                                label: 'นิสิตแรกเข้า',
                                 data: firstEntrys,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
@@ -1293,7 +1293,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษากำลังศึกษา',
+                                label: 'นิสิตกำลังศึกษา',
                                 data: studys,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -1307,7 +1307,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาจบการศึกษา',
+                                label: 'นิสิตจบการศึกษา',
                                 data: grads,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
@@ -1349,7 +1349,7 @@
                         data: {
                             labels: ['2565', '2566'],
                             datasets: [{
-                                label: 'นักศึกษาแรกเข้า',
+                                label: 'นิสิตแรกเข้า',
                                 data: [60, 60],
                                 backgroundColor: '#bfd575',
                                 borderColor: [
@@ -1363,7 +1363,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาพ้นสภาพ',
+                                label: 'นิสิตพ้นสภาพ',
                                 data: [0, 10],
                                 backgroundColor: '#ff6962',
                                 borderColor: [
@@ -1377,7 +1377,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษากำลังศึกษา',
+                                label: 'นิสิตกำลังศึกษา',
                                 data: [50, 110],
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -1391,7 +1391,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาจบการศึกษา',
+                                label: 'นิสิตจบการศึกษา',
                                 data: [0, 0],
                                 backgroundColor: '#abbdee',
                                 borderColor: [

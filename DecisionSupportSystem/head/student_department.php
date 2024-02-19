@@ -1102,7 +1102,7 @@
                             datasets: [{
 
                                 type: 'line',
-                                label: 'นักศึกษาแรกเข้า',
+                                label: 'นิสิตแรกเข้า',
                                 backgroundColor: 'rgb(0, 107, 201)',
                                 data: firstEntrys1,
                                 borderColor: 'rgba(0, 107, 201,1)',
@@ -1110,7 +1110,7 @@
                                 fill: false
                             },
                             {
-                                label: 'นักศึกษาพ้นสภาพ',
+                                label: 'นิสิตพ้นสภาพ',
                                 data: retires1,
                                 backgroundColor: '#ff6962',
                                 borderColor: [
@@ -1124,7 +1124,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษากำลังศึกษา',
+                                label: 'นิสิตกำลังศึกษา',
                                 data: studys1,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -1138,7 +1138,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาจบการศึกษา',
+                                label: 'นิสิตจบการศึกษา',
                                 data: grads1,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
@@ -1197,14 +1197,14 @@
 
                                 type: 'line',
                                 backgroundColor: 'rgb(0, 107, 201)',
-                                label: 'นักศึกษาแรกเข้า',
+                                label: 'นิสิตแรกเข้า',
                                 data: firstEntrys2,
                                 borderColor: 'rgba(0, 107, 201,1)',
                                 lineTension: 0,
                                 fill: false
                             },
                             {
-                                label: 'นักศึกษาพ้นสภาพ',
+                                label: 'นิสิตพ้นสภาพ',
                                 data: retires2,
                                 backgroundColor: '#ff6962',
                                 borderColor: [
@@ -1218,7 +1218,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษากำลังศึกษา',
+                                label: 'นิสิตกำลังศึกษา',
                                 data: studys2,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
@@ -1232,7 +1232,7 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'นักศึกษาจบการศึกษา',
+                                label: 'นิสิตจบการศึกษา',
                                 data: grads2,
                                 backgroundColor: '#abbdee',
                                 borderColor: [

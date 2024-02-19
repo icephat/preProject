@@ -330,7 +330,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <!--<div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                                 </div>-->
                                 <?php
                                 $gradeRangeSortByDepartments = getGradeRangeSortByDepartmentInFacultyBySemesterYear($semesterYear);
@@ -430,7 +430,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <!--<div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                                 </div>-->
                                 <?php
                                 $planStatusSortByDepartments = getplanStatusSortByDepartmentInFacultyBySemesterYear($semesterYear);
@@ -783,7 +783,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <!--<div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                                 </div>-->
                                 <?php
                                 $gradeRangeRemainingSortByDepartments = getGradeRangeRemainingSortByDepartmentInFacultyBySemesterYear($semesterYear);
@@ -883,7 +883,7 @@
                         <div class="col-sm-12">
                             <div class="card shadow mb-4">
                                 <!--<div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนักศึกษา (คน)</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิต (คน)</h6>
                                 </div>-->
                                 <?php
                                 $planStatusRemainingByDepartments = getplanStatusRemainingSortByDepartmentInFacultyBySemesterYear($semesterYear);
