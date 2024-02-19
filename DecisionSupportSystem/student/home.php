@@ -100,7 +100,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                 </svg> เกรด(3.25-4.00)</span>
                                                 &nbsp;&nbsp;&nbsp;
                                             <span style="color: rgb(0, 107, 201);">
-                                                ~ GPA
+                                                ~ GPAX
                                             </span>
                                         </p>
                                         <canvas id="myChart"></canvas>

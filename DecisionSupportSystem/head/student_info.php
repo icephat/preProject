@@ -332,7 +332,7 @@ $student = getStudentByStudentId($studentId);
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> เกรด(3.25-4.00)</span>
                                                 <span style="color: rgb(0, 107, 201);">
-                                                ~ GPA
+                                                ~ GPAX
                                             </span>
                                         </p>
                                         <canvas id="myChart"></canvas>
