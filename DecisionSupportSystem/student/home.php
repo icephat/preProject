@@ -113,10 +113,10 @@ $_SESSION["studentId"] = $student["studentId"];
                                                     <tr>
                                                         <th>ปีการศึกษา</th>
                                                         <th>ภาคการศึกษา</th>
-                                                        <th>หน่วยกิต</th>
-                                                        <th>GPA</th>
-                                                        <th>GPAX</th>
-                                                        <th class="text-center">+-GPAX</th>
+                                                        <th class="text-center">หน่วยกิต</th>
+                                                        <th class="text-center">GPA</th>
+                                                        <th class="text-center">GPAX</th>
+                                                        <th class="text-right">+-GPAX</th>
                                                         <th>รายละเอียด</th>
                                                     </tr>
                                                 </thead>
@@ -131,11 +131,11 @@ $_SESSION["studentId"] = $student["studentId"];
                                                     foreach ($student["terms"] as $term) {
 
                                                         if ($i == 0) {
-                                                            $gpa = round($term["gpaAll"], 2);
+                                                            $gpa = number_format($term["gpaAll"], 2, '.', '');
                                                             $i++;
                                                         } else {
-                                                            $gpaNew = round($term["gpaAll"], 2) - $gpa;
-                                                            $gpa = round($term["gpaAll"], 2);
+                                                            $gpaNew = number_format($term["gpaAll"], 2, '.', '') - $gpa;
+                                                            $gpa = number_format($term["gpaAll"], 2, '.', '');
                                                         }
 
                                                         $ch = " ";
@@ -145,8 +145,8 @@ $_SESSION["studentId"] = $student["studentId"];
                                                                 <th scope=\"row\">" . $term["semesterYear"] . "</th>
                                                                 <td class=\"text-center\">" . $term["semesterPart"] . "</td>
                                                                 <td class=\"text-center\">" . $term["creditTerm"] . "</td>
-                                                                <td>" . round($term["gpaTerm"], 2) . "</td>
-                                                                <td>" . round($term["gpaAll"], 2) . "</td>";
+                                                                <td class=\"text-center\">" . number_format($term["gpaTerm"], 2, '.', '') . "</td>
+                                                                <td class=\"text-center\">" . number_format($term["gpaAll"], 2, '.', '') . "</td>";
 
                                                         if (number_format($gpaNew, 2) > 0.00) {
                                                             $color = "color:green";
@@ -160,7 +160,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                         }
 
                                                         // $idterms[] = $idterm;
-                                                        echo "<td><span style=\"" . $color . "\">[ " . $ch . number_format($gpaNew, 2) . " ]</span></td>
+                                                        echo "<td class=\"text-right\"><span style=\"" . $color . "\"> " . $ch . number_format($gpaNew, 2) . " </span></td>
                                                                 <td class=\"text-center\">
                                                                     <a data-toggle=\"modal\" data-target=\"#modal" . $idterm . "\" >
                                                                         <i class=\"fas fa-search fa-sm\"></i>

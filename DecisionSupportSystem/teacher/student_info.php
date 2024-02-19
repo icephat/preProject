@@ -331,6 +331,9 @@ $student = getStudentByStudentId($studentId);
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> เกรด(3.25-4.00)</span>
+                                            <span style="color: rgb(0, 107, 201);">
+                                                ~ GPA
+                                            </span>
                                         </p>
                                         <canvas id="myChart"></canvas>
                                     </div>
@@ -342,9 +345,9 @@ $student = getStudentByStudentId($studentId);
                                                     <tr>
                                                         <th>ปีการศึกษา</th>
                                                         <th>ภาคการศึกษา</th>
-                                                        <th>หน่วยกิต</th>
-                                                        <th>GPA</th>
-                                                        <th>GPAX</th>
+                                                        <th class="text-center">หน่วยกิต</th>
+                                                        <th class="text-center">GPA</th>
+                                                        <th class="text-center">GPAX</th>
                                                         <th class="text-right">+-GPAX</th>
                                                         <th>รายละเอียด</th>
                                                     </tr>
