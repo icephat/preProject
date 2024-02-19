@@ -169,10 +169,10 @@ function getGPAX($studentId)
 
     foreach ($regisAllList as $regis) {
         //echo print_r($regis)."<br>";
-        if ($regis["gradeCharacter"] != 'W' and $regis["gradeCharacter"] != 'P' and $regis["gradeCharacter"] != 'NP')
+        if ($regis["gradeCharacter"] != 'W' and $regis["gradeCharacter"] != 'P' and $regis["gradeCharacter"] != 'NP'){
             $sumGradeCreditAll += $regis["gradeNumber"] * $regis["credit"];
-        $sumCreditAll += $regis["credit"];
-
+            $sumCreditAll += $regis["credit"];
+        }
 
     }
 
