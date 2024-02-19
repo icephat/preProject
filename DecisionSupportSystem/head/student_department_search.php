@@ -143,18 +143,21 @@
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
-                                    <p style="font-weight: bold; font-size: 12px;">
-                                            <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
-                                            
+                                        <p style="font-weight: bold; font-size: 12px;">
+                                            <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span
+                                                    style="color:rgb(0, 107, 201); font-size:15px;">~</span>
+                                                นิสิตแรกเข้า&nbsp;&nbsp;</span>
+
                                             <span style="color: red; ">
-                                            &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
-                                                    viewBox="0 0 16 16">
-                                                    <circle cx="8" cy="8" r="8" />
-                                                </svg> นิสิตพ้นสภาพ</span>
-                                            <span style="color: #a4ebf3;">&nbsp;&nbsp;&nbsp; <svg style="color: #a4ebf3;"
+                                                &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;"
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg> นิสิตพ้นสภาพ</span>
+                                            <span style="color: #a4ebf3;">&nbsp;&nbsp;&nbsp; <svg
+                                                    style="color: #a4ebf3;" xmlns="http://www.w3.org/2000/svg"
+                                                    width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
+                                                    viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> นิสิตกำลังศึกษา</span>
                                             <span style="color: #abbdee;">&nbsp;&nbsp;&nbsp;<svg style="color: #abbdee;"
@@ -162,7 +165,7 @@
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> นิสิตจบการศึกษา</span>
-                                            
+
                                         </p>
 
                                         <canvas id="myChart"></canvas>
@@ -172,13 +175,13 @@
                                             <table class="table table-striped" cellspacing="0" style="color: black; ">
                                                 <thead>
                                                     <tr>
-                                                        <th style=" text-align: right; ">รุ่น</th>
-                                                        <th style="text-align: right; width: 150px;">
+                                                        <th style=" text-align: center; ">รุ่น</th>
+                                                        <th style="text-align: center; width: 150px;">
                                                             <span>แรกเข้า</span>
                                                         </th>
-                                                        <th style="text-align: right;"><span>พ้นการศึกษา</span></th>
-                                                        <th style="text-align: right;"><span>กำลังศึกษา</span></th>
-                                                        <th style="text-align: right;">จบการศึกษา</th>
+                                                        <th style="text-align: center;"><span>พ้นการศึกษา</span></th>
+                                                        <th style="text-align: center;"><span>กำลังศึกษา</span></th>
+                                                        <th style="text-align: center;">จบการศึกษา</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -212,40 +215,32 @@
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: center;">
-                                                                <?php echo $studentStudy["studyGeneretion"] ?>
+                                                                <?php echo $gen["studyGeneretion"] ?>
                                                             </td>
                                                             <td style=" text-align: center;">
                                                                 <?php
 
-                                                                if ($studentStudy["one"] != 0)
-                                                                    echo $studentStudy["one"] . " คน" ?>
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php
-                                                                if ($studentStudy["two"] != 0)
-                                                                    echo $studentStudy["two"] . " คน" ?>
-                                                                </td>
-                                                                <td style=" text-align: center;">
 
-                                                                    <?php
-                                                                if ($studentStudy["three"] != 0)
-                                                                    echo $studentStudy["three"] . " คน" ?>
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php
-                                                                if ($studentStudy["four"] != 0)
-                                                                    echo $studentStudy["four"] . " คน" ?>
-                                                                </td>
-                                                                <td style=" text-align: center;">
-                                                                    <?php
-
-                                                                if ($studentStudy["five"] != 0)
-                                                                    echo $studentStudy["five"] . " คน" ?>
-                                                                </td>
-                                                                <td style=" text-align: center; font-weight: bold;">
-                                                                <td style=" text-align: center; font-weight: bold;">
-                                                                <?php echo $studentStudy["five"] ?>
+                                                                echo $gen["firstEntry"] . " คน" ?>
                                                             </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php
+
+                                                                echo $gen["study"] . " คน" ?>
+                                                            </td>
+                                                            <td style=" text-align: center;">
+
+                                                                <?php
+
+                                                                echo $gen["retire"] . " คน" ?>
+                                                            </td>
+                                                            <td style=" text-align: center;">
+                                                                <?php
+
+                                                                echo $gen["grad"] . " คน" ?>
+                                                            </td>
+
+
                                                         </tr>
                                                         <?php
 
@@ -269,18 +264,18 @@
                                                     </tr> -->
 
                                                     <tr>
-                                                        <th scope='row' style=" text-align: right; ">
+                                                        <th scope='row' style=" text-align: center; ">
                                                             ทุกรุ่น</th>
-                                                        <td style="font-weight: bold; text-align: right;">
+                                                        <td style="font-weight: bold; text-align: center;">
                                                             <?php echo $sumFirstEntry ?> คน
                                                         </td>
-                                                        <td style="font-weight: bold; text-align: right;">
+                                                        <td style="font-weight: bold; text-align: center;">
                                                             <?php echo $sumRetire ?> คน
                                                         </td>
-                                                        <td style='font-weight: bold; text-align: right;'>
+                                                        <td style='font-weight: bold; text-align: center;'>
                                                             <?php echo $sumStudy ?> คน
                                                         </td>
-                                                        <td style='font-weight: bold; text-align: right;'>
+                                                        <td style='font-weight: bold; text-align: center;'>
                                                             <?php echo $sumGrad ?> คน
                                                         </td>
                                                     </tr>
@@ -300,18 +295,21 @@
                             <div class="card-body ">
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
-                                    <p style="font-weight: bold; font-size: 12px;">
-                                            <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
-                                            
+                                        <p style="font-weight: bold; font-size: 12px;">
+                                            <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span
+                                                    style="color:rgb(0, 107, 201); font-size:15px;">~</span>
+                                                นิสิตแรกเข้า&nbsp;&nbsp;</span>
+
                                             <span style="color: red; ">
-                                            &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
-                                                    width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
-                                                    viewBox="0 0 16 16">
-                                                    <circle cx="8" cy="8" r="8" />
-                                                </svg> นิสิตพ้นสภาพ</span>
-                                            <span style="color: #a4ebf3;">&nbsp;&nbsp;&nbsp; <svg style="color: #a4ebf3;"
+                                                &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;"
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg> นิสิตพ้นสภาพ</span>
+                                            <span style="color: #a4ebf3;">&nbsp;&nbsp;&nbsp; <svg
+                                                    style="color: #a4ebf3;" xmlns="http://www.w3.org/2000/svg"
+                                                    width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
+                                                    viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> นิสิตกำลังศึกษา</span>
                                             <span style="color: #abbdee;">&nbsp;&nbsp;&nbsp;<svg style="color: #abbdee;"
@@ -319,7 +317,7 @@
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> นิสิตจบการศึกษา</span>
-                                            
+
                                         </p>
 
                                         <canvas id="myCharts"></canvas>
@@ -550,7 +548,7 @@
                 <?php } ?>
                 <?php
                 $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($departmentId, "พ้นสภาพนิสิต", $semesterYear);
-                if (count($studentStudys) > 0) {
+                
 
                     ?>
                     <div class="row">
@@ -689,10 +687,10 @@
                             </div>
                         </div>
                     </div>
-                <?php } ?>
+                <?php  ?>
                 <?php
                 $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByDepartmentIdIdAndStatusAndSemesterYear($departmentId, "จบการศึกษา", $semesterYear);
-                if (count($studentStudys) > 0) {
+                
 
                     ?>
                     <div class="row">
@@ -832,7 +830,7 @@
                             </div>
                         </div>
                     </div>
-                <?php } ?>
+                <?php  ?>
                 <!--<div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
