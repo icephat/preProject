@@ -169,12 +169,12 @@
                                                 <thead>
                                                     <tr>
                                                         <th style=" text-align: center; ">รุ่น</th>
-                                                        <th style="text-align: center; width: 150px;">
+                                                        <th style="text-align: right; width: 150px;">
                                                             <span>แรกเข้า</span>
                                                         </th>
-                                                        <th style="text-align: center;"><span>พ้นการศึกษา</span></th>
-                                                        <th style="text-align: center;"><span>กำลังศึกษา</span></th>
-                                                        <th style="text-align: center;">จบการศึกษา</th>
+                                                        <th style="text-align: right;"><span>พ้นการศึกษา</span></th>
+                                                        <th style="text-align: right;"><span>กำลังศึกษา</span></th>
+                                                        <th style="text-align: right;">จบการศึกษา</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -210,16 +210,16 @@
                                                             <td style=" text-align: center;">
                                                                 <?php echo $gen["studyGeneretion"] ?>
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $gen["firstEntry"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $gen["retire"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $gen["study"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $gen["grad"] ?> คน
                                                             </td>
                                                         </tr>
@@ -247,16 +247,16 @@
                                                     <tr>
                                                         <th scope='row' style=" text-align: center; ">
                                                             ทุกรุ่น</th>
-                                                        <td style="font-weight: bold; text-align: center;">
+                                                        <td style="font-weight: bold; text-align: right;">
                                                             <?php echo $sumFirstEntry ?> คน
                                                         </td>
-                                                        <td style="font-weight: bold; text-align: center;">
+                                                        <td style="font-weight: bold; text-align: right;">
                                                             <?php echo $sumRetire ?> คน
                                                         </td>
-                                                        <td style='font-weight: bold; text-align: center;'>
+                                                        <td style='font-weight: bold; text-align: right;'>
                                                             <?php echo $sumStudy ?> คน
                                                         </td>
-                                                        <td style='font-weight: bold; text-align: center;'>
+                                                        <td style='font-weight: bold; text-align: right;'>
                                                             <?php echo $sumGrad ?> คน
                                                         </td>
                                                     </tr>
@@ -306,13 +306,13 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">ปีการศึกษา</th>
-                                                        <th style="text-align: center; width: 150px;">
+                                                        <th style="text-align: right; width: 150px;">
                                                             <span>รวมแรกเข้า</span>
                                                         </th>
-                                                        <th style="text-align: center;"><span>พ้นการศึกษา</span>
+                                                        <th style="text-align: right;"><span>พ้นการศึกษา</span>
                                                         </th>
-                                                        <th style="text-align: center;"><span>กำลังศึกษา</span></th>
-                                                        <th style="text-align: center;">จบการศึกษา</th>
+                                                        <th style="text-align: right;"><span>กำลังศึกษา</span></th>
+                                                        <th style="text-align: right;">จบการศึกษา</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -338,16 +338,16 @@
                                                             <td style=" text-align: center;">
                                                                 <?php echo $studentStatusByYear["semesterYear"] ?>
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $studentStatusByYear["firstEntry"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $studentStatusByYear["retire"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $studentStatusByYear["study"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $studentStatusByYear["grad"] ?> คน
                                                             </td>
                                                         </tr>

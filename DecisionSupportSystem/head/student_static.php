@@ -304,13 +304,13 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">ปีการศึกษา</th>
-                                                        <th style="text-align: center; width: 150px;">
+                                                        <th style="text-align: right; width: 150px;">
                                                             <span>รวมแรกเข้า</span>
                                                         </th>
-                                                        <th style="text-align: center;"><span>พ้นการศึกษา</span>
+                                                        <th style="text-align: right;"><span>พ้นการศึกษา</span>
                                                         </th>
-                                                        <th style="text-align: center;"><span>กำลังศึกษา</span></th>
-                                                        <th style="text-align: center;">จบการศึกษา</th>
+                                                        <th style="text-align: right;"><span>กำลังศึกษา</span></th>
+                                                        <th style="text-align: right;">จบการศึกษา</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -336,16 +336,16 @@
                                                             <td style=" text-align: center;">
                                                                 <?php echo $studentStatusByYear["semesterYear"] ?>
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $studentStatusByYear["firstEntry"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $studentStatusByYear["retire"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $studentStatusByYear["study"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
+                                                            <td style=" text-align: right;">
                                                                 <?php echo $studentStatusByYear["grad"] ?> คน
                                                             </td>
                                                         </tr>
