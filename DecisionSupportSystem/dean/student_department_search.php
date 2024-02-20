@@ -142,8 +142,8 @@
                                     <p style="font-weight: bold; font-size: 12px;">
                                             <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
                                             
-                                            <span style="color: red; ">
-                                            &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
+                                            <span style="color: rgb(245, 123, 57); ">
+                                            &nbsp;&nbsp;&nbsp; <svg style="color: rgb(245, 123, 57);" xmlns="http://www.w3.org/2000/svg"
                                                     width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
                                                     viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
@@ -278,8 +278,8 @@
                                     <p style="font-weight: bold; font-size: 12px;">
                                             <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
                                             
-                                            <span style="color: red; ">
-                                            &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
+                                            <span style="color: rgb(245, 123, 57); ">
+                                            &nbsp;&nbsp;&nbsp; <svg style="color: rgb(245, 123, 57);" xmlns="http://www.w3.org/2000/svg"
                                                     width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
                                                     viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
@@ -1067,7 +1067,7 @@
                             {
                                 label: 'นิสิตพ้นสภาพ',
                                 data: retires1,
-                                backgroundColor: '#ff6962',
+                                backgroundColor: 'rgb(245, 123, 57)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1161,7 +1161,7 @@
                             {
                                 label: 'นิสิตพ้นสภาพ',
                                 data: retires2,
-                                backgroundColor: '#ff6962',
+                                backgroundColor: 'rgb(245, 123, 57)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
