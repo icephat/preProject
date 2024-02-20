@@ -163,7 +163,7 @@
                     $countStudentInCourse = getCountStudentInFaculty();
 
                     ?>
-                    <h5>คณะวิศวกรรมศาสตร์ ปีการศึกษา <?php echo $semester["semesterYear"] ?>
+                    <h5>คณะวิศวกรรมศาสตร์ กำแพงแสน ปีการศึกษา <?php echo $semester["semesterYear"] ?>
                     </h5>
                     </div>
                     <div class="row">
