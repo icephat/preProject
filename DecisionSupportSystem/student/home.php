@@ -255,7 +255,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                         <tr>
                                                             <td>" . $academic["name"] . "</td>
                                                             <td style=\"font-weight: bold; text-align: right;\">
-                                                            " . $academic["grade"] . "
+                                                            " . number_format($academic["grade"], 2, '.', '') . "
                                                             </td>
                                                             <td style=\"font-weight: bold; text-align: right;\">" . $academic["creditAll"] . "</td>
                                                             <td style=\"font-weight: bold; color: green; text-align: right;\">
@@ -303,8 +303,8 @@ $_SESSION["studentId"] = $student["studentId"];
                                     <?php
                                         $percentAll = 0;
                                         $percentCreditYetAll = 0;
-                                        $percentCreditAll =  round((float)($credit*100)/$student["course"]["totalCredit"],2);
-                                        $percentCreditYetAll =  round((float)($creditYet*100)/$student["course"]["totalCredit"],2);
+                                        $percentCreditAll =  number_format((float)($credit*100)/$student["course"]["totalCredit"],2, '.', '');
+                                        $percentCreditYetAll =  number_format((float)($creditYet*100)/$student["course"]["totalCredit"],2, '.', '');
                                     ?>
                                     <div class="col-sm-2"  style="text-decoration: none;">
                                         <div class="t1 card">
@@ -314,7 +314,9 @@ $_SESSION["studentId"] = $student["studentId"];
                                                 <canvas id="donutChart0"></canvas>
                                                 <div id="centerText"
                                                     style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                    <?php echo $percentCreditAll ?>%</div>
+                                                    <?php echo $percentCreditAll ?>%
+                                                    <?php echo number_format($student["gpax"], 2, '.', '') ?>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -327,7 +329,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                         foreach ($academics as $academic){
                                             $percent = 0;
                                             
-                                            $percent = round((float)($academic["credit"]*100)/$academic["creditAll"],2);
+                                            $percent = number_format((float)($academic["credit"]*100)/$academic["creditAll"],2, '.', '');
                                             ?>
 
                                                 
@@ -341,7 +343,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                             <canvas id="donutChart<?php echo $i?>"></canvas>
                                                             <div id="centerText"
                                                                 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                                <?php echo $percent ?>%<br><?php echo $academic["grade"]?></div>
+                                                                <?php echo $percent ?>%<br><?php echo number_format($academic["grade"], 2, '.', '')?></div>
                                                         </div>
                                                     </div>
 
@@ -414,10 +416,10 @@ $_SESSION["studentId"] = $student["studentId"];
         echo "<div class=\"modal-header\" style=\"height: 90px;\">
                         <table class=\"modal-dialog modal-lg\" style=\"border:none; width: 85%;\">
                             <th style=\" text-align: left; \">
-                                        <h5 style=\"font-weight: bold;\">GPA" . round($term["gpaTerm"], 2) . "</h5>
+                                        <h5 style=\"font-weight: bold;\">GPA" . number_format($term["gpaTerm"], 2, '.', '') . "</h5>
                             </th>
                             <th style=\" text-align: right;\">
-                                <h5 style=\"font-weight: bold;\">GPAX " . round($term["gpaAll"], 2) . "</h5>
+                                <h5 style=\"font-weight: bold;\">GPAX " . number_format($term["gpaAll"], 2, '.', '') . "</h5>
                             </th>
                         </table>
                         <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
@@ -542,11 +544,11 @@ $_SESSION["studentId"] = $student["studentId"];
         $gpAll = [];
         $label = [];
         foreach ($student["terms"] as $term) {
-
-            $floatvar = (float) round($term["gpaTerm"], 2);
+            
+            $floatvar = (float) number_format($term["gpaTerm"], 2, '.', '');
             $gp[] = $floatvar;
 
-            $floatvarAll = (float) round($term["gpaAll"], 2);
+            $floatvarAll = (float) number_format($term["gpaAll"], 2, '.', '');
             $gpAll[] = $floatvarAll;
 
             $label[] = $term["semesterPart"] . " " . $term["semesterYear"];

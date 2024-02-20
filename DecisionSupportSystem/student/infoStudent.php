@@ -19,7 +19,7 @@
                                     $color = "rgba(134, 188, 247,0.8)";
                                 }
                             ?>
-                            <h4 style="color: black;">GPA <span style="color: <?php echo $color?>;"><?php echo round($student["gpax"],2)?></span> </h4>
+                            <h4 style="color: black;">GPA <span style="color: <?php echo $color?>;"><?php echo number_format($student["gpax"], 2, '.', '') ?></span> </h4>
                         </div>
                     </div>
                     <hr>
