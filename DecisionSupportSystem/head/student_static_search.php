@@ -144,8 +144,8 @@
                                     <p style="font-weight: bold; font-size: 12px;">
                                             <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
                                             
-                                            <span style="color: red; ">
-                                            &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
+                                            <span style="color: rgb(	245, 123, 57); ">
+                                            &nbsp;&nbsp;&nbsp; <svg style="color: rgb(	245, 123, 57);" xmlns="http://www.w3.org/2000/svg"
                                                     width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
                                                     viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
@@ -160,6 +160,11 @@
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> นิสิตจบการศึกษา</span>
+                                            <span style="color: #ff6962;">&nbsp;&nbsp;&nbsp;<svg style="color: #ff6962;"
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+                                                    <circle cx="8" cy="8" r="8" />
+                                                </svg> นิสิตตกค้าง</span>
                                             
                                         </p>
 
@@ -177,6 +182,7 @@
                                                         <th style="text-align: right;"><span>พ้นการศึกษา</span></th>
                                                         <th style="text-align: right;"><span>กำลังศึกษา</span></th>
                                                         <th style="text-align: right;">จบการศึกษา</th>
+                                                        <th style="text-align: right;">ตกค้าง</th>
                                                     </tr>
                                                 </thead>
 
@@ -226,6 +232,9 @@
                                                             <td style=" text-align: right;">
                                                                 <?php echo $gen["grad"] ?> คน
                                                             </td>
+                                                            <td style=" text-align: right;">
+                                                                <?php echo "123" ?> คน
+                                                            </td>
                                                         </tr>
                                                         <?php
 
@@ -263,6 +272,9 @@
                                                         <td style='font-weight: bold; text-align: right;'>
                                                             <?php echo $sumGrad ?> คน
                                                         </td>
+                                                        <td style='font-weight: bold; text-align: right;'>
+                                                            <?php echo "123" ?> คน
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -283,8 +295,8 @@
                                     <p style="font-weight: bold; font-size: 12px;">
                                             <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
                                             
-                                            <span style="color: red; ">
-                                            &nbsp;&nbsp;&nbsp; <svg style="color: #ff6962;" xmlns="http://www.w3.org/2000/svg"
+                                            <span style="color: rgb(245, 123, 57); ">
+                                            &nbsp;&nbsp;&nbsp; <svg style="color: rgb(245, 123, 57);" xmlns="http://www.w3.org/2000/svg"
                                                     width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
                                                     viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
@@ -1131,7 +1143,7 @@
                             {
                                 label: 'นิสิตพ้นสภาพ',
                                 data: retires1,
-                                backgroundColor: '#ff6962',
+                                backgroundColor: 'rgb(245, 123, 57)',
                                
                                 borderWidth: 0
                             },
@@ -1149,7 +1161,13 @@
                                
                                 borderWidth: 0
                             },
-
+                            {
+                                label: 'นิสิตตกค้าง',
+                                data: grads1,
+                                backgroundColor: '#ff6962',
+                               
+                                borderWidth: 0
+                            },
 
                             ]
 
@@ -1206,7 +1224,7 @@
                             {
                                 label: 'นิสิตพ้นสภาพ',
                                 data: retires2,
-                                backgroundColor: '#ff6962',
+                                backgroundColor: 'rgb(245, 123, 57)',
                              
                                 borderWidth: 0
                             },

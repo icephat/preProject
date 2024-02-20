@@ -191,6 +191,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                 </div>
                                 <div class="col-sm-6 ">
                                     <p style="color: gray;"><?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?></p>
+                                    
+                                    <!--<p style="color: gray;"><?php echo $student["course"]["nameCourseUse"] ?><input class='form-control' name="pTell" value="<?php echo $student["course"]["planCourse"]?>" /></p>-->
+                                    
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">

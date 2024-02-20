@@ -482,6 +482,48 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-sm-4" style="margin-top: 25px;">
+                        <div class="card">
+                            <?php
+                            $studentGeneretionGradeRangeFours = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 4);
+                            $day = date("Y");
+                            $thaiDay = 543 + $day;
+                            //echo substr($thaiDay-4, -2);
+                            $y = substr($thaiDay - 4, -2);
+                            $yNow = substr($thaiDay, -2);
+                            $pee4plusgen = [];
+                            $pee4plusblues = [];
+                            $pee4plusgreens = [];
+                            $pee4plusoranges = [];
+                            $pee4plusreds = [];
+                            //for($y; $y<$yNow; $y++){
+                            
+                            foreach ($studentGeneretionGradeRangeFours as $range) {
+                                if ((int) $range["studyGeneretion"] == $y) {
+                                    $pee4plusgen[] = "รุ่น " . (string) $range["studyGeneretion"];
+                                    $pee4plusblues[] = $range["blue"];
+                                    $pee4plusgreens[] = $range["green"];
+                                    $pee4plusoranges[] = $range["orange"];
+                                    $pee4plusreds[] = $range["red"];
+                                } else {
+                                    $pee4plusgen[] = "รุ่น " . (string) $y;
+                                    $pee4plusblues[] = "0";
+                                    $pee4plusgreens[] = "0";
+                                    $pee4plusoranges[] = "0";
+                                    $pee4plusreds[] = "0";
+                                }
+                            }
+                            //}
+                            ?>
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 4+</h6>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="pee4plus"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <br><br>
 
@@ -1627,6 +1669,61 @@
                             {
                                 label: '0.00-1.74',
                                 data: p4red,
+                                backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                borderWidth: 0
+                            }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                x: {
+                                    stacked: true,
+                                },
+                                y: {
+                                    stacked: true
+                                }
+                            }
+
+                        }
+                    });
+                </script>
+
+                <script>
+                    var p4plusgen = <?php echo json_encode($pee4plusgen); ?>;
+
+                    var p4plusblue = <?php echo json_encode($pee4plusblues); ?>;
+                    var p4plusgreen = <?php echo json_encode($pee4plusgreens); ?>;
+                    var p4plusorange = <?php echo json_encode($pee4plusoranges); ?>;
+                    var p4plusred = <?php echo json_encode($pee4plusreds); ?>;
+                    var ctx = document.getElementById("pee4plus");
+                    var myChart = new Chart(ctx, {
+                        //type: 'bar',
+                        //type: 'line',
+                        type: 'bar',
+                        data: {
+                            labels: p4plusgen,
+                            datasets: [{
+                                label: '3.25-4.00',
+                                data: p4plusblue,
+                                backgroundColor: "rgba(0, 9, 188,0.7)",
+                                borderWidth: 0
+                            },
+                            {
+                                label: '2.00-3.24',
+                                data: p4plusgreen,
+                                backgroundColor: "rgba(0, 110, 22,0.7)",
+                                borderWidth: 0
+                            },
+                            {
+                                label: '1.75-1.99',
+                                data: p4plusorange,
+                                backgroundColor: 'rgba(255,128,0,0.7)',
+                                borderWidth: 0
+                            },
+                            {
+                                label: '0.00-1.74',
+                                data: p4plusred,
                                 backgroundColor: 'rgba(255, 0, 0,0.7)',
                                 borderWidth: 0
                             }
