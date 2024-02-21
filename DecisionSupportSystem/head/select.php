@@ -160,7 +160,7 @@
                                 </div>
                                 <div class="card-footer text-center">
                                     <a
-                                        style="color: black;  text-decoration:none; font-size: 18px;">ผลการเรียนิสิตแยกตามภาควิชา</a>
+                                        style="color: black;  text-decoration:none; font-size: 18px;">ผลการเรียนนิสิตแยกตามภาควิชา</a>
                                 </div>
                             </div>
                         </div>
