@@ -49,7 +49,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./student_static.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/line-chart.png" style="width: 150px; height: 150px" ><br>
+                                            <img src="../image/decreaseRate.png" style="width: 150px; height: 150px" ><br>
                                         </fieldset>
                                     </a>
                                 </div>
@@ -63,7 +63,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_static_faculty.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/activity.png" style="width: 150px; height: 150px"><br>
+                                            <img src="../image/gpa.png" style="width: 150px; height: 150px"><br>
                                         </fieldset>
                                     </a>
                                 </div>
@@ -78,7 +78,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_static_tcas.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/statistics.png" style="width: 150px; height: 150px"><br>
+                                            <img src="../image/school.png" style="width: 150px; height: 150px"><br>
                                         </fieldset>
                                     </a>
                                 </div>
@@ -94,7 +94,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./student_department.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/line-chart.png" style="width: 150px; height: 150px" ><br>
+                                            <img src="../image/decreaseRate.png" style="width: 150px; height: 150px" ><br>
                                         </fieldset>
                                     </a>
                                 </div>
@@ -108,7 +108,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_faculty.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/activity.png" style="width: 150px; height: 150px"><br>
+                                            <img src="../image/gpa.png" style="width: 150px; height: 150px"><br>
                                         </fieldset>
                                     </a>
                                 </div>
@@ -123,7 +123,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_tcas.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/statistics.png" style="width: 150px; height: 150px"><br>
+                                            <img src="../image/school.png" style="width: 150px; height: 150px"><br>
                                         </fieldset>
                                     </a>
                                 </div>
@@ -139,7 +139,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./report_advisor.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/statistics.png" style="width: 150px; height: 150px"><br>
+                                            <img src="../image/decreaseRate.png" style="width: 150px; height: 150px"><br>
                                         </fieldset>
                                     </a>
                                 </div>
@@ -154,7 +154,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./report_student_department.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/statistics.png" style="width: 150px; height: 150px"><br>
+                                            <img src="../image/gpa.png" style="width: 150px; height: 150px"><br>
                                         </fieldset>
                                     </a>
                                 </div>
@@ -169,7 +169,7 @@
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_static_department.php">
                                         <fieldset style="border:2px groove lightgray">
-                                            <img src="../image/statistics.png" style="width: 150px; height: 150px"><br>
+                                            <img src="../image/school.png" style="width: 150px; height: 150px"><br>
                                         </fieldset>
                                     </a>
                                 </div>
