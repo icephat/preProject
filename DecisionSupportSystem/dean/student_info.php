@@ -261,6 +261,8 @@ $student = getStudentByStudentId($studentId);
                                 <p style="color: blue;">note (หมายเหตุ):</p>
                             </div>
                             <div class="col-sm-6">
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalnote">ดู note</button>
+                                
                                 <?php
                                 if (file_exists("./note/" . $studentId . ".json")) {
                                     $path = "./note/" . $studentId . ".json";
@@ -1103,6 +1105,54 @@ $student = getStudentByStudentId($studentId);
 
 
     ?>
+
+    <!-- modalnote -->
+               
+    <div id="modalnote" class="modal fade" style="color: black;">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="height: 90px;">
+                                <h5>Note </h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <br>
+
+                            </div>
+                            
+                            <div class="modal-body" id="std_detail">
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th>อาจารย์</th>
+                                            <th>รายการบันทึก</th>
+                                            <th class="text-center">รายละเอียด</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th class="text-center">ฐิติพงษ์</th>
+                                            <th>ซึมเศร้า</th>
+                                            <th class="text-center">
+                                                <button type="button" class="btn btn-danger">ลบ</button>
+                                            </th>
+                                        </tr>
+                                       
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                           
+                            <hr>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"
+                                    style="font-size: 18px;">ปิดหน้าต่าง</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
