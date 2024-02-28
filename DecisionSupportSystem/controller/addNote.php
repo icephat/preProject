@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $studentId = $_POST["studentId"];
 $note = $_POST["note"];
 
@@ -10,10 +12,15 @@ if (file_exists("../teacher/note/" . $studentId . ".json")) {
     $path = "../teacher/note/" . $studentId . ".json";
     $jsonString = file_get_contents($path);
     $remark = json_decode($jsonString, true);
-
-    $remark = $remark . "," . $note;
+    $count = $remark["count"];
+    $remark["note".$count] = $_POST["note"];
+    $remark["name".$count] = $_SESSION["access-user"];
+    $remark["count"] = $remark["count"] + 1;
+    
 } else {
-    $remark = $_POST["note"];
+    $remark["count"] = 0;
+    $remark["note1"] = $_POST["note"];
+    $remark["name1"] = $_SESSION["access-user"];
 }
 
 $path = "../teacher/note/" . $studentId . ".json";

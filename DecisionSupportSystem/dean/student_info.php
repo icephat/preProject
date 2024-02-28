@@ -261,23 +261,13 @@ $student = getStudentByStudentId($studentId);
                                 <p style="color: blue;">note (หมายเหตุ):</p>
                             </div>
                             <div class="col-sm-6">
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalnote">ดู note</button>
-                                
-                                <?php
-                                if (file_exists("./note/" . $studentId . ".json")) {
-                                    $path = "./note/" . $studentId . ".json";
-                                    $jsonString = file_get_contents($path);
-                                    $remark = json_decode($jsonString, true);
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalnote" <?php
+                                if (!file_exists("../teacher/note/" . $studentId . ".json")) {
+                                    echo "disabled";
+
+                                } ?>>ดู note</button>
 
 
-                                    ?>
-                                    <p style="color: gray;">
-                                        <?php echo $remark ?>
-                                    </p>
-                                    <?php
-
-                                }
-                                ?>
                             </div>
                         </div>
 
@@ -479,7 +469,7 @@ $student = getStudentByStudentId($studentId);
                                                     <?php
                                                     $credit = 0;
                                                     $creditYet = 0;
-                                                    $creditCheck=0;
+                                                    $creditCheck = 0;
                                                     foreach ($academics as $academic) {
                                                         echo "
                                                             
@@ -492,14 +482,13 @@ $student = getStudentByStudentId($studentId);
                                                         <td style=\"font-weight: bold; color: green; text-align: right;\">
                                                         " . $academic["credit"] . "
                                                         </td>";
-                                                        if($academic["creditYet"] < 0){
+                                                        if ($academic["creditYet"] < 0) {
                                                             $creditCheck = 0;
-                                                        }
-                                                        else{
+                                                        } else {
                                                             $creditCheck = $academic["creditYet"];
                                                         }
                                                         echo
-                                                         "<td style=\"font-weight: bold; color: red; text-align: right;\">" . $creditCheck . "</td>
+                                                            "<td style=\"font-weight: bold; color: red; text-align: right;\">" . $creditCheck . "</td>
                                                         
                                                         
                                                     </tr>";
@@ -536,9 +525,9 @@ $student = getStudentByStudentId($studentId);
                                     <?php
                                     $percentAll = 0;
                                     $percentCreditYetAll = 0;
-                                    $percentCreditAll = number_format( ($credit * 100) / $student["course"]["totalCredit"], 2, '.', '');
+                                    $percentCreditAll = number_format(($credit * 100) / $student["course"]["totalCredit"], 2, '.', '');
                                     $percentCreditYetAll = number_format(($creditYet * 100) / $student["course"]["totalCredit"], 2, '.', '');
-                                    
+
                                     ?>
                                     <div class="col-sm-2" style="text-decoration: none;">
                                         <div class="t1 card">
@@ -693,8 +682,8 @@ $student = getStudentByStudentId($studentId);
                                                     colspan="4">
                                                     รวม</td>
                                                 <td style=" text-align: center;">
-                                                    <?php 
-                                                    $s = count($subjectFs)+count($courseNotLearns);
+                                                    <?php
+                                                    $s = count($subjectFs) + count($courseNotLearns);
                                                     echo $s ?>
                                                 </td>
                                                 <td style="text-align: center;">
@@ -1107,52 +1096,68 @@ $student = getStudentByStudentId($studentId);
     ?>
 
     <!-- modalnote -->
-               
+
     <div id="modalnote" class="modal fade" style="color: black;">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header" style="height: 90px;">
-                                <h5>Note </h5>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <br>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="height: 90px;">
+                    <h5>Note </h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <br>
 
-                            </div>
-                            
-                            <div class="modal-body" id="std_detail">
-                                <table class="table">
+                </div>
 
-                                    <thead>
-                                        <tr>
-                                            <th>อาจารย์</th>
-                                            <th>รายการบันทึก</th>
-                                            <th class="text-center">รายละเอียด</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-center">ฐิติพงษ์</th>
-                                            <th>ซึมเศร้า</th>
-                                            <th class="text-center">
-                                                <button type="button" class="btn btn-danger">ลบ</button>
-                                            </th>
-                                        </tr>
-                                       
+                <div class="modal-body" id="std_detail">
+                    <table class="table">
 
-                                    </tbody>
-                                </table>
+                        <thead>
+                            <tr>
+                                <th>อาจารย์</th>
+                                <th>รายการบันทึก</th>
+                                <th class="text-center">รายละเอียด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $path = "../teacher/note/" . $studentId . ".json";
+                            $jsonString = file_get_contents($path);
+                            $remark = json_decode($jsonString, true);
 
-                            </div>
-                           
-                            <hr>
+                            for ($i = 1; $i < $remark["count"]; $i++) {
+                                ?>
+                                <tr>
 
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal"
-                                    style="font-size: 18px;">ปิดหน้าต่าง</button>
-                            </div>
-                        </div>
-                    </div>
+                                    <th>
+                                        <?php echo $remark["name" . $i] ?>
+                                    </th>
+                                    <th>
+                                        <?php echo $remark["note" . $i] ?>
+                                    </th>
+                                    <!-- <th class="text-center">
+                                        <button type="button" class="btn btn-danger">ลบ</button>
+                                    </th> -->
+
+                                </tr>
+                                <?php
+                            }
+                            ?>
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <hr>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                        style="font-size: 18px;">ปิดหน้าต่าง</button>
                 </div>
             </div>
+        </div>
+    </div>
+    </div>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -1362,13 +1367,12 @@ $student = getStudentByStudentId($studentId);
 
             //$dataPerLists[] = (float)100-($academic["credit"]*($academic["creditYet"]/100));
             $dataPerLists[] = (float) ($academic["credit"] * 100) / $academic["creditAll"];
-            if((float) ($academic["creditYet"] * 100) / $academic["creditAll"] >= 0){
+            if ((float) ($academic["creditYet"] * 100) / $academic["creditAll"] >= 0) {
                 $dataLists[] = (float) ($academic["creditYet"] * 100) / $academic["creditAll"];
-            }
-            else if((float) ($academic["creditYet"] * 100) / $academic["creditAll"] < 0){
+            } else if ((float) ($academic["creditYet"] * 100) / $academic["creditAll"] < 0) {
                 $dataLists[] = 0;
             }
-            
+
             $dataGrades[] = (float) $academic["grade"];
 
         }
@@ -1381,9 +1385,9 @@ $student = getStudentByStudentId($studentId);
         var datalists = <?php echo json_encode($dataLists) ?>;
 
         var dataCreditYet = <?php echo $percentCreditYetAll; ?>;
-        
+
         var dataCredit = <?php echo $percentCreditAll ?>;
-       
+
         let GPAPiesize = dataGrades.length;
         const GPAcolorPie = [];
         let GPAPiecolorLoop;
@@ -1404,16 +1408,16 @@ $student = getStudentByStudentId($studentId);
         }
 
         let colorAll;
-        if(dataCredit <= 25){
+        if (dataCredit <= 25) {
             colorAll = 'rgba(255, 105, 98,0.7)';
         }
-        else if(dataCredit > 25 && dataCredit <= 50){
+        else if (dataCredit > 25 && dataCredit <= 50) {
             colorAll = 'rgba(245, 123, 57,0.7)';
         }
-        else if(dataCredit > 50 && dataCredit <=75){
+        else if (dataCredit > 50 && dataCredit <= 75) {
             colorAll = 'rgba(153, 204, 153,0.7)';
         }
-        else if(dataCredit > 75){
+        else if (dataCredit > 75) {
             colorAll = 'rgba(134, 211, 247,0.7)';
         }
         let x = 0;
