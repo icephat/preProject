@@ -67,19 +67,20 @@ for ($i = 1; $i < 10; $i++) {
             $sumCreditNewTerm += $subject["credit"];
             $sumCreditGradeNewTerm += $subject["credit"] * $_POST["grade$i"];
         } else {
-            if (strcmp($_POST["subject$i"], "1credit")) {
+            if ($_POST["subject$i"] ==  "1credit") {
+                
                 $sumCreditNewTerm += 1;
                 $sumCreditGradeNewTerm += 1 * $_POST["grade$i"];
                 $calGPA["subjectName$count"] = "1 Credit";
                 $calGPA["credit$count"]= 1;
 
-            } else if (strcmp($_POST["subject$i"], "2credit")) {
+            } else if ($_POST["subject$i"] ==  "2credit") {
                 $sumCreditNewTerm += 2;
                 $sumCreditGradeNewTerm += 2 * $_POST["grade$i"];
                 $calGPA["subjectName$count"] = "2 Credit";
                 $calGPA["credit$count"]= 2;
 
-            } else if (strcmp($_POST["subject$i"], "3credit")) {
+            } else if ($_POST["subject$i"] ==  "3credit") {
                 $sumCreditNewTerm += 3;
                 $sumCreditGradeNewTerm += 3 * $_POST["grade$i"];
                 $calGPA["subjectName$count"] = "3 Credit";

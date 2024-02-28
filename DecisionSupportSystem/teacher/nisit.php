@@ -254,7 +254,7 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                 <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
                                     <br>
                                     <div class="col-12 mx-auto">
-                                        <form action="../controller/deanStudentSearch.php" method = "POST" >
+                                        <form action="../controller/teacherStudentSearch.php" method = "POST" >
                                             <div class=" text-center">
                                                 <h5 style="margin-left: 20px;">โปรดระบุรหัสนิสิต</h3>
                                                     <br>
