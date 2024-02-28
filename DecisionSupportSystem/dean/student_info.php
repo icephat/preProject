@@ -281,6 +281,7 @@ $student = getStudentByStudentId($studentId);
                             <p><label for="note" style="color:#0552d8;">เพิ่ม note:</label></p>
                             <textarea style=" width: 100%;" id="note" name="note"></textarea>
                             <input type="hidden" name="studentId" value="<?php echo $studentId ?>" />
+                            <input type="hidden" name="role" value="dean" />
                             <br>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success center-block">บันทึก</button>

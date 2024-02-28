@@ -4,6 +4,8 @@ session_start();
 
 $studentId = $_POST["studentId"];
 $note = $_POST["note"];
+$role = $_POST["role"];
+
 
 
 $remark;
@@ -31,6 +33,8 @@ file_put_contents($path, $toJson);
 // header('Location: ' . '../teacher/student_info.php?studentId='.$studentId);
 // exit();
 
+echo $role;
+
 
 
 
@@ -43,10 +47,9 @@ file_put_contents($path, $toJson);
 </head>
 
 <body OnLoad="document.form1.submit();">
-    <form action="../teacher/student_info.php" method="post" name="form1">
+    <form action="../<?php echo $role?>/student_info.php" method="post" name="form1">
         <input type="hidden" name="studentId" value="<?php echo $studentId; ?>" />
-        <!--<a type="button" name="std_info">
-                                <span class="glyphicon glyphicon-user"></span></a>-->
+        
         <input name="btnSubmit" type="submit" value="Submit">
     </form>
 </body>
