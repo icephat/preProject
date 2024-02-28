@@ -189,6 +189,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                 </div>
                                 <div class="col-sm-6 ">
                                     <p style="color: gray;"><?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?></p>
+                                    <!-- <a type="button" class="btn btn-danger"  href="../controller/changePlanCourse.php" style="color: black;">เปลี่ยนแผนการเรียน</a> -->
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">

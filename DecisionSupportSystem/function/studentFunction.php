@@ -28,6 +28,7 @@ function getStudentByUsername($studentUsername)
     $student["gpax"] = getGPAX($student["studentId"]);
     $student["credit"] = getCredit($student["studentId"]);
     $student["creditThree"] = getCreditThree($student["studentId"]);
+    
     $student["course"] = getCourseById($student["courseId"]);
     $student["status"] = getStudentStatusByStudentId($student["studentId"]);
 

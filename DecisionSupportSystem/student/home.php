@@ -5,6 +5,8 @@
 <?php
 session_start();
 
+
+
 require '../function/studentFunction.php';
 
 
@@ -12,7 +14,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 $_SESSION["studentId"] = $student["studentId"];
 
 
-
+$_SESSION["studentId"] = $student["studentId"];
 
 ?>
 

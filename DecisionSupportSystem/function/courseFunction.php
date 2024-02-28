@@ -58,6 +58,30 @@ function getCourseByCourseName($courseName)
 
 }
 
+function getCoursePlanByCourseName($courseName)
+{
+
+    require("connection_connect.php");
+
+    $sql = "SELECT DISTINCT courseId,nameCourseUse,planCourse
+    FROM course
+    WHERE nameCourseUse = '$courseName'";
+
+    $result = $conn->query($sql);
+    $courses = [];
+
+    while ($my_row = $result->fetch_assoc()) {
+        $courses[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+
+    return $courses;
+
+}
+
 function getSubjectGroupCreditCourseByNameCourseAndPlanAndStudyYearAndPart($name, $plan, $year, $part)
 {
 

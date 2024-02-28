@@ -7,7 +7,10 @@ session_start();
 
 require '../function/studentFunction.php';
 
+
 $student = getStudentByUsername($_SESSION["access-user"]);
+
+$courses = getCoursePlanByCourseName($student["course"]["nameCourseUse"]);
 
 
 
@@ -73,7 +76,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">รหัสประจำตัวนิสิต </p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;"><?php echo $student["studentId"]?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["studentId"] ?>
+                                    </p>
                                 </div>
 
                             </div>
@@ -82,7 +87,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ชื่อ-นามสกุล (ไทย) </p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["fisrtNameTh"]." ",$student["lastNameTh"] ?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["fisrtNameTh"] . " ", $student["lastNameTh"] ?>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -90,7 +97,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ชื่อ-นามสกุล (อังกฤษ)</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["fisrtNameEng"]." ",$student["lastNameEng"] ?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["fisrtNameEng"] . " ", $student["lastNameEng"] ?>
+                                    </p>
                                 </div>
                             </div>
                             <!--<div class="row" style="margin-left: 20px; padding: auto; ">
@@ -98,7 +107,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">รหัสประจำตัวประชาชน</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["personId"]?></p>
+                                    <p style="color: gray;"><?php echo $student["personId"] ?></p>
                                 </div>
                             </div>-->
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -106,7 +115,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เพศ</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["genderTh"]?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["genderTh"] ?>
+                                    </p>
                                 </div>
                             </div>
 
@@ -121,7 +132,8 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เบอร์โทรศัพท์</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <input class='form-control' name="tell" value="<?php echo $student["tell"]?> " required/>
+                                    <input class='form-control' name="tell" value="<?php echo $student["tell"] ?> "
+                                        required />
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -129,7 +141,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">e-Mail</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["email"]?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["email"] ?>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -137,7 +151,8 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เบอร์โทรศัพท์ผู้ปกครอง</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <input class='form-control' name="pTell" value="<?php echo $student["parentTell"]?>" required/>
+                                    <input class='form-control' name="pTell"
+                                        value="<?php echo $student["parentTell"] ?>" required />
                                 </div>
                             </div>
                         </div>
@@ -157,7 +172,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">อาจารย์ที่ปรึกษา </p>
                                 </div>
                                 <div class="col-sm-6">
-                                    <p style="color: gray;"><?php echo $student["teacher"]["titleTecherTh"].$student["teacher"]["fisrtNameTh"]." ".$student["teacher"]["lastNameTh"] ; ?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["teacher"]["titleTecherTh"] . $student["teacher"]["fisrtNameTh"] . " " . $student["teacher"]["lastNameTh"]; ?>
+                                    </p>
                                 </div>
 
                             </div>
@@ -166,7 +183,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">วิทยาเขต </p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["department"]["campus"] ?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["department"]["campus"] ?>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -174,7 +193,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">คณะ</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["department"]["faculty"] ?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["department"]["faculty"] ?>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -182,7 +203,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">สาขาวิชา</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["department"]["departmentName"] ?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["department"]["departmentName"] ?>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -190,10 +213,25 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ประเภทหลักสูตร</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?></p>
-                                    
-                                    <!--<p style="color: gray;"><?php echo $student["course"]["nameCourseUse"] ?><input class='form-control' name="pTell" value="<?php echo $student["course"]["planCourse"]?>" /></p>-->
-                                    
+                                    <!-- <p style="color: gray;">
+                                        <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
+                                    </p> -->
+                                    <select class="form-control" width="500px" data-live-search="true" name="courseId">
+
+                                        <?php
+                                        foreach ($courses as $course) {
+                                            echo "<option value=" . $course["courseId"] ." "  ;
+                                            if($student["course"]["planCourse"] == $course["planCourse"]){
+                                                echo " selected = 'selected'";
+                                            }
+                                            echo ">" . $course["nameCourseUse"] . " (" . $course["planCourse"] . ") </option>";
+                                        }
+
+                                        ?>
+                                    </select>
+
+                                    <!--<p style="color: gray;"><?php echo $student["course"]["nameCourseUse"] ?><input class='form-control' name="pTell" value="<?php echo $student["course"]["planCourse"] ?>" /></p>-->
+
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -201,7 +239,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">สถานภาพนิสิต</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["status"]?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["status"] ?>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -209,7 +249,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เกรดเฉลี่ยสะสม</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo round($student["gpax"],2)?></p>
+                                    <p style="color: gray;">
+                                        <?php echo round($student["gpax"], 2) ?>
+                                    </p>
                                 </div>
                             </div>
 
@@ -224,7 +266,9 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ชื่อโรงเรียน</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["school"]["schoolName"] ?></p>
+                                    <p style="color: gray;">
+                                        <?php echo $student["school"]["schoolName"] ?>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -232,14 +276,16 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">ที่อยู่โรงเรียน</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;">จังหวัด<?php echo $student["school"]["provinceName"] ?></p>
+                                    <p style="color: gray;">จังหวัด
+                                        <?php echo $student["school"]["provinceName"] ?>
+                                    </p>
                                 </div>
                             </div>
 
                         </div>
                     </div>
 
-                    
+
 
                     <br><br>
                     <div style="text-align: center;">
