@@ -32,6 +32,12 @@ function getStudentByUsername($studentUsername)
     $student["course"] = getCourseById($student["courseId"]);
     $student["status"] = getStudentStatusByStudentId($student["studentId"]);
 
+    $path = "../student/tell/" . $student["studentId"] . ".json";
+    $jsonString = file_get_contents($path);
+    $tell = json_decode($jsonString, true);
+
+    $student["tell"] = $tell;
+
     $semester = getSemesterPresent();
 
     $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"] + 1;
@@ -79,6 +85,12 @@ function getStudentByStudentId($studentId)
     } else {
         $student["studyTerm"] = 2;
     }
+
+    $path = "../student/tell/" . $student["studentId"] . ".json";
+    $jsonString = file_get_contents($path);
+    $tell = json_decode($jsonString, true);
+
+    $student["tell"] = $tell;
 
     $student["credit"] = getCredit($student["studentId"]);
 

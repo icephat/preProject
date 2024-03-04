@@ -132,7 +132,7 @@ $courses = getCoursePlanByCourseName($student["course"]["nameCourseUse"]);
                                     <p style="color: black;">เบอร์โทรศัพท์</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <input class='form-control' name="tell" value="<?php echo $student["tell"] ?> "
+                                    <input class='form-control' name="tell" value="<?php echo $student["tell"]["tell"] ?> "
                                         required />
                                 </div>
                             </div>
@@ -152,7 +152,7 @@ $courses = getCoursePlanByCourseName($student["course"]["nameCourseUse"]);
                                 </div>
                                 <div class="col-sm-6 ">
                                     <input class='form-control' name="pTell"
-                                        value="<?php echo $student["parentTell"] ?>" required />
+                                        value="<?php echo $student["tell"]["parentTell"] ?>" required />
                                 </div>
                             </div>
                         </div>

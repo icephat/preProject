@@ -113,7 +113,7 @@ $student = getStudentByStudentId($studentId);
                             </div>
                             <div class="col-sm-6">
                                 <p style="color: gray;">
-                                    <?php echo $student["tell"] ?>
+                                    <?php echo $student["tell"]["tell"] ?>
                                 </p>
                             </div>
 
@@ -199,7 +199,7 @@ $student = getStudentByStudentId($studentId);
                             </div>
                             <div class="col-sm-6">
                                 <p style="color: gray;">
-                                    <?php echo $student["parentTell"] ?>
+                                    <?php echo $student["tell"]["parentTell"] ?>
                                 </p>
                             </div>
 

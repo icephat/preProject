@@ -12,6 +12,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
 
 
 
+
 ?>
 
 <head>
@@ -119,7 +120,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เบอร์โทรศัพท์</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["tell"]?></p>
+                                    <p style="color: gray;"><?php echo $student["tell"]["tell"]?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
@@ -135,7 +136,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                     <p style="color: black;">เบอร์โทรศัพท์ผู้ปกครอง</p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["parentTell"]?></p>
+                                    <p style="color: gray;"><?php echo $student["tell"]["parentTell"]?></p>
                                 </div>
                             </div>
                         </div>

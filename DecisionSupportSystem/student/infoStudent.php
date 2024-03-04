@@ -56,7 +56,7 @@
                                     <p style="color: black;">เบอร์โทรศัพท์: </p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["tell"]?></p>
+                                    <p style="color: gray;"><?php echo $student["tell"]["tell"]?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">
