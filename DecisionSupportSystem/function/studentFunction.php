@@ -651,7 +651,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
     $happySubjectCredit = 0;
     $happySubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระอยู่ดีมีสุข");
-
+    
     foreach ($happySubjects as $happySubject) {
 
         if ($happySubjectCredit < $course["happySubjectCredit"]) {
@@ -671,7 +671,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
     foreach ($entrepreneurshipSubjects as $entrepreneurshipSubject) {
 
-        if ($happySubjectCredit < $course["entrepreneurshipSubjectCredit"]) {
+        if ($entrepreneurshipSubjectCredit < $course["entrepreneurshipSubjectCredit"]) {
             $entrepreneurshipSubjectCredit += $entrepreneurshipSubject["credit"];
             $generalSubjectCredit += $entrepreneurshipSubject["credit"];
             $generalSubjects[] = $entrepreneurshipSubject;
@@ -700,6 +700,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
         }
     }
 
+
     $peopleSubjectCredit = 0;
     $peopleSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระพลเมืองไทยและพลเมืองโลก");
 
@@ -716,6 +717,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
             $overSubjects[] = $peopleSubject;
         }
     }
+
 
     $aestheticsSubjectCredit = 0;
     $aestheticsSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระสุนทรียศาสตร์");
@@ -737,6 +739,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
 
 
+
     $coreSubjectCredit = 0;
     $coreSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาแกน");
 
@@ -752,20 +755,26 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
         }
     }
 
+
     $spacailSubjectCredit = 0;
     $spacailSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเฉพาะด้าน");
 
     foreach ($spacailSubjects as $spacailSubject) {
 
-        if ($spacailSubjectCredit < $course["spacailSubjectCredit"]) {
-            $spacailSubjectCredit += $spacailSubject["credit"];
-        } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
-            $freeSubjectCredit += $coreSubject["credit"];
-            $freeSubjects[] = $spacailSubject;
-        } else {
-            $overSubjects[] = $spacailSubject;
-        }
+
+        if($spacailSubject["gradeCharacter"] != 'F')
+            if ($spacailSubjectCredit < $course["spacailSubjectCredit"]) {
+                $spacailSubjectCredit += $spacailSubject["credit"];
+            } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
+                $freeSubjectCredit += $coreSubject["credit"];
+                $freeSubjects[] = $spacailSubject;
+            } else {
+                $overSubjects[] = $spacailSubject;
+            }
     }
+
+    echo count($freeSubjects)."<br>";
+    echo count($overSubjects)."<br><br>";
 
     $selectSubjectCredit = 0;
     $selectSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือก");
@@ -878,7 +887,7 @@ function getSubjectNotLearnInCoureseList($studentId, $courseId, $year, $part)
     foreach ($selectSubjects as $selectSubject) {
         for ($i = 0; $i < count($courses); $i++) {
 
-            if ($courses[$i]["subjectGroup"] == "วิชาเลือก") {
+            if ($courses[$i]["groupName"] == "วิชาเลือก") {
                 if ($courses[$i]["credit"] == $selectSubject["credit"]) {
                     array_splice($courses, $i);
                 }
@@ -937,11 +946,11 @@ function getSubjectNotLearnInCoureseListSecondTerm($studentId,$courseId, $year, 
 
 
 
-    $sql = "SELECT courseListId,studyYear,term,subjectCode,subjectGroup,credit
-    FROM courselist
-    WHERE courseId = $courseId AND studyYear = $year AND term = $part  AND (subjectGroup = 'วิชาเฉพาะด้าน' OR subjectGroup = 'วิชาแกน' OR subjectGroup = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
-    FROM fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory
-    WHERE studentId = '$studentId');";
+    $sql = "SELECT courseListId,studyYear,term,subjectCode,groupName,credit
+    FROM courselist NATURAL JOIN coursegroup
+    WHERE courseId = $courseId AND studyYear <= $year AND term <= $part AND (groupName = 'วิชาเฉพาะด้าน' OR groupName = 'วิชาแกน' OR groupName = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
+    FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup 
+    WHERE studentId = '$studentId')";
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
