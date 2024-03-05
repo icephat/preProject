@@ -228,7 +228,7 @@ function getCreditThree($studentId)
     require("connection_connect.php");
 
     $sql = "SELECT studentId,SUM(CASE WHEN gradeCharacter != 'W' AND  gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN credit END) AS creditAll,SUM(CASE WHEN gradeCharacter != 'F' AND gradeCharacter != 'W' AND gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN credit END) AS creditPass,IFNULL(SUM(CASE WHEN gradeCharacter = 'F' OR gradeCharacter = 'NP' THEN credit END),0) AS creditNotPass
-    FROM fact_student NATURAL JOIN fact_regis NATURAL JOIN subject
+    FROM fact_student NATURAL JOIN fact_regis NATURAL JOIN courselist
     WHERE studentId = '" . $studentId . "'
     GROUP BY studentId";
 
