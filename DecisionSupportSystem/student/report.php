@@ -104,10 +104,10 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                     <tr>
                                                         <td style=\" text-align: center;\">" . $subjectF["semesterYear"] . "</td>
                                                         <td style=\" text-align: center;\">" . $subjectF["semesterPart"] . "</td>
-                                                        <td style=\" text-align: center;\">" . $subjectF["subjectGroup"] . "</td>
+                                                        <td style=\" text-align: center;\">" . $subjectF["groupName"] . "</td>
                                                         <td style=\" text-align: center;\">" . $subjectF["subjectCode"] . "</td>
                                                         <td style=\" text-align: left;\">
-                                                        " . $subjectF["nameSubjectThai"] . "
+                                                        " . $subjectF["subjectNameTh"] . "
                                                         </td>
                                                         <td style=\" text-align: center;\">" . $subjectF["credit"] . "</td>
                                                         <td style=\" text-align: center;\">" . $subjectF["gradeCharacter"] . "</td>
@@ -124,7 +124,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             <?php
                                             
                                             
-                                            $courseNotLearns = getSubjectNotLearnInCoureseList($student["studentId"],$student["course"]["nameCourseUse"],$student["course"]["planCourse"],$student["studyYear"],$student["studyTerm"]);
+                                            $courseNotLearns = getSubjectNotLearnInCoureseList($student["studentId"],$student["courseId"],$student["studyYear"],$student["studyTerm"]);
                                             
 
                                             foreach($courseNotLearns as $courseNotLearn){
@@ -133,7 +133,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             <tr>
                                                     <td style=" text-align: center;"></td>
                                                     <td style=" text-align: center;"></td>
-                                                    <td style=" text-align: center;"><?php echo $courseNotLearn["subjectGroup"]?></td>
+                                                    <td style=" text-align: center;"><?php echo $courseNotLearn["groupName"]?></td>
                                                     <td style=" text-align: center;"><?php echo $courseNotLearn["subjectCode"]?></td>
                                                     <td style=" text-align: left;">
                                                         
@@ -225,13 +225,13 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                         <?php echo $subjectPassAndNot["semesterPart"] ?>
                                                     </td>
                                                     <td style=" text-align: center;">
-                                                        <?php echo $subjectPassAndNot["subjectGroup"] ?>
+                                                        <?php echo $subjectPassAndNot["groupName"] ?>
                                                     </td>
                                                     <td style=" text-align: center;">
                                                         <?php echo $subjectPassAndNot["subjectCode"] ?>
                                                     </td>
                                                     <td style=" text-align: left;">
-                                                        <?php echo $subjectPassAndNot["nameSubjectThai"] ?>
+                                                        <?php echo $subjectPassAndNot["subjectNameTh"] ?>
                                                     </td>
                                                     <td style=" text-align: center;">
                                                         <?php echo $subjectPassAndNot["credit"] ?>
@@ -310,13 +310,13 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                         <?php echo $over["semesterPart"] ?>
                                                     </td>
                                                     <td style=" text-align: center;">
-                                                        <?php echo $over["subjectGroup"] ?>
+                                                        <?php echo $over["groupName"] ?>
                                                     </td>
                                                     <td style=" text-align: center;">
                                                         <?php echo $over["subjectCode"] ?>
                                                     </td>
                                                     <td style=" text-align: left;">
-                                                        <?php echo $over["nameSubjectThai"] ?>
+                                                        <?php echo $over["subjectNameTh"] ?>
                                                     </td>
                                                     <td style=" text-align: center;">
                                                         <?php echo $over["credit"] ?>
@@ -438,8 +438,8 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                             <td class=\"text-left\">" . $regis["semesterYear"] . "</td>
                                                             <td class=\"text-left\">" . $regis["semesterPart"] . "</td>
                                                             <td class=\"text-left\">" . $regis["subjectCode"] . "</td>
-                                                            <td class=\"text-left\">" . $regis["nameSubjectThai"] . "</td>
-                                                            <td class=\"text-left\">" . $regis["subjectGroup"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["subjectNameTh"] . "</td>
+                                                            <td class=\"text-left\">" . $regis["groupName"] . "</td>
                                                             <td class=\"text-left\">" . $regis["gradeCharacter"] . "</td>
                                                             <td class=\"text-left\">" . $regis["credit"] . "</td>
                                                         </tr>

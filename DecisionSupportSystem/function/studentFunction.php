@@ -24,11 +24,11 @@ function getStudentByUsername($studentUsername)
     $student["program"] = getProgramById($student["programId"]);
     $student["department"] = getDepartmentById($student["departmentId"]);
     $student["school"] = getSchoolById($student["schoolId"]);
-    $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
+    //$student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
     $student["gpax"] = getGPAX($student["studentId"]);
     $student["credit"] = getCredit($student["studentId"]);
     $student["creditThree"] = getCreditThree($student["studentId"]);
-    
+
     $student["course"] = getCourseById($student["courseId"]);
     $student["status"] = getStudentStatusByStudentId($student["studentId"]);
 
@@ -69,7 +69,7 @@ function getStudentByStudentId($studentId)
     $student["program"] = getProgramById($student["programId"]);
     $student["department"] = getDepartmentById($student["departmentId"]);
     $student["school"] = getSchoolById($student["schoolId"]);
-    $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
+    //$student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
     $student["gpax"] = getGPAX($student["studentId"]);
     $student["course"] = getCourseById($student["courseId"]);
     $student["status"] = getStudentStatusByStudentId($student["studentId"]);
@@ -114,13 +114,13 @@ function getStudentByStudentIdForInsert($studentId)
     $result = $conn->query($sql);
     $student = $result->fetch_assoc();
 
-    $student["teacher"] = getTeacherById($student["teacherId"]);
-    $student["program"] = getProgramById($student["programId"]);
-    $student["department"] = getDepartmentById($student["departmentId"]);
-    $student["school"] = getSchoolById($student["schoolId"]);
-    $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
-    $student["gpax"] = getGPAX($student["studentId"]);
-    $student["course"] = getCourseById($student["courseId"]);
+    // $student["teacher"] = getTeacherById($student["teacherId"]);
+    // $student["program"] = getProgramById($student["programId"]);
+    // $student["department"] = getDepartmentById($student["departmentId"]);
+    // $student["school"] = getSchoolById($student["schoolId"]);
+    // $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
+    // $student["gpax"] = getGPAX($student["studentId"]);
+    // $student["course"] = getCourseById($student["courseId"]);
     //$student["status"] = getStudentStatusByStudentId($student["studentId"]);
 
     $semester = getSemesterPresent();
@@ -135,9 +135,9 @@ function getStudentByStudentIdForInsert($studentId)
         $student["studyTerm"] = 2;
     }
 
-    $student["credit"] = getCredit($student["studentId"]);
+    // $student["credit"] = getCredit($student["studentId"]);
 
-    $student["creditThree"] = getCreditThree($student["studentId"]);
+    // $student["creditThree"] = getCreditThree($student["studentId"]);
 
     require("connection_close.php");
 
@@ -161,7 +161,7 @@ function getStudentStatusByStudentId($studentId)
     $result = $conn->query($sql);
     $status = $result->fetch_assoc();
 
-    
+
 
 
 
@@ -182,7 +182,7 @@ function getGPAX($studentId)
 
     foreach ($regisAllList as $regis) {
         //echo print_r($regis)."<br>";
-        if ($regis["gradeCharacter"] != 'W' and $regis["gradeCharacter"] != 'P' and $regis["gradeCharacter"] != 'NP'){
+        if ($regis["gradeCharacter"] != 'W' and $regis["gradeCharacter"] != 'P' and $regis["gradeCharacter"] != 'NP') {
             $sumGradeCreditAll += $regis["gradeNumber"] * $regis["credit"];
             $sumCreditAll += $regis["credit"];
         }
@@ -250,14 +250,15 @@ function getListSubjectForFAndWByStudentId($studentId)
 
     require("connection_connect.php");
     $subjects = [];
-    $sql = "SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,subjectGroup,credit,gradeCharacter
-    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory 
+    $sql = "SELECT semesterYear,semesterPart,subjectCode,subjectNameTh,subjectNameEng,groupName,credit,creditRegis,gradeCharacter
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
     WHERE studentId = '$studentId' AND ( gradeCharacter = 'F' OR gradeCharacter = 'W') AND subjectCode NOT IN
     (
         SELECT subjectCode
-        FROM fact_regis NATURAL JOIN subject
+        FROM fact_regis NATURAL JOIN courselist
         WHERE studentId = '$studentId' AND gradeCharacter != 'F' AND gradeCharacter != 'W'
     )";
+
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
@@ -276,10 +277,13 @@ function getListSubjectInRegisByStudentIdAndSubjectCategory($studentId, $subject
 
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND subjectCategoryName = '" . $subjectCategoryName . "' AND (gradeCharacter != 'P' OR gradeCharacter != 'W' )";
+    $sql = "SELECT * 
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
+    WHERE studentId = '" . $studentId . "' AND categoryName = '" . $subjectCategoryName . "' AND gradeCharacter != 'P' AND gradeCharacter != 'W' AND gradeCharacter != 'NP' ";
     $result = $conn->query($sql);
     $subjects = [];
     while ($my_row = $result->fetch_assoc()) {
+        //echo $my_row["credit"] . "<br>";
         $subjects[] = $my_row;
     }
 
@@ -294,7 +298,9 @@ function getListSubjectInRegisByStudentIdAndSubjectGroup($studentId, $subjectGro
 {
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND subjectGroup = '" . $subjectGroup . "' AND (gradeCharacter != 'P' OR gradeCharacter != 'W' )";
+    $sql = "SELECT * 
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN courselist NATURAL JOIN coursegroup 
+    WHERE studentId = '" . $studentId . "' AND groupName = '" . $subjectGroup . "' AND (gradeCharacter != 'P' OR gradeCharacter != 'W' )";
     $result = $conn->query($sql);
 
     $subjects = [];
@@ -361,6 +367,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
 
     $freeSubjectCredit = 0;
     $freeSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือกเสรี");
+
     foreach ($freeSubjects as $freeSubject) {
         $freeSubjectCredit += $freeSubject["credit"];
     }
@@ -382,6 +389,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
 
     $happySubjectCredit = 0;
     $happySubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระอยู่ดีมีสุข");
+
 
     foreach ($happySubjects as $happySubject) {
 
@@ -410,6 +418,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
 
     $languageSubjectCredit = 0;
     $languageSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระภาษากับการสื่อสาร");
+
 
     foreach ($languageSubjects as $languageSubject) {
 
@@ -456,6 +465,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     $coreSubjectCredit = 0;
     $coreSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาแกน");
 
+
     foreach ($coreSubjects as $coreSubject) {
 
         if ($coreSubjectCredit < $course["coreSubjectCredit"]) {
@@ -468,6 +478,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
 
     $spacailSubjectCredit = 0;
     $spacailSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเฉพาะด้าน");
+
 
     foreach ($spacailSubjects as $spacailSubject) {
 
@@ -495,13 +506,16 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
 
     $academis["general"]["credit"] = $generalSubjectCredit;
     $academis["general"]["name"] = "วิชาศึกษาทั่วไป";
-    $generalSubjects = getListSubjectInRegisByStudentIdAndSubjectCategory($studentId, "หมวดวิชาศึกษาทั่วไป");
+    $generalSubjects = getListSubjectInRegisByStudentIdAndSubjectCategory($studentId, "วิชาศึกษาทั่วไป");
+    //echo count($generalSubjects);
     $sumGradeCreditGeneral = 0;
     $generalSubjectCredit = 0;
     foreach ($generalSubjects as $generalSubject) {
         if (!in_array($generalSubject, $freeSubjects)) {
+            //echo $generalSubject["credit"] . "<br>";
             $generalSubjectCredit += $generalSubject["credit"];
             $sumGradeCreditGeneral += $generalSubject["gradeNumber"] * $generalSubject["credit"];
+
         }
     }
     $academis["general"]["creditAll"] = $course["generalSubjectCredit"];
@@ -770,7 +784,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
 
 
-    $generalSubjectx = getListSubjectPassInRegisByStudentIdAndSubjectCategory($studentId, "หมวดวิชาศึกษาทั่วไป");
+    $generalSubjectx = getListSubjectPassInRegisByStudentIdAndSubjectCategory($studentId, "วิชาศึกษาทั่วไป");
     $generates = [];
 
     foreach ($generalSubjectx as $gene) {
@@ -806,24 +820,24 @@ function getRegisPassAndNotPassByStudentId($studentId)
 
     $subjects = [];
 
-    $sql = "SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,subjectGroup,credit,GROUP_CONCAT( gradeCharacter ORDER BY semesterYear   SEPARATOR ',') AS gradeCharacter
+    $sql = "SELECT semesterYear,semesterPart,subjectCode,subjectNameTh,subjectNameEng,groupName,credit,GROUP_CONCAT( gradeCharacter ORDER BY semesterYear   SEPARATOR ',') AS gradeCharacter
     FROM
     (
-    SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,credit,gradeCharacter,subjectGroup
-    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup
+    SELECT semesterYear,semesterPart,subjectCode,subjectNameTh,subjectNameEng,credit,gradeCharacter,groupName
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
     WHERE studentId = '$studentId' AND gradeCharacter != 'F' AND gradeCharacter != 'W' AND subjectCode IN
     (
     SELECT subjectCode
-    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
     WHERE studentId = '$studentId' AND (gradeCharacter = 'F' OR gradeCharacter = 'W')
     )
     UNION
-    SELECT semesterYear,semesterPart,subjectCode,nameSubjectThai,nameSubjectEng,credit,gradeCharacter,subjectGroup	
-    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup
+    SELECT semesterYear,semesterPart,subjectCode,subjectNameTh,subjectNameEng,credit,gradeCharacter,groupName	
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
     WHERE studentId = '$studentId' AND (gradeCharacter = 'F' OR gradeCharacter = 'W') AND subjectCode IN
      (
     SELECT subjectCode
-    FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
     WHERE studentId = '$studentId' AND gradeCharacter != 'F' AND gradeCharacter != 'W'
     )
     ORDER BY semesterYear
@@ -846,27 +860,27 @@ function getRegisPassAndNotPassByStudentId($studentId)
 
 }
 
-function getSubjectNotLearnInCoureseList($studentId, $nameCourse, $planCourse, $year, $part)
+function getSubjectNotLearnInCoureseList($studentId, $courseId, $year, $part)
 {
 
     //$courses;
 
     if ($part == 1) {
-        $courses = getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $planCourse, $year, $part);
+        $courses = getSubjectNotLearnInCoureseListInFirstTerm($studentId, $courseId, $year, $part);
     } else {
-        $courses = getSubjectNotLearnInCoureseListSecondTerm($studentId, $nameCourse, $planCourse, $year, $part);
+        $courses = getSubjectNotLearnInCoureseListSecondTerm($studentId,$courseId, $year, $part);
     }
 
     $selectSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือก");
 
     $selects = [];
 
-    foreach($selectSubjects as $selectSubject){
-        for($i = 0;$i<count($courses);$i++){
+    foreach ($selectSubjects as $selectSubject) {
+        for ($i = 0; $i < count($courses); $i++) {
 
-            if($courses[$i]["subjectGroup"] == "วิชาเลือก"){
-                if($courses[$i]["credit"] == $selectSubject["credit"]){
-                    array_splice($courses,$i);
+            if ($courses[$i]["subjectGroup"] == "วิชาเลือก") {
+                if ($courses[$i]["credit"] == $selectSubject["credit"]) {
+                    array_splice($courses, $i);
                 }
             }
         }
@@ -877,7 +891,7 @@ function getSubjectNotLearnInCoureseList($studentId, $nameCourse, $planCourse, $
 
 }
 
-function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $planCourse, $year, $part)
+function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $courseId, $year, $part)
 {
 
     require("connection_connect.php");
@@ -889,16 +903,16 @@ function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $pl
 
 
 
-    $sql = "SELECT courseListId,studyYear,term,subjectCode,subjectGroup,credit
-    FROM courselist
-    WHERE courseName = '$nameCourse' AND coursePlan = '$planCourse' AND studyYear <= $yearX AND term <= $termX AND (subjectGroup = 'วิชาเฉพาะด้าน' OR subjectGroup = 'วิชาแกน' OR subjectGroup = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
-    FROM fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory
+    $sql = "SELECT courseListId,studyYear,term,subjectCode,groupName,credit
+    FROM courselist NATURAL JOIN coursegroup
+    WHERE courseId = $courseId AND studyYear <= $yearX AND term <= $termX AND (groupName = 'วิชาเฉพาะด้าน' OR groupName = 'วิชาแกน' OR groupName = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
+    FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup 
     WHERE studentId = '$studentId')
     UNION
-    SELECT courseListId,studyYear,term,subjectCode,subjectGroup,credit
-    FROM courselist
-    WHERE courseName = '$nameCourse' AND coursePlan = '$planCourse' AND studyYear = $year AND term = $part  AND (subjectGroup = 'วิชาเฉพาะด้าน' OR subjectGroup = 'วิชาแกน' OR subjectGroup = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
-    FROM fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory
+    SELECT courseListId,studyYear,term,subjectCode,groupName,credit
+    FROM courselist NATURAL JOIN coursegroup
+    WHERE courseId = $courseId AND studyYear = $year AND term = $part  AND (groupName = 'วิชาเฉพาะด้าน' OR groupName = 'วิชาแกน' OR groupName = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
+    FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup 
     WHERE studentId = '$studentId');";
     $result = $conn->query($sql);
 
@@ -913,19 +927,19 @@ function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $nameCourse, $pl
     return $subjects;
 
 }
-function getSubjectNotLearnInCoureseListSecondTerm($studentId, $nameCourse, $planCourse, $year, $part)
+function getSubjectNotLearnInCoureseListSecondTerm($studentId,$courseId, $year, $part)
 {
 
     require("connection_connect.php");
 
     $subjects = [];
 
-    
+
 
 
     $sql = "SELECT courseListId,studyYear,term,subjectCode,subjectGroup,credit
     FROM courselist
-    WHERE courseName = '$nameCourse' AND coursePlan = '$planCourse' AND studyYear = $year AND term = $part  AND (subjectGroup = 'วิชาเฉพาะด้าน' OR subjectGroup = 'วิชาแกน' OR subjectGroup = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
+    WHERE courseId = $courseId AND studyYear = $year AND term = $part  AND (subjectGroup = 'วิชาเฉพาะด้าน' OR subjectGroup = 'วิชาแกน' OR subjectGroup = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
     FROM fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory
     WHERE studentId = '$studentId');";
     $result = $conn->query($sql);

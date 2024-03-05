@@ -108,7 +108,7 @@ function getSubjectGroupCreditCourseByNameCourseAndPlanAndStudyYearAndPart($name
 
 }
 
-function getSubjectGroupCreditTermOneCourseByNameCourseAndPlanAndStudyYearAndPart($name, $plan, $year, $part)
+function getSubjectGroupCreditTermOneCourseByCourseIdAndStudyYearAndPart($courseId, $year, $part)
 {
 
     require("connection_connect.php");
@@ -118,13 +118,13 @@ function getSubjectGroupCreditTermOneCourseByNameCourseAndPlanAndStudyYearAndPar
 
     $sql = "SELECT subjectGroup,SUM(credit) AS credit
     FROM (SELECT studyYear,term,subjectGroup,SUM(credit) AS credit
-    FROM courselist
-    WHERE courseName = '" . $name . "' AND coursePlan = '" . $plan . "' AND studyYear <= " . $yearX . " AND term <= " . $termX . "
-    GROUP BY studyYear,term,subjectGroup
+    FROM courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
+    WHERE courseId = $courseId AND studyYear <= " . $yearX . " AND term <= " . $termX . "
+    GROUP BY studyYear,term,group
     UNION
     SELECT studyYear,term,subjectGroup,SUM(credit) as credit
-    FROM courselist
-    WHERE courseName = '" . $name . "' AND coursePlan = '" . $plan . "' AND studyYear = " . $year . " AND term = " . $part . "
+    FROM courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
+    WHERE courseId = $courseId AND studyYear = " . $year . " AND term = " . $part . "
     GROUP BY subjectGroup,studyYear,term) AS A
     GROUP BY subjectGroup;";
 

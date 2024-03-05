@@ -6,7 +6,7 @@ function getListRegisByStudentIdAndSemesterId($studentId, $semesterId)
 
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM fact_regis NATURAL JOIN subject WHERE studentId = '" . $studentId . "' AND semesterId = " . $semesterId;
+    $sql = "SELECT * FROM fact_regis NATURAL JOIN courselist WHERE studentId = '" . $studentId . "' AND semesterId = " . $semesterId;
     $result = $conn->query($sql);
     //$regisList = $result->fetch_assoc();
 
@@ -26,7 +26,7 @@ function getListRegisByStudentId($studentId)
 
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM fact_regis NATURAL JOIN subject WHERE studentId = '" . $studentId . "'";
+    $sql = "SELECT * FROM fact_regis NATURAL JOIN courselist WHERE studentId = '" . $studentId . "'";
     $result = $conn->query($sql);
     //$regisList = $result->fetch_assoc();
 
@@ -66,7 +66,9 @@ function getListSubjectPassInRegisByStudentIdAndSubjectCategory($studentId, $sub
 
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND subjectCategoryName = '" . $subjectCategoryName . "' AND (gradeCharacter != 'F' AND gradeCharacter != 'W' AND gradeCharacter != 'P')";
+    $sql = "SELECT * 
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId 
+    WHERE studentId = '" . $studentId . "' AND categoryName = '" . $subjectCategoryName . "' AND (gradeCharacter != 'F' AND gradeCharacter != 'W' AND gradeCharacter != 'P')";
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
@@ -84,7 +86,9 @@ function getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, $subjec
 {
     require("connection_connect.php");
     $subjects = [];
-    $sql = "SELECT * FROM semester NATURAL JOIN fact_regis NATURAL JOIN subject NATURAL JOIN subjectgroup NATURAL JOIN subjectcategory WHERE studentId = '" . $studentId . "' AND subjectGroup = '" . $subjectGroup . "' AND (gradeCharacter != 'F' AND gradeCharacter != 'W' AND gradeCharacter != 'P')";
+    $sql = "SELECT * 
+    FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
+    WHERE studentId = '" . $studentId . "' AND groupName = '" . $subjectGroup . "' AND gradeCharacter != 'NP' AND gradeCharacter != 'W' AND gradeCharacter != 'P'";
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {

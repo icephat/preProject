@@ -11,6 +11,7 @@ require '../function/studentFunction.php';
 
 
 $student = getStudentByUsername($_SESSION["access-user"]);
+$student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
 $_SESSION["studentId"] = $student["studentId"];
 
 
@@ -449,7 +450,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                             
                                             <th>" . $regis["gradeCharacter"] . "</th>
                                             <th>" . $regis["credit"] . "</th>
-                                            <th>" . $regis["nameSubjectEng"] . "</th>
+                                            <th> " . $regis["subjectNameEng"] . "</th>
                                         </tr>
                                     ";
         }
