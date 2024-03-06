@@ -6,7 +6,8 @@ function getListRegisByStudentIdAndSemesterId($studentId, $semesterId)
 
     require("connection_connect.php");
 
-    $sql = "SELECT * FROM fact_regis NATURAL JOIN courselist WHERE studentId = '" . $studentId . "' AND semesterId = " . $semesterId;
+    $sql = "SELECT * FROM fact_regis NATURAL JOIN courselist WHERE studentId = '" . $studentId . "' AND semesterId = " . $semesterId." 
+    ORDER BY gradeNumber,credit,subjectCode";
     $result = $conn->query($sql);
     //$regisList = $result->fetch_assoc();
 
@@ -88,7 +89,7 @@ function getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, $subjec
     $subjects = [];
     $sql = "SELECT * 
     FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
-    WHERE studentId = '" . $studentId . "' AND groupName = '" . $subjectGroup . "' AND gradeCharacter != 'NP' AND gradeCharacter != 'W' AND gradeCharacter != 'P'";
+    WHERE studentId = '" . $studentId . "' AND groupName = '" . $subjectGroup . "' AND gradeCharacter != 'NP' AND gradeCharacter != 'W' AND gradeCharacter != 'P' AND gradeCharacter != 'F'";
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
