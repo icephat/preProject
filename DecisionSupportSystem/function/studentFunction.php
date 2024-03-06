@@ -20,6 +20,10 @@ function getStudentByUsername($studentUsername)
     $result = $conn->query($sql);
     $student = $result->fetch_assoc();
 
+    if (!isset($student)) {
+        return $student;
+    }
+
     $student["teacher"] = getTeacherById($student["teacherId"]);
     $student["program"] = getProgramById($student["programId"]);
     $student["department"] = getDepartmentById($student["departmentId"]);
@@ -64,6 +68,10 @@ function getStudentByStudentId($studentId)
 
     $result = $conn->query($sql);
     $student = $result->fetch_assoc();
+
+    if (!isset($student)) {
+        return $student;
+    }
 
     $student["teacher"] = getTeacherById($student["teacherId"]);
     $student["program"] = getProgramById($student["programId"]);
@@ -113,6 +121,10 @@ function getStudentByStudentIdForInsert($studentId)
 
     $result = $conn->query($sql);
     $student = $result->fetch_assoc();
+    
+    if (!isset($student)) {
+        return $student;
+    }
 
     // $student["teacher"] = getTeacherById($student["teacherId"]);
     // $student["program"] = getProgramById($student["programId"]);
@@ -172,6 +184,7 @@ function getStudentStatusByStudentId($studentId)
 
 function getGPAX($studentId)
 {
+    //echo $studentId."<br>";
 
     $regisAllList = getListRegisByStudentId($studentId);
 
@@ -187,6 +200,10 @@ function getGPAX($studentId)
             $sumCreditAll += $regis["credit"];
         }
 
+    }
+
+    if($sumCreditAll == 0){
+        $sumCreditAll = 1;
     }
 
     $gpaAll = intval((($sumGradeCreditAll / $sumCreditAll) * 1000)) / 1000;
@@ -227,8 +244,8 @@ function getCreditThree($studentId)
 
     require("connection_connect.php");
 
-    $sql = "SELECT studentId,SUM(CASE WHEN gradeCharacter != 'W' AND  gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN credit END) AS creditAll,SUM(CASE WHEN gradeCharacter != 'F' AND gradeCharacter != 'W' AND gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN credit END) AS creditPass,IFNULL(SUM(CASE WHEN gradeCharacter = 'F' OR gradeCharacter = 'NP' THEN credit END),0) AS creditNotPass
-    FROM fact_student NATURAL JOIN fact_regis NATURAL JOIN courselist
+    $sql = "SELECT studentId,SUM(CASE WHEN gradeCharacter != 'W' AND  gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN creditRegis END) AS creditAll,SUM(CASE WHEN gradeCharacter != 'F' AND gradeCharacter != 'W' AND gradeCharacter != 'P' AND gradeCharacter != 'NP' THEN creditRegis END) AS creditPass,IFNULL(SUM(CASE WHEN gradeCharacter = 'F' OR gradeCharacter = 'NP' THEN creditRegis END),0) AS creditNotPass
+    FROM fact_regis NATURAL JOIN courselist
     WHERE studentId = '" . $studentId . "'
     GROUP BY studentId";
 

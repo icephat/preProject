@@ -9,18 +9,11 @@ require_once '../function/courseFunction.php';
 
 
 
-$year = $_POST["semesterYear"];
-$part = $_POST["semesterPart"];
+// $year = $_POST["semesterYear"];
+// $part = $_POST["semesterPart"];
 
-if ($part == 1) {
-    $partName = "ภาคต้น";
-} elseif ($part == 2) {
-    $partName = "ภาคปลาย";
-} elseif ($part == 3) {
-    $partName = "ภาคฤดูร้อน";
-}
 
-echo $year . " " . $part . " $partName<br>";
+
 
 
 
@@ -40,21 +33,9 @@ $csvFile = fopen($_FILES['file']['tmp_name'], 'r');
 fgetcsv($csvFile);
 
 
-require("../function/connection_connect.php");
-
-$queryCheck = "SELECT semesterId FROM semester WHERE semesterPart = '" . $partName . "' AND semesterYear = " . $year;
-$check = mysqli_query($conn, $queryCheck);
-if ($check->num_rows == 0) {
-    $sqlInsertSemester = "insert into semester(semesterYear,semesterPart) values ($year,'$partName')";
-    mysqli_query($conn, $sqlInsertSemester);
-}
 
 
 
-$querySemester = "SELECT * FROM semester WHERE semesterYear = " . $year . " AND semesterPart = '" . $partName . "'";
-$result = $conn->query($querySemester); //mysqli_query($conn, $querySemester);
-$semester = $result->fetch_assoc();
-$semesterId = $semester["semesterId"];
 
 
 while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
@@ -66,20 +47,53 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $secLecture = $getData[4];
     $secLab = $getData[4];
     $gradeCharacter = $getData[5];
+    $year = $getData[6];
+    $part = $getData[7];
+
+    $year = (int) $year + 2500;
 
 
-    $status = $getData[7];
 
 
 
+    if (!isset($subjectCode)) {
+        continue;
+    }
+
+    if ($part == 1) {
+        $partName = "ภาคต้น";
+    } elseif ($part == 2) {
+        $partName = "ภาคปลาย";
+    } elseif ($part == 0) {
+        $part = 3;
+        $partName = "ภาคฤดูร้อน";
+    }
+
+
+    require("../function/connection_connect.php");
+
+
+    $queryCheck = "SELECT semesterId FROM semester WHERE semesterPart = '" . $partName . "' AND semesterYear = " . $year;
+    $check = mysqli_query($conn, $queryCheck);
+    if ($check->num_rows == 0) {
+        $sqlInsertSemester = "insert into semester(semesterYear,semesterPart) values ($year,'$partName')";
+        mysqli_query($conn, $sqlInsertSemester);
+    }
+
+
+
+    $querySemester = "SELECT * FROM semester WHERE semesterYear = " . $year . " AND semesterPart = '" . $partName . "'";
+    $result = $conn->query($querySemester); //mysqli_query($conn, $querySemester);
+    $semester = $result->fetch_assoc();
+    $semesterId = $semester["semesterId"];
 
     $student = getStudentByStudentIdForInsert($studentId);
     if (!isset($student)) {
         continue;
     }
 
-    echo $studentId . "<br>";
 
+    $status = $getData[7];
 
     if ($typeRegis == "C") {
         $typeRegis = "Credit";
@@ -121,6 +135,8 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     }
 
 
+
+
     //หา typeRegisId
     $sqlTypeRegis = "SELECT * FROM typeregis WHERE type = '" . $typeRegis . "'";
     $resultTypeRegis = $conn->query($sqlTypeRegis);
@@ -135,11 +151,10 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $resultTCourse = $conn->query($sqlCourseStudentSQL);
     $course = $resultTCourse->fetch_assoc();
     $courseId = $course["courseId"];
+    //echo $sqlCourseStudentSQL . "<br>";
 
     //หา courseListId
-    $subjectCode = substr($subjectCode, 1, 7);
-    $subjectCode = substr_replace($subjectCode, "0", 0, 0);
-    //echo $subjectCode."<br>";
+    $subjectCode = substr_replace($subjectCode, "0", 0);
     $sqlCourseListSQL = "SELECT courseListId,courseGroupId,credit FROM courselist WHERE courseId = $courseId AND subjectCode = '$subjectCode'";
     $resultTCourseList = $conn->query($sqlCourseListSQL);
     $courseList = $resultTCourseList->fetch_assoc();
@@ -189,11 +204,10 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
 
     $queryCheck = "SELECT regisId FROM fact_regis WHERE studentId = '" . $studentId . "' AND courseListId = '" . $courseListId . "'" . " AND semesterId = '" . $semesterId . "'";
     $check = mysqli_query($conn, $queryCheck);
-
+    //echo "$queryCheck <br>";
     if ($check->num_rows > 0) {
         //echo "$queryCheck <br>";
     } else {
-        echo $studentId . "<br>";
 
         //$sql = "insert into subject(subjectCode,subjectCourse,nameSubjectThai,nameSubjectEng,credit,subjectTypeId,subjectGroupId) values ('$subjectCode','$subjectCourse','$nameSubjectThai','$nameSubjectEng',$credit,$subjectTypeId,$subjectGroupId)";
         // $sql = "insert into fact_regis(studentId,subjectId,roomId,semesterId,secLecture,secLab,gradeCharacter,gradeNumber,typeRegisId,classTimeLecture,classTimeLab) values 
@@ -204,6 +218,8 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
         //echo "$sql <br>";
         mysqli_query($conn, $sql);
     }
+
+    require("../function/connection_close.php");
 
 
 
@@ -223,8 +239,10 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
 foreach ($studentIds as $sId) {
     //echo $sId." ".$semesterId;
 
+    require("../function/connection_connect.php");
+
     $regisList = getListRegisByStudentIdAndSemesterId($sId, $semesterId);
-    echo "<br>$sId " . count($regisList) . "<br><br>";
+    //echo "<br>$sId " . count($regisList) . "<br><br>";
 
     //print_r($regisList);
 
@@ -237,7 +255,7 @@ foreach ($studentIds as $sId) {
             //echo $regis["gradeCharacter"]."<br>";
             $sumGradeCreditTerm += $regis["gradeNumber"] * $regis["creditRegis"];
             $sumCreditTerm += $regis["creditRegis"];
-            echo $regis["gradeNumber"] . " " . $regis["creditRegis"] . "<br>";
+            //echo $regis["gradeNumber"] . " " . $regis["creditRegis"] . "<br>";
         }
 
 
@@ -245,13 +263,7 @@ foreach ($studentIds as $sId) {
     }
 
     //echo "$sId = $sumGradeCreditTerm ,".$sumCreditTerm."<br>";
-    if($sumCreditTerm != 0){
-        $gpaTerm = intval((($sumGradeCreditTerm / $sumCreditTerm) * 1000)) / 1000;
-    }
-    else{
-        $gpaTerm = intval((($sumGradeCreditTerm / 1) * 1000)) / 1000;
-    }
-    
+    $gpaTerm = intval((($sumGradeCreditTerm / $sumCreditTerm) * 1000)) / 1000;
     //$gpaTerm = $sumGradeCreditTerm / $sumCreditTerm;
     //echo "Grade $sId = $gpaTerm <br>";
 
@@ -273,12 +285,7 @@ foreach ($studentIds as $sId) {
     }
 
     //echo "$sId = $sumGradeCreditAll ," . $sumCreditAll . "<br>";
-    if ($sumCreditAll != 0) {
-        $gpaAll = intval((($sumGradeCreditAll / $sumCreditAll) * 1000)) / 1000;
-    }
-    else{
-        $gpaAll = intval((($sumGradeCreditAll / 1) * 1000)) / 1000;
-    }
+    $gpaAll = intval((($sumGradeCreditAll / $sumCreditAll) * 1000)) / 1000;
     //echo "Grade $sId = $gpaAll<br>";
 
 
@@ -333,9 +340,9 @@ foreach ($studentIds as $sId) {
     }
 
 
-    echo $term . "<br>";
+    //echo $term . "<br>";
     if ($term == 1 and $studyYear > 1) {
-        echo 'เข้าอันนี้<br>';
+        //echo 'เข้าอันนี้<br>';
         //$courseCredits = getSubjectGroupCreditTermOneCourseByCourseIdAndStudyYearAndPart($courseId, $studyYearX, $termX);
         $planCheckSQL = "SELECT subjectCode
         FROM courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
@@ -362,6 +369,8 @@ foreach ($studentIds as $sId) {
     }
 
     $result = $conn->query($planCheckSQL);
+
+
 
     $coursePlans = [];
 
@@ -430,13 +439,13 @@ foreach ($studentIds as $sId) {
     }
 
 
-
+    require("../function/connection_close.php");
 
 }
 
 
 
 
-require("../function/connection_close.php");
+
 
 ?>

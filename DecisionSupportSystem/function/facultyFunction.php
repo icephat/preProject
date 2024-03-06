@@ -574,7 +574,7 @@ function getCountStudentTcasSortByDepartmentBySemesterYear($semesterYear)
 
     $countStudentSortByDepartments = [];
 
-    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasName = 'TCAS1' THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasName = 'TCAS2' THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasName = 'TCAS3' THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasName = 'TCAS4' THEN studentId END) AS TCAS4
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasRound = 1 THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasRound = 2 THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasRound = 3 THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasRound = 4 THEN studentId END) AS TCAS4
     FROM department NATURAL JOIN fact_student NATURAL JOIN tcas
     WHERE tcasYear <= $semesterYear
     GROUP BY departmentId;";
@@ -599,7 +599,7 @@ function getCountStudentTcasSortByDepartmentBySemesterYearAndRound($semesterYear
 
     $countStudentSortByDepartments = [];
 
-    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasName = 'TCAS1' THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasName = 'TCAS2' THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasName = 'TCAS3' THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasName = 'TCAS4' THEN studentId END) AS TCAS4
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasRound = 1 THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasRound = 2 THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasRound = 3 THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasRound = 4 THEN studentId END) AS TCAS4
     FROM department NATURAL JOIN fact_student NATURAL JOIN tcas
     WHERE tcasYear <= $semesterYear AND tcasRound = $round
     GROUP BY departmentId;";
@@ -624,7 +624,7 @@ function getCountStudentTcasSortByDepartmentBySemesterYearAndGeneretion($semeste
 
     $countStudentSortByDepartments = [];
 
-    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasName = 'TCAS1' THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasName = 'TCAS2' THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasName = 'TCAS3' THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasName = 'TCAS4' THEN studentId END) AS TCAS4
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasRound = 1 THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasRound = 2 THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasRound = 3 THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasRound = 4 THEN studentId END) AS TCAS4
     FROM department NATURAL JOIN fact_student NATURAL JOIN tcas
     WHERE tcasYear <= $semesterYear AND studyGeneretion = $generetion
     GROUP BY departmentId;";
@@ -648,7 +648,7 @@ function getCountStudentTcasSortByDepartmentBySemesterYearAndGeneretionAndRound(
 
     $countStudentSortByDepartments = [];
 
-    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasName = 'TCAS1' THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasName = 'TCAS2' THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasName = 'TCAS3' THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasName = 'TCAS4' THEN studentId END) AS TCAS4
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasRound = 1 THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasRound = 2 THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasRound = 3 THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasRound = 4 THEN studentId END) AS TCAS4
     FROM department NATURAL JOIN fact_student NATURAL JOIN tcas
     WHERE tcasYear <= $semesterYear AND studyGeneretion = $generetion AND tcasRound = $round
     GROUP BY departmentId;";

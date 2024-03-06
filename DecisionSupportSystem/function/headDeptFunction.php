@@ -250,6 +250,7 @@ function getCountStudentStatusSortByGeneretionByCourseNameAndSemesterYearAndStud
     FROM studentStatus NATURAL JOIN  fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId
     WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM studentStatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear 
     GROUP BY studentId)
+    GROUP BY studyGeneretion
     ORDER BY studyGeneretion;";
 
     $result = $conn->query($sql);
@@ -324,7 +325,7 @@ function getCountStudentTcasSortByStudyGeneretionByCourseName($courseName)
 
     $countStudentSortByGeneretion = [];
 
-    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN tcasName = 'TCAS1' THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasName = 'TCAS2' THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasName = 'TCAS3' THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasName = 'TCAS4' THEN studentId END) AS TCAS4
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN tcasRound = 1 THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasRound = 2 THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasRound = 3 THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasRound = 4 THEN studentId END) AS TCAS4
     FROM course NATURAL JOIN fact_student NATURAL JOIN tcas
     WHERE nameCourseUse = '$courseName'
     GROUP BY studyGeneretion;";
@@ -342,7 +343,7 @@ function getCountStudentTcasSortByStudyGeneretionByCourseName($courseName)
 
 }
 
-function getCountStudentTcasSortByStudyGeneretionByCourseNameAndTcasRound($courseName,$round)
+function getCountStudentTcasSortByStudyGeneretionByCourseNameAndTcasRound($courseName, $round)
 {
 
     require("connection_connect.php");
@@ -393,7 +394,7 @@ function getMaxMinAvgGPAXByCourseName($courseName)
 
 }
 
-function getMaxMinAvgGPAXByCourseNameAndRound($courseName,$round)
+function getMaxMinAvgGPAXByCourseNameAndRound($courseName, $round)
 {
 
     require("connection_connect.php");
@@ -430,7 +431,8 @@ function getPercentageStudySortByGeneretionByCourseName($courseName)
 
     $sql = "SELECT studyGeneretion,COUNT(studentId) AS entry,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  INNER JOIN course ON fact_student.courseId = course.courseId
-    WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' GROUP BY studentId);";
+    WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' GROUP BY studentId)
+    GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
 
@@ -445,7 +447,7 @@ function getPercentageStudySortByGeneretionByCourseName($courseName)
 
 }
 
-function getPercentageStudySortByGeneretionByCourseNameAndRound($courseName,$round)
+function getPercentageStudySortByGeneretionByCourseNameAndRound($courseName, $round)
 {
 
     require("connection_connect.php");
@@ -456,7 +458,8 @@ function getPercentageStudySortByGeneretionByCourseNameAndRound($courseName,$rou
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  INNER JOIN course ON fact_student.courseId = course.courseId
     WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas INNER JOIN course ON fact_student.courseId = course.courseId 
     WHERE nameCourseUse = '$courseName' AND tcasRound = $round
-    GROUP BY studentId);";
+    GROUP BY studentId)
+    GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
 
@@ -480,7 +483,8 @@ function getPercentageStudyAndRetireSortByGeneretionByCourseName($courseName)
 
     $sql = "SELECT studyGeneretion,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  INNER JOIN course ON fact_student.courseId = course.courseId
-    WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' GROUP BY studentId);";
+    WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' GROUP BY studentId)
+    GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
 
@@ -495,7 +499,7 @@ function getPercentageStudyAndRetireSortByGeneretionByCourseName($courseName)
 
 }
 
-function getPercentageStudyAndRetireSortByGeneretionByCourseNameAndRound($courseName,$round)
+function getPercentageStudyAndRetireSortByGeneretionByCourseNameAndRound($courseName, $round)
 {
 
     require("connection_connect.php");
@@ -506,7 +510,8 @@ function getPercentageStudyAndRetireSortByGeneretionByCourseNameAndRound($course
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  INNER JOIN course ON fact_student.courseId = course.courseId
     WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas  INNER JOIN course ON fact_student.courseId = course.courseId 
     WHERE nameCourseUse = '$courseName' AND tcasRound = $round
-    GROUP BY studentId);";
+    GROUP BY studentId)
+    GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
 
@@ -521,7 +526,7 @@ function getPercentageStudyAndRetireSortByGeneretionByCourseNameAndRound($course
 
 }
 
-function getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
+function getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYear($departmentId, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -548,7 +553,7 @@ function getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYear($dep
 
 }
 
-function getCountStudentStatusSortByYearByDepartmrntIdAndSemesterYear($departmentId,$semesterYear)
+function getCountStudentStatusSortByYearByDepartmrntIdAndSemesterYear($departmentId, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -633,7 +638,7 @@ function getCountStudentGradeRangeByDepartmrntIdAndSemesterYear($departmentId, $
 
 }
 
-function getCountStudentGradeRangeByDepartmrntIdAndSemesterYearAndGeneretion($departmentId, $semesterYear,$generetion)
+function getCountStudentGradeRangeByDepartmrntIdAndSemesterYearAndGeneretion($departmentId, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
@@ -645,10 +650,10 @@ function getCountStudentGradeRangeByDepartmrntIdAndSemesterYearAndGeneretion($de
 
     $result = $conn->query($sql);
     $countRangeGrade = $result->fetch_assoc();
-    $countRangeGrade["blues"] = geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "blue",$generetion);
-    $countRangeGrade["greens"] = geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "green",$generetion);
-    $countRangeGrade["oranges"] = geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "orange",$generetion);
-    $countRangeGrade["reds"] = geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "red",$generetion);
+    $countRangeGrade["blues"] = geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "blue", $generetion);
+    $countRangeGrade["greens"] = geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "green", $generetion);
+    $countRangeGrade["oranges"] = geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "orange", $generetion);
+    $countRangeGrade["reds"] = geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "red", $generetion);
 
 
 
@@ -685,7 +690,7 @@ function geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRange($de
 
 }
 
-function geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, $gradeRange,$generetion)
+function geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, $gradeRange, $generetion)
 {
 
     require("connection_connect.php");
@@ -738,7 +743,7 @@ function getCountStudentPlanStatusByDepartmrntIdAndSemesterYear($departmentId, $
 
 }
 
-function getCountStudentPlanStatusByDepartmrntIdAndSemesterYearAndGeneretion($departmentId, $semesterYear,$generetion)
+function getCountStudentPlanStatusByDepartmrntIdAndSemesterYearAndGeneretion($departmentId, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
@@ -752,10 +757,10 @@ function getCountStudentPlanStatusByDepartmrntIdAndSemesterYearAndGeneretion($de
     $result = $conn->query($sql);
     $countPlanStatus = $result->fetch_assoc();
 
-    $countPlanStatus["plans"] = geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "ตามแผน",$generetion);
-    $countPlanStatus["notPlans"] = geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "ไม่ตามแผน",$generetion);
-    $countPlanStatus["retires"] = geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "พ้นสภาพนิสิต",$generetion);
-    $countPlanStatus["grads"] = geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "จบการศึกษา",$generetion);
+    $countPlanStatus["plans"] = geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "ตามแผน", $generetion);
+    $countPlanStatus["notPlans"] = geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "ไม่ตามแผน", $generetion);
+    $countPlanStatus["retires"] = geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "พ้นสภาพนิสิต", $generetion);
+    $countPlanStatus["grads"] = geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, "จบการศึกษา", $generetion);
 
 
 
@@ -791,7 +796,7 @@ function geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRange($de
 
 }
 
-function geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, $planStatus,$generetion)
+function geStudentListInPlanStatusByDepartmentIdAndSemesterYearAndGradeRangeAndGeneretion($departmentId, $semesterYear, $planStatus, $generetion)
 {
 
     require("connection_connect.php");
@@ -881,6 +886,7 @@ function getCountStudentStatusSortByGeneretionByDepartmentIdAndSemesterYearAndSt
     FROM studentStatus NATURAL JOIN  fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM studentStatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student WHERE departmentId = $departmentId AND semesterYear <= $semesterYear 
     GROUP BY studentId)
+    GROUP BY studyGeneretion
     ORDER BY studyGeneretion;";
 
     $result = $conn->query($sql);
@@ -955,7 +961,7 @@ function getCountStudentTcasSortByStudyGeneretionByDepartmentId($departmentId)
 
     $countStudentSortByGeneretion = [];
 
-    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN tcasName = 'TCAS1' THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasName = 'TCAS2' THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasName = 'TCAS3' THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasName = 'TCAS4' THEN studentId END) AS TCAS4
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN tcasRound = 1 THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasRound = 2 THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasRound = 3 THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasRound = 4 THEN studentId END) AS TCAS4
     FROM department NATURAL JOIN fact_student NATURAL JOIN tcas
     WHERE departmentId = $departmentId
     GROUP BY studyGeneretion;";
@@ -973,7 +979,7 @@ function getCountStudentTcasSortByStudyGeneretionByDepartmentId($departmentId)
 
 }
 
-function getCountStudentTcasSortByStudyGeneretionByDepartmentIdAndRound($departmentId,$round)
+function getCountStudentTcasSortByStudyGeneretionByDepartmentIdAndRound($departmentId, $round)
 {
 
     require("connection_connect.php");
@@ -1024,7 +1030,7 @@ function getMaxMinAvgGPAXByDepartmentId($departmentId)
 
 }
 
-function getMaxMinAvgGPAXByDepartmentIdAndRound($departmentId,$round)
+function getMaxMinAvgGPAXByDepartmentIdAndRound($departmentId, $round)
 {
 
     require("connection_connect.php");
@@ -1063,7 +1069,8 @@ function getPercentageStudySortByGeneretionByDepartmentId($departmentId)
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student 
     WHERE departmentId = $departmentId
-    GROUP BY studentId);";
+    GROUP BY studentId)
+    GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
 
@@ -1078,7 +1085,7 @@ function getPercentageStudySortByGeneretionByDepartmentId($departmentId)
 
 }
 
-function getPercentageStudySortByGeneretionByDepartmentIdAndRound($departmentId,$round)
+function getPercentageStudySortByGeneretionByDepartmentIdAndRound($departmentId, $round)
 {
 
     require("connection_connect.php");
@@ -1089,7 +1096,8 @@ function getPercentageStudySortByGeneretionByDepartmentIdAndRound($departmentId,
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas
     WHERE departmentId = $departmentId AND tcasRound = $round
-    GROUP BY studentId);";
+    GROUP BY studentId)
+    GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
 
@@ -1115,7 +1123,8 @@ function getPercentageStudyAndRetireSortByGeneretionByDepartmentId($departmentId
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student   
     WHERE departmentId = $departmentId 
-    GROUP BY studentId);";
+    GROUP BY studentId)
+    GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
 
@@ -1130,7 +1139,7 @@ function getPercentageStudyAndRetireSortByGeneretionByDepartmentId($departmentId
 
 }
 
-function getPercentageStudyAndRetireSortByGeneretionByDepartmentIdAndRound($departmentId,$round)
+function getPercentageStudyAndRetireSortByGeneretionByDepartmentIdAndRound($departmentId, $round)
 {
 
     require("connection_connect.php");
@@ -1141,7 +1150,8 @@ function getPercentageStudyAndRetireSortByGeneretionByDepartmentIdAndRound($depa
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student   NATURAL JOIN tcas
     WHERE departmentId = $departmentId  AND tcasRound = $round
-    GROUP BY studentId);";
+    GROUP BY studentId)
+    GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
 
@@ -1156,7 +1166,7 @@ function getPercentageStudyAndRetireSortByGeneretionByDepartmentIdAndRound($depa
 
 }
 
-function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
+function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYear($departmentId, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -1173,10 +1183,10 @@ function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["blues"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "blue",$semesterYear);
-        $my_row["greens"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "green",$semesterYear);
-        $my_row["oranges"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "orange",$semesterYear);
-        $my_row["reds"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "red",$semesterYear);
+        $my_row["blues"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "blue", $semesterYear);
+        $my_row["greens"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "green", $semesterYear);
+        $my_row["oranges"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "orange", $semesterYear);
+        $my_row["reds"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "red", $semesterYear);
         $gradeRangeSortByAdvisers[] = $my_row;
     }
 
@@ -1187,7 +1197,7 @@ function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$
 
 }
 
-function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($departmentId,$semesterYear,$generetion)
+function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($departmentId, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
@@ -1205,10 +1215,10 @@ function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($d
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["blues"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "blue",$semesterYear,$generetion);
-        $my_row["greens"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "green",$semesterYear,$generetion);
-        $my_row["oranges"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "orange",$semesterYear,$generetion);
-        $my_row["reds"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "red",$semesterYear,$generetion);
+        $my_row["blues"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "blue", $semesterYear, $generetion);
+        $my_row["greens"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "green", $semesterYear, $generetion);
+        $my_row["oranges"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "orange", $semesterYear, $generetion);
+        $my_row["reds"] = getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "red", $semesterYear, $generetion);
         $gradeRangeSortByAdvisers[] = $my_row;
     }
 
@@ -1219,7 +1229,7 @@ function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($d
 
 }
 
-function getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($teacherId, $gpaStatusName,$semesterYear)
+function getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($teacherId, $gpaStatusName, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -1245,7 +1255,7 @@ function getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($teacherId, $g
 
 }
 
-function getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($teacherId, $gpaStatusName,$semesterYear,$generetion)
+function getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($teacherId, $gpaStatusName, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
@@ -1271,7 +1281,7 @@ function getListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($
 
 }
 
-function getPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
+function getPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($departmentId, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -1289,10 +1299,10 @@ function getPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["plans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ตามแผน",$semesterYear);
-        $my_row["notPlans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ไม่ตามแผน",$semesterYear);
-        $my_row["retires"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "พ้นสภาพนิสิต",$semesterYear);
-        $my_row["grads"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "จบการศึกษา",$semesterYear);
+        $my_row["plans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ตามแผน", $semesterYear);
+        $my_row["notPlans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ไม่ตามแผน", $semesterYear);
+        $my_row["retires"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "พ้นสภาพนิสิต", $semesterYear);
+        $my_row["grads"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "จบการศึกษา", $semesterYear);
         $planStatusSortByAdvisers[] = $my_row;
     }
 
@@ -1303,7 +1313,7 @@ function getPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$
 
 }
 
-function getPlanStatusSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($departmentId,$semesterYear,$generetion)
+function getPlanStatusSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($departmentId, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
@@ -1321,10 +1331,10 @@ function getPlanStatusSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($d
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["plans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "ตามแผน",$semesterYear,$generetion);
-        $my_row["notPlans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "ไม่ตามแผน",$semesterYear,$generetion);
-        $my_row["retires"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "พ้นสภาพนิสิต",$semesterYear,$generetion);
-        $my_row["grads"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "จบการศึกษา",$semesterYear,$generetion);
+        $my_row["plans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "ตามแผน", $semesterYear, $generetion);
+        $my_row["notPlans"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "ไม่ตามแผน", $semesterYear, $generetion);
+        $my_row["retires"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "พ้นสภาพนิสิต", $semesterYear, $generetion);
+        $my_row["grads"] = getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "จบการศึกษา", $semesterYear, $generetion);
         $planStatusSortByAdvisers[] = $my_row;
     }
 
@@ -1335,7 +1345,7 @@ function getPlanStatusSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($d
 
 }
 
-function getListStudentByTeacherIdAndPlanStatusAndSemesterYear($teacherId, $planStatus,$semesterYear)
+function getListStudentByTeacherIdAndPlanStatusAndSemesterYear($teacherId, $planStatus, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -1361,7 +1371,7 @@ function getListStudentByTeacherIdAndPlanStatusAndSemesterYear($teacherId, $plan
 
 }
 
-function getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($teacherId, $planStatus,$semesterYear,$generetion)
+function getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($teacherId, $planStatus, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
@@ -1387,7 +1397,7 @@ function getListStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($tea
 
 }
 
-function getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
+function getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYear($departmentId, $semesterYear)
 {
 
 
@@ -1416,7 +1426,7 @@ function getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYear($departmentI
 
 }
 
-function getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($departmentId,$semesterYear,$generetion)
+function getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($departmentId, $semesterYear, $generetion)
 {
 
 
@@ -1447,7 +1457,7 @@ function getMaxMinAVGGPAXSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion
 }
 
 
-function getRemainingGradeRangeSortByAdviserByDepartmentIdAnd($departmentId,$semesterYear)
+function getRemainingGradeRangeSortByAdviserByDepartmentIdAnd($departmentId, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -1464,10 +1474,10 @@ function getRemainingGradeRangeSortByAdviserByDepartmentIdAnd($departmentId,$sem
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["blues"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "blue",$semesterYear);
-        $my_row["greens"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "green",$semesterYear);
-        $my_row["oranges"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "orange",$semesterYear);
-        $my_row["reds"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "red",$semesterYear);
+        $my_row["blues"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "blue", $semesterYear);
+        $my_row["greens"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "green", $semesterYear);
+        $my_row["oranges"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "orange", $semesterYear);
+        $my_row["reds"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($my_row["teacherId"], "red", $semesterYear);
         $gradeRangeSortByAdvisers[] = $my_row;
     }
 
@@ -1478,7 +1488,7 @@ function getRemainingGradeRangeSortByAdviserByDepartmentIdAnd($departmentId,$sem
 
 }
 
-function getRemainingGradeRangeSortByAdviserByDepartmentIdAndGeneretion($departmentId,$semesterYear,$generetion)
+function getRemainingGradeRangeSortByAdviserByDepartmentIdAndGeneretion($departmentId, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
@@ -1496,10 +1506,10 @@ function getRemainingGradeRangeSortByAdviserByDepartmentIdAndGeneretion($departm
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["blues"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "blue",$semesterYear,$generetion);
-        $my_row["greens"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "green",$semesterYear,$generetion);
-        $my_row["oranges"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "orange",$semesterYear,$generetion);
-        $my_row["reds"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "red",$semesterYear,$generetion);
+        $my_row["blues"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "blue", $semesterYear, $generetion);
+        $my_row["greens"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "green", $semesterYear, $generetion);
+        $my_row["oranges"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "orange", $semesterYear, $generetion);
+        $my_row["reds"] = getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($my_row["teacherId"], "red", $semesterYear, $generetion);
         $gradeRangeSortByAdvisers[] = $my_row;
     }
 
@@ -1510,7 +1520,7 @@ function getRemainingGradeRangeSortByAdviserByDepartmentIdAndGeneretion($departm
 
 }
 
-function getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($teacherId, $gpaStatusName,$semesterYear)
+function getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($teacherId, $gpaStatusName, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -1535,7 +1545,7 @@ function getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($teac
 
 }
 
-function getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($teacherId, $gpaStatusName,$semesterYear,$generetion)
+function getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGeneretion($teacherId, $gpaStatusName, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
@@ -1561,7 +1571,7 @@ function getRemainingListStudentByTeacherIdAndGPAStatusNameAndSemesterYearAndGen
 
 }
 
-function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($departmentId,$semesterYear)
+function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($departmentId, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -1578,10 +1588,10 @@ function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($depar
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["plans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ตามแผน",$semesterYear);
-        $my_row["notPlans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ไม่ตามแผน",$semesterYear);
-        $my_row["retires"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "พ้นสภาพนิสิต",$semesterYear);
-        $my_row["grads"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "จบการศึกษา",$semesterYear);
+        $my_row["plans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ตามแผน", $semesterYear);
+        $my_row["notPlans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "ไม่ตามแผน", $semesterYear);
+        $my_row["retires"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "พ้นสภาพนิสิต", $semesterYear);
+        $my_row["grads"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($my_row["teacherId"], "จบการศึกษา", $semesterYear);
         $planStatusSortByAdvisers[] = $my_row;
     }
 
@@ -1592,7 +1602,7 @@ function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($depar
 
 }
 
-function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($departmentId,$semesterYear,$generetion)
+function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($departmentId, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
@@ -1610,10 +1620,10 @@ function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYearAndGene
 
     while ($my_row = $result->fetch_assoc()) {
 
-        $my_row["plans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "ตามแผน",$semesterYear,$generetion);
-        $my_row["notPlans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "ไม่ตามแผน",$semesterYear,$generetion);
-        $my_row["retires"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "พ้นสภาพนิสิต",$semesterYear,$generetion);
-        $my_row["grads"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "จบการศึกษา",$semesterYear,$generetion);
+        $my_row["plans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "ตามแผน", $semesterYear, $generetion);
+        $my_row["notPlans"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "ไม่ตามแผน", $semesterYear, $generetion);
+        $my_row["retires"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "พ้นสภาพนิสิต", $semesterYear, $generetion);
+        $my_row["grads"] = getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($my_row["teacherId"], "จบการศึกษา", $semesterYear, $generetion);
         $planStatusSortByAdvisers[] = $my_row;
     }
 
@@ -1624,7 +1634,7 @@ function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYearAndGene
 
 }
 
-function getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($teacherId, $planStatus,$semesterYear)
+function getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($teacherId, $planStatus, $semesterYear)
 {
 
     require("connection_connect.php");
@@ -1649,7 +1659,7 @@ function getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYear($teacher
 
 }
 
-function getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($teacherId, $planStatus,$semesterYear,$generetion)
+function getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGeneretion($teacherId, $planStatus, $semesterYear, $generetion)
 {
 
     require("connection_connect.php");
