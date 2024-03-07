@@ -330,11 +330,12 @@
                             
                             foreach ($studentGeneretionGradeRangeOnes as $range) {
                                
+                                    $sum=$range["blue"]+$range["green"]+$range["orange"]+$range["red"];
                                     $pee1gen[] = "รุ่น " . (string) $range["studyGeneretion"];
-                                    $pee1blues[] = $range["blue"];
-                                    $pee1greens[] = $range["green"];
-                                    $pee1oranges[] = $range["orange"];
-                                    $pee1reds[] = $range["red"];
+                                    $pee1blues[] = $range["blue"]*100/$sum;
+                                    $pee1greens[] = $range["green"]*100/$sum;
+                                    $pee1oranges[] = $range["orange"]*100/$sum;
+                                    $pee1reds[] = $range["red"]*100/$sum;
                                
                             }
 
@@ -360,12 +361,13 @@
                             $pee2redsh = [];
                             //for($y; $y<$yNow; $y++){
                             foreach ($studentGeneretionGradeRangeTwos as $range) {
-                                
+                                    $sum=$range["blue"]+$range["green"]+$range["orange"]+$range["red"];
+                                    
                                     $pee2genh[] = "รุ่น " . (string) $range["studyGeneretion"];
-                                    $pee2bluesh[] = $range["blue"];
-                                    $pee2greensh[] = $range["green"];
-                                    $pee2orangesh[] = $range["orange"];
-                                    $pee2redsh[] = $range["red"];
+                                    $pee2bluesh[] = $range["blue"]*100/$sum;
+                                    $pee2greensh[] = $range["green"]*100/$sum;
+                                    $pee2orangesh[] = $range["orange"]*100/$sum;
+                                    $pee2redsh[] = $range["red"]*100/$sum;
                                
                             }
 
@@ -391,12 +393,12 @@
                             $pee3reds = [];
                             //for($y; $y<$yNow; $y++){
                             foreach ($studentGeneretionGradeRangeThrees as $range) {
-                               
+                                $sum=$range["blue"]+$range["green"]+$range["orange"]+$range["red"];
                                     $pee3gen[] = "รุ่น " . (string) $range["studyGeneretion"];
-                                    $pee3blues[] = $range["blue"];
-                                    $pee3greens[] = $range["green"];
-                                    $pee3oranges[] = $range["orange"];
-                                    $pee3reds[] = $range["red"];
+                                    $pee3blues[] = $range["blue"]*100/$sum;
+                                    $pee3greens[] = $range["green"]*100/$sum;
+                                    $pee3oranges[] = $range["orange"]*100/$sum;
+                                    $pee3reds[] = $range["red"]*100/$sum;
                                
                             }
                             //}
@@ -423,18 +425,18 @@
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($studentGeneretionGradeRangeFours as $range) {
-                               
+                                $sum=$range["blue"]+$range["green"]+$range["orange"]+$range["red"];
                                     $pee4gen[] = "รุ่น " . (string) $range["studyGeneretion"];
-                                    $pee4blues[] = $range["blue"];
-                                    $pee4greens[] = $range["green"];
-                                    $pee4oranges[] = $range["orange"];
-                                    $pee4reds[] = $range["red"];
+                                    $pee4blues[] = $range["blue"]*100/$sum;
+                                    $pee4greens[] = $range["green"]*100/$sum;
+                                    $pee4oranges[] = $range["orange"]*100/$sum;
+                                    $pee4reds[] = $range["red"]*100/$sum;
                                 
                             }
                             //}
                             ?>
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 4+</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 4</h6>
                             </div>
                             <div class="card-body">
                                 <canvas id="pee4"></canvas>
@@ -446,11 +448,7 @@
                         <div class="card">
                             <?php
                             $studentGeneretionGradeRangeFours = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 4);
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                            
                             $pee4plusgen = [];
                             $pee4plusblues = [];
                             $pee4plusgreens = [];
@@ -459,19 +457,14 @@
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($studentGeneretionGradeRangeFours as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                               
+                                $sum=$range["blue"]+$range["green"]+$range["orange"]+$range["red"];
                                     $pee4plusgen[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee4plusblues[] = $range["blue"];
                                     $pee4plusgreens[] = $range["green"];
                                     $pee4plusoranges[] = $range["orange"];
                                     $pee4plusreds[] = $range["red"];
-                                } else {
-                                    $pee4plusgen[] = "รุ่น " . (string) $y;
-                                    $pee4plusblues[] = "0";
-                                    $pee4plusgreens[] = "0";
-                                    $pee4plusoranges[] = "0";
-                                    $pee4plusreds[] = "0";
-                                }
+                                
                             }
                             //}
                             ?>
@@ -1477,7 +1470,8 @@
                                     stacked: true,
                                 },
                                 y: {
-                                    stacked: true
+                                    stacked: true,
+                                    max: 100
                                 }
                             }
 

@@ -44,7 +44,7 @@
                 <?php include('../layout/head/report.php'); ?>
                     <hr>
                     <div class="row ">
-                        <div class="col-sm-4 mx-auto">
+                        <div class="col-sm-3 mx-auto">
                             <a href="./student_static.php" class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./student_static.php">
@@ -58,7 +58,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-sm-4 mx-auto">
+                        <div class="col-sm-3 mx-auto">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_static_faculty.php">
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 mx-auto">
+                        <div class="col-sm-3 mx-auto">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_static_tcas.php">
@@ -88,8 +88,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-sm-3 mx-auto">
+                            <div class="card" style="border-radius: 100px;">
+                                <div class="card-body text-center" style="background-color: lightgray; ">
+                                    <a  href="./student_static_tcasRound.php">
+                                        <fieldset style="border:2px groove lightgray">
+                                            <img src="../image/school.png" style="width: 150px; height: 150px"><br>
+                                        </fieldset>
+                                    </a>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a
+                                        style="color: black;  text-decoration:none; font-size: 18px;">การเข้าศึกษาของนิสิตในหลักสูตรแต่ละรอบ</a>
+                                </div>
+                            </div>
+                        </div>
                         <br><br>
-                        <div class="col-sm-4 mx-auto">
+                        <div class="col-sm-3 mx-auto">
                             <a href="./student_static.php" class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./student_department.php">
@@ -103,7 +118,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-sm-4 mx-auto">
+                        <div class="col-sm-3 mx-auto">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_faculty.php">
@@ -118,7 +133,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 mx-auto">
+                        <div class="col-sm-3 mx-auto">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_tcas.php">
@@ -133,8 +148,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-sm-3 mx-auto">
+                            <div class="card" style="border-radius: 100px;">
+                                <div class="card-body text-center" style="background-color: lightgray; ">
+                                    <a  href="./student_tcasRound.php">
+                                        <fieldset style="border:2px groove lightgray">
+                                            <img src="../image/school.png" style="width: 150px; height: 150px"><br>
+                                        </fieldset>
+                                    </a>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a href="./student_tcas.php"
+                                        style="color: black;  text-decoration:none; font-size: 18px;">การเข้าศึกษาของนิสิตในภาควิชาแต่ละรอบ</a>
+                                </div>
+                            </div>
+                        </div>
                         <br><br>
-                        <div class="col-sm-4 " style="margin-top: 20px;">
+                        <div class="col-sm-3 " style="margin-top: 20px;">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./report_advisor.php">
@@ -149,7 +179,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 " style="margin-top: 20px;">
+                        <div class="col-sm-3 " style="margin-top: 20px;">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a href="./report_student_department.php">
@@ -164,7 +194,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4 mx-auto" style="margin-top: 20px;">
+                        <div class="col-sm-3 " style="margin-top: 20px;">
                             <div class="card" style="border-radius: 100px;">
                                 <div class="card-body text-center" style="background-color: lightgray; ">
                                     <a  href="./student_static_department.php">
@@ -179,6 +209,21 @@
                                 </div>
                             </div>
                         </div>
+                        <!--<div class="col-sm-3 mx-auto" style="margin-top: 20px;">
+                            <div class="card" style="border-radius: 100px;">
+                                <div class="card-body text-center" style="background-color: lightgray; ">
+                                    <a  href="./student_static_departmentRound.php">
+                                        <fieldset style="border:2px groove lightgray">
+                                            <img src="../image/school.png" style="width: 150px; height: 150px"><br>
+                                        </fieldset>
+                                    </a>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a
+                                        style="color: black;  text-decoration:none; font-size: 18px;">การเข้าศึกษาของนิสิตแยกตามภาควิชาแต่ละรอบ</a>
+                                </div>
+                            </div>
+                        </div>-->
                     </div>
 
 

@@ -476,13 +476,13 @@ $semester = getSemesterPresent();
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($rangeGradeStudyYearOnes as $range) {
-                                
+                                    $sum=$range["blue"]+$range["green"]+$range["orange"]+$range["red"];
                                     $pee1gen[] = "รุ่น " . (string) $range["studyGeneretion"];
                                    // echo $range["studyGeneretion"];
-                                    $pee1blues[] = $range["blue"];
-                                    $pee1greens[] = $range["green"];
-                                    $pee1oranges[] = $range["orange"];
-                                    $pee1reds[] = $range["red"];
+                                    $pee1blues[] = $range["blue"]*100/$sum;
+                                    $pee1greens[] = $range["green"]*100/$sum;
+                                    $pee1oranges[] = $range["orange"]*100/$sum;
+                                    $pee1reds[] = $range["red"]*100/$sum;
                                 
                             }
 
@@ -511,12 +511,12 @@ $semester = getSemesterPresent();
                             //for($y; $y<$yNow; $y++){
                             foreach ($rangeGradeStudyYearOnes as $range) {
                                 
-
+                                $sum=$range["blue"]+$range["green"]+$range["orange"]+$range["red"];
                                     $pee2genh[] = "รุ่น " . (string) $range["studyGeneretion"];
-                                    $pee2bluesh[] = $range["blue"];
-                                    $pee2greensh[] = $range["green"];
-                                    $pee2orangesh[] = $range["orange"];
-                                    $pee2redsh[] = $range["red"];
+                                    $pee2bluesh[] = $range["blue"]*100/$sum;
+                                    $pee2greensh[] = $range["green"]*100/$sum;
+                                    $pee2orangesh[] = $range["orange"]*100/$sum;
+                                    $pee2redsh[] = $range["red"]*100/$sum;
                                 
                             }
 
@@ -543,12 +543,12 @@ $semester = getSemesterPresent();
 
                             //for($y; $y<$yNow; $y++){
                             foreach ($rangeGradeStudyYearOnes as $range) {
-                                
+                                $sum=$range["blue"]+$range["green"]+$range["orange"]+$range["red"];
                                     $pee3gen[] = "รุ่น " . (string) $range["studyGeneretion"];
-                                    $pee3blues[] = $range["blue"];
-                                    $pee3greens[] = $range["green"];
-                                    $pee3oranges[] = $range["orange"];
-                                    $pee3reds[] = $range["red"];
+                                    $pee3blues[] = $range["blue"]*100/$sum;
+                                    $pee3greens[] = $range["green"]*100/$sum;
+                                    $pee3oranges[] = $range["orange"]*100/$sum;
+                                    $pee3reds[] = $range["red"]*100/$sum;
                               
                             }
                             //}
@@ -576,12 +576,12 @@ $semester = getSemesterPresent();
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($rangeGradeStudyYearOnes as $range) {
-                                
+                                $sum=$range["blue"]+$range["green"]+$range["orange"]+$range["red"];
                                     $pee4gen[] = "รุ่น " . (string) $range["studyGeneretion"];
-                                    $pee4blues[] = $range["blue"];
-                                    $pee4greens[] = $range["green"];
-                                    $pee4oranges[] = $range["orange"];
-                                    $pee4reds[] = $range["red"];
+                                    $pee4blues[] = $range["blue"]*100/$sum;
+                                    $pee4greens[] = $range["green"]*100/$sum;
+                                    $pee4oranges[] = $range["orange"]*100/$sum;
+                                    $pee4reds[] = $range["red"]*100/$sum;
                                 
                             }
                             //}
@@ -593,30 +593,6 @@ $semester = getSemesterPresent();
                         </div>
                     </div>
 
-                   
-                            <?php
-                            
-                            $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"], 4);
-                            $pee4plusgen = [];
-                            $pee4plusblues = [];
-                            $pee4plusgreens = [];
-                            $pee4plusoranges = [];
-                            $pee4plusreds = [];
-                            //for($y; $y<$yNow; $y++){
-                            
-                            foreach ($rangeGradeStudyYearOnes as $range) {
-                                
-                                    $pee4plusgen[] = "รุ่น " . (string) $range["studyGeneretion"];
-                                    $pee4plusblues[] = $range["blue"];
-                                    $pee4plusgreens[] = $range["green"];
-                                    $pee4plusoranges[] = $range["orange"];
-                                    $pee4plusreds[] = $range["red"];
-                              
-                            }
-                           
-                            
-                            ?>
-                            
              
 
                 </div>
@@ -1959,7 +1935,7 @@ $semester = getSemesterPresent();
                     },
                     y: {
                         stacked: true,
-                        beginAtZero: true // เพิ่มค่านี้เพื่อให้แกน y เริ่มต้นที่ 0
+                        
                     }
                 }
 
@@ -2133,62 +2109,6 @@ $semester = getSemesterPresent();
         });
     </script>
 
-<script>
-        var p4plusgen = <?php echo json_encode($pee4plusgen); ?>;
-
-        var p4plusblue = <?php echo json_encode($pee4plusblues); ?>;
-        var p4plusgreen = <?php echo json_encode($pee4plusgreens); ?>;
-        var p4plusorange = <?php echo json_encode($pee4plusoranges); ?>;
-        var p4plusred = <?php echo json_encode($pee4plusreds); ?>;
-
-
-        var ctx = document.getElementById("pee4plus");
-        var myChart = new Chart(ctx, {
-            //type: 'bar',
-            //type: 'line',
-            type: 'bar',
-            data: {
-                labels: p4plusgen,
-                datasets: [{
-                    label: '3.25-4.00',
-                    data: p4blue,
-                    backgroundColor: "rgba(0, 9, 188,0.7)",
-                    borderWidth: 0
-                },
-                {
-                    label: '2.00-3.24',
-                    data: p4plusgreen,
-                    backgroundColor: "rgba(0, 110, 22,0.7)",
-                    borderWidth: 0
-                },
-                {
-                    label: '1.75-1.99',
-                    data: p4plusorange,
-                    backgroundColor: 'rgba(255,128,0,0.7)',
-                    borderWidth: 0
-                },
-                {
-                    label: '0.00-1.74',
-                    data: p4plusred,
-                    backgroundColor: 'rgba(255, 0, 0,0.7)',
-                    borderWidth: 0
-                }
-                ]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true
-                    }
-                }
-
-            }
-        });
-    </script>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">
