@@ -319,11 +319,7 @@
                         <div class="card">
                             <?php
                             $studentGeneretionGradeRangeOnes = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 1);
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                           
                             $pee1gen = [];
                             $pee1blues = [];
                             $pee1greens = [];
@@ -333,19 +329,13 @@
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($studentGeneretionGradeRangeOnes as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                               
                                     $pee1gen[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee1blues[] = $range["blue"];
                                     $pee1greens[] = $range["green"];
                                     $pee1oranges[] = $range["orange"];
                                     $pee1reds[] = $range["red"];
-                                } else {
-                                    $pee1gen[] = "รุ่น " . (string) $y;
-                                    $pee1blues[] = "0";
-                                    $pee1greens[] = "0";
-                                    $pee1oranges[] = "0";
-                                    $pee1reds[] = "0";
-                                }
+                               
                             }
 
                             //}
@@ -362,11 +352,7 @@
                         <div class="card">
                             <?php
                             $studentGeneretionGradeRangeTwos = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 2);
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                            
                             $pee2genh = [];
                             $pee2bluesh = [];
                             $pee2greensh = [];
@@ -374,20 +360,13 @@
                             $pee2redsh = [];
                             //for($y; $y<$yNow; $y++){
                             foreach ($studentGeneretionGradeRangeTwos as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
-
+                               
                                     $pee2genh[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee2bluesh[] = $range["blue"];
                                     $pee2greensh[] = $range["green"];
                                     $pee2orangesh[] = $range["orange"];
                                     $pee2redsh[] = $range["red"];
-                                } else {
-                                    $pee2genh[] = "รุ่น " . (string) $y;
-                                    $pee2bluesh[] = "0";
-                                    $pee2greensh[] = "0";
-                                    $pee2orangesh[] = "0";
-                                    $pee2redsh[] = "0";
-                                }
+                                
                             }
 
                             //}
@@ -404,11 +383,7 @@
                         <div class="card">
                             <?php
                             $studentGeneretionGradeRangeThrees = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 3);
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                            
                             $pee3gen = [];
                             $pee3blues = [];
                             $pee3greens = [];
@@ -416,19 +391,12 @@
                             $pee3reds = [];
                             //for($y; $y<$yNow; $y++){
                             foreach ($studentGeneretionGradeRangeThrees as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
                                     $pee3gen[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee3blues[] = $range["blue"];
                                     $pee3greens[] = $range["green"];
                                     $pee3oranges[] = $range["orange"];
                                     $pee3reds[] = $range["red"];
-                                } else {
-                                    $pee3gen[] = "รุ่น " . (string) $y;
-                                    $pee3blues[] = "0";
-                                    $pee3greens[] = "0";
-                                    $pee3oranges[] = "0";
-                                    $pee3reds[] = "0";
-                                }
+                               
                             }
                             //}
                             ?>
@@ -445,11 +413,7 @@
                         <div class="card">
                             <?php
                             $studentGeneretionGradeRangeFours = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 4);
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                            
                             $pee4gen = [];
                             $pee4blues = [];
                             $pee4greens = [];
@@ -458,19 +422,13 @@
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($studentGeneretionGradeRangeFours as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                                
                                     $pee4gen[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee4blues[] = $range["blue"];
                                     $pee4greens[] = $range["green"];
                                     $pee4oranges[] = $range["orange"];
                                     $pee4reds[] = $range["red"];
-                                } else {
-                                    $pee4gen[] = "รุ่น " . (string) $y;
-                                    $pee4blues[] = "0";
-                                    $pee4greens[] = "0";
-                                    $pee4oranges[] = "0";
-                                    $pee4reds[] = "0";
-                                }
+                               
                             }
                             //}
                             ?>
@@ -483,15 +441,11 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-4" style="margin-top: 25px;">
+                    <!--<div class="col-sm-4" style="margin-top: 25px;">
                         <div class="card">
                             <?php
                             $studentGeneretionGradeRangeFours = getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearAndStudyYear($teacher["departmentId"], $semester["semesterYear"], 4);
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                            
                             $pee4plusgen = [];
                             $pee4plusblues = [];
                             $pee4plusgreens = [];
@@ -500,19 +454,13 @@
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($studentGeneretionGradeRangeFours as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                               
                                     $pee4plusgen[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee4plusblues[] = $range["blue"];
                                     $pee4plusgreens[] = $range["green"];
                                     $pee4plusoranges[] = $range["orange"];
                                     $pee4plusreds[] = $range["red"];
-                                } else {
-                                    $pee4plusgen[] = "รุ่น " . (string) $y;
-                                    $pee4plusblues[] = "0";
-                                    $pee4plusgreens[] = "0";
-                                    $pee4plusoranges[] = "0";
-                                    $pee4plusreds[] = "0";
-                                }
+                               
                             }
                             //}
                             ?>
@@ -523,7 +471,7 @@
                                 <canvas id="pee4plus"></canvas>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <br><br>
 

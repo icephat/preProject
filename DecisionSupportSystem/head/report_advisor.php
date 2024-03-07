@@ -353,8 +353,8 @@
                                         <canvas id="learn"></canvas>
                                     </div>
                                     <div class="col-sm-6 float-right">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped" cellspacing="0" style="color: black;">
+                                        <div class="table-responsive" >
+                                            <table class="table table-striped table-responsive" cellspacing="0" style="color: black;">
                                                 <thead>
                                                     <tr>
                                                         <th style=" text-align: left; ">ชื่ออาจารย์</th>
@@ -602,14 +602,15 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php
-                                                    
-                                                    foreach($adviserMMAs as $mmf){
-                                                        $advisorGeneretionGrade = [];
-                                                        $maxGPAX = [];
-                                                        $minGPAX = [];
-                                                        $avgGPAX = [];
+                                                    $advisorGeneretionGrade = [];
+                                                    $maxGPAX = [];
+                                                    $minGPAX = [];
+                                                    $avgGPAX = [];
 
+                                                    foreach($adviserMMAs as $mmf){
+                                                        
                                                         $advisorGeneretionGrade[]=$mmf["titleTecherTh"] . "" . $mmf["fisrtNameTh"];
+                                                        
                                                         $maxGPAX[]=$mmf["maxGPAX"];
                                                         $minGPAX[]=$mmf["minGPAX"];
                                                         $avgGPAX[]=$mmf["avgGPAX"];
@@ -631,6 +632,7 @@
 
 
                                                 </tbody>
+                                               
                                             </table>
                                         </div>
                                     </div>
@@ -2292,7 +2294,7 @@
 
 
                     var advisorGeneretionGrade = <?php echo json_encode($advisorGeneretionGrade); ?>;
-                        
+                    
                     var maxGPAX = <?php echo json_encode($maxGPAX); ?>;
                     var minGPAX = <?php echo json_encode($minGPAX); ?>;
                     var avgGPAX = <?php echo json_encode($avgGPAX); ?>;

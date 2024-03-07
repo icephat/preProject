@@ -428,73 +428,7 @@ $semester = getSemesterPresent();
                                                     }
 
                                                     ?>
-                                                    <!-- <tr>
-                                                            <td style=" text-align: right;">61</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                1 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">62</td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                2 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">63</td>
-                                                            <td style=" text-align: right;">
-                                                                9 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                1 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">64</td>
-                                                            <td style=" text-align: right;">
-                                                                5 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                5 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">65</td>
-                                                            <td style=" text-align: right;">
-                                                                9 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                1 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style=" text-align: right;">66</td>
-                                                            <td style=" text-align: right;">
-                                                                10 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">
-                                                                0 คน
-                                                            </td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                            <td style=" text-align: right;">0 คน</td>
-                                                        </tr> -->
-
+                                                   
                                                     <tr>
                                                         <th scope='row' style=" text-align: right;">รวม (คน)</th>
                                                         <td style="font-weight: bold; text-align: right;">
@@ -508,7 +442,7 @@ $semester = getSemesterPresent();
                                                         </td>
                                                         <td style='font-weight: bold; text-align: right;'>
                                                             <?php echo $sumGrad ?>
-                                                        </td>
+                                                        </td><td style='font-weight: bold; text-align: right;'></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -531,11 +465,7 @@ $semester = getSemesterPresent();
                             </div>
                             <?php
 
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                           
                             $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"], 1);
                             $pee1gen = [];
                             $pee1blues = [];
@@ -546,19 +476,14 @@ $semester = getSemesterPresent();
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($rangeGradeStudyYearOnes as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                                
                                     $pee1gen[] = "รุ่น " . (string) $range["studyGeneretion"];
+                                   // echo $range["studyGeneretion"];
                                     $pee1blues[] = $range["blue"];
                                     $pee1greens[] = $range["green"];
                                     $pee1oranges[] = $range["orange"];
                                     $pee1reds[] = $range["red"];
-                                } else {
-                                    $pee1gen[] = "รุ่น " . (string) $y;
-                                    $pee1blues[] = "0";
-                                    $pee1greens[] = "0";
-                                    $pee1oranges[] = "0";
-                                    $pee1reds[] = "0";
-                                }
+                                
                             }
 
                             //}
@@ -576,11 +501,7 @@ $semester = getSemesterPresent();
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 2</h6>
                             </div>
                             <?php
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                           
                             $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"], 2);
                             $pee2genh = [];
                             $pee2bluesh = [];
@@ -589,20 +510,14 @@ $semester = getSemesterPresent();
                             $pee2redsh = [];
                             //for($y; $y<$yNow; $y++){
                             foreach ($rangeGradeStudyYearOnes as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                                
 
                                     $pee2genh[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee2bluesh[] = $range["blue"];
                                     $pee2greensh[] = $range["green"];
                                     $pee2orangesh[] = $range["orange"];
                                     $pee2redsh[] = $range["red"];
-                                } else {
-                                    $pee2genh[] = "รุ่น " . (string) $y;
-                                    $pee2bluesh[] = "0";
-                                    $pee2greensh[] = "0";
-                                    $pee2orangesh[] = "0";
-                                    $pee2redsh[] = "0";
-                                }
+                                
                             }
 
                             // }
@@ -618,11 +533,7 @@ $semester = getSemesterPresent();
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 3</h6>
                             </div>
                             <?php
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                           
                             $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"], 3);
                             $pee3gen = [];
                             $pee3blues = [];
@@ -632,19 +543,13 @@ $semester = getSemesterPresent();
 
                             //for($y; $y<$yNow; $y++){
                             foreach ($rangeGradeStudyYearOnes as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                                
                                     $pee3gen[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee3blues[] = $range["blue"];
                                     $pee3greens[] = $range["green"];
                                     $pee3oranges[] = $range["orange"];
                                     $pee3reds[] = $range["red"];
-                                } else {
-                                    $pee3gen[] = "รุ่น " . (string) $y;
-                                    $pee3blues[] = "0";
-                                    $pee3greens[] = "0";
-                                    $pee3oranges[] = "0";
-                                    $pee3reds[] = "0";
-                                }
+                              
                             }
                             //}
                             
@@ -661,11 +566,7 @@ $semester = getSemesterPresent();
                                 <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 4</h6>
                             </div>
                             <?php
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                            
                             $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"], 4);
                             $pee4gen = [];
                             $pee4blues = [];
@@ -675,19 +576,13 @@ $semester = getSemesterPresent();
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($rangeGradeStudyYearOnes as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                                
                                     $pee4gen[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee4blues[] = $range["blue"];
                                     $pee4greens[] = $range["green"];
                                     $pee4oranges[] = $range["orange"];
                                     $pee4reds[] = $range["red"];
-                                } else {
-                                    $pee4gen[] = "รุ่น " . (string) $y;
-                                    $pee4blues[] = "0";
-                                    $pee4greens[] = "0";
-                                    $pee4oranges[] = "0";
-                                    $pee4reds[] = "0";
-                                }
+                                
                             }
                             //}
                             
@@ -698,17 +593,9 @@ $semester = getSemesterPresent();
                         </div>
                     </div>
 
-                    <div class="col-sm-4" style="margin-top: 25px;">
-                        <div class="card">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">ช่วงเกรดนิสิตปีที่ 4+</h6>
-                            </div>
+                   
                             <?php
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                            
                             $rangeGradeStudyYearOnes = getCountGradeRangeByTeacherIdAndStudyYear($teacher["teacherId"], 4);
                             $pee4plusgen = [];
                             $pee4plusblues = [];
@@ -718,28 +605,19 @@ $semester = getSemesterPresent();
                             //for($y; $y<$yNow; $y++){
                             
                             foreach ($rangeGradeStudyYearOnes as $range) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                                
                                     $pee4plusgen[] = "รุ่น " . (string) $range["studyGeneretion"];
                                     $pee4plusblues[] = $range["blue"];
                                     $pee4plusgreens[] = $range["green"];
                                     $pee4plusoranges[] = $range["orange"];
                                     $pee4plusreds[] = $range["red"];
-                                } else {
-                                    $pee4plusgen[] = "รุ่น " . (string) $y;
-                                    $pee4plusblues[] = "0";
-                                    $pee4plusgreens[] = "0";
-                                    $pee4plusoranges[] = "0";
-                                    $pee4plusreds[] = "0";
-                                }
+                              
                             }
-                            //}
+                           
                             
                             ?>
-                            <div class="card-body">
-                                <canvas id="pee4plus"></canvas>
-                            </div>
-                        </div>
-                    </div>
+                            
+             
 
                 </div>
                 <br><br>

@@ -695,6 +695,13 @@
                         options: {
 
                             responsive: true,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                    }]
+                            }
 
                         }
                     });
@@ -763,7 +770,7 @@
                             yAxes: [{
                                 ticks: {
                                     beginAtZero: true,
-                                    max: 100,
+                                    
                                     min: 0
                                 }
                             }]

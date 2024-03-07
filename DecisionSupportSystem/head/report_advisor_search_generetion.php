@@ -605,11 +605,12 @@
                                                 <tbody>
                                                     <?php
                                                     
-                                                    foreach($adviserMMAs as $mmf){
-                                                        $advisorGeneretionGrade = [];
+                                                    $advisorGeneretionGrade = [];
                                                         $maxGPAX = [];
                                                         $minGPAX = [];
                                                         $avgGPAX = [];
+                                                    foreach($adviserMMAs as $mmf){
+                                                        
 
                                                         $advisorGeneretionGrade[]=$mmf["titleTecherTh"] . "" . $mmf["fisrtNameTh"];
                                                         $maxGPAX[]=$mmf["maxGPAX"];
