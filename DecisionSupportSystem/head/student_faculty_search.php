@@ -514,19 +514,20 @@
                             $RNG = [];
                             //for($y; $y<$yNow; $y++){
                             foreach ($countStudentStudyingRangeGradeSortByGeneretions as $grade) {
-                                if ((int) $range["studyGeneretion"] == $y) {
+                                echo $grade["studyGeneretion"]."<br>";
+                                // if ((int) $grade["studyGeneretion"] == $y) {
                                     $nowgen[] = "รุ่น " . (string) $grade["studyGeneretion"];
                                     $BNG[] = (int) $grade["blue"];
                                     $GNG[] = (int) $grade["green"];
                                     $ONG[] = (int) $grade["orange"];
                                     $RNG[] = (int) $grade["red"];
-                                } else {
-                                    $nowgen[] = "รุ่น " . (string) $y;
-                                    $BNG[] = "0";
-                                    $GNG[] = "0";
-                                    $ONG[] = "0";
-                                    $RNG[] = "0";
-                                }
+                                // } else {
+                                //     $nowgen[] = "รุ่น " . (string) $y;
+                                //     $BNG[] = "0";
+                                //     $GNG[] = "0";
+                                //     $ONG[] = "0";
+                                //     $RNG[] = "0";
+                                // }
                             }
                             //}
                             ?>

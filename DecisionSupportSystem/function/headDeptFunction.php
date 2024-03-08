@@ -861,12 +861,16 @@ function getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearA
 
     $studentGeneretionGradeRangeByStatus = [];
 
+    $statusId = getStudentStatusByStatusName($status)["studentStatusId"];
+
     $sql = "SELECT studyGeneretion, COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
     FROM gpastatus NATURAL JOIN  fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  
-    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM studentStatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  
-    WHERE departmentId = $departmentId AND semesterYear <= $semesterYear AND status = '$status' GROUP BY studentId)
+    WHERE departmentId = $departmentId AND studentStatusId = $statusId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM studentStatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  
+    WHERE departmentId = $departmentId AND semesterYear <= $semesterYear  GROUP BY studentId)
     GROUP BY studyGeneretion
     ORDER BY studyGeneretion;";
+
+    //echo $sql."<br>";
 
     $result = $conn->query($sql);
 
