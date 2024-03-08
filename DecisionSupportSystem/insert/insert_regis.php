@@ -1,5 +1,8 @@
 <?php
 
+// ini_set('memory_limit', '4096M');
+// set_time_limit(300);
+
 include_once '../function/regisFunction.php';
 require_once '../function/studentFunction.php';
 require_once '../function/courseFunction.php';
@@ -36,8 +39,12 @@ $studentIds = [];
 // Open uploaded CSV file with read-only mode
 // $csvFile = fopen("D:\CPEKU\Project66\\regis_csv\\".$year."_1_regis.csv", 'r');
 $csvFile = fopen($_FILES['file']['tmp_name'], 'r');
+$fp = file($_FILES['file']['tmp_name']);
+echo count($fp)."<br>";
 // Skip the first line
 fgetcsv($csvFile);
+
+
 
 
 require("../function/connection_connect.php");
@@ -51,13 +58,21 @@ if ($check->num_rows == 0) {
 
 
 
+
 $querySemester = "SELECT * FROM semester WHERE semesterYear = " . $year . " AND semesterPart = '" . $partName . "'";
 $result = $conn->query($querySemester); //mysqli_query($conn, $querySemester);
 $semester = $result->fetch_assoc();
 $semesterId = $semester["semesterId"];
 
+$i = 0;
+
+$mainSQL = "INSERT INTO fact_regis(studentId,semesterId,courseListId,subjectCode,secLecture,secLab,gradeCharacter,gradeNumber,creditRegis,typeRegisId,studyYearInRegis,studyTermInRegis,semesterYearInRegis,semesterPartInRegis) 
+VALUES ";
 
 while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
+
+    $num = count($getData);
+    //echo $num."<br>";
 
     $studentId = $getData[0];
     $subjectCode = $getData[1];
@@ -78,7 +93,7 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
         continue;
     }
 
-    echo $studentId . "<br>";
+    //echo $studentId . "<br>";
 
 
     if ($typeRegis == "C") {
@@ -143,8 +158,10 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $sqlCourseListSQL = "SELECT courseListId,courseGroupId,credit FROM courselist WHERE courseId = $courseId AND subjectCode = '$subjectCode'";
     $resultTCourseList = $conn->query($sqlCourseListSQL);
     $courseList = $resultTCourseList->fetch_assoc();
+    //echo "หาเจอ<br>";
 
     if (!isset($courseList)) {
+        //echo "เข้าพละ<br>";
 
         $subjectNewCode = substr_replace($subjectCode, "XXX", 5);
         $sqlCourseListSQL = "SELECT courseListId,courseGroupId,credit FROM courselist WHERE courseId = $courseId AND subjectCode = '$subjectNewCode'";
@@ -153,16 +170,20 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
 
         if (!isset($courseList)) {
 
+            //echo "เข้าเสรี<br>";
             $subjectNewCode = substr_replace($subjectCode, "XXXXXXXX", 0);
             $sqlCourseListSQL = "SELECT courseListId,courseGroupId,credit FROM courselist WHERE courseId = $courseId AND subjectCode = '$subjectNewCode'";
             $resultTCourseList = $conn->query($sqlCourseListSQL);
             $courseList = $resultTCourseList->fetch_assoc();
+            echo $sqlCourseListSQL."<br>";
+            echo "$studentId : ".$courseList["courseListId"]."<br>";
 
         }
 
 
 
     }
+    //echo $subjectCode."<br>";
 
     $courseListId = $courseList["courseListId"];
     //$courseGroupId = $courseList["courseGroupId"];
@@ -190,18 +211,35 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $queryCheck = "SELECT regisId FROM fact_regis WHERE studentId = '" . $studentId . "' AND courseListId = '" . $courseListId . "'" . " AND semesterId = '" . $semesterId . "'";
     $check = mysqli_query($conn, $queryCheck);
 
+    // $subSQL = "('$studentId',$semesterId,$courseListId,'$subjectCode',$secLecture,$secLecture,'$gradeCharacter',$gradeNumber,$creditRegis,$typeRegisId,$studyYear,$part,$year,'$partName')";
+    // echo "$subSQL<br>";
+
     if ($check->num_rows > 0) {
         //echo "$queryCheck <br>";
     } else {
-        echo $studentId . "<br>";
+        //echo $studentId . "<br>";
 
         //$sql = "insert into subject(subjectCode,subjectCourse,nameSubjectThai,nameSubjectEng,credit,subjectTypeId,subjectGroupId) values ('$subjectCode','$subjectCourse','$nameSubjectThai','$nameSubjectEng',$credit,$subjectTypeId,$subjectGroupId)";
         // $sql = "insert into fact_regis(studentId,subjectId,roomId,semesterId,secLecture,secLab,gradeCharacter,gradeNumber,typeRegisId,classTimeLecture,classTimeLab) values 
         // ('$studentId',$subjectId,$roomId,$semesterId,$secLecture,$secLab,'$gradeCharacter',$gradeNumber,$typeRegisId,'$classTimeLectureText','$classTimeLabText')";
         // echo $sql . "<br>";
-        $sql = "INSERT INTO fact_regis(studentId,semesterId,courseListId,secLecture,secLab,gradeCharacter,gradeNumber,creditRegis,typeRegisId,studyYearInRegis,studyTermInRegis,semesterYearInRegis,semesterPartInRegis) 
-        VALUES ('$studentId',$semesterId,$courseListId,$secLecture,$secLecture,'$gradeCharacter',$gradeNumber,$creditRegis,$typeRegisId,$studyYear,$part,$year,'$partName')";
+
+
+        $sql = "INSERT INTO fact_regis(studentId,semesterId,courseListId,subjectCodeInRegis,secLecture,secLab,gradeCharacter,gradeNumber,creditRegis,typeRegisId,studyYearInRegis,studyTermInRegis,semesterYearInRegis,semesterPartInRegis) 
+        VALUES ('$studentId',$semesterId,$courseListId,'$subjectCode',$secLecture,$secLecture,'$gradeCharacter',$gradeNumber,$creditRegis,$typeRegisId,$studyYear,$part,$year,'$partName')";
+
+        // $subSQL = "('$studentId',$semesterId,$courseListId,'$subjectCode',$secLecture,$secLecture,'$gradeCharacter',$gradeNumber,$creditRegis,$typeRegisId,$studyYear,$part,$year,'$partName')";
+        // echo "$subSQL<br>";
+        
+        //$mainSQL = $mainSQL.$subSQL.",";
+
+        
         //echo "$sql <br>";
+
+
+
+
+
         mysqli_query($conn, $sql);
     }
 
@@ -216,9 +254,14 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     // $check = mysqli_query($conn, $query);
 }
 
+$mainSQL = substr($mainSQL, 0, -1);
+//echo "<br>".strlen($mainSQL)."<br>";
+if(strlen($mainSQL)>221)
+    //mysqli_query($conn, $mainSQL);
+
 //echo print_r($studentIds);
 
-
+echo print_r($studentIds);
 
 foreach ($studentIds as $sId) {
     //echo $sId." ".$semesterId;
@@ -237,7 +280,7 @@ foreach ($studentIds as $sId) {
             //echo $regis["gradeCharacter"]."<br>";
             $sumGradeCreditTerm += $regis["gradeNumber"] * $regis["creditRegis"];
             $sumCreditTerm += $regis["creditRegis"];
-            echo $regis["gradeNumber"] . " " . $regis["creditRegis"] . "<br>";
+            //echo $regis["gradeNumber"] . " " . $regis["creditRegis"] . "<br>";
         }
 
 
@@ -245,13 +288,12 @@ foreach ($studentIds as $sId) {
     }
 
     //echo "$sId = $sumGradeCreditTerm ,".$sumCreditTerm."<br>";
-    if($sumCreditTerm != 0){
+    if ($sumCreditTerm != 0) {
         $gpaTerm = intval((($sumGradeCreditTerm / $sumCreditTerm) * 1000)) / 1000;
-    }
-    else{
+    } else {
         $gpaTerm = intval((($sumGradeCreditTerm / 1) * 1000)) / 1000;
     }
-    
+
     //$gpaTerm = $sumGradeCreditTerm / $sumCreditTerm;
     //echo "Grade $sId = $gpaTerm <br>";
 
@@ -259,6 +301,7 @@ foreach ($studentIds as $sId) {
 
     $sumCreditAll = 0;
     $sumGradeCreditAll = 0.0;
+    $sumCreditPass = 0;
 
     foreach ($regisAllList as $regis) {
         //echo print_r($regis)."<br>";
@@ -266,17 +309,20 @@ foreach ($studentIds as $sId) {
             //echo $regis["gradeCharacter"]."<br>";
             $sumGradeCreditAll += $regis["gradeNumber"] * $regis["creditRegis"];
             $sumCreditAll += $regis["creditRegis"];
+            if ($regis["gradeCharacter"] != 'F') {
+                $sumCreditPass += $regis["creditRegis"];
+            }
         }
 
 
 
     }
+    echo $sumCreditPass."<br>";
 
     //echo "$sId = $sumGradeCreditAll ," . $sumCreditAll . "<br>";
     if ($sumCreditAll != 0) {
         $gpaAll = intval((($sumGradeCreditAll / $sumCreditAll) * 1000)) / 1000;
-    }
-    else{
+    } else {
         $gpaAll = intval((($sumGradeCreditAll / 1) * 1000)) / 1000;
     }
     //echo "Grade $sId = $gpaAll<br>";
@@ -333,9 +379,9 @@ foreach ($studentIds as $sId) {
     }
 
 
-    echo $term . "<br>";
+    //echo $term . "<br>";
     if ($term == 1 and $studyYear > 1) {
-        echo 'เข้าอันนี้<br>';
+        //echo 'เข้าอันนี้<br>';
         //$courseCredits = getSubjectGroupCreditTermOneCourseByCourseIdAndStudyYearAndPart($courseId, $studyYearX, $termX);
         $planCheckSQL = "SELECT subjectCode
         FROM courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
@@ -375,6 +421,17 @@ foreach ($studentIds as $sId) {
         $courseChecks = "ไม่ตามแผน";
     }
 
+    if ($sumCreditPass >= $course["totalCredit"] and $studyYear == 4 and $term == 2) {
+        $courseChecks = "จบการศึกษา";
+        echo $courseChecks."<br>";
+        $studentStatusId = 2;
+    }else if($sumCreditPass >= $course["totalCredit"] and $studyYear > 4) {
+        $courseChecks = "จบการศึกษา";
+        $studentStatusId = 2;
+    }
+
+
+
 
 
 
@@ -410,11 +467,12 @@ foreach ($studentIds as $sId) {
 
 
 
-    echo $sId . " ชั้นปีที่ $studyYear $courseChecks : GPA = $gpaTerm , GPAX = $gpaAll,$gpaxStatusId & $gpaStatusId ";
+    //echo $sId . " ชั้นปีที่ $studyYear $courseChecks : GPA = $gpaTerm , GPAX = $gpaAll,$gpaxStatusId & $gpaStatusId ";
 
 
 
     $queryCheck = "SELECT termSummaryId FROM fact_term_summary WHERE studentId = '" . $sId . "' AND semesterId = " . $semesterId;
+    echo $queryCheck."<br>";
     $check = mysqli_query($conn, $queryCheck);
 
     if ($check->num_rows > 0) {

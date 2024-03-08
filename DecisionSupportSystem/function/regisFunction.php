@@ -11,7 +11,7 @@ function getListRegisByStudentIdAndSemesterId($studentId, $semesterId)
     $result = $conn->query($sql);
     //$regisList = $result->fetch_assoc();
 
-
+    $regisList = [];
     while ($my_row = $result->fetch_assoc()) {
         $regisList[] = $my_row;
     }
@@ -25,6 +25,7 @@ function getListRegisByStudentIdAndSemesterId($studentId, $semesterId)
 function getListRegisByStudentId($studentId)
 {
 
+    $regisList = [];
     require("connection_connect.php");
 
     $sql = "SELECT * FROM fact_regis NATURAL JOIN courselist WHERE studentId = '" . $studentId . "'";
@@ -46,6 +47,7 @@ function getListRegisNotFAndWByStudentId($studentId)
 {
 
     require("connection_connect.php");
+    $regisList = [];
 
     $sql = "SELECT * FROM fact_regis NATURAL JOIN subject WHERE studentId = '" . $studentId . "' AND gradeCharacter != 'F' AND gradeCharacter != 'W'";
     $result = $conn->query($sql);
@@ -71,7 +73,7 @@ function getListSubjectPassInRegisByStudentIdAndSubjectCategory($studentId, $sub
     FROM semester NATURAL JOIN fact_regis NATURAL JOIN courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId 
     WHERE studentId = '" . $studentId . "' AND categoryName = '" . $subjectCategoryName . "' AND (gradeCharacter != 'F' AND gradeCharacter != 'W' AND gradeCharacter != 'P')";
     $result = $conn->query($sql);
-
+    $subjects=[];
     while ($my_row = $result->fetch_assoc()) {
         $subjects[] = $my_row;
     }

@@ -385,8 +385,10 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     $freeSubjectCredit = 0;
     $freeSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือกเสรี");
 
+    //echo count($freeSubjects)."<br>";
+
     foreach ($freeSubjects as $freeSubject) {
-        $freeSubjectCredit += $freeSubject["credit"];
+        $freeSubjectCredit += $freeSubject["creditRegis"];
     }
 
 
@@ -410,28 +412,34 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
 
     foreach ($happySubjects as $happySubject) {
 
+        //echo $happySubjectCredit." ".$course["happySubjectCredit"]."<br>";
         if ($happySubjectCredit < $course["happySubjectCredit"]) {
-            $happySubjectCredit += $happySubject["credit"];
-            $generalSubjectCredit += $happySubject["credit"];
+            $happySubjectCredit += $happySubject["creditRegis"];
+            $generalSubjectCredit += $happySubject["creditRegis"];
         } else {
-            $freeSubjectCredit += $happySubject["credit"];
+            //echo "เข้าได้ไง<br>";
+            $freeSubjectCredit += $happySubject["creditRegis"];
             $freeSubjects[] = $happySubject;
         }
     }
+    //echo count($freeSubjects)."อยู่ดี<br>";
 
     $entrepreneurshipSubjectCredit = 0;
     $entrepreneurshipSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระศาสตร์แห่งผู้ประกอบการ");
 
     foreach ($entrepreneurshipSubjects as $entrepreneurshipSubject) {
-
-        if ($happySubjectCredit < $course["entrepreneurshipSubjectCredit"]) {
-            $entrepreneurshipSubjectCredit += $entrepreneurshipSubject["credit"];
-            $generalSubjectCredit += $entrepreneurshipSubject["credit"];
+        //echo $entrepreneurshipSubjectCredit."ผู้ประกอบการ101".$entrepreneurshipSubject["subjectNameTh"]."<br>";
+        if ($entrepreneurshipSubjectCredit < $course["entrepreneurshipSubjectCredit"]) {
+            $entrepreneurshipSubjectCredit += $entrepreneurshipSubject["creditRegis"];
+            //
+            $generalSubjectCredit += $entrepreneurshipSubject["creditRegis"];
         } else {
-            $freeSubjectCredit += $entrepreneurshipSubject["credit"];
+            $freeSubjectCredit += $entrepreneurshipSubject["creditRegis"];
             $freeSubjects[] = $entrepreneurshipSubject;
+            //echo print_r($freeSubjects)."<br>";
         }
     }
+    //echo count($freeSubjects)."ผู้ประกอบ<br>";
 
     $languageSubjectCredit = 0;
     $languageSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระภาษากับการสื่อสาร");
@@ -440,13 +448,15 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($languageSubjects as $languageSubject) {
 
         if ($languageSubjectCredit < $course["languageSubjectCredit"]) {
-            $languageSubjectCredit += $languageSubject["credit"];
-            $generalSubjectCredit += $languageSubject["credit"];
+            $languageSubjectCredit += $languageSubject["creditRegis"];
+            $generalSubjectCredit += $languageSubject["creditRegis"];
         } else {
-            $freeSubjectCredit += $languageSubject["credit"];
+            $freeSubjectCredit += $languageSubject["creditRegis"];
             $freeSubjects[] = $languageSubject;
         }
     }
+    // echo count($freeSubjects)."<br>";
+    // echo print_r($freeSubjects)."<br>";
 
     $peopleSubjectCredit = 0;
     $peopleSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระพลเมืองไทยและพลเมืองโลก");
@@ -454,13 +464,14 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($peopleSubjects as $peopleSubject) {
 
         if ($peopleSubjectCredit < $course["peopleSubjectCredit"]) {
-            $peopleSubjectCredit += $peopleSubject["credit"];
-            $generalSubjectCredit += $peopleSubject["credit"];
+            $peopleSubjectCredit += $peopleSubject["creditRegis"];
+            $generalSubjectCredit += $peopleSubject["creditRegis"];
         } else {
-            $freeSubjectCredit += $peopleSubject["credit"];
+            $freeSubjectCredit += $peopleSubject["creditRegis"];
             $freeSubjects[] = $peopleSubject;
         }
     }
+    //echo count($freeSubjects)."กลุ่มสาระพลเมืองไทยและพลเมืองโลก<br>";
 
     $aestheticsSubjectCredit = 0;
     $aestheticsSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "กลุ่มสาระสุนทรียศาสตร์");
@@ -468,13 +479,15 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($aestheticsSubjects as $aestheticsSubject) {
 
         if ($aestheticsSubjectCredit < $course["peopleSubjectCredit"]) {
-            $aestheticsSubjectCredit += $aestheticsSubject["credit"];
-            $generalSubjectCredit += $aestheticsSubject["credit"];
+            $aestheticsSubjectCredit += $aestheticsSubject["creditRegis"];
+            $generalSubjectCredit += $aestheticsSubject["creditRegis"];
         } else {
-            $freeSubjectCredit += $aestheticsSubject["credit"];
+            $freeSubjectCredit += $aestheticsSubject["creditRegis"];
             $freeSubjects[] = $aestheticsSubject;
         }
     }
+    //echo count($freeSubjects)."กลุ่มสาระสุนทรียศาสตร์<br>";
+    // echo print_r($freeSubjects)."<br>";
 
 
 
@@ -486,9 +499,9 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($coreSubjects as $coreSubject) {
 
         if ($coreSubjectCredit < $course["coreSubjectCredit"]) {
-            $coreSubjectCredit += $coreSubject["credit"];
+            $coreSubjectCredit += $coreSubject["creditRegis"];
         } else {
-            $freeSubjectCredit += $coreSubject["credit"];
+            $freeSubjectCredit += $coreSubject["creditRegis"];
             $freeSubjects[] = $coreSubject;
         }
     }
@@ -500,9 +513,9 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($spacailSubjects as $spacailSubject) {
 
         if ($spacailSubjectCredit < $course["spacailSubjectCredit"]) {
-            $spacailSubjectCredit += $spacailSubject["credit"];
+            $spacailSubjectCredit += $spacailSubject["creditRegis"];
         } else {
-            $freeSubjectCredit += $coreSubject["credit"];
+            $freeSubjectCredit += $spacailSubject["creditRegis"];
             $freeSubjects[] = $spacailSubject;
         }
     }
@@ -513,9 +526,9 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($selectSubjects as $selectSubject) {
 
         if ($selectSubjectCredit < $course["spacailSubjectCredit"]) {
-            $selectSubjectCredit += $selectSubject["credit"];
+            $selectSubjectCredit += $selectSubject["creditRegis"];
         } else {
-            $freeSubjectCredit += $coreSubject["credit"];
+            $freeSubjectCredit += $coreSubject["creditRegis"];
             $freeSubjects[] = $selectSubject;
         }
     }
@@ -530,8 +543,8 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($generalSubjects as $generalSubject) {
         if (!in_array($generalSubject, $freeSubjects)) {
             //echo $generalSubject["credit"] . "<br>";
-            $generalSubjectCredit += $generalSubject["credit"];
-            $sumGradeCreditGeneral += $generalSubject["gradeNumber"] * $generalSubject["credit"];
+            $generalSubjectCredit += $generalSubject["creditRegis"];
+            $sumGradeCreditGeneral += $generalSubject["gradeNumber"] * $generalSubject["creditRegis"];
 
         }
     }
@@ -547,7 +560,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     $academis["free"]["name"] = "วิชาเสรี";
     $sumGradeCreditFree = 0;
     foreach ($freeSubjects as $freeSubject) {
-        $sumGradeCreditFree += $freeSubject["gradeNumber"] * $freeSubject["credit"];
+        $sumGradeCreditFree += $freeSubject["gradeNumber"] * $freeSubject["creditRegis"];
     }
     $academis["free"]["creditAll"] = $course["freeSubjectCredit"];
     $academis["free"]["creditYet"] = $course["freeSubjectCredit"] - $academis["free"]["credit"];
@@ -570,7 +583,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($cores as $core) {
         if (!in_array($core, $freeSubjects)) {
             $coreSubjectCredit += $core["credit"];
-            $sumGradeCreditCore += $core["gradeNumber"] * $core["credit"];
+            $sumGradeCreditCore += $core["gradeNumber"] * $core["creditRegis"];
         }
     }
     $academis["core"]["creditAll"] = $course["coreSubjectCredit"];
@@ -589,7 +602,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($spacails as $spacail) {
         if (!in_array($spacail, $freeSubjects)) {
             $spacailSubjectCredit += $spacail["credit"];
-            $sumGradeCreditSpacail += $spacail["gradeNumber"] * $spacail["credit"];
+            $sumGradeCreditSpacail += $spacail["gradeNumber"] * $spacail["creditRegis"];
         }
     }
     $academis["spacail"]["creditAll"] = $course["spacailSubjectCredit"];
@@ -611,7 +624,7 @@ function getAcademicInSubjectCategoryByStudentId($studentId)
     foreach ($selects as $select) {
         if (!in_array($spacail, $freeSubjects)) {
             $selectSubjectCredit += $select["credit"];
-            $sumGradeCreditSelect += $select["gradeNumber"] * $select["credit"];
+            $sumGradeCreditSelect += $select["gradeNumber"] * $select["creditRegis"];
         }
     }
     $academis["select"]["creditAll"] = $course["selectSubjectCredit"];
@@ -648,7 +661,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
     $freeSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือกเสรี");
     foreach ($freeSubjects as $freeSubject) {
         if($freeSubject["gradeCharacter"] != 'F')
-            $freeSubjectCredit += $freeSubject["credit"];
+            $freeSubjectCredit += $freeSubject["creditRegis"];
     }
 
 
@@ -674,11 +687,11 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if($happySubject["gradeCharacter"] != 'F')
             if ($happySubjectCredit < $course["happySubjectCredit"]) {
-                $happySubjectCredit += $happySubject["credit"];
-                $generalSubjectCredit += $happySubject["credit"];
+                $happySubjectCredit += $happySubject["creditRegis"];
+                $generalSubjectCredit += $happySubject["creditRegis"];
                 $generalSubjects[] = $happySubject;
             } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
-                $freeSubjectCredit += $happySubject["credit"];
+                $freeSubjectCredit += $happySubject["creditRegis"];
                 $freeSubjects[] = $happySubject;
             } else {
                 $overSubjects[] = $happySubject;
@@ -692,8 +705,8 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if($entrepreneurshipSubject["gradeCharacter"] != 'F')
             if ($entrepreneurshipSubjectCredit < $course["entrepreneurshipSubjectCredit"]) {
-                $entrepreneurshipSubjectCredit += $entrepreneurshipSubject["credit"];
-                $generalSubjectCredit += $entrepreneurshipSubject["credit"];
+                $entrepreneurshipSubjectCredit += $entrepreneurshipSubject["creditRegis"];
+                $generalSubjectCredit += $entrepreneurshipSubject["creditRegis"];
                 $generalSubjects[] = $entrepreneurshipSubject;
             } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
                 $freeSubjectCredit += $entrepreneurshipSubject["credit"];
@@ -710,11 +723,11 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if($languageSubject["gradeCharacter"] != 'F')
             if ($languageSubjectCredit < $course["languageSubjectCredit"]) {
-                $languageSubjectCredit += $languageSubject["credit"];
-                $generalSubjectCredit += $languageSubject["credit"];
+                $languageSubjectCredit += $languageSubject["creditRegis"];
+                $generalSubjectCredit += $languageSubject["creditRegis"];
                 $generalSubjects[] = $languageSubject;
             } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
-                $freeSubjectCredit += $languageSubject["credit"];
+                $freeSubjectCredit += $languageSubject["creditRegis"];
                 $freeSubjects[] = $languageSubject;
             } else {
                 $overSubjects[] = $languageSubject;
@@ -729,11 +742,11 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
        
         if($peopleSubject["gradeCharacter"] != 'F')
             if ($peopleSubjectCredit < $course["peopleSubjectCredit"]) {
-                $peopleSubjectCredit += $peopleSubject["credit"];
-                $generalSubjectCredit += $peopleSubject["credit"];
+                $peopleSubjectCredit += $peopleSubject["creditRegis"];
+                $generalSubjectCredit += $peopleSubject["creditRegis"];
                 $generalSubjects[] = $peopleSubject;
             } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
-                $freeSubjectCredit += $peopleSubject["credit"];
+                $freeSubjectCredit += $peopleSubject["creditRegis"];
                 $freeSubjects[] = $peopleSubject;
             } else {
                 $overSubjects[] = $peopleSubject;
@@ -748,11 +761,11 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if($aestheticsSubject["gradeCharacter"] != 'F')
             if ($aestheticsSubjectCredit < $course["peopleSubjectCredit"]) {
-                $aestheticsSubjectCredit += $aestheticsSubject["credit"];
-                $generalSubjectCredit += $aestheticsSubject["credit"];
+                $aestheticsSubjectCredit += $aestheticsSubject["creditRegis"];
+                $generalSubjectCredit += $aestheticsSubject["creditRegis"];
                 $generalSubjects[] = $aestheticsSubject;
             } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
-                $freeSubjectCredit += $aestheticsSubject["credit"];
+                $freeSubjectCredit += $aestheticsSubject["creditRegis"];
                 $freeSubjects[] = $aestheticsSubject;
             } else {
                 $overSubjects[] = $aestheticsSubject;
@@ -770,9 +783,9 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if($coreSubject["gradeCharacter"] != 'F')
             if ($coreSubjectCredit < $course["coreSubjectCredit"]) {
-                $coreSubjectCredit += $coreSubject["credit"];
+                $coreSubjectCredit += $coreSubject["creditRegis"];
             } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
-                $freeSubjectCredit += $coreSubject["credit"];
+                $freeSubjectCredit += $coreSubject["creditRegis"];
                 $freeSubjects[] = $coreSubject;
             } else {
                 $overSubjects[] = $coreSubject;
@@ -788,9 +801,9 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if($spacailSubject["gradeCharacter"] != 'F')
             if ($spacailSubjectCredit < $course["spacailSubjectCredit"]) {
-                $spacailSubjectCredit += $spacailSubject["credit"];
+                $spacailSubjectCredit += $spacailSubject["creditRegis"];
             } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
-                $freeSubjectCredit += $coreSubject["credit"];
+                $freeSubjectCredit += $coreSubject["creditRegis"];
                 $freeSubjects[] = $spacailSubject;
             } else {
                 $overSubjects[] = $spacailSubject;
@@ -807,9 +820,9 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
 
         if($selectSubject["gradeCharacter"] != 'F')
             if ($selectSubjectCredit < $course["spacailSubjectCredit"]) {
-                $selectSubjectCredit += $selectSubject["credit"];
+                $selectSubjectCredit += $selectSubject["creditRegis"];
             } else if ($freeSubjectCredit < $course["freeSubjectCredit"]) {
-                $freeSubjectCredit += $coreSubject["credit"];
+                $freeSubjectCredit += $coreSubject["creditRegis"];
                 $freeSubjects[] = $selectSubject;
             } else {
                 $overSubjects[] = $selectSubject;
@@ -828,7 +841,7 @@ function getListSubjectGroupPassInRegisByStudentId($studentId)
     }
 
 
-    $subjects["general"]["list"] = $generalSubjects;
+    $subjects["general"]["list"] = $generates;
     $subjects["general"]["name"] = "วิชาศึกษาทั่วไป";
     $subjects["free"]["list"] = $freeSubjects;
     $subjects["free"]["name"] = "วิชาเสรี";
