@@ -77,11 +77,14 @@ function getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAnd
     GROUP BY studentId,studyYear) AND status = '$status'
     GROUP BY studyGeneretion";
 
+    //echo $sql."<br>";
+
     $result = $conn->query($sql);
 
     while ($my_row = $result->fetch_assoc()) {
         $yearStatus[] = $my_row;
     }
+    //echo count($yearStatus);
 
 
 
@@ -1583,6 +1586,7 @@ function getRemainingPlanStatusSortByAdviserByDepartmentIdAndSemesterYear($depar
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
     WHERE departmentId = $departmentId And studyYear > 4 AND semesterYear <= $semesterYear GROUP BY studentId)
     GROUP BY teacherId;";
+    //echo $sql."<br>";
 
     $result = $conn->query($sql);
 

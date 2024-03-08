@@ -819,11 +819,11 @@
                                                         $sumRetire+=$advi["retire"];
                                                         $sumGrad+=$advi["grad"];
 
-                                                        $learn22Labels[]=$adviser["titleTecherTh"] . "" . $adviser["fisrtNameTh"];
-                                                        $learn22Plan[]=$adviser["plan"];
-                                                        $learn22NotPlan[]=$adviser["notPlan"];
-                                                        $learn22Retire[]=$adviser["retire"];
-                                                        $learn22Grads[]=$adviser["grad"];
+                                                        $learn22Labels[]=$advi["titleTecherTh"] . "" . $advi["fisrtNameTh"];
+                                                        $learn22Plan[]=$advi["plan"];
+                                                        $learn22NotPlan[]=$advi["notPlan"];
+                                                        $learn22Retire[]=$advi["retire"];
+                                                        $learn22Grads[]=$advi["grad"];
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: left;">

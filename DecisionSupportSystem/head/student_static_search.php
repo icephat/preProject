@@ -626,7 +626,7 @@
                 <?php ?>
 
                 <?php 
-                   $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "พ้นสภาพนิสิต",$semesterYear);
+                   $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($courseName, "พ้นสภาพนิสิต",$semesterYear);
                    
                    
                 ?>
@@ -854,7 +854,7 @@
                 <?php ?>
 
                 <?php 
-                   $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($course["nameCourseUse"], "จบการศึกษา",$semesterYear);
+                   $studentStudys = getCountStudentStatusTatleSortByGeneretionAndYearStudyByNameCourseIdAndStatusAndSemesterYear($courseName, "จบการศึกษา",$semesterYear);
                    
                    
                 ?>
