@@ -2,6 +2,7 @@
 include_once '../function/semesterFunction.php';
 include_once '../function/studentFunction.php';
 include_once '../function/courseFunction.php';
+include_once '../function/studentStatusFunction.php';
 
 function getCountStudentStatusSortByGeneretionByNameCourseAndSemesterYear($course, $year)
 {
@@ -221,11 +222,13 @@ function getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAnd
 
     require("connection_connect.php");
 
+    $studentstatusId = getStudentStatusByStatusName($status)["studentStatusId"];
+
     $studentGeneretionGradeRangeByStatus = [];
 
     $sql = "SELECT studyGeneretion, COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
     FROM gpastatus NATURAL JOIN  fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId
-    WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM studentStatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear AND status = '$status' GROUP BY studentId)
+    WHERE nameCourseUse = '$courseName' AND studentStatusId = $studentstatusId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM studentStatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear GROUP BY studentId)
     GROUP BY studyGeneretion
     ORDER BY studyGeneretion;";
 
