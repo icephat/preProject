@@ -58,6 +58,11 @@
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
                 $departments = getAllDepartment();
 
+                $department  = getDepartmentById($_POST["departmentId"]);
+
+                $generetions =getGeneretionInCourseByDepartmentId($department["departmentId"]);
+                $generetion=$_POST["generetion"];
+
                 ?>
 
                 <?php include('../layout/head/report.php'); ?>
@@ -75,11 +80,11 @@
                                     <select class="form-control" data-live-search="true" name="departmentId">
 
                                                 <?php
-                                                foreach ($departments as $department) {
+                                                foreach ($departments as $dept) {
                                                     ?>
 
-                                                    <option value="<?php echo $department["departmentId"] ?>">
-                                                        <?php echo $department["departmentName"] ?>
+                                                    <option value="<?php echo $dept["departmentId"] ?>">
+                                                        <?php echo $dept["departmentName"] ?>
                                                     </option>
                                                     <?php
                                                 }
@@ -95,16 +100,20 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true" name = "tcas">
+                                    <select class="form-control" data-live-search="true" name = "generetion">
                                             
                                             <option value="0">ทุกรุ่น
                                             </option>
-                                            <option value="1">รุ่น 63
-                                            </option>
-                                            <option value="2">รุ่น 64</option>
-                                            <option value="3">รอบ 3
-                                            </option>
-                                            <option value="4">รอบ 4</option>
+                                            <?php
+                                                foreach ($generetions as $gen) {
+                                                    ?>
+
+                                                    <option value="<?php echo $gen["studyGeneretion"] ?>">รุ่นที่
+                                                        <?php echo $gen["studyGeneretion"] ?>
+                                                    </option>
+                                                    <?php
+                                                }
+                                                ?>
                                         </select>
                                     </div>
                                 </div>
@@ -125,14 +134,14 @@
                 </div>
 
                 <hr>
-                <h5 style="color:black;">ภาควิชา<?php echo $teacher["departmentName"] ?></h5>
+                <h5 style="color:black;">ภาควิชา<?php echo $teacher["departmentName"] ?> รุ่นที่ <?php echo $generetion ?></h5>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตตาม Tcas (คน)</h6>
                                 <?php
-                                $countStudentSortByGeneretions = getCountStudentTcasSortByStudyGeneretionByDepartmentId($teacher["departmentId"]);
+                                $countStudentSortByGeneretions = getCountStudentTcasSortByTcasRoundByDepartmentIdAndGeneretion($teacher["departmentId"],$generetion);
                                 // print_r($countStudentSortByGeneretions);
                                 
                                 ?>
@@ -163,17 +172,17 @@
                                                     
 
                                                     foreach ($countStudentSortByGeneretions as $countStudentSortByGeneretion) {
-                                                        $studyGeneretion[] = "รอบ " . (string) $countStudentSortByGeneretion["studyGeneretion"];
+                                                        $studyGeneretion[] = "รอบ " . (string) $countStudentSortByGeneretion["tcasRound"];
                                                         
-                                                        $sumTcas1 += $countStudentSortByGeneretion["TCAS1"];
+                                                        $sumTcas1 += $countStudentSortByGeneretion["generetion1"];
                                                        
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: center;">
-                                                                <?php echo $countStudentSortByGeneretion["studyGeneretion"] ?>
+                                                                <?php echo $countStudentSortByGeneretion["tcasRound"] ?>
                                                             </td>
                                                             <td style=" text-align: center;">
-                                                                <?php echo $countStudentSortByGeneretion["TCAS1"] ?> คน
+                                                                <?php echo $countStudentSortByGeneretion["generetion1"] ?> คน
                                                             </td>
                                                             
                                                         </tr>
@@ -206,7 +215,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                             </div>
                             <?php
-                            $gpaMMAs = getMaxMinAvgGPAXByDepartmentId($teacher["departmentId"]);
+                            $gpaMMAs = getMaxMinAvgGPAXSortByRoundByDepartmentIdAndGeneretion($teacher["departmentId"],$generetion);
                             //print_r($gpaMMAs);
                             ?>
                             <div class="card-body ">
@@ -238,7 +247,7 @@
 
                                                     foreach ($gpaMMAs as $gpaMMA) {
 
-                                                        $studyGeneretionGrade[] = "รอบ " . (string) $gpaMMA["studyGeneretion"];
+                                                        $studyGeneretionGrade[] = "รอบ " . (string) $gpaMMA["tcasRound"];
                                                         $maxGPAX[] = (float) $gpaMMA["maxGPAX"];
                                                         $minGPAX[] = (float) $gpaMMA["minGPAX"];
                                                         $avgGPAX[] = (float) $gpaMMA["avgGPAX"];
@@ -248,7 +257,7 @@
                                                         ?>
                                                         <tr style="font-weight: normal;">
                                                             <td style=" text-align: center;">
-                                                                <?php echo $gpaMMA["studyGeneretion"] ?>
+                                                                <?php echo $gpaMMA["tcasRound"] ?>
                                                             </td>
                                                             <td style=" text-align: center;">
                                                                 <?php echo $gpaMMA["maxGPAX"] ?>
@@ -282,7 +291,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">อัตราคงอยู่ </h6>
                             </div>
                             <?php
-                                $percentageGeneretions = getPercentageStudySortByGeneretionByDepartmentId($teacher["departmentId"]);
+                                $percentageGeneretions = getPercentageStudySortByTcasRoundByDepartmentIdAndGeneretion($teacher["departmentId"],$generetion);
                                 //print_r($percentageGeneretions);
                             ?>
                             <div class="card-body ">
@@ -311,12 +320,12 @@
                                                     $study=[];
                                                     foreach($percentageGeneretions as $percentageGeneretion){
 
-                                                        $studyGeneretionPercent[]= "รอบ ".(string)$percentageGeneretion["studyGeneretion"];
+                                                        $studyGeneretionPercent[]= "รอบ ".(string)$percentageGeneretion["tcasRound"];
                                                         $study[]=(int)$percentageGeneretion["study"];
                                                         $entry[]=(int)$percentageGeneretion["entry"];
                                                     ?>
                                                     <tr>
-                                                        <th style=" text-align: center;  "><?php echo $percentageGeneretion["studyGeneretion"]  ?></th>
+                                                        <th style=" text-align: center;  "><?php echo $percentageGeneretion["tcasRound"]  ?></th>
                                                         <td style=" text-align: center;">
                                                         <?php echo $percentageGeneretion["entry"]  ?> คน
                                                         </td>
@@ -349,7 +358,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">อัตราพ้นสภาพ </h6>
                             </div>
                             <?php
-                            $percentageRetireGeneretions = getPercentageStudyAndRetireSortByGeneretionByDepartmentId($teacher["departmentId"]);
+                            $percentageRetireGeneretions = getPercentageStudyAndRetireSortByRoundByDepartmentIdAndGeneretion($teacher["departmentId"],$generetion);
                             //print_r( $percentageRetireGeneretions);
                             ?>
                             <div class="card-body ">
@@ -377,7 +386,7 @@
                                                     $retire2=[];
                                                     $percentage2=[];
                                                     foreach($percentageRetireGeneretions as $percentageRetireGeneretion){
-                                                        $studyGeneretionPercent2[]="รอบ ".(string)$percentageRetireGeneretion["studyGeneretion"];
+                                                        $studyGeneretionPercent2[]="รอบ ".(string)$percentageRetireGeneretion["tcasRound"];
                                                         $study2[]=(int)$percentageRetireGeneretion["study"];
                                                         $retire2[]=(int)$percentageRetireGeneretion["retire"];
                                                         $percentage2[]=(int)$percentageRetireGeneretion["percentage"];
@@ -385,11 +394,11 @@
                                                     <tr>
                                                         
                                                         <td style=" text-align: center;">
-                                                            <?php echo $percentageRetireGeneretion["studyGeneretion"] ?>
+                                                            <?php echo $percentageRetireGeneretion["tcasRound"] ?>
                                                         </td>
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["study"] ?> คน</td>
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["retire"] ?> คน</td>
-                                                        <?php if((string)$percentageRetireGeneretion["studyGeneretion"] !=null){?>
+                                                        <?php if((string)$percentageRetireGeneretion["tcasRound"] !=null){?>
                                                             <td style=" text-align: center;"><?php echo ((int)$percentageRetireGeneretion["retire"]/(int)$percentageRetireGeneretion["study"])*100 ?></td>
                                                         <?php }else{?>
                                                             <td style=" text-align: center;"></td>

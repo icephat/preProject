@@ -57,11 +57,9 @@
 
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
                 $departments = getAllDepartment();
-                $department  = getDepartmentById($teacher["departmentId"]);
+                $department  = getDepartmentById($_POST["departmentId"]);
 
                 $generetions =getGeneretionInCourseByDepartmentId($department["departmentId"]);
-
-                
 
                 ?>
 
