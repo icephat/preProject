@@ -62,7 +62,7 @@
                 
                 $courses = getCourseNameByDepartmentId($teacher["departmentId"]) ;
 
-                //$course = getCourseByCourseName($_POST["courseName"]);
+                $course = getCourseByCourseName($_POST["courseName"]);
 
 
                 $generetions = getGeneretionInCourseByCouseName($course["nameCourseUse"]);
@@ -112,7 +112,7 @@
                                              }
                                         ?>
                                         </select>
-                                        </select>
+
                                     </div>
                                 </div>
                             </div>

@@ -56,15 +56,12 @@
                 $semester = getSemesterPresent();
 
 
-
                 $course = getCoursePresentByDepartmentId($teacher["departmentId"]);
                 $departments = getAllDepartment();
-                
                 $courses = getCourseNameByDepartmentId($teacher["departmentId"]) ;
 
-                //$course = getCourseByCourseName($_POST["courseName"]);
-
-
+                $course = getCourseByCourseName($_POST["courseName"]);
+                $generetion = $_POST["generetion"];
                 $generetions = getGeneretionInCourseByCouseName($course["nameCourseUse"]);
 
                 ?>
@@ -76,7 +73,7 @@
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
                                 <div class="text-center">
-                                    <h5>หลักสูตร<span style="color: red;">*</span></th>
+                                    <h5>ภาควิชา<span style="color: red;">*</span></th>
                                 </div>
                                 <div class="text-center">
                                     <div>
@@ -101,7 +98,7 @@
                                 </div>
                                 <div class="text-center">
                                     <div>
-                                        <select class="form-control" data-live-search="true" name = "generetion">
+                                    <select class="form-control" data-live-search="true" name = "generetion">
                                         <option value="0">ทุกรุ่น</option>
                                         <?php
                                             foreach($generetions as $gen){
@@ -111,7 +108,6 @@
                                              <?php
                                              }
                                         ?>
-                                        </select>
                                         </select>
                                     </div>
                                 </div>
@@ -134,15 +130,15 @@
 
                 <hr>
                 <div class="row">
-                <h5 style="color: black;">หลักสูตร <?php echo $course["nameCourseUse"]?></h5>
+                <h5 style="color: black;">หลักสูตร <?php echo $course["nameCourseUse"]?> รุ่น <?php echo $generetion ?></h5>
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตตาม Tcas (คน)</h6>
                             </div>
                             <?php
-                                $countStudentSortByGeneretions = getCountStudentTcasSortByTcasRoundByCourseName($course["nameCourseUse"]);
-                                //print_r($countStudentSortByGeneretions);
+                                $countStudentSortByGeneretions = getCountStudentTcasSortByTcasRoundByCourseNameAndGeneretion($course["nameCourseUse"],$generetion);
+                               // print_r($countStudentSortByGeneretions);
                                 
                             ?>
                             <div class="card-body ">
@@ -157,47 +153,25 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รอบที่</th>
-                                                        <?php
+                                                        <th style="text-align: center; "><span>รุ่น <?php echo $generetion ?></span>
+                                                        </th>
                                                         
-                                                        
-                                                        for($i = $course["couseStartYear"]-2500;$i<$course["couseStartYear"]-2500+5;$i++){
-
-                                                        
-                                                        ?>
-                                                        <th style="text-align: center; "><span>รุ่น <?php echo $i?></span></th>
-                                                        <!-- <th style="text-align: center;"><span>รุ่น 64</span></th>
-                                                        <th style="text-align: center;">รุ่น 65</th>
-                                                        <th style="text-align: center;">รุ่น 66</th> -->
-                                                        <?php
-                                                        }
-                                                        ?>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                     $studyGeneretion=[];
                                                     $TCAS1=[];
-                                                    $TCAS2=[];
-                                                    $TCAS3=[];
-                                                    $TCAS4=[];
+                                                    
                                                     $sumTcas1 = 0;
-                                                    $sumTcas2 = 0;
-                                                    $sumTcas3 = 0;
-                                                    $sumTcas4 = 0;
-                                                    $sumTcas5 = 0;
+                                                    
 
                                                     foreach ($countStudentSortByGeneretions as $countStudentSortByGeneretion) {
                                                         $studyGeneretion[]="รอบ ".(string)$countStudentSortByGeneretion["tcasRound"];
                                                         $TCAS1[]=(int)$countStudentSortByGeneretion["generetion1"];
-                                                        $TCAS2[]=(int)$countStudentSortByGeneretion["generetion2"];
-                                                        $TCAS3[]=(int) $countStudentSortByGeneretion["generetion3"];
-                                                        $TCAS4[]=(int)$countStudentSortByGeneretion["generetion4"];
-                                                        $TCAS5[]=(int)$countStudentSortByGeneretion["generetion5"];
+                                                        
                                                         $sumTcas1 += $countStudentSortByGeneretion["generetion1"];
-                                                        $sumTcas2 += $countStudentSortByGeneretion["generetion2"];
-                                                        $sumTcas3 += $countStudentSortByGeneretion["generetion3"];
-                                                        $sumTcas4 += $countStudentSortByGeneretion["generetion4"];
-                                                        $sumTcas5 += $countStudentSortByGeneretion["generetion5"];
+                                                       
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: center;">
@@ -206,18 +180,7 @@
                                                             <td style=" text-align: center;">
                                                                 <?php echo $countStudentSortByGeneretion["generetion1"] ?> คน
                                                             </td>
-                                                            <td style=" text-align: center;">
-                                                                <?php echo $countStudentSortByGeneretion["generetion2"] ?> คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                <?php echo $countStudentSortByGeneretion["generetion3"] ?> คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                <?php echo $countStudentSortByGeneretion["generetion4"] ?> คน
-                                                            </td>
-                                                            <td style=" text-align: center;">
-                                                                <?php echo $countStudentSortByGeneretion["generetion5"] ?> คน
-                                                            </td>
+                                                           
                                                         </tr>
 
                                                         <?php
@@ -229,18 +192,7 @@
                                                         <td style="font-weight: bold; text-align: center;">
                                                             <?php echo $sumTcas1 ?> คน
                                                         </td>
-                                                        <td style='font-weight: bold; text-align: center;'>
-                                                            <?php echo $sumTcas2 ?> คน
-                                                        </td>
-                                                        <td style='font-weight: bold; text-align: center;'>
-                                                            <?php echo $sumTcas3 ?> คน
-                                                        </td>
-                                                        <td style='font-weight: bold; text-align: center;'>
-                                                            <?php echo $sumTcas4 ?> คน
-                                                        </td>
-                                                        <td style='font-weight: bold; text-align: center;'>
-                                                            <?php echo $sumTcas5 ?> คน
-                                                        </td>
+                                                        
                                                     </tr>
 
                                                 </tbody>
@@ -260,7 +212,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">ผลการเรียนนิสิต</h6>
                             </div>
                             <?php
-                                $gpaMMAs = getMaxMinAvgGPAXSortByTcasRoundByCourseName($course["nameCourseUse"]);
+                                $gpaMMAs = getMaxMinAvgGPAXByCourseNameAndGeneretion($course["nameCourseUse"],$generetion);
                                 //print_r($gpaMMAs);
                             ?>
                             <div class="card-body ">
@@ -332,7 +284,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">อัตราคงอยู่ </h6>
                             </div>
                             <?php
-                                $percentageGeneretions = getPercentageStudySortByTcasRoundByCourseName($course["nameCourseUse"]);
+                                $percentageGeneretions = getPercentageStudySortByTcasRoundByCourseNameAnGeereiond($course["nameCourseUse"],$generetion);
                                 //print_r($percentageGeneretions);
                             ?>
                             <div class="card-body ">
@@ -401,7 +353,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary">อัตราพ้นสภาพ </h6>
                             </div>
                             <?php
-                            $percentageRetireGeneretions = getPercentageStudyAndRetireSortByTcasRoundByCourseName($course["nameCourseUse"]);
+                            $percentageRetireGeneretions = getPercentageStudyAndRetireSortByTcasRoundByCourseNameAndGeneretion($course["nameCourseUse"],$generetion);
                             //print_r( $percentageRetireGeneretions);
                             ?>
                             <div class="card-body ">
@@ -530,48 +482,7 @@
                                 ],
                                 borderWidth: 0
                             },
-                            {
-                                label: 'รุ่น 64',
-                                data: tcas2,
-                                backgroundColor: '#a4ebf3',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'รุ่น 65',
-                                data: tcas3,
-                                backgroundColor: '#abbdee',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
-                                borderWidth: 0
-                            },
-                            {
-                                label: 'รุ่น 66',
-                                data: tcas4,
-                                backgroundColor: '#f8c769',
-                                borderColor: [
-                                    'rgba(150,186,169, 1)', //1
-                                    'rgba(108,158,134, 1)',
-                                    'rgba(66,130,100, 1)',
-                                    'rgba(45,117,83, 1)',
-                                    'rgba(27,70,49, 1)', //5
-                                    'rgba(0, 51, 18, 1)'
-                                ],
-                                borderWidth: 0
-                            },
+                            
 
 
                             ]
