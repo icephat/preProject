@@ -385,11 +385,12 @@
                                                         $sumOrange += $dept["orange"];
                                                         $sumRed += $dept["red"];
 
+                                                        $sum=$dept["blue"]+$dept["green"]+$dept["orange"]+$dept["red"];
                                                         $learnLabels[] = $dept["departmentInitials"];
-                                                        $learnBlues[] = (int) $dept["blue"];
-                                                        $learnGreens[] = (int) $dept["green"];
-                                                        $learnOranges[] = (int) $dept["orange"];
-                                                        $learnReds[] = (int) $dept["red"];
+                                                        $learnBlues[] = $dept["blue"]*100/$sum;
+                                                        $learnGreens[] =  $dept["green"]*100/$sum;
+                                                        $learnOranges[] =  $dept["orange"]*100/$sum;
+                                                        $learnReds[] = $dept["red"]*100/$sum;
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: left;">
@@ -498,11 +499,12 @@
                                                         $sumRetire += $planStatusSortByDepartment["retire"];
                                                         $sumGrad += $planStatusSortByDepartment["grad"];
 
+                                                        $sum=$planStatusSortByDepartment["plan"]+$planStatusSortByDepartment["notPlan"]+$planStatusSortByDepartment["retire"]+$planStatusSortByDepartment["grad"];
                                                         $learn2Labels[] = $planStatusSortByDepartment["departmentInitials"];
-                                                        $learn2Plans[] = (int) $planStatusSortByDepartment["plan"];
-                                                        $learn2NotPlans[] = (int) $planStatusSortByDepartment["notPlan"];
-                                                        $learn2Retires[] = (int) $planStatusSortByDepartment["retire"];
-                                                        $learn2Grads[] = (int) $planStatusSortByDepartment["grad"];
+                                                        $learn2Plans[] =  $planStatusSortByDepartment["plan"]*100/$sum;
+                                                        $learn2NotPlans[] =  $planStatusSortByDepartment["notPlan"]*100/$sum;
+                                                        $learn2Retires[] =  $planStatusSortByDepartment["retire"]*100/$sum;
+                                                        $learn2Grads[] =  $planStatusSortByDepartment["grad"]*100/$sum;
 
                                                         ?>
                                                         <tr>
@@ -875,11 +877,12 @@
                                                         $sumOrange2 += $deptR["orange"];
                                                         $sumRed2 += $deptR["red"];
 
+                                                        $sum=$deptR["blue"]+$deptR["green"]+$deptR["orange"]+$deptR["red"];
                                                         $learnLabels2[] = $deptR["departmentInitials"];
-                                                        $learnBlues2[] = (int) $deptR["blue"];
-                                                        $learnGreens2[] = (int) $deptR["green"];
-                                                        $learnOranges2[] = (int) $deptR["orange"];
-                                                        $learnReds2[] = (int) $deptR["red"];
+                                                        $learnBlues2[] = $deptR["blue"]*100/$sum;
+                                                        $learnGreens2[] = $deptR["green"]*100/$sum;
+                                                        $learnOranges2[] = $deptR["orange"]*100/$sum;
+                                                        $learnReds2[] =  $deptR["red"]*100/$sum;
 
                                                         ?>
                                                         <tr>
@@ -988,11 +991,12 @@
                                                         $sumRetire2 += $planStatusRemainingByDepartment["retire"];
                                                         $sumGrad2 += $planStatusRemainingByDepartment["grad"];
 
+                                                        $sum=$planStatusRemainingByDepartment["plan"]+$planStatusRemainingByDepartment["notPlan"]+$planStatusRemainingByDepartment["retire"]+$planStatusRemainingByDepartment["grad"];
                                                         $learn2Labels2[] = $planStatusRemainingByDepartment["departmentInitials"];
-                                                        $learn2Plans2[] = (int) $planStatusRemainingByDepartment["plan"];
-                                                        $learn2NotPlans2[] = (int) $planStatusRemainingByDepartment["notPlan"];
-                                                        $learn2Retires2[] = (int) $planStatusRemainingByDepartment["retire"];
-                                                        $learn2Grads2[] = (int) $planStatusRemainingByDepartment["grad"];
+                                                        $learn2Plans2[] = $planStatusRemainingByDepartment["plan"]*100/$sum;
+                                                        $learn2NotPlans2[] = $planStatusRemainingByDepartment["notPlan"]*100/$sum;
+                                                        $learn2Retires2[] =  $planStatusRemainingByDepartment["retire"]*100/$sum;
+                                                        $learn2Grads2[] = $planStatusRemainingByDepartment["grad"]*100/$sum;
 
                                                         ?>
                                                         <tr>

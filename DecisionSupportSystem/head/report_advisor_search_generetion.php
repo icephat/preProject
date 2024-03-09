@@ -391,11 +391,12 @@
                                                         $sumOrange+=$adviser["orange"];
                                                         $sumRed+=$adviser["red"];
 
+                                                        $sum=$adviser["blue"]+$adviser["green"]+$adviser["orange"]+$adviser["red"];
                                                         $learnLabels[]=$adviser["titleTecherTh"] . "" . $adviser["fisrtNameTh"];
-                                                        $learnBlues[]=$adviser["blue"];
-                                                        $learnGreens[]=$adviser["green"];
-                                                        $learnOranges[]=$adviser["orange"];
-                                                        $learnReds[]=$adviser["red"];
+                                                        $learnBlues[]=$adviser["blue"]*100/$sum;
+                                                        $learnGreens[]=$adviser["green"]*100/$sum;
+                                                        $learnOranges[]=$adviser["orange"]*100/$sum;
+                                                        $learnReds[]=$adviser["red"]*100/$sum;
                                                         
                                                         ?>
                                                         <tr>
@@ -509,11 +510,12 @@
                                                         $sumRetire+=$advi["retire"];
                                                         $sumGrad+=$advi["grad"];
 
+                                                        $sum=$advi["plan"]+$advi["notPlan"]+$advi["retire"]+$advi["grad"];
                                                         $learn2Labels[]=$advi["titleTecherTh"] . "" . $advi["fisrtNameTh"];
-                                                        $learn2Blues[]=$advi["plan"];
-                                                        $learn2Greens[]=$advi["notPlan"];
-                                                        $learn2Oranges[]=$advi["retire"];
-                                                        $learn2Reds[]=$advi["grad"];
+                                                        $learn2Blues[]=$advi["plan"]*100/$sum;
+                                                        $learn2Greens[]=$advi["notPlan"]*100/$sum;
+                                                        $learn2Oranges[]=$advi["retire"]*100/$sum;
+                                                        $learn2Reds[]=$advi["grad"]*100/$sum;
 
                                                         ?>
                                                         <tr>
@@ -701,11 +703,12 @@
                                                         $sumOrange+=$adviser["orange"];
                                                         $sumRed+=$adviser["red"];
 
+                                                        $sum=$adviser["blue"]+$adviser["green"]+$adviser["orange"]+$adviser["red"];
                                                         $learn21Labels[]=$adviser["titleTecherTh"] . "" . $adviser["fisrtNameTh"];
-                                                        $learn21Blues[]=$adviser["blue"];
-                                                        $learn21Greens[]=$adviser["green"];
-                                                        $learn21Orangs[]=$adviser["orange"];
-                                                        $learn21Reds[]=$adviser["red"];
+                                                        $learn21Blues[]=$adviser["blue"]*100/$sum;
+                                                        $learn21Greens[]=$adviser["green"]*100/$sum;
+                                                        $learn21Orangs[]=$adviser["orange"]*100/$sum;
+                                                        $learn21Reds[]=$adviser["red"]*100/$sum;
 
 
                                                         ?>
@@ -821,11 +824,12 @@
                                                         $sumRetire+=$advi["retire"];
                                                         $sumGrad+=$advi["grad"];
 
+                                                        $sum=$advi["plan"]+$advi["notPlan"]+$advi["retire"]+$advi["grad"];
                                                         $learn22Labels[]=$advi["titleTecherTh"] . "" . $advi["fisrtNameTh"];
-                                                        $learn22Plan[]=$advi["plan"];
-                                                        $learn22NotPlan[]=$advi["notPlan"];
-                                                        $learn22Retire[]=$advi["retire"];
-                                                        $learn22Grads[]=$advi["grad"];
+                                                        $learn22Plan[]=$advi["plan"]*100/$sum;
+                                                        $learn22NotPlan[]=$advi["notPlan"]*100/$sum;
+                                                        $learn22Retire[]=$advi["retire"]*100/$sum;
+                                                        $learn22Grads[]=$advi["grad"]*100/$sum;
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: left;">

@@ -343,7 +343,7 @@ $semester = getSemesterPresent();
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามรุ่น (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">อัตราส่วนนิสิตแยกตามรุ่น (คน)</h6>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -410,15 +410,16 @@ $semester = getSemesterPresent();
                                                         </tr>
                                                         <?php
                                                         $idtermplan++;
+                                                        $sum=$gen["planCount"]+$gen["notPlanCount"]+ $gen["retire"]+$gen["grad"];
                                                         $listgensh[] = "รุ่น " . (string) $gen["studyGeneretion"];
                                                         $sumPlan += $gen["planCount"];
-                                                        $sPLanh[] = (int) $sumPlan;
+                                                        $sPLanh[] = $gen["planCount"]*100/$sum;
                                                         $sumNotPlan += $gen["notPlanCount"];
-                                                        $sNotPlanh[] = (int) $sumNotPlan;
-                                                        $sumRetire = $gen["retire"];
-                                                        $sRetireh[] = (int) $sumRetire;
-                                                        $sumGrad = $gen["grad"];
-                                                        $sGradh[] = (int) $sumGrad;
+                                                        $sNotPlanh[] = $gen["notPlanCount"]*100/$sum;
+                                                        $sumRetire += $gen["retire"];
+                                                        $sRetireh[] = $gen["retire"]*100/$sum;
+                                                        $sumGrad += $gen["grad"];
+                                                        $sGradh[] = $gen["grad"]*100/$sum;
 
                                                         //รายชื่อนิสิต ตามแผน ไม่ตามแผน พ้นสภาพนิสิต จบการศึกษา
                                                         //$gen["studentPlans"]
@@ -604,7 +605,7 @@ $semester = getSemesterPresent();
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามปีการศึกษา (คน)
+                                <h6 class="m-0 font-weight-bold text-primary">อัตราส่วนนิสิตแยกตามปีการศึกษา (คน)
                                 </h6>
                             </div>
                             <div class="card-body">
@@ -642,11 +643,11 @@ $semester = getSemesterPresent();
                                                     $idterm = 0;
 
                                                     foreach ($countStudySemesters as $countStudySemester) {
-
+                                                        $sum=$countStudySemester["planStatus"]+$countStudySemester["notPlanStatus"]+$countStudySemester["resign"];
                                                         $sortYears[] = (string) $countStudySemester["semesterYear"] . " " . (string) $countStudySemester["semesterPart"];
-                                                        $plans[] = (int) $countStudySemester["planStatus"];
-                                                        $notPlan[] = (int) $countStudySemester["notPlanStatus"];
-                                                        $resignPlan[] = (int) $countStudySemester["resign"];
+                                                        $plans[] = $countStudySemester["planStatus"]*100/$sum;
+                                                        $notPlan[] =  $countStudySemester["notPlanStatus"]*100/$sum;
+                                                        $resignPlan[] =  $countStudySemester["resign"]*100/$sum;
 
 
                                                         ?>
@@ -709,34 +710,24 @@ $semester = getSemesterPresent();
                                 <h6 class="m-0 font-weight-bold text-primary">สถานภาพนิสิต ณ ปัจจุบัน</h6>
                             </div>
                             <?php
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y = substr($thaiDay - 4, -2);
-                            $yNow = substr($thaiDay, -2);
+                           
                             $nowgen = [];
                             $BNG = [];
                             $GNG = [];
                             $ONG = [];
                             $RNG = [];
                             $studyGeneretionGPAXs = getGPAXStatusGerenetionByTeacherId($teacher["teacherId"]);
-                            for ($y; $y < $yNow; $y++) {
+                            
                                 foreach ($studyGeneretionGPAXs as $grade) {
-                                    if ((int) $range["studyGeneretion"] == $y) {
+                                        $sum=$grade["blue"]+$grade["green"]+$grade["orange"]+$grade["red"];
                                         $nowgen[] = "รุ่น " . (string) $grade["studyGeneretion"];
-                                        $BNG[] = (int) $grade["blue"];
-                                        $GNG[] = (int) $grade["green"];
-                                        $ONG[] = (int) $grade["orange"];
-                                        $RNG[] = (int) $grade["red"];
-                                    } else {
-                                        $nowgen[] = "รุ่น " . (string) $y;
-                                        $BNG[] = "0";
-                                        $GNG[] = "0";
-                                        $ONG[] = "0";
-                                        $RNG[] = "0";
-                                    }
+                                        $BNG[] = $grade["blue"]*100/$sum;
+                                        $GNG[] = $grade["green"]*100/$sum;
+                                        $ONG[] = $grade["orange"]*100/$sum;
+                                        $RNG[] = $grade["red"]*100/$sum;
+                                   
                                 }
-                            }
+                            
 
 
                             ?>
@@ -759,11 +750,12 @@ $semester = getSemesterPresent();
                             $REG = [];
                             $studyGraduateGeneretionGPAXs = getGPAXStatusGerenetionGraduateByTeacherId($teacher["teacherId"]);
                             foreach ($studyGraduateGeneretionGPAXs as $gradeEnd) {
+                                $sum=$gradeEnd["blue"]+$gradeEnd["green"]+$gradeEnd["orange"]+$gradeEnd["red"];
                                 $endgen[] = "รุ่น " . (string) $gradeEnd["studyGeneretion"];
-                                $BEG[] = (int) $gradeEnd["blue"];
-                                $GEG[] = (int) $gradeEnd["green"];
-                                $OEG[] = (int) $gradeEnd["orange"];
-                                $REG[] = (int) $gradeEnd["red"];
+                                $BEG[] = $gradeEnd["blue"]*100/$sum;
+                                $GEG[] = $gradeEnd["green"]*100/$sum;
+                                $OEG[] = $gradeEnd["orange"]*100/$sum;
+                                $REG[] = $gradeEnd["red"]*100/$sum;
                             }
                             ?>
                             <div class="card-body">

@@ -504,11 +504,7 @@
                             <?php
 
                             $countStudentStudyingRangeGradeSortByGeneretions = getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAndStudyYearAndStatus($courseName, $semesterYear, "กำลังศึกษา");
-                            $day = date("Y");
-                            $thaiDay = 543 + $day;
-                            //echo substr($thaiDay-4, -2);
-                            $y=substr($thaiDay-4, -2);
-                            $yNow=substr($thaiDay, -2);
+                           
                             $nowgen=[];
                             $BNG=[];
                             $GNG=[];
@@ -516,20 +512,13 @@
                             $RNG=[];
                             //for($y; $y<$yNow; $y++){
                                 foreach($countStudentStudyingRangeGradeSortByGeneretions as $grade){
-                                    if((int)$range["studyGeneretion"] == $y){
+                                   $sum=$grade["blue"]+$grade["green"]+$grade["orange"]+$grade["red"];
                                         $nowgen[] = "รุ่น ".(string)$grade["studyGeneretion"];
-                                        $BNG[] = (int)$grade["blue"];
-                                        $GNG[] = (int)$grade["green"];
-                                        $ONG[] = (int)$grade["orange"];
-                                        $RNG[] = (int)$grade["red"];
-                                    }
-                                    else{
-                                        $nowgen[]="รุ่น ".(string)$y;
-                                        $BNG[]="0";
-                                        $GNG[]="0";
-                                        $ONG[]="0";
-                                        $RNG[]="0";
-                                    }
+                                        $BNG[] = $grade["blue"]*100/$sum;
+                                        $GNG[] = $grade["green"]*100/$sum;
+                                        $ONG[] = $grade["orange"]*100/$sum;
+                                        $RNG[] = $grade["red"]*100/$sum;
+                                    
                                 }
                             //}
                             ?>
@@ -552,11 +541,12 @@
                             $OEG=[];
                             $REG=[];
                             foreach($countStudentGraduateRangeGradeSortByGeneretions as $gradeEnd){
+                                $sum=$gradeEnd["blue"]+$gradeEnd["green"]+$gradeEnd["orange"]+$gradeEnd["red"];
                                 $endgen[] = "รุ่น ".(string)$gradeEnd["studyGeneretion"];
-                                $BEG[] = (int)$gradeEnd["blue"];
-                                $GEG[] = (int)$gradeEnd["green"];
-                                $OEG[] = (int)$gradeEnd["orange"];
-                                $REG[] = (int)$gradeEnd["red"];
+                                $BEG[] = $gradeEnd["blue"]*100/$sum;
+                                $GEG[] = $gradeEnd["green"]*100/$sum;
+                                $OEG[] = $gradeEnd["orange"]*100/$sum;
+                                $REG[] = $gradeEnd["red"]*100/$sum;
                             }
                             ?>
                             <div class="card-body">
@@ -587,9 +577,10 @@
                                     $studyGeneretion[] = "รุ่น ".(string)$statusGeneretions["studyGeneretion"];
                                 
                                 }
-                                $firstEntry[] = (int)$statusGeneretions["firstEntry"];
-                                $study[] = (int)$statusGeneretions["study"];
-                                $grad[] = (int)$statusGeneretions["grad"];
+                                
+                                $firstEntry[] = $statusGeneretions["firstEntry"];
+                                $study[] = $statusGeneretions["study"];
+                                $grad[] = $statusGeneretions["grad"];
                             }
                             ?>
                             <div class="card-body ">
@@ -659,7 +650,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามหลักสูตร (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">อัตราส่วนนิสิตแยกตามหลักสูตร (คน)</h6>
                             </div>
                             <?php
                                 $countPlanStatusSortBySemesterYears = getCountStudentPlanStatusSortBySemesterYearByCourseNameAndSemesterYear($courseName, $semesterYear);
@@ -669,10 +660,11 @@
                                 $notPlanLearncos=[];
                                 $retireLearncos=[];
                                 foreach($countPlanStatusSortBySemesterYears as $planStatus){
+                                    $sum=$planStatus["plan"]+$planStatus["notPlan"]+$planStatus["retire"];
                                     $semesterLearncos[] = (string)$planStatus["semesterYear"];
-                                    $planLearncos[] = (int)$planStatus["plan"];
-                                    $notPlanLearncos[] = (int)$planStatus["notPlan"];
-                                    $retireLearncos[] = (int)$planStatus["retire"];
+                                    $planLearncos[] = $planStatus["plan"]*100/$sum;
+                                    $notPlanLearncos[] = $planStatus["notPlan"]*100/$sum;
+                                    $retireLearncos[] = $planStatus["retire"]*100/$sum;
                                 }
                             ?>
                             <div class="card-body ">
@@ -742,7 +734,7 @@
                     <div class="col-sm-12">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">จำนวนนิสิตแยกตามรุ่น (คน)</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">อัตราส่วนนิสิตแยกตามรุ่น (คน)</h6>
                             </div>
                             <?php
                                 $countPlanStatusSortByGeneretions = getCountStudentPlanStatusSortByStudyGeneretionByCourseNameAndSemesterYear($courseName, $semesterYear);
@@ -752,10 +744,11 @@
                                 $notPlanGen=[];
                                 $retireGen=[];
                                 foreach($countPlanStatusSortByGeneretions as $planStatusGen){
+                                    $sum=$planStatusGen["plan"]+$planStatusGen["notPlan"]+$planStatusGen["retire"];
                                     $semesterGen[] = "รุ่น ".(string)$planStatusGen["studyGeneretion"];
-                                    $planGen[] = (int)$planStatusGen["plan"];
-                                    $notPlanGen[] = (int)$planStatusGen["notPlan"];
-                                    $retireGen[] = (int)$planStatusGen["retire"];
+                                    $planGen[] = $planStatusGen["plan"]*100/$sum;
+                                    $notPlanGen[] = $planStatusGen["notPlan"]*100/$sum;
+                                    $retireGen[] = $planStatusGen["retire"]*100/$sum;
                                 }
                                                     
                             ?>
