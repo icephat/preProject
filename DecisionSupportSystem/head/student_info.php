@@ -831,13 +831,13 @@ $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
                                                         <?php echo $over["semesterPart"] ?>
                                                     </td>
                                                     <td style=" text-align: center;">
-                                                        <?php echo $over["subjectGroup"] ?>
+                                                        <?php echo $over["groupName"] ?>
                                                     </td>
                                                     <td style=" text-align: center;">
                                                         <?php echo $over["subjectCode"] ?>
                                                     </td>
                                                     <td style=" text-align: left;">
-                                                        <?php echo $over["nameSubjectThai"] ?>
+                                                        <?php echo $over["subjectNameTh"] ?>
                                                     </td>
                                                     <td style=" text-align: center;">
                                                         <?php echo $over["credit"] ?>

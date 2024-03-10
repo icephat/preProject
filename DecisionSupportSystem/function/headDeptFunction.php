@@ -199,9 +199,11 @@ function getCountStudentGradeRangeSortByGeneretionByCourseNameAndSemesterYearAnd
 
     $studentGeneretionGradeRanges = [];
 
-    $sql = "SELECT studyGeneretion, COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId
-    WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear AND studyYear = $studyYear GROUP BY studentId)
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN GPA <= 4.00 AND GPA >=3.25 THEN studentId END) AS blue,COUNT(CASE WHEN GPA <= 3.249 AND GPA >=2.00 THEN studentId END) AS green,COUNT(CASE WHEN GPA <= 1.99 AND GPA >=1.75 THEN studentId END) AS orange,COUNT(CASE WHEN GPA <= 1.749 AND GPA >=0.00 THEN studentId END) AS red
+    FROM (SELECT studentId,studyGeneretion,ROUND(SUM(gradeNumber*creditRegis)/SUM(creditRegis),2) AS GPA
+    FROM fact_regis NATURAL JOIN fact_student NATURAL JOIN course
+    WHERE studyYearInRegis = $studyYear AND studyTermInRegis != 3 AND nameCourseUse = '$courseName' AND semesterYearInRegis <= $semesterYear
+    GROUP BY studentId) AS A
     GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
@@ -1043,12 +1045,12 @@ function getCountStudentGradeRangeSortByGeneretionByDepartmentIdAndSemesterYearA
 
     $studentGeneretionGradeRanges = [];
 
-    $sql = "SELECT studyGeneretion, COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
-    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
-    WHERE departmentId = $departmentId AND semesterYear <= $semesterYear AND studyYear = $studyYear GROUP BY studentId)
-    GROUP BY studyGeneretion
-    ORDER BY studyGeneretion";
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN GPA <= 4.00 AND GPA >=3.25 THEN studentId END) AS blue,COUNT(CASE WHEN GPA <= 3.249 AND GPA >=2.00 THEN studentId END) AS green,COUNT(CASE WHEN GPA <= 1.99 AND GPA >=1.75 THEN studentId END) AS orange,COUNT(CASE WHEN GPA <= 1.749 AND GPA >=0.00 THEN studentId END) AS red
+    FROM (SELECT studentId,studyGeneretion,ROUND(SUM(gradeNumber*creditRegis)/SUM(creditRegis),2) AS GPA
+    FROM fact_regis NATURAL JOIN fact_student
+    WHERE studyYearInRegis = $studyYear AND studyTermInRegis != 3 AND departmentId = $departmentId AND semesterYearInRegis <= $semesterYear
+    GROUP BY studentId) AS A
+    GROUP BY studyGeneretion;";
 
     $result = $conn->query($sql);
 

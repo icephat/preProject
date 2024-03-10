@@ -950,13 +950,13 @@ function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $courseId, $year
 
 
 
-    $sql = "SELECT courseListId,studyYear,term,subjectCode,groupName,credit
+    $sql = "SELECT courseListId,studyYear,term,subjectCode,groupName,credit,subjectNameTh
     FROM courselist NATURAL JOIN coursegroup
     WHERE courseId = $courseId AND studyYear <= $yearX AND term <= $termX AND (groupName = 'วิชาเฉพาะด้าน' OR groupName = 'วิชาแกน' OR groupName = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
     FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup 
     WHERE studentId = '$studentId')
     UNION
-    SELECT courseListId,studyYear,term,subjectCode,groupName,credit
+    SELECT courseListId,studyYear,term,subjectCode,groupName,credit,subjectNameTh
     FROM courselist NATURAL JOIN coursegroup
     WHERE courseId = $courseId AND studyYear = $year AND term = $part  AND (groupName = 'วิชาเฉพาะด้าน' OR groupName = 'วิชาแกน' OR groupName = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
     FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup 
@@ -984,7 +984,7 @@ function getSubjectNotLearnInCoureseListSecondTerm($studentId,$courseId, $year, 
 
 
 
-    $sql = "SELECT courseListId,studyYear,term,subjectCode,groupName,credit
+    $sql = "SELECT courseListId,studyYear,term,subjectCode,groupName,credit,subjectNameTh,subjectNameTh
     FROM courselist NATURAL JOIN coursegroup
     WHERE courseId = $courseId AND studyYear <= $year AND term <= $part AND (groupName = 'วิชาเฉพาะด้าน' OR groupName = 'วิชาแกน' OR groupName = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
     FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup 

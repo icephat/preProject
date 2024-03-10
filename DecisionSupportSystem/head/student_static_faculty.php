@@ -132,13 +132,13 @@
 
                     ?>
                     <h5>หลักสูตร
-                        <?php echo $course["nameCourseUse"] . " ทั้งหมด " . $countStudentInCourse["studentCount"] . " คน " . count($generetions) . " รุ่น ( รุ่นที่ " ?>
+                        <?php echo $course["nameCourseUse"] ?> ณ ปี <?php echo $semester["semesterYear"] ?>
                         <?php
                         foreach ($generetions as $generetion) {
                             echo $generetion["studyGeneretion"];
                         }
                         ?>
-                        )
+                        
                     </h5>
                 </div>
                 <div class="row">
