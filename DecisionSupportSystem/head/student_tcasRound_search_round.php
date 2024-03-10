@@ -68,7 +68,7 @@
                 <?php include('../layout/head/report.php'); ?>
 
                 <div>
-                    <form class="form-valide" action="../controller/headSearchDepartmentTcas.php" method="post" enctype="multipart/form-data">
+                    <form class="form-valide" action="../controller/headSearchDepartmentTcasRound.php" method="post" enctype="multipart/form-data">
                         <div class="row mx-auto">
                             <div class="column col-sm-4">
 
@@ -399,7 +399,13 @@
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["study"] ?> คน</td>
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["retire"] ?> คน</td>
                                                         <?php if((string)$percentageRetireGeneretion["tcasRound"] !=null){?>
-                                                            <td style=" text-align: center;"><?php echo ((int)$percentageRetireGeneretion["retire"]/(int)$percentageRetireGeneretion["study"])*100 ?></td>
+                                                            <td style=" text-align: center;"><?php  
+                                                            if((int)$percentageRetireGeneretion["study"]>2){
+                                                                echo ((int)$percentageRetireGeneretion["retire"]/(int)$percentageRetireGeneretion["study"])*100;
+                                                            }     
+                                                            else
+                                                                echo (int)$percentageRetireGeneretion["retire"]/1*100;
+                                                             ?></td>
                                                         <?php }else{?>
                                                             <td style=" text-align: center;"></td>
                                                         <?php }?>
