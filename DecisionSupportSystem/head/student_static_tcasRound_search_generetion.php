@@ -162,9 +162,11 @@
                                                     <?php
                                                     $studyGeneretion=[];
                                                     $TCAS1=[];
-                                                    
+                                                    $TCAS2=[];
+                                                    $TCAS3=[];
+                                                    $TCAS4=[];
                                                     $sumTcas1 = 0;
-                                                    
+                                                    $label=$generetion;
 
                                                     foreach ($countStudentSortByGeneretions as $countStudentSortByGeneretion) {
                                                         $studyGeneretion[]="รอบ ".(string)$countStudentSortByGeneretion["tcasRound"];
@@ -196,6 +198,7 @@
                                                     </tr>
 
                                                 </tbody>
+                                                
                                             </table>
                                         </div>
                                     </div>
@@ -457,9 +460,7 @@
                     var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
                     
                     var tcas1 = <?php echo json_encode($TCAS1); ?>;
-                    var tcas2 = <?php echo json_encode($TCAS2); ?>;
-                    var tcas3 = <?php echo json_encode($TCAS3); ?>;
-                    var tcas4 = <?php echo json_encode($TCAS4); ?>;  
+                    var label = <?php echo json_encode($label); ?>;
 
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
@@ -469,7 +470,7 @@
                         data: {
                             labels: studyGeneretions,
                             datasets: [{
-                                label: 'รุ่น 63',
+                                label: 'รุ่น '+label,
                                 data: tcas1,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
@@ -483,7 +484,6 @@
                                 borderWidth: 0
                             },
                             
-
 
                             ]
 

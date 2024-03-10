@@ -158,7 +158,7 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รอบ</th>
-                                                        <th style="text-align: center; "><span>รุ่น 63</span>
+                                                        <th style="text-align: center; "><span>รุ่น <?php echo $generetion ?></span>
                                                         </th>
                                                         
                                                     </tr>
@@ -167,13 +167,13 @@
                                                     <?php
                                                     $studyGeneretion = [];
                                                     $TCAS1 = [];
-                                                    
+                                                    $label=$generetion;
                                                     $sumTcas1 = 0;
                                                     
 
                                                     foreach ($countStudentSortByGeneretions as $countStudentSortByGeneretion) {
                                                         $studyGeneretion[] = "รอบ " . (string) $countStudentSortByGeneretion["tcasRound"];
-                                                        
+                                                        $TCAS1[]=$countStudentSortByGeneretion["generetion1"];
                                                         $sumTcas1 += $countStudentSortByGeneretion["generetion1"];
                                                        
                                                         ?>
@@ -458,9 +458,8 @@
                     var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
                     
                     var tcas1 = <?php echo json_encode($TCAS1); ?>;
-                    var tcas2 = <?php echo json_encode($TCAS2); ?>;
-                    var tcas3 = <?php echo json_encode($TCAS3); ?>;
-                    var tcas4 = <?php echo json_encode($TCAS4); ?>;  
+                    var label = <?php echo $label ?>
+                    
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
@@ -469,7 +468,7 @@
                         data: {
                             labels: studyGeneretions,
                             datasets: [{
-                                label: 'รุ่น 63',
+                                label: "รุ่น "+label,
                                 data: tcas1,
                                 backgroundColor: '#bfd575',
                                 borderColor: [

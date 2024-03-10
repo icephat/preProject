@@ -160,8 +160,9 @@
                                                         <th style=" text-align: center; ">รอบ</th>
                                                         <?php
                                                         $semesterYear= getSemesterPresent()["semesterYear"];
+                                                        $labels=[];
                                                         for($i=$semesterYear-4-2500;$i<$semesterYear+1-2500;$i++){
-
+                                                            $labels[]="รุ่น ".$i;
                                                         
                                                         ?>
                                                         <th style="text-align: center; "><span><?php echo $i ?></span>
@@ -177,10 +178,11 @@
                                                 <tbody>
                                                     <?php
                                                     $studyGeneretion = [];
-                                                    $TCAS1 = [];
-                                                    $TCAS2 = [];
-                                                    $TCAS3 = [];
-                                                    $TCAS4 = [];
+                                                    $TCAS1=[];
+                                                    $TCAS2=[];
+                                                    $TCAS3=[];
+                                                    $TCAS4=[];
+                                                    $TCAS5=[];
                                                     $sumTcas1 = 0;
                                                     $sumTcas2 = 0;
                                                     $sumTcas3 = 0;
@@ -502,10 +504,15 @@
                 <script>
                     var studyGeneretions = <?php echo json_encode($studyGeneretion); ?>;
                     
-                    var tcas1 = <?php echo json_encode($TCAS1); ?>;
-                    var tcas2 = <?php echo json_encode($TCAS2); ?>;
-                    var tcas3 = <?php echo json_encode($TCAS3); ?>;
-                    var tcas4 = <?php echo json_encode($TCAS4); ?>;  
+                    var gen1 = <?php echo json_encode($TCAS1); ?>;
+                    var gen2 = <?php echo json_encode($TCAS2); ?>;
+                    var gen3 = <?php echo json_encode($TCAS3); ?>;
+                    var gen4 = <?php echo json_encode($TCAS4); ?>; 
+                    var gen5 = <?php echo json_encode($TCAS5); ?>;  
+
+                    var labels = <?php echo json_encode($labels); ?>;
+                  
+
                     var ctx = document.getElementById("myChart");
                     var myChart = new Chart(ctx, {
                         //type: 'bar',
@@ -514,8 +521,8 @@
                         data: {
                             labels: studyGeneretions,
                             datasets: [{
-                                label: 'รุ่น 63',
-                                data: tcas1,
+                                label: labels[0],
+                                data: gen1,
                                 backgroundColor: '#bfd575',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -528,8 +535,8 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'รุ่น 64',
-                                data: tcas2,
+                                label: labels[1],
+                                data: gen2,
                                 backgroundColor: '#a4ebf3',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -542,8 +549,8 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'รุ่น 65',
-                                data: tcas3,
+                                label: labels[2],
+                                data: gen3,
                                 backgroundColor: '#abbdee',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -556,8 +563,8 @@
                                 borderWidth: 0
                             },
                             {
-                                label: 'รุ่น 66',
-                                data: tcas4,
+                                label: labels[3],
+                                data: gen4,
                                 backgroundColor: '#f8c769',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
@@ -569,7 +576,20 @@
                                 ],
                                 borderWidth: 0
                             },
-
+                            {
+                                label: labels[4],
+                                data: gen5,
+                                backgroundColor: '#ffa778',
+                                borderColor: [
+                                    'rgba(150,186,169, 1)', //1
+                                    'rgba(108,158,134, 1)',
+                                    'rgba(66,130,100, 1)',
+                                    'rgba(45,117,83, 1)',
+                                    'rgba(27,70,49, 1)', //5
+                                    'rgba(0, 51, 18, 1)'
+                                ],
+                                borderWidth: 0
+                            },
 
                             ]
 
