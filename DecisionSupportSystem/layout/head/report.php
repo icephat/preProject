@@ -44,7 +44,7 @@ style="height: max-content;">
 
     <!-- Earnings (Monthly) Card Example -->
 
-    <a href="./home.php" class="col-xl-3 col-md-6 mb-4 " style="text-decoration: none;">
+    <a href="./home.php" class="col-xl-2 col-md-6 mb-4 mx-auto" style="text-decoration: none;">
         <div class="t1 card border-left-primary shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -62,7 +62,7 @@ style="height: max-content;">
     </a>
 
     <!-- Earnings (Monthly) Card Example -->
-    <a href="./select.php" class="col-xl-3 col-md-6 mb-4" style="text-decoration: none;">
+    <a href="./select.php" class="col-xl-2 col-md-6 mb-4 mx-auto" style="text-decoration: none;">
         <div class="t1 card border-left-info shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -80,7 +80,7 @@ style="height: max-content;">
     </a>
 
     <!-- Earnings (Monthly) Card Example -->
-    <!--<a href="./report.php" class="col-xl-3 col-md-6 mb-4">
+    <!--<a href="./report.php" class="col-xl-2 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -103,14 +103,47 @@ style="height: max-content;">
             </div>
         </div>
     </a>-->
-    <a href="./nisit.php" class="col-xl-3 col-md-6 mb-4" style="text-decoration: none;">
+    <a href="./nisit.php" class="col-xl-2 col-md-6 mb-4 mx-auto" style="text-decoration: none;">
         <div class="t1 card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             LIST OF STUDENTS</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิต</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิตในที่ปรึกษา</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <a href="./nisitDep.php" class="col-xl-2 col-md-6 mb-4 mx-auto" style="text-decoration: none;">
+        <div class="t1 card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            LIST OF STUDENTS</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิตภาควิชา</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="./nisitFaculty.php" class="col-xl-2 col-md-6 mb-4 mx-auto" style="text-decoration: none;">
+        <div class="t1 card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-danger  text-uppercase mb-1" >
+                            LIST OF STUDENTS</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิตในคณะ</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-user fa-2x text-gray-300"></i>

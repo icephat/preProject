@@ -55,7 +55,7 @@ style="height: max-content;">
                         <div class="h5 mb-0 font-weight-bold text-gray-800">อาจารย์ที่ปรึกษา</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-home fa-2x text-primary"></i>
+                        <i class="fas fa-home fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@ style="height: max-content;">
                         <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิตภาควิชา</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                        <i class="fas fa-user fa-2x text-warning"></i>
                     </div>
                 </div>
             </div>
