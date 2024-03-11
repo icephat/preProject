@@ -193,6 +193,7 @@
                                                             <th >ภาควิชา</th>
                                                             <th style="text-align: center; "><span>รอบที่ <?php echo $round ?></span>
                                                             </th>
+                                                        
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -208,7 +209,7 @@
 
                                                             $studyGeneretion[]=$countStudentSortByDepartment["departmentInitials"] ;
                                                             $TCAS1[]=(int)$countStudentSortByDepartment["TCAS1"];
-                                                        
+                                                            
                                                         ?>
                                                         <tr>
                                                             <td><?php echo $countStudentSortByDepartment["departmentInitials"] ?></td>

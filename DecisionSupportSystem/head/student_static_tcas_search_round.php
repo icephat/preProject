@@ -289,9 +289,9 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รุ่นการศึกษา</th>
-                                                        <th style="text-align: center; "><span>รับเข้า</span>
+                                                        <th style="text-align: center; "><span>จำนวนรับเข้า</span>
                                                         </th>
-                                                        <th style="text-align: center;"><span>คงอยู่</span></th>
+                                                        <th style="text-align: center;"><span>จำนวนคงอยู่</span></th>
                                                         <th style="text-align: center;">ร้อยละ</th>
 
                                                     </tr>
@@ -359,8 +359,8 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รุ่นการศึกษา</th>
-                                                        <th style="text-align: center; "><span>รับเข้า</span></th>
-                                                        <th style="text-align: center;"><span>พ้นสภาพ</span></th>
+                                                        <th style="text-align: center; "><span>จำนวนคงเหลือ</span></th>
+                                                        <th style="text-align: center;"><span>จำนวนพ้นสภาพ</span></th>
                                                         <th style="text-align: center;">ร้อยละ</th>
                                                         
                                                     </tr>

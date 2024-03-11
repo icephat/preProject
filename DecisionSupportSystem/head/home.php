@@ -7,6 +7,9 @@
             background-color: #ececec;
             transition: all 0.5s linear;
         }
+        .border-left-green {
+            border-left-color: #99cc99; 
+        }
     </style>
 
     <meta charset="utf-8">

@@ -203,6 +203,7 @@
                                                             <th style="text-align: center;"><span>รอบที่ 2</span></th>
                                                             <th style="text-align: center;">รอบที่ 3</th>
                                                             <th style="text-align: center;">รอบที่ 4</th>
+                                                            <th style="text-align: center;">รวม</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -230,6 +231,8 @@
                                                             $TCAS2[]=(int)$countStudentSortByDepartment["TCAS2"];
                                                             $TCAS3[]=(int)$countStudentSortByDepartment["TCAS3"];
                                                             $TCAS4[]=(int)$countStudentSortByDepartment["TCAS4"];
+                                                            $sum=$countStudentSortByDepartment["TCAS1"]+$countStudentSortByDepartment["TCAS2"]+
+                                                                $countStudentSortByDepartment["TCAS3"]+$countStudentSortByDepartment["TCAS4"];
                                                         
                                                         ?>
                                                         <tr>
@@ -242,6 +245,7 @@
                                                             </td>
                                                             <td style=" text-align: center;"><?php echo $countStudentSortByDepartment["TCAS3"] ?> คน</td>
                                                             <td style=" text-align: center;"><?php echo $countStudentSortByDepartment["TCAS4"] ?> คน</td>
+                                                            <td style="font-weight: bold; text-align: center;"><?php echo $sum ?> คน</td>
                                                         </tr>
                                                         <?php
                                                         }
@@ -255,6 +259,7 @@
                                                             <td style='font-weight: bold; text-align: center;'><?php echo $sumTcas2?> คน</td>
                                                             <td style='font-weight: bold; text-align: center;'><?php echo $sumTcas3?> คน</td>
                                                             <td style='font-weight: bold; text-align: center;'><?php echo $sumTcas4?> คน</td>
+                                                            <td style='font-weight: bold; text-align: center;'></td>
                                                         </tr>
 
                                                     </tbody>

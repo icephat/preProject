@@ -167,9 +167,12 @@
                                                         ?>
                                                         <th style="text-align: center; "><span><?php echo $i ?></span>
                                                         </th>
+                                                        
                                                         <?php
                                                         }
                                                         ?>
+                                                        <th style="text-align: center; "><span>รวม</span>
+                                                        </th>
                                                         <!-- <th style="text-align: center;"><span>รุ่น 64</span></th>
                                                         <th style="text-align: center;">รุ่น 65</th>
                                                         <th style="text-align: center;">รุ่น 66</th> -->
@@ -201,6 +204,9 @@
                                                         $sumTcas3 += $countStudentSortByGeneretion["generetion3"];
                                                         $sumTcas4 += $countStudentSortByGeneretion["generetion4"];
                                                         $sumTcas5 += $countStudentSortByGeneretion["generetion5"];
+                                                        $sum=$countStudentSortByGeneretion["generetion1"]+$countStudentSortByGeneretion["generetion2"]+
+                                                            $countStudentSortByGeneretion["generetion3"]+$countStudentSortByGeneretion["generetion4"]+
+                                                            $countStudentSortByGeneretion["generetion5"];
                                                         ?>
                                                         <tr>
                                                             <td style=" text-align: center;">
@@ -220,6 +226,9 @@
                                                             </td>
                                                             <td style=" text-align: center;">
                                                                 <?php echo $countStudentSortByGeneretion["generetion5"] ?> คน
+                                                            </td>
+                                                            <td style="font-weight: bold; text-align: center;">
+                                                                <?php echo $sum ?> คน
                                                             </td>
                                                         </tr>
 
@@ -243,6 +252,7 @@
                                                         <td style='font-weight: bold; text-align: center;'>
                                                             <?php echo $sumTcas5 ?> คน
                                                         </td>
+                                                        <td style='font-weight: bold; text-align: center;'></td>
                                                     </tr>
 
                                                 </tbody>

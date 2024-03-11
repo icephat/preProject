@@ -295,9 +295,9 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รอบ</th>
-                                                        <th style="text-align: center; "><span>รับเข้า</span>
+                                                        <th style="text-align: center; "><span>จำนวรับเข้า</span>
                                                         </th>
-                                                        <th style="text-align: center;"><span>คงอยู่</span></th>
+                                                        <th style="text-align: center;"><span>จำนวคงอยู่</span></th>
                                                         <th style="text-align: center;">ร้อยละ</th>
 
                                                     </tr>
@@ -364,8 +364,8 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: center; ">รอบ</th>
-                                                        <th style="text-align: center; "><span>รับเข้า</span></th>
-                                                        <th style="text-align: center;"><span>พ้นสภาพ</span></th>
+                                                        <th style="text-align: center; "><span>จำนวนคงเหลือ</span></th>
+                                                        <th style="text-align: center;"><span>จำนวพ้นสภาพ</span></th>
                                                         <th style="text-align: center;">ร้อยละ</th>
                                                         
                                                     </tr>

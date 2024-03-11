@@ -161,6 +161,7 @@
                                                         <th style="text-align: center; "><span>รุ่น <?php echo $generetion ?></span>
                                                         </th>
                                                         
+                                                        
                                                     </tr>
                                                 </thead>
                                                 <tbody>

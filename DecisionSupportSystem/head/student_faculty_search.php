@@ -1642,6 +1642,7 @@
                                     stacked: true,
                                 },
                                 y: {
+                                    max:100,
                                     stacked: true
                                 }
                             }
@@ -1753,6 +1754,7 @@
                                     stacked: true,
                                 },
                                 y: {
+                                    max:100,
                                     stacked: true
                                 }
                             }
