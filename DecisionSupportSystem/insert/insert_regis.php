@@ -379,33 +379,35 @@ foreach ($studentIds as $sId) {
     }
 
 
-    //echo $term . "<br>";
+    //echo $term . " $studyYear<br>";
     if ($term == 1 and $studyYear > 1) {
         //echo 'เข้าอันนี้<br>';
         //$courseCredits = getSubjectGroupCreditTermOneCourseByCourseIdAndStudyYearAndPart($courseId, $studyYearX, $termX);
         $planCheckSQL = "SELECT subjectCode
-        FROM courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
-        WHERE studyYear <= $studyYearX-1 AND term <= $termX+1 AND factCheck = 0 AND subjectCode NOT IN (SELECT subjectCode
-        FROM fact_regis NATURAL JOIN courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
+        FROM course NATURAL JOIN courselist NATURAL JOIN coursegroup
+        WHERE courseId = $courseId AND studyYear <= $studyYearX-1 AND term <= $termX+1 AND factCheck = 0 AND subjectCode NOT IN (SELECT subjectCode
+        FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
         WHERE studentId = '$sId' AND gradeCharacter != 'W' AND gradeCharacter != 'P' AND gradeCharacter != 'NP' AND gradeCharacter != 'F') 
         UNION
         SELECT subjectCode
-        FROM courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
-        WHERE studyYear = $studyYearX AND term = $termX AND factCheck = 0 AND subjectCode NOT IN (SELECT subjectCode
-        FROM fact_regis NATURAL JOIN courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
+        FROM course NATURAL JOIN courselist NATURAL JOIN coursegroup
+        WHERE courseId = $courseId AND studyYear = $studyYearX AND term = $termX AND factCheck = 0 AND subjectCode NOT IN (SELECT subjectCode
+        FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
         WHERE studentId = '$sId' AND gradeCharacter != 'W' AND gradeCharacter != 'P' AND gradeCharacter != 'NP' AND gradeCharacter != 'F') 
         ";
     } else {
         //$courseCredits = getSubjectGroupCreditCourseByNameCourseAndPlanAndStudyYearAndPart($course["nameCourseUse"], $course["planCourse"], $studyYearX, $termX);
 
         $planCheckSQL = "SELECT subjectCode
-        FROM courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
-        WHERE studyYear <= $studyYearX AND term <= $termX AND factCheck = 0 AND subjectCode NOT IN (SELECT subjectCode
-        FROM fact_regis NATURAL JOIN courselist INNER JOIN coursegroup ON courselist.courseGroupId = coursegroup.courseGroupId
+        FROM course NATURAL JOIN courselist NATURAL JOIN coursegroup
+        WHERE courseId = $courseId AND studyYear <= $studyYearX AND term <= $termX AND factCheck = 0 AND subjectCode NOT IN (SELECT subjectCode
+        FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup
         WHERE studentId = '$sId' AND gradeCharacter != 'W' AND gradeCharacter != 'P' AND gradeCharacter != 'NP' AND gradeCharacter != 'F');";
 
 
+
     }
+    //echo $planCheckSQL."<br>";
 
     $result = $conn->query($planCheckSQL);
 
@@ -415,6 +417,8 @@ foreach ($studentIds as $sId) {
         $coursePlans[] = $my_row;
     }
 
+    //echo print_r($coursePlans);
+
     if (count($coursePlans) == 0) {
         $courseChecks = "ตามแผน";
     } else {
@@ -423,7 +427,7 @@ foreach ($studentIds as $sId) {
 
     if ($sumCreditPass >= $course["totalCredit"] and $studyYear == 4 and $term == 2) {
         $courseChecks = "จบการศึกษา";
-        echo $courseChecks."<br>";
+        //echo $courseChecks."<br>";
         $studentStatusId = 2;
     }else if($sumCreditPass >= $course["totalCredit"] and $studyYear > 4) {
         $courseChecks = "จบการศึกษา";

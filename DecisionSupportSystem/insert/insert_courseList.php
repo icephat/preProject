@@ -2,7 +2,7 @@
 
 
 // Open uploaded CSV file with read-only mode
-$csvFile = fopen("D:\CPEKU\Project66\course\cpe\course_cpe_60_int.csv", 'r');
+$csvFile = fopen("D:\CPEKU\Project66\course\cpe\course_cpe_65_not_int.csv", 'r');
 
 // Skip the first line
 fgetcsv($csvFile);
@@ -31,6 +31,7 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $courseSQL = "SELECT courseId
     FROM course
     WHERE nameCourseUse = '$courseName' AND planCourse = '$coursePlan'";
+    //echo $courseSQL."<br>";
     $result = $conn->query($courseSQL); //mysqli_query($conn, $querySemester);
     $course = $result->fetch_assoc();
     $courseId = $course["courseId"];
