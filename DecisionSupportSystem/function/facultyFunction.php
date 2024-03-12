@@ -648,7 +648,7 @@ function getCountStudentTcasSortByDepartmentBySemesterYearAndGeneretionAndRound(
 
     $countStudentSortByDepartments = [];
 
-    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasRound = 1 THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasRound = 2 THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasRound = 3 THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasRound = 4 THEN studentId END) AS TCAS4
+    $sql = "SELECT departmentName,departmentInitials,COUNT(CASE WHEN tcasRound = $round THEN studentId END) AS TCAS1,COUNT(CASE WHEN tcasRound = 2 THEN studentId END) AS TCAS2,COUNT(CASE WHEN tcasRound = 3 THEN studentId END) AS TCAS3,COUNT(CASE WHEN tcasRound = 4 THEN studentId END) AS TCAS4
     FROM department NATURAL JOIN fact_student NATURAL JOIN tcas
     WHERE tcasYear <= $semesterYear AND studyGeneretion = $generetion AND tcasRound = $round
     GROUP BY departmentId;";
