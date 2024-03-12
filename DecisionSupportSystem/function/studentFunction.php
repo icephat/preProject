@@ -230,7 +230,7 @@ function getCredit($studentId)
 
     foreach ($regisAllList as $regis) {
         //echo print_r($regis)."<br>";
-        $sumCreditAll += $regis["credit"];
+        $sumCreditAll += $regis["creditRegis"];
 
 
     }
