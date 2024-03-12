@@ -74,7 +74,7 @@ $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                         <h4 style="color: green;">รายชื่อนิสิตในคณะวิศวกรรมศาสตร์ กำแพงแสน</h4>
                         <div class="card">
                             <div class="col-12 mx-auto">
-                                <form action="../controller/deanStudentSearch.php" method="POST">
+                                <form action="../controller/headStudentSearch.php" method="POST">
                                     <div class=" text-center">
                                     <br>
                                         <h5 style="margin-left: 20px;">โปรดระบุรหัสนิสิต</h3>
