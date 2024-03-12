@@ -55,7 +55,8 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $department = $resultDepartment->fetch_assoc();
     $departmentId = $department["departmentId"];
 
-    $courseId = 5;
+    $courseId = 6;
+    // $courseId = 6;
 
 
     $queryCheck = "SELECT studentId FROM student WHERE studentId = '" . $studentId . "'";

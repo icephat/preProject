@@ -94,6 +94,7 @@
                                                 <div class="text-center">
                                                     <select class="form-control" width="500px" data-live-search="true"
                                                         name="department" required>
+                                                        <option value="E06">ภาควิชาวิศวกรรมโยธา</option>
                                                         <option value="E29">ภาควิชาวิศวกรรมคอมพิวเตอร์</option>
                                                         <!-- <option value="2">ภาคปลาย</option>
                                                         <option value="3">ภาคฤดูร้อน</option> -->

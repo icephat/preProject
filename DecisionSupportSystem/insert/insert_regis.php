@@ -158,7 +158,7 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $sqlCourseListSQL = "SELECT courseListId,courseGroupId,credit FROM courselist WHERE courseId = $courseId AND subjectCode = '$subjectCode'";
     $resultTCourseList = $conn->query($sqlCourseListSQL);
     $courseList = $resultTCourseList->fetch_assoc();
-    //echo "หาเจอ<br>";
+    //echo "$sqlCourseListSQL<br>";
 
     if (!isset($courseList)) {
         //echo "เข้าพละ<br>";
@@ -175,8 +175,8 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
             $sqlCourseListSQL = "SELECT courseListId,courseGroupId,credit FROM courselist WHERE courseId = $courseId AND subjectCode = '$subjectNewCode'";
             $resultTCourseList = $conn->query($sqlCourseListSQL);
             $courseList = $resultTCourseList->fetch_assoc();
-            echo $sqlCourseListSQL."<br>";
-            echo "$studentId : ".$courseList["courseListId"]."<br>";
+            //echo $sqlCourseListSQL."<br>";
+            //echo "$studentId : ".$courseList["courseListId"]."<br>";
 
         }
 
@@ -425,11 +425,11 @@ foreach ($studentIds as $sId) {
         $courseChecks = "ไม่ตามแผน";
     }
 
-    if ($sumCreditPass >= $course["totalCredit"] and $studyYear == 4 and $term == 2) {
+    if ($sumCreditPass >= $course["totalCredit"] and $studyYear == 4 and $term == 2 and count($coursePlans) == 0) {
         $courseChecks = "จบการศึกษา";
         //echo $courseChecks."<br>";
         $studentStatusId = 2;
-    }else if($sumCreditPass >= $course["totalCredit"] and $studyYear > 4) {
+    }else if($sumCreditPass >= $course["totalCredit"] and $studyYear > 4 and count($coursePlans) == 0) {
         $courseChecks = "จบการศึกษา";
         $studentStatusId = 2;
     }

@@ -32,6 +32,10 @@ function getSemesterIdByYearAndPart($year,$part){
     $result = $conn->query($sql);
     $semester = $result->fetch_assoc();
 
+    if(!isset($semester)){
+        return null;
+    }
+
 
 
     require("connection_close.php");
