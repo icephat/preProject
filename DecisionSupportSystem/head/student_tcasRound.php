@@ -798,7 +798,7 @@
                             {
                                 label: 'จำนวนพ้นสภาพ',
                                 data: retire2,
-                                backgroundColor: '#a4ebf3',
+                                backgroundColor: 'rgba(245, 123, 57,0.7)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
