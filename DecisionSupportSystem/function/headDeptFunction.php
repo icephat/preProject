@@ -649,7 +649,7 @@ function getPercentageStudyAndRetireSortByGeneretionByCourseName($courseName)
 
     $percentageGeneretions = [];
 
-    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  INNER JOIN course ON fact_student.courseId = course.courseId
     WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' GROUP BY studentId)
     GROUP BY studyGeneretion;";
@@ -676,7 +676,7 @@ function getPercentageStudyAndRetireSortByTcasRoundByCourseName($courseName)
 
     $semesterYear = getSemesterPresent()["semesterYear"];
 
-    $sql = "SELECT tcasRound,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    $sql = "SELECT tcasRound,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  INNER JOIN course ON fact_student.courseId = course.courseId
     WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND studyGeneretion <= $semesterYear-2500 AND studyGeneretion >= $semesterYear - 2503 GROUP BY studentId)
 GROUP BY tcasRound
@@ -702,7 +702,7 @@ function getPercentageStudyAndRetireSortByTcasRoundByCourseNameAndGeneretion($co
 
     $percentageGeneretions = [];
 
-    $sql = "SELECT tcasRound,COUNT(CASE WHEN status = 'กำลังศึกษา' OR status = 'จบการศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    $sql = "SELECT tcasRound,COUNT(CASE WHEN status = 'กำลังศึกษา' OR status = 'จบการศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  INNER JOIN course ON fact_student.courseId = course.courseId
     WHERE nameCourseUse = '$courseName' AND studyGeneretion = $generetion AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND studyGeneretion = $generetion GROUP BY studentId)
 GROUP BY tcasRound
@@ -728,7 +728,7 @@ function getPercentageStudyAndRetireSortByGeneretionByCourseNameAndRound($course
 
     $percentageGeneretions = [];
 
-    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  INNER JOIN course ON fact_student.courseId = course.courseId
     WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN tcas  INNER JOIN course ON fact_student.courseId = course.courseId 
     WHERE nameCourseUse = '$courseName' AND tcasRound = $round
@@ -1511,7 +1511,7 @@ function getPercentageStudyAndRetireSortByGeneretionByDepartmentId($departmentId
 
     $percentageGeneretions = [];
 
-    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student   
     WHERE departmentId = $departmentId 
@@ -1540,7 +1540,7 @@ function getPercentageStudyAndRetireSortByRoundByDepartmentId($departmentId)
 
     $semesterYear = getSemesterPresent()["semesterYear"];
 
-    $sql = "SELECT tcasRound,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    $sql = "SELECT tcasRound,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student   
     WHERE departmentId = $departmentId  AND studyGeneretion <= $semesterYear-2500 AND studyGeneretion >= $semesterYear-2503
@@ -1568,7 +1568,7 @@ function getPercentageStudyAndRetireSortByRoundByDepartmentIdAndGeneretion($depa
 
     $percentageGeneretions = [];
 
-    $sql = "SELECT tcasRound,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    $sql = "SELECT tcasRound,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  
     WHERE departmentId = $departmentId AND studyGeneretion = $generetion AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student   
     WHERE departmentId = $departmentId  AND studyGeneretion = $generetion
@@ -1596,7 +1596,7 @@ function getPercentageStudyAndRetireSortByGeneretionByDepartmentIdAndRound($depa
 
     $percentageGeneretions = [];
 
-    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END)*100/COUNT(studentId),2) AS percentage
+    $sql = "SELECT studyGeneretion,COUNT(CASE WHEN status = 'กำลังศึกษา' THEN studentId END) AS study,COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END) AS retire,ROUND(COUNT(CASE WHEN status = 'พ้นสภาพนิสิต' THEN studentId END)*100/COUNT(studentId),2) AS percentage
     FROM semester NATURAL JOIN fact_term_summary NATURAL JOIN tcas NATURAL JOIN fact_student NATURAL JOIN studentstatus  
     WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student   NATURAL JOIN tcas
     WHERE departmentId = $departmentId  AND tcasRound = $round

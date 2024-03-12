@@ -452,7 +452,7 @@
                                                             <td style=" text-align: center;"><?php echo $percentageRetireDepartment["study"] ?> คน</td>
                                                             <td style=" text-align: center;"><?php echo $percentageRetireDepartment["retire"] ?> คน</td>
                                                             <?php if((string)$percentageRetireDepartment["departmentInitials"] !=null){?>
-                                                                <td style=" text-align: center;"><?php echo ((int)$percentageRetireDepartment["retire"]/(int)$percentageRetireDepartment["study"])*100 ?></td>
+                                                                <td style=" text-align: center;"><?php echo $percentageRetireDepartment["percentage"] ?></td>
                                                             <?php }else{?>
                                                                 <td style=" text-align: center;"></td>
                                                             <?php }?></tr>

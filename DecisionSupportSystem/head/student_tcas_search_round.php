@@ -394,7 +394,7 @@
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["study"] ?> คน</td>
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["retire"] ?> คน</td>
                                                         <?php if((string)$percentageRetireGeneretion["studyGeneretion"] !=null &&(int)$percentageRetireGeneretion["study"]>0){?>
-                                                            <td style=" text-align: center;"><?php echo ((int)$percentageRetireGeneretion["retire"]*100)/(int)$percentageRetireGeneretion["study"] ?></td>
+                                                            <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["percentage"] ?></td>
                                                         <?php } 
                                                         elseif((int)$percentageRetireGeneretion["study"]==0){?>
                                                             <td style=" text-align: center;"><?php echo (int)$percentageRetireGeneretion["study"] ?></td>

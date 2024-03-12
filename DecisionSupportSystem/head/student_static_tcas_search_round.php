@@ -388,7 +388,7 @@
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["study"] ?> คน</td>
                                                         <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["retire"] ?> คน</td>
                                                         <?php if((string)$percentageRetireGeneretion["studyGeneretion"] !=null){?>
-                                                            <td style=" text-align: center;"><?php echo ((int)$percentageRetireGeneretion["retire"]/(int)$percentageRetireGeneretion["study"])*100 ?></td>
+                                                            <td style=" text-align: center;"><?php echo $percentageRetireGeneretion["percentage"] ?></td>
                                                         <?php }else{?>
                                                             <td style=" text-align: center;"></td>
                                                         <?php }?>
