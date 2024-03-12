@@ -1402,7 +1402,7 @@
                     <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header" style="height: 90px;">
-                                    <h5>ฐิติพงษ์ สถิรเมธีกุล </h5>
+                                    <h5><?php echo $adviser["titleTecherTh"] . "" . $adviser["fisrtNameTh"] . " " . $adviser["lastNameTh"] ?> </h5>
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <br>
 

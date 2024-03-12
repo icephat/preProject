@@ -1516,7 +1516,7 @@ $semester = getSemesterPresent();
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($gen["studentResign"] as $gRePlan) {
+                                    foreach ($gen["studentRetires"] as $gRePlan) {
                                         ?>
                                         <tr>
                                             <th class="text-center">
