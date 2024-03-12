@@ -50,9 +50,7 @@ require_once '../function/departmentFunction.php';
 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
 
 
-$students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
 
-$deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
 
 
