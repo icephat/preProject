@@ -557,7 +557,7 @@
                                                             รุ่น</th>
                                                         <th colspan="5" style=" text-align: center; width: 100px;">
                                                             ปีการศึกษา</th>
-                                                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
+                                                        <th rowspan="2" style=" text-align: center;">รวม(คน)
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -598,7 +598,7 @@
                                                         $g3 += (int) $studentStudy["three"];
                                                         $g4 += (int) $studentStudy["four"];
                                                         $g5 += (int) $studentStudy["five"];
-                                                        $sum = $g1 + $g2 + $g1 + $g4 + $g5;
+                                                        $sum = $studentStudy["one"] + $studentStudy["two"] + $studentStudy["three"] + $studentStudy["four"] + $studentStudy["five"];
                                                         ?>
 
                                                         <tr>
@@ -633,10 +633,10 @@
                                                                 if ($studentStudy["five"] != 0)
                                                                     echo $studentStudy["five"] . " คน" ?>
                                                                 </td>
+                                                                
                                                                 <td style=" text-align: center; font-weight: bold;">
-                                                                <td style=" text-align: center; font-weight: bold;">
-                                                                <?php echo $studentStudy["five"] ?>
-                                                            </td>
+                                                                    <?php echo $sum ?>
+                                                                </td>
                                                         </tr>
 
                                                         <?php
@@ -661,6 +661,7 @@
                                                             <?php echo $g5 ?> คน
                                                         </td>
                                                         <td style=" font-weight: bold; text-align: center;"></td>
+                                                        
                                                     </tr>
 
 
@@ -701,7 +702,7 @@
                                                             รุ่น</th>
                                                         <th colspan="5" style=" text-align: center; width: 100px;">
                                                             ปีการศึกษา</th>
-                                                        <th rowspan="2" style=" text-align: center;">คงเหลือ(คน)
+                                                        <th rowspan="2" style=" text-align: center;">รวม(คน)
                                                         </th>
                                                     </tr>
                                                 </thead>
@@ -742,7 +743,7 @@
                                                         $g3 += (int) $studentStudy["three"];
                                                         $g4 += (int) $studentStudy["four"];
                                                         $g5 += (int) $studentStudy["five"];
-                                                        $sum = $g1 + $g2 + $g1 + $g4 + $g5;
+                                                        $sum = $studentStudy["one"] + $studentStudy["two"] + $studentStudy["three"] + $studentStudy["four"] + $studentStudy["five"];
                                                         ?>
 
                                                         <tr>
@@ -778,7 +779,7 @@
                                                                     echo $studentStudy["five"] . " คน" ?>
                                                                 </td>
                                                                 <td style=" text-align: center; font-weight: bold;">
-                                                                <?php echo $studentStudy["five"] ?>
+                                                                <?php echo $sum ?>
                                                             </tr>
 
                                                         <?php

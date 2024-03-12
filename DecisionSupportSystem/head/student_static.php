@@ -709,7 +709,7 @@
                                                                     
                                                                     if($studentStudy["one"] > 0){
                                                                         echo $studentStudy["one"]." คน" ;
-                                                                        $sum = $studentStudy["one"] ;
+                                                                        $sum += $studentStudy["one"] ;
                                                                     }
                                                                         ?>
                                                                 </td>
@@ -717,7 +717,7 @@
                                                                     <?php 
                                                                     if($studentStudy["two"] > 0){
                                                                         echo $studentStudy["two"]." คน";
-                                                                        $sum = $studentStudy["two"] ;
+                                                                        $sum += $studentStudy["two"] ;
                                                                     }
                                                                          ?>
                                                                 </td>
@@ -726,7 +726,7 @@
                                                                     <?php 
                                                                     if($studentStudy["three"] > 0){
                                                                         echo $studentStudy["three"]." คน";
-                                                                        $sum = $studentStudy["three"] ;
+                                                                        $sum += $studentStudy["three"] ;
                                                                     }
                                                                          ?>
                                                                 </td>
@@ -734,7 +734,7 @@
                                                                     <?php 
                                                                     if($studentStudy["four"] > 0){
                                                                         echo $studentStudy["four"]." คน";
-                                                                        $sum = $studentStudy["four"] ;
+                                                                        $sum += $studentStudy["four"] ;
                                                                     }
                                                                          ?>
                                                                 </td>
@@ -743,7 +743,7 @@
                                                                     
                                                                     if($studentStudy["five"] > 0){
                                                                         echo $studentStudy["five"]." คน" ;
-                                                                        $sum = $studentStudy["five"] ;
+                                                                        $sum += $studentStudy["five"] ;
                                                                     }
                                                                         ?>
                                                                 </td>
@@ -751,7 +751,7 @@
                                                                     <?php 
                                                                     if($studentStudy["six"] > 0){
                                                                         echo $studentStudy["six"]." คน";
-                                                                        $sum = $studentStudy["six"] ;
+                                                                        $sum += $studentStudy["six"] ;
                                                                     }
                                                                          ?>
                                                                 </td>
@@ -759,7 +759,7 @@
                                                                     <?php 
                                                                         if($studentStudy["seven"] > 0){
                                                                             echo $studentStudy["seven"]." คน" ;
-                                                                            $sum = $studentStudy["seven"] ;
+                                                                            $sum += $studentStudy["seven"] ;
                                                                         }
                                                                         ?>
                                                                     
@@ -768,7 +768,7 @@
                                                                 <?php 
                                                                         if($studentStudy["eight"] > 0){
                                                                              echo $studentStudy["eight"]." คน";
-                                                                             $sum = $studentStudy["eight"] ;
+                                                                             $sum += $studentStudy["eight"] ;
                                                                         }
                                                                         ?>
                                                                 
@@ -778,7 +778,7 @@
                                                                     <?php 
                                                                         if($studentStudy["nine"] > 0){
                                                                             echo $studentStudy["nine"]." คน" ;
-                                                                            $sum = $studentStudy["nine"] ;
+                                                                            $sum += $studentStudy["nine"] ;
                                                                         }
                                                                         ?>
                                                                     
@@ -787,7 +787,7 @@
                                                                 <?php 
                                                                         if($studentStudy["ten"] > 0){
                                                                             echo $studentStudy["ten"]." คน" ;
-                                                                            $sum = $studentStudy["ten"];
+                                                                            $sum += $studentStudy["ten"];
                                                                         }
                                                                         ?>
                                                                    
@@ -796,7 +796,7 @@
                                                                 <?php 
                                                                         if($studentStudy["eleven"] > 0){
                                                                             echo $studentStudy["eleven"]." คน" ;
-                                                                            $sum =$studentStudy["eleven"];
+                                                                            $sum +=$studentStudy["eleven"];
                                                                         }
                                                                         ?>
                                                                     
@@ -805,7 +805,7 @@
                                                                 <?php 
                                                                         if($studentStudy["twelve"] > 0){
                                                                             echo $studentStudy["twelve"]." คน";
-                                                                            $sum = $studentStudy["twelve"];
+                                                                            $sum += $studentStudy["twelve"];
                                                                         }
                                                                          ?>
                                                                     
@@ -935,7 +935,7 @@
                                                                     
                                                                     if($studentStudy["one"] > 0){
                                                                         echo $studentStudy["one"]." คน" ;
-                                                                        $sum = $studentStudy["one"] ;
+                                                                        $sum += $studentStudy["one"] ;
                                                                     }
                                                                         ?>
                                                                 </td>
@@ -943,7 +943,7 @@
                                                                     <?php 
                                                                     if($studentStudy["two"] > 0){
                                                                         echo $studentStudy["two"]." คน";
-                                                                        $sum = $studentStudy["two"] ;
+                                                                        $sum += $studentStudy["two"] ;
                                                                     }
                                                                          ?>
                                                                 </td>
@@ -952,7 +952,7 @@
                                                                     <?php 
                                                                     if($studentStudy["three"] > 0){
                                                                         echo $studentStudy["three"]." คน";
-                                                                        $sum = $studentStudy["three"] ;
+                                                                        $sum += $studentStudy["three"] ;
                                                                     }
                                                                          ?>
                                                                 </td>
@@ -960,7 +960,7 @@
                                                                     <?php 
                                                                     if($studentStudy["four"] > 0){
                                                                         echo $studentStudy["four"]." คน";
-                                                                        $sum = $studentStudy["four"] ;
+                                                                        $sum += $studentStudy["four"] ;
                                                                     }
                                                                          ?>
                                                                 </td>
@@ -969,7 +969,7 @@
                                                                     
                                                                     if($studentStudy["five"] > 0){
                                                                         echo $studentStudy["five"]." คน" ;
-                                                                        $sum = $studentStudy["five"] ;
+                                                                        $sum += $studentStudy["five"] ;
                                                                     }
                                                                         ?>
                                                                 </td>
@@ -977,7 +977,7 @@
                                                                     <?php 
                                                                     if($studentStudy["six"] > 0){
                                                                         echo $studentStudy["six"]." คน";
-                                                                        $sum = $studentStudy["six"] ;
+                                                                        $sum += $studentStudy["six"] ;
                                                                     }
                                                                          ?>
                                                                 </td>
@@ -985,7 +985,7 @@
                                                                     <?php 
                                                                         if($studentStudy["seven"] > 0){
                                                                             echo $studentStudy["seven"]." คน" ;
-                                                                            $sum = $studentStudy["seven"] ;
+                                                                            $sum += $studentStudy["seven"] ;
                                                                         }
                                                                         ?>
                                                                     
@@ -994,7 +994,7 @@
                                                                 <?php 
                                                                         if($studentStudy["eight"] > 0){
                                                                              echo $studentStudy["eight"]." คน";
-                                                                             $sum = $studentStudy["eight"] ;
+                                                                             $sum += $studentStudy["eight"] ;
                                                                         }
                                                                         ?>
                                                                 
@@ -1004,7 +1004,7 @@
                                                                     <?php 
                                                                         if($studentStudy["nine"] > 0){
                                                                             echo $studentStudy["nine"]." คน" ;
-                                                                            $sum = $studentStudy["nine"] ;
+                                                                            $sum += $studentStudy["nine"] ;
                                                                         }
                                                                         ?>
                                                                     
@@ -1013,7 +1013,7 @@
                                                                 <?php 
                                                                         if($studentStudy["ten"] > 0){
                                                                             echo $studentStudy["ten"]." คน" ;
-                                                                            $sum = $studentStudy["ten"];
+                                                                            $sum += $studentStudy["ten"];
                                                                         }
                                                                         ?>
                                                                    
@@ -1022,7 +1022,7 @@
                                                                 <?php 
                                                                         if($studentStudy["eleven"] > 0){
                                                                             echo $studentStudy["eleven"]." คน" ;
-                                                                            $sum =$studentStudy["eleven"];
+                                                                            $sum +=$studentStudy["eleven"];
                                                                         }
                                                                         ?>
                                                                     
@@ -1031,7 +1031,7 @@
                                                                 <?php 
                                                                         if($studentStudy["twelve"] > 0){
                                                                             echo $studentStudy["twelve"]." คน";
-                                                                            $sum = $studentStudy["twelve"];
+                                                                            $sum += $studentStudy["twelve"];
                                                                         }
                                                                          ?>
                                                                     
