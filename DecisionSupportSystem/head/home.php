@@ -398,7 +398,7 @@ $semester = getSemesterPresent();
                                                     $sGradh = [];
                                                     $idtermplan = 0;
                                                     foreach ($gens as $gen) { ?>
-
+                                                    
                                                         <tr>
                                                             <td style=" text-align: right;">
                                                                 <?php echo $gen["studyGeneretion"] ?>
@@ -1368,7 +1368,10 @@ $semester = getSemesterPresent();
     <?php
     $termPlan = 0;
     foreach ($gens as $gen) {
-
+        $plans=sizeof($gen["studentPlans"]);
+        $notPlans=sizeof($gen["studentNotPlans"]);
+        $retires=sizeof($gen["studentRetires"]);
+        $grads=sizeof($gen["studentGrads"]);
         ?>
         <div id="modalPlan<?php echo $termPlan ?>" class="modal fade" style="color: black;">
             <div class="modal-dialog modal-lg">
@@ -1382,10 +1385,10 @@ $semester = getSemesterPresent();
 
                     </div>
                     <h5 class="modal-title" style="margin-left: 10px;">นิสิตตามแผน
-                        <?php echo sizeof($gen["studentPlans"]) ?> คน
+                        <?php echo $plans ?> คน
                     </h5>
                     <?php
-                    if (sizeof($gen["studentPlans"]) > 0) {
+                    if ($plans > 0) {
 
                         ?>
                         <div class="modal-body" id="std_detail">
@@ -1437,10 +1440,10 @@ $semester = getSemesterPresent();
                     <?php } ?>
                     <hr>
                     <h5 class="modal-title" style="margin-left: 10px;">นิสิตไม่ตามแผน
-                        <?php echo sizeof($gen["studentNotPlans"]) ?> คน
+                        <?php echo $notPlans ?> คน
                     </h5>
                     <?php
-                    if (sizeof($gen["studentNotPlans"]) > 0) {
+                    if ($notPlans > 0) {
 
                         ?>
                         <div class="modal-body" id="std_detail">
@@ -1494,10 +1497,10 @@ $semester = getSemesterPresent();
                     <?php } ?>
                     <hr>
                     <h5 class="modal-title" style="margin-left: 10px;">นิสิตพ้นสภาพ
-                        <?php echo $sumRetire ?> คน
+                        <?php echo $retires ?> คน
                     </h5>
                     <?php
-                    if ((int) $sumRetire > 0) {
+                    if ($retires > 0) {
 
                         ?>
                         <div class="modal-body" id="std_detail">
@@ -1549,12 +1552,12 @@ $semester = getSemesterPresent();
                         </div>
                     <?php } ?>
                     <h5 class="modal-title" style="margin-left: 10px;">นิสิตจบการศึกษา
-                        <?php echo $sumGrad ?> คน
+                        <?php echo $grads ?> คน
                     </h5>
 
                     <?php
                     //print_r($countStudySemester);
-                    if ((int) $sumGrad > 0) {
+                    if ($grads > 0) {
 
                         ?>
                         <div class="modal-body" id="std_detail">
