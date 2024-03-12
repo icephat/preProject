@@ -92,7 +92,7 @@
                                     <p style="color: black;">หลักสูตร: </p>
                                 </div>
                                 <div class="col-sm-6 ">
-                                    <p style="color: gray;"><?php echo $student["program"]["langProgram"]." (".$student["program"]["nameProgram"].")" ;?></p>
+                                    <p style="color: gray;"><?php echo $student["course"]["nameCourseUse"]." (".$student["course"]["planCourse"].")" ;?></p>
                                 </div>
                             </div>
                             <div class="row" style="margin-left: 20px; padding: auto; ">

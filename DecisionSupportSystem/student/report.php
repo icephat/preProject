@@ -123,6 +123,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             ?>
                                             <?php
                                             
+                                            echo $student["studyYear"]." ".$student["studyTerm"]."";
                                             
                                             $courseNotLearns = getSubjectNotLearnInCoureseList($student["studentId"],$student["courseId"],$student["studyYear"],$student["studyTerm"]);
                                             

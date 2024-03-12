@@ -440,6 +440,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                         
                                         <th>GPA</th>
                                         <th>จำนวนหน่วยกิต</th>
+                                        <th>รหัสวิชา</th>
                                         <th>รายชื่อวิชา</th>
                                     </tr>
                                 </thead>
@@ -450,6 +451,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                             
                                             <th>" . $regis["gradeCharacter"] . "</th>
                                             <th>" . $regis["credit"] . "</th>
+                                            <th>" . $regis["subjectCodeInRegis"] . "</th>
                                             <th> " . $regis["subjectNameEng"] . "</th>
                                         </tr>
                                     ";
