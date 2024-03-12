@@ -7,9 +7,6 @@
             background-color: #ececec;
             transition: all 0.5s linear;
         }
-        .border-left-green {
-            border-left-color: #99cc99; 
-        }
     </style>
 
     <meta charset="utf-8">
@@ -157,7 +154,7 @@ $semester = getSemesterPresent();
                                 <table class="table "
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
-                                        <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
 
@@ -166,79 +163,85 @@ $semester = getSemesterPresent();
                                             ?>
 
                                             <div style="color: rgb(0, 9, 188);">
-                                                <div class="text-center">
-                                                    <a style="color: rgb(0, 9, 188);" href="#" data-toggle="modal"
-                                                        data-target="#modalblue">
-                                                        <h4>3.25-4.00</h4>
-                                                    </a>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px; ">
-                                                        <?php echo $gpaxStatusCount["blue"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
+                                                <a style="text-decoration: none; color: rgb(0, 9, 188);" href="#" data-toggle="modal"
+                                                        data-target="#modalblue" >
+                                                    <div class="text-center">
+                                                            <h4>3.25-4.00</h4>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px; ">
+                                                            <?php echo $gpaxStatusCount["blue"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
                                             </div>
 
 
                                         </th>
-                                        <th style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(0, 110, 22);">
-                                                <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);" href="#" data-toggle="modal"
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
+                                            <div style=" color: rgb(0, 110, 22);">
+                                                <a style=" text-decoration: none; color: rgb(0, 110, 22);" href="#" data-toggle="modal"
                                                         data-target="#modalgreen">
-                                                        <h4>2.00-3.24</h4>
-                                                    </a>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px;">
-                                                        <?php echo $gpaxStatusCount["green"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
+                                                    <div class="text-center">
+                                                        
+                                                            <h4>2.00-3.24</h4>
+                                                       
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px;">
+                                                            <?php echo $gpaxStatusCount["green"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th style="border: 1px solid black; border-collapse: collapse; ">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
 
                                             <div style="color: #ff8c00;">
-                                                <div class="text-center">
-                                                    <a style="color: #ff8c00;" href="#" data-toggle="modal"
+                                                <a style="text-decoration: none; color: #ff8c00;" href="#" data-toggle="modal"
                                                         data-target="#modalorange">
-                                                        <h4>1.75-1.99</h4>
-                                                    </a>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px;">
-                                                        <?php echo $gpaxStatusCount["orange"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
+                                                    <div class="text-center">
+                                                    
+                                                            <h4>1.75-1.99</h4>
+                                                       
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px;">
+                                                            <?php echo $gpaxStatusCount["orange"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </th>
-                                        <th style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(255, 0, 0);">
-                                                <div class="text-center">
-                                                    <a style="color: rgb(255, 0, 0);" href="#" data-toggle="modal"
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
+                                            <div style="  color: rgb(255, 0, 0);">
+                                                <a style="text-decoration: none; color: rgb(255, 0, 0);" href="#" data-toggle="modal"
                                                         data-target="#modalred">
-                                                        <h4>0.00-1.74</h4>
-                                                    </a>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px;">
-                                                        <?php echo $gpaxStatusCount["red"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
+                                                    <div class="text-center">
+                                                        
+                                                            <h4>0.00-1.74</h4>
+                                                        
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px;">
+                                                            <?php echo $gpaxStatusCount["red"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </th>
                                     </tr>
@@ -249,7 +252,7 @@ $semester = getSemesterPresent();
                                 <table class="table "
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
-                                        <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
 
                                             $planingCount = getCountStudentByPlaningByTeacherId($teacher["teacherId"]);
@@ -259,79 +262,87 @@ $semester = getSemesterPresent();
                                             ?>
 
                                             <div style="color: rgb(100, 197, 215);">
-                                                <div class="text-center">
-                                                    <a style="color:  rgb(100, 197, 215);" href="#" data-toggle="modal"
+                                                <a style="text-decoration: none; color:  rgb(100, 197, 215);" href="#" data-toggle="modal"
                                                         data-target="#modalblue2">
-                                                        <h4>ตามแผน</h4>
-                                                    </a>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px; ">
-                                                        <?php echo $planingCount["plan"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
+                                                    <div class="text-center">
+                                                        
+                                                            <h4>ตามแผน</h4>
+                                                        
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px; ">
+                                                            <?php echo $planingCount["plan"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
                                             </div>
 
 
                                         </th>
-                                        <th style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(	118, 188, 22);">
-                                                <div class="text-center">
-                                                    <a style="color: rgb(	118, 188, 22);" href="#" data-toggle="modal"
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
+                                            <div style=" color: rgb(	118, 188, 22);">
+                                                <a style="text-decoration: none; color: rgb(	118, 188, 22);" href="#" data-toggle="modal"
                                                         data-target="#modalgreen2">
-                                                        <h4>ไม่ตามแผน</h4>
-                                                    </a>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px;">
-                                                        <?php echo $planingCount["notPlan"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
+                                                    <div class="text-center">
+                                                        
+                                                            <h4>ไม่ตามแผน</h4>
+                                                        
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px;">
+                                                            <?php echo $planingCount["notPlan"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th style="border: 1px solid black; border-collapse: collapse;">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
 
-                                            <div style="color: rgb(	245, 123, 57);">
-                                                <div class="text-center">
-                                                    <a style="color: rgb(	245, 123, 57);" href="#" data-toggle="modal"
+                                            <div style=" color: rgb(	245, 123, 57);">
+                                                <a style="text-decoration: none; color: rgb(	245, 123, 57);" href="#" data-toggle="modal"
                                                         data-target="#modalorange2">
-                                                        <h4>พ้นสภาพ</h4>
-                                                    </a>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px;">
-                                                        <?php echo $planingCount["retire"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
+                                                    <div class="text-center">
+                                                        
+                                                            <h4>พ้นสภาพ</h4>
+                                                        
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px;">
+                                                            <?php echo $planingCount["retire"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </th>
-                                        <th style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(255, 105, 98);">
-                                                <div class="text-center">
-                                                    <a style="color: rgb(255, 105, 98);" href="#" data-toggle="modal"
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
+                                            <div style=" color: rgb(255, 105, 98);">
+                                                <a style="text-decoration: none; color: rgb(255, 105, 98);" href="#" data-toggle="modal"
                                                         data-target="#modalred2">
-                                                        <h4>จบการศึกษา</h4>
-                                                    </a>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px;">
-                                                        <?php echo $planingCount["grad"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
+                                                    <div class="text-center">
+                                                        
+                                                            <h4>จบการศึกษา</h4>
+                                                        
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px;">
+                                                            <?php echo $planingCount["grad"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
                                             </div>
                                         </th>
                                     </tr>
@@ -413,7 +424,7 @@ $semester = getSemesterPresent();
                                                         </tr>
                                                         <?php
                                                         $idtermplan++;
-                                                        $sum=$gen["planCount"]+$gen["notPlanCount"]+$gen["retire"]+$gen["grad"];
+                                                        $sum=$gen["planCount"]+$gen["notPlanCount"]+ $gen["retire"]+$gen["grad"];
                                                         $listgensh[] = "รุ่น " . (string) $gen["studyGeneretion"];
                                                         $sumPlan += $gen["planCount"];
                                                         $sPLanh[] = $gen["planCount"]*100/$sum;
@@ -597,6 +608,9 @@ $semester = getSemesterPresent();
                         </div>
                     </div>
 
+                   
+                          
+                            
              
 
                 </div>
@@ -646,8 +660,8 @@ $semester = getSemesterPresent();
                                                         $sum=$countStudySemester["planStatus"]+$countStudySemester["notPlanStatus"]+$countStudySemester["resign"];
                                                         $sortYears[] = (string) $countStudySemester["semesterYear"] . " " . (string) $countStudySemester["semesterPart"];
                                                         $plans[] = $countStudySemester["planStatus"]*100/$sum;
-                                                        $notPlan[] = $countStudySemester["notPlanStatus"]*100/$sum;
-                                                        $resignPlan[] = $countStudySemester["resign"]*100/$sum;
+                                                        $notPlan[] =  $countStudySemester["notPlanStatus"]*100/$sum;
+                                                        $resignPlan[] =  $countStudySemester["resign"]*100/$sum;
 
 
                                                         ?>
@@ -719,13 +733,14 @@ $semester = getSemesterPresent();
                             $studyGeneretionGPAXs = getGPAXStatusGerenetionByTeacherId($teacher["teacherId"]);
                             
                                 foreach ($studyGeneretionGPAXs as $grade) {
-                                   $sum=$grade["blue"]+$grade["green"]+$grade["orange"]+$grade["red"];
+                                        $sum=$grade["blue"]+$grade["green"]+$grade["orange"]+$grade["red"];
                                         $nowgen[] = "รุ่น " . (string) $grade["studyGeneretion"];
                                         $BNG[] = $grade["blue"]*100/$sum;
                                         $GNG[] = $grade["green"]*100/$sum;
                                         $ONG[] = $grade["orange"]*100/$sum;
                                         $RNG[] = $grade["red"]*100/$sum;
-                                    } 
+                                   
+                                }
                             
 
 
@@ -1929,7 +1944,7 @@ $semester = getSemesterPresent();
                     },
                     y: {
                         stacked: true,
-                        
+                        beginAtZero: true // เพิ่มค่านี้เพื่อให้แกน y เริ่มต้นที่ 0
                     }
                 }
 
@@ -2103,6 +2118,62 @@ $semester = getSemesterPresent();
         });
     </script>
 
+<script>
+        var p4plusgen = <?php echo json_encode($pee4plusgen); ?>;
+
+        var p4plusblue = <?php echo json_encode($pee4plusblues); ?>;
+        var p4plusgreen = <?php echo json_encode($pee4plusgreens); ?>;
+        var p4plusorange = <?php echo json_encode($pee4plusoranges); ?>;
+        var p4plusred = <?php echo json_encode($pee4plusreds); ?>;
+
+
+        var ctx = document.getElementById("pee4plus");
+        var myChart = new Chart(ctx, {
+            //type: 'bar',
+            //type: 'line',
+            type: 'bar',
+            data: {
+                labels: p4plusgen,
+                datasets: [{
+                    label: '3.25-4.00',
+                    data: p4blue,
+                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                    borderWidth: 0
+                },
+                {
+                    label: '2.00-3.24',
+                    data: p4plusgreen,
+                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                    borderWidth: 0
+                },
+                {
+                    label: '1.75-1.99',
+                    data: p4plusorange,
+                    backgroundColor: 'rgba(255,128,0,0.7)',
+                    borderWidth: 0
+                },
+                {
+                    label: '0.00-1.74',
+                    data: p4plusred,
+                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                    borderWidth: 0
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true
+                    }
+                }
+
+            }
+        });
+    </script>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">

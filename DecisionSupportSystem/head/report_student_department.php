@@ -170,10 +170,10 @@
                     <div class="col-sm-12 ">
                         <div class="row">
                             <div class="col-sm-5 mx-auto">
-                                <table class="table table-hover"
+                                <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
-                                        <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
                                             $countRangeGrade = getCountStudentGradeRangeInFacultyฺSemesterYearBySemesterYear($semester["semesterYear"])
@@ -198,7 +198,7 @@
 
 
                                         </th>
-                                        <th style="border: 1px solid black; border-collapse: collapse; ">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
                                                     <a style="color: rgb(0, 110, 22);"><!-- href="#" data-toggle="modal" data-target="#modalgreen"-->
@@ -217,7 +217,7 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th style="border: 1px solid black; border-collapse: collapse; ">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
 
                                             <div style="color: #ff8c00;">
                                                 <div class="text-center">
@@ -235,7 +235,7 @@
                                                 </div>
                                             </div>
                                         </th>
-                                        <th style="border: 1px solid black; border-collapse: collapse;">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 0, 0);">
                                                 <div class="text-center">
                                                     <a style="color: rgb(255, 0, 0);" ><!--href="#" data-toggle="modal" data-target="#modalred"-->
@@ -256,10 +256,10 @@
                                 </table>
                             </div>
                             <div class="col-sm-5 mx-auto">
-                                <table class="table table-hover"
+                                <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
-                                        <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
                                             $countPlanStatus = getCountStudentPlanStatusInFacultyBySemesterYear($semester["semesterYear"])
 
@@ -283,7 +283,7 @@
 
 
                                         </th>
-                                        <th style="border: 1px solid black; border-collapse: collapse; ">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
                                                     <a style="color: rgb(	118, 188, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen2"-->
@@ -302,7 +302,7 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th style="border: 1px solid black; border-collapse: collapse;">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
@@ -320,7 +320,7 @@
                                                 </div>
                                             </div>
                                         </th>
-                                        <th style="border: 1px solid black; border-collapse: collapse;">
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
                                                     <a style="color:  rgb(255, 105, 98);" ><!--href="#" data-toggle="modal" data-target="#modalred2"-->
