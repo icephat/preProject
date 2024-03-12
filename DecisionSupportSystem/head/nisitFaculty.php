@@ -76,6 +76,7 @@ $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                             <div class="col-12 mx-auto">
                                 <form action="../controller/deanStudentSearch.php" method="POST">
                                     <div class=" text-center">
+                                    <br>
                                         <h5 style="margin-left: 20px;">โปรดระบุรหัสนิสิต</h3>
                                             <br>
                                             <input type="text" class="form-control" name="studentId"
@@ -83,10 +84,10 @@ $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                                             <br>
 
                                             <button class="btn btn-primary" style="font-size: 20px;">Search</button>
-
+                                            
                                     </div>
                                 </form>
-
+                                <br>
                             </div>
 
                         </div>

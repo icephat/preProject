@@ -123,7 +123,11 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                 </span>
                                                 <?php $notPass = $student["course"]["totalCredit"] - $student["creditThree"]["creditPass"] ?>
                                                 <span style='color:red;'>/
-                                                    <?php echo $notPass ?>
+                                                    <?php if($notPass <=0){
+                                                            echo 0;
+                                                    }else{
+                                                            echo $notPass;
+                                                    }?>
                                                 </span>
                                             </td>
                                             <td class="text-center"><span style='color:green;'>

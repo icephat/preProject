@@ -49,9 +49,9 @@ require_once '../function/departmentFunction.php';
 
 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
 
+$students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
 
-
-
+$deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
 
 ?>
@@ -82,12 +82,12 @@ $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                                             style="color: black;  ">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-center">รหัสนิสิต</th>
+                                                    <th class="col-1 text-center">รหัสนิสิต</th>
                                                     <th>ชื่อ-นามสกุล</th>
                                                     <th>ประเภทหลักสูตร</th>
                                                     <th>ที่ปรึกษา</th>
 
-                                                    <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
+                                                    <th class="col-1 text-center">หน่วยกิตที่ลงทะเบียน<br>
                                                         (ทั้งหมด/ผ่าน/ไม่ผ่าน)</th>
                                                     <th class="text-center">GPAX</th>
                                                     <th class="text-center">รายละเอียด</th>
@@ -114,7 +114,7 @@ $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                                                             <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
                                                         </td>
 
-                                                        <td class="text-center">
+                                                        <td >
                                                             <?php echo $student["teacher"]["fisrtNameTh"] . " (" . $student["teacher"]["lastNameTh"] . ")" ?>
                                                         </td>
 
@@ -126,7 +126,11 @@ $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                                                             </span>
                                                             <?php $notPass = $student["course"]["totalCredit"] - $student["creditThree"]["creditPass"] ?>
                                                             <span style='color:red;'>/
-                                                                <?php echo $notPass ?>
+                                                                <?php if($notPass <=0){
+                                                                        echo 0;
+                                                                }else{
+                                                                        echo $notPass;
+                                                                }?>
                                                             </span>
                                                         </td>
                                                         <td class="text-center"><span style='color:green;'>
