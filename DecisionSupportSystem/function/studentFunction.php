@@ -173,6 +173,10 @@ function getStudentStatusByStudentId($studentId)
     $result = $conn->query($sql);
     $status = $result->fetch_assoc();
 
+    if(!isset($status)){
+        $status["status"] = "พ้นสภาพ";
+    }
+
 
 
 
