@@ -55,7 +55,7 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $department = $resultDepartment->fetch_assoc();
     $departmentId = $department["departmentId"];
 
-    $courseId = 6;
+    $courseId = 2;
     // $courseId = 6;
 
 

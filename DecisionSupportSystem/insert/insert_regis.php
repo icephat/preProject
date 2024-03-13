@@ -40,7 +40,7 @@ $studentIds = [];
 // $csvFile = fopen("D:\CPEKU\Project66\\regis_csv\\".$year."_1_regis.csv", 'r');
 $csvFile = fopen($_FILES['file']['tmp_name'], 'r');
 $fp = file($_FILES['file']['tmp_name']);
-echo count($fp)."<br>";
+echo count($fp) . "<br>";
 // Skip the first line
 fgetcsv($csvFile);
 
@@ -142,7 +142,30 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $typeRegis = $resultTypeRegis->fetch_assoc();
     $typeRegisId = $typeRegis["typeRegisId"];
     //echo $typeRegisId."<br>";
+    
+    $subjectCode = substr($subjectCode, 1, 7);
+    $subjectCode = substr_replace($subjectCode, "0", 0, 0);
 
+    echo "$subjectCode<br>";
+    if ($subjectCode == "02204390") {
+        $courseChange = 2;
+        $updateCourse = "UPDATE fact_student
+        SET courseId = $courseChange
+        WHERE studentId = '$studentId'";
+        echo "$updateCourse<br>";
+        mysqli_query($conn, $updateCourse);
+        echo "มีคนเปลี่ยนแผน<br>";
+    }
+    elseif($subjectCode == "02204495"){
+        $courseChange = 1;
+        $updateCourse = "UPDATE fact_student
+        SET courseId = $courseChange
+        WHERE studentId = '$studentId'";
+        echo "$updateCourse<br>";
+        mysqli_query($conn, $updateCourse);
+        
+        echo "มีคนเปลี่ยนแผน<br>";
+    }
 
 
     //หา courseId ของ student
@@ -152,8 +175,7 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $courseId = $course["courseId"];
 
     //หา courseListId
-    $subjectCode = substr($subjectCode, 1, 7);
-    $subjectCode = substr_replace($subjectCode, "0", 0, 0);
+    
     //echo $subjectCode."<br>";
     $sqlCourseListSQL = "SELECT courseListId,courseGroupId,credit FROM courselist WHERE courseId = $courseId AND subjectCode = '$subjectCode'";
     $resultTCourseList = $conn->query($sqlCourseListSQL);
@@ -184,6 +206,8 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
 
     }
     //echo $subjectCode."<br>";
+
+
 
     $courseListId = $courseList["courseListId"];
     //$courseGroupId = $courseList["courseGroupId"];
@@ -230,10 +254,10 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
 
         // $subSQL = "('$studentId',$semesterId,$courseListId,'$subjectCode',$secLecture,$secLecture,'$gradeCharacter',$gradeNumber,$creditRegis,$typeRegisId,$studyYear,$part,$year,'$partName')";
         // echo "$subSQL<br>";
-        
+
         //$mainSQL = $mainSQL.$subSQL.",";
 
-        
+
         //echo "$sql <br>";
 
 
@@ -256,12 +280,12 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
 
 $mainSQL = substr($mainSQL, 0, -1);
 //echo "<br>".strlen($mainSQL)."<br>";
-if(strlen($mainSQL)>221)
+if (strlen($mainSQL) > 221)
     //mysqli_query($conn, $mainSQL);
 
-//echo print_r($studentIds);
+    //echo print_r($studentIds);
 
-echo print_r($studentIds);
+    echo print_r($studentIds);
 
 foreach ($studentIds as $sId) {
     //echo $sId." ".$semesterId;
@@ -317,7 +341,7 @@ foreach ($studentIds as $sId) {
 
 
     }
-    echo $sumCreditPass."<br>";
+    echo $sumCreditPass . "<br>";
 
     //echo "$sId = $sumGradeCreditAll ," . $sumCreditAll . "<br>";
     if ($sumCreditAll != 0) {
@@ -425,11 +449,11 @@ foreach ($studentIds as $sId) {
         $courseChecks = "ไม่ตามแผน";
     }
 
-    if ($sumCreditPass >= $course["totalCredit"] and $studyYear == 4 and $term == 2 and count($coursePlans) == 0) {
+    if ($studyYear == 4 and $term == 2 and count($coursePlans) == 0) {
         $courseChecks = "จบการศึกษา";
         //echo $courseChecks."<br>";
         $studentStatusId = 2;
-    }else if($sumCreditPass >= $course["totalCredit"] and $studyYear > 4 and count($coursePlans) == 0) {
+    } else if ($studyYear > 4 and count($coursePlans) == 0) {
         $courseChecks = "จบการศึกษา";
         $studentStatusId = 2;
     }
@@ -476,7 +500,7 @@ foreach ($studentIds as $sId) {
 
 
     $queryCheck = "SELECT termSummaryId FROM fact_term_summary WHERE studentId = '" . $sId . "' AND semesterId = " . $semesterId;
-    echo $queryCheck."<br>";
+    echo $queryCheck . "<br>";
     $check = mysqli_query($conn, $queryCheck);
 
     if ($check->num_rows > 0) {

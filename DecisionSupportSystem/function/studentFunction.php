@@ -84,7 +84,7 @@ function getStudentByStudentId($studentId)
 
     $semester = getSemesterPresent();
 
-    $semester = getSemesterPresent();
+
 
     $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"] + 1;
 
@@ -137,7 +137,7 @@ function getStudentByStudentIdForInsert($studentId)
 
     $semester = getSemesterPresent();
 
-    $semester = getSemesterPresent();
+    
 
     $student["studyYear"] = $semester["semesterYear"] - $student["tcasYear"] + 1;
 
@@ -925,17 +925,21 @@ function getSubjectNotLearnInCoureseList($studentId, $courseId, $year, $part)
     $selectSubjects = getListSubjectPassInRegisByStudentIdAndSubjectGroup($studentId, "วิชาเลือก");
 
     $selects = [];
+    //echo print_r($courses)."<br>";
 
-    foreach ($selectSubjects as $selectSubject) {
-        for ($i = 0; $i < count($courses); $i++) {
+    // foreach ($selectSubjects as $selectSubject) {
+    //     for ($i = 0; $i < count($courses); $i++) {
 
-            if ($courses[$i]["groupName"] == "วิชาเลือก") {
-                if ($courses[$i]["credit"] == $selectSubject["credit"]) {
-                    array_splice($courses, $i);
-                }
-            }
-        }
-    }
+    //         if ($courses[$i]["groupName"] == "วิชาเลือก") {
+    //             if ($courses[$i]["credit"] == $selectSubject["creditRegis"]) {
+    //                 echo print_r($courses[$i])."<br>";
+    //                 unset($courses[$i]);
+                    
+    //             }
+    //         }
+            
+    //     }
+    // }
 
 
     return $courses;
@@ -952,20 +956,24 @@ function getSubjectNotLearnInCoureseListInFirstTerm($studentId, $courseId, $year
     $yearX = $year - 1;
     $termX = $part + 1;
 
+    
 
 
-    $sql = "SELECT courseListId,studyYear,term,subjectCode,groupName,credit,subjectNameTh
+
+    $sql = "SELECT DISTINCT subjectCode,groupName,credit,subjectNameTh
     FROM courselist NATURAL JOIN coursegroup
     WHERE courseId = $courseId AND studyYear <= $yearX AND term <= $termX AND (groupName = 'วิชาเฉพาะด้าน' OR groupName = 'วิชาแกน' OR groupName = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
     FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup 
     WHERE studentId = '$studentId')
     UNION
-    SELECT courseListId,studyYear,term,subjectCode,groupName,credit,subjectNameTh
+    SELECT DISTINCT subjectCode,groupName,credit,subjectNameTh
     FROM courselist NATURAL JOIN coursegroup
     WHERE courseId = $courseId AND studyYear = $year AND term = $part  AND (groupName = 'วิชาเฉพาะด้าน' OR groupName = 'วิชาแกน' OR groupName = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
     FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup 
     WHERE studentId = '$studentId');";
     $result = $conn->query($sql);
+
+    //echo $sql."<br>";
 
     while ($my_row = $result->fetch_assoc()) {
         $subjects[] = $my_row;
@@ -988,7 +996,7 @@ function getSubjectNotLearnInCoureseListSecondTerm($studentId,$courseId, $year, 
 
 
 
-    $sql = "SELECT courseListId,studyYear,term,subjectCode,groupName,credit,subjectNameTh,subjectNameTh
+    $sql = "SELECT DISTINCT subjectCode,groupName,credit,subjectNameTh,subjectNameTh
     FROM courselist NATURAL JOIN coursegroup
     WHERE courseId = $courseId AND studyYear <= $year AND term <= $part AND (groupName = 'วิชาเฉพาะด้าน' OR groupName = 'วิชาแกน' OR groupName = 'วิชาเลือก') AND subjectCode NOT IN (SELECT subjectCode
     FROM fact_regis NATURAL JOIN courselist NATURAL JOIN coursegroup 

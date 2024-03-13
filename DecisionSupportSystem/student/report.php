@@ -123,7 +123,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             ?>
                                             <?php
                                             
-                                            echo $student["studyYear"]." ".$student["studyTerm"]."";
+                                            //echo $student["studyYear"]." ".$student["studyTerm"]."";
                                             
                                             $courseNotLearns = getSubjectNotLearnInCoureseList($student["studentId"],$student["courseId"],$student["studyYear"],$student["studyTerm"]);
                                             
@@ -137,7 +137,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                                     <td style=" text-align: center;"><?php echo $courseNotLearn["groupName"]?></td>
                                                     <td style=" text-align: center;"><?php echo $courseNotLearn["subjectCode"]?></td>
                                                     <td style=" text-align: left;">
-                                                        
+                                                    <?php echo $courseNotLearn["subjectNameTh"]?></td>
                                                     </td>
                                                     <td style=" text-align: center;"><?php echo $courseNotLearn["credit"]?></td>
                                                     <td style=" text-align: center;"></td>

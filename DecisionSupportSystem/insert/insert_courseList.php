@@ -2,7 +2,7 @@
 
 
 // Open uploaded CSV file with read-only mode
-$csvFile = fopen("D:\CPEKU\Project66\course\ce\course_ce_60_int.csv", 'r');
+$csvFile = fopen("D:\CPEKU\Project66\course\cpe\course_cpe_60_int.csv", 'r');
 
 // Skip the first line
 fgetcsv($csvFile);

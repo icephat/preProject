@@ -6,7 +6,7 @@ require_once '../function/courseFunction.php';
 
 
 // Open uploaded CSV file with read-only mode
-$csvFile = fopen("D:\CPEKU\Project66\status\studentStatus66.csv", 'r');
+$csvFile = fopen("D:\CPEKU\Project66\status\studentStatus63.csv", 'r');
 
 // Skip the first line
 fgetcsv($csvFile);
@@ -46,7 +46,7 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     echo $semesterYear . "$semesterPart<br>";
     $semesterId = getSemesterIdByYearAndPart((int) $semesterYear, $semesterPart);
 
-    if(!isset($semesterId)){
+    if (!isset($semesterId)) {
         continue;
     }
 
@@ -55,8 +55,24 @@ while (($getData = fgetcsv($csvFile, 1000000, ",")) !== FALSE) {
     $studentStatusId = 3;
 
 
-    $sql = "insert into fact_term_summary(studentId,studentStatusId,teacherId,creditTerm,gpaTerm,gpaAll,creditAll,studyYear,studyTerm,planStatus,gpaStatusId,gpaxStatusId ,semesterId,semesterYearInTerm,semesterPartInTerm) values 
+    $termSQL = "SELECT termSummaryId
+    FROM fact_term_summary
+    WHERE semesterId = $semesterId AND studentId = '$studentId'";
+    $resultTerm = $conn->query($termSQL);
+    $termCheck = $resultTerm->fetch_assoc();
+
+    if (!isset($termCheck)) {
+        $sql = "insert into fact_term_summary(studentId,studentStatusId,teacherId,creditTerm,gpaTerm,gpaAll,creditAll,studyYear,studyTerm,planStatus,gpaStatusId,gpaxStatusId ,semesterId,semesterYearInTerm,semesterPartInTerm) values 
     ('$studentId',$studentStatusId,$teacherId,$sumCreditTerm,$gpaTerm,$gpaAll,$sumCreditAll,$studyYear,$term,'$status',$gpaStatusId,$gpaxStatusId,$semesterId,$semesterYear,'$semesterPart')";
+    } else {
+        $termId = $termCheck["termSummaryId"];
+        $sql = "UPDATE fact_term_summary
+        SET studentStatusId = $studentStatusId, planStatus = '$status'
+        WHERE termSummaryId = $termId";
+    }
+
+
+
 
     //$queryCheck = "SELECT courseListId FROM courselist WHERE subjectCode = '" . $subjectCode . "' AND courseId = " . $courseId;
     //$check = mysqli_query($conn, $queryCheck);
