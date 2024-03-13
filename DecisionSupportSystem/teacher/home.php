@@ -1889,6 +1889,7 @@ $semester = getSemesterPresent();
                         stacked: true,
                     },
                     y: {
+                        max:100,
                         stacked: true
                     }
                 }
@@ -2300,16 +2301,15 @@ $semester = getSemesterPresent();
 
     <script>
         var genend = <?php echo json_encode($endgen); ?>;
-        console.log(genend);
 
         var bluegenend = <?php echo json_encode($BEG); ?>;
-        console.log(bluegenend);
+       
         var greengenend = <?php echo json_encode($GEG); ?>;
-        console.log(greengenend);
+       
         var orangegenend = <?php echo json_encode($OEG); ?>;
-        console.log(orangegenend);
+       
         var redgenend = <?php echo json_encode($REG); ?>;
-        console.log(redgenend);
+       
 
         var ctx = document.getElementById("learn2");
         var myChart = new Chart(ctx, {
