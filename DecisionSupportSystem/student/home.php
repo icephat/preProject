@@ -317,7 +317,7 @@ $_SESSION["studentId"] = $student["studentId"];
                                                 <canvas id="donutChart0"></canvas>
                                                 <div id="centerText"
                                                     style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                    <?php echo $percentCreditAll ?>%
+                                                    <?php echo $percentCreditAll ?>%<br>
                                                     <?php echo number_format($student["gpax"], 2, '.', '') ?>
                                                 </div>
                                             </div>
@@ -775,6 +775,9 @@ $_SESSION["studentId"] = $student["studentId"];
             colorAll = 'rgba(134, 211, 247,0.7)';
         }
         let x = 0;
+        if (dataCreditYet<0){
+            dataCreditYet=0;
+        }
         datalists.splice(0, 0, dataCreditYet);
         perLists.splice(0, 0, dataCredit);
         GPAcolorPie.splice(0, 0, colorAll);

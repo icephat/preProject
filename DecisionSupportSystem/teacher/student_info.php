@@ -1423,6 +1423,9 @@ $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
             colorAll = 'rgba(134, 211, 247,0.7)';
         }
         let x = 0;
+        if (dataCreditYet<0){
+            dataCreditYet=0;
+        }
         datalists.splice(0, 0, dataCreditYet);
         perLists.splice(0, 0, dataCredit);
         GPAcolorPie.splice(0, 0, colorAll);
