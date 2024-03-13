@@ -2192,6 +2192,7 @@
                                     stacked: true,
                                 },
                                 y: {
+                                    max:100,
                                     stacked: true
                                 }
                             }

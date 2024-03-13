@@ -173,7 +173,7 @@
                                 <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
+                                        <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
                                             $countRangeGrade = getCountStudentGradeRangeInFacultyฺSemesterYearBySemesterYear($semester["semesterYear"])
@@ -182,9 +182,9 @@
 
                                             <div style="color: rgb(0, 9, 188);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 9, 188);" ><!--href="#" data-toggle="modal" data-target="#modalblue"-->
+                                                    <div style="color: rgb(0, 9, 188);" ><!--href="#" data-toggle="modal" data-target="#modalblue"-->
                                                         <h4>3.25-4.00</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px; ">
@@ -198,12 +198,12 @@
 
 
                                         </th>
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
+                                        <th  style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);"><!-- href="#" data-toggle="modal" data-target="#modalgreen"-->
+                                                    <div style="color: rgb(0, 110, 22);"><!-- href="#" data-toggle="modal" data-target="#modalgreen"-->
                                                         <h4>2.00-3.24</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -217,13 +217,13 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
+                                        <th style="border: 1px solid black; border-collapse: collapse; ">
 
                                             <div style="color: #ff8c00;">
                                                 <div class="text-center">
-                                                    <a style="color: #ff8c00;" ><!--href="#" data-toggle="modal" data-target="#modalorange"-->
+                                                    <div style="color: #ff8c00;" ><!--href="#" data-toggle="modal" data-target="#modalorange"-->
                                                         <h4>1.75-1.99</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -235,12 +235,12 @@
                                                 </div>
                                             </div>
                                         </th>
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 0, 0);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 0, 0);" ><!--href="#" data-toggle="modal" data-target="#modalred"-->
+                                                    <div style="color: rgb(255, 0, 0);" ><!--href="#" data-toggle="modal" data-target="#modalred"-->
                                                         <h4>0.00-1.74</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -259,7 +259,7 @@
                                 <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; width: 50%;">
+                                        <th  style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
                                             $countPlanStatus = getCountStudentPlanStatusInFacultyBySemesterYear($semester["semesterYear"])
 
@@ -267,9 +267,9 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(100, 197, 215);" ><!--href="#" data-toggle="modal" data-target="#modalblue2"-->
+                                                    <div style="color: rgb(100, 197, 215);" ><!--href="#" data-toggle="modal" data-target="#modalblue2"-->
                                                         <h4>ตามแผน</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px; ">
@@ -283,12 +283,12 @@
 
 
                                         </th>
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
+                                        <th  style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	118, 188, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen2"-->
+                                                    <div style="color: rgb(	118, 188, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen2"-->
                                                         <h4>ไม่ตามแผน</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -302,13 +302,13 @@
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
+                                        <th  style="border: 1px solid black; border-collapse: collapse;">
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	245, 123, 57);"><!-- href="#" data-toggle="modal" data-target="#modalorange2"-->
+                                                    <div style="color: rgb(	245, 123, 57);"><!-- href="#" data-toggle="modal" data-target="#modalorange2"-->
                                                         <h4>พ้นสภาพ</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -320,12 +320,12 @@
                                                 </div>
                                             </div>
                                         </th>
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color:  rgb(255, 105, 98);" ><!--href="#" data-toggle="modal" data-target="#modalred2"-->
+                                                    <div style="color:  rgb(255, 105, 98);" ><!--href="#" data-toggle="modal" data-target="#modalred2"-->
                                                         <h4>จบการศึกษา</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -627,7 +627,7 @@
                     <div class="col-sm-12 ">
                         <div class="row">
                             <div class="col-sm-5 mx-auto">
-                                <table class="table table-hover"
+                                <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
@@ -639,9 +639,9 @@
 
                                             <div style="color: rgb(0, 9, 188);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 9, 188);" ><!--href="#" data-toggle="modal" data-target="#modalblue3"-->
+                                                    <div style="color: rgb(0, 9, 188);" ><!--href="#" data-toggle="modal" data-target="#modalblue3"-->
                                                         <h4>3.25-4.00</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px; ">
@@ -658,9 +658,9 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(0, 110, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(0, 110, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen3"-->
+                                                    <div style="color: rgb(0, 110, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen3"-->
                                                         <h4>2.00-3.24</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -678,9 +678,9 @@
 
                                             <div style="color: #ff8c00;">
                                                 <div class="text-center">
-                                                    <a style="color: #ff8c00;" ><!--href="#" data-toggle="modal" data-target="#modalorange3"-->
+                                                    <div style="color: #ff8c00;" ><!--href="#" data-toggle="modal" data-target="#modalorange3"-->
                                                         <h4>1.75-1.99</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -695,9 +695,9 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 0, 0);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 0, 0);" ><!--href="#" data-toggle="modal" data-target="#modalred3"-->
+                                                    <div style="color: rgb(255, 0, 0);" ><!--href="#" data-toggle="modal" data-target="#modalred3"-->
                                                         <h4>0.00-1.74</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -713,7 +713,7 @@
                                 </table>
                             </div>
                             <div class="col-sm-5 mx-auto">
-                                <table class="table table-hover"
+                                <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse; width: 50%;">
@@ -724,9 +724,9 @@
 
                                             <div style="color: rgb(100, 197, 215);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(100, 197, 215);" ><!--href="#" data-toggle="modal" data-target="#modalblue4"-->
+                                                    <div style="color: rgb(100, 197, 215);" ><!--href="#" data-toggle="modal" data-target="#modalblue4"-->
                                                         <h4>ตามแผน</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px; ">
@@ -743,9 +743,9 @@
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
                                             <div style="color: rgb(	118, 188, 22);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	118, 188, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen4"-->
+                                                    <div style="color: rgb(	118, 188, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen4"-->
                                                         <h4>ไม่ตามแผน</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -763,9 +763,9 @@
 
                                             <div style="color: rgb(	245, 123, 57);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(	245, 123, 57);" ><!--href="#" data-toggle="modal" data-target="#modalorange4"-->
+                                                    <div style="color: rgb(	245, 123, 57);" ><!--href="#" data-toggle="modal" data-target="#modalorange4"-->
                                                         <h4>พ้นสภาพ</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">
@@ -780,9 +780,9 @@
                                         <th style="border: 1px solid black; border-collapse: collapse;">
                                             <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <a style="color: rgb(255, 105, 98);"><!-- href="#" data-toggle="modal" data-target="#modalred4"-->
+                                                    <div style="color: rgb(255, 105, 98);"><!-- href="#" data-toggle="modal" data-target="#modalred4"-->
                                                         <h4>จบการศึกษา</h4>
-                                                    </a>
+                                                    </div>
                                                 </div>
                                                 <div class="text-center">
                                                     <h1 style="font-weight: bolder; font-size: 70px;">

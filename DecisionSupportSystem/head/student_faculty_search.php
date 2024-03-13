@@ -526,7 +526,7 @@
                             $RNG = [];
                            
                             foreach ($countStudentStudyingRangeGradeSortByGeneretions as $grade) {
-                                echo $grade["studyGeneretion"]."<br>";
+                                //echo $grade["studyGeneretion"]."<br>";
                                     $sum=$grade["blue"]+$grade["green"]+$grade["orange"]+$grade["red"];
                                     $nowgen[] = "รุ่น " . (string) $grade["studyGeneretion"];
                                     $BNG[] = $grade["blue"]*100/$sum;
@@ -1550,6 +1550,7 @@
                                     stacked: true,
                                 },
                                 y: {
+                                    max:100,
                                     stacked: true
                                 }
                             }

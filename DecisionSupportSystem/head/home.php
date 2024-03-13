@@ -651,7 +651,7 @@ $semester = getSemesterPresent();
 
                                                     $countStudySemesters = getCountStudySemesterYearPartByTeacherID($teacher["teacherId"]);
                                                     $sortYears = [];
-                                                    $plans = [];
+                                                    $plansSemesters = [];
                                                     $notPlan = [];
                                                     $resignPlan = [];
                                                     $idterm = 0;
@@ -659,7 +659,7 @@ $semester = getSemesterPresent();
                                                     foreach ($countStudySemesters as $countStudySemester) {
                                                         $sum=$countStudySemester["planStatus"]+$countStudySemester["notPlanStatus"]+$countStudySemester["resign"];
                                                         $sortYears[] = (string) $countStudySemester["semesterYear"] . " " . (string) $countStudySemester["semesterPart"];
-                                                        $plans[] = $countStudySemester["planStatus"]*100/$sum;
+                                                        $plansSemesters[] = $countStudySemester["planStatus"]*100/$sum;
                                                         $notPlan[] =  $countStudySemester["notPlanStatus"]*100/$sum;
                                                         $resignPlan[] =  $countStudySemester["resign"]*100/$sum;
 
@@ -2186,14 +2186,14 @@ $semester = getSemesterPresent();
     <script>
 
         var years = <?php echo json_encode($sortYears); ?>;
-        console.log(years);
+       
 
-        var plans = <?php echo json_encode($plans); ?>;
-        console.log(plans);
+        var plansSemesters = <?php echo json_encode($plansSemesters); ?>;
+       
         var notPlans = <?php echo json_encode($notPlan); ?>;
-        console.log(notPlans);
+        
         var resignPlans = <?php echo json_encode($resignPlan); ?>;
-        console.log(resignPlans);
+       
 
         var ctx = document.getElementById("learnnew");
         var myChart = new Chart(ctx, {
@@ -2204,7 +2204,7 @@ $semester = getSemesterPresent();
                 labels: years,
                 datasets: [{
                     label: 'ตามหลักสูตร',
-                    data: plans,
+                    data: plansSemesters,
                     backgroundColor: "rgba(100, 197, 215,0.7)",
                     borderWidth: 0
                 },
@@ -2240,16 +2240,15 @@ $semester = getSemesterPresent();
     <script>
 
         var gennow = <?php echo json_encode($nowgen); ?>;
-        console.log(gennow);
-
+       
         var bluegen = <?php echo json_encode($BNG); ?>;
-        console.log(bluegen);
+       
         var greengen = <?php echo json_encode($GNG); ?>;
-        console.log(greengen);
+       
         var orangegen = <?php echo json_encode($ONG); ?>;
-        console.log(orangegen);
+        
         var redgen = <?php echo json_encode($RNG); ?>;
-        console.log(redgen);
+    
 
         var ctx = document.getElementById("learn");
         var myChart = new Chart(ctx, {
@@ -2301,17 +2300,15 @@ $semester = getSemesterPresent();
 
     <script>
         var genend = <?php echo json_encode($endgen); ?>;
-        console.log(genend);
-
+       
         var bluegenend = <?php echo json_encode($BEG); ?>;
-        console.log(bluegenend);
+        
         var greengenend = <?php echo json_encode($GEG); ?>;
-        console.log(greengenend);
+        
         var orangegenend = <?php echo json_encode($OEG); ?>;
-        console.log(orangegenend);
+        
         var redgenend = <?php echo json_encode($REG); ?>;
-        console.log(redgenend);
-
+       
         var ctx = document.getElementById("learn2");
         var myChart = new Chart(ctx, {
             //type: 'bar',
