@@ -115,7 +115,7 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                         </td>
 
                                                         <td >
-                                                            <?php echo $student["teacher"]["fisrtNameTh"] . " (" . $student["teacher"]["lastNameTh"] . ")" ?>
+                                                            <?php echo $student["teacher"]["fisrtNameTh"] . " " . $student["teacher"]["lastNameTh"]  ?>
                                                         </td>
 
                                                         <td class="text-center"><span style='color:green;'>
