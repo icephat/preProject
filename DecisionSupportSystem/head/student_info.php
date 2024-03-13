@@ -539,7 +539,7 @@ $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
                                                 <canvas id="donutChart0"></canvas>
                                                 <div id="centerText"
                                                     style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #333;">
-                                                    <?php echo $percentCreditAll ?>%
+                                                    <?php echo $percentCreditAll ?>%<br>
                                                     <?php echo number_format($student["gpax"], 2, '.', '') ?>
                                                 </div>
                                             </div>
