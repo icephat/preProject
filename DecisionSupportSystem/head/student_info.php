@@ -818,7 +818,7 @@ $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
                                             $sumOver = 0;
 
                                             foreach ($overSubjects as $over) {
-
+                                                $sumOver+= $over["credit"];
 
 
                                                 ?>

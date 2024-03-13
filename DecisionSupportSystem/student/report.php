@@ -298,7 +298,7 @@ $student = getStudentByUsername($_SESSION["access-user"]);
                                             $sumOver = 0;
 
                                             foreach ($overSubjects as $over) {
-
+                                                $sumOver+= $over["credit"];
 
 
                                                 ?>
