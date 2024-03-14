@@ -74,13 +74,13 @@ $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
                         <h4 style="color: green;">รายชื่อนิสิตในคณะวิศวกรรมศาสตร์ กำแพงแสน</h4>
                         <div class="card">
                             <div class="col-12 mx-auto">
-                                <form action="../controller/headStudentSearch.php" method="POST">
+                                <form action="./nisitFacultySearch.php" method="POST">
                                     <div class=" text-center">
                                     <br>
-                                        <h5 style="margin-left: 20px;">โปรดระบุรหัสนิสิต</h3>
+                                        <h5 style="margin-left: 20px;">โปรดระบุรหัสนิสิตหรือชื่อนิสิต</h3>
                                             <br>
-                                            <input type="text" class="form-control" name="studentId"
-                                                placeholder="รหัสนิสิต" required>
+                                            <input type="text" class="form-control" name="search"
+                                                placeholder="รหัสนิสิต กรือ ชื่อนิสิต" required>
                                             <br>
 
                                             <button class="btn btn-primary" style="font-size: 20px;">Search</button>
