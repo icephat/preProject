@@ -44,14 +44,15 @@ session_start();
 
 require_once '../function/teacherFunction.php';
 require_once '../function/departmentFunction.php';
+require_once '../function/headDeptFunction.php';
 
 
 
 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
 
-$students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
 
-$deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
+
+$deptStudents = getStudentListGradByDepartmentId($teacher["departmentId"]);
 
 
 ?>
@@ -78,70 +79,71 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
                             <br>
                             <div class="table-responsive">
-                            <table class="table table-striped" id="dataTable2" cellspacing="0"
-                                            style="color: black;  ">
-                                            <thead>
-                                                <tr>
-                                                    <th class="col-1 text-center">รหัสนิสิต</th>
-                                                    <th>ชื่อ-นามสกุล</th>
-                                                    <th>ประเภทหลักสูตร</th>
-                                                    <th>ที่ปรึกษา</th>
-
-                                                    
-                                                    <th class="text-center">GPAX</th>
-                                                    <th class="text-center">รายละเอียด</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php
+                                <table class="table table-striped" id="dataTable2" cellspacing="0"
+                                    style="color: black;  ">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-1 text-center">รหัสนิสิต</th>
+                                            <th>ชื่อ-นามสกุล</th>
+                                            <th>ประเภทหลักสูตร</th>
+                                            <th>ที่ปรึกษา</th>
 
 
-
-                                                foreach ($deptStudents as $student) {
+                                            <th class="text-center">GPAX</th>
+                                            <th class="text-center">รายละเอียด</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
 
 
 
-                                                    ?>
-                                                    <tr>
-                                                        <td class="text-center">
-                                                            <?php echo $student["studentId"] ?>
-                                                        </td>
-                                                        <td>
-                                                            <?php echo $student["fisrtNameTh"] . " " . $student["lastNameTh"] ?>
-                                                        </td>
-                                                        <td >
-                                                            <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
-                                                        </td>
+                                        foreach ($deptStudents as $student) {
 
-                                                        <td >
-                                                            <?php echo $student["teacher"]["fisrtNameTh"] . " " . $student["teacher"]["lastNameTh"]  ?>
-                                                        </td>
 
-                                                        <td class="text-center"><span style='color:green;'>
-                                                        <?php echo number_format($student["gpax"], 2, '.', '');?>
-                                                            </span> <br>
-                                                            <span></span>
-                                                        </td>
 
-                                                        <td class="text-center">
-                                                            <form action="./student_info.php" method="post">
-                                                                <input type="hidden" name="studentId"
-                                                                    value="<?php echo $student["studentId"]; ?>" />
-                                                                <!--<a type="button" name="std_info">
+                                            ?>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <?php echo $student["studentId"] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $student["studentFirstName"] . " " . $student["studentLastName"] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $student["nameCourseUse"] . " (" . $student["planCourse"] . ")" ?>
+                                                </td>
+
+                                                <td>
+                                                    <?php echo $student["teacherFirstName"] . " " . $student["teacherLastName"] ?>
+                                                </td>
+
+                                                
+                                                <td class="text-center"><span style='color:green;'>
+                                                        <?php echo number_format($student["gpaAll"], 2, '.', ''); ?>
+                                                    </span> <br>
+                                                    <span></span>
+                                                </td>
+
+                                                <td class="text-center">
+                                                    <form action="./student_info.php" method="post">
+                                                        <input type="hidden" name="studentId"
+                                                            value="<?php echo $student["studentId"]; ?>" />
+                                                        <!--<a type="button" name="std_info">
 <span class="glyphicon glyphicon-user"></span></a>-->
-                                                                <button type="submit" name="submit"
-                                                                    class="btn btn-info btn-md"><span
-                                                                        class="glyphicon glyphicon-user"></span>
-                                                                    รายละเอียด</button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </tbody>
+                                                        <button type="submit" name="submit"
+                                                            class="btn btn-info btn-md"><span
+                                                                class="glyphicon glyphicon-user"></span>
+                                                            รายละเอียด</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+                                    </tbody>
 
-                                        </table>
+                                </table>
 
                             </div>
                         </div>

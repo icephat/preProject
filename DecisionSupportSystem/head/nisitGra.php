@@ -49,9 +49,7 @@ require_once '../function/departmentFunction.php';
 
 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
 
-$students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
-
-$deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
+$students = getStudentListGradBuTeacherId($teacher["teacherId"]);
 
 
 ?>
@@ -85,8 +83,6 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                     <th class="col-1 text-center">รหัสนิสิต</th>
                                                     <th>ชื่อ-นามสกุล</th>
                                                     <th>ประเภทหลักสูตร</th>
-                                                    <th>ที่ปรึกษา</th>
-
                                                     
                                                     <th class="text-center">GPAX</th>
                                                     <th class="text-center">รายละเอียด</th>
@@ -97,7 +93,7 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
 
 
-                                                foreach ($deptStudents as $student) {
+                                                foreach ($students as $student) {
 
 
 
@@ -110,15 +106,12 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                             <?php echo $student["fisrtNameTh"] . " " . $student["lastNameTh"] ?>
                                                         </td>
                                                         <td >
-                                                            <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
+                                                            <?php echo $student["nameCourseUse"] . " (" . $student["planCourse"] . ")" ?>
                                                         </td>
 
-                                                        <td >
-                                                            <?php echo $student["teacher"]["fisrtNameTh"] . " " . $student["teacher"]["lastNameTh"]  ?>
-                                                        </td>
 
                                                         <td class="text-center"><span style='color:green;'>
-                                                        <?php echo number_format($student["gpax"], 2, '.', '');?>
+                                                        <?php echo number_format($student["gpaAll"], 2, '.', '');?>
                                                             </span> <br>
                                                             <span></span>
                                                         </td>

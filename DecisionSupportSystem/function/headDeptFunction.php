@@ -2136,6 +2136,64 @@ function getListRemainingStudentByTeacherIdAndPlanStatusAndSemesterYearAndGenere
 
 }
 
+function getStudentListStudyByDepartmentId($departmentId)
+{
+
+    $students = [];
+
+    require("connection_connect.php");
+
+
+    $sql = "SELECT studentId,student.fisrtNameTh AS studentFirstName,student.lastNameTh AS studentLastName,nameCourseUse,planCourse,gpaAll,creditAll,totalCredit,teacher.fisrtNameTh AS teacherFirstName,teacher.lastNameTh AS teacherLastName
+    FROM fact_term_summary NATURAL JOIN fact_student NATURAL JOIN student INNER JOIN course ON course.courseId = fact_student.courseId INNER JOIN teacher ON teacher.teacherId = fact_student.teacherId
+    WHERE planStatus != 'จบการศึกษา' AND planStatus != 'พ้นสภาพนิสิต' AND fact_student.departmentId = $departmentId AND termSummaryId IN 
+    (SELECT MAX(termSummaryId) FROM fact_term_summary NATURAL JOIN fact_student WHERE departmentId = $departmentId GROUP BY studentId)
+    ORDER BY studentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
+
+
+
+}
+
+function getStudentListGradByDepartmentId($departmentId)
+{
+
+    $students = [];
+
+    require("connection_connect.php");
+
+
+    $sql = "SELECT studentId,student.fisrtNameTh AS studentFirstName,student.lastNameTh AS studentLastName,nameCourseUse,planCourse,gpaAll,creditAll,totalCredit,teacher.fisrtNameTh AS teacherFirstName,teacher.lastNameTh AS teacherLastName
+    FROM fact_term_summary NATURAL JOIN fact_student NATURAL JOIN student INNER JOIN course ON course.courseId = fact_student.courseId INNER JOIN teacher ON teacher.teacherId = fact_student.teacherId
+    WHERE planStatus = 'จบการศึกษา' AND fact_student.departmentId = $departmentId AND termSummaryId IN 
+    (SELECT MAX(termSummaryId) FROM fact_term_summary NATURAL JOIN fact_student WHERE departmentId = $departmentId GROUP BY studentId)
+    ORDER BY studentId;";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
+
+
+
+}
+
 
 
 
