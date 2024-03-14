@@ -1431,7 +1431,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1466,7 +1466,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1501,7 +1501,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1536,7 +1536,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1603,7 +1603,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1638,7 +1638,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1673,7 +1673,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1708,7 +1708,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1771,7 +1771,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1806,7 +1806,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1841,7 +1841,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1876,7 +1876,7 @@
                                             <tr>
                                                 <th class="text-center"><?php echo $advi["studentId"]?></th>
                                                 <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                                <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                                <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                             </tr>
                                             <?php
                                                 }
@@ -1941,7 +1941,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -1976,7 +1976,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -2011,7 +2011,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }
@@ -2046,7 +2046,7 @@
                                         <tr>
                                             <th class="text-center"><?php echo $advi["studentId"]?></th>
                                             <th><?php echo $advi["fisrtNameTh"]." ".$advi["lastNameTh"]?></th>
-                                            <th class="text-center"><?php echo number_format($advi["gpaTerm"], 2, '.', '');?></th>
+                                            <th class="text-center"><?php echo number_format($advi["gpaAll"], 2, '.', '');?></th>
                                         </tr>
                                         <?php
                                             }

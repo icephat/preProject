@@ -101,8 +101,8 @@ function getCountStudentGPAXStatusByTeacherId($teacherId)
 
 
     $sql = "SELECT COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
-    WHERE teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN studentstatus
+    WHERE status = 'กำลังศึกษา' AND teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
     WHERE teacherId = $teacherId GROUP BY studentId);";
 
     $result = $conn->query($sql);
@@ -136,8 +136,8 @@ function getstudentListByTeacherIdAndStatus($teacherId, $gradeRange)
 
 
     $sql = "SELECT studentId,fisrtNameTh,lastNameTh,round(gpaTerm,2) AS gpaTerm,round(gpaAll,2) AS gpaAll
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN student
-    WHERE teacherId = $teacherId AND gpaStatusName = '$gradeRange' AND termSummaryId IN (SELECT MAX(termSummaryId) AS  termSummaryId FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student 
+    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN student NATURAL JOIN studentstatus
+    WHERE status = 'กำลังศึกษา' AND teacherId = $teacherId AND gpaStatusName = '$gradeRange' AND termSummaryId IN (SELECT MAX(termSummaryId) AS  termSummaryId FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student 
     WHERE teacherId = $teacherId
     GROUP BY studentId);";
 

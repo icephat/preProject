@@ -101,8 +101,8 @@ function getCountStudentGradeRangeByCourseNameAndSemesterYear($courseName, $seme
     require("connection_connect.php");
 
     $sql = "SELECT COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId
-    WHERE nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear   GROUP BY studentId);";
+    FROM studentstatus NATURAL JOIN gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId
+    WHERE status = 'กำลังศึกษา' AND nameCourseUse = '$courseName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear   GROUP BY studentId);";
 
     $result = $conn->query($sql);
     $countRangeGrade = $result->fetch_assoc();
@@ -126,8 +126,8 @@ function geStudentListInGradeRangeByCourseNameAndSemesterYearAndGradeRange($cour
 
     $students = [];
     $sql = "SELECT studentId,fisrtNameTh,lastNameTh,round(gpaTerm,2) AS gpaTerm,round(gpaAll,2) AS gpaAll
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN student INNER JOIN course ON fact_student.courseId = course.courseId
-    WHERE nameCourseUse = '$courseName' AND gpaStatusName = '$gradeRange' AND termSummaryId IN (SELECT MAX(termSummaryId) AS  termSummaryId FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear
+    FROM studentstatus NATURAL JOIN gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN student INNER JOIN course ON fact_student.courseId = course.courseId
+    WHERE status = 'กำลังศึกษา' AND nameCourseUse = '$courseName' AND gpaStatusName = '$gradeRange' AND termSummaryId IN (SELECT MAX(termSummaryId) AS  termSummaryId FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  INNER JOIN course ON fact_student.courseId = course.courseId WHERE nameCourseUse = '$courseName' AND semesterYear <= $semesterYear
     GROUP BY studentId);";
 
     $result = $conn->query($sql);
@@ -841,8 +841,8 @@ function getCountStudentGradeRangeByDepartmrntIdAndSemesterYear($departmentId, $
     require("connection_connect.php");
 
     $sql = "SELECT COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
-    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student   WHERE departmentId = $departmentId AND semesterYear <= $semesterYear   GROUP BY studentId);";
+    FROM studentstatus NATURAL JOIN gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student
+    WHERE status = 'กำลังศึกษา' AND departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student   WHERE departmentId = $departmentId AND semesterYear <= $semesterYear   GROUP BY studentId);";
 
     $result = $conn->query($sql);
     $countRangeGrade = $result->fetch_assoc();
@@ -893,9 +893,9 @@ function geStudentListInGradeRangeByDepartmentIdAndSemesterYearAndGradeRange($de
 
     $students = [];
     $sql = "SELECT studentId,fisrtNameTh,lastNameTh,round(gpaTerm,2) AS gpaTerm,round(gpaAll,2) AS gpaAll
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN student
-    WHERE departmentId = $departmentId AND gpaStatusName = '$gradeRange' AND termSummaryId IN (SELECT MAX(termSummaryId) AS  termSummaryId FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student 
-    WHERE departmentId = $departmentId AND semesterYear <= $semesterYear
+    FROM studentstatus NATURAL JOIN gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN student
+    WHERE status = 'กำลังศึกษา' AND departmentId = $departmentId AND gpaStatusName = '$gradeRange' AND termSummaryId IN (SELECT MAX(termSummaryId) AS  termSummaryId FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student 
+    WHERE  departmentId = $departmentId AND semesterYear <= $semesterYear
     GROUP BY studentId);";
 
     $result = $conn->query($sql);
@@ -1624,8 +1624,8 @@ function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYear($departmentId, 
     $gradeRangeSortByAdvisers = [];
 
     $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
-    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    FROM studentstatus NATURAL JOIN gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE status = 'กำลังศึกษา' AND departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
     WHERE departmentId = $departmentId AND semesterYear <= $semesterYear   GROUP BY studentId)
     GROUP BY teacherId;";
 
@@ -1655,8 +1655,8 @@ function getGradeRangeSortByAdviserByDepartmentIdAndSemesterYearAndGeneretion($d
     $gradeRangeSortByAdvisers = [];
 
     $sql = "SELECT teacherId,titleTecherTh,fisrtNameTh,lastNameTh,COUNT(CASE WHEN gpaStatusName = 'blue' THEN studentId END) AS blue,COUNT(CASE WHEN gpaStatusName = 'green' THEN studentId END) AS green,COUNT(CASE WHEN gpaStatusName = 'orange' THEN studentId END) AS orange,COUNT(CASE WHEN gpaStatusName = 'red' THEN studentId END) AS red
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
-    WHERE departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    FROM studentstatus NATURAL JOIN gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher
+    WHERE status = 'กำลังศึกษา' AND departmentId = $departmentId AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
     WHERE departmentId = $departmentId AND semesterYear <= $semesterYear AND studyGeneretion = $generetion
     GROUP BY studentId)
     GROUP BY teacherId;";
@@ -1687,10 +1687,12 @@ function getListStudentByTeacherIdAndGPAStatusNameAndSemesterYear($teacherId, $g
     $students = [];
 
     $sql = "SELECT *
-    FROM gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
-    WHERE teacherId = $teacherId AND gpaStatusName = '$gpaStatusName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
+    FROM studentstatus NATURAL JOIN gpastatus NATURAL JOIN fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student  NATURAL JOIN teacher INNER JOIN student ON fact_student.studentId = student.studentId
+    WHERE status = 'กำลังศึกษา' AND teacherId = $teacherId AND gpaStatusName = '$gpaStatusName' AND termSummaryId IN (SELECT MAX(termSummaryId) AS termSummaryId FROM fact_term_summary NATURAL JOIN semester NATURAL JOIN fact_student NATURAL JOIN teacher
     WHERE teacherId = $teacherId AND semesterYear <= $semesterYear
     GROUP BY studentId);";
+
+    //echo $sql."<br>";
 
     $result = $conn->query($sql);
 
