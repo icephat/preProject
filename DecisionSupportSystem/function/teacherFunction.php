@@ -108,22 +108,22 @@ function getCountStudentGPAXStatusByTeacherId($teacherId)
     $result = $conn->query($sql);
 
     $countGPAXs = $result->fetch_assoc();
-    $countGPAXs["blues"] = getstudentListByTeacherIdAndStatus($teacherId,"blue");
-    $countGPAXs["greens"] = getstudentListByTeacherIdAndStatus($teacherId,"green");
-    $countGPAXs["oranges"] = getstudentListByTeacherIdAndStatus($teacherId,"orange");
-    $countGPAXs["reds"] = getstudentListByTeacherIdAndStatus($teacherId,"red");
+    $countGPAXs["blues"] = getstudentListByTeacherIdAndStatus($teacherId, "blue");
+    $countGPAXs["greens"] = getstudentListByTeacherIdAndStatus($teacherId, "green");
+    $countGPAXs["oranges"] = getstudentListByTeacherIdAndStatus($teacherId, "orange");
+    $countGPAXs["reds"] = getstudentListByTeacherIdAndStatus($teacherId, "red");
 
 
     require("connection_close.php");
 
-    
+
 
     return $countGPAXs;
     ;
 
 }
 
-function getstudentListByTeacherIdAndStatus($teacherId,$gradeRange)
+function getstudentListByTeacherIdAndStatus($teacherId, $gradeRange)
 {
 
 
@@ -150,7 +150,7 @@ function getstudentListByTeacherIdAndStatus($teacherId,$gradeRange)
 
     require("connection_close.php");
 
-    
+
 
     return $countGPAXs;
     ;
@@ -809,6 +809,60 @@ function getGPAXStatusGerenetionGraduateByTeacherIdAndSemesterYearAndSemesterPar
     require("connection_close.php");
 
     return $studyGeneretionGPAXs;
+
+
+
+}
+
+function getStudentListStudyBuTeacherId($teacherId)
+{
+
+    $students = [];
+
+    require("connection_connect.php");
+
+
+    $sql = "SELECT studentId,fisrtNameTh,lastNameTh,nameCourseUse,planCourse,gpaAll,creditAll,totalCredit
+    FROM fact_term_summary NATURAL JOIN fact_student NATURAL JOIN student INNER JOIN course ON course.courseId = fact_student.courseId
+    WHERE planStatus != 'จบการศึกษา' AND planStatus != 'พ้นสภาพนิสิต' AND teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) FROM fact_term_summary WHERE teacherId = $teacherId GROUP BY studentId);";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
+
+
+
+}
+
+function getStudentListGradBuTeacherId($teacherId)
+{
+
+    $students = [];
+
+    require("connection_connect.php");
+
+
+    $sql = "SELECT studentId,fisrtNameTh,lastNameTh,nameCourseUse,planCourse,gpaAll,creditAll,totalCredit
+    FROM fact_term_summary NATURAL JOIN fact_student NATURAL JOIN student INNER JOIN course ON course.courseId = fact_student.courseId
+    WHERE planStatus = 'จบการศึกษา' AND teacherId = $teacherId AND termSummaryId IN (SELECT MAX(termSummaryId) FROM fact_term_summary WHERE teacherId = $teacherId GROUP BY studentId);";
+
+    $result = $conn->query($sql);
+
+    while ($my_row = $result->fetch_assoc()) {
+        $students[] = $my_row;
+    }
+
+
+    require("connection_close.php");
+
+    return $students;
 
 
 

@@ -50,9 +50,8 @@ require_once '../function/departmentFunction.php';
 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
 
 
-$students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
+$students = getStudentListGradBuTeacherId($teacher["teacherId"]);
 
-$deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
 
 
@@ -111,11 +110,11 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                             <?php echo $student["fisrtNameTh"] . " " . $student["lastNameTh"] ?>
                                                         </td>
                                                         <td >
-                                                            <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
+                                                            <?php echo $student["nameCourseUse"] . " (" . $student["planCourse"] . ")" ?>
                                                         </td>
 
                                                         <td class="text-center"><span style='color:green;'>
-                                                        <?php echo number_format($student["gpax"], 2, '.', '');?>
+                                                        <?php echo number_format($student["gpaAll"], 2, '.', '');?>
                                                             </span> <br>
                                                             <span></span>
                                                         </td>

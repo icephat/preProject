@@ -50,9 +50,8 @@ require_once '../function/departmentFunction.php';
 $teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
 
 
-$students = getStudentInAdviserBtTeacherId($teacher["teacherId"]);
+$students = getStudentListStudyBuTeacherId($teacher["teacherId"]);
 
-$deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
 
 
 
@@ -112,16 +111,16 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                             <?php echo $student["fisrtNameTh"] . " " . $student["lastNameTh"] ?>
                                                         </td>
                                                         <td >
-                                                            <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
+                                                            <?php echo $student["nameCourseUse"]. " (" . $student["planCourse"] . ")" ?>
                                                         </td>
 
                                                         <td class="text-center"><span style='color:green;'>
-                                                                <?php echo $student["course"]["totalCredit"] ?>
+                                                                <?php echo $student["totalCredit"] ?>
                                                             </span>
                                                             <span style='color:green;'>/
-                                                                <?php echo $student["creditThree"]["creditPass"] ?>
+                                                                <?php echo $student["creditAll"]?>
                                                             </span>
-                                                            <?php $notPass = $student["course"]["totalCredit"] - $student["creditThree"]["creditPass"] ?>
+                                                            <?php $notPass = $student["totalCredit"] - $student["creditAll"]?>
                                                             <span style='color:red;'>/
                                                             <?php if($notPass <=0){
                                                                         echo 0;
@@ -132,7 +131,7 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                             </span>
                                                         </td>
                                                         <td class="text-center"><span style='color:green;'>
-                                                        <?php echo number_format($student["gpax"], 2, '.', '');?>
+                                                        <?php echo number_format($student["gpaAll"], 2, '.', '');?>
                                                             </span> <br>
                                                             <span></span>
                                                         </td>
