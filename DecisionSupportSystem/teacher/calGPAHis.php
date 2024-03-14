@@ -116,7 +116,7 @@ $calGPA = json_decode($jsonString, true);
                                                             <span style="color: green;">[+ <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
                                                             ]</span>
                                                         <?php } elseif(round($calGPA["gpaxNew"],2) < round($calGPA["gpaPresent"],2)){?>
-                                                            <span style="color: red;">[- <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
+                                                            <span style="color: red;">[ <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
                                                             ]</span>
                                                         <?php } else{?>
                                                             <span style="color: green;">[ <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
