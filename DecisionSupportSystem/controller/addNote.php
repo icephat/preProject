@@ -1,10 +1,19 @@
 <?php
 
+
+
 session_start();
+
+
+
+include_once '../function/teacherFunction.php';
 
 $studentId = $_POST["studentId"];
 $note = $_POST["note"];
 $role = $_POST["role"];
+
+$teacher = getTeacherByUsernameTeacher($_SESSION["access-user"]);
+
 
 
 
@@ -16,13 +25,21 @@ if (file_exists("../teacher/note/" . $studentId . ".json")) {
     $remark = json_decode($jsonString, true);
     $count = $remark["count"];
     $remark["note".$count] = $_POST["note"];
-    $remark["name".$count] = $_SESSION["access-user"];
+    $remark["name".$count] = $teacher["fisrtNameTh"]." ".$teacher["lastNameTh"];
+    $remark["date".$count] = date("Y/m/d");
+    $remark["username".$count] =  $_SESSION["access-user"];
+    $remark["status".$count] = "on";
     $remark["count"] = $remark["count"] + 1;
     
 } else {
-    $remark["count"] = 0;
+    $remark["count"] = 1;
+    $count = $remark["count"];
     $remark["note1"] = $_POST["note"];
-    $remark["name1"] = $_SESSION["access-user"];
+    $remark["name1"] = $teacher["fisrtNameTh"]." ".$teacher["lastNameTh"];
+    $remark["date".$count] = date("Y/m/d");
+    $remark["username".$count] =  $teacher["access-user"];
+    $remark["status".$count] = "on";
+    $remark["count"] = $remark["count"] + 1;
 }
 
 $path = "../teacher/note/" . $studentId . ".json";
