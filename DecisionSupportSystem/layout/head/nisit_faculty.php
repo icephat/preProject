@@ -45,7 +45,7 @@ style="height: max-content;">
 
     <!-- Earnings (Monthly) Card Example -->
 
-    <a href="./home.php" class="col-xl-2 col-md-6 mb-4" style="  text-decoration: none;">
+    <a href="./home.php" class="col-xl-3 col-md-6 mb-4" style="  text-decoration: none;">
         <div class="t1 card border-left-primary shadow h-100">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -88,8 +88,8 @@ style="height: max-content;">
             </div>
         </div>
     </a>-->
-    <a href="./nisit.php" class="col-xl-2 col-md-6 mb-4 " style="text-decoration: none;">
-        <div class="t1 card border-left-success shadow h-100 ">
+    <a href="./nisit.php" class="col-xl-3 col-md-6 mb-4 " style="text-decoration: none;">
+        <div class="t1 card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -105,8 +105,8 @@ style="height: max-content;">
         </div>
     </a>
 
-    <a href="./nisitDep.php" class="col-xl-2 col-md-6 mb-4 " style="text-decoration: none;">
-        <div class="t1 card border-left-warning shadow h-100 ">
+    <a href="./nisitDep.php" class="col-xl-3 col-md-6 mb-4 " style="text-decoration: none;">
+        <div class="t1 card border-left-warning shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -122,8 +122,8 @@ style="height: max-content;">
         </div>
     </a>
 
-    <a href="./nisitFaculty.php" class="col-xl-2 col-md-6 mb-4" style="text-decoration: none;">
-        <div class="t1 card border-left-danger shadow h-100 ">
+    <a href="./nisitFaculty.php" class="col-xl-3 col-md-6 mb-4" style="text-decoration: none;">
+        <div class="t1 card border-left-danger shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -139,7 +139,7 @@ style="height: max-content;">
         </div>
     </a>
 
-    <a href="./nisitGra.php" class="col-xl-2 col-md-6 mb-4 " style="text-decoration: none;">
+    <a href="./nisitGra.php" class="col-xl-3 col-md-6 mb-4 " style="text-decoration: none;">
         <div class="t1 card border-left-success shadow h-100">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -156,7 +156,7 @@ style="height: max-content;">
         </div>
     </a>
 
-    <a href="./nisitDep_Gra.php" class="col-xl-2 col-md-6 mb-4" style="text-decoration: none;">
+    <a href="./nisitDep_Gra.php" class="col-xl-3 col-md-6 mb-4" style="text-decoration: none;">
         <div class="t1 card border-left-warning shadow h-100">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -174,7 +174,7 @@ style="height: max-content;">
     </a>
 
     <!-- Earnings (Monthly) Card Example -->
-    <a href="./select.php" class="col-xl-2 col-md-6 mb-4" style="text-decoration: none;">
+    <a href="./select.php" class="col-xl-3 col-md-6 mb-4" style="text-decoration: none;">
         <div class="t1 card border-left-info shadow h-100">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">

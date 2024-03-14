@@ -177,7 +177,7 @@
                                                         <th style="text-align: right; width: 150px;">
                                                             <span>แรกเข้า</span>
                                                         </th>
-                                                        <th style="text-align: right;"><span>พ้นการศึกษา</span></th>
+                                                        <th style="text-align: right;"><span>พ้นสภาพ</span></th>
                                                         <th style="text-align: right;"><span>กำลังศึกษา</span></th>
                                                         <th style="text-align: right;">จบการศึกษา</th>
                                                         <!--<th style="text-align: right;">ตกค้าง</th>-->
@@ -321,7 +321,7 @@
                                                         <th style="text-align: right; width: 150px;">
                                                             <span>รวมแรกเข้า</span>
                                                         </th>
-                                                        <th style="text-align: right;"><span>พ้นการศึกษา</span>
+                                                        <th style="text-align: right;"><span>พ้นสภาพ</span>
                                                         </th>
                                                         <th style="text-align: right;"><span>กำลังศึกษา</span></th>
                                                         <th style="text-align: right;">จบการศึกษา</th>

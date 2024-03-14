@@ -114,7 +114,7 @@
                                     </a>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <a  href="./student_department.php" style="color: black;  text-decoration:none; font-size: 18px;">อัตราการคงอยู่ของนิสิตในภาควิชา</a>
+                                    <a  href="./student_department.php" style="color: rgb(17,17,158);  text-decoration:none; font-size: 18px;">อัตราการคงอยู่ของนิสิตในภาควิชา</a>
                                 </div>
                             </a>
                         </div>
@@ -129,7 +129,7 @@
                                 </div>
                                 <div class="card-footer text-center">
                                     <a href="./student_faculty.php" 
-                                        style="color: black;  text-decoration:none; font-size: 18px;">ผลการเรียนนิสิตในภาควิชา</a>
+                                        style="color: rgb(17,17,158);  text-decoration:none; font-size: 18px;">ผลการเรียนนิสิตในภาควิชา</a>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                                 </div>
                                 <div class="card-footer text-center">
                                     <a href="./student_tcas.php"
-                                        style="color: black;  text-decoration:none; font-size: 18px;">การเข้าศึกษาของนิสิตในภาควิชา</a>
+                                        style="color: rgb(17,17,158);  text-decoration:none; font-size: 18px;">การเข้าศึกษาของนิสิตในภาควิชา</a>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +159,7 @@
                                 </div>
                                 <div class="card-footer text-center">
                                     <a href="./student_tcas.php"
-                                        style="color: black;  text-decoration:none; font-size: 18px;">การเข้าศึกษาของนิสิตในภาควิชาแต่ละรอบ</a>
+                                        style="color: rgb(17,17,158);  text-decoration:none; font-size: 18px;">การเข้าศึกษาของนิสิตในภาควิชาแต่ละรอบ</a>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="card-footer text-center">
                                     <a
-                                        style="color: black;  text-decoration:none; font-size: 18px;">ผลการเรียนนิสิตแยกตามอาจารย์ที่ปรึกษา</a>
+                                        style="color: rgb(63,112,12);  text-decoration:none; font-size: 18px;">ผลการเรียนนิสิตแยกตามอาจารย์ที่ปรึกษา</a>
                                 </div>
                             </div>
                         </div>
@@ -190,7 +190,7 @@
                                 </div>
                                 <div class="card-footer text-center">
                                     <a
-                                        style="color: black;  text-decoration:none; font-size: 18px;">ผลการเรียนนิสิตแยกตามภาควิชา</a>
+                                        style="color: rgb(63,112,12);  text-decoration:none; font-size: 18px;">ผลการเรียนนิสิตแยกตามภาควิชา</a>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="card-footer text-center">
                                     <a
-                                        style="color: black;  text-decoration:none; font-size: 18px;">การเข้าศึกษาของนิสิตแยกตามภาควิชา</a>
+                                        style="color: rgb(63,112,12);  text-decoration:none; font-size: 18px;">การเข้าศึกษาของนิสิตแยกตามภาควิชา</a>
                                 </div>
                             </div>
                         </div>

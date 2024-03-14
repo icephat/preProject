@@ -151,9 +151,13 @@ $semester = getSemesterPresent();
                     <div class="col-sm-12 ">
                         <div class="row">
                             <div class="col-sm-5 mx-auto">
+                                
                                 <table class="table "
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
+                                    
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
+                                    <br>
+                                    <h5 style="color:black" class="text-center">นิสิตในที่ปรึกษา (กำลังศึกษา)</h5>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; width: 50%; ">
 
                                             <?php
@@ -252,6 +256,8 @@ $semester = getSemesterPresent();
                                 <table class="table "
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
+                                    <br>
+                                    <h5 style="color:black" class="text-center">นิสิตในที่ปรึกษาทั้งหมด</h5>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
 
@@ -373,6 +379,9 @@ $semester = getSemesterPresent();
                                                     <tr>
                                                         <th style=" text-align: right; ">รุ่น</th>
                                                         <th style="text-align: right; ">
+                                                            <span>ทั้งหมด</span>
+                                                        </th>
+                                                        <th style="text-align: right; ">
                                                             <span>ตามแผน</span>
                                                         </th>
                                                         <th style="text-align: right; ">
@@ -397,11 +406,18 @@ $semester = getSemesterPresent();
                                                     $sRetireh = [];
                                                     $sGradh = [];
                                                     $idtermplan = 0;
-                                                    foreach ($gens as $gen) { ?>
+                                                    $sumTotal=0;
+                                                    foreach ($gens as $gen) { 
+                                                        $sum=$gen["planCount"]+$gen["notPlanCount"]+ $gen["retire"]+$gen["grad"];
+                                                        $sumTotal+=$sum;
+                                                        ?>
                                                     
                                                         <tr>
                                                             <td style=" text-align: right;">
                                                                 <?php echo $gen["studyGeneretion"] ?>
+                                                            </td>
+                                                            <td style=" text-align: right;">
+                                                                <?php echo $sum ?> คน
                                                             </td>
                                                             <td style=" text-align: right;">
                                                                 <?php echo $gen["planCount"] ?> คน
@@ -424,7 +440,7 @@ $semester = getSemesterPresent();
                                                         </tr>
                                                         <?php
                                                         $idtermplan++;
-                                                        $sum=$gen["planCount"]+$gen["notPlanCount"]+ $gen["retire"]+$gen["grad"];
+                                                        
                                                         $listgensh[] = "รุ่น " . (string) $gen["studyGeneretion"];
                                                         $sumPlan += $gen["planCount"];
                                                         $sPLanh[] = $gen["planCount"]*100/$sum;
@@ -446,6 +462,9 @@ $semester = getSemesterPresent();
                                                    
                                                     <tr>
                                                         <th scope='row' style=" text-align: right;">รวม (คน)</th>
+                                                        <td style="font-weight: bold; text-align: right;">
+                                                            <?php echo $sumTotal ?>
+                                                        </td>
                                                         <td style="font-weight: bold; text-align: right;">
                                                             <?php echo $sumPlan ?>
                                                         </td>
@@ -471,8 +490,10 @@ $semester = getSemesterPresent();
                     </div>
 
                 </div>
-
+                <br>
+                <h5 style="color:black">ร้อยละของนิสิตในแต่ละปี</h5>
                 <div class="row">
+                    
                     <div class="col-sm-4">
                         <div class="card">
                             <div class="card-header py-3">
@@ -630,7 +651,7 @@ $semester = getSemesterPresent();
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="table-responsive">
-                                            <table class="table table-striped" width="100%" cellspacing="0"
+                                            <table class="table table-striped" width="100%" cellspacing="0" id="dataTable"
                                                 style="color: black;">
                                                 <thead>
                                                     <tr>

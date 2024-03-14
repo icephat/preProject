@@ -116,7 +116,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 CALCULATE ACADEMIC RESULTS </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">คำนวณผลการเรียน</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">คำนวณผลการเรียนล่วงหน้า</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-user-tie fa-2x text-gray-300"></i>
