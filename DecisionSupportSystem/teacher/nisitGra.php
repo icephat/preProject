@@ -69,15 +69,16 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
             <!-- Main Content -->
             <div id="content">
 
-                <?php include('../layout/teacher/nisit.php'); ?>
+                <?php include('../layout/teacher/nisit_gra.php'); ?>
                 <hr>
                 <div class="row">
                     <div class="col-12 mx-auto">
-                        <h4 style="color: green;">รายชื่อนิสิตในที่ปรึกษา คณะวิศวกรรมศาสตร์ กำแพงแสน</h4>
+                        <h4 style="color: green;">รายชื่อนิสิตในที่ปรึกษาที่จบ คณะวิศวกรรมศาสตร์ กำแพงแสน</h4>
                         <div class="card">
                             
+
                             <div class="col12 tab-content" id="myTabsContent">
-                                
+                               
                                     <br>
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="dataTable" cellspacing="0"
@@ -87,9 +88,7 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                     <th class="text-center">รหัสนิสิต</th>
                                                     <th>ชื่อ-นามสกุล</th>
                                                     <th >ประเภทหลักสูตร</th>
-                                                    <th class="text-center">หน่วยกิตที่ลงทะเบียน<br>
-                                                        (ทั้งหมด/ผ่าน/ไม่ผ่าน)
-                                                    </th>
+                                                   
                                                     <th class="text-center">GPAX</th>
                                                     <th class="text-center">รายละเอียด</th>
                                                 </tr>
@@ -115,22 +114,6 @@ $deptStudents = getStudentByDepartmentId($teacher["departmentId"]);
                                                             <?php echo $student["course"]["nameCourseUse"] . " (" . $student["course"]["planCourse"] . ")" ?>
                                                         </td>
 
-                                                        <td class="text-center"><span style='color:green;'>
-                                                                <?php echo $student["course"]["totalCredit"] ?>
-                                                            </span>
-                                                            <span style='color:green;'>/
-                                                                <?php echo $student["creditThree"]["creditPass"] ?>
-                                                            </span>
-                                                            <?php $notPass = $student["course"]["totalCredit"] - $student["creditThree"]["creditPass"] ?>
-                                                            <span style='color:red;'>/
-                                                            <?php if($notPass <=0){
-                                                                        echo 0;
-                                                                }else{
-                                                                        echo $notPass;
-                                                                }
-                                                            ?>
-                                                            </span>
-                                                        </td>
                                                         <td class="text-center"><span style='color:green;'>
                                                         <?php echo number_format($student["gpax"], 2, '.', '');?>
                                                             </span> <br>

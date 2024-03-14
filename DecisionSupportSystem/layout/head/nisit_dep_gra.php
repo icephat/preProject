@@ -46,7 +46,7 @@ style="height: max-content;">
     <!-- Earnings (Monthly) Card Example -->
 
     <a href="./home.php" class="col-xl-2 col-md-6 mb-4" style="  text-decoration: none;">
-        <div class="t1 card border-left-primary shadow h-100 ">
+        <div class="t1 card border-left-primary shadow h-100">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -55,7 +55,7 @@ style="height: max-content;">
                         <div class="h5 mb-0 font-weight-bold text-gray-800">อาจารย์ที่ปรึกษา</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-home fa-2x text-primary"></i>
+                        <i class="fas fa-home fa-2x text-gray-300 "></i>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ style="height: max-content;">
         </div>
     </a>-->
     <a href="./nisit.php" class="col-xl-2 col-md-6 mb-4" style="text-decoration: none;">
-        <div class="t1 card border-left-success shadow h-100 ">
+        <div class="t1 card border-left-success shadow h-100">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -122,7 +122,7 @@ style="height: max-content;">
         </div>
     </a>
 
-    <a href="./nisitFaculty.php" class="col-xl-2 col-md-6 mb-4 " style="text-decoration: none;">
+    <a href="./nisitFaculty.php" class="col-xl-2 col-md-6 mb-4" style="text-decoration: none;">
         <div class="t1 card border-left-danger shadow h-100 ">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -138,6 +138,7 @@ style="height: max-content;">
             </div>
         </div>
     </a>
+
     <a href="./nisitGra.php" class="col-xl-2 col-md-6 mb-4 " style="text-decoration: none;">
         <div class="t1 card border-left-success shadow h-100">
             <div class="card-body">
@@ -165,7 +166,7 @@ style="height: max-content;">
                         <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิตภาควิชาที่จบ</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                        <i class="fas fa-user fa-2x text-warning"></i>
                     </div>
                 </div>
             </div>
@@ -190,6 +191,6 @@ style="height: max-content;">
         </div>
     </a>
 
-
+   
 
 </div>

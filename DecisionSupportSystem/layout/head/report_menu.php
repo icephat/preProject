@@ -61,23 +61,7 @@ style="height: max-content;">
         </div>
     </a>
 
-    <!-- Earnings (Monthly) Card Example -->
-    <a href="../../head/select.php" class="col-xl-3 col-md-6 mb-4" style="text-decoration: none;">
-        <div class="t1 card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                            REPORT</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">รายงาน</div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-book fa-2x text-info"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
+    
 
     <!-- Earnings (Monthly) Card Example -->
     <!--<a href="./report.php" class="col-xl-3 col-md-6 mb-4">
@@ -114,6 +98,58 @@ style="height: max-content;">
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-user fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="./nisitGra.php" class="col-xl-2 col-md-6 mb-4 " style="text-decoration: none;">
+        <div class="t1 card border-left-success shadow h-100">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            LIST OF STUDENTS</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิตในที่ปรึกษาที่จบ</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="./nisitDep_Gra.php" class="col-xl-2 col-md-6 mb-4" style="text-decoration: none;">
+        <div class="t1 card border-left-warning shadow h-100">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            LIST OF STUDENTS</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">รายชื่อนิสิตภาควิชาที่จบ</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <a href="../../head/select.php" class="col-xl-3 col-md-6 mb-4" style="text-decoration: none;">
+        <div class="t1 card border-left-info shadow h-100 ">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                            REPORT</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">รายงาน</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-book fa-2x text-info"></i>
                     </div>
                 </div>
             </div>
