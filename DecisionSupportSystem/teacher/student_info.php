@@ -1120,7 +1120,7 @@ $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
                             <tr>
                                 <th>อาจารย์</th>
                                 <th>รายการบันทึก</th>
-                                <!-- <th class="text-center">รายละเอียด</th> -->
+                                <th>วันที่บันทึก</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1135,6 +1135,7 @@ $student["terms"] = getTermSummaryListByStudentId($student["studentId"]);
 
                                     <th><?php echo $remark["name".$i] ?></th>
                                     <th><?php echo $remark["note".$i] ?></th>
+                                    <th><?php echo $remark["date".$i] ?></th>
                                     <!-- <th class="text-center">
                                         <button type="button" class="btn btn-danger">ลบ</button>
                                     </th> -->
