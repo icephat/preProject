@@ -66,7 +66,7 @@ $deptStudents = getStudentByStudentIdANDStudentName($_POST["search"]);
             <!-- Main Content -->
             <div id="content">
 
-                <?php include('../layout/head/nisit_dep.php'); ?>
+                <?php include('../layout/teacher/home.php'); ?>
                 <hr>
                 <div class="row">
                     <div class="col-12 mx-auto">
