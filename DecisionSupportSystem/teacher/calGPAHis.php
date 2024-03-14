@@ -66,9 +66,9 @@ $calGPA = json_decode($jsonString, true);
                 <!-- Content Row -------------------------------------------------------BOX----------------------->
                 <div class="row">
                     <div class="col-6 text-left">
-                        <h4 style="color: black;">เกรดเฉลี่ยสะสม:
-                            <?php echo $calGPA["gpaPresent"]; ?> หน่วยกิต:
-                            <?php echo $calGPA["creditPresent"]; ?>
+                        <h4 style="color: black;">เกรดเฉลี่ยสะสมที่คาดการณ์:
+                            <?php echo number_format($calGPA["gpaxNew"], 2, '.', ''); ?><br> หน่วยกิตที่คาดการณ์:
+                            <?php echo $calGPA["creditNew"] + $calGPA["creditPresent"]; ?>
                         </h4>
                     </div>
 
@@ -98,30 +98,37 @@ $calGPA = json_decode($jsonString, true);
                                             <td>
                                                 <p style="color: black; font-weight: bold;">GPAX : <span
                                                         style="font-weight: normal;">
-                                                        <?php echo $calGPA["gpaPresent"]; ?>
+                                                        <?php echo  number_format($calGPA["gpaPresent"], 2, '.', ''); ?>
                                                     </span></p>
 
                                             </td>
                                             <td>
                                                 <p style="color: black; font-weight: bold;">GPA : <span
                                                         style="font-weight: normal;">
-                                                        <?php echo $calGPA["gpaNew"]; ?>
+                                                        <?php echo number_format($calGPA["gpaNew"], 2, '.', ''); ?>
                                                     </span></p>
 
                                             </td>
                                             <td>
                                                 <p style="color: black; font-weight: bold;">GPAX : <span
-                                                    style="font-weight: normal;"> <?php echo $calGPA["gpaxNew"]?> 
-                                                        <?php if(round($calGPA["gpaxNew"],2) > round($calGPA["gpaPresent"],2) ){?>
-                                                            <span style="color: green;">[+ <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
-                                                            ]</span>
-                                                        <?php } elseif(round($calGPA["gpaxNew"],2) < round($calGPA["gpaPresent"],2)){?>
-                                                            <span style="color: red;">[ <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
-                                                            ]</span>
-                                                        <?php } else{?>
-                                                            <span style="color: green;">[ <?php echo round($calGPA["gpaxNew"]-$calGPA["gpaPresent"],2)?>
-                                                            ]</span>
-                                                        <?php }?>
+                                                        style="font-weight: normal;">
+                                                        <?php echo number_format($calGPA["gpaxNew"], 2, '.', ''); ?>
+                                                        <?php if (round($calGPA["gpaxNew"], 2) > round($calGPA["gpaPresent"], 2)) { ?>
+                                                        <span style="color: green;">[+
+                                                            <?php echo round($calGPA["gpaxNew"] - $calGPA["gpaPresent"], 2) ?>
+                                                            ]
+                                                        </span>
+                                                        <?php } elseif (round($calGPA["gpaxNew"], 2) < round($calGPA["gpaPresent"], 2)) { ?>
+                                                        <span style="color: red;">[
+                                                            <?php echo round($calGPA["gpaxNew"] - $calGPA["gpaPresent"], 2) ?>
+                                                            ]
+                                                        </span>
+                                                        <?php } else { ?>
+                                                        <span style="color: green;">[
+                                                            <?php echo round($calGPA["gpaxNew"] - $calGPA["gpaPresent"], 2) ?>
+                                                            ]
+                                                        </span>
+                                                        <?php } ?>
                                                 </p>
 
                                             </td>
@@ -187,10 +194,18 @@ $calGPA = json_decode($jsonString, true);
                                             for ($i = 1; $i < $calGPA["count"]; $i++) {
                                                 ?>
                                             <tr>
-                                                <td class="text-center"><?php echo $calGPA["subjectCode$i"] ?></td>
-                                                <td><?php echo $calGPA["subjectName$i"] ?></td>
-                                                <td class="text-center"><?php echo $calGPA["grade$i"] ?></td>
-                                                <td class="text-center"><?php echo $calGPA["credit$i"] ?></td>
+                                                <td class="text-center">
+                                                    <?php echo $calGPA["subjectCode$i"] ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $calGPA["subjectName$i"] ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <?php echo $calGPA["grade$i"] ?>
+                                                </td>
+                                                <td class="text-center">
+                                                    <?php echo $calGPA["credit$i"] ?>
+                                                </td>
                                             </tr>
                                             <?php
 
@@ -206,10 +221,11 @@ $calGPA = json_decode($jsonString, true);
                             </p>
                         </div>
                         <br><br>
-                        <form action="./student_info.php" method = "post">
+                        <form action="./student_info.php" method="post">
                             <div style="text-align: center;">
                                 <input type="hidden" name="studentId" value="<?php echo $studentId; ?>" />
-                                <button href="./student_info.php" type="submit"  name="submit" class="btn btn-primary">ย้อนกลับ</button>
+                                <button href="./student_info.php" type="submit" name="submit"
+                                    class="btn btn-primary">ย้อนกลับ</button>
                             </div>
                         </form>
                         <br><br>
