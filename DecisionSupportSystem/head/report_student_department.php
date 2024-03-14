@@ -180,9 +180,9 @@
 
                                                 ?>
 
-                                            <div style="color: rgb(0, 9, 188);">
+                                            <div style="color: rgb(134, 211, 247);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(0, 9, 188);" ><!--href="#" data-toggle="modal" data-target="#modalblue"-->
+                                                    <div style="color: rgb(134, 211, 247);" ><!--href="#" data-toggle="modal" data-target="#modalblue"-->
                                                         <h4>3.25-4.00</h4>
                                                     </div>
                                                 </div>
@@ -199,9 +199,9 @@
 
                                         </th>
                                         <th  style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(0, 110, 22);">
+                                            <div style="color: rgb(153, 204, 153);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(0, 110, 22);"><!-- href="#" data-toggle="modal" data-target="#modalgreen"-->
+                                                    <div style="color: rgb(153, 204, 153);"><!-- href="#" data-toggle="modal" data-target="#modalgreen"-->
                                                         <h4>2.00-3.24</h4>
                                                     </div>
                                                 </div>
@@ -219,9 +219,9 @@
                                     <tr>
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
 
-                                            <div style="color: #ff8c00;">
+                                            <div style="color: rgba(245, 123, 57,0.7);">
                                                 <div class="text-center">
-                                                    <div style="color: #ff8c00;" ><!--href="#" data-toggle="modal" data-target="#modalorange"-->
+                                                    <div style="color: rgba(245, 123, 57,0.7);" ><!--href="#" data-toggle="modal" data-target="#modalorange"-->
                                                         <h4>1.75-1.99</h4>
                                                     </div>
                                                 </div>
@@ -236,9 +236,9 @@
                                             </div>
                                         </th>
                                         <th style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(255, 0, 0);">
+                                            <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(255, 0, 0);" ><!--href="#" data-toggle="modal" data-target="#modalred"-->
+                                                    <div style="color: rgb(255, 105, 98);" ><!--href="#" data-toggle="modal" data-target="#modalred"-->
                                                         <h4>0.00-1.74</h4>
                                                     </div>
                                                 </div>
@@ -265,9 +265,9 @@
 
                                                 ?>
 
-                                            <div style="color: rgb(100, 197, 215);">
+                                            <div style="color: rgb(171,231,248);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(100, 197, 215);" ><!--href="#" data-toggle="modal" data-target="#modalblue2"-->
+                                                    <div style="color: rgb(171,231,248);" ><!--href="#" data-toggle="modal" data-target="#modalblue2"-->
                                                         <h4>ตามแผน</h4>
                                                     </div>
                                                 </div>
@@ -284,9 +284,9 @@
 
                                         </th>
                                         <th  style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(	118, 188, 22);">
+                                            <div style="color: rgb(235,67,67);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	118, 188, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen2"-->
+                                                    <div style="color: rgb(235,67,67);" ><!--href="#" data-toggle="modal" data-target="#modalgreen2"-->
                                                         <h4>ไม่ตามแผน</h4>
                                                     </div>
                                                 </div>
@@ -304,9 +304,9 @@
                                     <tr>
                                         <th  style="border: 1px solid black; border-collapse: collapse;">
 
-                                            <div style="color: rgb(	245, 123, 57);">
+                                            <div style="color: rgb(255,137,93);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	245, 123, 57);"><!-- href="#" data-toggle="modal" data-target="#modalorange2"-->
+                                                    <div style="color: rgb(255,137,93);"><!-- href="#" data-toggle="modal" data-target="#modalorange2"-->
                                                         <h4>พ้นสภาพ</h4>
                                                     </div>
                                                 </div>
@@ -321,9 +321,9 @@
                                             </div>
                                         </th>
                                         <th style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(255, 105, 98);">
+                                            <div style="color: rgb(120,163,212);">
                                                 <div class="text-center">
-                                                    <div style="color:  rgb(255, 105, 98);" ><!--href="#" data-toggle="modal" data-target="#modalred2"-->
+                                                    <div style="color:  rgb(120,163,212);" ><!--href="#" data-toggle="modal" data-target="#modalred2"-->
                                                         <h4>จบการศึกษา</h4>
                                                     </div>
                                                 </div>
@@ -637,9 +637,9 @@
 
                                                 ?>
 
-                                            <div style="color: rgb(0, 9, 188);">
+                                            <div style="color: rgb(134, 211, 247);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(0, 9, 188);" ><!--href="#" data-toggle="modal" data-target="#modalblue3"-->
+                                                    <div style="color: rgb(134, 211, 247);" ><!--href="#" data-toggle="modal" data-target="#modalblue3"-->
                                                         <h4>3.25-4.00</h4>
                                                     </div>
                                                 </div>
@@ -656,9 +656,9 @@
 
                                         </th>
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(0, 110, 22);">
+                                            <div style="color: rgb(153, 204, 153);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(0, 110, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen3"-->
+                                                    <div style="color: rgb(153, 204, 153);" ><!--href="#" data-toggle="modal" data-target="#modalgreen3"-->
                                                         <h4>2.00-3.24</h4>
                                                     </div>
                                                 </div>
@@ -676,9 +676,9 @@
                                     <tr>
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
 
-                                            <div style="color: #ff8c00;">
+                                            <div style="color: rgb(245, 123, 57);">
                                                 <div class="text-center">
-                                                    <div style="color: #ff8c00;" ><!--href="#" data-toggle="modal" data-target="#modalorange3"-->
+                                                    <div style="color: rgb(245, 123, 57);" ><!--href="#" data-toggle="modal" data-target="#modalorange3"-->
                                                         <h4>1.75-1.99</h4>
                                                     </div>
                                                 </div>
@@ -693,9 +693,9 @@
                                             </div>
                                         </th>
                                         <th style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(255, 0, 0);">
+                                            <div style="color: rgb(255, 105, 98);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(255, 0, 0);" ><!--href="#" data-toggle="modal" data-target="#modalred3"-->
+                                                    <div style="color: rgb(255, 105, 98);" ><!--href="#" data-toggle="modal" data-target="#modalred3"-->
                                                         <h4>0.00-1.74</h4>
                                                     </div>
                                                 </div>
@@ -722,9 +722,9 @@
 
                                                 ?>
 
-                                            <div style="color: rgb(100, 197, 215);">
+                                            <div style="color: rgb(171,231,248);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(100, 197, 215);" ><!--href="#" data-toggle="modal" data-target="#modalblue4"-->
+                                                    <div style="color: rgb(171,231,248);" ><!--href="#" data-toggle="modal" data-target="#modalblue4"-->
                                                         <h4>ตามแผน</h4>
                                                     </div>
                                                 </div>
@@ -741,9 +741,9 @@
 
                                         </th>
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(	118, 188, 22);">
+                                            <div style="color: rgb(235,67,67);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	118, 188, 22);" ><!--href="#" data-toggle="modal" data-target="#modalgreen4"-->
+                                                    <div style="color: rgb(235,67,67);" ><!--href="#" data-toggle="modal" data-target="#modalgreen4"-->
                                                         <h4>ไม่ตามแผน</h4>
                                                     </div>
                                                 </div>
@@ -761,9 +761,9 @@
                                     <tr>
                                         <th style="border: 1px solid black; border-collapse: collapse;">
 
-                                            <div style="color: rgb(	245, 123, 57);">
+                                            <div style="color: rgb(255,137,93);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	245, 123, 57);" ><!--href="#" data-toggle="modal" data-target="#modalorange4"-->
+                                                    <div style="color: rgb(255,137,93);" ><!--href="#" data-toggle="modal" data-target="#modalorange4"-->
                                                         <h4>พ้นสภาพ</h4>
                                                     </div>
                                                 </div>
@@ -778,9 +778,9 @@
                                             </div>
                                         </th>
                                         <th style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(255, 105, 98);">
+                                            <div style="color: rgb(120,163,212);">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(255, 105, 98);"><!-- href="#" data-toggle="modal" data-target="#modalred4"-->
+                                                    <div style="color: rgb(120,163,212);"><!-- href="#" data-toggle="modal" data-target="#modalred4"-->
                                                         <h4>จบการศึกษา</h4>
                                                     </div>
                                                 </div>
@@ -2301,25 +2301,25 @@
                                 datasets: [{
                                     label: '3.25-4.00',
                                     data: learnBlues,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
                                     data: learnGreens,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
                                     data: learnOranges,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.99',
                                     data: learnReds,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -2359,25 +2359,25 @@
                                 datasets: [{
                                     label: 'ตามแผน',
                                     data: learn2Plans,
-                                    backgroundColor: "rgba(134, 211, 247,0.7)",
+                                    backgroundColor: "rgba(171,231,248,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ไม่ตามแผน',
                                     data: learn2NotPlans,
-                                    backgroundColor: "rgba(153, 204, 153,0.7)",
+                                    backgroundColor: "rgba(235,67,67,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'พ้นสภาพ',
                                     data: learn2Retires,
-                                    backgroundColor: 'rgba(245, 123, 57,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'จบการศึกษา',
                                     data: learn2Grads,
-                                    backgroundColor: 'rgba(255, 105, 98,0.7)',
+                                    backgroundColor: 'rgba(120,163,212,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -2442,25 +2442,25 @@
                                 datasets: [{
                                     label: '3.25-4.00',
                                     data: learnBlues2,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
                                     data: learnGreens2,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
                                     data: learnOranges2,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
                                     data: learnReds2,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -2498,25 +2498,25 @@
                                 datasets: [{
                                     label: 'ตามแผน',
                                     data: learn2Plans2,
-                                    backgroundColor: "rgba(134, 211, 247,0.7)",
+                                    backgroundColor: "rgba(171,231,248,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'ไม่ตามแผน',
                                     data: learn2NotPlans2,
-                                    backgroundColor: "rgba(153, 204, 153,0.7)",
+                                    backgroundColor: "rgba(235,67,67,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'พ้นสภาพ',
                                     data: learn2Retires2,
-                                    backgroundColor: 'rgba(245, 123, 57,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: 'จบการศึกษา',
                                     data: learn2Grads2,
-                                    backgroundColor: 'rgba(255, 105, 98,0.7)',
+                                    backgroundColor: 'rgba(120,163,212,0.7)',
                                     borderWidth: 0
                                 }
                                 ]

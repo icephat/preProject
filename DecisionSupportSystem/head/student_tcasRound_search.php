@@ -716,7 +716,7 @@
                             datasets: [{
                                 label: 'จำนวนรับเข้า',
                                 data: entry,
-                                backgroundColor: '#bfd575',
+                                backgroundColor: ' rgb(0, 107, 201)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -730,7 +730,7 @@
                             {
                                 label: 'จำนวนคงเหลือ',
                                 data: study,
-                                backgroundColor: '#a4ebf3',
+                                backgroundColor: 'rgba(171,231,248,0.7)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -780,7 +780,7 @@
                             datasets: [{
                                 label: 'จำนวนคงอยู่',
                                 data: study2,
-                                backgroundColor: '#bfd575',
+                                backgroundColor: 'rgba(171,231,248,0.7)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -794,7 +794,7 @@
                             {
                                 label: 'จำนวนพ้นสภาพ',
                                 data: retire2,
-                                backgroundColor: 'rgba(245, 123, 57,0.7)',
+                                backgroundColor: 'rgba(255,137,93,0.7)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',

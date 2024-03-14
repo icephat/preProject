@@ -162,8 +162,8 @@ $semester = getSemesterPresent();
                                             
                                             ?>
 
-                                            <div style="color: rgb(0, 9, 188);">
-                                                <a style="text-decoration: none; color: rgb(0, 9, 188);" href="#" data-toggle="modal"
+                                            <div style="color: rgb(134, 211, 247);">
+                                                <a style="text-decoration: none; color: rgb(134, 211, 247);" href="#" data-toggle="modal"
                                                         data-target="#modalblue" >
                                                     <div class="text-center">
                                                             <h4>3.25-4.00</h4>
@@ -182,8 +182,8 @@ $semester = getSemesterPresent();
 
                                         </th>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style=" color: rgb(0, 110, 22);">
-                                                <a style=" text-decoration: none; color: rgb(0, 110, 22);" href="#" data-toggle="modal"
+                                            <div style=" color: rgb(153, 204, 153);">
+                                                <a style=" text-decoration: none; color: rgb(153, 204, 153);" href="#" data-toggle="modal"
                                                         data-target="#modalgreen">
                                                     <div class="text-center">
                                                         
@@ -205,8 +205,8 @@ $semester = getSemesterPresent();
                                     <tr>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
 
-                                            <div style="color: #ff8c00;">
-                                                <a style="text-decoration: none; color: #ff8c00;" href="#" data-toggle="modal"
+                                            <div style="color: rgb(245, 123, 57);">
+                                                <a style="text-decoration: none; color: rgb(245, 123, 57);" href="#" data-toggle="modal"
                                                         data-target="#modalorange">
                                                     <div class="text-center">
                                                     
@@ -225,8 +225,8 @@ $semester = getSemesterPresent();
                                             </div>
                                         </th>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="  color: rgb(255, 0, 0);">
-                                                <a style="text-decoration: none; color: rgb(255, 0, 0);" href="#" data-toggle="modal"
+                                            <div style="  color: rgb(255, 105, 98);">
+                                                <a style="text-decoration: none; color: rgb(255, 105, 98);" href="#" data-toggle="modal"
                                                         data-target="#modalred">
                                                     <div class="text-center">
                                                         
@@ -261,12 +261,12 @@ $semester = getSemesterPresent();
 
                                             ?>
 
-                                            <div style="color: rgb(100, 197, 215);">
-                                                <a style="text-decoration: none; color:  rgb(100, 197, 215);" href="#" data-toggle="modal"
+                                            <div style="color: rgb(171,231,248);">
+                                                <a style="text-decoration: none; color: rgb(171,231,248);" href="#" data-toggle="modal"
                                                         data-target="#modalblue2">
                                                     <div class="text-center">
                                                         
-                                                            <h4>ตามแผน</h4>
+                                                            <h4>ตามหลักสูตร</h4>
                                                         
                                                     </div>
                                                     <div class="text-center">
@@ -283,12 +283,12 @@ $semester = getSemesterPresent();
 
                                         </th>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style=" color: rgb(	118, 188, 22);">
-                                                <a style="text-decoration: none; color: rgb(	118, 188, 22);" href="#" data-toggle="modal"
+                                            <div style=" color: rgb(235,67,67);">
+                                                <a style="text-decoration: none; color: rgb(235,67,67);" href="#" data-toggle="modal"
                                                         data-target="#modalgreen2">
                                                     <div class="text-center">
                                                         
-                                                            <h4>ไม่ตามแผน</h4>
+                                                            <h4>ไม่ตามหลักสูตร</h4>
                                                         
                                                     </div>
                                                     <div class="text-center">
@@ -306,8 +306,8 @@ $semester = getSemesterPresent();
                                     <tr>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
 
-                                            <div style=" color: rgb(	245, 123, 57);">
-                                                <a style="text-decoration: none; color: rgb(	245, 123, 57);" href="#" data-toggle="modal"
+                                            <div style=" color: rgb(255,137,93);">
+                                                <a style="text-decoration: none; color: rgb(255,137,93);" href="#" data-toggle="modal"
                                                         data-target="#modalorange2">
                                                     <div class="text-center">
                                                         
@@ -326,8 +326,8 @@ $semester = getSemesterPresent();
                                             </div>
                                         </th>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style=" color: rgb(255, 105, 98);">
-                                                <a style="text-decoration: none; color: rgb(255, 105, 98);" href="#" data-toggle="modal"
+                                            <div style=" color: rgb(120,163,212);">
+                                                <a style="text-decoration: none; color: rgb(120,163,212);" href="#" data-toggle="modal"
                                                         data-target="#modalred2">
                                                     <div class="text-center">
                                                         
@@ -805,13 +805,13 @@ $semester = getSemesterPresent();
                                                 <td>6320500603</td>
                                                 <td>ภัทรพร ปัญญาอุดมพร</td>
                                                 <td>3.38</td>
-                                                <td style="color: rgb(0, 110, 22); font-weight: bold;">ปกติ</td>
+                                                <td style="color: rgba(153, 204, 153,0.7); font-weight: bold;">ปกติ</td>
                                             </tr>
                                             <tr>
                                                 <td>6320500611</td>
                                                 <td>ภานุวัฒน์ จั่นจินดา</td>
                                                 <td>3.65</td>
-                                                <td style="color: rgb(0, 9, 188); font-weight: bold;">เกียรตินิยม</td>
+                                                <td style="color: rgba(134, 211, 247,0.7); font-weight: bold;">เกียรตินิยม</td>
                                             </tr>
                                         </tbody>
 
@@ -1859,25 +1859,25 @@ $semester = getSemesterPresent();
                     {
                         label: 'ตามหลักสูตร',
                         data: sPLansh,
-                        backgroundColor: "rgba(100, 197, 215,0.7)",
+                        backgroundColor: "rgba(171,231,248,0.7)",
                         borderWidth: 0
                     },
                     {
                         label: ['ไม่ตามหลักสูตร'],
                         data: sNotPlansh,
-                        backgroundColor: "rgba(118, 188, 22,0.7)",
+                        backgroundColor: "rgba(235,67,67,0.7)",
                         borderWidth: 0
                     },
                     {
                         label: ['พ้นสภาพ'],
                         data: sRetiresh,
-                        backgroundColor: 'rgba(245, 123, 57,0.7)',
+                        backgroundColor: 'rgba(255,137,93,0.7)',
                         borderWidth: 0
                     },
                     {
                         label: ['จบการศึกษา'],
                         data: sGradsh,
-                        backgroundColor: 'rgba(255, 105, 98,0.7)',
+                        backgroundColor: 'rgba(120,163,212,0.7)',
                         borderWidth: 0
                     }
                 ]
@@ -1916,25 +1916,25 @@ $semester = getSemesterPresent();
                 datasets: [{
                     label: '3.25-4.00',
                     data: p1blue,
-                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                    backgroundColor: "rgba(134, 211, 247,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '2.00-3.24',
                     data: p1green,
-                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                    backgroundColor: "rgba(153, 204, 153,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '1.75-1.99',
                     data: p1orange,
-                    backgroundColor: 'rgba(255,128,0,0.7)',
+                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                     borderWidth: 0
                 },
                 {
                     label: '0.00-1.74',
                     data: p1red,
-                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                     borderWidth: 0
                 }
                 ]
@@ -1972,25 +1972,25 @@ $semester = getSemesterPresent();
                 datasets: [{
                     label: '3.25-4.00',
                     data: p2blueh,
-                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                    backgroundColor: "rgba(134, 211, 247,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '2.00-3.24',
                     data: p2greenh,
-                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                    backgroundColor: "rgba(153, 204, 153,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '1.75-1.99',
                     data: p2orangeh,
-                    backgroundColor: 'rgba(255,128,0,0.7)',
+                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                     borderWidth: 0
                 },
                 {
                     label: '0.00-1.74',
                     data: p2redh,
-                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                     borderWidth: 0
                 }
                 ]
@@ -2027,25 +2027,25 @@ $semester = getSemesterPresent();
                 datasets: [{
                     label: '3.25-4.00',
                     data: p3blue,
-                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                    backgroundColor: "rgba(134, 211, 247,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '2.00-3.24',
                     data: p3green,
-                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                    backgroundColor: "rgba(153, 204, 153,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '1.75-1.99',
                     data: p3orange,
-                    backgroundColor: 'rgba(255,128,0,0.7)',
+                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                     borderWidth: 0
                 },
                 {
                     label: '0.00-1.74',
                     data: p3red,
-                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                     borderWidth: 0
                 }
                 ]
@@ -2083,25 +2083,25 @@ $semester = getSemesterPresent();
                 datasets: [{
                     label: '3.25-4.00',
                     data: p4blue,
-                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                    backgroundColor: "rgba(134, 211, 247,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '2.00-3.24',
                     data: p4green,
-                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                    backgroundColor: "rgba(153, 204, 153,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '1.75-1.99',
                     data: p4orange,
-                    backgroundColor: 'rgba(255,128,0,0.7)',
+                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                     borderWidth: 0
                 },
                 {
                     label: '0.00-1.74',
                     data: p4red,
-                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                     borderWidth: 0
                 }
                 ]
@@ -2140,25 +2140,25 @@ $semester = getSemesterPresent();
                 datasets: [{
                     label: '3.25-4.00',
                     data: p4blue,
-                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                    backgroundColor: "rgba(134, 211, 247,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '2.00-3.24',
                     data: p4plusgreen,
-                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                    backgroundColor: "rgba(153, 204, 153,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '1.75-1.99',
                     data: p4plusorange,
-                    backgroundColor: 'rgba(255,128,0,0.7)',
+                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                     borderWidth: 0
                 },
                 {
                     label: '0.00-1.74',
                     data: p4plusred,
-                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                     borderWidth: 0
                 }
                 ]
@@ -2205,19 +2205,19 @@ $semester = getSemesterPresent();
                 datasets: [{
                     label: 'ตามหลักสูตร',
                     data: plansStudySemesters,
-                    backgroundColor: "rgba(100, 197, 215,0.7)",
+                    backgroundColor: "rgba(171,231,248,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: ['ไม่ตามหลักสุตร'],
                     data: notPlans,
-                    backgroundColor: "rgba(118, 188, 22,0.7)",
+                    backgroundColor: "rgba(235,67,67,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: ['พ้นสภาพ'],
                     data: resignPlans,
-                    backgroundColor: 'rgba(255, 105, 98,0.7)',
+                    backgroundColor: 'rgba(255,137,93,0.7)',
                     borderWidth: 0
                 }
                 ]
@@ -2261,25 +2261,25 @@ $semester = getSemesterPresent();
                 datasets: [{
                     label: '3.25-4.00',
                     data: bluegen,
-                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                    backgroundColor: "rgba(134, 211, 247,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '2.00-3.24',
                     data: greengen,
-                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                    backgroundColor: "rgba(153, 204, 153,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '1.75-1.99',
                     data: orangegen,
-                    backgroundColor: 'rgba(255,128,0,0.7)',
+                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                     borderWidth: 0
                 },
                 {
                     label: '0.00-1.74',
                     data: redgen,
-                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                     borderWidth: 0
                 }
                 ]
@@ -2321,25 +2321,25 @@ $semester = getSemesterPresent();
                 datasets: [{
                     label: '3.25-4.00',
                     data: bluegenend,
-                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                    backgroundColor: "rgba(134, 211, 247,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '2.00-3.24',
                     data: greengenend,
-                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                    backgroundColor: "rgba(153, 204, 153,0.7)",
                     borderWidth: 0
                 },
                 {
                     label: '1.75-1.99',
                     data: orangegenend,
-                    backgroundColor: 'rgba(255,128,0,0.7)',
+                    backgroundColor: 'rgba(245, 123, 57,0.7)',
                     borderWidth: 0
                 },
                 {
                     label: '0.00-1.74',
                     data: redgenend,
-                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                    backgroundColor: 'rgba(255, 105, 98,0.7)',
                     borderWidth: 0
                 }
                 ]

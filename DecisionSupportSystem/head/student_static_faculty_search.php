@@ -160,8 +160,8 @@
 
                                                 ?>
 
-                                            <div style="color: rgb(0, 9, 188);">
-                                                <a style="text-decoration: none; color: rgb(0, 9, 188);" href="#" data-toggle="modal" data-target="#modalblue">
+                                            <div style="color: rgb(134, 211, 247);">
+                                                <a style="text-decoration: none; color: rgb(134, 211, 247);" href="#" data-toggle="modal" data-target="#modalblue">
                                                     <div class="text-center">
                                                         
                                                             <h4>GPAX 3.25-4.00</h4>
@@ -181,8 +181,8 @@
 
                                         </th>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(0, 110, 22);">
-                                                <a style="text-decoration: none; color: rgb(0, 110, 22);" href="#" data-toggle="modal" data-target="#modalgreen">
+                                            <div style="color: rgb(153, 204, 153);">
+                                                <a style="text-decoration: none; color: rgb(153, 204, 153);" href="#" data-toggle="modal" data-target="#modalgreen">
                                                     <div class="text-center">
                                                         
                                                             <h4>GPAX 2.00-3.24</h4>
@@ -203,8 +203,8 @@
                                     <tr>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
 
-                                            <div style="color: #ff8c00;">
-                                                <a style="text-decoration: none; color: #ff8c00;" href="#" data-toggle="modal" data-target="#modalorange">
+                                            <div style="color: rgb(255,137,93);">
+                                                <a style="text-decoration: none; color: rgb(255,137,93);" href="#" data-toggle="modal" data-target="#modalorange">
                                                     <div class="text-center">
                                                         
                                                             <h4>GPAX 1.75-1.99</h4>
@@ -222,8 +222,8 @@
                                             </div>
                                         </th>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(255, 0, 0);">
-                                                <a style="text-decoration: none; color: rgb(255, 0, 0);" href="#" data-toggle="modal" data-target="#modalred">
+                                            <div style="color: rgb(120,163,212);">
+                                                <a style="text-decoration: none; color: rgb(120,163,212);" href="#" data-toggle="modal" data-target="#modalred">
                                                     <div class="text-center">
                                                         
                                                             <h4>GPAX 0.00-1.74</h4>
@@ -253,11 +253,11 @@
 
                                                 ?>
 
-                                            <div style="color: rgb(100, 197, 215);">
-                                                <a style="text-decoration: none; color: rgb(100, 197, 215);" href="#" data-toggle="modal" data-target="#modalblue2">
+                                            <div style="color: rgb(171,231,248);">
+                                                <a style="text-decoration: none; color: rgb(171,231,248);" href="#" data-toggle="modal" data-target="#modalblue2">
                                                     <div class="text-center">
                                                         
-                                                            <h4>ตามแผน</h4>
+                                                            <h4>ตามหลักสูตร</h4>
                                                         
                                                     </div>
                                                     <div class="text-center">
@@ -274,11 +274,11 @@
 
                                         </th>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(	118, 188, 22);">
-                                                <a style="text-decoration: none; color: rgb(	118, 188, 22);" href="#" data-toggle="modal" data-target="#modalgreen2">
+                                            <div style="color: rgb(235,67,67);">
+                                                <a style="text-decoration: none; color: rgb(235,67,67);" href="#" data-toggle="modal" data-target="#modalgreen2">
                                                     <div class="text-center">
                                                         
-                                                            <h4>ไม่ตามแผน</h4>
+                                                            <h4>ไม่ตามหลักสูตร</h4>
                                                         
                                                     </div>
                                                     <div class="text-center">
@@ -296,8 +296,8 @@
                                     <tr>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
 
-                                            <div style="color: rgb(	245, 123, 57);">
-                                                <a style="text-decoration: none; color: rgb(	245, 123, 57);" href="#" data-toggle="modal" data-target="#modalorange2">
+                                            <div style="color: rgb(	255,137,93);">
+                                                <a style="text-decoration: none; color: rgb(	255,137,93);" href="#" data-toggle="modal" data-target="#modalorange2">
                                                     <div class="text-center">
                                                         
                                                             <h4>พ้นสภาพ</h4>
@@ -315,8 +315,8 @@
                                             </div>
                                         </th>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(255, 105, 98);">
-                                                <a style="text-decoration: none; color: rgb(255, 105, 98);" href="#" data-toggle="modal" data-target="#modalred2">
+                                            <div style="color: rgb(120,163,212);">
+                                                <a style="text-decoration: none; color: rgb(120,163,212);" href="#" data-toggle="modal" data-target="#modalred2">
                                                     <div class="text-center">
                                                         
                                                             <h4>จบการศึกษา</h4>
@@ -780,9 +780,9 @@
                                                 <thead style=" ">
                                                     <tr>
                                                         <th style=" text-align: right; ">รุ่น</th>
-                                                        <th style="text-align: right; "><span>ตามแผน</span>
+                                                        <th style="text-align: right; "><span>ตามหลักสูตร</span>
                                                         </th>
-                                                        <th style="text-align: right; "><span>ไม่ตามแผน</span></th>
+                                                        <th style="text-align: right; "><span>ไม่ตามหลักสูตร</span></th>
                                                         <th style="text-align: right; ">พ้นสภาพ</th>
                                                     </tr>
                                                 </thead>
@@ -1047,7 +1047,7 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header" style="height: 90px;">
-                                        <h5>รายชื่อนิสิต ตามแผน </h5>
+                                        <h5>รายชื่อนิสิต ตามหลักสูตร </h5>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <br>
 
@@ -1100,7 +1100,7 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header" style="height: 90px;">
-                                        <h5>รายชื่อนิสิต ไม่ตามแผน </h5>
+                                        <h5>รายชื่อนิสิต ไม่ตามหลักสูตร </h5>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <br>
 
@@ -1306,7 +1306,7 @@
                             datasets: [{
                                 label: 'นิสิตแรกเข้า',
                                 data: firstEntrys,
-                                backgroundColor: '#bfd575',
+                                backgroundColor: 'rgb(0, 107, 201)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1320,7 +1320,7 @@
                             {
                                 label: 'นิสิตกำลังศึกษา',
                                 data: studys,
-                                backgroundColor: '#a4ebf3',
+                                backgroundColor: 'rgb(171,231,248)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1334,7 +1334,7 @@
                             {
                                 label: 'นิสิตจบการศึกษา',
                                 data: grads,
-                                backgroundColor: '#abbdee',
+                                backgroundColor: 'rgb(120,163,212)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1376,7 +1376,7 @@
                             datasets: [{
                                 label: 'นิสิตแรกเข้า',
                                 data: [60, 60],
-                                backgroundColor: '#bfd575',
+                                backgroundColor: 'rgb(0, 107, 201)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1390,7 +1390,7 @@
                             {
                                 label: 'นิสิตพ้นสภาพ',
                                 data: [0, 10],
-                                backgroundColor: '#ff6962',
+                                backgroundColor: 'rgb(255,137,93)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1404,7 +1404,7 @@
                             {
                                 label: 'นิสิตกำลังศึกษา',
                                 data: [50, 110],
-                                backgroundColor: '#a4ebf3',
+                                backgroundColor: 'rgb(171,231,248)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1418,7 +1418,7 @@
                             {
                                 label: 'นิสิตจบการศึกษา',
                                 data: [0, 0],
-                                backgroundColor: '#abbdee',
+                                backgroundColor: 'rgb(120,163,212)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1471,25 +1471,25 @@
                                 datasets: [{
                                     label: '3.25-4.00',
                                     data: p1blue,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
                                     data: p1green,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
                                     data: p1orange,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
                                     data: p1red,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(120,163,212,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -1527,25 +1527,25 @@
                                 datasets: [{
                                     label: '3.25-4.00',
                                     data: p2blueh,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
                                     data: p2greenh,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
                                     data: p2orangeh,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
                                     data: p2redh,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(120,163,212,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -1583,25 +1583,25 @@
                                 datasets: [{
                                     label: '3.25-4.00',
                                     data: p3blue,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
                                     data: p3green,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
                                     data: p3orange,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
                                     data: p3red,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(120,163,212,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -1639,25 +1639,25 @@
                                 datasets: [{
                                     label: '3.25-4.00',
                                     data: p4blue,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
                                     data: p4green,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
                                     data: p4orange,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
                                     data: p4red,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(120,163,212,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -1696,25 +1696,25 @@
                                 datasets: [{
                                     label: '3.25-4.00',
                                     data: p4plusblue,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
                                     data: p4plusgreen,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
                                     data: p4plusorange,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
                                     data: p4plusred,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(120,163,212,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -1757,25 +1757,25 @@
                                 datasets: [{
                                     label: '3.25-4.00',
                                     data: bluegen,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
                                     data: greengen,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
                                     data: orangegen,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
                                     data: redgen,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(120,163,212,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -1820,25 +1820,25 @@
                                 datasets: [{
                                     label: '3.25-4.00',
                                     data: bluegenend,
-                                    backgroundColor: "rgba(0, 9, 188,0.7)",
+                                    backgroundColor: "rgba(134, 211, 247,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '2.00-3.24',
                                     data: greengenend,
-                                    backgroundColor: "rgba(0, 110, 22,0.7)",
+                                    backgroundColor: "rgba(153, 204, 153,0.7)",
                                     borderWidth: 0
                                 },
                                 {
                                     label: '1.75-1.99',
                                     data: orangegenend,
-                                    backgroundColor: 'rgba(255,128,0,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 },
                                 {
                                     label: '0.00-1.74',
                                     data: redgenend,
-                                    backgroundColor: 'rgba(255, 0, 0,0.7)',
+                                    backgroundColor: 'rgba(120,163,212,0.7)',
                                     borderWidth: 0
                                 }
                                 ]
@@ -1880,7 +1880,7 @@
                             datasets: [{
                                 label: 'ตามหลักสูตร',
                                 data: planLearncos,
-                                backgroundColor: "rgba(100, 197, 215,0.7)",
+                                backgroundColor: "rgba(171,231,248,0.7)",
                                 borderWidth: 0
                             },
                             {
@@ -1892,7 +1892,7 @@
                             {
                                 label: ['พ้นสภาพ'],
                                 data: retireLearncos,
-                                backgroundColor: 'rgba(245, 123, 57,0.7)',
+                                backgroundColor: 'rgba(255,137,93,0.7)',
                                 borderWidth: 0
                             }
                             ]
@@ -1936,7 +1936,7 @@
                                 {
                                     label: 'ตามหลักสูตร',
                                     data: planGens,
-                                    backgroundColor: "rgba(100, 197, 215,0.7)",
+                                    backgroundColor: "rgba(171,231,248,0.7)",
                                     borderWidth: 0
                                 },
                                 {
@@ -1948,7 +1948,7 @@
                                 {
                                     label: ['พ้นสภาพ'],
                                     data: retireGens,
-                                    backgroundColor: 'rgba(245, 123, 57,0.7)',
+                                    backgroundColor: 'rgba(255,137,93,0.7)',
                                     borderWidth: 0
                                 }
                             ]
