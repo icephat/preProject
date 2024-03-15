@@ -2123,7 +2123,7 @@
                             {
                                 label: '0.00-1.74',
                                 data: learnReds,
-                                backgroundColor: 'rgba(120,163,212,0.7)',
+                                backgroundColor: 'rgba(255, 105, 98,0.7)',
                                 borderWidth: 0
                             }
                             ]
@@ -2236,7 +2236,7 @@
                             {
                                 label: '0.00-1.74',
                                 data: learn21Reds,
-                                backgroundColor: 'rgba(120,163,212,0.7)',
+                                backgroundColor: 'rgba(255, 105, 98,0.7)',
                                 borderWidth: 0
                             }
                             ]
