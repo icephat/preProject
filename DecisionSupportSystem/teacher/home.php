@@ -150,7 +150,7 @@ $semester = getSemesterPresent();
                 <div class="row">
                     <div class="col-sm-12 ">
                         <div class="row">
-                            <div class="col-sm-5 mx-auto">
+                            <div class="col-sm-4 mx-auto">
                                 
                                 <table class="table "
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
@@ -252,12 +252,12 @@ $semester = getSemesterPresent();
                                 </table>
                             </div>
 
-                            <div class="col-sm-5 mx-auto">
+                            <div class="col-sm-4 mx-auto">
                                 <table class="table "
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
                                     <br>
-                                    <h5 style="color:black" class="text-center">นิสิตในที่ปรึกษาทั้งหมด</h5>
+                                    <h5 style="color:black" class="text-center">นิสิตในที่ปรึกษา (กำลังศึกษา)</h5>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; width: 50%;">
                                             <?php
 
@@ -267,8 +267,8 @@ $semester = getSemesterPresent();
 
                                             ?>
 
-                                            <div style="color: rgb(171,231,248);">
-                                                <a style="text-decoration: none; color: rgb(171,231,248);" href="#" data-toggle="modal"
+                                            <div style="color: #5dae8b;">
+                                                <a style="text-decoration: none; color: #5dae8b;" href="#" data-toggle="modal"
                                                         data-target="#modalblue2">
                                                     <div class="text-center">
                                                         
@@ -288,9 +288,31 @@ $semester = getSemesterPresent();
 
 
                                         </th>
+                                        <!-- <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
+                                            <div style=" color: #ff7676;">
+                                                <a style="text-decoration: none; color: #ff7676;" href="#" data-toggle="modal"
+                                                        data-target="#modalgreen2">
+                                                    <div class="text-center">
+                                                        
+                                                            <h4>ไม่ตามหลักสูตร</h4>
+                                                        
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px;">
+                                                            <?php echo $planingCount["notPlan"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </th> -->
+                                    </tr>
+                                    <tr>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style=" color: rgb(235,67,67);">
-                                                <a style="text-decoration: none; color: rgb(235,67,67);" href="#" data-toggle="modal"
+                                            <div style=" color: #ff7676;">
+                                                <a style="text-decoration: none; color: #ff7676;" href="#" data-toggle="modal"
                                                         data-target="#modalgreen2">
                                                     <div class="text-center">
                                                         
@@ -309,31 +331,20 @@ $semester = getSemesterPresent();
                                             </div>
                                         </th>
                                     </tr>
-                                    <tr>
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
+                                </table>
+                            </div>
 
-                                            <div style=" color: rgb(255,137,93);">
-                                                <a style="text-decoration: none; color: rgb(255,137,93);" href="#" data-toggle="modal"
-                                                        data-target="#modalorange2">
-                                                    <div class="text-center">
-                                                        
-                                                            <h4>พ้นสภาพ</h4>
-                                                        
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">
-                                                            <?php echo $planingCount["retire"] ?>
-                                                        </h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </th>
+
+                            <div class="col-sm-4 mx-auto">
+                                <table class="table "
+                                    style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+                                    <tr style="border: 1px solid black; border-collapse: collapse;">
+                                    <br>
+                                    <h5 style="color:black" class="text-center">นิสิตที่เคยอยู่ในที่ปรึกษา</h5>
+                                        
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style=" color: rgb(120,163,212);">
-                                                <a style="text-decoration: none; color: rgb(120,163,212);" href="#" data-toggle="modal"
+                                            <div style=" color: #43658b;">
+                                                <a style="text-decoration: none; color: #43658b;" href="#" data-toggle="modal"
                                                         data-target="#modalred2">
                                                     <div class="text-center">
                                                         
@@ -351,6 +362,30 @@ $semester = getSemesterPresent();
                                                 </a>
                                             </div>
                                         </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
+
+                                            <div style=" color:#9b4444;">
+                                                <a style="text-decoration: none; color:#9b4444;" href="#" data-toggle="modal"
+                                                        data-target="#modalorange2">
+                                                    <div class="text-center">
+                                                        
+                                                            <h4>พ้นสภาพ</h4>
+                                                        
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px;">
+                                                            <?php echo $planingCount["retire"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </th>
+                                        
                                     </tr>
                                 </table>
                             </div>
@@ -1880,25 +1915,25 @@ $semester = getSemesterPresent();
                     {
                         label: 'ตามหลักสูตร',
                         data: sPLansh,
-                        backgroundColor: "rgba(171,231,248,0.7)",
+                        backgroundColor: "#5dae8b",
                         borderWidth: 0
                     },
                     {
                         label: ['ไม่ตามหลักสูตร'],
                         data: sNotPlansh,
-                        backgroundColor: "rgba(235,67,67,0.7)",
+                        backgroundColor: "#ff7676",
                         borderWidth: 0
                     },
                     {
                         label: ['พ้นสภาพ'],
                         data: sRetiresh,
-                        backgroundColor: 'rgba(255,137,93,0.7)',
+                        backgroundColor: '#9b4444',
                         borderWidth: 0
                     },
                     {
                         label: ['จบการศึกษา'],
                         data: sGradsh,
-                        backgroundColor: 'rgba(120,163,212,0.7)',
+                        backgroundColor: '#43658b',
                         borderWidth: 0
                     }
                 ]
@@ -2226,19 +2261,19 @@ $semester = getSemesterPresent();
                 datasets: [{
                     label: 'ตามหลักสูตร',
                     data: plansStudySemesters,
-                    backgroundColor: "rgba(171,231,248,0.7)",
+                    backgroundColor: "#5dae8b",
                     borderWidth: 0
                 },
                 {
                     label: ['ไม่ตามหลักสุตร'],
                     data: notPlans,
-                    backgroundColor: "rgba(235,67,67,0.7)",
+                    backgroundColor: "#ff7676",
                     borderWidth: 0
                 },
                 {
                     label: ['พ้นสภาพ'],
                     data: resignPlans,
-                    backgroundColor: 'rgba(255,137,93,0.7)',
+                    backgroundColor: '#9b4444',
                     borderWidth: 0
                 }
                 ]

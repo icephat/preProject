@@ -145,7 +145,7 @@
                 <div class="row">
                     <div class="col-sm-12 ">
                         <div class="row">
-                            <div class="col-sm-5 mx-auto">
+                            <div class="col-sm-4 mx-auto">
                                 <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
@@ -239,7 +239,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-sm-5 mx-auto">
+                            <div class="col-sm-4 mx-auto">
                                 <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
@@ -248,8 +248,8 @@
                                             $countPlanStatus = getCountStudentPlanStatusByDepartmrntIdAndSemesterYear($departmentId, $semesterYear);
                                                 ?>
 
-                                            <div style="color: rgb(171,231,248);">
-                                                <a style="text-decoration: none; color: rgb(171,231,248);" href="#" data-toggle="modal" data-target="#modalblue2">
+                                            <div style="color: #5dae8b;">
+                                                <a style="text-decoration: none; color: #5dae8b;" href="#" data-toggle="modal" data-target="#modalblue2">
                                                     <div class="text-center">
                                                         
                                                             <h4>ตามแผน</h4>
@@ -268,9 +268,11 @@
 
 
                                         </th>
+                                        
+                                    <tr>
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(	235,67,67);">
-                                                <a style="text-decoration: none; color: rgb(	235,67,67);" href="#" data-toggle="modal" data-target="#modalgreen2">
+                                            <div style="color: #ff7676;">
+                                                <a style="text-decoration: none; color: #ff7676;" href="#" data-toggle="modal" data-target="#modalgreen2">
                                                     <div class="text-center">
                                                         
                                                             <h4>ไม่ตามแผน</h4>
@@ -288,30 +290,17 @@
                                             </div>
                                         </th>
                                     </tr>
-                                    <tr>
-                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
+                                    </tr>
+                                </table>
+                            </div>
 
-                                            <div style="color: rgb(	255,137,93);">
-                                                <a style="text-decoration: none; color: rgb(	255,137,93);" href="#" data-toggle="modal" data-target="#modalorange2">
-                                                    <div class="text-center">
-                                                        
-                                                            <h4>พ้นสภาพ</h4>
-                                                        
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <h1 style="font-weight: bolder; font-size: 70px;">
-                                                            <?php echo $countPlanStatus["retire"] ?>
-                                                        </h1>
-                                                    </div>
-                                                    <div class="text-right">
-                                                        <p>คน</p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </th>
+                            <div class="col-sm-4 mx-auto">
+                                <table class="table"
+                                    style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+                                    <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(120,163,212);">
-                                                <a style="text-decoration: none; color:  rgb(120,163,212);" href="#" data-toggle="modal" data-target="#modalred2">
+                                            <div style="color: #43658b;">
+                                                <a style="text-decoration: none; color:  #43658b;" href="#" data-toggle="modal" data-target="#modalred2">
                                                     <div class="text-center">
                                                         
                                                             <h4>จบการศึกษา</h4>
@@ -328,6 +317,29 @@
                                                 </a>
                                             </div>
                                         </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="t1" style="border: 1px solid black; border-collapse: collapse;">
+
+                                            <div style="color: #9b4444;">
+                                                <a style="text-decoration: none; color: #9b4444;" href="#" data-toggle="modal" data-target="#modalorange2">
+                                                    <div class="text-center">
+                                                        
+                                                            <h4>พ้นสภาพ</h4>
+                                                        
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <h1 style="font-weight: bolder; font-size: 70px;">
+                                                            <?php echo $countPlanStatus["retire"] ?>
+                                                        </h1>
+                                                    </div>
+                                                    <div class="text-right">
+                                                        <p>คน</p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </th>
+                                        
                                     </tr>
                                 </table>
                             </div>
@@ -1299,7 +1311,7 @@
                             datasets: [{
                                 label: 'นิสิตแรกเข้า',
                                 data: firstEntrys,
-                                backgroundColor: 'rgb(0, 107, 201)',
+                                backgroundColor: '#949cdf',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1313,7 +1325,7 @@
                             {
                                 label: 'นิสิตกำลังศึกษา',
                                 data: studys,
-                                backgroundColor: 'rgba(171,231,248,0.7)',
+                                backgroundColor: '#4e89ae',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1327,7 +1339,7 @@
                             {
                                 label: 'นิสิตจบการศึกษา',
                                 data: grads,
-                                backgroundColor: 'rgba(120,163,212,0.7)',
+                                backgroundColor: '#43658b',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1369,7 +1381,7 @@
                             datasets: [{
                                 label: 'นิสิตแรกเข้า',
                                 data: [60, 60],
-                                backgroundColor: 'rgb(0, 107, 201)',
+                                backgroundColor: '#949cdf',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1383,7 +1395,7 @@
                             {
                                 label: 'นิสิตพ้นสภาพ',
                                 data: [0, 10],
-                                backgroundColor: 'rgba(255,137,93,0.7)',
+                                backgroundColor: '#9b4444',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1397,7 +1409,7 @@
                             {
                                 label: 'นิสิตกำลังศึกษา',
                                 data: [50, 110],
-                                backgroundColor: 'rgba(171,231,248,0.7)',
+                                backgroundColor: '#4e89ae',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1411,7 +1423,7 @@
                             {
                                 label: 'นิสิตจบการศึกษา',
                                 data: [0, 0],
-                                backgroundColor: 'rgba(120,163,212,0.7)',
+                                backgroundColor: '#43658b',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -1858,19 +1870,19 @@
                             datasets: [{
                                 label: 'ตามหลักสูตร',
                                 data: planLearncos,
-                                backgroundColor: "rgba(171,231,248,0.7)",
+                                backgroundColor: "#5dae8b",
                                 borderWidth: 0
                             },
                             {
                                 label: ['ไม่ตามหลักสุตร'],
                                 data: notPlanLearncos,
-                                backgroundColor: "rgba(235,67,67,0.7)",
+                                backgroundColor: "#ff7676",
                                 borderWidth: 0
                             },
                             {
                                 label: ['พ้นสภาพ'],
                                 data: retireLearncos,
-                                backgroundColor: 'rgba(255,137,93,0.7)',
+                                backgroundColor: '#9b4444',
                                 borderWidth: 0
                             }
                             ]
@@ -1914,19 +1926,19 @@
                                 {
                                     label: 'ตามหลักสูตร',
                                     data: planGen,
-                                    backgroundColor: "rgba(171,231,248,0.7)",
+                                    backgroundColor: "#5dae8b",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['ไม่ตามหลักสุตร'],
                                     data: notPlanGen,
-                                    backgroundColor: "rgba(235,67,67,0.7)",
+                                    backgroundColor: "#ff7676",
                                     borderWidth: 0
                                 },
                                 {
                                     label: ['พ้นสภาพ'],
                                     data: retireGen,
-                                    backgroundColor: 'rgba(255,137,93,0.7)',
+                                    backgroundColor: '#9b4444',
                                     borderWidth: 0
                                 }
                             ]

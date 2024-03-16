@@ -138,20 +138,20 @@
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
                                     <p style="font-weight: bold; font-size: 12px;">
-                                            <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
+                                            <span style="color: #949cdf;">&nbsp;&nbsp;&nbsp;<span style="color:#949cdf; font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
                                             
-                                            <span style="color: rgb(255,137,93); ">
-                                            &nbsp;&nbsp;&nbsp; <svg style="color: rgb(255,137,93);" xmlns="http://www.w3.org/2000/svg"
+                                            <span style="color: #9b4444; ">
+                                            &nbsp;&nbsp;&nbsp; <svg style="color: #9b4444;" xmlns="http://www.w3.org/2000/svg"
                                                     width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
                                                     viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> นิสิตพ้นสภาพ</span>
-                                            <span style="color: rgb(171,231,248);">&nbsp;&nbsp;&nbsp; <svg style="color: rgb(171,231,248);"
+                                            <span style="color: #4e89ae;">&nbsp;&nbsp;&nbsp; <svg style="color: #4e89ae;"
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> นิสิตกำลังศึกษา</span>
-                                            <span style="color: rgb(120,163,212);">&nbsp;&nbsp;&nbsp;<svg style="color: rgb(120,163,212);"
+                                            <span style="color: #43658b;">&nbsp;&nbsp;&nbsp;<svg style="color: #43658b;"
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
@@ -289,20 +289,20 @@
                                 <div class="row" style="padding: 20px;">
                                     <div class="col-sm-6">
                                     <p style="font-weight: bold; font-size: 12px;">
-                                            <span style="color: rgb(0, 107, 201);">&nbsp;&nbsp;&nbsp;<span style="color:rgb(0, 107, 201); font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
+                                            <span style="color: #949cdf;">&nbsp;&nbsp;&nbsp;<span style="color:#949cdf; font-size:15px;">~</span> นิสิตแรกเข้า&nbsp;&nbsp;</span>
                                             
-                                            <span style="color: rgba(255,137,93,0.7); ">
-                                            &nbsp;&nbsp;&nbsp; <svg style="color: rgba(255,137,93,0.7);" xmlns="http://www.w3.org/2000/svg"
+                                            <span style="color: #9b4444; ">
+                                            &nbsp;&nbsp;&nbsp; <svg style="color: #9b4444;" xmlns="http://www.w3.org/2000/svg"
                                                     width="16" height="16" fill="currentColor" class="bi bi-circle-fill"
                                                     viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> นิสิตพ้นสภาพ</span>
-                                            <span style="color: rgba(171,231,248,0.7);">&nbsp;&nbsp;&nbsp; <svg style="color: rgba(171,231,248,0.7);"
+                                            <span style="color: #4e89ae;">&nbsp;&nbsp;&nbsp; <svg style="color: #4e89ae;"
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
                                                 </svg> นิสิตกำลังศึกษา</span>
-                                            <span style="color: rgba(120,163,212,0.7);">&nbsp;&nbsp;&nbsp;<svg style="color: rgba(120,163,212,0.7);"
+                                            <span style="color: #43658b;">&nbsp;&nbsp;&nbsp;<svg style="color: #43658b;"
                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
                                                     <circle cx="8" cy="8" r="8" />
@@ -1127,30 +1127,30 @@
 
                                 type: 'line',
                                 label: 'นิสิตแรกเข้า',
-                                backgroundColor: 'rgb(0, 107, 201)',
+                                backgroundColor: '#949cdf',
                                 data: firstEntrys1,
-                                borderColor: 'rgb(0, 107, 201)',
+                                borderColor: '#949cdf',
                                 lineTension: 0,
                                 fill: false
                             },
                             {
                                 label: 'นิสิตพ้นสภาพ',
                                 data: retires1,
-                                backgroundColor: 'rgba(255,137,93,0.7)',
+                                backgroundColor: '#9b4444',
                            
                                 borderWidth: 0
                             },
                             {
                                 label: 'นิสิตกำลังศึกษา',
                                 data: studys1,
-                                backgroundColor: 'rgba(171,231,248,0.7)',
+                                backgroundColor: '#4e89ae',
                              
                                 borderWidth: 0
                             },
                             {
                                 label: 'นิสิตจบการศึกษา',
                                 data: grads1,
-                                backgroundColor: 'rgba(120,163,212,0.7)',
+                                backgroundColor: '#43658b',
                                
                                 borderWidth: 0
                             },
@@ -1208,7 +1208,7 @@
                             datasets: [{
 
                                 type: 'line',
-                                backgroundColor: 'rgb(0, 107, 201)',
+                                backgroundColor: '#949cdf',
                                 label: 'นิสิตแรกเข้า',
                                 data: firstEntrys2,
                                 borderColor: 'rgba(0, 107, 201,1)',
@@ -1218,21 +1218,21 @@
                             {
                                 label: 'นิสิตพ้นสภาพ',
                                 data: retires2,
-                                backgroundColor: 'rgba(255,137,93,0.7)',
+                                backgroundColor: '#9b4444',
                              
                                 borderWidth: 0
                             },
                             {
                                 label: 'นิสิตกำลังศึกษา',
                                 data: studys2,
-                                backgroundColor: 'rgba(171,231,248,0.7)',
+                                backgroundColor: '#4e89ae',
                               
                                 borderWidth: 0
                             },
                             {
                                 label: 'นิสิตจบการศึกษา',
                                 data: grads2,
-                                backgroundColor: 'rgba(120,163,212,0.7)',
+                                backgroundColor: '#43658b',
                               
                                 borderWidth: 0
                             }

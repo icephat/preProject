@@ -151,7 +151,7 @@
                 <div class="row">
                     <div class="col-sm-12 ">
                         <div class="row">
-                            <div class="col-sm-5 mx-auto">
+                            <div class="col-sm-4 mx-auto">
                                 <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
@@ -240,7 +240,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-sm-5 mx-auto">
+                            <div class="col-sm-4 mx-auto">
                                 <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
@@ -250,9 +250,9 @@
 
                                                 ?>
 
-                                            <div style="color: rgb(171,231,248);">
+                                            <div style="color: #5dae8b;">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(171,231,248);"><!-- href="#" data-toggle="modal"
+                                                    <div style="color: #5dae8b;"><!-- href="#" data-toggle="modal"
                                                         data-target="#modalblue2"-->
                                                         <h4>ตามแผน</h4>
                                                     </div>
@@ -269,10 +269,13 @@
 
 
                                         </th>
+                                        
+                                    </tr>
+                                    <tr>
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(	235,67,67);">
+                                            <div style="color: #ff7676;">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	235,67,67);" ><!--href="#" data-toggle="modal"
+                                                    <div style="color: #ff7676;" ><!--href="#" data-toggle="modal"
                                                         data-target="#modalgreen2"-->
                                                         <h4>ไม่ตามแผน</h4>
                                                     </div>
@@ -288,30 +291,17 @@
                                             </div>
                                         </th>
                                     </tr>
-                                    <tr>
-                                        <th style="border: 1px solid black; border-collapse: collapse;">
+                                </table>
+                            </div>
 
-                                            <div style="color: rgb(255,137,93);">
-                                                <div class="text-center">
-                                                    <div style="color: rgb(255,137,93);" ><!--href="#" data-toggle="modal"
-                                                        data-target="#modalorange2"-->
-                                                        <h4>พ้นสภาพ</h4>
-                                                    </div>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px;">
-                                                        <?php echo $countPlanStatus["retire"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
-                                            </div>
-                                        </th>
+                            <div class="col-sm-4 mx-auto">
+                                <table class="table"
+                                    style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+                                    <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(120,163,212);">
+                                            <div style="color: #43658b;">
                                                 <div class="text-center">
-                                                    <div style="color:  rgb(120,163,212);" ><!--href="#" data-toggle="modal"
+                                                    <div style="color:  #43658b;" ><!--href="#" data-toggle="modal"
                                                         data-target="#modalred2"-->
                                                         <h4>จบการศึกษา</h4>
                                                     </div>
@@ -326,6 +316,28 @@
                                                 </div>
                                             </div>
                                         </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
+
+                                            <div style="color: #9b4444;">
+                                                <div class="text-center">
+                                                    <div style="color: #9b4444;" ><!--href="#" data-toggle="modal"
+                                                        data-target="#modalorange2"-->
+                                                        <h4>พ้นสภาพ</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countPlanStatus["retire"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        
                                     </tr>
                                 </table>
                             </div>
@@ -643,7 +655,7 @@
                 <div class="row">
                     <div class="col-sm-12 ">
                         <div class="row">
-                            <div class="col-sm-5 mx-auto">
+                            <div class="col-sm-4 mx-auto">
                                 <table class="table"
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse; ">
                                     <tr style="border: 1px solid black; border-collapse: collapse; ">
@@ -733,7 +745,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-sm-5 mx-auto">
+                            <div class="col-sm-4 mx-auto">
                                 <table class="table "
                                     style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
                                     <tr style="border: 1px solid black; border-collapse: collapse;">
@@ -743,9 +755,9 @@
 
                                                 ?>
 
-                                            <div style="color: rgb(171,231,248);">
+                                            <div style="color: #5dae8b;">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(171,231,248);" ><!--href="#" data-toggle="modal"
+                                                    <div style="color: #5dae8b;" ><!--href="#" data-toggle="modal"
                                                         data-target="#modalblue4"-->
                                                         <h4>ตามแผน</h4>
                                                     </div>
@@ -762,10 +774,13 @@
 
 
                                         </th>
+                                        
+                                    </tr>
+                                    <tr>
                                         <th style="border: 1px solid black; border-collapse: collapse; ">
-                                            <div style="color: rgb(235,67,67);">
+                                            <div style="color: #ff7676;">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	235,67,67);" ><!--href="#" data-toggle="modal"
+                                                    <div style="color: #ff7676;" ><!--href="#" data-toggle="modal"
                                                         data-target="#modalgreen4"-->
                                                         <h4>ไม่ตามแผน</h4>
                                                     </div>
@@ -781,30 +796,16 @@
                                             </div>
                                         </th>
                                     </tr>
-                                    <tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-4 mx-auto">
+                                <table class="table "
+                                    style="margin-top: 30px; border: 1px solid black; border-collapse: collapse;">
+                                    <tr style="border: 1px solid black; border-collapse: collapse;">
                                         <th style="border: 1px solid black; border-collapse: collapse;">
-
-                                            <div style="color: rgb(255,137,93);">
+                                            <div style="color: #43658b;">
                                                 <div class="text-center">
-                                                    <div style="color: rgb(	255,137,93);" ><!--href="#" data-toggle="modal"
-                                                        data-target="#modalorange4"-->
-                                                        <h4>พ้นสภาพ</h4>
-                                                    </div>
-                                                </div>
-                                                <div class="text-center">
-                                                    <h1 style="font-weight: bolder; font-size: 70px;">
-                                                        <?php echo $countPlanStatus["retire"] ?>
-                                                    </h1>
-                                                </div>
-                                                <div class="text-right">
-                                                    <p>คน</p>
-                                                </div>
-                                            </div>
-                                        </th>
-                                        <th style="border: 1px solid black; border-collapse: collapse;">
-                                            <div style="color: rgb(120,163,212);">
-                                                <div class="text-center">
-                                                    <div style="color: rgb(120,163,212);" ><!--href="#" data-toggle="modal"
+                                                    <div style="color: #43658b;" ><!--href="#" data-toggle="modal"
                                                         data-target="#modalred4"-->
                                                         <h4>จบการศึกษา</h4>
                                                     </div>
@@ -819,6 +820,28 @@
                                                 </div>
                                             </div>
                                         </th>
+                                    </tr>
+                                    <tr>
+                                        <th style="border: 1px solid black; border-collapse: collapse;">
+
+                                            <div style="color: #9b4444;">
+                                                <div class="text-center">
+                                                    <div style="color:  #9b4444;" ><!--href="#" data-toggle="modal"
+                                                        data-target="#modalorange4"-->
+                                                        <h4>พ้นสภาพ</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center">
+                                                    <h1 style="font-weight: bolder; font-size: 70px;">
+                                                        <?php echo $countPlanStatus["retire"] ?>
+                                                    </h1>
+                                                </div>
+                                                <div class="text-right">
+                                                    <p>คน</p>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        
                                     </tr>
                                 </table>
                             </div>
@@ -2407,25 +2430,25 @@
                 datasets: [{
                     label: 'ตามแผน',
                     data: learn2Plans,
-                    backgroundColor: "rgba(171,231,248,0.7)",
+                    backgroundColor: "#5dae8b",
                     borderWidth: 0
                 },
                 {
                     label: 'ไม่ตามแผน',
                     data: learn2NotPlans,
-                    backgroundColor: "rgba(235,67,67,0.7)",
+                    backgroundColor: "#ff7676",
                     borderWidth: 0
                 },
                 {
                     label: 'พ้นสภาพ',
                     data: learn2Retires,
-                    backgroundColor: 'rgba(255,137,93,0.7)',
+                    backgroundColor: '#9b4444',
                     borderWidth: 0
                 },
                 {
                     label: 'จบการศึกษา',
                     data: learn2Grads,
-                    backgroundColor: 'rgba(120,163,212,0.7)',
+                    backgroundColor: '#43658b',
                     borderWidth: 0
                 }
                 ]
@@ -2545,25 +2568,25 @@
                 datasets: [{
                     label: 'ตามแผน',
                     data: learn2Plans2,
-                    backgroundColor: "rgba(171,231,248,0.7)",
+                    backgroundColor: "#5dae8b",
                     borderWidth: 0
                 },
                 {
                     label: 'ไม่ตามแผน',
                     data: learn2NotPlans2,
-                    backgroundColor: "rgba(235,67,67,0.7)",
+                    backgroundColor: "#ff7676",
                     borderWidth: 0
                 },
                 {
                     label: 'พ้นสภาพ',
                     data: learn2Retires2,
-                    backgroundColor: 'rgba(255,137,93,0.7)',
+                    backgroundColor: '#9b4444',
                     borderWidth: 0
                 },
                 {
                     label: 'จบการศึกษา',
                     data: learn2Grads2,
-                    backgroundColor: 'rgba(120,163,212,0.7)',
+                    backgroundColor: '#43658b',
                     borderWidth: 0
                 }
                 ]

@@ -500,7 +500,7 @@
                             datasets: [{
                                 label: 'รอบที่ 1',
                                 data: tcas1,
-                                backgroundColor: '#bfd575',
+                                backgroundColor: 'rgb(98,87,87)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -514,7 +514,7 @@
                             {
                                 label: 'รอบที่ 2',
                                 data: tcas2,
-                                backgroundColor: '#a4ebf3',
+                                backgroundColor: 'rgb(157,143,143)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -528,7 +528,7 @@
                             {
                                 label: 'รอบที่ 3',
                                 data: tcas3,
-                                backgroundColor: '#abbdee',
+                                backgroundColor: 'rgb(176,166,149)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -542,7 +542,7 @@
                             {
                                 label: 'รอบที่ 4',
                                 data: tcas4,
-                                backgroundColor: '#f8c769',
+                                backgroundColor: 'rgb(188,186,184)',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -617,7 +617,7 @@
                             datasets: [{
                                 label: 'จำนวนรับเข้า',
                                 data: entry,
-                                backgroundColor: ' rgb(0, 107, 201)',
+                                backgroundColor: ' #949cdf',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -631,7 +631,7 @@
                             {
                                 label: 'จำนวนคงเหลือ',
                                 data: study,
-                                backgroundColor: 'rgba(171,231,248,0.7)',
+                                backgroundColor: '#4e89ae',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -684,7 +684,7 @@
                             datasets: [{
                                 label: 'จำนวนคงอยู่',
                                 data: study2,
-                                backgroundColor: 'rgba(171,231,248,0.7)',
+                                backgroundColor: '#4e89ae',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
@@ -698,7 +698,7 @@
                             {
                                 label: 'จำนวนพ้นสภาพ',
                                 data: retire2,
-                                backgroundColor: 'rgba(255,137,93,0.7)',
+                                backgroundColor: '#9b4444',
                                 borderColor: [
                                     'rgba(150,186,169, 1)', //1
                                     'rgba(108,158,134, 1)',
