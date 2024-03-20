@@ -49,7 +49,7 @@ function getListRegisNotFAndWByStudentId($studentId)
     require("connection_connect.php");
     $regisList = [];
 
-    $sql = "SELECT * FROM fact_regis NATURAL JOIN courseList WHERE studentId = '" . $studentId . "' AND gradeCharacter != 'F' AND gradeCharacter != 'W'";
+    $sql = "SELECT * FROM fact_regis NATURAL JOIN courselist WHERE studentId = '" . $studentId . "' AND gradeCharacter != 'F' AND gradeCharacter != 'W'";
     $result = $conn->query($sql);
     //$regisList = $result->fetch_assoc();
 

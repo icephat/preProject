@@ -1,7 +1,7 @@
 <?php
 
-include_once '../function/semesterFunction.php';
-include_once '../function/studentFunction.php';
+include_once 'semesterFunction.php';
+include_once 'studentFunction.php';
 
 function getTeacherById($teacherId)
 {
